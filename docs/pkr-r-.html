@@ -35,8 +35,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="introduction.html">
+<link rel="prev" href="method.html">
+<link rel="next" href="Details.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -162,26 +162,34 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Noncompartmental Analysis by R Packages</h1>
-<h4 class="author"><em>Kyun-Seop Bae</em></h4>
-<h4 class="author"><em>Sungpil Han</em></h4>
-<h4 class="author"><em>Seok Kyu Yoon</em></h4>
-<h4 class="author"><em>Yong-Soon Cho</em></h4>
-<h4 class="date"><em>2017-03-20</em></h4>
+<div id="pkr-r-" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> pkr R 패키지</h1>
+<div id="in-this-chapter" class="section level2">
+<h2><span class="header-section-number">3.1</span> In this chapter</h2>
+<p>We will see what <code>ncar</code> <span class="citation">[<a href="#ref-ncar2017">1</a>]</span> is and how it works.</p>
 </div>
-<div id="-" class="section level1 unnumbered">
-<h1>책 머리에</h1>
-<p>이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.</p>
-<p>2017년 3월, 서울아산병원 임상약리학과 교수 배균섭, 전공의 한성필, 윤석규, 조용순</p>
-<div class="figure">
-<img src="bookcover.jpg" alt="Book cover" />
-<p class="caption">Book cover</p>
+<div id="what-is-ncar-r-package" class="section level2">
+<h2><span class="header-section-number">3.2</span> What is <code>ncar</code> R package?</h2>
+<p>Description: Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.</p>
+<p>Some features include:</p>
+<ol style="list-style-type: decimal">
+<li>Use CDISC SDTM PP domain terms.</li>
+<li>Automatic slope selection with the same criterion of WinNonlin(R)</li>
+<li>Support both ‘linear-up linear-down’ and ‘linear-up log-down’ method</li>
+<li>Calculate partial(interval) AUC with ‘linear’ or ‘log’ interpolation method</li>
+<li>Perform a noncompartmental analysis of CDISC standardized pharmacokinetic dataset (.XPT)</li>
+</ol>
+<p>For more details on noncompartmental analysis, see the reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>)</p>
 </div>
+<div id="how-does-it-work" class="section level2">
+<h2><span class="header-section-number">3.3</span> How does it work?</h2>
 
-<div id="ec9a94ec95bd" class="section level2 unnumbered">
-<h2>요약</h2>
-<p>약동학 지표를 구할 시 활용되는 비구획 분석을 R pacakge에서 적용하여 테오필린(Theophylline)과 인도메타신(Indomethacin) 데이터에 대한 분석을 실시하였다. 각각의 데이터에 대해 Edison 엡 내에서 농도-시간 곡선에 대한 그래프를 다양한 방식으로 구현할 수 있었으며, 계획한 R script를 통해 도출된 결과에서도 현재 임상적으로 가장 널리 쓰이는 비구획 분석방법 소프트웨어와 동일한 값임을 확인하였다. 또한 실제 비구획 분석보다 한 단계 더 복잡한 분석에 대해서도 실제 구현 가능함을 확인하였다. 이를 통해 앞으로 다양한 약동학적 분석방법을 Edison system 안에서 구현하고 활용할 수 있을 것으로 기대된다.</p>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-ncar2017">
+<p>1. Bae K-S, Han S (2017) Ncar: Noncompartmental analysis of pharmacokinetic data for cdisc standardized parameters. </p>
 </div>
 </div>
             </section>
@@ -189,8 +197,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-
-<a href="introduction.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="method.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="Details.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -219,7 +227,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/ncar/edit/master/bookdown/index.Rmd",
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/11-pkr.Rmd",
 "text": "Edit"
 },
 "download": ["_main.pdf", "_main.epub", "_main.mobi"],

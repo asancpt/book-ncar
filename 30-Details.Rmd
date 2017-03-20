@@ -1,13 +1,66 @@
-# Details
+# NCA 소프트웨어 {#Details}
 
+## 이 장에서는 {#detailschapter}
 
-## In this chapter
+이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
+특별히 Theoph 데이타셋에서 C~max~, AUC~inf~가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.
 
-We will give you details of each software and perform NCA with a dataset `Theoph`. In the end, we will compare C~max~ and AUC~inf~ calculated by each software or package.
+## Certara Phoenix WinNonLin
 
-## ncar
+<https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>
 
-## PKNCA
+### Pros
+
+- Validated for several years
+- Industry standard
+- Versatile unit setting
+- Easy using by GUI 
+- Generating plots supported
+
+### Cons
+
+- Expansive (~several thousand dollars)
+- Not suitable for reproducible research
+- CDISC SDTM not compatible (input and output)
+
+## R package: pkr
+
+Extension of NonCompart for CDISC input
+
+### Pros
+
+- Open source and free of charge
+- CDISC SDTM fully compatible (input - DM, EX, PC)
+- Output of CDISC SDTM PP domain terms 
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method
+
+### Cons
+
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
+
+```{r}
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+pkr::NCA(Theoph, "Subject", "Time", "conc", dose=320, uConc="mg/L")
+pkr::NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", uConc="mg/L")
+```
+
+## R package: PKNCA
+<https://github.com/billdenney/pknca>
+
+### Pros
+
+- Open source and free of charge
+- CDISC SDTM semi compatible (output)
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method but in a cumbersome way
+
+### Cons
+
+- CDISC SDTM not compatible (input)
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
 
 ```{r}
 library(PKNCA)
@@ -23,7 +76,17 @@ my.results.automatic$result %>% filter(grepl(pattern = "cmax|aucinf", PPTESTCD))
 summary(my.results.automatic)
 ```
 
-## ncappc
+## R package: ncappc
+
+NCA Calculation and Population PK Model Diagnosis [@Acharya201683]
+
+<https://cran.r-project.org/web/packages/ncappc/index.html>
+<https://www.ncbi.nlm.nih.gov/pubmed/27000291>
+
+```{r}
+#install.packages("ncappc")
+library(ncappc)
+```
 
 ```{r eval = FALSE}
 library(ncappc)
@@ -41,7 +104,26 @@ Theoph_ncappc <- read.delim("ncaOutput-.tsv", sep = "\t", check.names = FALSE)
 Theoph_ncappc[ , c("Cmax (M.L^-3)", "AUCINF_obs (T*M.L^-3)")]
 ```
 
+## R package: PK
+
+Basic Non-Compartmental Pharmacokinetics
+
+<https://cran.r-project.org/web/packages/PK/index.html>
+
+
+```{r}
+#install.packages("PK")
+library(PK)
+```
+
+## Kinetica
+
+## Scientist
+
+## PKSolver
 
 ## Summary
 
-`ncar` is good.
+```{r echo = FALSE}
+knitr::kable(read.csv("comparison.csv", check.names = FALSE))
+```
