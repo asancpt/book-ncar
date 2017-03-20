@@ -1,0 +1,37 @@
+prettydoc::html_pretty:
+  theme: cayman # cayman, tactile, architect
+  number_sections: no
+  toc: true
+
+html_document:
+  theme: readable
+  number_sections: no
+  toc: true
+
+bookdown::html_chapters:
+  css: css/style.css
+
+bookdown::gitbook:
+  css: css/style.css
+  split_by: chapter
+  config:
+    toc:
+      collapse: subsection
+      before: |
+        <li><a href="./index.html">Noncompartmental Analysis by R Packages</a></li>
+      after: |
+        <li><a href="http://github.com/asancpt/ncar">ncar Github Repo</a></li>
+    download: [pdf, epub, mobi]
+    edit:
+      link: https://github.com/asancpt/ncar/edit/master/bookdown/%s
+      text: "Edit"
+
+bookdown::pdf_book:
+  includes:
+    in_header: preamble.tex
+#  keep_tex: yes
+  latex_engine: xelatex
+#  citation_package: natbib
+
+bookdown::epub_book:
+  stylesheet: css/style.css

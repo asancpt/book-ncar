@@ -1,0 +1,34 @@
+---
+title: "Noncompartmental Analysis by R Packages"
+author: ["Kyun-Seop Bae", "Sungpil Han", "Seok Kyu Yoon", "Yong-Soon Cho"]
+date: "`r Sys.Date()`"
+knit: "bookdown::render_book"
+documentclass: book
+bibliography: "reference.bib"
+csl: springer-vancouver.csl
+link-citations: true
+site: bookdown::bookdown_site
+description: "In this book, we will compare, review and discuss R Packages for noncompartmental analysis."
+graphics: yes
+url: 'http\://asancpt.github.io/pkrBook/docs'
+github-repo: asancpt/pkrBook
+cover-image: bookcover.jpg
+---
+
+```{r include = FALSE}
+library(knitr)
+library(dplyr)
+library(pkr)
+```
+
+# 책 머리에 {#preface}
+
+이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 
+값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 
+무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.
+
+2017년 3월, 
+서울아산병원 임상약리학과 교수 배균섭, 전공의 한성필, 윤석규, 조용순 
+
+![Book cover](bookcover.jpg)
+

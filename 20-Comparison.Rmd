@@ -1,0 +1,102 @@
+# Comparison of Noncompartmental analysis software
+
+## In this chapter
+
+We will briefly compare NCA softwares.
+
+## Certara Phoenix WinNonLin
+
+<https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>
+
+### Pros
+
+- Validated for several years
+- Industry standard
+- Versatile unit setting
+- Easy using by GUI 
+- Generating plots supported
+
+### Cons
+
+- Expansive (~several thousand dollars)
+- Not suitable for reproducible research
+- CDISC SDTM not compatible (input and output)
+
+## R package: PKNCA
+
+<https://github.com/billdenney/pknca>
+
+### Pros
+
+- Open source and free of charge
+- CDISC SDTM semi compatible (output)
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method but in a cumbersome way
+
+### Cons
+ 
+- CDISC SDTM not compatible (input)
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
+
+
+## R package: ncar
+
+Extension of NonCompart for CDISC input
+
+<https://github.com/asancpt/ncar>
+
+### Pros
+
+- Open source and free of charge
+- CDISC SDTM fully compatible (input - DM, EX, PC)
+- Output of CDISC SDTM PP domain terms 
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method
+
+### Cons
+
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
+
+## R package: ncappc
+
+NCA Calculation and Population PK Model Diagnosis [@Acharya201683]
+
+<https://cran.r-project.org/web/packages/ncappc/index.html>
+<https://www.ncbi.nlm.nih.gov/pubmed/27000291>
+
+
+
+```{r}
+#install.packages("ncappc")
+library(ncappc)
+```
+
+
+## Kinetica
+
+## PK module in R
+
+## Scientist
+
+## PKSolver
+
+## R package: PK
+
+Basic Non-Compartmental Pharmacokinetics
+
+<https://cran.r-project.org/web/packages/PK/index.html>
+
+
+```{r}
+#install.packages("PK")
+library(PK)
+```
+
+## Summary
+
+```{r echo = FALSE}
+knitr::kable(read.csv("comparison.csv", check.names = FALSE))
+```
+

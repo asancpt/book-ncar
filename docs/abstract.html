@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Noncompartmental Analysis by R Packages</title>
+  <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
+  <meta name="generator" content="bookdown 0.3.11 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://asancpt.github.io/pkrBook/docs" />
+  <meta property="og:image" content="http://asancpt.github.io/pkrBook/docsbookcover.jpg" />
+  <meta property="og:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
+  <meta name="github-repo" content="asancpt/pkrBook" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
+  
+  <meta name="twitter:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
+  <meta name="twitter:image" content="http://asancpt.github.io/pkrBook/docsbookcover.jpg" />
+
+<meta name="author" content="Kyun-Seop Bae">
+<meta name="author" content="Sungpil Han">
+<meta name="author" content="Seok Kyu Yoon">
+<meta name="author" content="Yong-Soon Cho">
+
+
+<meta name="date" content="2017-03-20">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="introduction.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Noncompartmental Analysis by R Packages</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 책 머리에</a></li>
+<li class="chapter" data-level="" data-path="abstract.html"><a href="abstract.html"><i class="fa fa-check"></i>Abstract</a></li>
+<li class="chapter" data-level="2" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>2</b> 서론</a></li>
+<li class="chapter" data-level="3" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>3</b> 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="4" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>4</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="5" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>5</b> 결론</a></li>
+<li class="chapter" data-level="6" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>6</b> 감사의 글</a></li>
+<li class="chapter" data-level="7" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>7</b> 참고문헌</a></li>
+<li class="chapter" data-level="8" data-path="pkr-r-package.html"><a href="pkr-r-package.html"><i class="fa fa-check"></i><b>8</b> pkr R package</a><ul>
+<li class="chapter" data-level="8.1" data-path="pkr-r-package.html"><a href="pkr-r-package.html#in-this-chapter"><i class="fa fa-check"></i><b>8.1</b> In this chapter</a></li>
+<li class="chapter" data-level="8.2" data-path="pkr-r-package.html"><a href="pkr-r-package.html#what-is-ncar-r-package"><i class="fa fa-check"></i><b>8.2</b> What is <code>ncar</code> R package?</a></li>
+<li class="chapter" data-level="8.3" data-path="pkr-r-package.html"><a href="pkr-r-package.html#how-does-it-work"><i class="fa fa-check"></i><b>8.3</b> How does it work?</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html"><i class="fa fa-check"></i><b>9</b> Comparison of Noncompartmental analysis software</a><ul>
+<li class="chapter" data-level="9.1" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#in-this-chapter-1"><i class="fa fa-check"></i><b>9.1</b> In this chapter</a></li>
+<li class="chapter" data-level="9.2" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>9.2</b> Certara Phoenix WinNonLin</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#pros"><i class="fa fa-check"></i><b>9.2.1</b> Pros</a></li>
+<li class="chapter" data-level="9.2.2" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#cons"><i class="fa fa-check"></i><b>9.2.2</b> Cons</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#r-package-pknca"><i class="fa fa-check"></i><b>9.3</b> R package: PKNCA</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#pros-1"><i class="fa fa-check"></i><b>9.3.1</b> Pros</a></li>
+<li class="chapter" data-level="9.3.2" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#cons-1"><i class="fa fa-check"></i><b>9.3.2</b> Cons</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#r-package-ncar"><i class="fa fa-check"></i><b>9.4</b> R package: ncar</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#pros-2"><i class="fa fa-check"></i><b>9.4.1</b> Pros</a></li>
+<li class="chapter" data-level="9.4.2" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#cons-2"><i class="fa fa-check"></i><b>9.4.2</b> Cons</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#r-package-ncappc"><i class="fa fa-check"></i><b>9.5</b> R package: ncappc</a></li>
+<li class="chapter" data-level="9.6" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#kinetica"><i class="fa fa-check"></i><b>9.6</b> Kinetica</a></li>
+<li class="chapter" data-level="9.7" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#pk-module-in-r"><i class="fa fa-check"></i><b>9.7</b> PK module in R</a></li>
+<li class="chapter" data-level="9.8" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#scientist"><i class="fa fa-check"></i><b>9.8</b> Scientist</a></li>
+<li class="chapter" data-level="9.9" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#pksolver"><i class="fa fa-check"></i><b>9.9</b> PKSolver</a></li>
+<li class="chapter" data-level="9.10" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#r-package-pk"><i class="fa fa-check"></i><b>9.10</b> R package: PK</a></li>
+<li class="chapter" data-level="9.11" data-path="comparison-of-noncompartmental-analysis-software.html"><a href="comparison-of-noncompartmental-analysis-software.html#summary"><i class="fa fa-check"></i><b>9.11</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="details.html"><a href="details.html"><i class="fa fa-check"></i><b>10</b> Details</a><ul>
+<li class="chapter" data-level="10.1" data-path="details.html"><a href="details.html#in-this-chapter-2"><i class="fa fa-check"></i><b>10.1</b> In this chapter</a></li>
+<li class="chapter" data-level="10.2" data-path="details.html"><a href="details.html#ncar"><i class="fa fa-check"></i><b>10.2</b> ncar</a></li>
+<li class="chapter" data-level="10.3" data-path="details.html"><a href="details.html#pknca"><i class="fa fa-check"></i><b>10.3</b> PKNCA</a></li>
+<li class="chapter" data-level="10.4" data-path="details.html"><a href="details.html#ncappc"><i class="fa fa-check"></i><b>10.4</b> ncappc</a></li>
+<li class="chapter" data-level="10.5" data-path="details.html"><a href="details.html#summary-1"><i class="fa fa-check"></i><b>10.5</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="http://github.com/asancpt/ncar">ncar Github Repo</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Noncompartmental Analysis by R Packages</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="abstract" class="section level1 unnumbered">
+<h1>Abstract</h1>
+<p>약동학 지표를 구할 시 활용되는 비구획 분석을 R pacakge에서 적용하여 테오필린(Theophylline)과 인도메타신(Indomethacin) 데이터에 대한 분석을 실시하였다. 각각의 데이터에 대해 Edison 엡 내에서 농도-시간 곡선에 대한 그래프를 다양한 방식으로 구현할 수 있었으며, 계획한 R script를 통해 도출된 결과에서도 현재 임상적으로 가장 널리 쓰이는 비구획 분석방법 소프트웨어와 동일한 값임을 확인하였다. 또한 실제 비구획 분석보다 한 단계 더 복잡한 분석에 대해서도 실제 구현 가능함을 확인하였다. 이를 통해 앞으로 다양한 약동학적 분석방법을 Edison system 안에서 구현하고 활용할 수 있을 것으로 기대된다.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="introduction.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/01-intro.Rmd",
+"text": "Edit"
+},
+"download": ["_main.pdf", "_main.epub", "_main.mobi"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
