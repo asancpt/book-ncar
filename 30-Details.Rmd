@@ -1,4 +1,4 @@
-# NCA 소프트웨어 {#Details}
+# NCA 소프트웨어 {#DetailsNCA}
 
 ## 이 장에서는 {#detailschapter}
 
