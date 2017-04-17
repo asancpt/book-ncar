@@ -1,0 +1,6 @@
+exportPattern("^[[:alpha:]]+")
+importFrom("utils", "packageDescription", "packageVersion", "data")
+importFrom("grDevices", "dev.off", "pdf")
+importFrom("graphics", "axis", "close.screen", "lines", "par", "plot", "screen", "split.screen", "text")
+import("rtf")
+import("NonCompart")

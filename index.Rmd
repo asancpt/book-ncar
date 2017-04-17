@@ -3,22 +3,35 @@ title: "Noncompartmental Analysis by R Packages"
 author: ["Kyun-Seop Bae", "Sungpil Han", "Seok Kyu Yoon", "Yong-Soon Cho"]
 date: "`r Sys.Date()`"
 knit: "bookdown::render_book"
-documentclass: book
-bibliography: "reference.bib"
+documentclass: krantz
+bibliography: ["reference.bib", "packages.bib"]
 csl: springer-vancouver.csl
 link-citations: true
 site: bookdown::bookdown_site
 description: "In this book, we will compare, review and discuss R Packages for noncompartmental analysis."
 graphics: yes
-url: 'http\://asancpt.github.io/pkrBook/docs'
-github-repo: asancpt/pkrBook
-cover-image: bookcover.jpg
+url: 'http\://asancpt.github.io/NonCompartBook'
+github-repo: asancpt/NonCompartBook
+cover-image: cover.jpg
 ---
 
 ```{r include = FALSE}
 library(knitr)
 library(dplyr)
-library(pkr)
+library(pkr) # cran
+
+# NonCompart Library
+# library(NonCompart)
+# install.packages("lib/NonCompart_0.3.1.tar.gz", repos = NULL, lib = "./lib", type = "source")
+# install.packages("lib/ncar_0.3.5.tar.gz", repos = NULL, lib = "./lib", type = "source")
+
+library(NonCompart, lib = "./lib") # local
+library(ncar, lib = "./lib") # local
+
+# detach("package:ncar", unload = TRUE)
+# detach("package:pkr", unload = TRUE)
+# detach("package:NonCompart", unload = TRUE)
+
 ```
 
 # 책 머리에 {-}
@@ -30,5 +43,5 @@ library(pkr)
 2017년 3월, 
 서울아산병원 임상약리학과 교수 배균섭, 전공의 한성필, 윤석규, 조용순 
 
-![Book cover](bookcover.jpg)
+![Book cover](cover.jpg)
 

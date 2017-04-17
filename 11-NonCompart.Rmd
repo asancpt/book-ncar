@@ -1,10 +1,10 @@
-# pkr R 패키지
+# NonCompart R Package
 
 ## In this chapter
 
-We will see what `ncar` [@ncar2017] is and how it works.
+We will see what `NonCompart` [@R-NonCompart] is and how it works.
 
-## What is `ncar` R package?
+## What is `NonCompart` R package?
 
 Description: Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
 

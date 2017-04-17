@@ -7,20 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
   <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.11 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://asancpt.github.io/pkrBook/docs" />
-  <meta property="og:image" content="http://asancpt.github.io/pkrBook/docsbookcover.jpg" />
+  <meta property="og:url" content="http://asancpt.github.io/NonCompartBook" />
+  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
   <meta property="og:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="github-repo" content="asancpt/pkrBook" />
+  <meta name="github-repo" content="asancpt/NonCompartBook" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
   
   <meta name="twitter:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="twitter:image" content="http://asancpt.github.io/pkrBook/docsbookcover.jpg" />
+  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
 
 <meta name="author" content="Kyun-Seop Bae">
 <meta name="author" content="Sungpil Han">
@@ -28,14 +28,14 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-03-22">
+<meta name="date" content="2017-04-17">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="pkr-r-.html">
+<link rel="prev" href="how-to-use-noncompart.html">
 <link rel="next" href="result.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -90,7 +90,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -111,36 +111,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 서론</a></li>
 <li class="chapter" data-level="2" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>2</b> 이론 및 계산 방법</a></li>
-<li class="chapter" data-level="3" data-path="pkr-r-.html"><a href="pkr-r-.html"><i class="fa fa-check"></i><b>3</b> pkr R 패키지</a><ul>
-<li class="chapter" data-level="3.1" data-path="pkr-r-.html"><a href="pkr-r-.html#in-this-chapter"><i class="fa fa-check"></i><b>3.1</b> In this chapter</a></li>
-<li class="chapter" data-level="3.2" data-path="pkr-r-.html"><a href="pkr-r-.html#what-is-ncar-r-package"><i class="fa fa-check"></i><b>3.2</b> What is <code>ncar</code> R package?</a></li>
-<li class="chapter" data-level="3.3" data-path="pkr-r-.html"><a href="pkr-r-.html#how-does-it-work"><i class="fa fa-check"></i><b>3.3</b> How does it work?</a></li>
+<li class="chapter" data-level="3" data-path="noncompart-r-package.html"><a href="noncompart-r-package.html"><i class="fa fa-check"></i><b>3</b> NonCompart R Package</a><ul>
+<li class="chapter" data-level="3.1" data-path="noncompart-r-package.html"><a href="noncompart-r-package.html#in-this-chapter"><i class="fa fa-check"></i><b>3.1</b> In this chapter</a></li>
+<li class="chapter" data-level="3.2" data-path="noncompart-r-package.html"><a href="noncompart-r-package.html#what-is-noncompart-r-package"><i class="fa fa-check"></i><b>3.2</b> What is <code>NonCompart</code> R package?</a></li>
+<li class="chapter" data-level="3.3" data-path="noncompart-r-package.html"><a href="noncompart-r-package.html#how-does-it-work"><i class="fa fa-check"></i><b>3.3</b> How does it work?</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="DetailsNCA.html"><a href="DetailsNCA.html"><i class="fa fa-check"></i><b>4</b> NCA 소프트웨어</a><ul>
-<li class="chapter" data-level="4.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#detailschapter"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="4.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>4.2</b> Certara Phoenix WinNonLin</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros"><i class="fa fa-check"></i><b>4.2.1</b> Pros</a></li>
-<li class="chapter" data-level="4.2.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons"><i class="fa fa-check"></i><b>4.2.2</b> Cons</a></li>
+<li class="chapter" data-level="4" data-path="how-to-use-noncompart.html"><a href="how-to-use-noncompart.html"><i class="fa fa-check"></i><b>4</b> How to use NonCompart</a><ul>
+<li class="chapter" data-level="4.1" data-path="how-to-use-noncompart.html"><a href="how-to-use-noncompart.html#calculation-setting"><i class="fa fa-check"></i><b>4.1</b> Calculation Setting</a></li>
+<li class="chapter" data-level="4.2" data-path="how-to-use-noncompart.html"><a href="how-to-use-noncompart.html#fitting-auc-aumc-result"><i class="fa fa-check"></i><b>4.2</b> Fitting, AUC, AUMC Result</a></li>
+<li class="chapter" data-level="4.3" data-path="how-to-use-noncompart.html"><a href="how-to-use-noncompart.html#time-conc.-pred.-residual-auc-aumc-weight"><i class="fa fa-check"></i><b>4.3</b> Time Conc. Pred. Residual AUC AUMC Weight</a></li>
+<li class="chapter" data-level="4.4" data-path="how-to-use-noncompart.html"><a href="how-to-use-noncompart.html#calculated-values"><i class="fa fa-check"></i><b>4.4</b> Calculated Values</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pkr"><i class="fa fa-check"></i><b>4.3</b> R package: pkr</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros-1"><i class="fa fa-check"></i><b>4.3.1</b> Pros</a></li>
-<li class="chapter" data-level="4.3.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons-1"><i class="fa fa-check"></i><b>4.3.2</b> Cons</a></li>
+<li class="chapter" data-level="5" data-path="DetailsNCA.html"><a href="DetailsNCA.html"><i class="fa fa-check"></i><b>5</b> NCA 소프트웨어</a><ul>
+<li class="chapter" data-level="5.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#detailschapter"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="5.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>5.2</b> Certara Phoenix WinNonLin</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros"><i class="fa fa-check"></i><b>5.2.1</b> Pros</a></li>
+<li class="chapter" data-level="5.2.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons"><i class="fa fa-check"></i><b>5.2.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pknca"><i class="fa fa-check"></i><b>4.4</b> R package: PKNCA</a><ul>
-<li class="chapter" data-level="4.4.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros-2"><i class="fa fa-check"></i><b>4.4.1</b> Pros</a></li>
-<li class="chapter" data-level="4.4.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons-2"><i class="fa fa-check"></i><b>4.4.2</b> Cons</a></li>
+<li class="chapter" data-level="5.3" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pkr"><i class="fa fa-check"></i><b>5.3</b> R package: pkr</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros-1"><i class="fa fa-check"></i><b>5.3.1</b> Pros</a></li>
+<li class="chapter" data-level="5.3.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons-1"><i class="fa fa-check"></i><b>5.3.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-ncappc"><i class="fa fa-check"></i><b>4.5</b> R package: ncappc</a></li>
-<li class="chapter" data-level="4.6" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pk"><i class="fa fa-check"></i><b>4.6</b> R package: PK</a></li>
-<li class="chapter" data-level="4.7" data-path="DetailsNCA.html"><a href="DetailsNCA.html#kinetica"><i class="fa fa-check"></i><b>4.7</b> Kinetica</a></li>
-<li class="chapter" data-level="4.8" data-path="DetailsNCA.html"><a href="DetailsNCA.html#scientist"><i class="fa fa-check"></i><b>4.8</b> Scientist</a></li>
-<li class="chapter" data-level="4.9" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pksolver"><i class="fa fa-check"></i><b>4.9</b> PKSolver</a></li>
-<li class="chapter" data-level="4.10" data-path="DetailsNCA.html"><a href="DetailsNCA.html#summary"><i class="fa fa-check"></i><b>4.10</b> Summary</a></li>
+<li class="chapter" data-level="5.4" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pknca"><i class="fa fa-check"></i><b>5.4</b> R package: PKNCA</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros-2"><i class="fa fa-check"></i><b>5.4.1</b> Pros</a></li>
+<li class="chapter" data-level="5.4.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons-2"><i class="fa fa-check"></i><b>5.4.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>5</b> 결과 및 논의</a></li>
-<li class="chapter" data-level="6" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>6</b> 결론</a></li>
-<li class="chapter" data-level="7" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>7</b> 감사의 글</a></li>
-<li class="chapter" data-level="8" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>8</b> 참고문헌</a></li>
+<li class="chapter" data-level="5.5" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-ncappc"><i class="fa fa-check"></i><b>5.5</b> R package: ncappc</a></li>
+<li class="chapter" data-level="5.6" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pk"><i class="fa fa-check"></i><b>5.6</b> R package: PK</a></li>
+<li class="chapter" data-level="5.7" data-path="DetailsNCA.html"><a href="DetailsNCA.html#kinetica"><i class="fa fa-check"></i><b>5.7</b> Kinetica</a></li>
+<li class="chapter" data-level="5.8" data-path="DetailsNCA.html"><a href="DetailsNCA.html#scientist"><i class="fa fa-check"></i><b>5.8</b> Scientist</a></li>
+<li class="chapter" data-level="5.9" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pksolver"><i class="fa fa-check"></i><b>5.9</b> PKSolver</a></li>
+<li class="chapter" data-level="5.10" data-path="DetailsNCA.html"><a href="DetailsNCA.html#summary"><i class="fa fa-check"></i><b>5.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>6</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> 결론</a></li>
+<li class="chapter" data-level="8" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>8</b> 감사의 글</a></li>
+<li class="chapter" data-level="9" data-path="bibliography.html"><a href="bibliography.html"><i class="fa fa-check"></i><b>9</b> 참고문헌</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/ncar">ncar Github Repo</a></li>
@@ -163,16 +169,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="DetailsNCA" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> NCA 소프트웨어</h1>
+<h1><span class="header-section-number">Chapter 5</span> NCA 소프트웨어</h1>
 <div id="detailschapter" class="section level2">
-<h2><span class="header-section-number">4.1</span> 이 장에서는</h2>
+<h2><span class="header-section-number">5.1</span> 이 장에서는</h2>
 <p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다. 특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
 </div>
 <div id="certara-phoenix-winnonlin" class="section level2">
-<h2><span class="header-section-number">4.2</span> Certara Phoenix WinNonLin</h2>
+<h2><span class="header-section-number">5.2</span> Certara Phoenix WinNonLin</h2>
 <p><a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a></p>
 <div id="pros" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Pros</h3>
+<h3><span class="header-section-number">5.2.1</span> Pros</h3>
 <ul>
 <li>Validated for several years</li>
 <li>Industry standard</li>
@@ -182,7 +188,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="cons" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Cons</h3>
+<h3><span class="header-section-number">5.2.2</span> Cons</h3>
 <ul>
 <li>Expansive (~several thousand dollars)</li>
 <li>Not suitable for reproducible research</li>
@@ -191,10 +197,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 </div>
 <div id="r-package-pkr" class="section level2">
-<h2><span class="header-section-number">4.3</span> R package: pkr</h2>
+<h2><span class="header-section-number">5.3</span> R package: pkr</h2>
 <p>Extension of NonCompart for CDISC input</p>
 <div id="pros-1" class="section level3">
-<h3><span class="header-section-number">4.3.1</span> Pros</h3>
+<h3><span class="header-section-number">5.3.1</span> Pros</h3>
 <ul>
 <li>Open source and free of charge</li>
 <li>CDISC SDTM fully compatible (input - DM, EX, PC)</li>
@@ -203,7 +209,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 </div>
 <div id="cons-1" class="section level3">
-<h3><span class="header-section-number">4.3.2</span> Cons</h3>
+<h3><span class="header-section-number">5.3.2</span> Cons</h3>
 <ul>
 <li>More tests required</li>
 <li>Experience with R language required</li>
@@ -315,10 +321,10 @@ pkr<span class="op">::</span><span class="kw">NCA</span>(Theoph, <span class="st
 </div>
 </div>
 <div id="r-package-pknca" class="section level2">
-<h2><span class="header-section-number">4.4</span> R package: PKNCA</h2>
+<h2><span class="header-section-number">5.4</span> R package: PKNCA</h2>
 <p><a href="https://github.com/billdenney/pknca" class="uri">https://github.com/billdenney/pknca</a></p>
 <div id="pros-2" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Pros</h3>
+<h3><span class="header-section-number">5.4.1</span> Pros</h3>
 <ul>
 <li>Open source and free of charge</li>
 <li>CDISC SDTM semi compatible (output)</li>
@@ -326,7 +332,7 @@ pkr<span class="op">::</span><span class="kw">NCA</span>(Theoph, <span class="st
 </ul>
 </div>
 <div id="cons-2" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Cons</h3>
+<h3><span class="header-section-number">5.4.2</span> Cons</h3>
 <ul>
 <li>CDISC SDTM not compatible (input)</li>
 <li>More tests required</li>
@@ -380,7 +386,7 @@ my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</spa
 </div>
 </div>
 <div id="r-package-ncappc" class="section level2">
-<h2><span class="header-section-number">4.5</span> R package: ncappc</h2>
+<h2><span class="header-section-number">5.5</span> R package: ncappc</h2>
 <p>NCA Calculation and Population PK Model Diagnosis <span class="citation">[<a href="#ref-Acharya201683">2</a>]</span></p>
 <p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a> <a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;ncappc&quot;)</span>
@@ -420,7 +426,7 @@ Theoph_ncappc[ , <span class="kw">c</span>(<span class="st">&quot;Cmax (M.L^-3)&
 ## 12          9.75              125.8315</code></pre>
 </div>
 <div id="r-package-pk" class="section level2">
-<h2><span class="header-section-number">4.6</span> R package: PK</h2>
+<h2><span class="header-section-number">5.6</span> R package: PK</h2>
 <p>Basic Non-Compartmental Pharmacokinetics</p>
 <p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;PK&quot;)</span>
@@ -429,16 +435,16 @@ Theoph_ncappc[ , <span class="kw">c</span>(<span class="st">&quot;Cmax (M.L^-3)&
 <pre><code>## Type PKNews() to see new features/changes/bug fixes.</code></pre>
 </div>
 <div id="kinetica" class="section level2">
-<h2><span class="header-section-number">4.7</span> Kinetica</h2>
+<h2><span class="header-section-number">5.7</span> Kinetica</h2>
 </div>
 <div id="scientist" class="section level2">
-<h2><span class="header-section-number">4.8</span> Scientist</h2>
+<h2><span class="header-section-number">5.8</span> Scientist</h2>
 </div>
 <div id="pksolver" class="section level2">
-<h2><span class="header-section-number">4.9</span> PKSolver</h2>
+<h2><span class="header-section-number">5.9</span> PKSolver</h2>
 </div>
 <div id="summary" class="section level2">
-<h2><span class="header-section-number">4.10</span> Summary</h2>
+<h2><span class="header-section-number">5.10</span> Summary</h2>
 <table>
 <thead>
 <tr class="header">
@@ -549,7 +555,7 @@ Theoph_ncappc[ , <span class="kw">c</span>(<span class="st">&quot;Cmax (M.L^-3)&
           </div>
         </div>
       </div>
-<a href="pkr-r-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="how-to-use-noncompart.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="result.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -582,7 +588,7 @@ gitbook.start({
 "link": "https://github.com/asancpt/ncar/edit/master/bookdown/30-Details.Rmd",
 "text": "Edit"
 },
-"download": ["_main.pdf", "_main.epub", "_main.mobi"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
