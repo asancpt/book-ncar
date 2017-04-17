@@ -18,11 +18,21 @@ keywords = "Simulation-based diagnostic ",
 abstract = "AbstractBackground and objective Non-compartmental analysis (NCA) calculates pharmacokinetic (PK) metrics related to the systemic exposure to a drug following administration, e.g. area under the concentration–time curve and peak concentration. We developed a new package in R, called ncappc, to perform (i) a \{NCA\} and (ii) simulation-based posterior predictive checks (ppc) for a population \{PK\} (PopPK) model using \{NCA\} metrics. Methods The nca feature of ncappc package estimates the \{NCA\} metrics by NCA. The ppc feature of ncappc estimates the \{NCA\} metrics from multiple sets of simulated concentration–time data and compares them with those estimated from the observed data. The diagnostic analysis is performed at the population as well as the individual level. The distribution of the simulated population means of each \{NCA\} metric is compared with the corresponding observed population mean. The individual level comparison is performed based on the deviation of the mean of any \{NCA\} metric based on simulations for an individual from the corresponding \{NCA\} metric obtained from the observed data. The ncappc package also reports the normalized prediction distribution error (NPDE) of the simulated \{NCA\} metrics for each individual and their distribution within a population. Results The ncappc produces two default outputs depending on the type of analysis performed, i.e., \{NCA\} and PopPK diagnosis. The PopPK diagnosis feature of ncappc produces 8 sets of graphical outputs to assess the ability of a population model to simulate the concentration–time profile of a drug and thereby evaluate model adequacy. In addition, tabular outputs are generated showing the values of the \{NCA\} metrics estimated from the observed and the simulated data, along with the deviation, NPDE, regression parameters used to estimate the elimination rate constant and the related population statistics. Conclusions The ncappc package is a versatile and flexible tool-set written in R that successfully estimates \{NCA\} metrics from concentration–time data and produces a comprehensive set of graphical and tabular output to summarize the diagnostic results including the model specific outliers. The output is easy to interpret and to use in evaluation of a population \{PK\} model. ncappc is freely available on \{CRAN\} (http://cran.r-project.org/web/packages/ncappc/index.html/) and GitHub (https://github.com/cacha0227/ncappc/). "
 }
 
-@Manual{ncar2017,
-  title = {ncar: Noncompartmental Analysis of Pharmacokinetic Data for CDISC
-Standardized Parameters},
-  author = {Kyun-Seop Bae and Sungpil Han},
-  year = {2017},
-  note = {R package version 0.3},
-  url = {https://CRAN.R-project.org/package=ncar},
-}
+@Book{gab,
+ author = {Gabrielsson, Johan},
+ title = {Pharmacokinetic and pharmacodynamic data analysis : concepts and applications},
+ publisher = {Apotekarsocieteten},
+ year = {2016},
+ address = {Stockholm},
+ isbn = {978-9198299106}
+ }
+
+@Book{tozer,
+ author = {Rowland, Malcolm},
+ title = {Clinical pharmacokinetics and pharmacodynamics : concepts and applications},
+ publisher = {Wolters Kluwer Health/Lippincott William \& Wilkins},
+ year = {2011},
+ address = {Philadelphia},
+ isbn = {0781750091}
+ }
+

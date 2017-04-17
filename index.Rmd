@@ -4,8 +4,8 @@ author: ["Kyun-Seop Bae", "Sungpil Han", "Seok Kyu Yoon", "Yong-Soon Cho"]
 date: "`r Sys.Date()`"
 knit: "bookdown::render_book"
 documentclass: krantz
-bibliography: ["reference.bib", "packages.bib"]
-csl: springer-vancouver.csl
+bibliography: ["manual.bib", "packages.bib"]
+#csl: springer-vancouver.csl
 link-citations: true
 site: bookdown::bookdown_site
 description: "In this book, we will compare, review and discuss R Packages for noncompartmental analysis."
@@ -33,7 +33,6 @@ library(ncar, lib = "./lib") # local
 # detach("package:ncar", unload = TRUE)
 # detach("package:pkr", unload = TRUE)
 # detach("package:NonCompart", unload = TRUE)
-
 ```
 
 # 책 머리에 {-}
