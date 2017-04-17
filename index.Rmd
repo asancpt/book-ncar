@@ -19,6 +19,8 @@ cover-image: cover.jpg
 library(knitr)
 library(dplyr)
 library(pkr) # cran
+library(ggplot2)
+library(cowplot)
 
 knitr::opts_chunk$set(error = TRUE)
 

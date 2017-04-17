@@ -1,37 +1,44 @@
-# How to use NonCompart 
+# NonCompart 사용법
 
-[출처] NonCompart 사용법|작성자 김민걸 선생님 자료를 옮겨와서 변형합니다.
+김민걸 선생님 자료를 옮겨와서 변형합니다. <http://blog.naver.com/kimmingul>
+
+## 데이타에 대하여
 
 아산병원 배균섭 교수님께서 만드신 NonCompart 패키지 사용법에 대해서 간략히 적어봅니다. 뭐 별로 복잡한 것은 아니지만, R 초심자들을 위해 설치단계부터...
 (참고로 첫칸의 > 기호는 R에서 프롬프트 이므로 이는 타이핑하지 않는다.)
 
-우선 R을 설치한다. R은 아래 링크에서 다운로드 받을 수 있다.
-<https://cloud.r-project.org/>
+R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있습니다.
 
-R을 실행한 후, 아래와 같이 패키지를 설치한다.  
-
-```r
-install.packages("NonCompart")
-```
-
-이제 아래와 같이 입력하여 패키지를 불러오자.
-
-```r
-library(NonCompart)
-```
-
-R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있다. 
-Theoph: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일
-Indometh: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
+- `Theoph`: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.
+- `Indometh`: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
 (데이터명의 첫글짜가 대문자임에 주의하길)
 
-데이터를 살펴보자. 
+데이터를 살펴보겠습니다. 
 
 ```{r}
 head(Theoph)
+tail(Theoph)
 ```
 
-데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있다.
+데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
+
+```{r, fig.width=8, fig.height=12, fig.cap='Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves'}
+Backbone <- ggplot(Theoph %>% 
+                       mutate(Subject = as.numeric(Subject)), 
+                   aes(Time, conc, group = Subject, colour = Wt)) +
+    geom_line() +
+    geom_point() 
+
+Individual <- Backbone + facet_wrap(~ Subject) + scale_y_log10()
+groupLinear <- Backbone
+groupLog <- groupLinear + scale_y_log10()
+
+ggdraw() +
+    draw_plot(Individual, 0, .5, 1, .5) +
+    draw_plot(groupLinear, 0, 0, .5, .5) +
+    draw_plot(groupLog, .5, 0, .5, .5) +
+    draw_plot_label(c("A", "B", "C"), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)
+```
 
 이 패키지로 NCA 비구획방법으로 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 된다.  
 우선 Theophilline 의 약동학 파라미터를 구해보면,
