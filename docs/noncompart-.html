@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
   <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.16 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-17">
+<meta name="date" content="2017-04-18">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -90,7 +90,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -419,7 +419,7 @@ Figure 4.1: Theoph 데이타를 시각화. A) Individual concentration-time curv
 <p>약동학 파라이터를 보고서 형식의 text 파일로 저장해보자.</p>
 <p>우선 저장될 폴더를 확인해면,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
-<pre><code>## [1] &quot;/Users/Sungpil/asancpt/NonCompartBook&quot;</code></pre>
+<pre><code>## [1] &quot;C:/Users/mdlhs/asancpt/NonCompartBook&quot;</code></pre>
 <p>저장될 폴더를 변경하고자 한다면 setwd(“저장될 경로”) 이렇게 설정하면 된다. 위에서 사용한 NCA 명령어에 Report=“Text” 라는 옵션을 추가하면 된다. 먼저, Theophilline 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#writeLines(NCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, Dose=320, Report=&quot;Text&quot;), &quot;Theoph_Linear_CoreOutput.txt&quot;)</span></code></pre></div>
 <p>저장된 파일 내용은 아래와 같다. NCA REPORT Subject=1</p>
@@ -573,7 +573,7 @@ Figure 4.1: Theoph 데이타를 시각화. A) Individual concentration-time curv
 ## }
 ## &lt;environment: namespace:NonCompart&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IntAUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>,<span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">Dose=</span><span class="dv">320</span>, <span class="dt">iAUC=</span>iAUC)</code></pre></div>
-<pre><code>## Error in IntAUC(Theoph[Theoph$Subject == 1, &quot;Time&quot;], Theoph[Theoph$Subject == : unused arguments (Dose = 320, iAUC = iAUC)</code></pre>
+<pre><code>## Error in IntAUC(Theoph[Theoph$Subject == 1, &quot;Time&quot;], Theoph[Theoph$Subject == : 사용되지 않은 인자 (Dose = 320, iAUC = iAUC)</code></pre>
 <pre><code>    CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ </code></pre>
 <p>10.5000000 0.0328125 1.1200000 0.0000000 3.2800000 3.2801465 24.3700000 14.3043776 0.0484570 LAMZLL LAMZUL LAMZNPT CORRXY R2 R2ADJ AUCLST AUCALL AUCIFO 9.0500000 24.3700000 3.0000000 -0.9999999 0.9999997 0.9999995 148.9230500 148.9230500 216.6119330 AUCIFOD AUCPEO AUCIFP AUCIFPD AUCPEP AUMCLST AUMCIFO AUMCPEO AUMCIFP 0.6769123 31.2489169 216.6149558 0.6769217 31.2498763 1459.0711035 4505.5348194 67.6160287 4505.6708646 AUMCPEP MRTEVLST MRTEVIFO MRTEVIFP VZFO VZFP CLFO CLFP AUC[0-12h] 67.6170065 9.7974834 20.8000305 20.8003683 30.4867482 30.4863228 1.4772963 1.4772757 91.7355220 AUC[0-24h] 147.6945866</p>
 <p>전반적으로 초보자도 어렵지 않게 사용할 수 있다. 역시 배균섭 교수님 이시다. 약동학 Plot 도 자동으로 그려주면 더 좋을텐데..ㅎㅎ</p>
