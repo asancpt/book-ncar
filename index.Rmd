@@ -20,6 +20,8 @@ library(knitr)
 library(dplyr)
 library(pkr) # cran
 
+knitr::opts_chunk$set(error = TRUE)
+
 # NonCompart Library
 # library(NonCompart)
 # install.packages("lib/NonCompart_0.3.1.tar.gz", repos = NULL, lib = "./lib", type = "source")
