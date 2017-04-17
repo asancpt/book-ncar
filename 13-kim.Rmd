@@ -22,7 +22,7 @@ tail(Theoph)
 
 데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
 
-```{r, fig.width=8, fig.height=12, fig.cap='Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves'}
+```{r TheophFig, fig.width=8, fig.height=12, fig.cap='Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves'}
 Backbone <- ggplot(Theoph %>% 
                        mutate(Subject = as.numeric(Subject)), 
                    aes(Time, conc, group = Subject, colour = Wt)) +
