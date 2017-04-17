@@ -3,3 +3,9 @@
 ```{r include = FALSE}
 knitr::write_bib(file = "packages.bib")
 ```
+
+[1] U.S. Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research (CDER) , Guidance for Industry Pharmacokinetics in Pregnancy — Study Design, Data Analysis, and Impact on Dosing and Labeling, (2004)
+[2] Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th Ed. 2010 (ISBN:9780781750097)
+[3] Hadley Wickham, Advanced R (Chapman & Hall/CRC The R Series) 1st Ed ,25 sep 2014
+[4] Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
+[5] http://www.edison.re.kr. EDISON 웹사이트. 
