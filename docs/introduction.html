@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
   <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-18">
+<meta name="date" content="2017-07-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -147,7 +147,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>6</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> 결론</a></li>
 <li class="chapter" data-level="8" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>8</b> 감사의 글</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="references.html"><a href="references.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>8.0.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="8.0.2" data-path="references.html"><a href="references.html#-nca----."><i class="fa fa-check"></i><b>8.0.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="8.0.3" data-path="references.html"><a href="references.html#section-8.0.3"><i class="fa fa-check"></i><b>8.0.3</b> 한계</a></li>
+<li class="chapter" data-level="8.0.4" data-path="references.html"><a href="references.html#pknca--0.7"><i class="fa fa-check"></i><b>8.0.4</b> PKNCA 현재는 0.7</a></li>
+<li class="chapter" data-level="8.0.5" data-path="references.html"><a href="references.html#pknca--1.0-."><i class="fa fa-check"></i><b>8.0.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
+<li class="chapter" data-level="8.0.6" data-path="references.html"><a href="references.html#section-8.0.6"><i class="fa fa-check"></i><b>8.0.6</b> 참고사항</a></li>
+<li class="chapter" data-level="8.0.7" data-path="references.html"><a href="references.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>8.0.7</b> RStudio를 사용한 Hands-on 실습</a></li>
+<li class="chapter" data-level="8.0.8" data-path="references.html"><a href="references.html#closing"><i class="fa fa-check"></i><b>8.0.8</b> Closing</a></li>
+<li class="chapter" data-level="8.0.9" data-path="references.html"><a href="references.html#section-8.0.9"><i class="fa fa-check"></i><b>8.0.9</b> 결론</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/ncar">ncar Github Repo</a></li>
 
@@ -170,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="introduction" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> 서론</h1>
-<p>신체에서 약물이 들어올 때, 약물의 양과 효과는 관련성이 있으며, 따라서 약물의 효과를 파악하기 위해 우리 몸에서 약물이 가지는 약동학적 특성을 파악하는 것은 굉장히 중요합니다. 다양한 신약 개발 과정에서 이러한 약동학적 특성을 파악하여, 약물의 개발을 지속하거나 중지하기도 하며, 마취통증의학과나 내과 등의 다양한 임상 의학에서도 신체에 중요 영향을 미칠 수 있는 약물에 대하여 대략적인 농도를 파악하기 위해 약물의 약동학적 특성을 이용합니다.</p>
+<p>신체에 약물이 들어올 때, 약물의 양과 효과는 관련성이 있으며, 따라서 약물의 효과를 파악하기 위해 우리 몸에서 약물이 가지는 약동학적 특성을 파악하는 것은 중요합니다. 다양한 신약 개발 과정에서 이러한 약동학적 특성을 파악하여, 약물의 개발을 지속하거나 중지하기도 하며, 마취통증의학과나 내과 등의 다양한 임상 의학에서도 신체에 중요 영향을 미칠 수 있는 약물에 대하여 대략적인 농도를 파악하기 위해 약물의 약동학적 특성을 이용합니다.</p>
 <p>약동학적 약물의 특성은 간단하게 ADME라는 용어로 설명할 수 있습니다. 이는 absorption (흡수), distribution(분포), metabolism(대사), excretion(배설)을 의미합니다. 약물이 다양한 경로 (경구제 복용, 피하 주사, 정맥 주사, 근육 주사 등)를 통해 우리 몸에 들어오게 되면, 정맥주사 이외의 나머지는 흡수(absorption)의 과정을 거쳐 우리 몸의 정맥에 분포하게 되며, 이러한 약물은 분포(distribution)와 제거(metabolism) 과정에서 감소하게 되고, 제거 과정은 우리 몸에 투여된 물질이 여러 기관(organ)을 통해서 다른 물질로 변하여(metabolism) 제거되거나 물질이 변화하지 않고 그대로 배설(excretion) 되는 과정으로 진행되게 됩니다. 이러한 수치들은 각각 약물의 농도가 증가하고 감소하는 과정과 밀접하게 연관되어 있으며, 이러한 과정들을 정량화하여 식을 세울 수 있다면, 약물을 투여한 이후의 농도를 보다 정확하게 예측할 수 있습니다. 이 때 흡수와 관련된 지표로는 흡수속도 상수(absorption rate constant)와 생체이용률(bioavailability), 분포, 제거와 관련된 지표로는 분포용적(Volume of distribution)과 청소율(Clearance)을 이용하게 되며, 다음 값들을 정확하게 예측하는 것이 약동학 분야에서의 핵심 중의 하나라고 볼 수 있습니다.</p>
 <p>이러한 지표들을 구하기 위해서 현재 여러가지 방법들을 사용하고 있으며, 그 중 가장 간단하고도 널리 쓰이는 방법은 비구획분석(Non-compartmental analysis, NCA)으로 FDA(Food and Drug Administration)에서도 다음의 방식으로 약동학적 지표를 구하는 것을 허용하고 있습니다. 따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 주어진 시간과 농도로부터 비구획 분석 방법으로 약동학적 주요 지표를 직접 구해보고자 합니다.</p>
 </div>
@@ -209,7 +219,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/ncar/edit/master/bookdown/01-intro.Rmd",
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/ms-intro.Rmd",
 "text": "Edit"
 },
 "download": null,
@@ -225,7 +235,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
   <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-18">
+<meta name="date" content="2017-07-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -147,7 +147,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="6" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>6</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> 결론</a></li>
 <li class="chapter" data-level="8" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>8</b> 감사의 글</a></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="references.html"><a href="references.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>8.0.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="8.0.2" data-path="references.html"><a href="references.html#-nca----."><i class="fa fa-check"></i><b>8.0.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="8.0.3" data-path="references.html"><a href="references.html#section-8.0.3"><i class="fa fa-check"></i><b>8.0.3</b> 한계</a></li>
+<li class="chapter" data-level="8.0.4" data-path="references.html"><a href="references.html#pknca--0.7"><i class="fa fa-check"></i><b>8.0.4</b> PKNCA 현재는 0.7</a></li>
+<li class="chapter" data-level="8.0.5" data-path="references.html"><a href="references.html#pknca--1.0-."><i class="fa fa-check"></i><b>8.0.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
+<li class="chapter" data-level="8.0.6" data-path="references.html"><a href="references.html#section-8.0.6"><i class="fa fa-check"></i><b>8.0.6</b> 참고사항</a></li>
+<li class="chapter" data-level="8.0.7" data-path="references.html"><a href="references.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>8.0.7</b> RStudio를 사용한 Hands-on 실습</a></li>
+<li class="chapter" data-level="8.0.8" data-path="references.html"><a href="references.html#closing"><i class="fa fa-check"></i><b>8.0.8</b> Closing</a></li>
+<li class="chapter" data-level="8.0.9" data-path="references.html"><a href="references.html#section-8.0.9"><i class="fa fa-check"></i><b>8.0.9</b> 결론</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/ncar">ncar Github Repo</a></li>
 
@@ -170,7 +180,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="method" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> 이론 및 계산 방법</h1>
-<p>비구획 분석이란 시간, 농도가 표현되어 있는 곡선에서 아무런 가정을 하지 않고 분석하는 것을 의미한다. 이때 다음과 같은 가정을 통해서 최대농도(C<sub>max</sub>) 및 최대농도에 도달하는 시간(Tmax), 전체 시간-농도 곡선의 면적(Area under the time-concentration curve, AUC)등을 구하게 된다. 이를 통해 측정된 지표들을 통하여 약물의 특성을 파악하고 특정구간에서의 농도를 예측하게 된다. 비구획 분석에서는 기본적으로 statistical moment theory (단순히 하나의 분자가 우리 몸에 들어와서 제거되지 까지는 예측하는 것이 힘들지만 그 개개의 분자들의 양이 늘어날수록 그들의 전반적인 행동이 규칙적으로 이루어진다는 이론)를 가정하고 이를 통해 우리는 각각의 분자가 우리 몸에서 얼마나 머무는지에 대한 평균값을 예상할 수 있게 된다. 이 시간을 MRT(mean residence time)이라고 지칭하게 되며, 이것은 농도와 시간의 곱을 적분한 값에서 단순 농도 값을 적분한 농도를 나누어 준 값으로 다음과 같이 표현해 줄 수 있다.</p>
+<p>비구획 분석이란 시간, 농도가 표현되어 있는 곡선에서 아무런 가정을 하지 않고 분석하는 것을 의미합니다. 이때 다음과 같은 가정을 통해서 최대농도(C<sub>max</sub>) 및 최대농도에 도달하는 시간(Tmax), 전체 시간-농도 곡선의 면적(Area under the time-concentration curve, AUC)등을 구하게 됩니다. 이를 통해 측정된 지표들을 통하여 약물의 특성을 파악하고 특정구간에서의 농도를 예측하게 됩니다. 비구획 분석에서는 기본적으로 statistical moment theory (단순히 하나의 분자가 우리 몸에 들어와서 제거되지 까지는 예측하는 것이 힘들지만 그 개개의 분자들의 양이 늘어날수록 그들의 전반적인 행동이 규칙적으로 이루어진다는 이론)를 가정하고 이를 통해 우리는 각각의 분자가 우리 몸에서 얼마나 머무는지에 대한 평균값을 예상할 수 있게 됩니다. 이 시간을 MRT(mean residence time)이라고 지칭하게 되며, 이것은 농도와 시간의 곱을 적분한 값에서 단순 농도 값을 적분한 농도를 나누어 준 값으로 다음과 같이 표현해 줄 수 있습니다.</p>
 <p><span class="math display">\[
 MRT = \frac{AUMC}{AUC} = \frac{\int_{0}^{\infty} t \cdot C(t) dt}{\int_{0}^{\infty} C(t) dt}
 \]</span></p>
@@ -183,7 +193,7 @@ MRT = \frac{AUMC}{AUC} = \frac{\int_{0}^{\infty} t \cdot C(t) dt}{\int_{0}^{\inf
 <p>추가적으로 마지막으로 농도를 잰 시점에서 모든 약물이 우리 몸에서 빠져나가는 시점까지의 값을 구하기 위해서 마지막으로 측정한 점의 기울기가 그대로 약물이 모두 제거되는 시점까지 그대로 유지된다는 가정을 세우게 되며, 다음과 같이 C<sub>last</sub>(가장 마지막으로 농도를 측정한 시점)에서 λ(C<sub>max</sub> 이후에 선형성이 가장 높은 3점을 선택하여 구한 기울기)를 구한 후 위와 같은 약동학 공식을 대입하여 값을 구해주게 된다.</p>
 <p>약물이 우리 몸에 들어온 후 가장 높은 농도의 경우 실제 개개인에서 농도를 측정한 값들 중 가장 높은 농도를 실제 가장 높은 농도라 가정하여 사용하게 되고(이 지표를 C<sub>max</sub>라 지칭한다.), 이 시점을 Tmax라 부르게 된다. 위에서 구한 AUC와 C<sub>max</sub>, λ 를 가지고 나머지 주요 값을 계산하게 된다. 이 중 청소율(제거되는 속도)에 해당하는 clearance(일반적으로 CL이라 지칭한다.) 의 경우 다음의 약동학 기본 공식을 활용하여 구해주게 된다.</p>
 <p>(다음 수식에서 D는 dose로 투여량을, F는 생체이용률을 의미한다.) 우리 몸의 분포(disposition)을 알기 위해 우리 몸의 volume을 나타내는 volume of distribution at steady state(Vdss)는 위 공식을 이용하여 값을 추정하게 되고 추가적으로 우리 몸의 생체이용률을 측정하는 F의 경우(기본적으로 정맥주사시의 생체이용률을 1이라고 가정하게 된다.)</p>
-<p>다음의 공식을 활용하여 값을 계산한다. (이중 Div는 정맥주사 투여량, Doral은 경구 투여량, AUCoral은 경구 투여에서의 AUC, AUCiv는 정맥투여에서의 AUC를 의미한다. 이처럼 AUC, C<sub>max</sub>, AUMC, λ 를 구하는 부분에 있어서는 non-compartmental analysis의 기본 가정들을 활용하였고 그 밖의 부분들에서는 현재 정형화된 공식들을 활용하여 적용하였다. 위 내용을 바탕으로 R을 기반으로 한 script를 구성한 후 전세계적으로 널리 쓰이고 있는 CDISC terminology를 각각의 지표들에 적용하여 결과값을 도출하였다. 또한 투여되는 방식을 3가지 분류(Extravascular, IV infusion, IV bolus)로 구분하여, 그에 맞는 각각의 식을 적용하였다. 마지막으로 시간당 농도의 변화율이 농도 증가 곡선보다 감소 곡선에서 완만하다는 점을 고려하여 농도가 감소하는 구간에서는 log값을 선택적으로 줄 수 있도록 설정하였으며, 흡수 속도 상수의 경우 현 NCA method를 통해 구하기에는 한계가 있어 따로 값을 제시하지 않았다. 흡수속도 상수를 구하기 위해서는 구획분석방법(compartmental analysis)이나 비선형 혼합모형(non-linear mixed effect modeling)을 사용하는 것이 바람직하다.</p>
+<p>다음의 공식을 활용하여 값을 계산한다. (이중 Div는 정맥주사 투여량, Doral은 경구 투여량, AUCoral은 경구 투여에서의 AUC, AUCiv는 정맥투여에서의 AUC를 의미한다. 이처럼 AUC, C<sub>max</sub>, AUMC, λ 를 구하는 부분에 있어서는 non-compartmental analysis의 기본 가정들을 활용하였고 그 밖의 부분들에서는 현재 정형화된 공식들을 활용하여 적용하였다. 위 내용을 바탕으로 R을 기반으로 한 script를 구성한 후 전세계적으로 널리 쓰이고 있는 CDISC terminology를 각각의 지표들에 적용하여 결과값을 도출하였다. 또한 투여되는 방식을 3가지 분류(Extravascular, IV infusion, IV bolus)로 구분하여, 그에 맞는 각각의 식을 적용하였다. 마지막으로 시간당 농도의 변화율이 농도 증가 곡선보다 감소 곡선에서 완만하다는 점을 고려하여 농도가 감소하는 구간에서는 log값을 선택적으로 줄 수 있도록 설정하였으며, 흡수 속도 상수의 경우 현 NCA method를 통해 구하기에는 한계가 있어 따로 값을 제시하지 않았습니다. 흡수속도 상수를 구하기 위해서는 구획분석방법(compartmental analysis)이나 비선형 혼합모형(non-linear mixed effect modeling)을 사용하는 것이 바람직합니다.</p>
 <p>Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script</p>
 <p>Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예</p>
 
@@ -223,7 +233,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/ncar/edit/master/bookdown/01-intro.Rmd",
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/ms-intro.Rmd",
 "text": "Edit"
 },
 "download": null,
@@ -239,7 +249,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
