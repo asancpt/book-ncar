@@ -1,0 +1,90 @@
+# 2nd Basic PK and PD Workshop 
+
+## data prep.
+
+```{r}
+Theoph
+Theoph[,"Wt"]
+unique(Theoph[,"Wt"])  # No repeat. 
+unique(Theoph[, 1:2])
+unique(Theoph[, 1:3])
+Demog = unique(Theoph[, 1:3])
+Demog
+Demog[,"Amt"] = Demog[,2]*Demog[,3]
+Demog
+Theoph[Theoph$Subject == 1,]
+Theoph[Theoph$Wt == 70.5,]
+Theoph[Theoph$Subject == 3 & Theoph$Wt == 70.5,]
+Theoph[Theoph$Subject == 3 & Theoph$Wt == 70.5,c("Time", "conc")]
+
+## graph
+
+library(lattice)
+?xyplot
+xyplot(conc~Time | Subject, data=Theoph,Type = "l")
+xyplot(conc~Time | Subject, data=Theoph,type = "o”)
+       
+```
+
+### pkr 
+
+```{r}
+       
+library(pkr)
+write.csv(Theoph, "Theoph.csv", row.names=FALSE, quote=FALSE)
+
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+
+NCA(Theoph, "Subject", "Time", "conc", dose=320, uConc="mg/L")
+NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", uConc="mg/L")
+```
+
+### ncar
+
+- rtf를 word doc 압축파일로 저장하는것이 좋음.
+- 산출된 값들의 배치가 불 규칙적인 경우(한글판 word에서): 
+- courier 글자체 선택 —> 옵션 —> 고급 —> "모든 새 문서" 선택 —> 반자 전자 uncheck
+
+```{r}
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+
+tabNCA(Theoph, dose=320, concUnit="mg/L")
+tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
+       adm="Infusion", dur=0.5, concUnit="mg/L")
+
+tabNCA(Theoph, dose=320, concUnit="mg/L")
+tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
+       adm="Infusion", dur=0.5, concUnit="mg/L")
+```
+
+```{r eval = FALSE}
+# Output to PDF file
+
+pdfNCA(fileName="NCA-Theoph.pdf", Theoph, colSubj="Subject", colTime="Time", 
+       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")
+pdfNCA(fileName="NCA-Indometh.pdf", Indometh, colSubj="Subject", colTime="time", 
+       colConc="conc", adm="Infusion", dur=0.5, dose=25, doseUnit="mg", 
+       timeUnit="h", concUnit="mg/L")
+
+# Output to RTF file
+
+rtfNCA(fileName="NCA-Theoph.rtf", Theoph, colSubj="Subject", colTime="Time", 
+       colConc="conc", dose=320, doseUnit="mg", timeUnit="h", concUnit="mg/L")
+rtfNCA(fileName="NCA-Indometh.rtf", Indometh, colSubj="Subject", colTime="time", 
+       colConc="conc", adm="Infusion", dur=0.5, dose=25, doseUnit="mg", 
+       timeUnit="h", concUnit="mg/L”)
+```
+
+### NonCompart
+
+``` {r}
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+
+tabNCA(Theoph, dose=320, concUnit="mg/L")
+tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
+       adm="Infusion", dur=0.5, concUnit="mg/L")
+       
+tabNCA(Theoph, dose=320, concUnit="mg/L")
+tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25, 
+       adm="Infusion", dur=0.5, concUnit="mg/L")
+```

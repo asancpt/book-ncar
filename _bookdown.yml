@@ -9,8 +9,8 @@ rmd_files: [
     "ms-kim.Rmd",
     "ms-Details.Rmd",
     "ms-conclusion.Rmd",
-    "ms-reference.Rmd",
-    "ms-pknca.md"
+    "ms-pknca.md",
+    "app-references.Rmd",
 ]
   # latex: ["index.Rmd"]
 
