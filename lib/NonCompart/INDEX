@@ -16,5 +16,7 @@ NonCompart-package      Noncompartmental Analysis for Pharmacokinetic
 Slope                   Get the Slope of regression log(y) ~ x
 Unit                    Disply CDISC standard units and multiplied
                         factor of NCA results
+UnitUrine               Retuns a conversion factor for the amount
+                        calculation from urine concentration and volume
 sNCA                    Simplest NCA
-tabNCA                  Table output NCA
+tblNCA                  Table output NCA

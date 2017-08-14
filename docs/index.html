@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
-  <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://asancpt.github.io/NonCompartBook" />
-  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
-  <meta property="og:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="github-repo" content="asancpt/NonCompartBook" />
+  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
+  <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
   
-  <meta name="twitter:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
+  <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
 
 <meta name="author" content="Kyun-Seop Bae">
 <meta name="author" content="Sungpil Han">
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-18">
+<meta name="date" content="2017-08-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -90,7 +90,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -174,14 +174,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h4 class="author"><em>Sungpil Han</em></h4>
 <h4 class="author"><em>Seok Kyu Yoon</em></h4>
 <h4 class="author"><em>Yong-Soon Cho</em></h4>
-<h4 class="date"><em>2017-04-18</em></h4>
+<h4 class="date"><em>2017-08-15</em></h4>
 </div>
 <div id="-" class="section level1 unnumbered">
 <h1>책 머리에</h1>
 <p>이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.</p>
 <p>2017년 3월, 서울아산병원 임상약리학과 교수 배균섭, 전공의 한성필, 윤석규, 조용순</p>
 <div class="figure">
-<img src="cover.jpg" alt="Book cover" />
+<img src="assets/cover.jpg" alt="Book cover" />
 <p class="caption">Book cover</p>
 </div>
 
@@ -207,7 +207,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -241,7 +241,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

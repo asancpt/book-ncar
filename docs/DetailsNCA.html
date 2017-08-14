@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
-  <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://asancpt.github.io/NonCompartBook" />
-  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
-  <meta property="og:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="github-repo" content="asancpt/NonCompartBook" />
+  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
+  <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
   
-  <meta name="twitter:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
+  <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
 
 <meta name="author" content="Kyun-Seop Bae">
 <meta name="author" content="Sungpil Han">
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-18">
+<meta name="date" content="2017-08-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -90,7 +90,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -405,19 +405,10 @@ my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</spa
        <span class="dt">method =</span> <span class="st">&quot;linear-log&quot;</span>, <span class="dt">evid =</span> <span class="ot">FALSE</span>)
 Theoph_ncappc &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;ncaOutput-.tsv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)
 Theoph_ncappc[ , <span class="kw">c</span>(<span class="st">&quot;Cmax (M.L^-3)&quot;</span>, <span class="st">&quot;AUCINF_obs (T*M.L^-3)&quot;</span>)]</code></pre></div>
-<pre><code>##    Cmax (M.L^-3) AUCINF_obs (T*M.L^-3)
-## 1          10.50              214.9236
-## 2           8.33               97.3779
-## 3           8.20              106.1277
-## 4           8.60              114.2162
-## 5          11.40              136.3047
-## 6           6.44               82.1759
-## 7           7.09              100.9876
-## 8           7.56              102.1533
-## 9           9.03               97.5200
-## 10         10.21              167.8600
-## 11          8.00               86.9026
-## 12          9.75              125.8315</code></pre>
+<pre><code>## Warning in file(file, &quot;rt&quot;): cannot open file &#39;ncaOutput-.tsv&#39;: No such
+## file or directory</code></pre>
+<pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;Theoph_ncappc&#39; not found</code></pre>
 </div>
 <div id="r-package-pk" class="section level2">
 <h2><span class="header-section-number">5.6</span> R package: PK</h2>
@@ -561,7 +552,7 @@ Theoph_ncappc[ , <span class="kw">c</span>(<span class="st">&quot;Cmax (M.L^-3)&
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -579,7 +570,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/ncar/edit/master/bookdown/30-Details.Rmd",
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/03-details.Rmd",
 "text": "Edit"
 },
 "download": null,
@@ -595,7 +586,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

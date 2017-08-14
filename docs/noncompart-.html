@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
-  <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://asancpt.github.io/NonCompartBook" />
-  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
-  <meta property="og:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="github-repo" content="asancpt/NonCompartBook" />
+  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
+  <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
   
-  <meta name="twitter:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
+  <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
 
 <meta name="author" content="Kyun-Seop Bae">
 <meta name="author" content="Sungpil Han">
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-18">
+<meta name="date" content="2017-08-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -90,7 +90,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -220,7 +220,7 @@ groupLog &lt;-<span class="st"> </span>groupLinear <span class="op">+</span><spa
 
 ## Warning: Transformation introduced infinite values in continuous y-axis</code></pre>
 <div class="figure"><span id="fig:TheophFig"></span>
-<img src="ncarBook_files/figure-html/TheophFig-1.png" alt="Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves" width="768" />
+<img src="book-ncar_files/figure-html/TheophFig-1.png" alt="Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves" width="768" />
 <p class="caption">
 Figure 4.1: Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves
 </p>
@@ -419,7 +419,7 @@ Figure 4.1: Theoph 데이타를 시각화. A) Individual concentration-time curv
 <p>약동학 파라이터를 보고서 형식의 text 파일로 저장해보자.</p>
 <p>우선 저장될 폴더를 확인해면,</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre></div>
-<pre><code>## [1] &quot;C:/Users/mdlhs/asancpt/NonCompartBook&quot;</code></pre>
+<pre><code>## [1] &quot;/Users/Sungpil/asancpt/book-ncar&quot;</code></pre>
 <p>저장될 폴더를 변경하고자 한다면 setwd(“저장될 경로”) 이렇게 설정하면 된다. 위에서 사용한 NCA 명령어에 Report=“Text” 라는 옵션을 추가하면 된다. 먼저, Theophilline 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#writeLines(NCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, Dose=320, Report=&quot;Text&quot;), &quot;Theoph_Linear_CoreOutput.txt&quot;)</span></code></pre></div>
 <p>저장된 파일 내용은 아래와 같다. NCA REPORT Subject=1</p>
@@ -573,7 +573,7 @@ Figure 4.1: Theoph 데이타를 시각화. A) Individual concentration-time curv
 ## }
 ## &lt;environment: namespace:NonCompart&gt;</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IntAUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>,<span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">Dose=</span><span class="dv">320</span>, <span class="dt">iAUC=</span>iAUC)</code></pre></div>
-<pre><code>## Error in IntAUC(Theoph[Theoph$Subject == 1, &quot;Time&quot;], Theoph[Theoph$Subject == : 사용되지 않은 인자 (Dose = 320, iAUC = iAUC)</code></pre>
+<pre><code>## Error in IntAUC(Theoph[Theoph$Subject == 1, &quot;Time&quot;], Theoph[Theoph$Subject == : unused arguments (Dose = 320, iAUC = iAUC)</code></pre>
 <pre><code>    CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ </code></pre>
 <p>10.5000000 0.0328125 1.1200000 0.0000000 3.2800000 3.2801465 24.3700000 14.3043776 0.0484570 LAMZLL LAMZUL LAMZNPT CORRXY R2 R2ADJ AUCLST AUCALL AUCIFO 9.0500000 24.3700000 3.0000000 -0.9999999 0.9999997 0.9999995 148.9230500 148.9230500 216.6119330 AUCIFOD AUCPEO AUCIFP AUCIFPD AUCPEP AUMCLST AUMCIFO AUMCPEO AUMCIFP 0.6769123 31.2489169 216.6149558 0.6769217 31.2498763 1459.0711035 4505.5348194 67.6160287 4505.6708646 AUMCPEP MRTEVLST MRTEVIFO MRTEVIFP VZFO VZFP CLFO CLFP AUC[0-12h] 67.6170065 9.7974834 20.8000305 20.8003683 30.4867482 30.4863228 1.4772963 1.4772757 91.7355220 AUC[0-24h] 147.6945866</p>
 <p>전반적으로 초보자도 어렵지 않게 사용할 수 있다. 역시 배균섭 교수님 이시다. 약동학 Plot 도 자동으로 그려주면 더 좋을텐데..ㅎㅎ</p>
@@ -597,7 +597,7 @@ Figure 4.1: Theoph 데이타를 시각화. A) Individual concentration-time curv
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -615,7 +615,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/ncar/edit/master/bookdown/13-kim.Rmd",
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/02-kim.Rmd",
 "text": "Edit"
 },
 "download": null,
@@ -631,7 +631,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);

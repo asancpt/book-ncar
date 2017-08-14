@@ -1,4 +1,4 @@
-book_filename: ncarBook
+book_filename: book-ncar
 chapter_name: "Chapter "
-repo: https://github.com/asancpt/pkrBook
+repo: https://github.com/asancpt/book-ncar
 output_dir: docs

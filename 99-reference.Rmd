@@ -1,7 +1,7 @@
 # References {-}
 
 ```{r include = FALSE}
-knitr::write_bib(file = "packages.bib")
+knitr::write_bib(file = "assets/bib/packages.bib")
 ```
 
 [1] U.S. Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research (CDER) , Guidance for Industry Pharmacokinetics in Pregnancy — Study Design, Data Analysis, and Impact on Dosing and Labeling, (2004)

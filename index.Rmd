@@ -4,33 +4,28 @@ author: ["Kyun-Seop Bae", "Sungpil Han", "Seok Kyu Yoon", "Yong-Soon Cho"]
 date: "`r Sys.Date()`"
 knit: "bookdown::render_book"
 documentclass: krantz
-bibliography: ["manual.bib", "packages.bib"]
+bibliography: ["assets/bib/manual.bib", "assets/bib/packages.bib"]
 #csl: springer-vancouver.csl
 link-citations: true
 site: bookdown::bookdown_site
-description: "In this book, we will compare, review and discuss R Packages for noncompartmental analysis."
+description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다."
 graphics: yes
 url: 'http\://asancpt.github.io/NonCompartBook'
-github-repo: asancpt/NonCompartBook
-cover-image: cover.jpg
+github-repo: asancpt/book-ncar
+cover-image: assets/cover.jpg
 ---
 
 ```{r include = FALSE}
+library(pkr) 
+library(ncar)
 library(knitr)
 library(dplyr)
-library(pkr) # cran
 library(ggplot2)
 library(cowplot)
+# install.packages("lib/NonCompart_0.3.3.tar.gz", repos = NULL, lib = "./lib", type = "source")
+library(NonCompart, lib = "./lib") # local
 
 knitr::opts_chunk$set(error = TRUE)
-
-# NonCompart Library
-# library(NonCompart)
-# install.packages("lib/NonCompart_0.3.1.tar.gz", repos = NULL, lib = "./lib", type = "source")
-# install.packages("lib/ncar_0.3.5.tar.gz", repos = NULL, lib = "./lib", type = "source")
-
-library(NonCompart, lib = "./lib") # local
-library(ncar, lib = "./lib") # local
 
 # detach("package:ncar", unload = TRUE)
 # detach("package:pkr", unload = TRUE)
@@ -46,5 +41,5 @@ library(ncar, lib = "./lib") # local
 2017년 3월, 
 서울아산병원 임상약리학과 교수 배균섭, 전공의 한성필, 윤석규, 조용순 
 
-![Book cover](cover.jpg)
+![Book cover](assets/cover.jpg)
 

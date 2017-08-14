@@ -6,21 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Noncompartmental Analysis by R Packages</title>
-  <meta name="description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis.">
-  <meta name="generator" content="bookdown 0.3.9 and GitBook 2.6.7">
+  <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.">
+  <meta name="generator" content="bookdown 0.4.1 and GitBook 2.6.7">
 
   <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://asancpt.github.io/NonCompartBook" />
-  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
-  <meta property="og:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="github-repo" content="asancpt/NonCompartBook" />
+  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
+  <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
   
-  <meta name="twitter:description" content="In this book, we will compare, review and discuss R Packages for noncompartmental analysis." />
-  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookcover.jpg" />
+  <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
 
 <meta name="author" content="Kyun-Seop Bae">
 <meta name="author" content="Sungpil Han">
@@ -28,7 +28,7 @@
 <meta name="author" content="Yong-Soon Cho">
 
 
-<meta name="date" content="2017-04-18">
+<meta name="date" content="2017-08-15">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -90,7 +90,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -178,7 +178,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">3.2</span> NonCompart, ncar란?</h2>
 <p><code>DESCRIPTION</code> 파일을 보면 다음과 같이 <code>NonCompart</code> 를 설명하고 있습니다.</p>
 <blockquote>
-<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>. Some features are 1) CDISC SDTM terms 2) Automatic slope selection with the same criterion of WinNonlin(R) 3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method 4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
+<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>. Some features are 1) Use of CDISC SDTM terms 2) Automatic slope selection with the same criterion of WinNonlin(R) 3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method 4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
 <p><code>DESCRIPTION</code> 파일을 보면 다음과 같이 <code>ncar</code> 를 설명하고 있습니다.</p>
 <blockquote>
@@ -223,7 +223,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
 <script>
-require(["gitbook"], function(gitbook) {
+gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
 "github": false,
@@ -241,7 +241,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/ncar/edit/master/bookdown/11-NonCompart.Rmd",
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/01-NonCompart.Rmd",
 "text": "Edit"
 },
 "download": null,
@@ -257,7 +257,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(script.src))
       script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
