@@ -2,3 +2,17 @@ book_filename: book-ncar
 chapter_name: "Chapter "
 repo: https://github.com/asancpt/book-ncar
 output_dir: docs
+rmd_files: [
+    "index.Rmd", 
+    "ms-intro.Rmd",
+    "ms-NonCompart.Rmd",
+    "ms-kim.Rmd",
+    "ms-Details.Rmd",
+    "ms-conclusion.Rmd",
+    "ms-pknca.md",
+    "app-references.Rmd",
+]
+  # latex: ["index.Rmd"]
+
+
+

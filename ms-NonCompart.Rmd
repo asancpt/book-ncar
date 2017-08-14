@@ -1,0 +1,37 @@
+# NCA를 위한 R 패키지
+
+## 이 장에서는
+
+`NonCompart` [@R-NonCompart],  `ncar` [@R-ncar] 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 
+`NonCompart`의 제목은 `r packageDescription("NonCompart")$Title`이고, `ncar`의 제목은 `r packageDescription("ncar")$Title`입니다.
+이에 대해 알아보겠습니다.
+
+## NonCompart, ncar란?
+
+`DESCRIPTION` 파일을 보면 다음과 같이 `NonCompart` 를 설명하고 있습니다.
+
+> `r packageDescription("NonCompart")$Description`
+
+`DESCRIPTION` 파일을 보면 다음과 같이 `ncar` 를 설명하고 있습니다.
+
+> `r packageDescription("ncar")$Description`
+
+
+## 설치 
+
+우선 R을 설치한다. R은 아래 링크에서 다운로드 받을 수 있습니다.
+<https://r-project.org/>
+
+R을 실행한 후, 아래와 같이 패키지를 설치합니다. 
+
+```r
+install.packages("NonCompart")
+install.packages("ncar")
+```
+
+이제 아래와 같이 입력하여 패키지를 불러올 수 있습니다.
+
+```r
+library(NonCompart)
+library(ncar)
+```
