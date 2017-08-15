@@ -9,3 +9,8 @@ knitr::write_bib(file = "assets/bib/packages.bib")
 [3] Hadley Wickham, Advanced R (Chapman & Hall/CRC The R Series) 1st Ed ,25 sep 2014
 [4] Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
 [5] http://www.edison.re.kr. EDISON 웹사이트. 
+
+```{r}
+sessionInfo()
+```
+

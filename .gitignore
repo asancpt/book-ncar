@@ -1,7 +1,5 @@
-docs/
+_bookdown_files
 
-# Bookdown files
-# _bookdown_files
 
 # History files
 .Rhistory

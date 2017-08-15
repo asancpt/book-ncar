@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Noncompartmental Analysis by R Packages</title>
+  <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다.">
+  <meta name="generator" content="bookdown 0.4.3 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Noncompartmental Analysis by R Packages" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://asancpt.github.io/NonCompartBook" />
+  <meta property="og:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
+  <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="github-repo" content="asancpt/book-ncar" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Noncompartmental Analysis by R Packages" />
+  
+  <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료 공개소프트웨어라는 점에서 많은 기관에서 손쉽게 접하고 설치할 수 있으리라 생각됩니다." />
+  <meta name="twitter:image" content="http://asancpt.github.io/NonCompartBookassets/cover.jpg" />
+
+<meta name="author" content="Kyun-Seop Bae">
+<meta name="author" content="Sungpil Han">
+<meta name="author" content="Seok Kyu Yoon">
+<meta name="author" content="Yong-Soon Cho">
+
+
+<meta name="date" content="2017-08-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="conclusion.html">
+<link rel="next" href="references.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">Noncompartmental Analysis by R Packages</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#ec9a94ec95bd"><i class="fa fa-check"></i>요약</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 서론</a></li>
+<li class="chapter" data-level="2" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>2</b> 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="3" data-path="nca-r-.html"><a href="nca-r-.html"><i class="fa fa-check"></i><b>3</b> NCA를 위한 R 패키지</a><ul>
+<li class="chapter" data-level="3.1" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="3.2" data-path="nca-r-.html"><a href="nca-r-.html#noncompart-ncar"><i class="fa fa-check"></i><b>3.2</b> NonCompart, ncar란?</a></li>
+<li class="chapter" data-level="3.3" data-path="nca-r-.html"><a href="nca-r-.html#section-3.3"><i class="fa fa-check"></i><b>3.3</b> 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="noncompart-.html"><a href="noncompart-.html"><i class="fa fa-check"></i><b>4</b> NonCompart 사용법</a><ul>
+<li class="chapter" data-level="4.1" data-path="noncompart-.html"><a href="noncompart-.html#TheophData"><i class="fa fa-check"></i><b>4.1</b> 데이타에 대하여</a></li>
+<li class="chapter" data-level="4.2" data-path="noncompart-.html"><a href="noncompart-.html#calculation-setting"><i class="fa fa-check"></i><b>4.2</b> Calculation Setting</a></li>
+<li class="chapter" data-level="4.3" data-path="noncompart-.html"><a href="noncompart-.html#fitting-auc-aumc-result"><i class="fa fa-check"></i><b>4.3</b> Fitting, AUC, AUMC Result</a></li>
+<li class="chapter" data-level="4.4" data-path="noncompart-.html"><a href="noncompart-.html#time-conc.-pred.-residual-auc-aumc-weight"><i class="fa fa-check"></i><b>4.4</b> Time Conc. Pred. Residual AUC AUMC Weight</a></li>
+<li class="chapter" data-level="4.5" data-path="noncompart-.html"><a href="noncompart-.html#calculated-values"><i class="fa fa-check"></i><b>4.5</b> Calculated Values</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="DetailsNCA.html"><a href="DetailsNCA.html"><i class="fa fa-check"></i><b>5</b> NCA 소프트웨어</a><ul>
+<li class="chapter" data-level="5.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#detailschapter"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="5.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>5.2</b> Certara Phoenix WinNonLin</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros"><i class="fa fa-check"></i><b>5.2.1</b> Pros</a></li>
+<li class="chapter" data-level="5.2.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons"><i class="fa fa-check"></i><b>5.2.2</b> Cons</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pkr"><i class="fa fa-check"></i><b>5.3</b> R package: pkr</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros-1"><i class="fa fa-check"></i><b>5.3.1</b> Pros</a></li>
+<li class="chapter" data-level="5.3.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons-1"><i class="fa fa-check"></i><b>5.3.2</b> Cons</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pknca"><i class="fa fa-check"></i><b>5.4</b> R package: PKNCA</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pros-2"><i class="fa fa-check"></i><b>5.4.1</b> Pros</a></li>
+<li class="chapter" data-level="5.4.2" data-path="DetailsNCA.html"><a href="DetailsNCA.html#cons-2"><i class="fa fa-check"></i><b>5.4.2</b> Cons</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-ncappc"><i class="fa fa-check"></i><b>5.5</b> R package: ncappc</a></li>
+<li class="chapter" data-level="5.6" data-path="DetailsNCA.html"><a href="DetailsNCA.html#r-package-pk"><i class="fa fa-check"></i><b>5.6</b> R package: PK</a></li>
+<li class="chapter" data-level="5.7" data-path="DetailsNCA.html"><a href="DetailsNCA.html#kinetica"><i class="fa fa-check"></i><b>5.7</b> Kinetica</a></li>
+<li class="chapter" data-level="5.8" data-path="DetailsNCA.html"><a href="DetailsNCA.html#scientist"><i class="fa fa-check"></i><b>5.8</b> Scientist</a></li>
+<li class="chapter" data-level="5.9" data-path="DetailsNCA.html"><a href="DetailsNCA.html#pksolver"><i class="fa fa-check"></i><b>5.9</b> PKSolver</a></li>
+<li class="chapter" data-level="5.10" data-path="DetailsNCA.html"><a href="DetailsNCA.html#summary"><i class="fa fa-check"></i><b>5.10</b> Summary</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>6</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> 결론</a></li>
+<li class="chapter" data-level="8" data-path="acknowledgement.html"><a href="acknowledgement.html"><i class="fa fa-check"></i><b>8</b> 감사의 글</a><ul>
+<li class="chapter" data-level="8.0.1" data-path="acknowledgement.html"><a href="acknowledgement.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>8.0.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="8.0.2" data-path="acknowledgement.html"><a href="acknowledgement.html#-nca----."><i class="fa fa-check"></i><b>8.0.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="8.0.3" data-path="acknowledgement.html"><a href="acknowledgement.html#section-8.0.3"><i class="fa fa-check"></i><b>8.0.3</b> 한계</a></li>
+<li class="chapter" data-level="8.0.4" data-path="acknowledgement.html"><a href="acknowledgement.html#pknca--0.7"><i class="fa fa-check"></i><b>8.0.4</b> PKNCA 현재는 0.7</a></li>
+<li class="chapter" data-level="8.0.5" data-path="acknowledgement.html"><a href="acknowledgement.html#pknca--1.0-."><i class="fa fa-check"></i><b>8.0.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
+<li class="chapter" data-level="8.0.6" data-path="acknowledgement.html"><a href="acknowledgement.html#section-8.0.6"><i class="fa fa-check"></i><b>8.0.6</b> 참고사항</a></li>
+<li class="chapter" data-level="8.0.7" data-path="acknowledgement.html"><a href="acknowledgement.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>8.0.7</b> RStudio를 사용한 Hands-on 실습</a></li>
+<li class="chapter" data-level="8.0.8" data-path="acknowledgement.html"><a href="acknowledgement.html#closing"><i class="fa fa-check"></i><b>8.0.8</b> Closing</a></li>
+<li class="chapter" data-level="8.0.9" data-path="acknowledgement.html"><a href="acknowledgement.html#section-8.0.9"><i class="fa fa-check"></i><b>8.0.9</b> 결론</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="http://github.com/asancpt/ncar">ncar Github Repo</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Noncompartmental Analysis by R Packages</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="acknowledgement" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> 감사의 글</h1>
+<p>본 논문은 2016년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구임(NRF-2016-936606).</p>
+
+<p>Automation of Noncompartmental Analysis in R</p>
+<div id="isop-pharmacometrics-study-group-presentation" class="section level3">
+<h3><span class="header-section-number">8.0.1</span> ISoP Pharmacometrics Study Group Presentation</h3>
+<ul>
+<li><p>강의 동영상 <a href="https://www.youtube.com/watch?v=WCmFrheYtcc" class="uri">https://www.youtube.com/watch?v=WCmFrheYtcc</a></p></li>
+<li><p>프로젝트 <a href="https://github.com/billdenney/pknca" class="uri">https://github.com/billdenney/pknca</a></p></li>
+<li><p>Package <a href="https://cran.r-project.org/web/packages/PKNCA/" class="uri">https://cran.r-project.org/web/packages/PKNCA/</a></p>
+<ul>
+<li>예제 R Markdown 파일 : <a href="https://github.com/billdenney/pknca/tree/master/vignettes" class="uri">https://github.com/billdenney/pknca/tree/master/vignettes</a></li>
+</ul></li>
+<li><p>PPT 파일</p></li>
+<li><p>PKNCA 패키지란 무엇인가? * Pharmacokinetic(PK) data를 위한 모든 noncompartmental analysis (NCA) 계산이 가능한 R용 패키지</p></li>
+</ul>
+<pre><code>
+
+library(devtools)
+
+
+install_github(&quot;billdenney/pknca&quot;)
+
+</code></pre>
+</div>
+<div id="-nca----." class="section level3">
+<h3><span class="header-section-number">8.0.2</span> 오픈소스 NCA - 지금이 적기이다.</h3>
+<ul>
+<li><p>Data standards 가 점점 많아짐</p></li>
+<li><p>CDISC/SDTM가 FDA requirement</p></li>
+<li><p>CDISC ADaM working group is standardizing NCA data set (ADNCA) |</p>
+<ul>
+<li>CDISC SDTM pharmacokinetic concentration (PC) and pharmacokinetic parameter (PP) domains have been standardized</li>
+</ul></li>
+<li><p>우리도 R로 NCA?</p>
+<h3 id="--"><span class="header-section-number">8.0.2</span> 할수 있는 것</h3>
+<ul>
+<li>Organizes concentration/time and dose/time data</li>
+</ul></li>
+<li><p>Predicts what you most likely need from NCA parameters from the concentration and dosing data.</p></li>
+<li><p>Allows user control of all NCA parameter and summary calculations</p></li>
+<li><p>Calculates all (standard) NCA parameters (Targeting the SDTM PK 파라메터)</p></li>
+<li><p>Summarizes the parameters</p></li>
+</ul>
+</div>
+<div id="section-8.0.3" class="section level3">
+<h3><span class="header-section-number">8.0.3</span> 한계</h3>
+<ul>
+<li><p>그래픽 못그림</p></li>
+<li><p>파라메터의 statistics 못구함 (곧 기능 추가할듯)</p></li>
+</ul>
+</div>
+<div id="pknca--0.7" class="section level3">
+<h3><span class="header-section-number">8.0.4</span> PKNCA 현재는 0.7</h3>
+<ul>
+<li><p>NCA 파라메터 계산가능 (Cmax, Tmax, AUClast, AUCinf, AUMC, half-life, …)</p></li>
+<li><p>NCA-related calculations (Superposition, Concentration interpolation/extrapolation (with AUC methods), Time to steady-state)</p></li>
+<li><p>SDTM PP-READY OUTPUT 가능</p></li>
+<li><p>인풋에서 아웃풋까지 TRACK가능하다.</p></li>
+<li><p>800개 넘는 테스트 케이스가 있음.</p></li>
+</ul>
+</div>
+<div id="pknca--1.0-." class="section level3">
+<h3><span class="header-section-number">8.0.5</span> PKNCA 곧 1.0이 나올것이다.</h3>
+<ul>
+<li>Improved prediction of desired parameters (정확도 accuracy, number 등)</li>
+</ul>
+</div>
+<div id="section-8.0.6" class="section level3">
+<h3><span class="header-section-number">8.0.6</span> 참고사항</h3>
+<ul>
+<li><p>Github에서 모두 다운로드 가능</p></li>
+<li><p>CRAN에 package올라왔다. (0.7) <a href="https://cran.r-project.org/web/packages/PKNCA/" class="uri">https://cran.r-project.org/web/packages/PKNCA/</a></p>
+<ul>
+<li><a href="mailto:wdenney@humanpredictions.com">wdenney@humanpredictions.com</a> 으로 메일 보내라</li>
+</ul></li>
+<li><p>모든게 오픈이기 때문에 Github에서 기여 환영</p></li>
+</ul>
+</div>
+<div id="rstudio--hands-on-" class="section level3">
+<h3><span class="header-section-number">8.0.7</span> RStudio를 사용한 Hands-on 실습</h3>
+<div id="example-theophylline.rmd" class="section level4">
+<h4><span class="header-section-number">8.0.7.1</span> Example-theophylline.Rmd</h4>
+<ul>
+<li><p>Theophylline 농도를 가지고 PK Parameter 구하는 법</p></li>
+<li><p><a href="https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd" class="uri">https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd</a></p></li>
+<li><p>이 파일을 RStudio에서 실행해본다.</p></li>
+<li><p>이후 article에서 분석할 것입니다.</p></li>
+</ul>
+</div>
+<div id="superposition.rmd" class="section level4">
+<h4><span class="header-section-number">8.0.7.2</span> Superposition.Rmd</h4>
+<ul>
+<li><p><a href="https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd" class="uri">https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd</a></p></li>
+<li><p>이 파일을 RStudio에서 실행해본다.</p></li>
+</ul>
+</div>
+</div>
+<div id="closing" class="section level3">
+<h3><span class="header-section-number">8.0.8</span> Closing</h3>
+<ul>
+<li>PKNCA.options() 모든 옵션을 볼 수 있다.</li>
+</ul>
+</div>
+<div id="section-8.0.9" class="section level3">
+<h3><span class="header-section-number">8.0.9</span> 결론</h3>
+<ul>
+<li>써보고 feedback주고 contribute해라.</li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/asancpt/ncar/edit/master/bookdown/ms-conclusion.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
