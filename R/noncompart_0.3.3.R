@@ -1,11 +1,11 @@
 # setup ----
 
-library(tidyverse)
-library(NonCompart, lib = './lib') # 0.3.3
-library(ncar)
-
 # install.packages("lib/NonCompart_0.3.3.tar.gz", repos = NULL, lib = "./lib", type = "source")
 # install.packages("lib/NonCompart_0.3.3.tar.gz", repos = NULL, type = "source")
+
+library(tidyverse)
+library(NonCompart) # 0.3.3
+library(ncar) # 0.3.7
 
 tblNcaWrap <- function(df) {
   parameters <- attributes(df)$dimnames[[2]]
@@ -26,5 +26,4 @@ Conc <- read.csv("lib/NonCompart-src/tests/BE-Conc.csv", as.is=TRUE) # folder ìœ
 Res1 <- tblNCA(Conc, key=c("SUBJ", "GRP", "PRD", "TRT"), colTime="TIME", colConc="CONC", dose=100)
 
 tblNcaWrap(Res1) #%>% View
-
 
