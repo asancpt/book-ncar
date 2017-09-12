@@ -1,0 +1,11 @@
+# R을 사용한 약동학 시뮬레이션 {#simulation}
+
+## 이 장에서는 {#summary-simulation}
+
+## 시뮬레이션에 대하여
+
+TBD
+
+## 시뮬레이션 후 비구획분석
+
+TBD

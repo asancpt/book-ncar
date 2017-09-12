@@ -22,10 +22,7 @@
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="http://asancpt.github.io/book-ncarassets/cover.jpg" />
 
-<meta name="author" content="배균섭">
-<meta name="author" content="한성필">
-<meta name="author" content="윤석규">
-<meta name="author" content="조용순">
+<meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
 <meta name="date" content="2017-09-12">
@@ -135,8 +132,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="5.3" data-path="pkr.html"><a href="pkr.html#pros"><i class="fa fa-check"></i><b>5.3</b> Pros</a></li>
 <li class="chapter" data-level="5.4" data-path="pkr.html"><a href="pkr.html#cons"><i class="fa fa-check"></i><b>5.4</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>6</b> 결과 및 논의</a></li>
-<li class="chapter" data-level="7" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>7</b> 결론</a></li>
+<li class="chapter" data-level="6" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 약동학 시뮬레이션</a><ul>
+<li class="chapter" data-level="6.1" data-path="simulation.html"><a href="simulation.html#summary-simulation"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="6.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>6.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="6.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>6.3</b> 시뮬레이션 후 비구획분석</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>7</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>A</b> 비구획분석 소프트웨어</a><ul>
 <li class="chapter" data-level="A.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>A.1</b> 이 장에서는</a></li>
@@ -188,16 +190,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="header">
 <h1 class="title">R을 사용한 비구획분석 v0.1.0</h1>
-<h4 class="author"><em>배균섭</em></h4>
-<h4 class="author"><em>한성필</em></h4>
-<h4 class="author"><em>윤석규</em></h4>
-<h4 class="author"><em>조용순</em></h4>
+<h4 class="author"><em>배균섭, 한성필, 윤석규, 조용순</em></h4>
 <h4 class="date"><em>2017-09-12</em></h4>
 </div>
 <div id="-" class="section level1 unnumbered">
 <h1>책 머리에</h1>
 <p><a href="https://github.com/asancpt/book-ncar"><img src="assets/cover.jpg" style="max-width:20%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="Github repo" /></a></p>
-<p>이 책은 R을 사용하여 약동학 파라메터를 구할 시 활용되는 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 널리 쓰이지만 값비싼 상용 소프트웨어와 동일한 결과를 얻을 수 있음을 반복적으로 확인하였습니다. 숫자 계산 뿐만 아니라 시각화도 가능하여 농도-시간 곡선 등의 시각화도 가능합니다. CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.</p>
+<blockquote>
+<p>단순함은 궁극의 정교함이다.<br />
+Simplicity is the ultimate sophistication.<br />
+- 레오나르도 다빈치</p>
+</blockquote>
+<p>이 책은 R을 사용하여 약동학 파라메터를 구할 시 활용되는 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 널리 쓰이지만 값비싼 상용 소프트웨어와 동일한 결과를 얻을 수 있음을 반복적으로 확인하였습니다. 숫자 계산 뿐만 아니라 시각화도 가능하여 농도-시간 곡선, 용량군 별 파라메터의 forest plot 등의 유용한 그림도 쉽게 그릴 수 있습니다. CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.</p>
 <p>한번 익혀두면 속도와 연속성 측면에서 커다란 잇점이 있음을 것을 발견할 수 있을 것입니다. 또한 재현가능한 연구를 보다 수월하게 구현할 수 있습니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 학교, 연구소, 정부기관, 제약회사 등에서 라이센스 등의 제약 없이 손쉽게 설치하고 실행할 수 있으리라 생각됩니다. 책에 대한 피드백, 오탈자 신고 등은 <a href="https://github.com/asancpt/book-ncar/issues">깃허브 저장소</a>에 남겨주십시오.</p>
 <p>감사합니다.</p>
 <p>2017년 9월<br />

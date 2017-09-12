@@ -10,6 +10,7 @@ rmd_files: [
     "ms-30-NonCompart.Rmd",
     "ms-35-ncar.Rmd",
     "ms-40-pkr.Rmd",
+    "ms-45-pkSim.Rmd",
     "ms-50-conclusion.Rmd",
     "app-00-init.Rmd",
     "app-10-others.Rmd",

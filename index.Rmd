@@ -1,6 +1,6 @@
 ---
 title: "R을 사용한 비구획분석 v0.1.0"
-author: ["배균섭", "한성필", "윤석규", "조용순"]
+author: "배균섭, 한성필, 윤석규, 조용순"
 date: "`r Sys.Date()`"
 knit: "bookdown::render_book"
 documentclass: krantz
@@ -29,14 +29,17 @@ knitr::opts_chunk$set(error = TRUE)
 # detach("package:NonCompart", unload = TRUE)
 ```
 
-
 # 책 머리에 {-}
 
 [<img src="assets/cover.jpg" style="max-width:20%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="Github repo" />](https://github.com/asancpt/book-ncar)
 
+> 단순함은 궁극의 정교함이다.  
+> Simplicity is the ultimate sophistication.  
+> - 레오나르도 다빈치
+
 이 책은 R을 사용하여 약동학 파라메터를 구할 시 활용되는 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 
 널리 쓰이지만 값비싼 상용 소프트웨어와 동일한 결과를 얻을 수 있음을 반복적으로 확인하였습니다. 
-숫자 계산 뿐만 아니라 시각화도 가능하여 농도-시간 곡선 등의 시각화도 가능합니다.
+숫자 계산 뿐만 아니라 시각화도 가능하여 농도-시간 곡선, 용량군 별 파라메터의 forest plot 등의 유용한 그림도 쉽게 그릴 수 있습니다.
 CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 한번 익혀두면 속도와 연속성 측면에서 커다란 잇점이 있음을 것을 발견할 수 있을 것입니다. 
@@ -54,3 +57,4 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 ## 감사의 글 {-}
 
 본 출판물은 2016, 2017년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).
+
