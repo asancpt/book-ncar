@@ -1,0 +1,35 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# R을 사용한 비구획분석 시각화 {#pkr}
+
+## 이 장에서는 {#summary-pkr}
+
+NCA에 대한 다양한 시각화를 가능하게 해 주는 `pkr` 패키지에 대해 알아보겠습니다.
+
+## pkr 사용법
+
+Extension of NonCompart for CDISC input
+
+## Pros
+
+- Open source and free of charge
+- CDISC SDTM fully compatible (input - DM, EX, PC)
+- Output of CDISC SDTM PP domain terms 
+- Calculate partial(interval) AUC with 'linear' or 'log' interpolation method
+
+## Cons
+
+- More tests required
+- Experience with R language required
+- Generating plots not supported for now (To be supported soon)
+
+```{r}
+# Theoph and Indometh data: dose in mg, conc in mg/L, time in h
+pkr::NCA(Theoph, "Subject", "Time", "conc", dose=320, uConc="mg/L")
+pkr::NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", uConc="mg/L")
+```
+

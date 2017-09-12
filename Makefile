@@ -6,3 +6,6 @@ all:
 
 clean:
 	Rscript -e "options(bookdown.clean_book = TRUE);bookdown::clean_book()"
+
+publish:
+	Rscript --quiet _render.R "bookdown::gitbook" ; lazygit 'publish: gitbook'

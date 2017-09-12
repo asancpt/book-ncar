@@ -2,16 +2,18 @@ book_filename: book-ncar
 chapter_name: "Chapter "
 repo: https://github.com/asancpt/book-ncar
 output_dir: docs
+delete_merged_file: true
 rmd_files: [
     "index.Rmd", 
-    "ms-intro.Rmd",
-    "ms-NonCompart.Rmd",
-    "ms-kim.Rmd",
-    "ms-Details.Rmd",
-    "ms-conclusion.Rmd",
-    "ms-pknca.md",
-    "app-references.Rmd",
+    "ms-10-intro.Rmd",
+    "ms-20-R-packages.Rmd",
+    "ms-30-NonCompart.Rmd",
+    "ms-35-ncar.Rmd",
+    "ms-40-pkr.Rmd",
+    "ms-50-conclusion.Rmd",
+    "app-00-init.Rmd",
+    "app-10-others.Rmd",
+    "app-99-references.Rmd"
 ]
   # latex: ["index.Rmd"]
-
 
