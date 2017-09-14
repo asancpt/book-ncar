@@ -9,3 +9,14 @@ TBD
 ## 시뮬레이션 후 비구획분석
 
 TBD
+
+## 앱을 통해 살펴보는 시뮬레이션
+
+샤이니 앱을 통해서 시뮬레이션을 구현할 수 있습니다. Shinyapp: PK Simulation - 1 Comp IV or Oral <https://asan.shinyapps.io/pk1c/>
+
+```{r}
+knitr::include_app("https://asan.shinyapps.io/pk1c/") #, height = "600px")
+```
+
+
+
