@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-09-14">
+<meta name="date" content="2017-10-01">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -125,7 +125,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="4" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석 보고서</a><ul>
 <li class="chapter" data-level="4.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="4.2" data-path="ncar.html"><a href="ncar.html#ncar-"><i class="fa fa-check"></i><b>4.2</b> ncar 사용법</a></li>
+<li class="chapter" data-level="4.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>4.2</b> txtNCA</a></li>
+<li class="chapter" data-level="4.3" data-path="ncar.html"><a href="ncar.html#ncar-"><i class="fa fa-check"></i><b>4.3</b> ncar 사용법</a></li>
 </ul></li>
 <li class="chapter" data-level="5" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 시각화</a><ul>
 <li class="chapter" data-level="5.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
@@ -193,47 +194,50 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="sessioninfo" class="section level1 unnumbered">
 <h1>sessionInfo</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sessionInfo</span>()</code></pre></div>
-<pre><code>## R version 3.4.1 (2017-06-30)
-## Platform: x86_64-apple-darwin15.6.0 (64-bit)
-## Running under: macOS Sierra 10.12.6
+<pre><code>## R version 3.4.2 (2017-09-28)
+## Platform: x86_64-apple-darwin17.0.0 (64-bit)
+## Running under: macOS High Sierra 10.13
 ## 
 ## Matrix products: default
-## BLAS: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRblas.0.dylib
-## LAPACK: /Library/Frameworks/R.framework/Versions/3.4/Resources/lib/libRlapack.dylib
+## BLAS: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+## LAPACK: /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
 ## 
 ## locale:
-## [1] ko_KR.UTF-8/ko_KR.UTF-8/ko_KR.UTF-8/C/ko_KR.UTF-8/ko_KR.UTF-8
+## [1] en_US.UTF-8/en_US.UTF-8/en_US.UTF-8/C/en_US.UTF-8/en_US.UTF-8
 ## 
 ## attached base packages:
 ## [1] grid      stats     graphics  grDevices utils     datasets  base     
 ## 
 ## other attached packages:
-##  [1] bindrcpp_0.2         ncar_0.3.7           rtf_0.4-11          
-##  [4] pkr_0.1.1            forestplot_1.7       checkmate_1.8.3     
-##  [7] magrittr_1.5         binr_1.1             foreign_0.8-69      
-## [10] NonCompart_0.3.3     cowplot_0.8.0        knitr_1.17          
-## [13] forcats_0.2.0        stringr_1.2.0        dplyr_0.7.3         
-## [16] purrr_0.2.3          readr_1.1.1          tidyr_0.7.1         
-## [19] tibble_1.3.4         ggplot2_2.2.1        tidyverse_1.1.1.9000
+##  [1] PK_1.3-3             ncappc_0.2.1.1       gridExtra_2.3       
+##  [4] PKNCA_0.8.1          bindrcpp_0.2         ncar_0.3.7          
+##  [7] rtf_0.4-11           pkr_0.1.1            forestplot_1.7.2    
+## [10] checkmate_1.8.4      magrittr_1.5         binr_1.1            
+## [13] foreign_0.8-69       NonCompart_0.3.3     cowplot_0.8.0       
+## [16] knitr_1.17           forcats_0.2.0        stringr_1.2.0       
+## [19] dplyr_0.7.4          purrr_0.2.3          readr_1.1.1         
+## [22] tidyr_0.7.1          tibble_1.3.4         ggplot2_2.2.1       
+## [25] tidyverse_1.1.1.9000
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] clisymbols_1.2.0  reshape2_1.4.2    haven_1.1.0      
-##  [4] lattice_0.20-35   colorspace_1.3-2  htmltools_0.3.6  
-##  [7] yaml_2.1.14       rlang_0.1.2.9000  R.oo_1.21.0      
-## [10] glue_1.1.1        modelr_0.1.1      readxl_1.0.0     
-## [13] bindr_0.1         plyr_1.8.4        munsell_0.4.3    
-## [16] gtable_0.2.0      cellranger_1.1.0  R.methodsS3_1.7.1
-## [19] rvest_0.3.2       psych_1.7.8       evaluate_0.10.1  
-## [22] labeling_0.3      parallel_3.4.1    highr_0.6        
-## [25] broom_0.4.2       methods_3.4.1     Rcpp_0.12.12     
-## [28] backports_1.1.0   scales_0.5.0      jsonlite_1.5     
-## [31] boxes_0.0.0.9000  mnormt_1.5-5      hms_0.3          
-## [34] digest_0.6.12     stringi_1.1.5     bookdown_0.5     
-## [37] rprojroot_1.2     tools_3.4.1       lazyeval_0.2.0   
-## [40] crayon_1.3.2.9000 pkgconfig_2.0.1   xml2_1.1.1       
-## [43] lubridate_1.6.0   assertthat_0.2.0  rmarkdown_1.6    
-## [46] httr_1.3.1        rstudioapi_0.7    R6_2.2.2         
-## [49] nlme_3.1-131      compiler_3.4.1</code></pre>
+##  [1] Rcpp_0.12.13      lubridate_1.6.0   lattice_0.20-35  
+##  [4] clisymbols_1.2.0  assertthat_0.2.0  rprojroot_1.2    
+##  [7] digest_0.6.12     psych_1.7.8       R6_2.2.2         
+## [10] cellranger_1.1.0  plyr_1.8.4        backports_1.1.1  
+## [13] evaluate_0.10.1   httr_1.3.1        highr_0.6        
+## [16] rlang_0.1.2       lazyeval_0.2.0    readxl_1.0.0     
+## [19] rstudioapi_0.7    R.oo_1.21.0       rmarkdown_1.6    
+## [22] boxes_0.0.0.9000  labeling_0.3      munsell_0.4.3    
+## [25] broom_0.4.2       compiler_3.4.2    modelr_0.1.1     
+## [28] pkgconfig_2.0.1   mnormt_1.5-5      htmltools_0.3.6  
+## [31] bookdown_0.5      crayon_1.3.4      R.methodsS3_1.7.1
+## [34] xtable_1.8-2      nlme_3.1-131      jsonlite_1.5     
+## [37] gtable_0.2.0      scales_0.5.0      stringi_1.1.5    
+## [40] reshape2_1.4.2    testthat_1.0.2    xml2_1.1.1       
+## [43] tools_3.4.2       glue_1.1.1        hms_0.3          
+## [46] parallel_3.4.2    yaml_2.1.14       colorspace_1.3-2 
+## [49] rvest_0.3.2       bindr_0.1         haven_1.1.0      
+## [52] methods_3.4.2</code></pre>
 </div>
             </section>
 

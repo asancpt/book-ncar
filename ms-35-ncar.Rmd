@@ -10,6 +10,26 @@ editor_options:
 
 보고서를 일정한 형식으로 작성하여 다른 사람/기관과 공유하는 것은 중요합니다. 이를 `ncar` 패키지를 사용하여 좀더 쉽게 할 수 있습니다.
 
+
+## txtNCA
+
+```{r, results = 'markup'}
+txtNCA_Theoph <- Theoph %>% 
+  as_tibble() %>% 
+  group_by(Subject) %>% 
+  summarise(res = c(ID = glue::glue('ID={unique(Subject)}\n\n'),
+                   txtNCA(Time, 
+                         conc, 
+                         dose=320, 
+                         doseUnit="mg", 
+                         concUnit="mg/L", 
+                         timeUnit="h")) %>% paste(collapse = '\n')) %>%
+  .$res %>%
+  paste(collapse = '\n\n\n\n\n\n')
+txtNCA_Theoph
+```
+
+
 ## ncar 사용법
 
 약동학 파라이터를 보고서 형식의 text 파일로 저장해보자.
