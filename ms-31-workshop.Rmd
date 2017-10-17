@@ -48,12 +48,12 @@ NCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", uConc="mg/L")
 ```{r}
 # Theoph and Indometh data: dose in mg, conc in mg/L, time in h
 
-tabNCA(Theoph, dose=320, concUnit="mg/L")
-tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
+tblNCA(Theoph, dose=320, concUnit="mg/L")
+tblNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
        adm="Infusion", dur=0.5, concUnit="mg/L")
 
-tabNCA(Theoph, dose=320, concUnit="mg/L")
-tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
+tblNCA(Theoph, dose=320, concUnit="mg/L")
+tblNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
        adm="Infusion", dur=0.5, concUnit="mg/L")
 ```
 
@@ -80,11 +80,11 @@ rtfNCA(fileName="NCA-Indometh.rtf", Indometh, colSubj="Subject", colTime="time",
 ``` {r}
 # Theoph and Indometh data: dose in mg, conc in mg/L, time in h
 
-tabNCA(Theoph, dose=320, concUnit="mg/L")
-tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
+tblNCA(Theoph, dose=320, concUnit="mg/L")
+tblNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25,
        adm="Infusion", dur=0.5, concUnit="mg/L")
        
-tabNCA(Theoph, dose=320, concUnit="mg/L")
-tabNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25, 
+tblNCA(Theoph, dose=320, concUnit="mg/L")
+tblNCA(Indometh, colSubj="Subject", colTime="time", colConc="conc", dose=25, 
        adm="Infusion", dur=0.5, concUnit="mg/L")
 ```

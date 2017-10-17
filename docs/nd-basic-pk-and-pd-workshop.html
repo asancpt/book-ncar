@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.4 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -109,8 +109,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#section-1.2"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
-<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>2</b> R 패키지</a><ul>
 <li class="chapter" data-level="2.1" data-path="r-packages.html"><a href="r-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
@@ -123,6 +123,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.2" data-path="noncompart.html"><a href="noncompart.html#TheophData"><i class="fa fa-check"></i><b>3.2</b> 데이타에 대해</a></li>
 <li class="chapter" data-level="3.3" data-path="noncompart.html"><a href="noncompart.html#noncompart-"><i class="fa fa-check"></i><b>3.3</b> NonCompart 사용법</a></li>
 <li class="chapter" data-level="3.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.4</b> 함수 살펴보기</a></li>
+<li class="chapter" data-level="3.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>3.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html"><i class="fa fa-check"></i><b>4</b> 2nd Basic PK and PD Workshop</a><ul>
 <li class="chapter" data-level="4.1" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html#data-prep."><i class="fa fa-check"></i><b>4.1</b> data prep.</a><ul>
@@ -224,7 +225,7 @@ Theoph[Theoph<span class="op">$</span>Subject <span class="op">==</span><span cl
 <span class="kw">xyplot</span>(conc<span class="op">~</span>Time <span class="op">|</span><span class="st"> </span>Subject, <span class="dt">data=</span>Theoph,<span class="dt">Type =</span> <span class="st">&quot;l&quot;</span>)
 <span class="kw">xyplot</span>(conc<span class="op">~</span>Time <span class="op">|</span><span class="st"> </span>Subject, <span class="dt">data=</span>Theoph,<span class="dt">type =</span> <span class="st">&quot;o”)</span>
 <span class="st">       </span></code></pre></div>
-<pre><code>## Error: &lt;text&gt;:20:48: unexpected INCOMPLETE_STRING
+<pre><code>## Error: &lt;text&gt;:20:48: 예기치 않은 INCOMPLETE_STRING입니다
 ## 20: xyplot(conc~Time | Subject, data=Theoph,type = &quot;o”)
 ## 21:        
 ##                                                    ^</code></pre>
@@ -347,16 +348,292 @@ Theoph[Theoph<span class="op">$</span>Subject <span class="op">==</span><span cl
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
 
-<span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
+<span class="kw">tblNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] &quot;1&quot;     &quot;2.36878509420585&quot; &quot;10.5&quot;  &quot;0.0328125&quot;  &quot;1.12&quot; &quot;0&quot;  &quot;3.28&quot;
+##  [2,] &quot;2&quot;     &quot;2.41123733696293&quot; &quot;8.33&quot;  &quot;0.02603125&quot; &quot;1.92&quot; &quot;0&quot;  &quot;0.9&quot; 
+##  [3,] &quot;3&quot;     &quot;2.52971150145858&quot; &quot;8.2&quot;   &quot;0.025625&quot;   &quot;1.02&quot; &quot;0&quot;  &quot;1.05&quot;
+##  [4,] &quot;4&quot;     &quot;2.59275546723663&quot; &quot;8.6&quot;   &quot;0.026875&quot;   &quot;1.07&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [5,] &quot;5&quot;     &quot;2.55109229061238&quot; &quot;11.4&quot;  &quot;0.035625&quot;   &quot;1&quot;    &quot;0&quot;  &quot;1.57&quot;
+##  [6,] &quot;6&quot;     &quot;2.0334043955261&quot;  &quot;6.44&quot;  &quot;0.020125&quot;   &quot;1.15&quot; &quot;0&quot;  &quot;0.92&quot;
+##  [7,] &quot;7&quot;     &quot;2.28854976005424&quot; &quot;7.09&quot;  &quot;0.02215625&quot; &quot;3.48&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [8,] &quot;8&quot;     &quot;2.17040271754659&quot; &quot;7.56&quot;  &quot;0.023625&quot;   &quot;2.02&quot; &quot;0&quot;  &quot;1.25&quot;
+##  [9,] &quot;9&quot;     &quot;2.12464810390587&quot; &quot;9.03&quot;  &quot;0.02821875&quot; &quot;0.63&quot; &quot;0&quot;  &quot;1.12&quot;
+## [10,] &quot;10&quot;    &quot;2.65770546248091&quot; &quot;10.21&quot; &quot;0.03190625&quot; &quot;3.55&quot; &quot;0&quot;  &quot;2.42&quot;
+## [11,] &quot;11&quot;    &quot;2.1475943307927&quot;  &quot;8&quot;     &quot;0.025&quot;      &quot;0.98&quot; &quot;0&quot;  &quot;0.86&quot;
+## [12,] &quot;12&quot;    &quot;2.82449347826545&quot; &quot;9.75&quot;  &quot;0.03046875&quot; &quot;3.52&quot; &quot;0&quot;  &quot;1.17&quot;
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] &quot;3.28014647414312&quot;  &quot;24.37&quot; &quot;14.304377571097&quot;  &quot;0.0484569969657749&quot;
+##  [2,] &quot;0.888639849106919&quot; &quot;24.3&quot;  &quot;6.65934156262252&quot; &quot;0.104086443688432&quot; 
+##  [3,] &quot;1.05509670837553&quot;  &quot;24.17&quot; &quot;6.76608737718236&quot; &quot;0.102444314109434&quot; 
+##  [4,] &quot;1.15642160174997&quot;  &quot;24.65&quot; &quot;6.98124666099893&quot; &quot;0.0992870205306231&quot;
+##  [5,] &quot;1.55569511595616&quot;  &quot;24.35&quot; &quot;8.0022640410078&quot;  &quot;0.0866188839818201&quot;
+##  [6,] &quot;0.941271173708175&quot; &quot;23.85&quot; &quot;7.89499786796582&quot; &quot;0.0877957400561702&quot;
+##  [7,] &quot;1.16071921229933&quot;  &quot;24.22&quot; &quot;7.84666826130148&quot; &quot;0.0883364961379133&quot;
+##  [8,] &quot;1.22852675835656&quot;  &quot;24.12&quot; &quot;8.51003788342506&quot; &quot;0.0814505399453019&quot;
+##  [9,] &quot;1.11648311706515&quot;  &quot;24.43&quot; &quot;8.40599880716182&quot; &quot;0.0824586341803179&quot;
+## [10,] &quot;2.41369227401111&quot;  &quot;23.7&quot;  &quot;9.24691582297898&quot; &quot;0.0749598237757766&quot;
+## [11,] &quot;0.859806606884089&quot; &quot;24.08&quot; &quot;7.26123651504339&quot; &quot;0.0954585598642772&quot;
+## [12,] &quot;1.17553904959565&quot;  &quot;24.15&quot; &quot;6.28650816367189&quot; &quot;0.110259489451627&quot; 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] &quot;9.05&quot; &quot;24.37&quot; &quot;3&quot;     &quot;-0.99999986483748&quot;  &quot;0.999999729674979&quot;
+##  [2,] &quot;7.03&quot; &quot;24.3&quot;  &quot;4&quot;     &quot;-0.998596709529913&quot; &quot;0.99719538828397&quot; 
+##  [3,] &quot;9&quot;    &quot;24.17&quot; &quot;3&quot;     &quot;-0.999662423945811&quot; &quot;0.999324961849213&quot;
+##  [4,] &quot;9.02&quot; &quot;24.65&quot; &quot;3&quot;     &quot;-0.999461923749821&quot; &quot;0.998924137025692&quot;
+##  [5,] &quot;7.02&quot; &quot;24.35&quot; &quot;4&quot;     &quot;-0.999323363372814&quot; &quot;0.998647184582752&quot;
+##  [6,] &quot;2.03&quot; &quot;23.85&quot; &quot;7&quot;     &quot;-0.999120281624298&quot; &quot;0.998241337153017&quot;
+##  [7,] &quot;6.98&quot; &quot;24.22&quot; &quot;4&quot;     &quot;-0.999334862622512&quot; &quot;0.998670167652754&quot;
+##  [8,] &quot;3.53&quot; &quot;24.12&quot; &quot;6&quot;     &quot;-0.995496052943785&quot; &quot;0.991012391426654&quot;
+##  [9,] &quot;8.8&quot;  &quot;24.43&quot; &quot;3&quot;     &quot;-0.99972179371205&quot;  &quot;0.999443664822839&quot;
+## [10,] &quot;9.38&quot; &quot;23.7&quot;  &quot;3&quot;     &quot;-0.999754311749369&quot; &quot;0.999508683861454&quot;
+## [11,] &quot;9.03&quot; &quot;24.08&quot; &quot;3&quot;     &quot;-0.999999127979356&quot; &quot;0.999998255959473&quot;
+## [12,] &quot;9.03&quot; &quot;24.15&quot; &quot;3&quot;     &quot;-0.999698355328196&quot; &quot;0.9993968016459&quot;  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] &quot;0.999999459349959&quot; &quot;148.92305&quot; &quot;148.92305&quot; &quot;216.611933038226&quot;
+##  [2,] &quot;0.995793082425955&quot; &quot;91.5268&quot;   &quot;91.5268&quot;   &quot;100.173459143183&quot;
+##  [3,] &quot;0.998649923698427&quot; &quot;99.2865&quot;   &quot;99.2865&quot;   &quot;109.535970740547&quot;
+##  [4,] &quot;0.997848274051385&quot; &quot;106.7963&quot;  &quot;106.7963&quot;  &quot;118.378881427603&quot;
+##  [5,] &quot;0.997970776874129&quot; &quot;121.2944&quot;  &quot;121.2944&quot;  &quot;139.419777837118&quot;
+##  [6,] &quot;0.99788960458362&quot;  &quot;73.77555&quot;  &quot;73.77555&quot;  &quot;84.2544183301878&quot;
+##  [7,] &quot;0.998005251479131&quot; &quot;90.7534&quot;   &quot;90.7534&quot;   &quot;103.771801796293&quot;
+##  [8,] &quot;0.988765489283318&quot; &quot;88.55995&quot;  &quot;88.55995&quot;  &quot;103.906686815243&quot;
+##  [9,] &quot;0.998887329645677&quot; &quot;86.32615&quot;  &quot;86.32615&quot;  &quot;99.9087179279482&quot;
+## [10,] &quot;0.999017367722909&quot; &quot;138.3681&quot;  &quot;138.3681&quot;  &quot;170.652060635217&quot;
+## [11,] &quot;0.999996511918946&quot; &quot;80.0936&quot;   &quot;80.0936&quot;   &quot;89.1027449234385&quot;
+## [12,] &quot;0.998793603291801&quot; &quot;119.9775&quot;  &quot;119.9775&quot;  &quot;130.588831558118&quot;
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] &quot;0.676912290744456&quot; &quot;216.614955803818&quot; &quot;0.67692173688693&quot; 
+##  [2,] &quot;0.313042059822447&quot; &quot;100.064317640308&quot; &quot;0.312700992625963&quot;
+##  [3,] &quot;0.342299908564208&quot; &quot;109.585721753278&quot; &quot;0.342455380478994&quot;
+##  [4,] &quot;0.369934004461258&quot; &quot;118.44355857992&quot;  &quot;0.370136120562249&quot;
+##  [5,] &quot;0.435686805740995&quot; &quot;139.254630430615&quot; &quot;0.435170720095671&quot;
+##  [6,] &quot;0.263295057281837&quot; &quot;84.4966985785753&quot; &quot;0.264052183058048&quot;
+##  [7,] &quot;0.324286880613414&quot; &quot;103.893147024686&quot; &quot;0.324666084452144&quot;
+##  [8,] &quot;0.324708396297635&quot; &quot;103.643051464786&quot; &quot;0.323884535827455&quot;
+##  [9,] &quot;0.312214743524838&quot; &quot;99.8660676588793&quot; &quot;0.312081461433998&quot;
+## [10,] &quot;0.533287689485054&quot; &quot;170.567912545332&quot; &quot;0.533024726704162&quot;
+## [11,] &quot;0.278446077885745&quot; &quot;89.1007189855217&quot; &quot;0.278439746829755&quot;
+## [12,] &quot;0.408090098619118&quot; &quot;130.639068046815&quot; &quot;0.408247087646298&quot;
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] &quot;31.2489169404534&quot; &quot;31.2498763313113&quot; &quot;1459.0711035&quot;
+##  [2,] &quot;8.63168669340252&quot; &quot;8.53203003991598&quot; &quot;706.586566&quot;  
+##  [3,] &quot;9.3571734209797&quot;  &quot;9.39832451573008&quot; &quot;803.18587&quot;   
+##  [4,] &quot;9.7843308603032&quot;  &quot;9.83359392402986&quot; &quot;901.0842105&quot; 
+##  [5,] &quot;13.0005786254328&quot; &quot;12.8974026752838&quot; &quot;1017.1143165&quot;
+##  [6,] &quot;12.4371736674055&quot; &quot;12.688245527848&quot;  &quot;609.1523875&quot; 
+##  [7,] &quot;12.5452209279821&quot; &quot;12.6473664538854&quot; &quot;782.41986&quot;   
+##  [8,] &quot;14.7697297311878&quot; &quot;14.5529307094073&quot; &quot;739.534598&quot;  
+##  [9,] &quot;13.5949777052926&quot; &quot;13.5580763078894&quot; &quot;705.2296255&quot; 
+## [10,] &quot;18.9180022292417&quot; &quot;18.8780011813617&quot; &quot;1278.180042&quot; 
+## [11,] &quot;10.1109622730249&quot; &quot;10.1089184106194&quot; &quot;617.2422125&quot; 
+## [12,] &quot;8.12575733430562&quot; &quot;8.16108703637935&quot; &quot;977.8807235&quot; 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] &quot;4505.53481941065&quot; &quot;4505.67086458209&quot; &quot;67.6160286851172&quot;
+##  [2,] &quot;999.772287999786&quot; &quot;996.071583509104&quot; &quot;29.3252499112927&quot;
+##  [3,] &quot;1150.96476871455&quot; &quot;1152.65289026304&quot; &quot;30.2162940315685&quot;
+##  [4,] &quot;1303.25240140958&quot; &quot;1305.4981091996&quot;  &quot;30.8588106551423&quot;
+##  [5,] &quot;1667.72161189007&quot; &quot;1661.79367436228&quot; &quot;39.011744571249&quot; 
+##  [6,] &quot;978.428485741731&quot; &quot;986.966459689532&quot; &quot;37.7417566662308&quot;
+##  [7,] &quot;1245.09840831465&quot; &quot;1249.41106012833&quot; &quot;37.1599983764277&quot;
+##  [8,] &quot;1298.11575468474&quot; &quot;1288.52011616077&quot; &quot;43.0301500208197&quot;
+##  [9,] &quot;1201.77153812025&quot; &quot;1200.2123597462&quot;  &quot;41.3174964516894&quot;
+## [10,] &quot;2473.99342735889&quot; &quot;2470.87654175199&quot; &quot;48.3353501320931&quot;
+## [11,] &quot;928.559971386069&quot; &quot;928.489963582081&quot; &quot;33.5269415524517&quot;
+## [12,] &quot;1330.38400236898&quot; &quot;1332.05283411623&quot; &quot;26.4963558071417&quot;
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] &quot;67.6170064935417&quot; &quot;30.4867482345887&quot; &quot;30.4863228055447&quot;
+##  [2,] &quot;29.0626720309864&quot; &quot;30.6904415765423&quot; &quot;30.7239160557228&quot;
+##  [3,] &quot;30.318495985664&quot;  &quot;28.5170999496524&quot; &quot;28.5041534217657&quot;
+##  [4,] &quot;30.9777467963968&quot; &quot;27.2259641330176&quot; &quot;27.2110971545992&quot;
+##  [5,] &quot;38.7941877387202&quot; &quot;26.4979946505636&quot; &quot;26.5294196385914&quot;
+##  [6,] &quot;38.280335514986&quot;  &quot;43.2597344953234&quot; &quot;43.135694392041&quot; 
+##  [7,] &quot;37.376906210544&quot;  &quot;34.9084408430805&quot; &quot;34.8676684452056&quot;
+##  [8,] &quot;42.605894256157&quot;  &quot;37.8105081118408&quot; &quot;37.9066861615621&quot;
+##  [9,] &quot;41.2412628670872&quot; &quot;38.8427934436931&quot; &quot;38.8593822173436&quot;
+## [10,] &quot;48.2701777931124&quot; &quot;25.0155401378403&quot; &quot;25.0278813214113&quot;
+## [11,] &quot;33.5219295081337&quot; &quot;37.6221852019531&quot; &quot;37.6230406407462&quot;
+## [12,] &quot;26.5884431567018&quot; &quot;22.2242935639128&quot; &quot;22.2157473419508&quot;
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] &quot;1.47729626669981&quot; &quot;1.47727565168591&quot; &quot;9.79748335465867&quot;
+##  [2,] &quot;3.19445891892989&quot; &quot;3.19794315842211&quot; &quot;7.71999639449866&quot;
+##  [3,] &quot;2.92141474473231&quot; &quot;2.92008844656286&quot; &quot;8.08957783787323&quot;
+##  [4,] &quot;2.70318485984093&quot; &quot;2.70170876184947&quot; &quot;8.43741038313125&quot;
+##  [5,] &quot;2.29522672438806&quot; &quot;2.29794872178016&quot; &quot;8.38550103302378&quot;
+##  [6,] &quot;3.79802040465035&quot; &quot;3.78713021198604&quot; &quot;8.25683288704727&quot;
+##  [7,] &quot;3.08368934971535&quot; &quot;3.08008765894795&quot; &quot;8.62138344128154&quot;
+##  [8,] &quot;3.07968630131565&quot; &quot;3.08752005539633&quot; &quot;8.3506663903943&quot; 
+##  [9,] &quot;3.20292369511514&quot; &quot;3.20429158273309&quot; &quot;8.1693626496722&quot; 
+## [10,] &quot;1.87516048038837&quot; &quot;1.87608557333405&quot; &quot;9.23753409926132&quot;
+## [11,] &quot;3.59135961832556&quot; &quot;3.59144127728081&quot; &quot;7.70651103833515&quot;
+## [12,] &quot;2.4504392617801&quot;  &quot;2.44949695970983&quot; &quot;8.15053425433936&quot;
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] &quot;20.8000305256292&quot; &quot;20.8003683211179&quot;
+##  [2,] &quot;9.98041094468705&quot; &quot;9.95431345556755&quot;
+##  [3,] &quot;10.5076420187191&quot; &quot;10.5182762117325&quot;
+##  [4,] &quot;11.0091630001303&quot; &quot;11.0221115006327&quot;
+##  [5,] &quot;11.9618725389051&quot; &quot;11.9334895308224&quot;
+##  [6,] &quot;11.612785479182&quot;  &quot;11.6805328053348&quot;
+##  [7,] &quot;11.9984271908357&quot; &quot;12.0259237101698&quot;
+##  [8,] &quot;12.4930915850769&quot; &quot;12.4322865638375&quot;
+##  [9,] &quot;12.0286954236259&quot; &quot;12.0182198807093&quot;
+## [10,] &quot;14.4972959491374&quot; &quot;14.4861744795951&quot;
+## [11,] &quot;10.4212274513421&quot; &quot;10.4206786898426&quot;
+## [12,] &quot;10.1875787270284&quot; &quot;10.1964355229393&quot;
+## attr(,&quot;units&quot;)
+##  [1] &quot;&quot;          &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;        
+##  [6] &quot;h&quot;         &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;         &quot;h&quot;        
+## [11] &quot;/h&quot;        &quot;h&quot;         &quot;h&quot;         &quot;&quot;          &quot;&quot;         
+## [16] &quot;&quot;          &quot;&quot;          &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L&quot;   
+## [21] &quot;h*mg/L/mg&quot; &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot; &quot;%&quot;         &quot;%&quot;        
+## [26] &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;%&quot;         &quot;%&quot;        
+## [31] &quot;L&quot;         &quot;L&quot;         &quot;L/h&quot;       &quot;L/h&quot;       &quot;h&quot;        
+## [36] &quot;h&quot;         &quot;h&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
        <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
+<pre><code>## Error in tblNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : 사용되지 않은 인자 (colSubj = &quot;Subject&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] &quot;1&quot;     &quot;2.36878509420585&quot; &quot;10.5&quot;  &quot;0.0328125&quot;  &quot;1.12&quot; &quot;0&quot;  &quot;3.28&quot;
+##  [2,] &quot;2&quot;     &quot;2.41123733696293&quot; &quot;8.33&quot;  &quot;0.02603125&quot; &quot;1.92&quot; &quot;0&quot;  &quot;0.9&quot; 
+##  [3,] &quot;3&quot;     &quot;2.52971150145858&quot; &quot;8.2&quot;   &quot;0.025625&quot;   &quot;1.02&quot; &quot;0&quot;  &quot;1.05&quot;
+##  [4,] &quot;4&quot;     &quot;2.59275546723663&quot; &quot;8.6&quot;   &quot;0.026875&quot;   &quot;1.07&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [5,] &quot;5&quot;     &quot;2.55109229061238&quot; &quot;11.4&quot;  &quot;0.035625&quot;   &quot;1&quot;    &quot;0&quot;  &quot;1.57&quot;
+##  [6,] &quot;6&quot;     &quot;2.0334043955261&quot;  &quot;6.44&quot;  &quot;0.020125&quot;   &quot;1.15&quot; &quot;0&quot;  &quot;0.92&quot;
+##  [7,] &quot;7&quot;     &quot;2.28854976005424&quot; &quot;7.09&quot;  &quot;0.02215625&quot; &quot;3.48&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [8,] &quot;8&quot;     &quot;2.17040271754659&quot; &quot;7.56&quot;  &quot;0.023625&quot;   &quot;2.02&quot; &quot;0&quot;  &quot;1.25&quot;
+##  [9,] &quot;9&quot;     &quot;2.12464810390587&quot; &quot;9.03&quot;  &quot;0.02821875&quot; &quot;0.63&quot; &quot;0&quot;  &quot;1.12&quot;
+## [10,] &quot;10&quot;    &quot;2.65770546248091&quot; &quot;10.21&quot; &quot;0.03190625&quot; &quot;3.55&quot; &quot;0&quot;  &quot;2.42&quot;
+## [11,] &quot;11&quot;    &quot;2.1475943307927&quot;  &quot;8&quot;     &quot;0.025&quot;      &quot;0.98&quot; &quot;0&quot;  &quot;0.86&quot;
+## [12,] &quot;12&quot;    &quot;2.82449347826545&quot; &quot;9.75&quot;  &quot;0.03046875&quot; &quot;3.52&quot; &quot;0&quot;  &quot;1.17&quot;
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] &quot;3.28014647414312&quot;  &quot;24.37&quot; &quot;14.304377571097&quot;  &quot;0.0484569969657749&quot;
+##  [2,] &quot;0.888639849106919&quot; &quot;24.3&quot;  &quot;6.65934156262252&quot; &quot;0.104086443688432&quot; 
+##  [3,] &quot;1.05509670837553&quot;  &quot;24.17&quot; &quot;6.76608737718236&quot; &quot;0.102444314109434&quot; 
+##  [4,] &quot;1.15642160174997&quot;  &quot;24.65&quot; &quot;6.98124666099893&quot; &quot;0.0992870205306231&quot;
+##  [5,] &quot;1.55569511595616&quot;  &quot;24.35&quot; &quot;8.0022640410078&quot;  &quot;0.0866188839818201&quot;
+##  [6,] &quot;0.941271173708175&quot; &quot;23.85&quot; &quot;7.89499786796582&quot; &quot;0.0877957400561702&quot;
+##  [7,] &quot;1.16071921229933&quot;  &quot;24.22&quot; &quot;7.84666826130148&quot; &quot;0.0883364961379133&quot;
+##  [8,] &quot;1.22852675835656&quot;  &quot;24.12&quot; &quot;8.51003788342506&quot; &quot;0.0814505399453019&quot;
+##  [9,] &quot;1.11648311706515&quot;  &quot;24.43&quot; &quot;8.40599880716182&quot; &quot;0.0824586341803179&quot;
+## [10,] &quot;2.41369227401111&quot;  &quot;23.7&quot;  &quot;9.24691582297898&quot; &quot;0.0749598237757766&quot;
+## [11,] &quot;0.859806606884089&quot; &quot;24.08&quot; &quot;7.26123651504339&quot; &quot;0.0954585598642772&quot;
+## [12,] &quot;1.17553904959565&quot;  &quot;24.15&quot; &quot;6.28650816367189&quot; &quot;0.110259489451627&quot; 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] &quot;9.05&quot; &quot;24.37&quot; &quot;3&quot;     &quot;-0.99999986483748&quot;  &quot;0.999999729674979&quot;
+##  [2,] &quot;7.03&quot; &quot;24.3&quot;  &quot;4&quot;     &quot;-0.998596709529913&quot; &quot;0.99719538828397&quot; 
+##  [3,] &quot;9&quot;    &quot;24.17&quot; &quot;3&quot;     &quot;-0.999662423945811&quot; &quot;0.999324961849213&quot;
+##  [4,] &quot;9.02&quot; &quot;24.65&quot; &quot;3&quot;     &quot;-0.999461923749821&quot; &quot;0.998924137025692&quot;
+##  [5,] &quot;7.02&quot; &quot;24.35&quot; &quot;4&quot;     &quot;-0.999323363372814&quot; &quot;0.998647184582752&quot;
+##  [6,] &quot;2.03&quot; &quot;23.85&quot; &quot;7&quot;     &quot;-0.999120281624298&quot; &quot;0.998241337153017&quot;
+##  [7,] &quot;6.98&quot; &quot;24.22&quot; &quot;4&quot;     &quot;-0.999334862622512&quot; &quot;0.998670167652754&quot;
+##  [8,] &quot;3.53&quot; &quot;24.12&quot; &quot;6&quot;     &quot;-0.995496052943785&quot; &quot;0.991012391426654&quot;
+##  [9,] &quot;8.8&quot;  &quot;24.43&quot; &quot;3&quot;     &quot;-0.99972179371205&quot;  &quot;0.999443664822839&quot;
+## [10,] &quot;9.38&quot; &quot;23.7&quot;  &quot;3&quot;     &quot;-0.999754311749369&quot; &quot;0.999508683861454&quot;
+## [11,] &quot;9.03&quot; &quot;24.08&quot; &quot;3&quot;     &quot;-0.999999127979356&quot; &quot;0.999998255959473&quot;
+## [12,] &quot;9.03&quot; &quot;24.15&quot; &quot;3&quot;     &quot;-0.999698355328196&quot; &quot;0.9993968016459&quot;  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] &quot;0.999999459349959&quot; &quot;148.92305&quot; &quot;148.92305&quot; &quot;216.611933038226&quot;
+##  [2,] &quot;0.995793082425955&quot; &quot;91.5268&quot;   &quot;91.5268&quot;   &quot;100.173459143183&quot;
+##  [3,] &quot;0.998649923698427&quot; &quot;99.2865&quot;   &quot;99.2865&quot;   &quot;109.535970740547&quot;
+##  [4,] &quot;0.997848274051385&quot; &quot;106.7963&quot;  &quot;106.7963&quot;  &quot;118.378881427603&quot;
+##  [5,] &quot;0.997970776874129&quot; &quot;121.2944&quot;  &quot;121.2944&quot;  &quot;139.419777837118&quot;
+##  [6,] &quot;0.99788960458362&quot;  &quot;73.77555&quot;  &quot;73.77555&quot;  &quot;84.2544183301878&quot;
+##  [7,] &quot;0.998005251479131&quot; &quot;90.7534&quot;   &quot;90.7534&quot;   &quot;103.771801796293&quot;
+##  [8,] &quot;0.988765489283318&quot; &quot;88.55995&quot;  &quot;88.55995&quot;  &quot;103.906686815243&quot;
+##  [9,] &quot;0.998887329645677&quot; &quot;86.32615&quot;  &quot;86.32615&quot;  &quot;99.9087179279482&quot;
+## [10,] &quot;0.999017367722909&quot; &quot;138.3681&quot;  &quot;138.3681&quot;  &quot;170.652060635217&quot;
+## [11,] &quot;0.999996511918946&quot; &quot;80.0936&quot;   &quot;80.0936&quot;   &quot;89.1027449234385&quot;
+## [12,] &quot;0.998793603291801&quot; &quot;119.9775&quot;  &quot;119.9775&quot;  &quot;130.588831558118&quot;
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] &quot;0.676912290744456&quot; &quot;216.614955803818&quot; &quot;0.67692173688693&quot; 
+##  [2,] &quot;0.313042059822447&quot; &quot;100.064317640308&quot; &quot;0.312700992625963&quot;
+##  [3,] &quot;0.342299908564208&quot; &quot;109.585721753278&quot; &quot;0.342455380478994&quot;
+##  [4,] &quot;0.369934004461258&quot; &quot;118.44355857992&quot;  &quot;0.370136120562249&quot;
+##  [5,] &quot;0.435686805740995&quot; &quot;139.254630430615&quot; &quot;0.435170720095671&quot;
+##  [6,] &quot;0.263295057281837&quot; &quot;84.4966985785753&quot; &quot;0.264052183058048&quot;
+##  [7,] &quot;0.324286880613414&quot; &quot;103.893147024686&quot; &quot;0.324666084452144&quot;
+##  [8,] &quot;0.324708396297635&quot; &quot;103.643051464786&quot; &quot;0.323884535827455&quot;
+##  [9,] &quot;0.312214743524838&quot; &quot;99.8660676588793&quot; &quot;0.312081461433998&quot;
+## [10,] &quot;0.533287689485054&quot; &quot;170.567912545332&quot; &quot;0.533024726704162&quot;
+## [11,] &quot;0.278446077885745&quot; &quot;89.1007189855217&quot; &quot;0.278439746829755&quot;
+## [12,] &quot;0.408090098619118&quot; &quot;130.639068046815&quot; &quot;0.408247087646298&quot;
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] &quot;31.2489169404534&quot; &quot;31.2498763313113&quot; &quot;1459.0711035&quot;
+##  [2,] &quot;8.63168669340252&quot; &quot;8.53203003991598&quot; &quot;706.586566&quot;  
+##  [3,] &quot;9.3571734209797&quot;  &quot;9.39832451573008&quot; &quot;803.18587&quot;   
+##  [4,] &quot;9.7843308603032&quot;  &quot;9.83359392402986&quot; &quot;901.0842105&quot; 
+##  [5,] &quot;13.0005786254328&quot; &quot;12.8974026752838&quot; &quot;1017.1143165&quot;
+##  [6,] &quot;12.4371736674055&quot; &quot;12.688245527848&quot;  &quot;609.1523875&quot; 
+##  [7,] &quot;12.5452209279821&quot; &quot;12.6473664538854&quot; &quot;782.41986&quot;   
+##  [8,] &quot;14.7697297311878&quot; &quot;14.5529307094073&quot; &quot;739.534598&quot;  
+##  [9,] &quot;13.5949777052926&quot; &quot;13.5580763078894&quot; &quot;705.2296255&quot; 
+## [10,] &quot;18.9180022292417&quot; &quot;18.8780011813617&quot; &quot;1278.180042&quot; 
+## [11,] &quot;10.1109622730249&quot; &quot;10.1089184106194&quot; &quot;617.2422125&quot; 
+## [12,] &quot;8.12575733430562&quot; &quot;8.16108703637935&quot; &quot;977.8807235&quot; 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] &quot;4505.53481941065&quot; &quot;4505.67086458209&quot; &quot;67.6160286851172&quot;
+##  [2,] &quot;999.772287999786&quot; &quot;996.071583509104&quot; &quot;29.3252499112927&quot;
+##  [3,] &quot;1150.96476871455&quot; &quot;1152.65289026304&quot; &quot;30.2162940315685&quot;
+##  [4,] &quot;1303.25240140958&quot; &quot;1305.4981091996&quot;  &quot;30.8588106551423&quot;
+##  [5,] &quot;1667.72161189007&quot; &quot;1661.79367436228&quot; &quot;39.011744571249&quot; 
+##  [6,] &quot;978.428485741731&quot; &quot;986.966459689532&quot; &quot;37.7417566662308&quot;
+##  [7,] &quot;1245.09840831465&quot; &quot;1249.41106012833&quot; &quot;37.1599983764277&quot;
+##  [8,] &quot;1298.11575468474&quot; &quot;1288.52011616077&quot; &quot;43.0301500208197&quot;
+##  [9,] &quot;1201.77153812025&quot; &quot;1200.2123597462&quot;  &quot;41.3174964516894&quot;
+## [10,] &quot;2473.99342735889&quot; &quot;2470.87654175199&quot; &quot;48.3353501320931&quot;
+## [11,] &quot;928.559971386069&quot; &quot;928.489963582081&quot; &quot;33.5269415524517&quot;
+## [12,] &quot;1330.38400236898&quot; &quot;1332.05283411623&quot; &quot;26.4963558071417&quot;
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] &quot;67.6170064935417&quot; &quot;30.4867482345887&quot; &quot;30.4863228055447&quot;
+##  [2,] &quot;29.0626720309864&quot; &quot;30.6904415765423&quot; &quot;30.7239160557228&quot;
+##  [3,] &quot;30.318495985664&quot;  &quot;28.5170999496524&quot; &quot;28.5041534217657&quot;
+##  [4,] &quot;30.9777467963968&quot; &quot;27.2259641330176&quot; &quot;27.2110971545992&quot;
+##  [5,] &quot;38.7941877387202&quot; &quot;26.4979946505636&quot; &quot;26.5294196385914&quot;
+##  [6,] &quot;38.280335514986&quot;  &quot;43.2597344953234&quot; &quot;43.135694392041&quot; 
+##  [7,] &quot;37.376906210544&quot;  &quot;34.9084408430805&quot; &quot;34.8676684452056&quot;
+##  [8,] &quot;42.605894256157&quot;  &quot;37.8105081118408&quot; &quot;37.9066861615621&quot;
+##  [9,] &quot;41.2412628670872&quot; &quot;38.8427934436931&quot; &quot;38.8593822173436&quot;
+## [10,] &quot;48.2701777931124&quot; &quot;25.0155401378403&quot; &quot;25.0278813214113&quot;
+## [11,] &quot;33.5219295081337&quot; &quot;37.6221852019531&quot; &quot;37.6230406407462&quot;
+## [12,] &quot;26.5884431567018&quot; &quot;22.2242935639128&quot; &quot;22.2157473419508&quot;
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] &quot;1.47729626669981&quot; &quot;1.47727565168591&quot; &quot;9.79748335465867&quot;
+##  [2,] &quot;3.19445891892989&quot; &quot;3.19794315842211&quot; &quot;7.71999639449866&quot;
+##  [3,] &quot;2.92141474473231&quot; &quot;2.92008844656286&quot; &quot;8.08957783787323&quot;
+##  [4,] &quot;2.70318485984093&quot; &quot;2.70170876184947&quot; &quot;8.43741038313125&quot;
+##  [5,] &quot;2.29522672438806&quot; &quot;2.29794872178016&quot; &quot;8.38550103302378&quot;
+##  [6,] &quot;3.79802040465035&quot; &quot;3.78713021198604&quot; &quot;8.25683288704727&quot;
+##  [7,] &quot;3.08368934971535&quot; &quot;3.08008765894795&quot; &quot;8.62138344128154&quot;
+##  [8,] &quot;3.07968630131565&quot; &quot;3.08752005539633&quot; &quot;8.3506663903943&quot; 
+##  [9,] &quot;3.20292369511514&quot; &quot;3.20429158273309&quot; &quot;8.1693626496722&quot; 
+## [10,] &quot;1.87516048038837&quot; &quot;1.87608557333405&quot; &quot;9.23753409926132&quot;
+## [11,] &quot;3.59135961832556&quot; &quot;3.59144127728081&quot; &quot;7.70651103833515&quot;
+## [12,] &quot;2.4504392617801&quot;  &quot;2.44949695970983&quot; &quot;8.15053425433936&quot;
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] &quot;20.8000305256292&quot; &quot;20.8003683211179&quot;
+##  [2,] &quot;9.98041094468705&quot; &quot;9.95431345556755&quot;
+##  [3,] &quot;10.5076420187191&quot; &quot;10.5182762117325&quot;
+##  [4,] &quot;11.0091630001303&quot; &quot;11.0221115006327&quot;
+##  [5,] &quot;11.9618725389051&quot; &quot;11.9334895308224&quot;
+##  [6,] &quot;11.612785479182&quot;  &quot;11.6805328053348&quot;
+##  [7,] &quot;11.9984271908357&quot; &quot;12.0259237101698&quot;
+##  [8,] &quot;12.4930915850769&quot; &quot;12.4322865638375&quot;
+##  [9,] &quot;12.0286954236259&quot; &quot;12.0182198807093&quot;
+## [10,] &quot;14.4972959491374&quot; &quot;14.4861744795951&quot;
+## [11,] &quot;10.4212274513421&quot; &quot;10.4206786898426&quot;
+## [12,] &quot;10.1875787270284&quot; &quot;10.1964355229393&quot;
+## attr(,&quot;units&quot;)
+##  [1] &quot;&quot;          &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;        
+##  [6] &quot;h&quot;         &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;         &quot;h&quot;        
+## [11] &quot;/h&quot;        &quot;h&quot;         &quot;h&quot;         &quot;&quot;          &quot;&quot;         
+## [16] &quot;&quot;          &quot;&quot;          &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L&quot;   
+## [21] &quot;h*mg/L/mg&quot; &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot; &quot;%&quot;         &quot;%&quot;        
+## [26] &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;%&quot;         &quot;%&quot;        
+## [31] &quot;L&quot;         &quot;L&quot;         &quot;L/h&quot;       &quot;L/h&quot;       &quot;h&quot;        
+## [36] &quot;h&quot;         &quot;h&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
        <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
+<pre><code>## Error in tblNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : 사용되지 않은 인자 (colSubj = &quot;Subject&quot;)</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Output to PDF file</span>
 
 <span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;NCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, 
@@ -377,16 +654,292 @@ Theoph[Theoph<span class="op">$</span>Subject <span class="op">==</span><span cl
 <h3><span class="header-section-number">4.1.3</span> NonCompart</h3>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
 
-<span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
+<span class="kw">tblNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] &quot;1&quot;     &quot;2.36878509420585&quot; &quot;10.5&quot;  &quot;0.0328125&quot;  &quot;1.12&quot; &quot;0&quot;  &quot;3.28&quot;
+##  [2,] &quot;2&quot;     &quot;2.41123733696293&quot; &quot;8.33&quot;  &quot;0.02603125&quot; &quot;1.92&quot; &quot;0&quot;  &quot;0.9&quot; 
+##  [3,] &quot;3&quot;     &quot;2.52971150145858&quot; &quot;8.2&quot;   &quot;0.025625&quot;   &quot;1.02&quot; &quot;0&quot;  &quot;1.05&quot;
+##  [4,] &quot;4&quot;     &quot;2.59275546723663&quot; &quot;8.6&quot;   &quot;0.026875&quot;   &quot;1.07&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [5,] &quot;5&quot;     &quot;2.55109229061238&quot; &quot;11.4&quot;  &quot;0.035625&quot;   &quot;1&quot;    &quot;0&quot;  &quot;1.57&quot;
+##  [6,] &quot;6&quot;     &quot;2.0334043955261&quot;  &quot;6.44&quot;  &quot;0.020125&quot;   &quot;1.15&quot; &quot;0&quot;  &quot;0.92&quot;
+##  [7,] &quot;7&quot;     &quot;2.28854976005424&quot; &quot;7.09&quot;  &quot;0.02215625&quot; &quot;3.48&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [8,] &quot;8&quot;     &quot;2.17040271754659&quot; &quot;7.56&quot;  &quot;0.023625&quot;   &quot;2.02&quot; &quot;0&quot;  &quot;1.25&quot;
+##  [9,] &quot;9&quot;     &quot;2.12464810390587&quot; &quot;9.03&quot;  &quot;0.02821875&quot; &quot;0.63&quot; &quot;0&quot;  &quot;1.12&quot;
+## [10,] &quot;10&quot;    &quot;2.65770546248091&quot; &quot;10.21&quot; &quot;0.03190625&quot; &quot;3.55&quot; &quot;0&quot;  &quot;2.42&quot;
+## [11,] &quot;11&quot;    &quot;2.1475943307927&quot;  &quot;8&quot;     &quot;0.025&quot;      &quot;0.98&quot; &quot;0&quot;  &quot;0.86&quot;
+## [12,] &quot;12&quot;    &quot;2.82449347826545&quot; &quot;9.75&quot;  &quot;0.03046875&quot; &quot;3.52&quot; &quot;0&quot;  &quot;1.17&quot;
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] &quot;3.28014647414312&quot;  &quot;24.37&quot; &quot;14.304377571097&quot;  &quot;0.0484569969657749&quot;
+##  [2,] &quot;0.888639849106919&quot; &quot;24.3&quot;  &quot;6.65934156262252&quot; &quot;0.104086443688432&quot; 
+##  [3,] &quot;1.05509670837553&quot;  &quot;24.17&quot; &quot;6.76608737718236&quot; &quot;0.102444314109434&quot; 
+##  [4,] &quot;1.15642160174997&quot;  &quot;24.65&quot; &quot;6.98124666099893&quot; &quot;0.0992870205306231&quot;
+##  [5,] &quot;1.55569511595616&quot;  &quot;24.35&quot; &quot;8.0022640410078&quot;  &quot;0.0866188839818201&quot;
+##  [6,] &quot;0.941271173708175&quot; &quot;23.85&quot; &quot;7.89499786796582&quot; &quot;0.0877957400561702&quot;
+##  [7,] &quot;1.16071921229933&quot;  &quot;24.22&quot; &quot;7.84666826130148&quot; &quot;0.0883364961379133&quot;
+##  [8,] &quot;1.22852675835656&quot;  &quot;24.12&quot; &quot;8.51003788342506&quot; &quot;0.0814505399453019&quot;
+##  [9,] &quot;1.11648311706515&quot;  &quot;24.43&quot; &quot;8.40599880716182&quot; &quot;0.0824586341803179&quot;
+## [10,] &quot;2.41369227401111&quot;  &quot;23.7&quot;  &quot;9.24691582297898&quot; &quot;0.0749598237757766&quot;
+## [11,] &quot;0.859806606884089&quot; &quot;24.08&quot; &quot;7.26123651504339&quot; &quot;0.0954585598642772&quot;
+## [12,] &quot;1.17553904959565&quot;  &quot;24.15&quot; &quot;6.28650816367189&quot; &quot;0.110259489451627&quot; 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] &quot;9.05&quot; &quot;24.37&quot; &quot;3&quot;     &quot;-0.99999986483748&quot;  &quot;0.999999729674979&quot;
+##  [2,] &quot;7.03&quot; &quot;24.3&quot;  &quot;4&quot;     &quot;-0.998596709529913&quot; &quot;0.99719538828397&quot; 
+##  [3,] &quot;9&quot;    &quot;24.17&quot; &quot;3&quot;     &quot;-0.999662423945811&quot; &quot;0.999324961849213&quot;
+##  [4,] &quot;9.02&quot; &quot;24.65&quot; &quot;3&quot;     &quot;-0.999461923749821&quot; &quot;0.998924137025692&quot;
+##  [5,] &quot;7.02&quot; &quot;24.35&quot; &quot;4&quot;     &quot;-0.999323363372814&quot; &quot;0.998647184582752&quot;
+##  [6,] &quot;2.03&quot; &quot;23.85&quot; &quot;7&quot;     &quot;-0.999120281624298&quot; &quot;0.998241337153017&quot;
+##  [7,] &quot;6.98&quot; &quot;24.22&quot; &quot;4&quot;     &quot;-0.999334862622512&quot; &quot;0.998670167652754&quot;
+##  [8,] &quot;3.53&quot; &quot;24.12&quot; &quot;6&quot;     &quot;-0.995496052943785&quot; &quot;0.991012391426654&quot;
+##  [9,] &quot;8.8&quot;  &quot;24.43&quot; &quot;3&quot;     &quot;-0.99972179371205&quot;  &quot;0.999443664822839&quot;
+## [10,] &quot;9.38&quot; &quot;23.7&quot;  &quot;3&quot;     &quot;-0.999754311749369&quot; &quot;0.999508683861454&quot;
+## [11,] &quot;9.03&quot; &quot;24.08&quot; &quot;3&quot;     &quot;-0.999999127979356&quot; &quot;0.999998255959473&quot;
+## [12,] &quot;9.03&quot; &quot;24.15&quot; &quot;3&quot;     &quot;-0.999698355328196&quot; &quot;0.9993968016459&quot;  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] &quot;0.999999459349959&quot; &quot;148.92305&quot; &quot;148.92305&quot; &quot;216.611933038226&quot;
+##  [2,] &quot;0.995793082425955&quot; &quot;91.5268&quot;   &quot;91.5268&quot;   &quot;100.173459143183&quot;
+##  [3,] &quot;0.998649923698427&quot; &quot;99.2865&quot;   &quot;99.2865&quot;   &quot;109.535970740547&quot;
+##  [4,] &quot;0.997848274051385&quot; &quot;106.7963&quot;  &quot;106.7963&quot;  &quot;118.378881427603&quot;
+##  [5,] &quot;0.997970776874129&quot; &quot;121.2944&quot;  &quot;121.2944&quot;  &quot;139.419777837118&quot;
+##  [6,] &quot;0.99788960458362&quot;  &quot;73.77555&quot;  &quot;73.77555&quot;  &quot;84.2544183301878&quot;
+##  [7,] &quot;0.998005251479131&quot; &quot;90.7534&quot;   &quot;90.7534&quot;   &quot;103.771801796293&quot;
+##  [8,] &quot;0.988765489283318&quot; &quot;88.55995&quot;  &quot;88.55995&quot;  &quot;103.906686815243&quot;
+##  [9,] &quot;0.998887329645677&quot; &quot;86.32615&quot;  &quot;86.32615&quot;  &quot;99.9087179279482&quot;
+## [10,] &quot;0.999017367722909&quot; &quot;138.3681&quot;  &quot;138.3681&quot;  &quot;170.652060635217&quot;
+## [11,] &quot;0.999996511918946&quot; &quot;80.0936&quot;   &quot;80.0936&quot;   &quot;89.1027449234385&quot;
+## [12,] &quot;0.998793603291801&quot; &quot;119.9775&quot;  &quot;119.9775&quot;  &quot;130.588831558118&quot;
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] &quot;0.676912290744456&quot; &quot;216.614955803818&quot; &quot;0.67692173688693&quot; 
+##  [2,] &quot;0.313042059822447&quot; &quot;100.064317640308&quot; &quot;0.312700992625963&quot;
+##  [3,] &quot;0.342299908564208&quot; &quot;109.585721753278&quot; &quot;0.342455380478994&quot;
+##  [4,] &quot;0.369934004461258&quot; &quot;118.44355857992&quot;  &quot;0.370136120562249&quot;
+##  [5,] &quot;0.435686805740995&quot; &quot;139.254630430615&quot; &quot;0.435170720095671&quot;
+##  [6,] &quot;0.263295057281837&quot; &quot;84.4966985785753&quot; &quot;0.264052183058048&quot;
+##  [7,] &quot;0.324286880613414&quot; &quot;103.893147024686&quot; &quot;0.324666084452144&quot;
+##  [8,] &quot;0.324708396297635&quot; &quot;103.643051464786&quot; &quot;0.323884535827455&quot;
+##  [9,] &quot;0.312214743524838&quot; &quot;99.8660676588793&quot; &quot;0.312081461433998&quot;
+## [10,] &quot;0.533287689485054&quot; &quot;170.567912545332&quot; &quot;0.533024726704162&quot;
+## [11,] &quot;0.278446077885745&quot; &quot;89.1007189855217&quot; &quot;0.278439746829755&quot;
+## [12,] &quot;0.408090098619118&quot; &quot;130.639068046815&quot; &quot;0.408247087646298&quot;
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] &quot;31.2489169404534&quot; &quot;31.2498763313113&quot; &quot;1459.0711035&quot;
+##  [2,] &quot;8.63168669340252&quot; &quot;8.53203003991598&quot; &quot;706.586566&quot;  
+##  [3,] &quot;9.3571734209797&quot;  &quot;9.39832451573008&quot; &quot;803.18587&quot;   
+##  [4,] &quot;9.7843308603032&quot;  &quot;9.83359392402986&quot; &quot;901.0842105&quot; 
+##  [5,] &quot;13.0005786254328&quot; &quot;12.8974026752838&quot; &quot;1017.1143165&quot;
+##  [6,] &quot;12.4371736674055&quot; &quot;12.688245527848&quot;  &quot;609.1523875&quot; 
+##  [7,] &quot;12.5452209279821&quot; &quot;12.6473664538854&quot; &quot;782.41986&quot;   
+##  [8,] &quot;14.7697297311878&quot; &quot;14.5529307094073&quot; &quot;739.534598&quot;  
+##  [9,] &quot;13.5949777052926&quot; &quot;13.5580763078894&quot; &quot;705.2296255&quot; 
+## [10,] &quot;18.9180022292417&quot; &quot;18.8780011813617&quot; &quot;1278.180042&quot; 
+## [11,] &quot;10.1109622730249&quot; &quot;10.1089184106194&quot; &quot;617.2422125&quot; 
+## [12,] &quot;8.12575733430562&quot; &quot;8.16108703637935&quot; &quot;977.8807235&quot; 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] &quot;4505.53481941065&quot; &quot;4505.67086458209&quot; &quot;67.6160286851172&quot;
+##  [2,] &quot;999.772287999786&quot; &quot;996.071583509104&quot; &quot;29.3252499112927&quot;
+##  [3,] &quot;1150.96476871455&quot; &quot;1152.65289026304&quot; &quot;30.2162940315685&quot;
+##  [4,] &quot;1303.25240140958&quot; &quot;1305.4981091996&quot;  &quot;30.8588106551423&quot;
+##  [5,] &quot;1667.72161189007&quot; &quot;1661.79367436228&quot; &quot;39.011744571249&quot; 
+##  [6,] &quot;978.428485741731&quot; &quot;986.966459689532&quot; &quot;37.7417566662308&quot;
+##  [7,] &quot;1245.09840831465&quot; &quot;1249.41106012833&quot; &quot;37.1599983764277&quot;
+##  [8,] &quot;1298.11575468474&quot; &quot;1288.52011616077&quot; &quot;43.0301500208197&quot;
+##  [9,] &quot;1201.77153812025&quot; &quot;1200.2123597462&quot;  &quot;41.3174964516894&quot;
+## [10,] &quot;2473.99342735889&quot; &quot;2470.87654175199&quot; &quot;48.3353501320931&quot;
+## [11,] &quot;928.559971386069&quot; &quot;928.489963582081&quot; &quot;33.5269415524517&quot;
+## [12,] &quot;1330.38400236898&quot; &quot;1332.05283411623&quot; &quot;26.4963558071417&quot;
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] &quot;67.6170064935417&quot; &quot;30.4867482345887&quot; &quot;30.4863228055447&quot;
+##  [2,] &quot;29.0626720309864&quot; &quot;30.6904415765423&quot; &quot;30.7239160557228&quot;
+##  [3,] &quot;30.318495985664&quot;  &quot;28.5170999496524&quot; &quot;28.5041534217657&quot;
+##  [4,] &quot;30.9777467963968&quot; &quot;27.2259641330176&quot; &quot;27.2110971545992&quot;
+##  [5,] &quot;38.7941877387202&quot; &quot;26.4979946505636&quot; &quot;26.5294196385914&quot;
+##  [6,] &quot;38.280335514986&quot;  &quot;43.2597344953234&quot; &quot;43.135694392041&quot; 
+##  [7,] &quot;37.376906210544&quot;  &quot;34.9084408430805&quot; &quot;34.8676684452056&quot;
+##  [8,] &quot;42.605894256157&quot;  &quot;37.8105081118408&quot; &quot;37.9066861615621&quot;
+##  [9,] &quot;41.2412628670872&quot; &quot;38.8427934436931&quot; &quot;38.8593822173436&quot;
+## [10,] &quot;48.2701777931124&quot; &quot;25.0155401378403&quot; &quot;25.0278813214113&quot;
+## [11,] &quot;33.5219295081337&quot; &quot;37.6221852019531&quot; &quot;37.6230406407462&quot;
+## [12,] &quot;26.5884431567018&quot; &quot;22.2242935639128&quot; &quot;22.2157473419508&quot;
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] &quot;1.47729626669981&quot; &quot;1.47727565168591&quot; &quot;9.79748335465867&quot;
+##  [2,] &quot;3.19445891892989&quot; &quot;3.19794315842211&quot; &quot;7.71999639449866&quot;
+##  [3,] &quot;2.92141474473231&quot; &quot;2.92008844656286&quot; &quot;8.08957783787323&quot;
+##  [4,] &quot;2.70318485984093&quot; &quot;2.70170876184947&quot; &quot;8.43741038313125&quot;
+##  [5,] &quot;2.29522672438806&quot; &quot;2.29794872178016&quot; &quot;8.38550103302378&quot;
+##  [6,] &quot;3.79802040465035&quot; &quot;3.78713021198604&quot; &quot;8.25683288704727&quot;
+##  [7,] &quot;3.08368934971535&quot; &quot;3.08008765894795&quot; &quot;8.62138344128154&quot;
+##  [8,] &quot;3.07968630131565&quot; &quot;3.08752005539633&quot; &quot;8.3506663903943&quot; 
+##  [9,] &quot;3.20292369511514&quot; &quot;3.20429158273309&quot; &quot;8.1693626496722&quot; 
+## [10,] &quot;1.87516048038837&quot; &quot;1.87608557333405&quot; &quot;9.23753409926132&quot;
+## [11,] &quot;3.59135961832556&quot; &quot;3.59144127728081&quot; &quot;7.70651103833515&quot;
+## [12,] &quot;2.4504392617801&quot;  &quot;2.44949695970983&quot; &quot;8.15053425433936&quot;
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] &quot;20.8000305256292&quot; &quot;20.8003683211179&quot;
+##  [2,] &quot;9.98041094468705&quot; &quot;9.95431345556755&quot;
+##  [3,] &quot;10.5076420187191&quot; &quot;10.5182762117325&quot;
+##  [4,] &quot;11.0091630001303&quot; &quot;11.0221115006327&quot;
+##  [5,] &quot;11.9618725389051&quot; &quot;11.9334895308224&quot;
+##  [6,] &quot;11.612785479182&quot;  &quot;11.6805328053348&quot;
+##  [7,] &quot;11.9984271908357&quot; &quot;12.0259237101698&quot;
+##  [8,] &quot;12.4930915850769&quot; &quot;12.4322865638375&quot;
+##  [9,] &quot;12.0286954236259&quot; &quot;12.0182198807093&quot;
+## [10,] &quot;14.4972959491374&quot; &quot;14.4861744795951&quot;
+## [11,] &quot;10.4212274513421&quot; &quot;10.4206786898426&quot;
+## [12,] &quot;10.1875787270284&quot; &quot;10.1964355229393&quot;
+## attr(,&quot;units&quot;)
+##  [1] &quot;&quot;          &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;        
+##  [6] &quot;h&quot;         &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;         &quot;h&quot;        
+## [11] &quot;/h&quot;        &quot;h&quot;         &quot;h&quot;         &quot;&quot;          &quot;&quot;         
+## [16] &quot;&quot;          &quot;&quot;          &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L&quot;   
+## [21] &quot;h*mg/L/mg&quot; &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot; &quot;%&quot;         &quot;%&quot;        
+## [26] &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;%&quot;         &quot;%&quot;        
+## [31] &quot;L&quot;         &quot;L&quot;         &quot;L/h&quot;       &quot;L/h&quot;       &quot;h&quot;        
+## [36] &quot;h&quot;         &quot;h&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
        <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, 
+<pre><code>## Error in tblNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : 사용되지 않은 인자 (colSubj = &quot;Subject&quot;)</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] &quot;1&quot;     &quot;2.36878509420585&quot; &quot;10.5&quot;  &quot;0.0328125&quot;  &quot;1.12&quot; &quot;0&quot;  &quot;3.28&quot;
+##  [2,] &quot;2&quot;     &quot;2.41123733696293&quot; &quot;8.33&quot;  &quot;0.02603125&quot; &quot;1.92&quot; &quot;0&quot;  &quot;0.9&quot; 
+##  [3,] &quot;3&quot;     &quot;2.52971150145858&quot; &quot;8.2&quot;   &quot;0.025625&quot;   &quot;1.02&quot; &quot;0&quot;  &quot;1.05&quot;
+##  [4,] &quot;4&quot;     &quot;2.59275546723663&quot; &quot;8.6&quot;   &quot;0.026875&quot;   &quot;1.07&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [5,] &quot;5&quot;     &quot;2.55109229061238&quot; &quot;11.4&quot;  &quot;0.035625&quot;   &quot;1&quot;    &quot;0&quot;  &quot;1.57&quot;
+##  [6,] &quot;6&quot;     &quot;2.0334043955261&quot;  &quot;6.44&quot;  &quot;0.020125&quot;   &quot;1.15&quot; &quot;0&quot;  &quot;0.92&quot;
+##  [7,] &quot;7&quot;     &quot;2.28854976005424&quot; &quot;7.09&quot;  &quot;0.02215625&quot; &quot;3.48&quot; &quot;0&quot;  &quot;1.15&quot;
+##  [8,] &quot;8&quot;     &quot;2.17040271754659&quot; &quot;7.56&quot;  &quot;0.023625&quot;   &quot;2.02&quot; &quot;0&quot;  &quot;1.25&quot;
+##  [9,] &quot;9&quot;     &quot;2.12464810390587&quot; &quot;9.03&quot;  &quot;0.02821875&quot; &quot;0.63&quot; &quot;0&quot;  &quot;1.12&quot;
+## [10,] &quot;10&quot;    &quot;2.65770546248091&quot; &quot;10.21&quot; &quot;0.03190625&quot; &quot;3.55&quot; &quot;0&quot;  &quot;2.42&quot;
+## [11,] &quot;11&quot;    &quot;2.1475943307927&quot;  &quot;8&quot;     &quot;0.025&quot;      &quot;0.98&quot; &quot;0&quot;  &quot;0.86&quot;
+## [12,] &quot;12&quot;    &quot;2.82449347826545&quot; &quot;9.75&quot;  &quot;0.03046875&quot; &quot;3.52&quot; &quot;0&quot;  &quot;1.17&quot;
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] &quot;3.28014647414312&quot;  &quot;24.37&quot; &quot;14.304377571097&quot;  &quot;0.0484569969657749&quot;
+##  [2,] &quot;0.888639849106919&quot; &quot;24.3&quot;  &quot;6.65934156262252&quot; &quot;0.104086443688432&quot; 
+##  [3,] &quot;1.05509670837553&quot;  &quot;24.17&quot; &quot;6.76608737718236&quot; &quot;0.102444314109434&quot; 
+##  [4,] &quot;1.15642160174997&quot;  &quot;24.65&quot; &quot;6.98124666099893&quot; &quot;0.0992870205306231&quot;
+##  [5,] &quot;1.55569511595616&quot;  &quot;24.35&quot; &quot;8.0022640410078&quot;  &quot;0.0866188839818201&quot;
+##  [6,] &quot;0.941271173708175&quot; &quot;23.85&quot; &quot;7.89499786796582&quot; &quot;0.0877957400561702&quot;
+##  [7,] &quot;1.16071921229933&quot;  &quot;24.22&quot; &quot;7.84666826130148&quot; &quot;0.0883364961379133&quot;
+##  [8,] &quot;1.22852675835656&quot;  &quot;24.12&quot; &quot;8.51003788342506&quot; &quot;0.0814505399453019&quot;
+##  [9,] &quot;1.11648311706515&quot;  &quot;24.43&quot; &quot;8.40599880716182&quot; &quot;0.0824586341803179&quot;
+## [10,] &quot;2.41369227401111&quot;  &quot;23.7&quot;  &quot;9.24691582297898&quot; &quot;0.0749598237757766&quot;
+## [11,] &quot;0.859806606884089&quot; &quot;24.08&quot; &quot;7.26123651504339&quot; &quot;0.0954585598642772&quot;
+## [12,] &quot;1.17553904959565&quot;  &quot;24.15&quot; &quot;6.28650816367189&quot; &quot;0.110259489451627&quot; 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] &quot;9.05&quot; &quot;24.37&quot; &quot;3&quot;     &quot;-0.99999986483748&quot;  &quot;0.999999729674979&quot;
+##  [2,] &quot;7.03&quot; &quot;24.3&quot;  &quot;4&quot;     &quot;-0.998596709529913&quot; &quot;0.99719538828397&quot; 
+##  [3,] &quot;9&quot;    &quot;24.17&quot; &quot;3&quot;     &quot;-0.999662423945811&quot; &quot;0.999324961849213&quot;
+##  [4,] &quot;9.02&quot; &quot;24.65&quot; &quot;3&quot;     &quot;-0.999461923749821&quot; &quot;0.998924137025692&quot;
+##  [5,] &quot;7.02&quot; &quot;24.35&quot; &quot;4&quot;     &quot;-0.999323363372814&quot; &quot;0.998647184582752&quot;
+##  [6,] &quot;2.03&quot; &quot;23.85&quot; &quot;7&quot;     &quot;-0.999120281624298&quot; &quot;0.998241337153017&quot;
+##  [7,] &quot;6.98&quot; &quot;24.22&quot; &quot;4&quot;     &quot;-0.999334862622512&quot; &quot;0.998670167652754&quot;
+##  [8,] &quot;3.53&quot; &quot;24.12&quot; &quot;6&quot;     &quot;-0.995496052943785&quot; &quot;0.991012391426654&quot;
+##  [9,] &quot;8.8&quot;  &quot;24.43&quot; &quot;3&quot;     &quot;-0.99972179371205&quot;  &quot;0.999443664822839&quot;
+## [10,] &quot;9.38&quot; &quot;23.7&quot;  &quot;3&quot;     &quot;-0.999754311749369&quot; &quot;0.999508683861454&quot;
+## [11,] &quot;9.03&quot; &quot;24.08&quot; &quot;3&quot;     &quot;-0.999999127979356&quot; &quot;0.999998255959473&quot;
+## [12,] &quot;9.03&quot; &quot;24.15&quot; &quot;3&quot;     &quot;-0.999698355328196&quot; &quot;0.9993968016459&quot;  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] &quot;0.999999459349959&quot; &quot;148.92305&quot; &quot;148.92305&quot; &quot;216.611933038226&quot;
+##  [2,] &quot;0.995793082425955&quot; &quot;91.5268&quot;   &quot;91.5268&quot;   &quot;100.173459143183&quot;
+##  [3,] &quot;0.998649923698427&quot; &quot;99.2865&quot;   &quot;99.2865&quot;   &quot;109.535970740547&quot;
+##  [4,] &quot;0.997848274051385&quot; &quot;106.7963&quot;  &quot;106.7963&quot;  &quot;118.378881427603&quot;
+##  [5,] &quot;0.997970776874129&quot; &quot;121.2944&quot;  &quot;121.2944&quot;  &quot;139.419777837118&quot;
+##  [6,] &quot;0.99788960458362&quot;  &quot;73.77555&quot;  &quot;73.77555&quot;  &quot;84.2544183301878&quot;
+##  [7,] &quot;0.998005251479131&quot; &quot;90.7534&quot;   &quot;90.7534&quot;   &quot;103.771801796293&quot;
+##  [8,] &quot;0.988765489283318&quot; &quot;88.55995&quot;  &quot;88.55995&quot;  &quot;103.906686815243&quot;
+##  [9,] &quot;0.998887329645677&quot; &quot;86.32615&quot;  &quot;86.32615&quot;  &quot;99.9087179279482&quot;
+## [10,] &quot;0.999017367722909&quot; &quot;138.3681&quot;  &quot;138.3681&quot;  &quot;170.652060635217&quot;
+## [11,] &quot;0.999996511918946&quot; &quot;80.0936&quot;   &quot;80.0936&quot;   &quot;89.1027449234385&quot;
+## [12,] &quot;0.998793603291801&quot; &quot;119.9775&quot;  &quot;119.9775&quot;  &quot;130.588831558118&quot;
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] &quot;0.676912290744456&quot; &quot;216.614955803818&quot; &quot;0.67692173688693&quot; 
+##  [2,] &quot;0.313042059822447&quot; &quot;100.064317640308&quot; &quot;0.312700992625963&quot;
+##  [3,] &quot;0.342299908564208&quot; &quot;109.585721753278&quot; &quot;0.342455380478994&quot;
+##  [4,] &quot;0.369934004461258&quot; &quot;118.44355857992&quot;  &quot;0.370136120562249&quot;
+##  [5,] &quot;0.435686805740995&quot; &quot;139.254630430615&quot; &quot;0.435170720095671&quot;
+##  [6,] &quot;0.263295057281837&quot; &quot;84.4966985785753&quot; &quot;0.264052183058048&quot;
+##  [7,] &quot;0.324286880613414&quot; &quot;103.893147024686&quot; &quot;0.324666084452144&quot;
+##  [8,] &quot;0.324708396297635&quot; &quot;103.643051464786&quot; &quot;0.323884535827455&quot;
+##  [9,] &quot;0.312214743524838&quot; &quot;99.8660676588793&quot; &quot;0.312081461433998&quot;
+## [10,] &quot;0.533287689485054&quot; &quot;170.567912545332&quot; &quot;0.533024726704162&quot;
+## [11,] &quot;0.278446077885745&quot; &quot;89.1007189855217&quot; &quot;0.278439746829755&quot;
+## [12,] &quot;0.408090098619118&quot; &quot;130.639068046815&quot; &quot;0.408247087646298&quot;
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] &quot;31.2489169404534&quot; &quot;31.2498763313113&quot; &quot;1459.0711035&quot;
+##  [2,] &quot;8.63168669340252&quot; &quot;8.53203003991598&quot; &quot;706.586566&quot;  
+##  [3,] &quot;9.3571734209797&quot;  &quot;9.39832451573008&quot; &quot;803.18587&quot;   
+##  [4,] &quot;9.7843308603032&quot;  &quot;9.83359392402986&quot; &quot;901.0842105&quot; 
+##  [5,] &quot;13.0005786254328&quot; &quot;12.8974026752838&quot; &quot;1017.1143165&quot;
+##  [6,] &quot;12.4371736674055&quot; &quot;12.688245527848&quot;  &quot;609.1523875&quot; 
+##  [7,] &quot;12.5452209279821&quot; &quot;12.6473664538854&quot; &quot;782.41986&quot;   
+##  [8,] &quot;14.7697297311878&quot; &quot;14.5529307094073&quot; &quot;739.534598&quot;  
+##  [9,] &quot;13.5949777052926&quot; &quot;13.5580763078894&quot; &quot;705.2296255&quot; 
+## [10,] &quot;18.9180022292417&quot; &quot;18.8780011813617&quot; &quot;1278.180042&quot; 
+## [11,] &quot;10.1109622730249&quot; &quot;10.1089184106194&quot; &quot;617.2422125&quot; 
+## [12,] &quot;8.12575733430562&quot; &quot;8.16108703637935&quot; &quot;977.8807235&quot; 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] &quot;4505.53481941065&quot; &quot;4505.67086458209&quot; &quot;67.6160286851172&quot;
+##  [2,] &quot;999.772287999786&quot; &quot;996.071583509104&quot; &quot;29.3252499112927&quot;
+##  [3,] &quot;1150.96476871455&quot; &quot;1152.65289026304&quot; &quot;30.2162940315685&quot;
+##  [4,] &quot;1303.25240140958&quot; &quot;1305.4981091996&quot;  &quot;30.8588106551423&quot;
+##  [5,] &quot;1667.72161189007&quot; &quot;1661.79367436228&quot; &quot;39.011744571249&quot; 
+##  [6,] &quot;978.428485741731&quot; &quot;986.966459689532&quot; &quot;37.7417566662308&quot;
+##  [7,] &quot;1245.09840831465&quot; &quot;1249.41106012833&quot; &quot;37.1599983764277&quot;
+##  [8,] &quot;1298.11575468474&quot; &quot;1288.52011616077&quot; &quot;43.0301500208197&quot;
+##  [9,] &quot;1201.77153812025&quot; &quot;1200.2123597462&quot;  &quot;41.3174964516894&quot;
+## [10,] &quot;2473.99342735889&quot; &quot;2470.87654175199&quot; &quot;48.3353501320931&quot;
+## [11,] &quot;928.559971386069&quot; &quot;928.489963582081&quot; &quot;33.5269415524517&quot;
+## [12,] &quot;1330.38400236898&quot; &quot;1332.05283411623&quot; &quot;26.4963558071417&quot;
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] &quot;67.6170064935417&quot; &quot;30.4867482345887&quot; &quot;30.4863228055447&quot;
+##  [2,] &quot;29.0626720309864&quot; &quot;30.6904415765423&quot; &quot;30.7239160557228&quot;
+##  [3,] &quot;30.318495985664&quot;  &quot;28.5170999496524&quot; &quot;28.5041534217657&quot;
+##  [4,] &quot;30.9777467963968&quot; &quot;27.2259641330176&quot; &quot;27.2110971545992&quot;
+##  [5,] &quot;38.7941877387202&quot; &quot;26.4979946505636&quot; &quot;26.5294196385914&quot;
+##  [6,] &quot;38.280335514986&quot;  &quot;43.2597344953234&quot; &quot;43.135694392041&quot; 
+##  [7,] &quot;37.376906210544&quot;  &quot;34.9084408430805&quot; &quot;34.8676684452056&quot;
+##  [8,] &quot;42.605894256157&quot;  &quot;37.8105081118408&quot; &quot;37.9066861615621&quot;
+##  [9,] &quot;41.2412628670872&quot; &quot;38.8427934436931&quot; &quot;38.8593822173436&quot;
+## [10,] &quot;48.2701777931124&quot; &quot;25.0155401378403&quot; &quot;25.0278813214113&quot;
+## [11,] &quot;33.5219295081337&quot; &quot;37.6221852019531&quot; &quot;37.6230406407462&quot;
+## [12,] &quot;26.5884431567018&quot; &quot;22.2242935639128&quot; &quot;22.2157473419508&quot;
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] &quot;1.47729626669981&quot; &quot;1.47727565168591&quot; &quot;9.79748335465867&quot;
+##  [2,] &quot;3.19445891892989&quot; &quot;3.19794315842211&quot; &quot;7.71999639449866&quot;
+##  [3,] &quot;2.92141474473231&quot; &quot;2.92008844656286&quot; &quot;8.08957783787323&quot;
+##  [4,] &quot;2.70318485984093&quot; &quot;2.70170876184947&quot; &quot;8.43741038313125&quot;
+##  [5,] &quot;2.29522672438806&quot; &quot;2.29794872178016&quot; &quot;8.38550103302378&quot;
+##  [6,] &quot;3.79802040465035&quot; &quot;3.78713021198604&quot; &quot;8.25683288704727&quot;
+##  [7,] &quot;3.08368934971535&quot; &quot;3.08008765894795&quot; &quot;8.62138344128154&quot;
+##  [8,] &quot;3.07968630131565&quot; &quot;3.08752005539633&quot; &quot;8.3506663903943&quot; 
+##  [9,] &quot;3.20292369511514&quot; &quot;3.20429158273309&quot; &quot;8.1693626496722&quot; 
+## [10,] &quot;1.87516048038837&quot; &quot;1.87608557333405&quot; &quot;9.23753409926132&quot;
+## [11,] &quot;3.59135961832556&quot; &quot;3.59144127728081&quot; &quot;7.70651103833515&quot;
+## [12,] &quot;2.4504392617801&quot;  &quot;2.44949695970983&quot; &quot;8.15053425433936&quot;
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] &quot;20.8000305256292&quot; &quot;20.8003683211179&quot;
+##  [2,] &quot;9.98041094468705&quot; &quot;9.95431345556755&quot;
+##  [3,] &quot;10.5076420187191&quot; &quot;10.5182762117325&quot;
+##  [4,] &quot;11.0091630001303&quot; &quot;11.0221115006327&quot;
+##  [5,] &quot;11.9618725389051&quot; &quot;11.9334895308224&quot;
+##  [6,] &quot;11.612785479182&quot;  &quot;11.6805328053348&quot;
+##  [7,] &quot;11.9984271908357&quot; &quot;12.0259237101698&quot;
+##  [8,] &quot;12.4930915850769&quot; &quot;12.4322865638375&quot;
+##  [9,] &quot;12.0286954236259&quot; &quot;12.0182198807093&quot;
+## [10,] &quot;14.4972959491374&quot; &quot;14.4861744795951&quot;
+## [11,] &quot;10.4212274513421&quot; &quot;10.4206786898426&quot;
+## [12,] &quot;10.1875787270284&quot; &quot;10.1964355229393&quot;
+## attr(,&quot;units&quot;)
+##  [1] &quot;&quot;          &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;        
+##  [6] &quot;h&quot;         &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;         &quot;h&quot;        
+## [11] &quot;/h&quot;        &quot;h&quot;         &quot;h&quot;         &quot;&quot;          &quot;&quot;         
+## [16] &quot;&quot;          &quot;&quot;          &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L&quot;   
+## [21] &quot;h*mg/L/mg&quot; &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot; &quot;%&quot;         &quot;%&quot;        
+## [26] &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;%&quot;         &quot;%&quot;        
+## [31] &quot;L&quot;         &quot;L&quot;         &quot;L/h&quot;       &quot;L/h&quot;       &quot;h&quot;        
+## [36] &quot;h&quot;         &quot;h&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, 
        <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
+<pre><code>## Error in tblNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : 사용되지 않은 인자 (colSubj = &quot;Subject&quot;)</code></pre>
 
 </div>
 </div>
