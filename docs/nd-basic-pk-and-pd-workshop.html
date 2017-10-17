@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ncar.html">
-<link rel="next" href="simulation.html">
+<link rel="prev" href="noncompart.html">
+<link rel="next" href="ncar.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -160,13 +160,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>A.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="A.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>A.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
 <li class="chapter" data-level="A.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>A.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="A.3.3" data-path="ms-40-pkr.html"><a href="#section-A.3.3"><i class="fa fa-check"></i><b>A.3.3</b> 한계</a></li>
+<li class="chapter" data-level="A.3.3" data-path="ms-31-workshop.html"><a href="#section-A.3.3"><i class="fa fa-check"></i><b>A.3.3</b> 한계</a></li>
 <li class="chapter" data-level="A.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>A.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="A.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>A.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="A.3.6" data-path="ms-40-pkr.html"><a href="#section-A.3.6"><i class="fa fa-check"></i><b>A.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="A.3.6" data-path="ms-31-workshop.html"><a href="#section-A.3.6"><i class="fa fa-check"></i><b>A.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="A.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>A.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="A.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>A.3.8</b> Closing</a></li>
-<li class="chapter" data-level="A.3.9" data-path="ms-40-pkr.html"><a href="#section-A.3.9"><i class="fa fa-check"></i><b>A.3.9</b> 결론</a></li>
+<li class="chapter" data-level="A.3.9" data-path="ms-31-workshop.html"><a href="#section-A.3.9"><i class="fa fa-check"></i><b>A.3.9</b> 결론</a></li>
 <li class="chapter" data-level="A.3.10" data-path="softwares.html"><a href="softwares.html#pros-2"><i class="fa fa-check"></i><b>A.3.10</b> Pros</a></li>
 <li class="chapter" data-level="A.3.11" data-path="softwares.html"><a href="softwares.html#cons-2"><i class="fa fa-check"></i><b>A.3.11</b> Cons</a></li>
 </ul></li>
@@ -199,34 +199,43 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pkr" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> R을 사용한 비구획분석 시각화</h1>
-<div id="summary-pkr" class="section level2">
-<h2><span class="header-section-number">6.1</span> 이 장에서는</h2>
-<p>NCA에 대한 다양한 시각화를 가능하게 해 주는 <code>pkr</code> 패키지에 대해 알아보겠습니다.</p>
-</div>
-<div id="pkr-" class="section level2">
-<h2><span class="header-section-number">6.2</span> pkr 사용법</h2>
-<p>Extension of NonCompart for CDISC input</p>
-</div>
-<div id="pros" class="section level2">
-<h2><span class="header-section-number">6.3</span> Pros</h2>
-<ul>
-<li>Open source and free of charge</li>
-<li>CDISC SDTM fully compatible (input - DM, EX, PC)</li>
-<li>Output of CDISC SDTM PP domain terms</li>
-<li>Calculate partial(interval) AUC with ‘linear’ or ‘log’ interpolation method</li>
-</ul>
-</div>
-<div id="cons" class="section level2">
-<h2><span class="header-section-number">6.4</span> Cons</h2>
-<ul>
-<li>More tests required</li>
-<li>Experience with R language required</li>
-<li>Generating plots not supported for now (To be supported soon)</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
-pkr<span class="op">::</span><span class="kw">NCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">uConc=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<div id="nd-basic-pk-and-pd-workshop" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> 2nd Basic PK and PD Workshop</h1>
+<div id="data-prep." class="section level2">
+<h2><span class="header-section-number">4.1</span> data prep.</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Theoph
+Theoph[,<span class="st">&quot;Wt&quot;</span>]
+<span class="kw">unique</span>(Theoph[,<span class="st">&quot;Wt&quot;</span>])  <span class="co"># No repeat. </span>
+<span class="kw">unique</span>(Theoph[, <span class="dv">1</span><span class="op">:</span><span class="dv">2</span>])
+<span class="kw">unique</span>(Theoph[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])
+Demog =<span class="st"> </span><span class="kw">unique</span>(Theoph[, <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>])
+Demog
+Demog[,<span class="st">&quot;Amt&quot;</span>] =<span class="st"> </span>Demog[,<span class="dv">2</span>]<span class="op">*</span>Demog[,<span class="dv">3</span>]
+Demog
+Theoph[Theoph<span class="op">$</span>Subject <span class="op">==</span><span class="st"> </span><span class="dv">1</span>,]
+Theoph[Theoph<span class="op">$</span>Wt <span class="op">==</span><span class="st"> </span><span class="fl">70.5</span>,]
+Theoph[Theoph<span class="op">$</span>Subject <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>Theoph<span class="op">$</span>Wt <span class="op">==</span><span class="st"> </span><span class="fl">70.5</span>,]
+Theoph[Theoph<span class="op">$</span>Subject <span class="op">==</span><span class="st"> </span><span class="dv">3</span> <span class="op">&amp;</span><span class="st"> </span>Theoph<span class="op">$</span>Wt <span class="op">==</span><span class="st"> </span><span class="fl">70.5</span>,<span class="kw">c</span>(<span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>)]
+
+## graph
+
+<span class="kw">library</span>(lattice)
+?xyplot
+<span class="kw">xyplot</span>(conc<span class="op">~</span>Time <span class="op">|</span><span class="st"> </span>Subject, <span class="dt">data=</span>Theoph,<span class="dt">Type =</span> <span class="st">&quot;l&quot;</span>)
+<span class="kw">xyplot</span>(conc<span class="op">~</span>Time <span class="op">|</span><span class="st"> </span>Subject, <span class="dt">data=</span>Theoph,<span class="dt">type =</span> <span class="st">&quot;o”)</span>
+<span class="st">       </span></code></pre></div>
+<pre><code>## Error: &lt;text&gt;:20:48: unexpected INCOMPLETE_STRING
+## 20: xyplot(conc~Time | Subject, data=Theoph,type = &quot;o”)
+## 21:        
+##                                                    ^</code></pre>
+<div id="pkr" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> pkr</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pkr)
+<span class="kw">write.csv</span>(Theoph, <span class="st">&quot;Theoph.csv&quot;</span>, <span class="dt">row.names=</span><span class="ot">FALSE</span>, <span class="dt">quote=</span><span class="ot">FALSE</span>)
+
+<span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
+
+<span class="kw">NCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">uConc=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
 <pre><code>##    Subject  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST    LAMZHL
 ## 1        1 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37 14.304378
 ## 2        2  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30  6.659342
@@ -292,7 +301,7 @@ pkr<span class="op">::</span><span class="kw">NCA</span>(Theoph, <span class="st
 ## 10 14.497296 14.486174 25.01554 25.02788 1.875160 1.876086
 ## 11 10.421227 10.420679 37.62219 37.62304 3.591360 3.591441
 ## 12 10.187579 10.196436 22.22429 22.21575 2.450439 2.449497</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">pkr<span class="op">::</span><span class="kw">NCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">uConc=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">NCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">uConc=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
 <pre><code>##   Subject CMAX  CMAXD TMAX       C0  AUCPBEO  AUCPBEP CLST      CLSTP TLST
 ## 1       1 1.50 0.0600 0.25 2.393617 20.65564 20.64189 0.05 0.05024851    8
 ## 2       2 2.03 0.0812 0.25 2.528160 16.21809 16.29857 0.08 0.07475591    8
@@ -328,7 +337,58 @@ pkr<span class="op">::</span><span class="kw">NCA</span>(Theoph, <span class="st
 ## 4 1.785125 18.67703 19.22334  8.506369  8.755181 17.21810 15.62909
 ## 5 2.279684 36.68535 37.25547  9.272141  9.416237 22.51060 21.46604
 ## 6 2.076019 19.69683 20.23502  6.963235  7.153494 16.07680 14.85079</code></pre>
+</div>
+<div id="ncar" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> ncar</h3>
+<ul>
+<li>rtf를 word doc 압축파일로 저장하는것이 좋음.</li>
+<li>산출된 값들의 배치가 불 규칙적인 경우(한글판 word에서):</li>
+<li>courier 글자체 선택 —&gt; 옵션 —&gt; 고급 —&gt; “모든 새 문서” 선택 —&gt; 반자 전자 uncheck</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
 
+<span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
+       <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
+       <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Output to PDF file</span>
+
+<span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;NCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, 
+       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;NCA-Indometh.pdf&quot;</span>, Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, 
+       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, 
+       <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+
+<span class="co"># Output to RTF file</span>
+
+<span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;NCA-Theoph.rtf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, 
+       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;NCA-Indometh.rtf&quot;</span>, Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, 
+       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, 
+       <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L”)</span></code></pre></div>
+</div>
+<div id="noncompart" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> NonCompart</h3>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Theoph and Indometh data: dose in mg, conc in mg/L, time in h</span>
+
+<span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>,
+       <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Theoph, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Theoph, dose = 320, concUnit = &quot;mg/L&quot;): could not find function &quot;tabNCA&quot;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tabNCA</span>(Indometh, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, 
+       <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## Error in tabNCA(Indometh, colSubj = &quot;Subject&quot;, colTime = &quot;time&quot;, colConc = &quot;conc&quot;, : could not find function &quot;tabNCA&quot;</code></pre>
+
+</div>
 </div>
 </div>
             </section>
@@ -336,8 +396,8 @@ pkr<span class="op">::</span><span class="kw">NCA</span>(Theoph, <span class="st
           </div>
         </div>
       </div>
-<a href="ncar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="noncompart.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ncar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -366,7 +426,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/bookdown/ms-40-pkr.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/bookdown/ms-31-workshop.Rmd",
 "text": "Edit"
 },
 "download": null,

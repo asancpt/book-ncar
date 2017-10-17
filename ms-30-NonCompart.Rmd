@@ -70,10 +70,11 @@ NonCompart::tabNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", du
 
 ## NonCompart 사용법
 
-NCA의 사용법은 다음과 같다.
-NCA(Data, colSubj, colTime, colConc, colTrt, Method = "Linear", Dose = 0, AdmMode = "Extravascular", TimeInfusion = 0, Report = "Table", iAUC)
-Data는 데이터셋을 설정하며. colSubj는 subject ID의 컬럼명, colTime은 time의 컬럼명, colConc는 concentration의 컬럼명, colTrT는 treatment code의 컬럼명(교차시험에서 사용)이다.
+NCA의 사용법은 다음과 같습니다.
 
+`NCA(Data, colSubj, colTime, colConc, colTrt, Method = "Linear", Dose = 0, AdmMode = "Extravascular", TimeInfusion = 0, Report = "Table", iAUC)`
+
+Data는 데이터셋을 설정하며, colSubj는 subject ID의 컬럼명, colTime은 time의 컬럼명, colConc는 concentration의 컬럼명, colTrT는 treatment code의 컬럼명(교차시험에서 사용)이다.
 
 ```{r, eval = FALSE}
 tabNCA(concData, colSubj = "Subject", colTime = "Time", colConc = "conc", dose = 0, 
@@ -90,7 +91,6 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ```{r}
 args(NonCompart::tblNCA)
 ```
-
 
 ```{r, include = FALSE, evel = FALSE}
 NonCompartdb <- tools::Rd_db('NonCompart')
