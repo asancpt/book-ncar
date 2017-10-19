@@ -1,0 +1,11 @@
+html_document:
+  theme: readable
+  number_sections: no
+  toc: true
+
+bookdown::html_chapters:
+  css: css/style.css
+
+bookdown::epub_book:
+  stylesheet: css/style.css
+

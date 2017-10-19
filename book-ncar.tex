@@ -1,0 +1,3027 @@
+\documentclass[]{krantz}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={R을 사용한 비구획분석},
+            pdfauthor={배균섭, 한성필, 윤석규, 조용순},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{R을 사용한 비구획분석}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{배균섭, 한성필, 윤석규, 조용순}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \predate{\centering\large\emph}
+  \postdate{\par}
+  \date{2017-10-19}
+
+% start - modified by Sungpil Han
+\usepackage{kotex}
+% end
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+\setmainfont[UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}]{Alegreya}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}
+
+\newenvironment{rmdblock}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+
+\usepackage{makeidx}
+\makeindex
+
+\urlstyle{tt}
+
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\frontmatter
+
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[section]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[section]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section*{책 머리에}\label{-}
+\addcontentsline{toc}{section}{책 머리에}
+
+\href{https://github.com/asancpt/book-ncar}{}
+
+\begin{quote}
+단순함은 궁극의 정교함이다.\\
+Simplicity is the ultimate sophistication.\\
+- 레오나르도 다빈치
+\end{quote}
+
+이 책은 R을 사용하여 비구획분석을 간단히 수행할 수 있도록 안내할
+것입니다. 널리 쓰이지만 값비싼 상용 소프트웨어와 동일한 결과를 얻을 수
+있음을 반복적으로 확인하였습니다. 숫자 계산 뿐만 아니라 시각화도
+가능하여 농도-시간 곡선, 용량군 별 파라메터의 forest plot 등의 유용한
+그림도 쉽게 그릴 수 있습니다. CDISC SDTM 표준을 따르는 용어를 사용한
+것도 큰 장점입니다.
+
+한번 익혀두면 속도와 연속성 측면에서 커다란 잇점이 있음을 것을 발견할 수
+있을 것입니다. 또한 재현가능한 연구를 보다 수월하게 구현할 수 있습니다.
+무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 학교,
+연구소, 정부기관, 제약회사 등에서 라이센스 등의 제약 없이 손쉽게
+설치하고 실행할 수 있으리라 생각됩니다. 책에 대한 피드백, 오탈자 신고
+등은 \href{https://github.com/asancpt/book-ncar/issues}{깃허브 저장소}에
+남겨주십시오.
+
+감사합니다.
+
+2017년 10월\\
+서울아산병원 임상약리학과, 울산대학교 임상약리학교실\\
+교수 배균섭,\\
+전공의 한성필, 윤석규, 조용순
+
+이 저작물은 크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0
+국제 라이선스에 따라 이용할 수 있습니다.
+
+\subsection*{감사의 글}\label{-}
+\addcontentsline{toc}{subsection}{감사의 글}
+
+본 출판물은 2016, 2017년도 정부(미래창조과학부)의 재원으로 한국연구재단
+첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다
+(NRF-2016-936606).
+
+\subsection*{저자 소개}\label{-}
+\addcontentsline{toc}{subsection}{저자 소개}
+
+\textbf{배균섭}
+
+서울아산병원 임상약리학과 과장, 울산대학교 의과대학 임상약리학교실
+교수입니다. 수십편의 논문을 저술하였고 20년 이상의 프로그래밍 경력을
+갖고 있습니다.
+
+\textbf{한성필}
+
+서울아산병원 임상약리학과 전공의입니다.
+
+\textbf{윤석규}
+
+서울아산병원 임상약리학과 전공의입니다.
+
+\textbf{조용순}
+
+서울아산병원 임상약리학과 전공의입니다.
+
+\section{비구획 분석이란}\label{introduction}
+
+\subsection{이 장에서는}\label{summary-introduction}
+
+약동학과 비구획 분석에 대해 간략히 알아보겠습니다.
+
+\subsection{약동학}\label{PK-introduction}
+
+신체에 약물이 들어올 때, 약물의 양과 효과는 관련성이 있습니다. 따라서
+약물의 효과를 파악하기 위해 우리 몸에서 약물이 가지는 약동학적 특성을
+파악하는 것은 중요합니다. 다양한 신약 개발 과정에서 이러한 약동학적
+특성을 파악하여, 약물의 개발을 지속하거나 중지하기도 하며,
+마취통증의학과나 내과 등의 다양한 임상 의학에서도 신체에 중요 영향을
+미칠 수 있는 약물에 대하여 대략적인 농도를 파악하기 위해 약물의 약동학적
+특성을 이용합니다.
+
+약동학적 약물의 특성은 간단하게 ADME라는 용어로 설명할 수 있습니다. 이는
+absorption (흡수), distribution (분포), metabolism (대사), excretion
+(배설)을 의미합니다. 약물이 다양한 경로 (경구제 복용, 피하 주사, 정맥
+주사, 근육 주사 등)를 통해 우리 몸에 들어오게 되면, 정맥주사 이외의
+나머지는 흡수 (absorption)의 과정을 거쳐 우리 몸의 정맥에 분포하게 되며,
+이러한 약물은 분포 (distribution)와 제거 (metabolism) 과정에서 감소하게
+되고, 제거 과정은 우리 몸에 투여된 물질이 여러 기관 (organ)을 통해서
+다른 물질로 변하여 (metabolism) 제거되거나 물질이 변화하지 않고 그대로
+배설 (excretion) 되는 과정으로 진행되게 됩니다. 이러한 수치들은 각각
+약물의 농도가 증가하고 감소하는 과정과 밀접하게 연관되어 있으며, 이러한
+과정들을 정량화하여 식을 세울 수 있다면, 약물을 투여한 이후의 농도를
+보다 정확하게 예측할 수 있습니다. 이 때 흡수와 관련된 지표로는 흡수속도
+상수 (absorption rate constant)와 생체이용률 (bioavailability), 분포,
+제거와 관련된 지표로는 분포용적 (Volume of distribution)과 청소율
+(Clearance)을 이용하게 되며, 다음 값들을 정확하게 예측하는 것이 약동학
+분야에서의 핵심 중의 하나라고 볼 수 있습니다.
+
+이러한 지표들을 구하기 위해서 현재 여러가지 방법들을 사용하고 있으며, 그
+중 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석
+(Non-compartmental analysis, NCA)으로 \emph{미국의 FDA (Food and Drug
+Administration)에서는 NCA 계산을 하는 소프트웨어를 규정하고 있지 않아},
+상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고
+있습니다. 따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 주어진
+시간과 농도로부터 비구획 분석 방법으로 약동학적 주요 지표를 직접
+구해보고자 합니다.
+
+\begin{itemize}
+\tightlist
+\item
+  NonCompart \citep{R-NonCompart}
+\item
+  pkr \citep{R-pkr}
+\item
+  ncar \citep{R-ncar}
+\end{itemize}
+
+\subsection{비구획 분석 이론 및 계산 방법}\label{ncar-method}
+
+비구획 분석이란 시간, 농도가 표현되어 있는 곡선에서 아무런 가정을 하지
+않고 분석하는 것을 의미합니다. 이때 다음과 같은 가정을 통해서 최대농도
+(C\textsubscript{max}) 및 최대농도에 도달하는 시간
+(T\textsubscript{max}), 전체 시간-농도 곡선의 면적 (Area under the
+time-concentration curve, AUC)등을 구하게 됩니다. 이를 통해 측정된
+지표들을 통하여 약물의 특성을 파악하고 특정구간에서의 농도를 예측하게
+됩니다. 비구획 분석에서는 statistical moment theory (단순히 하나의
+분자가 우리 몸에 들어와서 제거되지 까지는 예측하는 것이 힘들지만 그
+개개의 분자들의 양이 늘어날수록 그들의 전반적인 행동이 규칙적으로
+이루어진다는 이론)를 가정하고 이를 통해 우리는 각각의 분자가 우리 몸에서
+얼마나 머무는지에 대한 평균값을 예상할 수 있게 됩니다. 이 시간을 MRT
+(mean residence time)이라고 지칭하게 되며, 이것은 농도와 시간의 곱을
+적분한 값에서 단순 농도 값을 적분한 농도를 나누어 준 값으로 다음과 같이
+표현해 줄 수 있습니다.
+
+\[
+MRT = \frac{AUMC}{AUC} = \frac{\int_{0}^{\infty} t \cdot C(t) dt}{\int_{0}^{\infty} C(t) dt}
+\]
+
+이때 식에서 표현된 AUMC는 area under the first moment curve로 농도와
+시간의 곱을 시간에 대해서 적분한 값에 해당하며 AUC는 area under
+concentration으로 농도를 시간에 대해 적분한 값에 해당합니다. 하지만 이
+때, 각각의 약물에서 농도와 시간 사이의 명확한 함수관계를 확인할 수 없고,
+주어진 정보도 제한적이므로 농도를 시간으로 적분하기에는 상당한 어려움이
+따릅니다. 따라서 이를 간소화 하기 위해 Linear trapezoidal
+method(농도-시간 곡선에서 농도를 측정한 점과 점 사이의 면적을
+사다리꼴이라 가정하고 넓이를 구하는 방식)를 사용하게 됩니다. 처음 농도를
+측정한 부분부터 마지막 샘플까지를 t\textsubscript{1},t\textsubscript{2}
+\ldots{}t\textsubscript{last}로 표현했을 시 t\textsubscript{1}과
+t\textsubscript{2}의 사이의 AUC와 AUMC는 다음과 같이 계산됩니다.
+\footnote{이 수식은 \texttt{NonCompart::AUC()} 함수에서 계산 되게
+  됩니다.}
+
+\[
+AUC_{t_1-t_2} = 
+  (t_2-t_1)\cdot \frac{C_2+C_1}{2} \\
+AUMC_{t_1-t_2} = 
+  (t_2-t_1)\cdot \frac{t_2 \cdot C_2 + t_1 \cdot C_1}{2}
+\]
+
+이 방식을 계속 이용하여 각각의 구간 값의 합을 모두 더한 값으로
+AUC\textsubscript{last}(처음 농도를 측정하기 시작한 구간부터 마지막
+농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한
+방식), AUMC\textsubscript{last}(처음 농도를 측정하기 시작한 구간부터
+마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을
+계산한 방식)를 측정해 주게 됩니다.
+
+\begin{figure}
+\centering
+\includegraphics{assets/figures/trapezoidal.png}
+\caption{Linear trapezoidal method}
+\end{figure}
+
+추가적으로 마지막으로 농도를 잰 시점에서 모든 약물이 우리 몸에서
+빠져나가는 시점까지의 값을 구하기 위해서 마지막으로 측정한 점의 기울기가
+그대로 약물이 모두 제거되는 시점까지 그대로 유지된다는 가정을 세우게
+됩니다. 다음과 같이 C\textsubscript{last}(가장 마지막으로 농도를 측정한
+시점)에서 λ (C\textsubscript{max} 이후에 선형성이 가장 높은 3점을
+선택하여 구한 기울기)를 구한 후 다음과 같은 약동학 공식을 대입하여 값을
+구해주게 됩니다.
+
+\[
+AUC_{t_{last}-\infty} = 
+  \frac{C_{last}}{\lambda} \\
+AUMC_{t_{last}-\infty} = 
+  \frac{t_{last} \cdot C_{last}}{\lambda} + 
+  \frac{C_{last}}{\lambda^2}
+\]
+
+약물이 우리 몸에 들어온 후 가장 높은 농도의 경우 실제 개개인에서 농도를
+측정한 값들 중 가장 높은 농도를 실제 가장 높은 농도라 가정하여 사용하게
+되고, 이 지표를 C\textsubscript{max}라 부릅니다. 또한 이때의 시점을
+T\textsubscript{max}라 부르게 됩니다. 위에서 구한 AUC와
+C\textsubscript{max}, λ 를 가지고 나머지 주요 값을 계산하게 됩니다. 이
+중 청소율(제거되는 속도)에 해당하는 clearance(일반적으로 CL이라
+지칭한다.) 의 경우 다음의 약동학 기본 공식을 활용하여 구해주게 됩니다.
+
+\[
+CL = \frac{D \cdot F}{AUC}
+\]
+
+수식에서 D는 dose로 투여량을, F는 생체이용률을 의미합니다.
+
+우리 몸의 분포 (disposition)을 알기 위해 우리 몸의 volume을 나타내는
+volume of distribution at steady state (Vdss)는 아래 식을 이용하여 값을
+구하게 됩니다.
+
+\[
+Vd_{ss} = MRT \cdot CL = \frac{AUMC}{AUC} \cdot \frac{D}{AUC}
+\]
+
+우리 몸의 생체이용률을 나타내는 F의 경우 기본적으로 정맥주사시의
+생체이용률을 1이라고 가정하고, 다음 식으로 구합니다.
+
+\[
+F = \frac{D_{iv}}{D_{oral}} \cdot \frac{AUC_{oral}}{AUC_{iv}}
+\]
+
+(이중 Div는 정맥주사 투여량, Doral은 경구 투여량, AUCoral은 경구
+투여에서의 AUC, AUCiv는 정맥투여에서의 AUC를 의미한다. 이처럼 AUC,
+C\textsubscript{max}, AUMC, λ 를 구하는 부분에 있어서는
+non-compartmental analysis의 기본 가정들을 활용하였고 그 밖의
+부분들에서는 현재 정형화된 공식들을 활용하여 적용하였다. 위 내용을
+바탕으로 R을 기반으로 한 script를 구성한 후 전세계적으로 널리 쓰이고
+있는 CDISC terminology를 각각의 지표들에 적용하여 결과값을 도출하였다.
+
+또한 투여되는 방식을 3가지 분류(Extravascular, IV infusion, IV bolus)로
+구분하여, 그에 맞는 각각의 식을 적용하였다. 마지막으로 시간당 농도의
+변화율이 농도 증가 곡선보다 감소 곡선에서 완만하다는 점을 고려하여
+농도가 감소하는 구간에서는 log값을 선택적으로 줄 수 있도록 설정하였으며,
+흡수 속도 상수의 경우 현 NCA method를 통해 구하기에는 한계가 있어 따로
+값을 제시하지 않았습니다.
+
+흡수속도 상수를 구하기 위해서는 구획분석방법(compartmental analysis)이나
+비선형 혼합모형(non-linear mixed effect modeling)을 사용하는 것이
+바람직합니다.
+
+Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script
+
+Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예
+
+\section{R 패키지}\label{r-packages}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\KeywordTok{library}\NormalTok{(NonCompart)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{이 장에서는}\label{summary-r-packages}
+
+\texttt{NonCompart} \citep{R-NonCompart}, \texttt{ncar} \citep{R-ncar},
+\texttt{pkr} \citep{R-pkr} 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우
+빠르게) 행할 수 있는 패키지입니다. 이에 대해 알아보겠습니다.
+
+\subsection{패키지에 대하여}\label{-}
+
+\texttt{NonCompart}의 패키지 제목은 Noncompartmental Analysis for
+Pharmacokinetic Data, \texttt{ncar}의 패키지 제목은 Noncompartmental
+Analysis for Pharmacokinetic Report, \texttt{pkr}의 패키지 제목은
+Pharmacokinetics in R 입니다.
+
+\texttt{NonCompart}의 \texttt{DESCRIPTION} 파일을 보면 다음과 같이
+설명하고 있습니다.
+
+\begin{quote}
+Conduct a noncompartmental analysis as closely as possible to the most
+widely used commercial software for pharmacokinetic analysis, i.e.
+`Phoenix(R) WinNonlin(R)'
+\url{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}.
+Some features are 1) Use of CDISC SDTM terms 2) Automatic slope
+selection with the same criterion of WinNonlin(R) 3) Supporting both
+`linear-up linear-down' and `linear-up log-down' method 4)
+Interval(partial) AUCs with `linear' or `log' interpolation method *
+Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic
+Data Analysis - Concepts and Applications. 5th ed. 2016.
+(\url{ISBN:9198299107}).
+\end{quote}
+
+\texttt{ncar}의 \texttt{DESCRIPTION} 파일을 보면 다음과 같이 설명하고
+있습니다.
+
+\begin{quote}
+Conduct a noncompartmental analysis as closely as possible to the most
+widely used commercial software for pharmacokinetic analysis, i.e.
+`Phoenix(R) WinNonlin(R)'
+\url{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}.
+Some features are 1) CDISC SDTM terms 2) Automatic slope selection with
+the same criterion of WinNonlin(R) 3) Supporting both `linear-up
+linear-down' and `linear-up log-down' method 4) Interval(partial) AUCs
+with `linear' or `log' interpolation method 5) Produce pdf, rtf, text
+report files. * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and
+Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
+(\url{ISBN:9198299107}).
+\end{quote}
+
+\texttt{pkr}의 \texttt{DESCRIPTION} 파일을 보면 다음과 같이 설명하고
+있습니다.
+
+\begin{quote}
+Conduct a noncompartmental analysis as closely as possible to the most
+widely used commercial software for pharmacokinetic analysis, i.e.
+`Phoenix(R) WinNonlin(R)'
+\url{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}.
+Some features are 1) CDISC SDTM terms 2) Automatic slope selection with
+the same criterion of WinNonlin(R) 3) Supporting both `linear-up
+linear-down' and `linear-up log-down' method 4) Interval(partial) AUCs
+with `linear' or `log' interpolation method * Reference: Gabrielsson J,
+Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts
+and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
+\end{quote}
+
+\subsection{설치}
+
+우선 R을 설치합니다. R은 아래 링크에서 다운로드 받을 수 있습니다.
+\url{https://r-project.org/}
+
+R을 실행한 후, 아래와 같이 패키지를 설치합니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{'NonCompart'}\NormalTok{)}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{'ncar'}\NormalTok{)}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{'pkr'}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+이제 아래와 같이 입력하여 패키지를 불러올 수 있습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(NonCompart)}
+\KeywordTok{library}\NormalTok{(ncar)}
+\KeywordTok{library}\NormalTok{(pkr)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{기타 설치}\label{-}
+
+자료 분석을 위해 몇가지 도구가 필요한데
+\texttt{tidyverse}\citep{R-tidyverse}를 설치하면 다수의 편리한
+패키지\citep{R-tidyr, R-dplyr, R-tibble, R-ggplot2, R-purrr, R-readr}의
+설치와 불러오기 과정을 쉽게 끝낼 수 있습니다. 이 책에서는 이를 주로
+사용하겠습니다.\\
+다음과 같이 설치하고 불러올 수 있습니다. 다만 비구획분석을 위한 함수의
+입력을 위해 \texttt{tibble} 형식은 \texttt{as.data.frame()}을 통하여
+데이타프레임으로 자료 형식을 변환하는 것이 좋습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{'devtools'}\NormalTok{)}
+\NormalTok{devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{'tidyverse/tidyverse'}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\section{R을 사용한 비구획분석}\label{noncompart}
+
+\subsection{이 장에서는}\label{summary-noncompart}
+
+\texttt{NonCompart} \citep{R-NonCompart}, \texttt{ncar} \citep{R-ncar}
+은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는
+패키지입니다. \texttt{NonCompart}의 제목은 Noncompartmental Analysis for
+Pharmacokinetic Data이고, \texttt{ncar}의 제목은 Noncompartmental
+Analysis for Pharmacokinetic Report입니다. 이에 대해 알아보겠습니다.
+
+\subsection{데이타에 대해}\label{TheophData}
+
+R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있습니다.
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{Theoph}: theophylline의 약동학 데이터, 12명, 320mg PO
+  단회투여, 0\textasciitilde{}24시간 채혈, NONMEM 의 run 폴더의 THEOPP
+  데이터와 동일합니다.
+\item
+  \texttt{Indometh}: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus
+  단회투여, 0\textasciitilde{}8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2,
+  3, 4, 5, 6, 8 h) (데이터명의 첫글짜가 대문자임에 주의하길)
+\end{itemize}
+
+먼저 데이터를 살펴보겠습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{head}\NormalTok{(Theoph)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Grouped Data: conc ~ Time | Subject
+##   Subject   Wt Dose Time  conc
+## 1       1 79.6 4.02 0.00  0.74
+## 2       1 79.6 4.02 0.25  2.84
+## 3       1 79.6 4.02 0.57  6.57
+## 4       1 79.6 4.02 1.12 10.50
+## 5       1 79.6 4.02 2.02  9.66
+## 6       1 79.6 4.02 3.82  8.58
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tail}\NormalTok{(Theoph)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Grouped Data: conc ~ Time | Subject
+##     Subject   Wt Dose  Time conc
+## 127      12 60.5  5.3  3.52 9.75
+## 128      12 60.5  5.3  5.07 8.57
+## 129      12 60.5  5.3  7.07 6.59
+## 130      12 60.5  5.3  9.03 6.11
+## 131      12 60.5  5.3 12.05 4.57
+## 132      12 60.5  5.3 24.15 1.17
+\end{verbatim}
+
+다음과 같이 테스트 할 수 있습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TheophNca <-}\StringTok{ }\KeywordTok{tblNCA}\NormalTok{(Theoph, }\DataTypeTok{key=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴
+attribute를 포함하고 있습니다.
+
+데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알
+수 있습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Backbone <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(Theoph }\OperatorTok{%>%}\StringTok{ }
+\StringTok{                       }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Subject =} \KeywordTok{as.numeric}\NormalTok{(Subject)), }
+                   \KeywordTok{aes}\NormalTok{(Time, conc, }\DataTypeTok{group =}\NormalTok{ Subject, }\DataTypeTok{colour =}\NormalTok{ Wt)) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{    }\KeywordTok{geom_point}\NormalTok{() }
+
+\NormalTok{Individual <-}\StringTok{ }\NormalTok{Backbone }\OperatorTok{+}\StringTok{ }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\StringTok{ }\NormalTok{Subject) }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_log10}\NormalTok{()}
+\NormalTok{groupLinear <-}\StringTok{ }\NormalTok{Backbone}
+\NormalTok{groupLog <-}\StringTok{ }\NormalTok{groupLinear }\OperatorTok{+}\StringTok{ }\KeywordTok{scale_y_log10}\NormalTok{()}
+
+\KeywordTok{ggdraw}\NormalTok{() }\OperatorTok{+}
+\StringTok{    }\KeywordTok{draw_plot}\NormalTok{(Individual, }\DecValTok{0}\NormalTok{, .}\DecValTok{5}\NormalTok{, }\DecValTok{1}\NormalTok{, .}\DecValTok{5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{draw_plot}\NormalTok{(groupLinear, }\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, .}\DecValTok{5}\NormalTok{, .}\DecValTok{5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{draw_plot}\NormalTok{(groupLog, .}\DecValTok{5}\NormalTok{, }\DecValTok{0}\NormalTok{, .}\DecValTok{5}\NormalTok{, .}\DecValTok{5}\NormalTok{) }\OperatorTok{+}
+\StringTok{    }\KeywordTok{draw_plot_label}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\StringTok{"A"}\NormalTok{, }\StringTok{"B"}\NormalTok{, }\StringTok{"C"}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{0}\NormalTok{, }\FloatTok{0.5}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{0.5}\NormalTok{, }\FloatTok{0.5}\NormalTok{), }\DataTypeTok{size =} \DecValTok{15}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: Transformation introduced infinite values in continuous y-axis
+
+## Warning: Transformation introduced infinite values in continuous y-axis
+
+## Warning: Transformation introduced infinite values in continuous y-axis
+
+## Warning: Transformation introduced infinite values in continuous y-axis
+\end{verbatim}
+
+\begin{figure}
+\centering
+\includegraphics{book-ncar_files/figure-latex/TheophFig-1.pdf}
+\caption{\label{fig:TheophFig}Theoph 데이타를 시각화. A) Individual
+concentration-time curves, B) linear concentration-time curves, C)
+semi-logarithmic concentration-time curves}
+\end{figure}
+
+이 패키지로 NCA 비구획방법으로 약동학 파라미터를 산출하기 위해서는
+아래와 같이 하면 됩니다. 우선 Theophilline 의 약동학 파라미터를
+구해보면,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NonCompart}\OperatorTok{::}\KeywordTok{tblNCA}\NormalTok{(Theoph, }\StringTok{"Subject"}\NormalTok{, }\StringTok{"Time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] "1"     "2.36878509420585" "10.5"  "0.0328125"  "1.12" "0"  "3.28"
+##  [2,] "2"     "2.41123733696293" "8.33"  "0.02603125" "1.92" "0"  "0.9" 
+##  [3,] "3"     "2.52971150145858" "8.2"   "0.025625"   "1.02" "0"  "1.05"
+##  [4,] "4"     "2.59275546723663" "8.6"   "0.026875"   "1.07" "0"  "1.15"
+##  [5,] "5"     "2.55109229061238" "11.4"  "0.035625"   "1"    "0"  "1.57"
+##  [6,] "6"     "2.0334043955261"  "6.44"  "0.020125"   "1.15" "0"  "0.92"
+##  [7,] "7"     "2.28854976005424" "7.09"  "0.02215625" "3.48" "0"  "1.15"
+##  [8,] "8"     "2.17040271754659" "7.56"  "0.023625"   "2.02" "0"  "1.25"
+##  [9,] "9"     "2.12464810390587" "9.03"  "0.02821875" "0.63" "0"  "1.12"
+## [10,] "10"    "2.65770546248091" "10.21" "0.03190625" "3.55" "0"  "2.42"
+## [11,] "11"    "2.1475943307927"  "8"     "0.025"      "0.98" "0"  "0.86"
+## [12,] "12"    "2.82449347826545" "9.75"  "0.03046875" "3.52" "0"  "1.17"
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] "3.28014647414312"  "24.37" "14.304377571097"  "0.0484569969657749"
+##  [2,] "0.888639849106919" "24.3"  "6.65934156262252" "0.104086443688432" 
+##  [3,] "1.05509670837553"  "24.17" "6.76608737718236" "0.102444314109434" 
+##  [4,] "1.15642160174997"  "24.65" "6.98124666099893" "0.0992870205306231"
+##  [5,] "1.55569511595616"  "24.35" "8.0022640410078"  "0.0866188839818201"
+##  [6,] "0.941271173708175" "23.85" "7.89499786796582" "0.0877957400561702"
+##  [7,] "1.16071921229933"  "24.22" "7.84666826130148" "0.0883364961379133"
+##  [8,] "1.22852675835656"  "24.12" "8.51003788342506" "0.0814505399453019"
+##  [9,] "1.11648311706515"  "24.43" "8.40599880716182" "0.0824586341803179"
+## [10,] "2.41369227401111"  "23.7"  "9.24691582297898" "0.0749598237757766"
+## [11,] "0.859806606884089" "24.08" "7.26123651504339" "0.0954585598642772"
+## [12,] "1.17553904959565"  "24.15" "6.28650816367189" "0.110259489451627" 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] "9.05" "24.37" "3"     "-0.99999986483748"  "0.999999729674979"
+##  [2,] "7.03" "24.3"  "4"     "-0.998596709529913" "0.99719538828397" 
+##  [3,] "9"    "24.17" "3"     "-0.999662423945811" "0.999324961849213"
+##  [4,] "9.02" "24.65" "3"     "-0.999461923749821" "0.998924137025692"
+##  [5,] "7.02" "24.35" "4"     "-0.999323363372814" "0.998647184582752"
+##  [6,] "2.03" "23.85" "7"     "-0.999120281624298" "0.998241337153017"
+##  [7,] "6.98" "24.22" "4"     "-0.999334862622512" "0.998670167652754"
+##  [8,] "3.53" "24.12" "6"     "-0.995496052943785" "0.991012391426654"
+##  [9,] "8.8"  "24.43" "3"     "-0.99972179371205"  "0.999443664822839"
+## [10,] "9.38" "23.7"  "3"     "-0.999754311749369" "0.999508683861454"
+## [11,] "9.03" "24.08" "3"     "-0.999999127979356" "0.999998255959473"
+## [12,] "9.03" "24.15" "3"     "-0.999698355328196" "0.9993968016459"  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] "0.999999459349959" "148.92305" "148.92305" "216.611933038226"
+##  [2,] "0.995793082425955" "91.5268"   "91.5268"   "100.173459143183"
+##  [3,] "0.998649923698427" "99.2865"   "99.2865"   "109.535970740547"
+##  [4,] "0.997848274051385" "106.7963"  "106.7963"  "118.378881427603"
+##  [5,] "0.997970776874129" "121.2944"  "121.2944"  "139.419777837118"
+##  [6,] "0.99788960458362"  "73.77555"  "73.77555"  "84.2544183301878"
+##  [7,] "0.998005251479131" "90.7534"   "90.7534"   "103.771801796293"
+##  [8,] "0.988765489283318" "88.55995"  "88.55995"  "103.906686815243"
+##  [9,] "0.998887329645677" "86.32615"  "86.32615"  "99.9087179279482"
+## [10,] "0.999017367722909" "138.3681"  "138.3681"  "170.652060635217"
+## [11,] "0.999996511918946" "80.0936"   "80.0936"   "89.1027449234385"
+## [12,] "0.998793603291801" "119.9775"  "119.9775"  "130.588831558118"
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] "0.676912290744456" "216.614955803818" "0.67692173688693" 
+##  [2,] "0.313042059822447" "100.064317640308" "0.312700992625963"
+##  [3,] "0.342299908564208" "109.585721753278" "0.342455380478994"
+##  [4,] "0.369934004461258" "118.44355857992"  "0.370136120562249"
+##  [5,] "0.435686805740995" "139.254630430615" "0.435170720095671"
+##  [6,] "0.263295057281837" "84.4966985785753" "0.264052183058048"
+##  [7,] "0.324286880613414" "103.893147024686" "0.324666084452144"
+##  [8,] "0.324708396297635" "103.643051464786" "0.323884535827455"
+##  [9,] "0.312214743524838" "99.8660676588793" "0.312081461433998"
+## [10,] "0.533287689485054" "170.567912545332" "0.533024726704162"
+## [11,] "0.278446077885745" "89.1007189855217" "0.278439746829755"
+## [12,] "0.408090098619118" "130.639068046815" "0.408247087646298"
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] "31.2489169404534" "31.2498763313113" "1459.0711035"
+##  [2,] "8.63168669340252" "8.53203003991598" "706.586566"  
+##  [3,] "9.3571734209797"  "9.39832451573008" "803.18587"   
+##  [4,] "9.7843308603032"  "9.83359392402986" "901.0842105" 
+##  [5,] "13.0005786254328" "12.8974026752838" "1017.1143165"
+##  [6,] "12.4371736674055" "12.688245527848"  "609.1523875" 
+##  [7,] "12.5452209279821" "12.6473664538854" "782.41986"   
+##  [8,] "14.7697297311878" "14.5529307094073" "739.534598"  
+##  [9,] "13.5949777052926" "13.5580763078894" "705.2296255" 
+## [10,] "18.9180022292417" "18.8780011813617" "1278.180042" 
+## [11,] "10.1109622730249" "10.1089184106194" "617.2422125" 
+## [12,] "8.12575733430562" "8.16108703637935" "977.8807235" 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] "4505.53481941065" "4505.67086458209" "67.6160286851172"
+##  [2,] "999.772287999786" "996.071583509104" "29.3252499112927"
+##  [3,] "1150.96476871455" "1152.65289026304" "30.2162940315685"
+##  [4,] "1303.25240140958" "1305.4981091996"  "30.8588106551423"
+##  [5,] "1667.72161189007" "1661.79367436228" "39.011744571249" 
+##  [6,] "978.428485741731" "986.966459689532" "37.7417566662308"
+##  [7,] "1245.09840831465" "1249.41106012833" "37.1599983764277"
+##  [8,] "1298.11575468474" "1288.52011616077" "43.0301500208197"
+##  [9,] "1201.77153812025" "1200.2123597462"  "41.3174964516894"
+## [10,] "2473.99342735889" "2470.87654175199" "48.3353501320931"
+## [11,] "928.559971386069" "928.489963582081" "33.5269415524517"
+## [12,] "1330.38400236898" "1332.05283411623" "26.4963558071417"
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] "67.6170064935417" "30486.7482345887" "30486.3228055447"
+##  [2,] "29.0626720309864" "30690.4415765423" "30723.9160557228"
+##  [3,] "30.318495985664"  "28517.0999496524" "28504.1534217657"
+##  [4,] "30.9777467963968" "27225.9641330176" "27211.0971545992"
+##  [5,] "38.7941877387202" "26497.9946505636" "26529.4196385914"
+##  [6,] "38.280335514986"  "43259.7344953234" "43135.694392041" 
+##  [7,] "37.376906210544"  "34908.4408430805" "34867.6684452056"
+##  [8,] "42.605894256157"  "37810.5081118408" "37906.6861615621"
+##  [9,] "41.2412628670872" "38842.7934436931" "38859.3822173436"
+## [10,] "48.2701777931124" "25015.5401378403" "25027.8813214113"
+## [11,] "33.5219295081337" "37622.1852019531" "37623.0406407462"
+## [12,] "26.5884431567018" "22224.2935639128" "22215.7473419508"
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] "1477.29626669981" "1477.27565168591" "9.79748335465867"
+##  [2,] "3194.45891892989" "3197.94315842211" "7.71999639449866"
+##  [3,] "2921.41474473231" "2920.08844656286" "8.08957783787323"
+##  [4,] "2703.18485984093" "2701.70876184947" "8.43741038313125"
+##  [5,] "2295.22672438806" "2297.94872178016" "8.38550103302378"
+##  [6,] "3798.02040465035" "3787.13021198604" "8.25683288704727"
+##  [7,] "3083.68934971535" "3080.08765894795" "8.62138344128154"
+##  [8,] "3079.68630131565" "3087.52005539633" "8.3506663903943" 
+##  [9,] "3202.92369511514" "3204.29158273309" "8.1693626496722" 
+## [10,] "1875.16048038837" "1876.08557333405" "9.23753409926132"
+## [11,] "3591.35961832556" "3591.44127728081" "7.70651103833515"
+## [12,] "2450.4392617801"  "2449.49695970983" "8.15053425433936"
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] "20.8000305256292" "20.8003683211179"
+##  [2,] "9.98041094468705" "9.95431345556755"
+##  [3,] "10.5076420187191" "10.5182762117325"
+##  [4,] "11.0091630001303" "11.0221115006327"
+##  [5,] "11.9618725389051" "11.9334895308224"
+##  [6,] "11.612785479182"  "11.6805328053348"
+##  [7,] "11.9984271908357" "12.0259237101698"
+##  [8,] "12.4930915850769" "12.4322865638375"
+##  [9,] "12.0286954236259" "12.0182198807093"
+## [10,] "14.4972959491374" "14.4861744795951"
+## [11,] "10.4212274513421" "10.4206786898426"
+## [12,] "10.1875787270284" "10.1964355229393"
+## attr(,"units")
+##  [1] ""          ""          "ug/L"      "ug/L/mg"   "h"        
+##  [6] "h"         "ug/L"      "ug/L"      "h"         "h"        
+## [11] "/h"        "h"         "h"         ""          ""         
+## [16] ""          ""          "h*ug/L"    "h*ug/L"    "h*ug/L"   
+## [21] "h*ug/L/mg" "h*ug/L"    "h*ug/L/mg" "%"         "%"        
+## [26] "h2*ug/L"   "h2*ug/L"   "h2*ug/L"   "%"         "%"        
+## [31] "L"         "L"         "L/h"       "L/h"       "h"        
+## [36] "h"         "h"
+\end{verbatim}
+
+다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus
+이므로 AdmMode 옵션이 추가된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NonCompart}\OperatorTok{::}\KeywordTok{tblNCA}\NormalTok{(Indometh, }\StringTok{"Subject"}\NormalTok{, }\StringTok{"time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }\DataTypeTok{adm=}\StringTok{"Bolus"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      Subject b0                    CMAX   CMAXD    TMAX   TLAG CLST  
+## [1,] "1"     "-1.72421059639646"   "1.5"  "0.06"   "0.25" NA   "0.05"
+## [2,] "2"     "-0.175286858431038"  "2.03" "0.0812" "0.25" NA   "0.08"
+## [3,] "3"     "0.155579544657487"   "2.72" "0.1088" "0.25" NA   "0.08"
+## [4,] "4"     "0.200296947923903"   "1.85" "0.074"  "0.25" NA   "0.07"
+## [5,] "5"     "-0.982357129866236"  "2.05" "0.082"  "0.25" NA   "0.06"
+## [6,] "6"     "-0.0499189799474626" "2.31" "0.0924" "0.25" NA   "0.09"
+##      CLSTP                TLST LAMZHL             LAMZ               
+## [1,] "0.0502485064135143" "8"  "4.37812701206528" "0.158320482400297"
+## [2,] "0.0747559092002026" "8"  "2.293063170278"   "0.302280019819912"
+## [3,] "0.0399725765960521" "8"  "1.64294680807057" "0.421892648718165"
+## [4,] "0.0319601103599335" "8"  "1.52191040768299" "0.455445456618709"
+## [5,] "0.0495714902818329" "8"  "2.74244612209262" "0.252747784168332"
+## [6,] "0.0562424678832525" "8"  "1.9606985693831"  "0.353520521401732"
+##      LAMZLL LAMZUL LAMZNPT CORRXY               R2                 
+## [1,] "5"    "8"    "3"     "-0.998532286621828" "0.997066727426216"
+## [2,] "0.75" "8"    "9"     "-0.973482979595454" "0.947669111562043"
+## [3,] "0.5"  "8"    "10"    "-0.935855785859431" "0.875826051926574"
+## [4,] "0.25" "8"    "11"    "-0.93425095790181"  "0.872824852340449"
+## [5,] "1"    "8"    "8"     "-0.935544879811905" "0.875244222142273"
+## [6,] "0.75" "8"    "9"     "-0.950764854539454" "0.903953808627429"
+##      R2ADJ               AUCLST             AUCALL            
+## [1,] "0.994133454852432" "2.04045212765957" "2.04045212765957"
+## [2,] "0.94019327035662"  "3.24851993865031" "3.24851993865031"
+## [3,] "0.860304308417395" "3.5544211409396"  "3.5544211409396" 
+## [4,] "0.858694280378276" "2.78527877697842" "2.78527877697842"
+## [5,] "0.854451592499318" "2.45885817307692" "2.45885817307692"
+## [6,] "0.890232924145633" "3.335703125"      "3.335703125"     
+##      AUCIFO             AUCIFOD              AUCIFP            
+## [1,] "2.356267234094"   "0.0942506893637602" "2.35783687568268"
+## [2,] "3.51317520778672" "0.140527008311469"  "3.49582675451177"
+## [3,] "3.74404283793542" "0.149761713517417"  "3.64916698853258"
+## [4,] "2.93897445882733" "0.117558978353093"  "2.85545207631751"
+## [5,] "2.69624897829181" "0.107849959131673"  "2.6549884396387" 
+## [6,] "3.59028523424544" "0.143611409369818"  "3.4947956372543" 
+##      AUCIFPD              AUCPEO             AUCPEP             AUMCLST   
+## [1,] "0.0943134750273071" "13.4031956080679" "13.4608441871624" "3.27125" 
+## [2,] "0.139833070180471"  "7.53322147298048" "7.07434416028442" "6.39875" 
+## [3,] "0.145966679541303"  "5.064624129685"   "2.59636919578418" "5.00625" 
+## [4,] "0.1142180830527"    "5.22956847710184" "2.45751977142578" "4.381875"
+## [5,] "0.106199537585548"  "8.80448382646355" "7.3872361790195"  "3.7075"  
+## [6,] "0.139791825490172"  "7.09086026973962" "4.55226939619547" "5.5325"  
+##      AUMCIFO            AUMCIFP            AUMCPEO           
+## [1,] "7.79255448051925" "7.81502594373644" "58.0208260567461"
+## [2,] "9.39152229661219" "9.19534267578028" "31.8667432402495"
+## [3,] "6.97267842561125" "5.9887901357925"  "28.2019090166038"
+## [4,] "5.94890277791985" "5.09733758170571" "26.3414588608858"
+## [5,] "6.54586634839538" "6.05253416426272" "43.3612022813628"
+## [6,] "8.28929076671746" "7.25526351286615" "33.2572573975366"
+##      AUMCPEP            C0                 AUCPBEO           
+## [1,] "58.1415337127341" "2.3936170212766"  "20.6556421367339"
+## [2,] "30.4131425481974" "2.52815950920245" "16.2180906146511"
+## [3,] "16.4063210350329" "4.96536912751678" "25.6586578338762"
+## [4,] "14.0360054682958" "2.46223021582734" "18.3407098132283"
+## [5,] "38.7446662938147" "4.04086538461538" "28.2376805408852"
+## [6,] "23.7450164258139" "3.705625"         "20.9441054384092"
+##      AUCPBEP            VZO                VZP               
+## [1,] "20.6418914166255" "67.0159780403394" "66.9713646630007"
+## [2,] "16.2985748053719" "23.541317103064"  "23.6581436704179"
+## [3,] "26.3257654132706" "15.8269504052657" "16.2384403063513"
+## [4,] "18.8771782040751" "18.6770302753637" "19.2233360879334"
+## [5,] "28.6765155625511" "36.6853492769315" "37.2554674926062"
+## [6,] "21.5163689969229" "19.6968340826101" "20.2350179834082"
+##      CLO                CLP                MRTIVLST          
+## [1,] "10.6100019718742" "10.6029387604525" "1.35319860272937"
+## [2,] "7.11606980050102" "7.15138413759623" "1.7197431817699" 
+## [3,] "6.67727402760856" "6.85087859189834" "1.15845718655517"
+## [4,] "8.5063685820445"  "8.75518108230375" "1.32322672194186"
+## [5,] "9.27214074118575" "9.41623685691155" "1.2578136838452" 
+## [6,] "6.96323505484772" "7.15349410806788" "1.40857085977938"
+##      MRTIVIFO           MRTIVIFP           VSSO              
+## [1,] "3.05716073616986" "3.06448965971139" "32.4364814390986"
+## [2,] "2.42322912782616" "2.38037711005347" "17.2438676162182"
+## [3,] "1.61233938216802" "1.39113896530691" "10.766031880241" 
+## [4,] "1.77414238750939" "1.53512454261863" "15.0915090651833"
+## [5,] "2.17776776221254" "2.02968381100988" "20.1925691928519"
+## [6,] "2.0588112018653"  "1.82601939167072" "14.3359863321416"
+##      VSSP              
+## [1,] "32.4925961939597"
+## [2,] "17.0229911063336"
+## [3,] "9.53052415577672"
+## [4,] "13.4402933545148"
+## [5,] "19.1119835091079"
+## [6,] "13.0624189595342"
+## attr(,"units")
+##  [1] ""          ""          "mg/L"      "mg/L/mg"   "h"        
+##  [6] "h"         "mg/L"      "mg/L"      "h"         "h"        
+## [11] "/h"        "h"         "h"         ""          ""         
+## [16] ""          ""          "h*mg/L"    "h*mg/L"    "h*mg/L"   
+## [21] "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
+## [26] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"        
+## [31] "mg/L"      "%"         "%"         "L"         "L"        
+## [36] "L/h"       "L/h"       "h"         "h"         "h"        
+## [41] "L"         "L"
+\end{verbatim}
+
+\subsection{NonCompart 사용법}\label{noncompart-}
+
+NCA의 사용법은 다음과 같습니다.
+
+\texttt{NCA(Data,\ colSubj,\ colTime,\ colConc,\ colTrt,\ Method\ =\ "Linear",\ Dose\ =\ 0,\ AdmMode\ =\ "Extravascular",\ TimeInfusion\ =\ 0,\ Report\ =\ "Table",\ iAUC)}
+
+Data는 데이터셋을 설정하며, colSubj는 subject ID의 컬럼명, colTime은
+time의 컬럼명, colConc는 concentration의 컬럼명, colTrT는 treatment
+code의 컬럼명(교차시험에서 사용)이다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(concData, }\DataTypeTok{colSubj =} \StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime =} \StringTok{"Time"}\NormalTok{, }\DataTypeTok{colConc =} \StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose =} \DecValTok{0}\NormalTok{, }
+       \DataTypeTok{adm =} \StringTok{"Extravascular"}\NormalTok{, }\DataTypeTok{dur =} \DecValTok{0}\NormalTok{, }\DataTypeTok{doseUnit =} \StringTok{"mg"}\NormalTok{, }\DataTypeTok{timeUnit =} \StringTok{"h"}\NormalTok{, }
+       \DataTypeTok{concUnit =} \StringTok{"ug/L"}\NormalTok{, }\DataTypeTok{down =} \StringTok{"Linear"}\NormalTok{, }\DataTypeTok{MW =} \DecValTok{0}\NormalTok{, }\DataTypeTok{returnNA =} \OtherTok{FALSE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{args}\NormalTok{(NonCompart}\OperatorTok{::}\NormalTok{tblNCA)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (concData, key = "Subject", colTime = "Time", colConc = "conc", 
+##     dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", 
+##     timeUnit = "h", concUnit = "ug/L", down = "Linear", MW = 0) 
+## NULL
+\end{verbatim}
+
+NCA의 옵션들에 대해서 간단히 살펴보자면 다음과 같습니다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Method
+
+  \begin{itemize}
+  \tightlist
+  \item
+    AUC와 AUMC를 구하는 trapezoidal method 설정, 기본값은
+    Method=``Linear''
+  \item
+    Linear와 Log 중 선택 가능하다.
+  \item
+    Linear는 Linear trapezoidal method이며, Log는 Linear-up and log-down
+    method 입니다.
+  \end{itemize}
+\item
+  Dose
+
+  \begin{itemize}
+  \tightlist
+  \item
+    투여량에 대한 설정이다. 단위에 주의해야 한다. 벡터값을 줌으로서 각
+    대상자별 용량을 다르게 할 수 있습니다.
+  \end{itemize}
+\item
+  AdmMode
+
+  \begin{itemize}
+  \tightlist
+  \item
+    투여경로에 대한 설정, 기본값은 AdmMode= ``Extravascular''
+  \item
+    Bolus, Infusion, Extravascular 중에서 선택 가능하다.
+  \end{itemize}
+\item
+  TimeInfusion
+
+  \begin{itemize}
+  \tightlist
+  \item
+    주입하는 기간(infusion duration)을 설정한다. 기본값은 0이다.
+  \end{itemize}
+\item
+  iAUC
+
+  \begin{itemize}
+  \tightlist
+  \item
+    일부구간에 대한 AUC를 구하기 위한 구간설정 옵션입니다.
+  \item
+    ``Name'', ``Start'', ``End'' 3개의 컬럼으로 구성된 데이터 프레임으로
+    설정해야 합니다.
+  \end{itemize}
+\end{enumerate}
+
+일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아보자. 예를
+들어 0\textasciitilde{}12시간까지의 AUC, 0\textasciitilde{}24시간까지의
+AUC를 구하고자 한다면 다음과 같이 하면 된다. 먼저 구하고자 하는 구간에
+대한 정보를 갖는 변수를 아래와같이 생성한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{iAUC =}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{Name=}\KeywordTok{c}\NormalTok{(}\StringTok{"AUC[0-12h]"}\NormalTok{,}\StringTok{"AUC[0-24h]"}\NormalTok{), }\DataTypeTok{Start=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{), }\DataTypeTok{End=}\KeywordTok{c}\NormalTok{(}\DecValTok{12}\NormalTok{,}\DecValTok{24}\NormalTok{)) ; iAUC}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         Name Start End
+## 1 AUC[0-12h]     0  12
+## 2 AUC[0-24h]     0  24
+\end{verbatim}
+
+\begin{verbatim}
+    Name Start End
+\end{verbatim}
+
+1 AUC{[}0-12h{]} 0 12 2 AUC{[}0-24h{]} 0 24
+
+이제 iAUC 옵션을 이용해서 이를 구한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# tblNCA(Theoph, "Subject", "Time", "conc", dose=320, iAUC=iAUC)}
+\end{Highlighting}
+\end{Shaded}
+
+맨 마지막 파라미터로 AUC{[}0-12h{]}, AUC{[}0-24h{]}가 추가되었음을 알 수
+있다.
+
+\subsection{함수 살펴보기}\label{-}
+
+NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(),
+BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(),
+tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.
+
+\subsubsection{AUC}\label{auc}
+
+AUC와 AUMC를 `Linear trapezoidal method' 혹은 'linear-up and log-down
+method'의 두가지 방식으로 계산하게 됩니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{AUC}\NormalTok{(Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject}\OperatorTok{==}\DecValTok{1}\NormalTok{, }\StringTok{"Time"}\NormalTok{], Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject}\OperatorTok{==}\DecValTok{1}\NormalTok{, }\StringTok{"conc"}\NormalTok{])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             AUC        AUMC
+##  [1,]   0.00000    0.000000
+##  [2,]   0.44750    0.088750
+##  [3,]   1.95310    0.801534
+##  [4,]   6.64735    5.065382
+##  [5,]  15.71935   19.138321
+##  [6,]  32.13535   66.198241
+##  [7,]  42.97695  114.461665
+##  [8,]  58.25290  206.281512
+##  [9,]  72.75650  322.298798
+## [10,]  92.45055  528.521903
+## [11,] 148.92305 1459.071104
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{AUC}\NormalTok{(Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject}\OperatorTok{==}\DecValTok{1}\NormalTok{, }\StringTok{"Time"}\NormalTok{], Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject}\OperatorTok{==}\DecValTok{1}\NormalTok{, }\StringTok{"conc"}\NormalTok{], }\DataTypeTok{down=}\StringTok{"Log"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in AUC(Theoph[Theoph$Subject == 1, "Time"], Theoph[Theoph$Subject == : 사용되지 않은 인자 (down = "Log")
+\end{verbatim}
+
+\subsection{긴 형식으로 변환하면서 단위 추가하기}\label{long-format}
+
+NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면
+문자형식의 행렬이 생성되고 그 attr로 dimnames와 units를 갖는데 이를 long
+format의 tidy data로 변환하는 방법은 다음과 같습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ncares <-}\StringTok{ }\NormalTok{NonCompart}\OperatorTok{::}\KeywordTok{tblNCA}\NormalTok{(Theoph, }\DataTypeTok{key=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\KeywordTok{str}\NormalTok{(ncares)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  chr [1:12, 1:37] "1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12" ...
+##  - attr(*, "dimnames")=List of 2
+##   ..$ : NULL
+##   ..$ : chr [1:37] "Subject" "b0" "CMAX" "CMAXD" ...
+##  - attr(*, "units")= chr [1:37] "" "" "mg/L" "mg/L/mg" ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{left_join}\NormalTok{(}\KeywordTok{as_tibble}\NormalTok{(ncares) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{gather}\NormalTok{(PPTESTCD, PPORRES, }\OperatorTok{-}\NormalTok{Subject),}
+          \KeywordTok{tibble}\NormalTok{(}\DataTypeTok{PPTESTCD =} \KeywordTok{attr}\NormalTok{(ncares, }\StringTok{'dimnames'}\NormalTok{)[[}\DecValTok{2}\NormalTok{]], }\DataTypeTok{UNIT =} \KeywordTok{attr}\NormalTok{(ncares, }\StringTok{'units'}\NormalTok{)),}
+          \DataTypeTok{by =} \StringTok{'PPTESTCD'}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{arrange}\NormalTok{(Subject, PPTESTCD) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{head}\NormalTok{(}\DecValTok{20}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 20 x 4
+##    Subject PPTESTCD           PPORRES      UNIT
+##      <chr>    <chr>             <chr>     <chr>
+##  1       1   AUCALL         148.92305    h*mg/L
+##  2       1   AUCIFO  216.611933038226    h*mg/L
+##  3       1  AUCIFOD 0.676912290744456 h*mg/L/mg
+##  4       1   AUCIFP  216.614955803818    h*mg/L
+##  5       1  AUCIFPD  0.67692173688693 h*mg/L/mg
+##  6       1   AUCLST         148.92305    h*mg/L
+##  7       1   AUCPEO  31.2489169404534         %
+##  8       1   AUCPEP  31.2498763313113         %
+##  9       1  AUMCIFO  4505.53481941065   h2*mg/L
+## 10       1  AUMCIFP  4505.67086458209   h2*mg/L
+## 11       1  AUMCLST      1459.0711035   h2*mg/L
+## 12       1  AUMCPEO  67.6160286851172         %
+## 13       1  AUMCPEP  67.6170064935417         %
+## 14       1       b0  2.36878509420585          
+## 15       1     CLFO  1.47729626669981       L/h
+## 16       1     CLFP  1.47727565168591       L/h
+## 17       1     CLST              3.28      mg/L
+## 18       1    CLSTP  3.28014647414312      mg/L
+## 19       1     CMAX              10.5      mg/L
+## 20       1    CMAXD         0.0328125   mg/L/mg
+\end{verbatim}
+
+\section{2nd Basic PK and PD
+Workshop}\label{nd-basic-pk-and-pd-workshop}
+
+\subsection{data prep.}\label{data-prep.}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Theoph}
+\NormalTok{Theoph[,}\StringTok{"Wt"}\NormalTok{]}
+\KeywordTok{unique}\NormalTok{(Theoph[,}\StringTok{"Wt"}\NormalTok{])  }\CommentTok{# No repeat. }
+\KeywordTok{unique}\NormalTok{(Theoph[, }\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{])}
+\KeywordTok{unique}\NormalTok{(Theoph[, }\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{])}
+\NormalTok{Demog =}\StringTok{ }\KeywordTok{unique}\NormalTok{(Theoph[, }\DecValTok{1}\OperatorTok{:}\DecValTok{3}\NormalTok{])}
+\NormalTok{Demog}
+\NormalTok{Demog[,}\StringTok{"Amt"}\NormalTok{] =}\StringTok{ }\NormalTok{Demog[,}\DecValTok{2}\NormalTok{]}\OperatorTok{*}\NormalTok{Demog[,}\DecValTok{3}\NormalTok{]}
+\NormalTok{Demog}
+\NormalTok{Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject }\OperatorTok{==}\StringTok{ }\DecValTok{1}\NormalTok{,]}
+\NormalTok{Theoph[Theoph}\OperatorTok{$}\NormalTok{Wt }\OperatorTok{==}\StringTok{ }\FloatTok{70.5}\NormalTok{,]}
+\NormalTok{Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject }\OperatorTok{==}\StringTok{ }\DecValTok{3} \OperatorTok{&}\StringTok{ }\NormalTok{Theoph}\OperatorTok{$}\NormalTok{Wt }\OperatorTok{==}\StringTok{ }\FloatTok{70.5}\NormalTok{,]}
+\NormalTok{Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject }\OperatorTok{==}\StringTok{ }\DecValTok{3} \OperatorTok{&}\StringTok{ }\NormalTok{Theoph}\OperatorTok{$}\NormalTok{Wt }\OperatorTok{==}\StringTok{ }\FloatTok{70.5}\NormalTok{,}\KeywordTok{c}\NormalTok{(}\StringTok{"Time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{)]}
+
+\NormalTok{## graph}
+
+\KeywordTok{library}\NormalTok{(lattice)}
+\NormalTok{?xyplot}
+\KeywordTok{xyplot}\NormalTok{(conc}\OperatorTok{~}\NormalTok{Time }\OperatorTok{|}\StringTok{ }\NormalTok{Subject, }\DataTypeTok{data=}\NormalTok{Theoph,}\DataTypeTok{Type =} \StringTok{"l"}\NormalTok{)}
+\KeywordTok{xyplot}\NormalTok{(conc}\OperatorTok{~}\NormalTok{Time }\OperatorTok{|}\StringTok{ }\NormalTok{Subject, }\DataTypeTok{data=}\NormalTok{Theoph,}\DataTypeTok{type =} \StringTok{"o”)}
+\StringTok{       }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error: <text>:20:48: 예기치 않은 INCOMPLETE_STRING입니다
+## 20: xyplot(conc~Time | Subject, data=Theoph,type = "o”)
+## 21:        
+##                                                    ^
+\end{verbatim}
+
+\subsubsection{pkr}\label{pkr}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(pkr)}
+\KeywordTok{write.csv}\NormalTok{(Theoph, }\StringTok{"Theoph.csv"}\NormalTok{, }\DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{, }\DataTypeTok{quote=}\OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{# Theoph and Indometh data: dose in mg, conc in mg/L, time in h}
+
+\KeywordTok{NCA}\NormalTok{(Theoph, }\StringTok{"Subject"}\NormalTok{, }\StringTok{"Time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{uConc=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Subject  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST    LAMZHL
+## 1        1 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37 14.304378
+## 2        2  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30  6.659342
+## 3        3  8.20 0.02562500 1.02    0 1.05 1.0550967 24.17  6.766087
+## 4        4  8.60 0.02687500 1.07    0 1.15 1.1564216 24.65  6.981247
+## 5        5 11.40 0.03562500 1.00    0 1.57 1.5556951 24.35  8.002264
+## 6        6  6.44 0.02012500 1.15    0 0.92 0.9412712 23.85  7.894998
+## 7        7  7.09 0.02215625 3.48    0 1.15 1.1607192 24.22  7.846668
+## 8        8  7.56 0.02362500 2.02    0 1.25 1.2285268 24.12  8.510038
+## 9        9  9.03 0.02821875 0.63    0 1.12 1.1164831 24.43  8.405999
+## 10      10 10.21 0.03190625 3.55    0 2.42 2.4136923 23.70  9.246916
+## 11      11  8.00 0.02500000 0.98    0 0.86 0.8598066 24.08  7.261237
+## 12      12  9.75 0.03046875 3.52    0 1.17 1.1755390 24.15  6.286508
+##          LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2     R2ADJ
+## 1  0.04845700   9.05  24.37       3 -0.9999999 0.9999997 0.9999995
+## 2  0.10408644   7.03  24.30       4 -0.9985967 0.9971954 0.9957931
+## 3  0.10244431   9.00  24.17       3 -0.9996624 0.9993250 0.9986499
+## 4  0.09928702   9.02  24.65       3 -0.9994619 0.9989241 0.9978483
+## 5  0.08661888   7.02  24.35       4 -0.9993234 0.9986472 0.9979708
+## 6  0.08779574   2.03  23.85       7 -0.9991203 0.9982413 0.9978896
+## 7  0.08833650   6.98  24.22       4 -0.9993349 0.9986702 0.9980053
+## 8  0.08145054   3.53  24.12       6 -0.9954961 0.9910124 0.9887655
+## 9  0.08245863   8.80  24.43       3 -0.9997218 0.9994437 0.9988873
+## 10 0.07495982   9.38  23.70       3 -0.9997543 0.9995087 0.9990174
+## 11 0.09545856   9.03  24.08       3 -0.9999991 0.9999983 0.9999965
+## 12 0.11025949   9.03  24.15       3 -0.9996984 0.9993968 0.9987936
+##       AUCLST    AUCALL    AUCIFO   AUCIFOD    AUCPEO    AUCIFP   AUCIFPD
+## 1  148.92305 148.92305 216.61193 0.6769123 31.248917 216.61496 0.6769217
+## 2   91.52680  91.52680 100.17346 0.3130421  8.631687 100.06432 0.3127010
+## 3   99.28650  99.28650 109.53597 0.3422999  9.357173 109.58572 0.3424554
+## 4  106.79630 106.79630 118.37888 0.3699340  9.784331 118.44356 0.3701361
+## 5  121.29440 121.29440 139.41978 0.4356868 13.000579 139.25463 0.4351707
+## 6   73.77555  73.77555  84.25442 0.2632951 12.437174  84.49670 0.2640522
+## 7   90.75340  90.75340 103.77180 0.3242869 12.545221 103.89315 0.3246661
+## 8   88.55995  88.55995 103.90669 0.3247084 14.769730 103.64305 0.3238845
+## 9   86.32615  86.32615  99.90872 0.3122147 13.594978  99.86607 0.3120815
+## 10 138.36810 138.36810 170.65206 0.5332877 18.918002 170.56791 0.5330247
+## 11  80.09360  80.09360  89.10274 0.2784461 10.110962  89.10072 0.2784397
+## 12 119.97750 119.97750 130.58883 0.4080901  8.125757 130.63907 0.4082471
+##       AUCPEP   AUMCLST   AUMCIFO  AUMCPEO   AUMCIFP  AUMCPEP MRTEVLST
+## 1  31.249876 1459.0711 4505.5348 67.61603 4505.6709 67.61701 9.797483
+## 2   8.532030  706.5866  999.7723 29.32525  996.0716 29.06267 7.719996
+## 3   9.398325  803.1859 1150.9648 30.21629 1152.6529 30.31850 8.089578
+## 4   9.833594  901.0842 1303.2524 30.85881 1305.4981 30.97775 8.437410
+## 5  12.897403 1017.1143 1667.7216 39.01174 1661.7937 38.79419 8.385501
+## 6  12.688246  609.1524  978.4285 37.74176  986.9665 38.28034 8.256833
+## 7  12.647366  782.4199 1245.0984 37.16000 1249.4111 37.37691 8.621383
+## 8  14.552931  739.5346 1298.1158 43.03015 1288.5201 42.60589 8.350666
+## 9  13.558076  705.2296 1201.7715 41.31750 1200.2124 41.24126 8.169363
+## 10 18.878001 1278.1800 2473.9934 48.33535 2470.8765 48.27018 9.237534
+## 11 10.108918  617.2422  928.5600 33.52694  928.4900 33.52193 7.706511
+## 12  8.161087  977.8807 1330.3840 26.49636 1332.0528 26.58844 8.150534
+##     MRTEVIFO  MRTEVIFP     VZFO     VZFP     CLFO     CLFP
+## 1  20.800031 20.800368 30.48675 30.48632 1.477296 1.477276
+## 2   9.980411  9.954313 30.69044 30.72392 3.194459 3.197943
+## 3  10.507642 10.518276 28.51710 28.50415 2.921415 2.920088
+## 4  11.009163 11.022112 27.22596 27.21110 2.703185 2.701709
+## 5  11.961873 11.933490 26.49799 26.52942 2.295227 2.297949
+## 6  11.612785 11.680533 43.25973 43.13569 3.798020 3.787130
+## 7  11.998427 12.025924 34.90844 34.86767 3.083689 3.080088
+## 8  12.493092 12.432287 37.81051 37.90669 3.079686 3.087520
+## 9  12.028695 12.018220 38.84279 38.85938 3.202924 3.204292
+## 10 14.497296 14.486174 25.01554 25.02788 1.875160 1.876086
+## 11 10.421227 10.420679 37.62219 37.62304 3.591360 3.591441
+## 12 10.187579 10.196436 22.22429 22.21575 2.450439 2.449497
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{NCA}\NormalTok{(Indometh, }\StringTok{"Subject"}\NormalTok{, }\StringTok{"time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }\DataTypeTok{adm=}\StringTok{"Bolus"}\NormalTok{, }\DataTypeTok{uConc=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   Subject CMAX  CMAXD TMAX       C0  AUCPBEO  AUCPBEP CLST      CLSTP TLST
+## 1       1 1.50 0.0600 0.25 2.393617 20.65564 20.64189 0.05 0.05024851    8
+## 2       2 2.03 0.0812 0.25 2.528160 16.21809 16.29857 0.08 0.07475591    8
+## 3       3 2.72 0.1088 0.25 4.965369 25.65866 26.32577 0.08 0.03997258    8
+## 4       4 1.85 0.0740 0.25 2.462230 18.34071 18.87718 0.07 0.03196011    8
+## 5       5 2.05 0.0820 0.25 4.040865 28.23768 28.67652 0.06 0.04957149    8
+## 6       6 2.31 0.0924 0.25 3.705625 20.94411 21.51637 0.09 0.05624247    8
+##     LAMZHL      LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2     R2ADJ
+## 1 4.378127 0.1583205   5.00      8       3 -0.9985323 0.9970667 0.9941335
+## 2 2.293063 0.3022800   0.75      8       9 -0.9734830 0.9476691 0.9401933
+## 3 1.642947 0.4218926   0.50      8      10 -0.9358558 0.8758261 0.8603043
+## 4 1.521910 0.4554455   0.25      8      11 -0.9342510 0.8728249 0.8586943
+## 5 2.742446 0.2527478   1.00      8       8 -0.9355449 0.8752442 0.8544516
+## 6 1.960699 0.3535205   0.75      8       9 -0.9507649 0.9039538 0.8902329
+##     AUCLST   AUCALL   AUCIFO    AUCIFOD    AUCPEO   AUCIFP    AUCIFPD
+## 1 2.040452 2.040452 2.356267 0.09425069 13.403196 2.357837 0.09431348
+## 2 3.248520 3.248520 3.513175 0.14052701  7.533221 3.495827 0.13983307
+## 3 3.554421 3.554421 3.744043 0.14976171  5.064624 3.649167 0.14596668
+## 4 2.785279 2.785279 2.938974 0.11755898  5.229568 2.855452 0.11421808
+## 5 2.458858 2.458858 2.696249 0.10784996  8.804484 2.654988 0.10619954
+## 6 3.335703 3.335703 3.590285 0.14361141  7.090860 3.494796 0.13979183
+##      AUCPEP  AUMCLST  AUMCIFO  AUMCPEO  AUMCIFP  AUMCPEP MRTIVLST MRTIVIFO
+## 1 13.460844 3.271250 7.792554 58.02083 7.815026 58.14153 1.603199 3.307161
+## 2  7.074344 6.398750 9.391522 31.86674 9.195343 30.41314 1.969743 2.673229
+## 3  2.596369 5.006250 6.972678 28.20191 5.988790 16.40632 1.408457 1.862339
+## 4  2.457520 4.381875 5.948903 26.34146 5.097338 14.03601 1.573227 2.024142
+## 5  7.387236 3.707500 6.545866 43.36120 6.052534 38.74467 1.507814 2.427768
+## 6  4.552269 5.532500 8.289291 33.25726 7.255264 23.74502 1.658571 2.308811
+##   MRTIVIFP      VZO      VZP       CLO       CLP     VSSO     VSSP
+## 1 3.314490 67.01598 66.97136 10.610002 10.602939 35.08898 35.14333
+## 2 2.630377 23.54132 23.65814  7.116070  7.151384 19.02289 18.81084
+## 3 1.641139 15.82695 16.23844  6.677274  6.850879 12.43535 11.24324
+## 4 1.785125 18.67703 19.22334  8.506369  8.755181 17.21810 15.62909
+## 5 2.279684 36.68535 37.25547  9.272141  9.416237 22.51060 21.46604
+## 6 2.076019 19.69683 20.23502  6.963235  7.153494 16.07680 14.85079
+\end{verbatim}
+
+\subsubsection{ncar}\label{ncar}
+
+\begin{itemize}
+\tightlist
+\item
+  rtf를 word doc 압축파일로 저장하는것이 좋음.
+\item
+  산출된 값들의 배치가 불 규칙적인 경우(한글판 word에서):
+\item
+  courier 글자체 선택 ---\textgreater{} 옵션 ---\textgreater{} 고급
+  ---\textgreater{} ``모든 새 문서'' 선택 ---\textgreater{} 반자 전자
+  uncheck
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Theoph and Indometh data: dose in mg, conc in mg/L, time in h}
+
+\KeywordTok{tblNCA}\NormalTok{(Theoph, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] "1"     "2.36878509420585" "10.5"  "0.0328125"  "1.12" "0"  "3.28"
+##  [2,] "2"     "2.41123733696293" "8.33"  "0.02603125" "1.92" "0"  "0.9" 
+##  [3,] "3"     "2.52971150145858" "8.2"   "0.025625"   "1.02" "0"  "1.05"
+##  [4,] "4"     "2.59275546723663" "8.6"   "0.026875"   "1.07" "0"  "1.15"
+##  [5,] "5"     "2.55109229061238" "11.4"  "0.035625"   "1"    "0"  "1.57"
+##  [6,] "6"     "2.0334043955261"  "6.44"  "0.020125"   "1.15" "0"  "0.92"
+##  [7,] "7"     "2.28854976005424" "7.09"  "0.02215625" "3.48" "0"  "1.15"
+##  [8,] "8"     "2.17040271754659" "7.56"  "0.023625"   "2.02" "0"  "1.25"
+##  [9,] "9"     "2.12464810390587" "9.03"  "0.02821875" "0.63" "0"  "1.12"
+## [10,] "10"    "2.65770546248091" "10.21" "0.03190625" "3.55" "0"  "2.42"
+## [11,] "11"    "2.1475943307927"  "8"     "0.025"      "0.98" "0"  "0.86"
+## [12,] "12"    "2.82449347826545" "9.75"  "0.03046875" "3.52" "0"  "1.17"
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] "3.28014647414312"  "24.37" "14.304377571097"  "0.0484569969657749"
+##  [2,] "0.888639849106919" "24.3"  "6.65934156262252" "0.104086443688432" 
+##  [3,] "1.05509670837553"  "24.17" "6.76608737718236" "0.102444314109434" 
+##  [4,] "1.15642160174997"  "24.65" "6.98124666099893" "0.0992870205306231"
+##  [5,] "1.55569511595616"  "24.35" "8.0022640410078"  "0.0866188839818201"
+##  [6,] "0.941271173708175" "23.85" "7.89499786796582" "0.0877957400561702"
+##  [7,] "1.16071921229933"  "24.22" "7.84666826130148" "0.0883364961379133"
+##  [8,] "1.22852675835656"  "24.12" "8.51003788342506" "0.0814505399453019"
+##  [9,] "1.11648311706515"  "24.43" "8.40599880716182" "0.0824586341803179"
+## [10,] "2.41369227401111"  "23.7"  "9.24691582297898" "0.0749598237757766"
+## [11,] "0.859806606884089" "24.08" "7.26123651504339" "0.0954585598642772"
+## [12,] "1.17553904959565"  "24.15" "6.28650816367189" "0.110259489451627" 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] "9.05" "24.37" "3"     "-0.99999986483748"  "0.999999729674979"
+##  [2,] "7.03" "24.3"  "4"     "-0.998596709529913" "0.99719538828397" 
+##  [3,] "9"    "24.17" "3"     "-0.999662423945811" "0.999324961849213"
+##  [4,] "9.02" "24.65" "3"     "-0.999461923749821" "0.998924137025692"
+##  [5,] "7.02" "24.35" "4"     "-0.999323363372814" "0.998647184582752"
+##  [6,] "2.03" "23.85" "7"     "-0.999120281624298" "0.998241337153017"
+##  [7,] "6.98" "24.22" "4"     "-0.999334862622512" "0.998670167652754"
+##  [8,] "3.53" "24.12" "6"     "-0.995496052943785" "0.991012391426654"
+##  [9,] "8.8"  "24.43" "3"     "-0.99972179371205"  "0.999443664822839"
+## [10,] "9.38" "23.7"  "3"     "-0.999754311749369" "0.999508683861454"
+## [11,] "9.03" "24.08" "3"     "-0.999999127979356" "0.999998255959473"
+## [12,] "9.03" "24.15" "3"     "-0.999698355328196" "0.9993968016459"  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] "0.999999459349959" "148.92305" "148.92305" "216.611933038226"
+##  [2,] "0.995793082425955" "91.5268"   "91.5268"   "100.173459143183"
+##  [3,] "0.998649923698427" "99.2865"   "99.2865"   "109.535970740547"
+##  [4,] "0.997848274051385" "106.7963"  "106.7963"  "118.378881427603"
+##  [5,] "0.997970776874129" "121.2944"  "121.2944"  "139.419777837118"
+##  [6,] "0.99788960458362"  "73.77555"  "73.77555"  "84.2544183301878"
+##  [7,] "0.998005251479131" "90.7534"   "90.7534"   "103.771801796293"
+##  [8,] "0.988765489283318" "88.55995"  "88.55995"  "103.906686815243"
+##  [9,] "0.998887329645677" "86.32615"  "86.32615"  "99.9087179279482"
+## [10,] "0.999017367722909" "138.3681"  "138.3681"  "170.652060635217"
+## [11,] "0.999996511918946" "80.0936"   "80.0936"   "89.1027449234385"
+## [12,] "0.998793603291801" "119.9775"  "119.9775"  "130.588831558118"
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] "0.676912290744456" "216.614955803818" "0.67692173688693" 
+##  [2,] "0.313042059822447" "100.064317640308" "0.312700992625963"
+##  [3,] "0.342299908564208" "109.585721753278" "0.342455380478994"
+##  [4,] "0.369934004461258" "118.44355857992"  "0.370136120562249"
+##  [5,] "0.435686805740995" "139.254630430615" "0.435170720095671"
+##  [6,] "0.263295057281837" "84.4966985785753" "0.264052183058048"
+##  [7,] "0.324286880613414" "103.893147024686" "0.324666084452144"
+##  [8,] "0.324708396297635" "103.643051464786" "0.323884535827455"
+##  [9,] "0.312214743524838" "99.8660676588793" "0.312081461433998"
+## [10,] "0.533287689485054" "170.567912545332" "0.533024726704162"
+## [11,] "0.278446077885745" "89.1007189855217" "0.278439746829755"
+## [12,] "0.408090098619118" "130.639068046815" "0.408247087646298"
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] "31.2489169404534" "31.2498763313113" "1459.0711035"
+##  [2,] "8.63168669340252" "8.53203003991598" "706.586566"  
+##  [3,] "9.3571734209797"  "9.39832451573008" "803.18587"   
+##  [4,] "9.7843308603032"  "9.83359392402986" "901.0842105" 
+##  [5,] "13.0005786254328" "12.8974026752838" "1017.1143165"
+##  [6,] "12.4371736674055" "12.688245527848"  "609.1523875" 
+##  [7,] "12.5452209279821" "12.6473664538854" "782.41986"   
+##  [8,] "14.7697297311878" "14.5529307094073" "739.534598"  
+##  [9,] "13.5949777052926" "13.5580763078894" "705.2296255" 
+## [10,] "18.9180022292417" "18.8780011813617" "1278.180042" 
+## [11,] "10.1109622730249" "10.1089184106194" "617.2422125" 
+## [12,] "8.12575733430562" "8.16108703637935" "977.8807235" 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] "4505.53481941065" "4505.67086458209" "67.6160286851172"
+##  [2,] "999.772287999786" "996.071583509104" "29.3252499112927"
+##  [3,] "1150.96476871455" "1152.65289026304" "30.2162940315685"
+##  [4,] "1303.25240140958" "1305.4981091996"  "30.8588106551423"
+##  [5,] "1667.72161189007" "1661.79367436228" "39.011744571249" 
+##  [6,] "978.428485741731" "986.966459689532" "37.7417566662308"
+##  [7,] "1245.09840831465" "1249.41106012833" "37.1599983764277"
+##  [8,] "1298.11575468474" "1288.52011616077" "43.0301500208197"
+##  [9,] "1201.77153812025" "1200.2123597462"  "41.3174964516894"
+## [10,] "2473.99342735889" "2470.87654175199" "48.3353501320931"
+## [11,] "928.559971386069" "928.489963582081" "33.5269415524517"
+## [12,] "1330.38400236898" "1332.05283411623" "26.4963558071417"
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] "67.6170064935417" "30.4867482345887" "30.4863228055447"
+##  [2,] "29.0626720309864" "30.6904415765423" "30.7239160557228"
+##  [3,] "30.318495985664"  "28.5170999496524" "28.5041534217657"
+##  [4,] "30.9777467963968" "27.2259641330176" "27.2110971545992"
+##  [5,] "38.7941877387202" "26.4979946505636" "26.5294196385914"
+##  [6,] "38.280335514986"  "43.2597344953234" "43.135694392041" 
+##  [7,] "37.376906210544"  "34.9084408430805" "34.8676684452056"
+##  [8,] "42.605894256157"  "37.8105081118408" "37.9066861615621"
+##  [9,] "41.2412628670872" "38.8427934436931" "38.8593822173436"
+## [10,] "48.2701777931124" "25.0155401378403" "25.0278813214113"
+## [11,] "33.5219295081337" "37.6221852019531" "37.6230406407462"
+## [12,] "26.5884431567018" "22.2242935639128" "22.2157473419508"
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] "1.47729626669981" "1.47727565168591" "9.79748335465867"
+##  [2,] "3.19445891892989" "3.19794315842211" "7.71999639449866"
+##  [3,] "2.92141474473231" "2.92008844656286" "8.08957783787323"
+##  [4,] "2.70318485984093" "2.70170876184947" "8.43741038313125"
+##  [5,] "2.29522672438806" "2.29794872178016" "8.38550103302378"
+##  [6,] "3.79802040465035" "3.78713021198604" "8.25683288704727"
+##  [7,] "3.08368934971535" "3.08008765894795" "8.62138344128154"
+##  [8,] "3.07968630131565" "3.08752005539633" "8.3506663903943" 
+##  [9,] "3.20292369511514" "3.20429158273309" "8.1693626496722" 
+## [10,] "1.87516048038837" "1.87608557333405" "9.23753409926132"
+## [11,] "3.59135961832556" "3.59144127728081" "7.70651103833515"
+## [12,] "2.4504392617801"  "2.44949695970983" "8.15053425433936"
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] "20.8000305256292" "20.8003683211179"
+##  [2,] "9.98041094468705" "9.95431345556755"
+##  [3,] "10.5076420187191" "10.5182762117325"
+##  [4,] "11.0091630001303" "11.0221115006327"
+##  [5,] "11.9618725389051" "11.9334895308224"
+##  [6,] "11.612785479182"  "11.6805328053348"
+##  [7,] "11.9984271908357" "12.0259237101698"
+##  [8,] "12.4930915850769" "12.4322865638375"
+##  [9,] "12.0286954236259" "12.0182198807093"
+## [10,] "14.4972959491374" "14.4861744795951"
+## [11,] "10.4212274513421" "10.4206786898426"
+## [12,] "10.1875787270284" "10.1964355229393"
+## attr(,"units")
+##  [1] ""          ""          "mg/L"      "mg/L/mg"   "h"        
+##  [6] "h"         "mg/L"      "mg/L"      "h"         "h"        
+## [11] "/h"        "h"         "h"         ""          ""         
+## [16] ""          ""          "h*mg/L"    "h*mg/L"    "h*mg/L"   
+## [21] "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
+## [26] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"        
+## [31] "L"         "L"         "L/h"       "L/h"       "h"        
+## [36] "h"         "h"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(Indometh, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{,}
+       \DataTypeTok{adm=}\StringTok{"Infusion"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in tblNCA(Indometh, colSubj = "Subject", colTime = "time", colConc = "conc", : 사용되지 않은 인자 (colSubj = "Subject")
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(Theoph, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] "1"     "2.36878509420585" "10.5"  "0.0328125"  "1.12" "0"  "3.28"
+##  [2,] "2"     "2.41123733696293" "8.33"  "0.02603125" "1.92" "0"  "0.9" 
+##  [3,] "3"     "2.52971150145858" "8.2"   "0.025625"   "1.02" "0"  "1.05"
+##  [4,] "4"     "2.59275546723663" "8.6"   "0.026875"   "1.07" "0"  "1.15"
+##  [5,] "5"     "2.55109229061238" "11.4"  "0.035625"   "1"    "0"  "1.57"
+##  [6,] "6"     "2.0334043955261"  "6.44"  "0.020125"   "1.15" "0"  "0.92"
+##  [7,] "7"     "2.28854976005424" "7.09"  "0.02215625" "3.48" "0"  "1.15"
+##  [8,] "8"     "2.17040271754659" "7.56"  "0.023625"   "2.02" "0"  "1.25"
+##  [9,] "9"     "2.12464810390587" "9.03"  "0.02821875" "0.63" "0"  "1.12"
+## [10,] "10"    "2.65770546248091" "10.21" "0.03190625" "3.55" "0"  "2.42"
+## [11,] "11"    "2.1475943307927"  "8"     "0.025"      "0.98" "0"  "0.86"
+## [12,] "12"    "2.82449347826545" "9.75"  "0.03046875" "3.52" "0"  "1.17"
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] "3.28014647414312"  "24.37" "14.304377571097"  "0.0484569969657749"
+##  [2,] "0.888639849106919" "24.3"  "6.65934156262252" "0.104086443688432" 
+##  [3,] "1.05509670837553"  "24.17" "6.76608737718236" "0.102444314109434" 
+##  [4,] "1.15642160174997"  "24.65" "6.98124666099893" "0.0992870205306231"
+##  [5,] "1.55569511595616"  "24.35" "8.0022640410078"  "0.0866188839818201"
+##  [6,] "0.941271173708175" "23.85" "7.89499786796582" "0.0877957400561702"
+##  [7,] "1.16071921229933"  "24.22" "7.84666826130148" "0.0883364961379133"
+##  [8,] "1.22852675835656"  "24.12" "8.51003788342506" "0.0814505399453019"
+##  [9,] "1.11648311706515"  "24.43" "8.40599880716182" "0.0824586341803179"
+## [10,] "2.41369227401111"  "23.7"  "9.24691582297898" "0.0749598237757766"
+## [11,] "0.859806606884089" "24.08" "7.26123651504339" "0.0954585598642772"
+## [12,] "1.17553904959565"  "24.15" "6.28650816367189" "0.110259489451627" 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] "9.05" "24.37" "3"     "-0.99999986483748"  "0.999999729674979"
+##  [2,] "7.03" "24.3"  "4"     "-0.998596709529913" "0.99719538828397" 
+##  [3,] "9"    "24.17" "3"     "-0.999662423945811" "0.999324961849213"
+##  [4,] "9.02" "24.65" "3"     "-0.999461923749821" "0.998924137025692"
+##  [5,] "7.02" "24.35" "4"     "-0.999323363372814" "0.998647184582752"
+##  [6,] "2.03" "23.85" "7"     "-0.999120281624298" "0.998241337153017"
+##  [7,] "6.98" "24.22" "4"     "-0.999334862622512" "0.998670167652754"
+##  [8,] "3.53" "24.12" "6"     "-0.995496052943785" "0.991012391426654"
+##  [9,] "8.8"  "24.43" "3"     "-0.99972179371205"  "0.999443664822839"
+## [10,] "9.38" "23.7"  "3"     "-0.999754311749369" "0.999508683861454"
+## [11,] "9.03" "24.08" "3"     "-0.999999127979356" "0.999998255959473"
+## [12,] "9.03" "24.15" "3"     "-0.999698355328196" "0.9993968016459"  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] "0.999999459349959" "148.92305" "148.92305" "216.611933038226"
+##  [2,] "0.995793082425955" "91.5268"   "91.5268"   "100.173459143183"
+##  [3,] "0.998649923698427" "99.2865"   "99.2865"   "109.535970740547"
+##  [4,] "0.997848274051385" "106.7963"  "106.7963"  "118.378881427603"
+##  [5,] "0.997970776874129" "121.2944"  "121.2944"  "139.419777837118"
+##  [6,] "0.99788960458362"  "73.77555"  "73.77555"  "84.2544183301878"
+##  [7,] "0.998005251479131" "90.7534"   "90.7534"   "103.771801796293"
+##  [8,] "0.988765489283318" "88.55995"  "88.55995"  "103.906686815243"
+##  [9,] "0.998887329645677" "86.32615"  "86.32615"  "99.9087179279482"
+## [10,] "0.999017367722909" "138.3681"  "138.3681"  "170.652060635217"
+## [11,] "0.999996511918946" "80.0936"   "80.0936"   "89.1027449234385"
+## [12,] "0.998793603291801" "119.9775"  "119.9775"  "130.588831558118"
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] "0.676912290744456" "216.614955803818" "0.67692173688693" 
+##  [2,] "0.313042059822447" "100.064317640308" "0.312700992625963"
+##  [3,] "0.342299908564208" "109.585721753278" "0.342455380478994"
+##  [4,] "0.369934004461258" "118.44355857992"  "0.370136120562249"
+##  [5,] "0.435686805740995" "139.254630430615" "0.435170720095671"
+##  [6,] "0.263295057281837" "84.4966985785753" "0.264052183058048"
+##  [7,] "0.324286880613414" "103.893147024686" "0.324666084452144"
+##  [8,] "0.324708396297635" "103.643051464786" "0.323884535827455"
+##  [9,] "0.312214743524838" "99.8660676588793" "0.312081461433998"
+## [10,] "0.533287689485054" "170.567912545332" "0.533024726704162"
+## [11,] "0.278446077885745" "89.1007189855217" "0.278439746829755"
+## [12,] "0.408090098619118" "130.639068046815" "0.408247087646298"
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] "31.2489169404534" "31.2498763313113" "1459.0711035"
+##  [2,] "8.63168669340252" "8.53203003991598" "706.586566"  
+##  [3,] "9.3571734209797"  "9.39832451573008" "803.18587"   
+##  [4,] "9.7843308603032"  "9.83359392402986" "901.0842105" 
+##  [5,] "13.0005786254328" "12.8974026752838" "1017.1143165"
+##  [6,] "12.4371736674055" "12.688245527848"  "609.1523875" 
+##  [7,] "12.5452209279821" "12.6473664538854" "782.41986"   
+##  [8,] "14.7697297311878" "14.5529307094073" "739.534598"  
+##  [9,] "13.5949777052926" "13.5580763078894" "705.2296255" 
+## [10,] "18.9180022292417" "18.8780011813617" "1278.180042" 
+## [11,] "10.1109622730249" "10.1089184106194" "617.2422125" 
+## [12,] "8.12575733430562" "8.16108703637935" "977.8807235" 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] "4505.53481941065" "4505.67086458209" "67.6160286851172"
+##  [2,] "999.772287999786" "996.071583509104" "29.3252499112927"
+##  [3,] "1150.96476871455" "1152.65289026304" "30.2162940315685"
+##  [4,] "1303.25240140958" "1305.4981091996"  "30.8588106551423"
+##  [5,] "1667.72161189007" "1661.79367436228" "39.011744571249" 
+##  [6,] "978.428485741731" "986.966459689532" "37.7417566662308"
+##  [7,] "1245.09840831465" "1249.41106012833" "37.1599983764277"
+##  [8,] "1298.11575468474" "1288.52011616077" "43.0301500208197"
+##  [9,] "1201.77153812025" "1200.2123597462"  "41.3174964516894"
+## [10,] "2473.99342735889" "2470.87654175199" "48.3353501320931"
+## [11,] "928.559971386069" "928.489963582081" "33.5269415524517"
+## [12,] "1330.38400236898" "1332.05283411623" "26.4963558071417"
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] "67.6170064935417" "30.4867482345887" "30.4863228055447"
+##  [2,] "29.0626720309864" "30.6904415765423" "30.7239160557228"
+##  [3,] "30.318495985664"  "28.5170999496524" "28.5041534217657"
+##  [4,] "30.9777467963968" "27.2259641330176" "27.2110971545992"
+##  [5,] "38.7941877387202" "26.4979946505636" "26.5294196385914"
+##  [6,] "38.280335514986"  "43.2597344953234" "43.135694392041" 
+##  [7,] "37.376906210544"  "34.9084408430805" "34.8676684452056"
+##  [8,] "42.605894256157"  "37.8105081118408" "37.9066861615621"
+##  [9,] "41.2412628670872" "38.8427934436931" "38.8593822173436"
+## [10,] "48.2701777931124" "25.0155401378403" "25.0278813214113"
+## [11,] "33.5219295081337" "37.6221852019531" "37.6230406407462"
+## [12,] "26.5884431567018" "22.2242935639128" "22.2157473419508"
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] "1.47729626669981" "1.47727565168591" "9.79748335465867"
+##  [2,] "3.19445891892989" "3.19794315842211" "7.71999639449866"
+##  [3,] "2.92141474473231" "2.92008844656286" "8.08957783787323"
+##  [4,] "2.70318485984093" "2.70170876184947" "8.43741038313125"
+##  [5,] "2.29522672438806" "2.29794872178016" "8.38550103302378"
+##  [6,] "3.79802040465035" "3.78713021198604" "8.25683288704727"
+##  [7,] "3.08368934971535" "3.08008765894795" "8.62138344128154"
+##  [8,] "3.07968630131565" "3.08752005539633" "8.3506663903943" 
+##  [9,] "3.20292369511514" "3.20429158273309" "8.1693626496722" 
+## [10,] "1.87516048038837" "1.87608557333405" "9.23753409926132"
+## [11,] "3.59135961832556" "3.59144127728081" "7.70651103833515"
+## [12,] "2.4504392617801"  "2.44949695970983" "8.15053425433936"
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] "20.8000305256292" "20.8003683211179"
+##  [2,] "9.98041094468705" "9.95431345556755"
+##  [3,] "10.5076420187191" "10.5182762117325"
+##  [4,] "11.0091630001303" "11.0221115006327"
+##  [5,] "11.9618725389051" "11.9334895308224"
+##  [6,] "11.612785479182"  "11.6805328053348"
+##  [7,] "11.9984271908357" "12.0259237101698"
+##  [8,] "12.4930915850769" "12.4322865638375"
+##  [9,] "12.0286954236259" "12.0182198807093"
+## [10,] "14.4972959491374" "14.4861744795951"
+## [11,] "10.4212274513421" "10.4206786898426"
+## [12,] "10.1875787270284" "10.1964355229393"
+## attr(,"units")
+##  [1] ""          ""          "mg/L"      "mg/L/mg"   "h"        
+##  [6] "h"         "mg/L"      "mg/L"      "h"         "h"        
+## [11] "/h"        "h"         "h"         ""          ""         
+## [16] ""          ""          "h*mg/L"    "h*mg/L"    "h*mg/L"   
+## [21] "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
+## [26] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"        
+## [31] "L"         "L"         "L/h"       "L/h"       "h"        
+## [36] "h"         "h"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(Indometh, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{,}
+       \DataTypeTok{adm=}\StringTok{"Infusion"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in tblNCA(Indometh, colSubj = "Subject", colTime = "time", colConc = "conc", : 사용되지 않은 인자 (colSubj = "Subject")
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Output to PDF file}
+
+\KeywordTok{pdfNCA}\NormalTok{(}\DataTypeTok{fileName=}\StringTok{"NCA-Theoph.pdf"}\NormalTok{, Theoph, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"Time"}\NormalTok{, }
+       \DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }\DataTypeTok{timeUnit=}\StringTok{"h"}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\KeywordTok{pdfNCA}\NormalTok{(}\DataTypeTok{fileName=}\StringTok{"NCA-Indometh.pdf"}\NormalTok{, Indometh, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"time"}\NormalTok{, }
+       \DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{adm=}\StringTok{"Infusion"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }\DataTypeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }
+       \DataTypeTok{timeUnit=}\StringTok{"h"}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+
+\CommentTok{# Output to RTF file}
+
+\KeywordTok{rtfNCA}\NormalTok{(}\DataTypeTok{fileName=}\StringTok{"NCA-Theoph.rtf"}\NormalTok{, Theoph, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"Time"}\NormalTok{, }
+       \DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }\DataTypeTok{timeUnit=}\StringTok{"h"}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\KeywordTok{rtfNCA}\NormalTok{(}\DataTypeTok{fileName=}\StringTok{"NCA-Indometh.rtf"}\NormalTok{, Indometh, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"time"}\NormalTok{, }
+       \DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{adm=}\StringTok{"Infusion"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }\DataTypeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }
+       \DataTypeTok{timeUnit=}\StringTok{"h"}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L”)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsubsection{NonCompart}\label{noncompart}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Theoph and Indometh data: dose in mg, conc in mg/L, time in h}
+
+\KeywordTok{tblNCA}\NormalTok{(Theoph, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] "1"     "2.36878509420585" "10.5"  "0.0328125"  "1.12" "0"  "3.28"
+##  [2,] "2"     "2.41123733696293" "8.33"  "0.02603125" "1.92" "0"  "0.9" 
+##  [3,] "3"     "2.52971150145858" "8.2"   "0.025625"   "1.02" "0"  "1.05"
+##  [4,] "4"     "2.59275546723663" "8.6"   "0.026875"   "1.07" "0"  "1.15"
+##  [5,] "5"     "2.55109229061238" "11.4"  "0.035625"   "1"    "0"  "1.57"
+##  [6,] "6"     "2.0334043955261"  "6.44"  "0.020125"   "1.15" "0"  "0.92"
+##  [7,] "7"     "2.28854976005424" "7.09"  "0.02215625" "3.48" "0"  "1.15"
+##  [8,] "8"     "2.17040271754659" "7.56"  "0.023625"   "2.02" "0"  "1.25"
+##  [9,] "9"     "2.12464810390587" "9.03"  "0.02821875" "0.63" "0"  "1.12"
+## [10,] "10"    "2.65770546248091" "10.21" "0.03190625" "3.55" "0"  "2.42"
+## [11,] "11"    "2.1475943307927"  "8"     "0.025"      "0.98" "0"  "0.86"
+## [12,] "12"    "2.82449347826545" "9.75"  "0.03046875" "3.52" "0"  "1.17"
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] "3.28014647414312"  "24.37" "14.304377571097"  "0.0484569969657749"
+##  [2,] "0.888639849106919" "24.3"  "6.65934156262252" "0.104086443688432" 
+##  [3,] "1.05509670837553"  "24.17" "6.76608737718236" "0.102444314109434" 
+##  [4,] "1.15642160174997"  "24.65" "6.98124666099893" "0.0992870205306231"
+##  [5,] "1.55569511595616"  "24.35" "8.0022640410078"  "0.0866188839818201"
+##  [6,] "0.941271173708175" "23.85" "7.89499786796582" "0.0877957400561702"
+##  [7,] "1.16071921229933"  "24.22" "7.84666826130148" "0.0883364961379133"
+##  [8,] "1.22852675835656"  "24.12" "8.51003788342506" "0.0814505399453019"
+##  [9,] "1.11648311706515"  "24.43" "8.40599880716182" "0.0824586341803179"
+## [10,] "2.41369227401111"  "23.7"  "9.24691582297898" "0.0749598237757766"
+## [11,] "0.859806606884089" "24.08" "7.26123651504339" "0.0954585598642772"
+## [12,] "1.17553904959565"  "24.15" "6.28650816367189" "0.110259489451627" 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] "9.05" "24.37" "3"     "-0.99999986483748"  "0.999999729674979"
+##  [2,] "7.03" "24.3"  "4"     "-0.998596709529913" "0.99719538828397" 
+##  [3,] "9"    "24.17" "3"     "-0.999662423945811" "0.999324961849213"
+##  [4,] "9.02" "24.65" "3"     "-0.999461923749821" "0.998924137025692"
+##  [5,] "7.02" "24.35" "4"     "-0.999323363372814" "0.998647184582752"
+##  [6,] "2.03" "23.85" "7"     "-0.999120281624298" "0.998241337153017"
+##  [7,] "6.98" "24.22" "4"     "-0.999334862622512" "0.998670167652754"
+##  [8,] "3.53" "24.12" "6"     "-0.995496052943785" "0.991012391426654"
+##  [9,] "8.8"  "24.43" "3"     "-0.99972179371205"  "0.999443664822839"
+## [10,] "9.38" "23.7"  "3"     "-0.999754311749369" "0.999508683861454"
+## [11,] "9.03" "24.08" "3"     "-0.999999127979356" "0.999998255959473"
+## [12,] "9.03" "24.15" "3"     "-0.999698355328196" "0.9993968016459"  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] "0.999999459349959" "148.92305" "148.92305" "216.611933038226"
+##  [2,] "0.995793082425955" "91.5268"   "91.5268"   "100.173459143183"
+##  [3,] "0.998649923698427" "99.2865"   "99.2865"   "109.535970740547"
+##  [4,] "0.997848274051385" "106.7963"  "106.7963"  "118.378881427603"
+##  [5,] "0.997970776874129" "121.2944"  "121.2944"  "139.419777837118"
+##  [6,] "0.99788960458362"  "73.77555"  "73.77555"  "84.2544183301878"
+##  [7,] "0.998005251479131" "90.7534"   "90.7534"   "103.771801796293"
+##  [8,] "0.988765489283318" "88.55995"  "88.55995"  "103.906686815243"
+##  [9,] "0.998887329645677" "86.32615"  "86.32615"  "99.9087179279482"
+## [10,] "0.999017367722909" "138.3681"  "138.3681"  "170.652060635217"
+## [11,] "0.999996511918946" "80.0936"   "80.0936"   "89.1027449234385"
+## [12,] "0.998793603291801" "119.9775"  "119.9775"  "130.588831558118"
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] "0.676912290744456" "216.614955803818" "0.67692173688693" 
+##  [2,] "0.313042059822447" "100.064317640308" "0.312700992625963"
+##  [3,] "0.342299908564208" "109.585721753278" "0.342455380478994"
+##  [4,] "0.369934004461258" "118.44355857992"  "0.370136120562249"
+##  [5,] "0.435686805740995" "139.254630430615" "0.435170720095671"
+##  [6,] "0.263295057281837" "84.4966985785753" "0.264052183058048"
+##  [7,] "0.324286880613414" "103.893147024686" "0.324666084452144"
+##  [8,] "0.324708396297635" "103.643051464786" "0.323884535827455"
+##  [9,] "0.312214743524838" "99.8660676588793" "0.312081461433998"
+## [10,] "0.533287689485054" "170.567912545332" "0.533024726704162"
+## [11,] "0.278446077885745" "89.1007189855217" "0.278439746829755"
+## [12,] "0.408090098619118" "130.639068046815" "0.408247087646298"
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] "31.2489169404534" "31.2498763313113" "1459.0711035"
+##  [2,] "8.63168669340252" "8.53203003991598" "706.586566"  
+##  [3,] "9.3571734209797"  "9.39832451573008" "803.18587"   
+##  [4,] "9.7843308603032"  "9.83359392402986" "901.0842105" 
+##  [5,] "13.0005786254328" "12.8974026752838" "1017.1143165"
+##  [6,] "12.4371736674055" "12.688245527848"  "609.1523875" 
+##  [7,] "12.5452209279821" "12.6473664538854" "782.41986"   
+##  [8,] "14.7697297311878" "14.5529307094073" "739.534598"  
+##  [9,] "13.5949777052926" "13.5580763078894" "705.2296255" 
+## [10,] "18.9180022292417" "18.8780011813617" "1278.180042" 
+## [11,] "10.1109622730249" "10.1089184106194" "617.2422125" 
+## [12,] "8.12575733430562" "8.16108703637935" "977.8807235" 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] "4505.53481941065" "4505.67086458209" "67.6160286851172"
+##  [2,] "999.772287999786" "996.071583509104" "29.3252499112927"
+##  [3,] "1150.96476871455" "1152.65289026304" "30.2162940315685"
+##  [4,] "1303.25240140958" "1305.4981091996"  "30.8588106551423"
+##  [5,] "1667.72161189007" "1661.79367436228" "39.011744571249" 
+##  [6,] "978.428485741731" "986.966459689532" "37.7417566662308"
+##  [7,] "1245.09840831465" "1249.41106012833" "37.1599983764277"
+##  [8,] "1298.11575468474" "1288.52011616077" "43.0301500208197"
+##  [9,] "1201.77153812025" "1200.2123597462"  "41.3174964516894"
+## [10,] "2473.99342735889" "2470.87654175199" "48.3353501320931"
+## [11,] "928.559971386069" "928.489963582081" "33.5269415524517"
+## [12,] "1330.38400236898" "1332.05283411623" "26.4963558071417"
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] "67.6170064935417" "30.4867482345887" "30.4863228055447"
+##  [2,] "29.0626720309864" "30.6904415765423" "30.7239160557228"
+##  [3,] "30.318495985664"  "28.5170999496524" "28.5041534217657"
+##  [4,] "30.9777467963968" "27.2259641330176" "27.2110971545992"
+##  [5,] "38.7941877387202" "26.4979946505636" "26.5294196385914"
+##  [6,] "38.280335514986"  "43.2597344953234" "43.135694392041" 
+##  [7,] "37.376906210544"  "34.9084408430805" "34.8676684452056"
+##  [8,] "42.605894256157"  "37.8105081118408" "37.9066861615621"
+##  [9,] "41.2412628670872" "38.8427934436931" "38.8593822173436"
+## [10,] "48.2701777931124" "25.0155401378403" "25.0278813214113"
+## [11,] "33.5219295081337" "37.6221852019531" "37.6230406407462"
+## [12,] "26.5884431567018" "22.2242935639128" "22.2157473419508"
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] "1.47729626669981" "1.47727565168591" "9.79748335465867"
+##  [2,] "3.19445891892989" "3.19794315842211" "7.71999639449866"
+##  [3,] "2.92141474473231" "2.92008844656286" "8.08957783787323"
+##  [4,] "2.70318485984093" "2.70170876184947" "8.43741038313125"
+##  [5,] "2.29522672438806" "2.29794872178016" "8.38550103302378"
+##  [6,] "3.79802040465035" "3.78713021198604" "8.25683288704727"
+##  [7,] "3.08368934971535" "3.08008765894795" "8.62138344128154"
+##  [8,] "3.07968630131565" "3.08752005539633" "8.3506663903943" 
+##  [9,] "3.20292369511514" "3.20429158273309" "8.1693626496722" 
+## [10,] "1.87516048038837" "1.87608557333405" "9.23753409926132"
+## [11,] "3.59135961832556" "3.59144127728081" "7.70651103833515"
+## [12,] "2.4504392617801"  "2.44949695970983" "8.15053425433936"
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] "20.8000305256292" "20.8003683211179"
+##  [2,] "9.98041094468705" "9.95431345556755"
+##  [3,] "10.5076420187191" "10.5182762117325"
+##  [4,] "11.0091630001303" "11.0221115006327"
+##  [5,] "11.9618725389051" "11.9334895308224"
+##  [6,] "11.612785479182"  "11.6805328053348"
+##  [7,] "11.9984271908357" "12.0259237101698"
+##  [8,] "12.4930915850769" "12.4322865638375"
+##  [9,] "12.0286954236259" "12.0182198807093"
+## [10,] "14.4972959491374" "14.4861744795951"
+## [11,] "10.4212274513421" "10.4206786898426"
+## [12,] "10.1875787270284" "10.1964355229393"
+## attr(,"units")
+##  [1] ""          ""          "mg/L"      "mg/L/mg"   "h"        
+##  [6] "h"         "mg/L"      "mg/L"      "h"         "h"        
+## [11] "/h"        "h"         "h"         ""          ""         
+## [16] ""          ""          "h*mg/L"    "h*mg/L"    "h*mg/L"   
+## [21] "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
+## [26] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"        
+## [31] "L"         "L"         "L/h"       "L/h"       "h"        
+## [36] "h"         "h"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(Indometh, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{,}
+       \DataTypeTok{adm=}\StringTok{"Infusion"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in tblNCA(Indometh, colSubj = "Subject", colTime = "time", colConc = "conc", : 사용되지 않은 인자 (colSubj = "Subject")
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(Theoph, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       Subject b0                 CMAX    CMAXD        TMAX   TLAG CLST  
+##  [1,] "1"     "2.36878509420585" "10.5"  "0.0328125"  "1.12" "0"  "3.28"
+##  [2,] "2"     "2.41123733696293" "8.33"  "0.02603125" "1.92" "0"  "0.9" 
+##  [3,] "3"     "2.52971150145858" "8.2"   "0.025625"   "1.02" "0"  "1.05"
+##  [4,] "4"     "2.59275546723663" "8.6"   "0.026875"   "1.07" "0"  "1.15"
+##  [5,] "5"     "2.55109229061238" "11.4"  "0.035625"   "1"    "0"  "1.57"
+##  [6,] "6"     "2.0334043955261"  "6.44"  "0.020125"   "1.15" "0"  "0.92"
+##  [7,] "7"     "2.28854976005424" "7.09"  "0.02215625" "3.48" "0"  "1.15"
+##  [8,] "8"     "2.17040271754659" "7.56"  "0.023625"   "2.02" "0"  "1.25"
+##  [9,] "9"     "2.12464810390587" "9.03"  "0.02821875" "0.63" "0"  "1.12"
+## [10,] "10"    "2.65770546248091" "10.21" "0.03190625" "3.55" "0"  "2.42"
+## [11,] "11"    "2.1475943307927"  "8"     "0.025"      "0.98" "0"  "0.86"
+## [12,] "12"    "2.82449347826545" "9.75"  "0.03046875" "3.52" "0"  "1.17"
+##       CLSTP               TLST    LAMZHL             LAMZ                
+##  [1,] "3.28014647414312"  "24.37" "14.304377571097"  "0.0484569969657749"
+##  [2,] "0.888639849106919" "24.3"  "6.65934156262252" "0.104086443688432" 
+##  [3,] "1.05509670837553"  "24.17" "6.76608737718236" "0.102444314109434" 
+##  [4,] "1.15642160174997"  "24.65" "6.98124666099893" "0.0992870205306231"
+##  [5,] "1.55569511595616"  "24.35" "8.0022640410078"  "0.0866188839818201"
+##  [6,] "0.941271173708175" "23.85" "7.89499786796582" "0.0877957400561702"
+##  [7,] "1.16071921229933"  "24.22" "7.84666826130148" "0.0883364961379133"
+##  [8,] "1.22852675835656"  "24.12" "8.51003788342506" "0.0814505399453019"
+##  [9,] "1.11648311706515"  "24.43" "8.40599880716182" "0.0824586341803179"
+## [10,] "2.41369227401111"  "23.7"  "9.24691582297898" "0.0749598237757766"
+## [11,] "0.859806606884089" "24.08" "7.26123651504339" "0.0954585598642772"
+## [12,] "1.17553904959565"  "24.15" "6.28650816367189" "0.110259489451627" 
+##       LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
+##  [1,] "9.05" "24.37" "3"     "-0.99999986483748"  "0.999999729674979"
+##  [2,] "7.03" "24.3"  "4"     "-0.998596709529913" "0.99719538828397" 
+##  [3,] "9"    "24.17" "3"     "-0.999662423945811" "0.999324961849213"
+##  [4,] "9.02" "24.65" "3"     "-0.999461923749821" "0.998924137025692"
+##  [5,] "7.02" "24.35" "4"     "-0.999323363372814" "0.998647184582752"
+##  [6,] "2.03" "23.85" "7"     "-0.999120281624298" "0.998241337153017"
+##  [7,] "6.98" "24.22" "4"     "-0.999334862622512" "0.998670167652754"
+##  [8,] "3.53" "24.12" "6"     "-0.995496052943785" "0.991012391426654"
+##  [9,] "8.8"  "24.43" "3"     "-0.99972179371205"  "0.999443664822839"
+## [10,] "9.38" "23.7"  "3"     "-0.999754311749369" "0.999508683861454"
+## [11,] "9.03" "24.08" "3"     "-0.999999127979356" "0.999998255959473"
+## [12,] "9.03" "24.15" "3"     "-0.999698355328196" "0.9993968016459"  
+##       R2ADJ               AUCLST      AUCALL      AUCIFO            
+##  [1,] "0.999999459349959" "148.92305" "148.92305" "216.611933038226"
+##  [2,] "0.995793082425955" "91.5268"   "91.5268"   "100.173459143183"
+##  [3,] "0.998649923698427" "99.2865"   "99.2865"   "109.535970740547"
+##  [4,] "0.997848274051385" "106.7963"  "106.7963"  "118.378881427603"
+##  [5,] "0.997970776874129" "121.2944"  "121.2944"  "139.419777837118"
+##  [6,] "0.99788960458362"  "73.77555"  "73.77555"  "84.2544183301878"
+##  [7,] "0.998005251479131" "90.7534"   "90.7534"   "103.771801796293"
+##  [8,] "0.988765489283318" "88.55995"  "88.55995"  "103.906686815243"
+##  [9,] "0.998887329645677" "86.32615"  "86.32615"  "99.9087179279482"
+## [10,] "0.999017367722909" "138.3681"  "138.3681"  "170.652060635217"
+## [11,] "0.999996511918946" "80.0936"   "80.0936"   "89.1027449234385"
+## [12,] "0.998793603291801" "119.9775"  "119.9775"  "130.588831558118"
+##       AUCIFOD             AUCIFP             AUCIFPD            
+##  [1,] "0.676912290744456" "216.614955803818" "0.67692173688693" 
+##  [2,] "0.313042059822447" "100.064317640308" "0.312700992625963"
+##  [3,] "0.342299908564208" "109.585721753278" "0.342455380478994"
+##  [4,] "0.369934004461258" "118.44355857992"  "0.370136120562249"
+##  [5,] "0.435686805740995" "139.254630430615" "0.435170720095671"
+##  [6,] "0.263295057281837" "84.4966985785753" "0.264052183058048"
+##  [7,] "0.324286880613414" "103.893147024686" "0.324666084452144"
+##  [8,] "0.324708396297635" "103.643051464786" "0.323884535827455"
+##  [9,] "0.312214743524838" "99.8660676588793" "0.312081461433998"
+## [10,] "0.533287689485054" "170.567912545332" "0.533024726704162"
+## [11,] "0.278446077885745" "89.1007189855217" "0.278439746829755"
+## [12,] "0.408090098619118" "130.639068046815" "0.408247087646298"
+##       AUCPEO             AUCPEP             AUMCLST       
+##  [1,] "31.2489169404534" "31.2498763313113" "1459.0711035"
+##  [2,] "8.63168669340252" "8.53203003991598" "706.586566"  
+##  [3,] "9.3571734209797"  "9.39832451573008" "803.18587"   
+##  [4,] "9.7843308603032"  "9.83359392402986" "901.0842105" 
+##  [5,] "13.0005786254328" "12.8974026752838" "1017.1143165"
+##  [6,] "12.4371736674055" "12.688245527848"  "609.1523875" 
+##  [7,] "12.5452209279821" "12.6473664538854" "782.41986"   
+##  [8,] "14.7697297311878" "14.5529307094073" "739.534598"  
+##  [9,] "13.5949777052926" "13.5580763078894" "705.2296255" 
+## [10,] "18.9180022292417" "18.8780011813617" "1278.180042" 
+## [11,] "10.1109622730249" "10.1089184106194" "617.2422125" 
+## [12,] "8.12575733430562" "8.16108703637935" "977.8807235" 
+##       AUMCIFO            AUMCIFP            AUMCPEO           
+##  [1,] "4505.53481941065" "4505.67086458209" "67.6160286851172"
+##  [2,] "999.772287999786" "996.071583509104" "29.3252499112927"
+##  [3,] "1150.96476871455" "1152.65289026304" "30.2162940315685"
+##  [4,] "1303.25240140958" "1305.4981091996"  "30.8588106551423"
+##  [5,] "1667.72161189007" "1661.79367436228" "39.011744571249" 
+##  [6,] "978.428485741731" "986.966459689532" "37.7417566662308"
+##  [7,] "1245.09840831465" "1249.41106012833" "37.1599983764277"
+##  [8,] "1298.11575468474" "1288.52011616077" "43.0301500208197"
+##  [9,] "1201.77153812025" "1200.2123597462"  "41.3174964516894"
+## [10,] "2473.99342735889" "2470.87654175199" "48.3353501320931"
+## [11,] "928.559971386069" "928.489963582081" "33.5269415524517"
+## [12,] "1330.38400236898" "1332.05283411623" "26.4963558071417"
+##       AUMCPEP            VZFO               VZFP              
+##  [1,] "67.6170064935417" "30.4867482345887" "30.4863228055447"
+##  [2,] "29.0626720309864" "30.6904415765423" "30.7239160557228"
+##  [3,] "30.318495985664"  "28.5170999496524" "28.5041534217657"
+##  [4,] "30.9777467963968" "27.2259641330176" "27.2110971545992"
+##  [5,] "38.7941877387202" "26.4979946505636" "26.5294196385914"
+##  [6,] "38.280335514986"  "43.2597344953234" "43.135694392041" 
+##  [7,] "37.376906210544"  "34.9084408430805" "34.8676684452056"
+##  [8,] "42.605894256157"  "37.8105081118408" "37.9066861615621"
+##  [9,] "41.2412628670872" "38.8427934436931" "38.8593822173436"
+## [10,] "48.2701777931124" "25.0155401378403" "25.0278813214113"
+## [11,] "33.5219295081337" "37.6221852019531" "37.6230406407462"
+## [12,] "26.5884431567018" "22.2242935639128" "22.2157473419508"
+##       CLFO               CLFP               MRTEVLST          
+##  [1,] "1.47729626669981" "1.47727565168591" "9.79748335465867"
+##  [2,] "3.19445891892989" "3.19794315842211" "7.71999639449866"
+##  [3,] "2.92141474473231" "2.92008844656286" "8.08957783787323"
+##  [4,] "2.70318485984093" "2.70170876184947" "8.43741038313125"
+##  [5,] "2.29522672438806" "2.29794872178016" "8.38550103302378"
+##  [6,] "3.79802040465035" "3.78713021198604" "8.25683288704727"
+##  [7,] "3.08368934971535" "3.08008765894795" "8.62138344128154"
+##  [8,] "3.07968630131565" "3.08752005539633" "8.3506663903943" 
+##  [9,] "3.20292369511514" "3.20429158273309" "8.1693626496722" 
+## [10,] "1.87516048038837" "1.87608557333405" "9.23753409926132"
+## [11,] "3.59135961832556" "3.59144127728081" "7.70651103833515"
+## [12,] "2.4504392617801"  "2.44949695970983" "8.15053425433936"
+##       MRTEVIFO           MRTEVIFP          
+##  [1,] "20.8000305256292" "20.8003683211179"
+##  [2,] "9.98041094468705" "9.95431345556755"
+##  [3,] "10.5076420187191" "10.5182762117325"
+##  [4,] "11.0091630001303" "11.0221115006327"
+##  [5,] "11.9618725389051" "11.9334895308224"
+##  [6,] "11.612785479182"  "11.6805328053348"
+##  [7,] "11.9984271908357" "12.0259237101698"
+##  [8,] "12.4930915850769" "12.4322865638375"
+##  [9,] "12.0286954236259" "12.0182198807093"
+## [10,] "14.4972959491374" "14.4861744795951"
+## [11,] "10.4212274513421" "10.4206786898426"
+## [12,] "10.1875787270284" "10.1964355229393"
+## attr(,"units")
+##  [1] ""          ""          "mg/L"      "mg/L/mg"   "h"        
+##  [6] "h"         "mg/L"      "mg/L"      "h"         "h"        
+## [11] "/h"        "h"         "h"         ""          ""         
+## [16] ""          ""          "h*mg/L"    "h*mg/L"    "h*mg/L"   
+## [21] "h*mg/L/mg" "h*mg/L"    "h*mg/L/mg" "%"         "%"        
+## [26] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"         "%"        
+## [31] "L"         "L"         "L/h"       "L/h"       "h"        
+## [36] "h"         "h"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{tblNCA}\NormalTok{(Indometh, }\DataTypeTok{colSubj=}\StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime=}\StringTok{"time"}\NormalTok{, }\DataTypeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }
+       \DataTypeTok{adm=}\StringTok{"Infusion"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in tblNCA(Indometh, colSubj = "Subject", colTime = "time", colConc = "conc", : 사용되지 않은 인자 (colSubj = "Subject")
+\end{verbatim}
+
+\section{R을 사용한 비구획분석 보고서}\label{ncar}
+
+\subsection{이 장에서는}\label{summary-ncar}
+
+보고서를 일정한 형식으로 작성하여 다른 사람/기관과 공유하는 것은
+중요합니다. 이를 \texttt{ncar} 패키지를 사용하여 좀더 쉽게 할 수
+있습니다.
+
+\subsection{txtNCA}\label{txtnca}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{txtNCA_Theoph <-}\StringTok{ }\NormalTok{Theoph }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{as_tibble}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(Subject) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise}\NormalTok{(}\DataTypeTok{res =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{ID =}\NormalTok{ glue}\OperatorTok{::}\KeywordTok{glue}\NormalTok{(}\StringTok{'ID=\{unique(Subject)\}}\CharTok{\textbackslash{}n\textbackslash{}n}\StringTok{'}\NormalTok{),}
+                   \KeywordTok{txtNCA}\NormalTok{(Time, }
+\NormalTok{                         conc, }
+                         \DataTypeTok{dose=}\DecValTok{320}\NormalTok{, }
+                         \DataTypeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }
+                         \DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{, }
+                         \DataTypeTok{timeUnit=}\StringTok{"h"}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\DataTypeTok{collapse =} \StringTok{'}\CharTok{\textbackslash{}n}\StringTok{'}\NormalTok{)) }\OperatorTok{%>%}
+\StringTok{  }\NormalTok{.}\OperatorTok{$}\NormalTok{res }\OperatorTok{%>%}
+\StringTok{  }\KeywordTok{paste}\NormalTok{(}\DataTypeTok{collapse =} \StringTok{'}\CharTok{\textbackslash{}n\textbackslash{}n\textbackslash{}n\textbackslash{}n\textbackslash{}n\textbackslash{}n}\StringTok{'}\NormalTok{)}
+\NormalTok{txtNCA_Theoph}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ID=6\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:21 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.2700       1.2900                           0.1742     0.0470\n     0.5800       3.0800                           0.8515     0.3779\n     1.1500       6.4400                           3.5647     2.9977\n     2.0300 *     6.3200     6.3928 -7.284e-02     9.1791    11.9014\n     3.5700 *     5.5300     5.5844 -5.438e-02    18.3036    36.9816\n     5.0000 *     4.9400     4.9255 +1.450e-02    25.7897    68.7577\n     7.0000 *     4.0200     4.1323 -1.123e-01    34.7497   121.5977\n     9.2200 *     3.4600     3.4005 +5.948e-02    43.0525   188.2434\n    12.1000 *     2.7800     2.6408 +1.392e-01    52.0381   282.6199\n    23.8500 *     0.9200     0.9413 -2.127e-02    73.7756   609.1524\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        6.4400 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0201 mg/L/mg\nTMAX       Time of CMAX                                    1.1500 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               0.9200 mg/L\nCLSTP      Last Nonzero Conc Pred                          0.9413 mg/L\nTLST       Time of Last Nonzero Conc                      23.8500 h\nLAMZHL     Half-Life Lambda z                              7.8950 h\nLAMZ       Lambda z                                        0.0878 /h\nLAMZLL     Lambda z Lower Limit                            2.0300 h\nLAMZUL     Lambda z Upper Limit                           23.8500 h\nLAMZNPT    Number of Points for Lambda z                   7\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9991 \nR2         R Squared                                       0.9982 \nR2ADJ      R Squared Adjusted                              0.9979 \nAUCLST     AUC to Last Nonzero Conc                       73.7756 h*mg/L\nAUCALL     AUC All                                        73.7756 h*mg/L\nAUCIFO     AUC Infinity Obs                               84.2544 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.2633 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                              84.4967 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.2641 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         12.4372 %\nAUCPEP     AUC %Extrapolation Pred                        12.6882 %\nAUMCLST    AUMC to Last Nonzero Conc                     609.1524 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                             978.4285 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                            986.9665 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        37.7418 %\nAUMCPEP    AUMC % Extrapolation Pred                      38.2803 %\nVZFO       Vz Obs by F                                    43.2597 L\nVZFP       Vz Pred by F                                   43.1357 L\nCLFO       Total CL Obs by F                               3.7980 L/h\nCLFP       Total CL Pred by F                              3.7871 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.2568 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     11.6128 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    11.6805 h\n\n\n\n\n\nID=7\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.1500                           0.0000     0.0000\n     0.2500       0.8500                           0.1250     0.0266\n     0.5000       2.3500                           0.5250     0.2000\n     1.0200       5.0200                           2.4412     1.8368\n     2.0200       6.5800                           8.2412    11.0428\n     3.4800       7.0900                          18.2203    38.7571\n     5.0000       6.6600                          28.6703    82.8167\n     6.9800 *     5.2500     5.3226 -7.260e-02    40.4612   152.0623\n     9.0000 *     4.3900     4.4527 -6.275e-02    50.1976   228.9788\n    12.0500 *     3.5300     3.4011 +1.289e-01    62.2756   354.0998\n    24.2200 *     1.1500     1.1607 -1.072e-02    90.7534   782.4199\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        7.0900 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0222 mg/L/mg\nTMAX       Time of CMAX                                    3.4800 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.1500 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.1607 mg/L\nTLST       Time of Last Nonzero Conc                      24.2200 h\nLAMZHL     Half-Life Lambda z                              7.8467 h\nLAMZ       Lambda z                                        0.0883 /h\nLAMZLL     Lambda z Lower Limit                            6.9800 h\nLAMZUL     Lambda z Upper Limit                           24.2200 h\nLAMZNPT    Number of Points for Lambda z                   4\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9993 \nR2         R Squared                                       0.9987 \nR2ADJ      R Squared Adjusted                              0.9980 \nAUCLST     AUC to Last Nonzero Conc                       90.7534 h*mg/L\nAUCALL     AUC All                                        90.7534 h*mg/L\nAUCIFO     AUC Infinity Obs                              103.7718 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.3243 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             103.8931 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.3247 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         12.5452 %\nAUCPEP     AUC %Extrapolation Pred                        12.6474 %\nAUMCLST    AUMC to Last Nonzero Conc                     782.4199 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1245.0984 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1249.4111 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        37.1600 %\nAUMCPEP    AUMC % Extrapolation Pred                      37.3769 %\nVZFO       Vz Obs by F                                    34.9084 L\nVZFP       Vz Pred by F                                   34.8677 L\nCLFO       Total CL Obs by F                               3.0837 L/h\nCLFP       Total CL Pred by F                              3.0801 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.6214 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     11.9984 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    12.0259 h\n\n\n\n\n\nID=8\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.2500       3.0500                           0.3813     0.0953\n     0.5200       3.0500                           1.2048     0.4124\n     0.9800       7.3100                           3.5875     2.4248\n     2.0200       7.5600                          11.3200    14.0910\n     3.5300 *     6.5900     6.5724 +1.758e-02    22.0032    43.1841\n     5.0500 *     5.8800     5.8071 +7.292e-02    31.4804    83.4312\n     7.1500 *     4.7300     4.8941 -1.641e-01    42.6209   150.1204\n     9.0700 *     4.5700     4.1856 +3.844e-01    51.5489   222.3790\n    12.1000 *     3.0000     3.2702 -2.702e-01    63.0175   340.1701\n    24.1200 *     1.2500     1.2285 +2.147e-02    88.5600   739.5346\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        7.5600 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0236 mg/L/mg\nTMAX       Time of CMAX                                    2.0200 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.2500 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.2285 mg/L\nTLST       Time of Last Nonzero Conc                      24.1200 h\nLAMZHL     Half-Life Lambda z                              8.5100 h\nLAMZ       Lambda z                                        0.0815 /h\nLAMZLL     Lambda z Lower Limit                            3.5300 h\nLAMZUL     Lambda z Upper Limit                           24.1200 h\nLAMZNPT    Number of Points for Lambda z                   6\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9955 \nR2         R Squared                                       0.9910 \nR2ADJ      R Squared Adjusted                              0.9888 \nAUCLST     AUC to Last Nonzero Conc                       88.5600 h*mg/L\nAUCALL     AUC All                                        88.5600 h*mg/L\nAUCIFO     AUC Infinity Obs                              103.9067 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.3247 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             103.6431 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.3239 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         14.7697 %\nAUCPEP     AUC %Extrapolation Pred                        14.5529 %\nAUMCLST    AUMC to Last Nonzero Conc                     739.5346 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1298.1158 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1288.5201 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        43.0302 %\nAUMCPEP    AUMC % Extrapolation Pred                      42.6059 %\nVZFO       Vz Obs by F                                    37.8105 L\nVZFP       Vz Pred by F                                   37.9067 L\nCLFO       Total CL Obs by F                               3.0797 L/h\nCLFP       Total CL Pred by F                              3.0875 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.3507 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     12.4931 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    12.4323 h\n\n\n\n\n\nID=11\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.2500       4.8600                           0.6075     0.1519\n     0.5000       7.2400                           2.1200     0.7563\n     0.9800       8.0000                           5.7776     3.5067\n     1.9800       6.8100                          13.1826    14.1686\n     3.6000       5.8700                          23.4534    42.2073\n     5.0200       5.2200                          31.3273    75.8162\n     7.0300       4.4500                          41.0457   133.5915\n     9.0300 *     3.6200     3.6169 +3.150e-03    49.1156   197.5636\n    12.1200 *     2.6900     2.6929 -2.948e-03    58.8646   298.4388\n    24.0800 *     0.8600     0.8598 +1.934e-04    80.0936   617.2422\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        8.0000 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0250 mg/L/mg\nTMAX       Time of CMAX                                    0.9800 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               0.8600 mg/L\nCLSTP      Last Nonzero Conc Pred                          0.8598 mg/L\nTLST       Time of Last Nonzero Conc                      24.0800 h\nLAMZHL     Half-Life Lambda z                              7.2612 h\nLAMZ       Lambda z                                        0.0955 /h\nLAMZLL     Lambda z Lower Limit                            9.0300 h\nLAMZUL     Lambda z Upper Limit                           24.0800 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -1.0000 \nR2         R Squared                                       1.0000 \nR2ADJ      R Squared Adjusted                              1.0000 \nAUCLST     AUC to Last Nonzero Conc                       80.0936 h*mg/L\nAUCALL     AUC All                                        80.0936 h*mg/L\nAUCIFO     AUC Infinity Obs                               89.1027 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.2784 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                              89.1007 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.2784 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         10.1110 %\nAUCPEP     AUC %Extrapolation Pred                        10.1089 %\nAUMCLST    AUMC to Last Nonzero Conc                     617.2422 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                             928.5600 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                            928.4900 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        33.5269 %\nAUMCPEP    AUMC % Extrapolation Pred                      33.5219 %\nVZFO       Vz Obs by F                                    37.6222 L\nVZFP       Vz Pred by F                                   37.6230 L\nCLFO       Total CL Obs by F                               3.5914 L/h\nCLFP       Total CL Pred by F                              3.5914 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              7.7065 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     10.4212 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    10.4207 h\n\n\n\n\n\nID=3\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.2700       4.4000                           0.5940     0.1604\n     0.5800       6.9000                           2.3455     0.9648\n     1.0200       8.2000                           5.6675     3.6854\n     2.0200       7.8000                          13.6675    15.7453\n     3.6200       7.5000                          25.9075    50.0702\n     5.0800       6.2000                          35.9085    92.8817\n     7.0700       5.3000                          47.3510   161.5039\n     9.0000 *     4.9000     4.9914 -9.138e-02    57.1940   240.2199\n    12.1500 *     3.7000     3.6147 +8.528e-02    70.7390   380.4815\n    24.1700 *     1.0500     1.0551 -5.097e-03    99.2865   803.1859\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        8.2000 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0256 mg/L/mg\nTMAX       Time of CMAX                                    1.0200 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.0500 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.0551 mg/L\nTLST       Time of Last Nonzero Conc                      24.1700 h\nLAMZHL     Half-Life Lambda z                              6.7661 h\nLAMZ       Lambda z                                        0.1024 /h\nLAMZLL     Lambda z Lower Limit                            9.0000 h\nLAMZUL     Lambda z Upper Limit                           24.1700 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9997 \nR2         R Squared                                       0.9993 \nR2ADJ      R Squared Adjusted                              0.9986 \nAUCLST     AUC to Last Nonzero Conc                       99.2865 h*mg/L\nAUCALL     AUC All                                        99.2865 h*mg/L\nAUCIFO     AUC Infinity Obs                              109.5360 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.3423 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             109.5857 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.3425 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                          9.3572 %\nAUCPEP     AUC %Extrapolation Pred                         9.3983 %\nAUMCLST    AUMC to Last Nonzero Conc                     803.1859 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1150.9648 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1152.6529 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        30.2163 %\nAUMCPEP    AUMC % Extrapolation Pred                      30.3185 %\nVZFO       Vz Obs by F                                    28.5171 L\nVZFP       Vz Pred by F                                   28.5042 L\nCLFO       Total CL Obs by F                               2.9214 L/h\nCLFP       Total CL Pred by F                              2.9201 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.0896 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     10.5076 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    10.5183 h\n\n\n\n\n\nID=2\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.2700       1.7200                           0.2322     0.0627\n     0.5200       7.9100                           1.4360     0.6349\n     1.0000       8.3100                           5.3287     3.6165\n     1.9200       8.3300                          12.9832    14.7961\n     3.5000       6.8500                          24.9754    46.3713\n     5.0200       6.0800                          34.8022    87.7887\n     7.0300 *     5.4000     5.3629 +3.707e-02    46.3396   156.6147\n     9.0000 *     4.5500     4.3687 +1.813e-01    56.1403   234.3431\n    12.0000 *     3.0100     3.1970 -1.870e-01    67.4803   349.9481\n    24.3000 *     0.9000     0.8886 +1.136e-02    91.5268   706.5866\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        8.3300 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0260 mg/L/mg\nTMAX       Time of CMAX                                    1.9200 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               0.9000 mg/L\nCLSTP      Last Nonzero Conc Pred                          0.8886 mg/L\nTLST       Time of Last Nonzero Conc                      24.3000 h\nLAMZHL     Half-Life Lambda z                              6.6593 h\nLAMZ       Lambda z                                        0.1041 /h\nLAMZLL     Lambda z Lower Limit                            7.0300 h\nLAMZUL     Lambda z Upper Limit                           24.3000 h\nLAMZNPT    Number of Points for Lambda z                   4\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9986 \nR2         R Squared                                       0.9972 \nR2ADJ      R Squared Adjusted                              0.9958 \nAUCLST     AUC to Last Nonzero Conc                       91.5268 h*mg/L\nAUCALL     AUC All                                        91.5268 h*mg/L\nAUCIFO     AUC Infinity Obs                              100.1735 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.3130 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             100.0643 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.3127 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                          8.6317 %\nAUCPEP     AUC %Extrapolation Pred                         8.5320 %\nAUMCLST    AUMC to Last Nonzero Conc                     706.5866 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                             999.7723 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                            996.0716 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        29.3252 %\nAUMCPEP    AUMC % Extrapolation Pred                      29.0627 %\nVZFO       Vz Obs by F                                    30.6904 L\nVZFP       Vz Pred by F                                   30.7239 L\nCLFO       Total CL Obs by F                               3.1945 L/h\nCLFP       Total CL Pred by F                              3.1979 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              7.7200 h\nMRTEVIFO   MRT Extravasc Infinity Obs                      9.9804 h\nMRTEVIFP   MRT Extravasc Infinity Pred                     9.9543 h\n\n\n\n\n\nID=4\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.3500       1.8900                           0.3308     0.1158\n     0.6000       4.6000                           1.1420     0.5435\n     1.0700       8.6000                           4.2440     3.3545\n     2.1300       8.3800                          13.2434    17.6918\n     3.5000       7.5400                          24.1486    47.9958\n     5.0200       6.8800                          35.1078    94.3007\n     7.0200       5.7800                          47.7678   169.4139\n     9.0200 *     5.3300     5.4586 -1.286e-01    58.8778   258.0661\n    11.9800 *     4.1900     4.0686 +1.214e-01    72.9674   403.5099\n    24.6500 *     1.1500     1.1564 -6.422e-03   106.7963   901.0842\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        8.6000 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0269 mg/L/mg\nTMAX       Time of CMAX                                    1.0700 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.1500 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.1564 mg/L\nTLST       Time of Last Nonzero Conc                      24.6500 h\nLAMZHL     Half-Life Lambda z                              6.9812 h\nLAMZ       Lambda z                                        0.0993 /h\nLAMZLL     Lambda z Lower Limit                            9.0200 h\nLAMZUL     Lambda z Upper Limit                           24.6500 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9995 \nR2         R Squared                                       0.9989 \nR2ADJ      R Squared Adjusted                              0.9978 \nAUCLST     AUC to Last Nonzero Conc                      106.7963 h*mg/L\nAUCALL     AUC All                                       106.7963 h*mg/L\nAUCIFO     AUC Infinity Obs                              118.3789 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.3699 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             118.4436 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.3701 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                          9.7843 %\nAUCPEP     AUC %Extrapolation Pred                         9.8336 %\nAUMCLST    AUMC to Last Nonzero Conc                     901.0842 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1303.2524 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1305.4981 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        30.8588 %\nAUMCPEP    AUMC % Extrapolation Pred                      30.9777 %\nVZFO       Vz Obs by F                                    27.2260 L\nVZFP       Vz Pred by F                                   27.2111 L\nCLFO       Total CL Obs by F                               2.7032 L/h\nCLFP       Total CL Pred by F                              2.7017 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.4374 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     11.0092 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    11.0221 h\n\n\n\n\n\nID=9\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.3000       7.3700                           1.1055     0.3316\n     0.6300       9.0300                           3.8115     1.6351\n     1.0500       7.1400                           7.2072     4.4042\n     2.0200       6.3300                          13.7402    14.2417\n     3.5300       5.6600                          22.7926    38.9804\n     5.0200       5.6700                          31.2335    75.0705\n     7.1700       4.2400                          41.8867   138.3495\n     8.8000 *     4.1100     4.0512 +5.880e-02    48.6920   192.6031\n    11.6000 *     3.1600     3.2160 -5.597e-02    58.8700   294.5567\n    24.4300 *     1.1200     1.1165 +3.517e-03    86.3262   705.2296\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        9.0300 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0282 mg/L/mg\nTMAX       Time of CMAX                                    0.6300 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.1200 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.1165 mg/L\nTLST       Time of Last Nonzero Conc                      24.4300 h\nLAMZHL     Half-Life Lambda z                              8.4060 h\nLAMZ       Lambda z                                        0.0825 /h\nLAMZLL     Lambda z Lower Limit                            8.8000 h\nLAMZUL     Lambda z Upper Limit                           24.4300 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9997 \nR2         R Squared                                       0.9994 \nR2ADJ      R Squared Adjusted                              0.9989 \nAUCLST     AUC to Last Nonzero Conc                       86.3262 h*mg/L\nAUCALL     AUC All                                        86.3262 h*mg/L\nAUCIFO     AUC Infinity Obs                               99.9087 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.3122 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                              99.8661 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.3121 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         13.5950 %\nAUCPEP     AUC %Extrapolation Pred                        13.5581 %\nAUMCLST    AUMC to Last Nonzero Conc                     705.2296 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1201.7715 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1200.2124 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        41.3175 %\nAUMCPEP    AUMC % Extrapolation Pred                      41.2413 %\nVZFO       Vz Obs by F                                    38.8428 L\nVZFP       Vz Pred by F                                   38.8594 L\nCLFO       Total CL Obs by F                               3.2029 L/h\nCLFP       Total CL Pred by F                              3.2043 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.1694 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     12.0287 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    12.0182 h\n\n\n\n\n\nID=12\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.2500       1.2500                           0.1563     0.0391\n     0.5000       3.9600                           0.8075     0.3256\n     1.0000       7.8200                           3.7525     2.7756\n     2.0000       9.7200                          12.5225    16.4056\n     3.5200       9.7500                          27.3197    57.2632\n     5.0700       8.5700                          41.5177   117.5349\n     7.0700       6.5900                          56.6777   207.5761\n     9.0300 *     6.1100     6.2267 -1.167e-01    69.1237   307.3054\n    12.0500 *     4.5700     4.4632 +1.068e-01    85.2505   473.7705\n    24.1500 *     1.1700     1.1755 -5.539e-03   119.9775   977.8807\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                        9.7500 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0305 mg/L/mg\nTMAX       Time of CMAX                                    3.5200 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.1700 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.1755 mg/L\nTLST       Time of Last Nonzero Conc                      24.1500 h\nLAMZHL     Half-Life Lambda z                              6.2865 h\nLAMZ       Lambda z                                        0.1103 /h\nLAMZLL     Lambda z Lower Limit                            9.0300 h\nLAMZUL     Lambda z Upper Limit                           24.1500 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9997 \nR2         R Squared                                       0.9994 \nR2ADJ      R Squared Adjusted                              0.9988 \nAUCLST     AUC to Last Nonzero Conc                      119.9775 h*mg/L\nAUCALL     AUC All                                       119.9775 h*mg/L\nAUCIFO     AUC Infinity Obs                              130.5888 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.4081 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             130.6391 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.4082 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                          8.1258 %\nAUCPEP     AUC %Extrapolation Pred                         8.1611 %\nAUMCLST    AUMC to Last Nonzero Conc                     977.8807 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1330.3840 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1332.0528 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        26.4964 %\nAUMCPEP    AUMC % Extrapolation Pred                      26.5884 %\nVZFO       Vz Obs by F                                    22.2243 L\nVZFP       Vz Pred by F                                   22.2157 L\nCLFO       Total CL Obs by F                               2.4504 L/h\nCLFP       Total CL Pred by F                              2.4495 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.1505 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     10.1876 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    10.1964 h\n\n\n\n\n\nID=10\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.2400                           0.0000     0.0000\n     0.3700       2.8900                           0.5790     0.1978\n     0.7700       5.2200                           2.2011     1.2156\n     1.0200       6.4100                           3.6548     2.5353\n     2.0500       7.8300                          10.9884    14.1690\n     3.5500      10.2100                          24.5184    53.3917\n     5.0500       9.1800                          39.0609   115.3451\n     7.0800       8.0200                          56.5189   220.0328\n     9.3800 *     7.1400     7.0610 +7.903e-02    73.9529   362.3508\n    12.1000 *     5.6800     5.7586 -7.858e-02    91.3881   546.9044\n    23.7000 *     2.4200     2.4137 +6.308e-03   138.3681  1278.1800\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                       10.2100 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0319 mg/L/mg\nTMAX       Time of CMAX                                    3.5500 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               2.4200 mg/L\nCLSTP      Last Nonzero Conc Pred                          2.4137 mg/L\nTLST       Time of Last Nonzero Conc                      23.7000 h\nLAMZHL     Half-Life Lambda z                              9.2469 h\nLAMZ       Lambda z                                        0.0750 /h\nLAMZLL     Lambda z Lower Limit                            9.3800 h\nLAMZUL     Lambda z Upper Limit                           23.7000 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9998 \nR2         R Squared                                       0.9995 \nR2ADJ      R Squared Adjusted                              0.9990 \nAUCLST     AUC to Last Nonzero Conc                      138.3681 h*mg/L\nAUCALL     AUC All                                       138.3681 h*mg/L\nAUCIFO     AUC Infinity Obs                              170.6521 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.5333 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             170.5679 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.5330 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         18.9180 %\nAUCPEP     AUC %Extrapolation Pred                        18.8780 %\nAUMCLST    AUMC to Last Nonzero Conc                    1278.1800 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            2473.9934 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           2470.8765 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        48.3354 %\nAUMCPEP    AUMC % Extrapolation Pred                      48.2702 %\nVZFO       Vz Obs by F                                    25.0155 L\nVZFP       Vz Pred by F                                   25.0279 L\nCLFO       Total CL Obs by F                               1.8752 L/h\nCLFP       Total CL Pred by F                              1.8761 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              9.2375 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     14.4973 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    14.4862 h\n\n\n\n\n\nID=1\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.7400                           0.0000     0.0000\n     0.2500       2.8400                           0.4475     0.0888\n     0.5700       6.5700                           1.9531     0.8015\n     1.1200      10.5000                           6.6474     5.0654\n     2.0200       9.6600                          15.7194    19.1383\n     3.8200       8.5800                          32.1354    66.1982\n     5.1000       8.3600                          42.9769   114.4617\n     7.0300       7.4700                          58.2529   206.2815\n     9.0500 *     6.8900     6.8912 -1.228e-03    72.7565   322.2988\n    12.1200 *     5.9400     5.9387 +1.324e-03    92.4505   528.5219\n    24.3700 *     3.2800     3.2801 -1.465e-04   148.9231  1459.0711\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                       10.5000 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0328 mg/L/mg\nTMAX       Time of CMAX                                    1.1200 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               3.2800 mg/L\nCLSTP      Last Nonzero Conc Pred                          3.2801 mg/L\nTLST       Time of Last Nonzero Conc                      24.3700 h\nLAMZHL     Half-Life Lambda z                             14.3044 h\nLAMZ       Lambda z                                        0.0485 /h\nLAMZLL     Lambda z Lower Limit                            9.0500 h\nLAMZUL     Lambda z Upper Limit                           24.3700 h\nLAMZNPT    Number of Points for Lambda z                   3\nCORRXY     Correlation Between TimeX and Log ConcY        -1.0000 \nR2         R Squared                                       1.0000 \nR2ADJ      R Squared Adjusted                              1.0000 \nAUCLST     AUC to Last Nonzero Conc                      148.9231 h*mg/L\nAUCALL     AUC All                                       148.9231 h*mg/L\nAUCIFO     AUC Infinity Obs                              216.6119 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.6769 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             216.6150 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.6769 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         31.2489 %\nAUCPEP     AUC %Extrapolation Pred                        31.2499 %\nAUMCLST    AUMC to Last Nonzero Conc                    1459.0711 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            4505.5348 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           4505.6709 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        67.6160 %\nAUMCPEP    AUMC % Extrapolation Pred                      67.6170 %\nVZFO       Vz Obs by F                                    30.4867 L\nVZFP       Vz Pred by F                                   30.4863 L\nCLFO       Total CL Obs by F                               1.4773 L/h\nCLFP       Total CL Pred by F                              1.4773 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              9.7975 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     20.8000 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h\n\n\n\n\n\nID=5\n\n                        NONCOMPARTMENTAL ANALYSIS REPORT\n                       Package version 0.3.7 (2017-08-16 KST)\n                          R version 3.4.2 (2017-09-28)\n\nDate and Time: 2017-10-19 17:48:22 Asia/Seoul\n\nCalculation Setting\n-------------------\nDrug Administration: Extravascular\nObservation count excluding trailing zero: 11\nDose at time 0: 320 mg\nAUC Calculation Method: Linear-up Linear-down\nWeighting for lambda z: Uniform (Ordinary Least Square, OLS)\nLambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4\n\n\nFitting, AUC, AUMC Result\n-------------------------\n      Time         Conc.      Pred.   Residual       AUC       AUMC\n---------------------------------------------------------------------\n     0.0000       0.0000                           0.0000     0.0000\n     0.3000       2.0200                           0.3030     0.0909\n     0.5200       5.6300                           1.1445     0.4796\n     1.0000      11.4000                           5.2317     3.9182\n     2.0200       9.3300                          15.8040    19.3440\n     3.5000       8.7400                          29.1758    55.9271\n     5.0200       7.5600                          41.5638   108.0184\n     7.0200 *     7.0900     6.9799 +1.101e-01    56.2138   195.7414\n     9.1000 *     5.9000     5.8291 +7.091e-02    69.7234   303.3417\n    12.0000 *     4.3700     4.5343 -1.643e-01    84.6149   457.2302\n    24.3500 *     1.5700     1.5557 +1.430e-02   121.2944  1017.1143\n\n*: Used for the calculation of Lambda z.\n\n\nCalculated Values\n-----------------\nCMAX       Max Conc                                       11.4000 mg/L\nCMAXD      Max Conc Norm by Dose                           0.0356 mg/L/mg\nTMAX       Time of CMAX                                    1.0000 h\nTLAG       Time Until First Nonzero Conc                   0.0000 h\nCLST       Last Nonzero Conc                               1.5700 mg/L\nCLSTP      Last Nonzero Conc Pred                          1.5557 mg/L\nTLST       Time of Last Nonzero Conc                      24.3500 h\nLAMZHL     Half-Life Lambda z                              8.0023 h\nLAMZ       Lambda z                                        0.0866 /h\nLAMZLL     Lambda z Lower Limit                            7.0200 h\nLAMZUL     Lambda z Upper Limit                           24.3500 h\nLAMZNPT    Number of Points for Lambda z                   4\nCORRXY     Correlation Between TimeX and Log ConcY        -0.9993 \nR2         R Squared                                       0.9986 \nR2ADJ      R Squared Adjusted                              0.9980 \nAUCLST     AUC to Last Nonzero Conc                      121.2944 h*mg/L\nAUCALL     AUC All                                       121.2944 h*mg/L\nAUCIFO     AUC Infinity Obs                              139.4198 h*mg/L\nAUCIFOD    AUC Infinity Obs Norm by Dose                   0.4357 h*mg/L/mg\nAUCIFP     AUC Infinity Pred                             139.2546 h*mg/L\nAUCIFPD    AUC Infinity Pred Norm by Dose                  0.4352 h*mg/L/mg\nAUCPEO     AUC %Extrapolation Obs                         13.0006 %\nAUCPEP     AUC %Extrapolation Pred                        12.8974 %\nAUMCLST    AUMC to Last Nonzero Conc                    1017.1143 h2*mg/L\nAUMCIFO    AUMC Infinity Obs                            1667.7216 h2*mg/L\nAUMCIFP    AUMC Infinity Pred                           1661.7937 h2*mg/L\nAUMCPEO    AUMC %Extrapolation Obs                        39.0117 %\nAUMCPEP    AUMC % Extrapolation Pred                      38.7942 %\nVZFO       Vz Obs by F                                    26.4980 L\nVZFP       Vz Pred by F                                   26.5294 L\nCLFO       Total CL Obs by F                               2.2952 L/h\nCLFP       Total CL Pred by F                              2.2979 L/h\nMRTEVLST   MRT Extravasc to Last Nonzero Conc              8.3855 h\nMRTEVIFO   MRT Extravasc Infinity Obs                     11.9619 h\nMRTEVIFP   MRT Extravasc Infinity Pred                    11.9335 h"
+\end{verbatim}
+
+\subsection{ncar 사용법}\label{ncar-}
+
+약동학 파라이터를 보고서 형식의 text 파일로 저장해보자.
+
+우선 저장될 폴더를 확인해면,
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{getwd}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "C:/Users/mdlhs/asancpt/book-ncar"
+\end{verbatim}
+
+저장될 폴더를 변경하고자 한다면 setwd(``저장될 경로'') 이렇게 설정하면
+된다. 위에서 사용한 NCA 명령어에 Report=``Text'' 라는 옵션을 추가하면
+된다. 먼저, Theophilline 자료의 약동학 파라미터 분석 결과는 아래와 같이
+텍스트파일로 저장할 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#writeLines(NCA(Theoph, "Subject", "Time", "conc", Dose=320, Report="Text"), "Theoph_Linear_CoreOutput.txt")}
+\end{Highlighting}
+\end{Shaded}
+
+저장된 파일 내용은 아래와 같다.
+
+\begin{verbatim}
+NCA REPORT
+Subject=1
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version 0.2.6 (2017-01-01)
+                          R version 3.3.3 (2017-03-06)
+
+Date and Time: 2017-03-11 20:46:33 KST
+
+Calculation Setting
+-------------------
+Drug Administration: Extravascular
+Observation count excluding trailing zero: 11
+Dose at time 0: 320
+AUC Calculation method: Linear-up Linear-down method
+Weighting for lambda z: Uniform (Ordinary Least Square, OLS)
+Lambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4
+
+
+Fitting, AUC, AUMC Result
+-------------------------
+      Time         Conc.      Pred.   Residual       AUC       AUMC      Weight
+-------------------------------------------------------------------------------
+     0.0000       0.7400                           0.0000     0.0000            
+     0.2500       2.8400                           0.4475     0.0888            
+     0.5700       6.5700                           1.9531     0.8015            
+     1.1200      10.5000                           6.6474     5.0654            
+     2.0200       9.6600                          15.7194    19.1383            
+     3.8200       8.5800                          32.1354    66.1982            
+     5.1000       8.3600                          42.9769   114.4617            
+     7.0300       7.4700                          58.2529   206.2815            
+     9.0500 *     6.8900     6.8912 -1.228e-03    72.7565   322.2988     1.0000
+    12.1200 *     5.9400     5.9387 +1.324e-03    92.4505   528.5219     1.0000
+    24.3700 *     3.2800     3.2801 -1.465e-04   148.9231  1459.0711     1.0000
+
+\*: Used for the calculation of Lambda z.
+
+
+Calculated Values
+-----------------
+CMAX       Max Conc                                       10.5000
+CMAXD      Max Conc Norm by Dose                           0.0328
+TMAX       Time of CMAX                                    1.1200
+TLAG       Time Until First Nonzero Conc                   0.0000
+CLST       Last Nonzero Conc                               3.2800
+\end{verbatim}
+
+개인별 약동학 파라미터를 구하려면 아래와 같이 할 수 있다. IndiNCA를
+사용하면 되며, NCA와의 차이점은 데이터셋과 subject 설정이 빠진다는
+점이다.
+
+\begin{quote}
+IndiNCA(Theoph{[}Theoph\$Subject==1,``Time''{]},
+Theoph{[}Theoph\$Subject==1, ``conc''{]}, Dose=320) CMAX CMAXD TMAX TLAG
+CLST CLSTP TLST LAMZHL LAMZ 10.5000000 0.0328125 1.1200000 0.0000000
+3.2800000 3.2801465 24.3700000 14.3043776 0.0484570 LAMZLL LAMZUL
+LAMZNPT CORRXY R2 R2ADJ AUCLST AUCALL AUCIFO 9.0500000 24.3700000
+3.0000000 -0.9999999 0.9999997 0.9999995 148.9230500 148.9230500
+216.6119330 AUCIFOD AUCPEO AUCIFP AUCIFPD AUCPEP AUMCLST AUMCIFO AUMCPEO
+AUMCIFP 0.6769123 31.2489169 216.6149558 0.6769217 31.2498763
+1459.0711035 4505.5348194 67.6160287 4505.6708646 AUMCPEP MRTEVLST
+MRTEVIFO MRTEVIFP VZFO VZFP CLFO CLFP 67.6170065 9.7974834 20.8000305
+20.8003683 30.4867482 30.4863228 1.4772963 1.4772757
+\end{quote}
+
+개인별 약동학 파라미터를 보고서 형식의 text 파일로 저장해보자. Report
+옵션을 추가하면 된다. Report=``Text'' 를 추가해보자.
+
+\begin{quote}
+IndiNCA(Theoph{[}Theoph\$Subject==1,``Time''{]},
+Theoph{[}Theoph\$Subject==1, ``conc''{]}, Dose=320, Report=``Text'')
+{[}1{]} " NONCOMPARTMENTAL ANALYSIS REPORT"\\
+{[}2{]} " Package version 0.2.6 (2017-01-01)"\\
+{[}3{]} " R version 3.3.3 (2017-03-06)"\\
+{[}4{]} ``''\\
+{[}5{]} ``Date and Time: 2017-03-11 21:12:40 KST''\\
+{[}6{]} ``''\\
+{[}7{]} ``Calculation Setting''\\
+{[}8{]} ``-------------------''\\
+{[}9{]} ``Drug Administration: Extravascular''\\
+{[}10{]} ``Observation count excluding trailing zero: 11''\\
+{[}11{]} ``Dose at time 0: 320''\\
+{[}12{]} ``AUC Calculation method: Linear-up Linear-down method''\\
+{[}13{]} ``Weighting for lambda z: Uniform (Ordinary Least Square,
+OLS)''\\
+{[}14{]} ``Lambda z selection criterion: Heighest adjusted R-squared
+value with precision=1e-4'' {[}15{]} ``''\\
+{[}16{]} ``''\\
+{[}17{]} ``Fitting, AUC, AUMC Result''\\
+{[}18{]} ``-------------------------''\\
+{[}19{]} " Time Conc. Pred. Residual AUC AUMC Weight"\\
+{[}20{]}
+``-------------------------------------------------------------------------------''\\
+{[}21{]} " 0.0000 0.7400 0.0000 0.0000 "\\
+{[}22{]} " 0.2500 2.8400 0.4475 0.0888 "\\
+{[}23{]} " 0.5700 6.5700 1.9531 0.8015 "\\
+{[}24{]} " 1.1200 10.5000 6.6474 5.0654 "\\
+{[}25{]} " 2.0200 9.6600 15.7194 19.1383 "\\
+{[}26{]} " 3.8200 8.5800 32.1354 66.1982 "\\
+{[}27{]} " 5.1000 8.3600 42.9769 114.4617 "\\
+{[}28{]} " 7.0300 7.4700 58.2529 206.2815 "\\
+{[}29{]} " 9.0500 * 6.8900 6.8912 -1.228e-03 72.7565 322.2988 1.0000"\\
+{[}30{]} " 12.1200 * 5.9400 5.9387 +1.324e-03 92.4505 528.5219 1.0000"\\
+{[}31{]} " 24.3700 * 3.2800 3.2801 -1.465e-04 148.9231 1459.0711
+1.0000"\\
+{[}32{]} ``''\\
+{[}33{]} ``*: Used for the calculation of Lambda z."\\
+{[}34{]} ``''\\
+{[}35{]} ``''\\
+{[}36{]} ``Calculated Values''\\
+{[}37{]} ``-----------------''\\
+{[}38{]} ``CMAX Max Conc 10.5000''\\
+{[}39{]} ``CMAXD Max Conc Norm by Dose 0.0328''\\
+{[}40{]} ``TMAX Time of CMAX 1.1200''\\
+{[}41{]} ``TLAG Time Until First Nonzero Conc 0.0000''\\
+{[}42{]} ``CLST Last Nonzero Conc 3.2800''\\
+{[}43{]} ``CLSTP Last Nonzero Conc Pred 3.2801''\\
+{[}44{]} ``TLST Time of Last Nonzero Conc 24.3700''\\
+{[}45{]} ``LAMZHL Half-Life Lambda z 14.3044''\\
+{[}46{]} ``LAMZ Lambda z 0.0485''\\
+{[}47{]} ``LAMZLL Lambda z Lower Limit 9.0500''\\
+{[}48{]} ``LAMZUL Lambda z Upper Limit 24.3700''\\
+{[}49{]} ``LAMZNPT Number of Points for Lambda z 3''\\
+{[}50{]} ``CORRXY Correlation Between TimeX and Log ConcY -1.0000''\\
+{[}51{]} ``R2 R Squared 1.0000''\\
+{[}52{]} ``R2ADJ R Squared Adjusted 1.0000''\\
+{[}53{]} ``AUCLST AUC to Last Nonzero Conc 148.9231''\\
+{[}54{]} ``AUCALL AUC All 148.9231''\\
+{[}55{]} ``AUCIFO AUC Infinity Obs 216.6119''\\
+{[}56{]} ``AUCIFOD AUC Infinity Obs Norm by Dose 0.6769''\\
+{[}57{]} ``AUCPEO AUC \%Extrapolation Obs 31.2489''\\
+{[}58{]} ``AUCIFP AUC Infinity Pred 216.6150''\\
+{[}59{]} ``AUCIFPD AUC Infinity Pred Norm by Dose 0.6769''\\
+{[}60{]} ``AUCPEP AUC \%Extrapolation Pred 31.2499''\\
+{[}61{]} ``AUMCLST AUMC to Last Nonzero Conc 1459.0711''\\
+{[}62{]} ``AUMCIFO AUMC Infinity Obs 4505.5348''\\
+{[}63{]} ``AUMCPEO AUMC \%Extrapolation Obs 67.6160''\\
+{[}64{]} ``AUMCIFP AUMC Infinity Pred 4505.6709''\\
+{[}65{]} ``AUMCPEP AUMC \% Extrapolation Pred 67.6170''\\
+{[}66{]} ``MRTEVLST MRT Extravasc to Last Nonzero Conc 9.7975''\\
+{[}67{]} ``MRTEVIFO MRT Extravasc Infinity Obs 20.8000''\\
+{[}68{]} ``MRTEVIFP MRT Extravasc Infinity Pred 20.8004''\\
+{[}69{]} ``VZFO Vz Obs by F 30.4867''\\
+{[}70{]} ``VZFP Vz Pred by F 30.4863''\\
+{[}71{]} ``CLFO Total CL Obs by F 1.4773''\\
+{[}72{]} ``CLFP Total CL Pred by F 1.4773''
+\end{quote}
+
+개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다. 예를 들어
+0\textasciitilde{}12시간까지의 AUC, 0\textasciitilde{}24시간까지의 AUC를
+구하고자 한다면 다음과 같이 하면 된다.
+
+\begin{quote}
+iAUC = data.frame(Name=c(``AUC{[}0-12h{]}'',``AUC{[}0-24h{]}''),
+Start=c(0,0), End=c(12,24)) ; iAUC
+\end{quote}
+
+\begin{verbatim}
+    Name Start End
+\end{verbatim}
+
+1 AUC{[}0-12h{]} 0 12 2 AUC{[}0-24h{]} 0 24
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IntAUC}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (x, y, t1, t2, Res, fit = "Linear") 
+## {
+##     n = length(x)
+##     if (n != length(y) | !is.numeric(x) | !is.numeric(y)) 
+##         stop("Bad Input!")
+##     if (t1 > Res["TLST"]) 
+##         stop("Start time of interval AUC is after Tlast.")
+##     tL = Res["TLST"]
+##     if (t2 > tL & is.na(Res["LAMZ"])) 
+##         return(NA)
+##     newSeries = Interpol(x, y, t1, Res["LAMZ"], Res["b0"], fit = fit)
+##     newSeries = Interpol(newSeries[[1]], newSeries[[2]], t2, 
+##         Res["LAMZ"], Res["b0"], fit = fit)
+##     x = newSeries[[1]]
+##     y = newSeries[[2]]
+##     if (fit == "Linear") {
+##         if (t2 <= tL) {
+##             ResIntAUC = LinAUC(x[x >= t1 & x <= t2], y[x >= t1 & 
+##                 x <= t2])[[1]]
+##         }
+##         else {
+##             ResIntAUC = LinAUC(x[x >= t1 & x <= tL], y[x >= t1 & 
+##                 x <= tL])[[1]] + LogAUC(x[x >= tL & x <= t2], 
+##                 y[x >= tL & x <= t2])[[1]]
+##         }
+##     }
+##     else if (fit == "Log") {
+##         ResIntAUC = LogAUC(x[x >= t1 & x <= t2], y[x >= t1 & 
+##             x <= t2])[[1]]
+##     }
+##     else stop("Unknown fit!")
+##     return(ResIntAUC)
+## }
+## <environment: namespace:pkr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{IntAUC}\NormalTok{(Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject}\OperatorTok{==}\DecValTok{1}\NormalTok{,}\StringTok{"Time"}\NormalTok{], Theoph[Theoph}\OperatorTok{$}\NormalTok{Subject}\OperatorTok{==}\DecValTok{1}\NormalTok{, }\StringTok{"conc"}\NormalTok{], }\DataTypeTok{Dose=}\DecValTok{320}\NormalTok{, }\DataTypeTok{iAUC=}\NormalTok{iAUC)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in IntAUC(Theoph[Theoph$Subject == 1, "Time"], Theoph[Theoph$Subject == : 사용되지 않은 인자 (Dose = 320, iAUC = iAUC)
+\end{verbatim}
+
+\begin{verbatim}
+        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
+  10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
+      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
+   9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997    0.9999995  148.9230500  148.9230500  216.6119330 
+     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP 
+   0.6769123   31.2489169  216.6149558    0.6769217   31.2498763 1459.0711035 4505.5348194   67.6160287 4505.6708646 
+     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP   AUC[0-12h] 
+  67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757   91.7355220 
+  AUC[0-24h] 
+ 147.6945866 
+\end{verbatim}
+
+김민걸 선생님 자료를 옮겨와서 변형합니다.
+\url{http://blog.naver.com/kimmingul}
+
+\section{R을 사용한 비구획분석 시각화}\label{pkr}
+
+\subsection{이 장에서는}\label{summary-pkr}
+
+NCA에 대한 다양한 시각화를 가능하게 해 주는 \texttt{pkr} 패키지
+\citep{R-pkr} 에 대해 알아보겠습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(pkr)}
+\KeywordTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{pkr 사용법}\label{pkr-}
+
+\texttt{pkr} 함수의 가장 핵심적인 기능은 \texttt{plotPK()} 함수에 있고
+이 함수의 인자는 다음과 같습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{args}\NormalTok{(plotPK)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## function (concData, id, Time, conc, unitTime = "hr", unitConc = "ng/mL", 
+##     trt = "", fit = "Linear", dose = 0, adm = "Extravascular", 
+##     dur = 0, outdir = "Output") 
+## NULL
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plotPK}\NormalTok{(Theoph, }\StringTok{"Subject"}\NormalTok{, }\StringTok{"Time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{, }\DataTypeTok{unitTime=}\StringTok{"hr"}\NormalTok{, }\DataTypeTok{unitConc=}\StringTok{"mg/L"}\NormalTok{, }\DataTypeTok{dose=}\DecValTok{320}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+예제를 돌려보면 여러 그림이 생성됩니다.
+
+conv-tiff-png.sh, PK Profile Linear Scale for Theoph.tiff, PK Profile
+Log 10 Scale for Theoph.tiff, PK Profile with CI for Theoph.tiff 의
+세개의 그림 파일이 생성된 것을 알 수 있습니다. conv-pdf-png.sh,
+Individual PK Linear Scale for Theoph.pdf, Individual PK Log 10 Scale
+for Theoph.pdf 의 또한 두개의 그림 파일이 생성되었습니다.
+
+\begin{figure}
+\centering
+\includegraphics{Output/PK Profile Linear Scale for Theoph.png}
+\caption{}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Output/PK Profile Log 10 Scale for Theoph.png}
+\caption{}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Output/PK Profile with CI for Theoph.png}
+\caption{}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Output/Individual PK Linear Scale for Theoph00.png}
+\caption{}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{Output/Individual PK Log 10 Scale for Theoph00.png}
+\caption{}
+\end{figure}
+
+\section{R을 사용한 약동학 시뮬레이션}\label{simulation}
+
+\subsection{이 장에서는}\label{summary-simulation}
+
+\subsection{시뮬레이션에 대하여}\label{-}
+
+TBD
+
+\texttt{wnl} 패키지가 CRAN에 올라와 있습니다.
+
+\subsection{시뮬레이션 후 비구획분석}\label{--}
+
+TBD
+
+\subsection{앱을 통해 살펴보는 시뮬레이션}\label{---}
+
+샤이니 앱을 통해서 시뮬레이션을 구현할 수 있습니다. Shinyapp: PK
+Simulation - 1 Comp IV or Oral \url{https://asan.shinyapps.io/pk1c/}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include_app}\NormalTok{(}\StringTok{"https://asan.shinyapps.io/pk1c/"}\NormalTok{) }\CommentTok{#, height = "600px")}
+\end{Highlighting}
+\end{Shaded}
+
+\section{결과 및 논의}\label{result}
+
+R을 통해서 NCA 를 구할 수 있도록 R 패키지를 구축하였습니다. 값비싼
+상용소프트웨어를 사용하지 않고도 동일한 비구획분석이 가능한 것은 비용과
+작업 효율 측면에서 큰 잇점을 가져올 것입니다.
+
+현재 R에 기본적으로 내장되어 있는 PO 테오필린(theophylline)과 IV bolus
+인도메타신(indomethacin)에 대해서 예가 잘 나와있습니다. 약물에 대한
+자료를 고른 후 각 약물의 복용량, 감소 구간에서의 log 치환 여부,
+복용방법, 정맥주사일 경우 투입 시간(정맥주사 이외의 값들 경우에는
+infusion time은 내부 함수에 따라 값이 적용되지 않는다.)을 각각 설정할
+경우 값을 도출할 수 있습니다.
+
+Edison 내에서 실제 Theophylline의 용량에 따라 구현된 각각의 graph를
+spaghetti plot형태로 Edison의 결과 가시화 tab을 이용하여 확인할 수
+있으며, 그래프의 형태를 변형할 수 있게 설정하였다. Y축(농도)의 경우
+linear plot과 semi-logarithmic plot을 모두 함께 확인할 수 있도록 하여
+다양한 구간에서의 그래프의 추세를 선택적으로 확인할 수 있도록 하였다.
+
+언급하였던 공식 이외에도 Pharmacokinetic and Pharmacodynamic Data
+Analysis 5th edition 에 언급된 공식을 적용하여 다음과 같이 값을
+도출하였다.(figure 8)
+
+또한 결과 값이 모두 도출된 이후 실제 NCA program으로 가장 흔히 사용되고
+있는 WinNonlin® (Version 7.0 Pharsight, CA, USA) software 와의 결과
+비교에서도 모든 조건을 현재 Edison simulator에서 준 값과 동일하게
+설정하여 프로그램을 실행할 경우, 모든 지표에서 같은 값이 계산됨을
+확인하였다. (figure 8, figure 9)
+
+현재 가장 간단한 분석 방식인 비구획 분석을 통해서 약동학 분석에 필수적인
+지표들을 산출해 내었지만, 마찬가지로 수학적 원리를 반영하여 R script를
+구성한다면 보다 고차원적적 약동학 분석 방법인 구획 분석(Compartmental
+analysis)과 비선형적 약동학(nonlinear mixed effect modeling) 분석 또한
+실시할 수 있다.
+
+실제로 Edison 사이언스 엡에 추가한 `NONMEM(Nonlinear mixed effect
+modeling), method'라는 엡을 통해 현재 입력 되어있는
+Theoph(theophylline)의 시간 농도 데이터를 가지고 FO(first-order method),
+FOCE(first-order conditional estimation method), LAPL(Laplace's
+method)의 방법을 이용하여 현재 사용하는 NONMEM software와 유사한 값들을
+재현해 낼 수 있다.
+
+Figure 4 논문 내에서의 설정 값
+
+Figure 5. 앞서 설정한 Theophylline에 대한 linear spaghetti plot
+
+Figure 6. 앞서 설정한 Theophylline에 대한 scatter plot
+
+Figure 7. 앞서 설정한 Theophylline에 대한 semi-logarithmic spaghetti
+plot
+
+Figure 8. 앞서 설정한 Theophylline에 대한 NCA 분석 결과
+
+Figure 9. Theophylline에 대하여 같은 data와 설정값으로 계산한 WinNonlin®
+(Version 7.0 Pharsight, CA, USA) software의 결과
+
+Figure 10. NONMEM(Nonlinear mixed effect modeling), method 엡에 입력되어
+있는 theophylline data의 농도 시간 곡선
+
+Figure 11. theophylline data에 대한 model
+
+Figure 12. nonlinear mixed effect modeling First order method를 통해
+도출된 parameter
+
+\section{결론}\label{conclusion}
+
+약물을 연구하고 개발하는데 있어서 약동학은 굉장히 필수적인 분야이며, 그
+동안 이러한 약동학 지표들을 구하기 위해서 그러한 결론이 도출되는 과정을
+고려하지 않고 일부 프로그램의 사용에만 의존하는 모습이 주를 이뤘습니다.
+
+하지만 이번 Edison program과 다양한 수학적, 통계적 지식을 coding에
+활용하여 실제 임상적으로도 활용 가능한 결과값을 도출해 낼 수 있음을
+확인하였으며 앞으로도 약동학 분야에서 다양하게 활용할 수 있을 것으로
+예측됩니다.
+
+\section{Noncompartmental Analysis by
+R}\label{noncompartmental-analysis-by-r}
+
+진행 중인 작업.
+
+\subsection{NonCompart 0.3.3 - 2017-08-14
+(local)}\label{noncompart-0.3.3---2017-08-14-local}
+
+\begin{itemize}
+\tightlist
+\item
+  NonCompart::tblNCA()
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{make gitbook}
+\end{Highlighting}
+\end{Shaded}
+
+\appendix
+
+
+\section{비구획분석 소프트웨어}\label{softwares}
+
+\subsection{이 장에서는}\label{detailschapter}
+
+이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고
+분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다. 특별히
+Theoph 데이타셋에서 C\textsubscript{max}, AUC\textsubscript{inf}가
+동일하게 나오는지 초점을 맞추어 실펴보겠습니다.
+
+\subsection{Certara Phoenix WinNonLin}\label{certara-phoenix-winnonlin}
+
+\url{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}
+
+\subsubsection{Pros}\label{pros}
+
+\begin{itemize}
+\tightlist
+\item
+  Validated for several years
+\item
+  Industry standard
+\item
+  Versatile unit setting
+\item
+  Easy using by GUI
+\item
+  Generating plots supported
+\end{itemize}
+
+\subsubsection{Cons}\label{cons}
+
+\begin{itemize}
+\tightlist
+\item
+  Expansive (\textasciitilde{}several thousand dollars)
+\item
+  Not suitable for reproducible research
+\item
+  CDISC SDTM not compatible (input and output)
+\end{itemize}
+
+\subsection{R package: PKNCA}\label{r-package-pknca}
+
+Automation of Noncompartmental Analysis in R
+\url{https://github.com/billdenney/pknca}
+
+\subsubsection{ISoP Pharmacometrics Study Group
+Presentation}\label{isop-pharmacometrics-study-group-presentation}
+
+\begin{itemize}
+\tightlist
+\item
+  강의 동영상 \url{https://www.youtube.com/watch?v=WCmFrheYtcc}
+\item
+  프로젝트 \url{https://github.com/billdenney/pknca}
+\item
+  Package \url{https://cran.r-project.org/web/packages/PKNCA/}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    예제 R Markdown 파일 :
+    \url{https://github.com/billdenney/pknca/tree/master/vignettes}
+  \end{itemize}
+\item
+  PPT 파일
+\item
+  PKNCA 패키지란 무엇인가? * Pharmacokinetic(PK) data를 위한 모든
+  noncompartmental analysis (NCA) 계산이 가능한 R용 패키지
+\end{itemize}
+
+\begin{verbatim}
+library(devtools)
+install_github("billdenney/pknca")
+\end{verbatim}
+
+\subsubsection{오픈소스 NCA - 지금이 적기이다.}\label{-nca----.}
+
+\begin{itemize}
+\item
+  Data standards 가 점점 많아짐
+\item
+  CDISC/SDTM가 FDA requirement
+\item
+  CDISC ADaM working group is standardizing NCA data set (ADNCA)
+  \textbar{}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    CDISC SDTM pharmacokinetic concentration (PC) and pharmacokinetic
+    parameter (PP) domains have been standardized
+  \end{itemize}
+\item
+  우리도 R로 NCA?
+
+  \subsubsection{할수 있는 것}\label{--}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Organizes concentration/time and dose/time data
+  \end{itemize}
+\item
+  Predicts what you most likely need from NCA parameters from the
+  concentration and dosing data.
+\item
+  Allows user control of all NCA parameter and summary calculations
+\item
+  Calculates all (standard) NCA parameters (Targeting the SDTM PK
+  파라메터)
+\item
+  Summarizes the parameters
+\end{itemize}
+
+\subsubsection{한계}
+
+\begin{itemize}
+\tightlist
+\item
+  그래픽 못그림
+\item
+  파라메터의 statistics 못구함 (곧 기능 추가할듯)
+\end{itemize}
+
+\subsubsection{PKNCA 현재는 0.7}\label{pknca--0.7}
+
+\begin{itemize}
+\tightlist
+\item
+  NCA 파라메터 계산가능 (Cmax, Tmax, AUClast, AUCinf, AUMC, half-life,
+  \ldots{})
+\item
+  NCA-related calculations (Superposition, Concentration
+  interpolation/extrapolation (with AUC methods), Time to steady-state)
+\item
+  SDTM PP-READY OUTPUT 가능
+\item
+  인풋에서 아웃풋까지 TRACK가능하다.
+\item
+  800개 넘는 테스트 케이스가 있음.
+\end{itemize}
+
+\subsubsection{PKNCA 곧 1.0이 나올것이다.}\label{pknca--1.0-.}
+
+\begin{itemize}
+\tightlist
+\item
+  Improved prediction of desired parameters (정확도 accuracy, number 등)
+\end{itemize}
+
+\subsubsection{참고사항}
+
+\begin{itemize}
+\tightlist
+\item
+  Github에서 모두 다운로드 가능
+\item
+  CRAN에 package올라왔다. (0.7)
+  \url{https://cran.r-project.org/web/packages/PKNCA/}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    \href{mailto:wdenney@humanpredictions.com}{\nolinkurl{wdenney@humanpredictions.com}}
+    으로 메일 보내라
+  \end{itemize}
+\item
+  모든게 오픈이기 때문에 Github에서 기여 환영
+\end{itemize}
+
+\subsubsection{RStudio를 사용한 Hands-on 실습}\label{rstudio--hands-on-}
+
+\paragraph{Example-theophylline.Rmd}\label{example-theophylline.rmd}
+
+\begin{itemize}
+\tightlist
+\item
+  Theophylline 농도를 가지고 PK Parameter 구하는 법
+\item
+  \url{https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd}
+\item
+  이 파일을 RStudio에서 실행해본다.
+\item
+  이후 article에서 분석할 것입니다.
+\end{itemize}
+
+\paragraph{Superposition.Rmd}\label{superposition.rmd}
+
+\begin{itemize}
+\tightlist
+\item
+  \url{https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd}
+\item
+  이 파일을 RStudio에서 실행해본다.
+\end{itemize}
+
+\subsubsection{Closing}\label{closing}
+
+\begin{itemize}
+\tightlist
+\item
+  PKNCA.options() 모든 옵션을 볼 수 있다.
+\end{itemize}
+
+\subsubsection{결론}
+
+\begin{itemize}
+\tightlist
+\item
+  써보고 feedback주고 contribute해라.
+\end{itemize}
+
+\subsubsection{Pros}\label{pros-1}
+
+\begin{itemize}
+\tightlist
+\item
+  Open source and free of charge
+\item
+  CDISC SDTM semi compatible (output)
+\item
+  Calculate partial(interval) AUC with `linear' or `log' interpolation
+  method but in a cumbersome way
+\end{itemize}
+
+\subsubsection{Cons}\label{cons-1}
+
+\begin{itemize}
+\tightlist
+\item
+  CDISC SDTM not compatible (input)
+\item
+  More tests required
+\item
+  Experience with R language required
+\item
+  Generating plots not supported for now (To be supported soon)
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(PKNCA)}
+
+\NormalTok{my.conc <-}\StringTok{ }\KeywordTok{PKNCAconc}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(Theoph), conc}\OperatorTok{~}\NormalTok{Time}\OperatorTok{|}\NormalTok{Subject)}
+\NormalTok{d.dose <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(datasets}\OperatorTok{::}\NormalTok{Theoph[datasets}\OperatorTok{::}\NormalTok{Theoph}\OperatorTok{$}\NormalTok{Time }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{,}
+                                  \KeywordTok{c}\NormalTok{(}\StringTok{"Dose"}\NormalTok{, }\StringTok{"Time"}\NormalTok{, }\StringTok{"Subject"}\NormalTok{)])}
+\NormalTok{my.dose <-}\StringTok{ }\KeywordTok{PKNCAdose}\NormalTok{(d.dose, Dose}\OperatorTok{~}\NormalTok{Time}\OperatorTok{|}\NormalTok{Subject)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Assuming route of administration is extravascular
+\end{verbatim}
+
+\begin{verbatim}
+## Assuming instant dosing (duration=0)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my.data.automatic <-}\StringTok{ }\KeywordTok{PKNCAdata}\NormalTok{(my.conc, my.dose)}
+\NormalTok{my.results.automatic <-}\StringTok{ }\KeywordTok{pk.nca}\NormalTok{(my.data.automatic)}
+\NormalTok{my.results.automatic}\OperatorTok{$}\NormalTok{result }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{"cmax|aucinf"}\NormalTok{, PPTESTCD)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{arrange}\NormalTok{(PPTESTCD)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    start end Subject   PPTESTCD   PPORRES exclude
+## 1      0 Inf       1 aucinf.obs 214.92363    <NA>
+## 2      0 Inf       2 aucinf.obs  97.37793    <NA>
+## 3      0 Inf       3 aucinf.obs 106.12767    <NA>
+## 4      0 Inf       4 aucinf.obs 114.21620    <NA>
+## 5      0 Inf       5 aucinf.obs 136.30473    <NA>
+## 6      0 Inf       6 aucinf.obs  82.17588    <NA>
+## 7      0 Inf       7 aucinf.obs 100.98763    <NA>
+## 8      0 Inf       8 aucinf.obs 102.15330    <NA>
+## 9      0 Inf       9 aucinf.obs  97.52000    <NA>
+## 10     0 Inf      10 aucinf.obs 167.86003    <NA>
+## 11     0 Inf      11 aucinf.obs  86.90262    <NA>
+## 12     0 Inf      12 aucinf.obs 125.83154    <NA>
+## 13     0 Inf       1       cmax  10.50000    <NA>
+## 14     0 Inf       2       cmax   8.33000    <NA>
+## 15     0 Inf       3       cmax   8.20000    <NA>
+## 16     0 Inf       4       cmax   8.60000    <NA>
+## 17     0 Inf       5       cmax  11.40000    <NA>
+## 18     0 Inf       6       cmax   6.44000    <NA>
+## 19     0 Inf       7       cmax   7.09000    <NA>
+## 20     0 Inf       8       cmax   7.56000    <NA>
+## 21     0 Inf       9       cmax   9.03000    <NA>
+## 22     0 Inf      10       cmax  10.21000    <NA>
+## 23     0 Inf      11       cmax   8.00000    <NA>
+## 24     0 Inf      12       cmax   9.75000    <NA>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(my.results.automatic)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   start end  N     auclast        cmax               tmax   half.life
+## 1     0  24 12 74.6 [24.3]           .                  .           .
+## 2     0 Inf 12           . 8.65 [17.0] 1.14 [0.630, 3.55] 8.18 [2.12]
+##   aucinf.obs
+## 1          .
+## 2 115 [28.4]
+\end{verbatim}
+
+\subsection{R package: ncappc}\label{r-package-ncappc}
+
+NCA Calculation and Population PK Model Diagnosis \citep{Acharya201683}
+
+\url{https://cran.r-project.org/web/packages/ncappc/index.html}
+\url{https://www.ncbi.nlm.nih.gov/pubmed/27000291}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#install.packages("ncappc")}
+\KeywordTok{library}\NormalTok{(ncappc)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Loading required package: gridExtra
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'gridExtra'
+\end{verbatim}
+
+\begin{verbatim}
+## The following object is masked from 'package:dplyr':
+## 
+##     combine
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ncappc)}
+
+\KeywordTok{write.csv}\NormalTok{(Theoph }\OperatorTok{%>%}\StringTok{ }\KeywordTok{rename}\NormalTok{(}\DataTypeTok{ID =}\NormalTok{ Subject, }\DataTypeTok{TIME =}\NormalTok{ Time, }\DataTypeTok{DV =}\NormalTok{ conc), }
+          \StringTok{"Theoph.csv"}\NormalTok{, }\DataTypeTok{row.names =} \OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{ncappc}\NormalTok{(}\DataTypeTok{obsFile=}\StringTok{"Theoph.csv"}\NormalTok{, }\DataTypeTok{psnOut =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{noPlot =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{printOut =} \OtherTok{TRUE}\NormalTok{, }
+       \DataTypeTok{method =} \StringTok{"linear-log"}\NormalTok{, }\DataTypeTok{evid =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{Theoph_ncappc <-}\StringTok{ }\KeywordTok{read.delim}\NormalTok{(}\StringTok{"ncaOutput-.tsv"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{"}\CharTok{\textbackslash{}t}\StringTok{"}\NormalTok{, }\DataTypeTok{check.names =} \OtherTok{FALSE}\NormalTok{)}
+\NormalTok{Theoph_ncappc[ , }\KeywordTok{c}\NormalTok{(}\StringTok{"Cmax (M.L^-3)"}\NormalTok{, }\StringTok{"AUCINF_obs (T*M.L^-3)"}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in file(file, "rt"): 파일 'ncaOutput-.tsv'를 여는데 실패했습니다:
+## No such file or directory
+\end{verbatim}
+
+\begin{verbatim}
+## Error in file(file, "rt"): 커넥션을 열 수 없습니다
+\end{verbatim}
+
+\begin{verbatim}
+## Error in eval(expr, envir, enclos): 객체 'Theoph_ncappc'를 찾을 수 없습니다
+\end{verbatim}
+
+\subsection{R package: PK}\label{r-package-pk}
+
+Basic Non-Compartmental Pharmacokinetics
+
+\url{https://cran.r-project.org/web/packages/PK/index.html}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#install.packages("PK")}
+\KeywordTok{library}\NormalTok{(PK)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  **********   PK Version 1.3-3**********
+\end{verbatim}
+
+\begin{verbatim}
+## Type PKNews() to see new features/changes/bug fixes.
+\end{verbatim}
+
+\subsection{Kinetica}\label{kinetica}
+
+\subsection{Scientist}\label{scientist}
+
+\subsection{PKSolver}\label{pksolver}
+
+\subsection{Summary}\label{summary}
+
+\begin{verbatim}
+## Warning in file(file, "rt"): 파일 'comparison.csv'를 여는데 실패했습니다:
+## No such file or directory
+\end{verbatim}
+
+\begin{verbatim}
+## Error in file(file, "rt"): 커넥션을 열 수 없습니다
+\end{verbatim}
+
+\section*{sessionInfo}\label{sessioninfo}
+\addcontentsline{toc}{section}{sessionInfo}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{sessionInfo}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## R version 3.4.2 (2017-09-28)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=Korean_Korea.949  LC_CTYPE=Korean_Korea.949   
+## [3] LC_MONETARY=Korean_Korea.949 LC_NUMERIC=C                
+## [5] LC_TIME=Korean_Korea.949    
+## 
+## attached base packages:
+## [1] grid      stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+##  [1] PK_1.3-3             ncappc_0.2.1.4       gridExtra_2.3       
+##  [4] PKNCA_0.8.1          bindrcpp_0.2         ncar_0.3.7          
+##  [7] rtf_0.4-11           pkr_0.1.1            forestplot_1.7.2    
+## [10] checkmate_1.8.4      magrittr_1.5         binr_1.1            
+## [13] foreign_0.8-69       NonCompart_0.3.3     cowplot_0.8.0       
+## [16] knitr_1.17           forcats_0.2.0        stringr_1.2.0       
+## [19] dplyr_0.7.4          purrr_0.2.3          readr_1.1.1         
+## [22] tidyr_0.7.1          tibble_1.3.4         ggplot2_2.2.1       
+## [25] tidyverse_1.1.1.9000
+## 
+## loaded via a namespace (and not attached):
+##  [1] Rcpp_0.12.13      lubridate_1.6.0   lattice_0.20-35  
+##  [4] clisymbols_1.2.0  assertthat_0.2.0  rprojroot_1.2    
+##  [7] digest_0.6.12     psych_1.7.8       R6_2.2.2         
+## [10] cellranger_1.1.0  plyr_1.8.4        backports_1.1.1  
+## [13] evaluate_0.10.1   httr_1.3.1        highr_0.6        
+## [16] rlang_0.1.2       lazyeval_0.2.0    readxl_1.0.0     
+## [19] rstudioapi_0.7    R.oo_1.21.0       rmarkdown_1.6    
+## [22] boxes_0.0.0.9000  labeling_0.3      munsell_0.4.3    
+## [25] broom_0.4.2       compiler_3.4.2    modelr_0.1.1     
+## [28] pkgconfig_2.0.1   mnormt_1.5-5      htmltools_0.3.6  
+## [31] tidyselect_0.2.2  bookdown_0.5.4    crayon_1.3.4     
+## [34] R.methodsS3_1.7.1 xtable_1.8-2      nlme_3.1-131     
+## [37] jsonlite_1.5      gtable_0.2.0      scales_0.5.0     
+## [40] stringi_1.1.5     reshape2_1.4.2    testthat_1.0.2   
+## [43] xml2_1.1.1        tools_3.4.2       glue_1.1.1       
+## [46] hms_0.3           parallel_3.4.2    yaml_2.1.14      
+## [49] colorspace_1.3-2  rvest_0.3.2       bindr_0.1        
+## [52] haven_1.1.0       methods_3.4.2
+\end{verbatim}
+
+\begin{itemize}
+\tightlist
+\item
+  U.S. Department of Health and Human Services Food and Drug
+  Administration Center for Drug Evaluation and Research (CDER) ,
+  Guidance for Industry Pharmacokinetics in Pregnancy --- Study Design,
+  Data Analysis, and Impact on Dosing and Labeling, (2004)
+\item
+  Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical
+  Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th
+  Ed. 2010 (\url{ISBN:9780781750097})
+\item
+  Hadley Wickham, Advanced R (Chapman \& Hall/CRC The R Series) 1st Ed
+  ,25 sep 2014
+\item
+  Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data
+  Analysis - Concepts and Applications. 5th ed. 2016.
+  (\url{ISBN:9198299107}).
+\item
+  \url{http://www.edison.re.kr}. EDISON 웹사이트.
+\end{itemize}
+
+\bibliography{assets/bib/packages,assets/bib/manual}
+
+
+\end{document}

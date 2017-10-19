@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="pkr.html">
-<link rel="next" href="result.html">
+<link rel="prev" href="conclusion.html">
+<link rel="next" href="softwares.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -164,13 +164,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="A.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>A.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="A.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>A.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
 <li class="chapter" data-level="A.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>A.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="A.3.3" data-path="ms-45-simulation.html"><a href="#section-A.3.3"><i class="fa fa-check"></i><b>A.3.3</b> 한계</a></li>
+<li class="chapter" data-level="A.3.3" data-path="README.html"><a href="#section-A.3.3"><i class="fa fa-check"></i><b>A.3.3</b> 한계</a></li>
 <li class="chapter" data-level="A.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>A.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="A.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>A.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="A.3.6" data-path="ms-45-simulation.html"><a href="#section-A.3.6"><i class="fa fa-check"></i><b>A.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="A.3.6" data-path="README.html"><a href="#section-A.3.6"><i class="fa fa-check"></i><b>A.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="A.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>A.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="A.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>A.3.8</b> Closing</a></li>
-<li class="chapter" data-level="A.3.9" data-path="ms-45-simulation.html"><a href="#section-A.3.9"><i class="fa fa-check"></i><b>A.3.9</b> 결론</a></li>
+<li class="chapter" data-level="A.3.9" data-path="README.html"><a href="#section-A.3.9"><i class="fa fa-check"></i><b>A.3.9</b> 결론</a></li>
 <li class="chapter" data-level="A.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>A.3.10</b> Pros</a></li>
 <li class="chapter" data-level="A.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>A.3.11</b> Cons</a></li>
 </ul></li>
@@ -203,36 +203,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="simulation" class="section level1">
-<h1><span class="header-section-number">Chapter 7</span> R을 사용한 약동학 시뮬레이션</h1>
-<div id="summary-simulation" class="section level2">
-<h2><span class="header-section-number">7.1</span> 이 장에서는</h2>
-</div>
-<div id="-" class="section level2">
-<h2><span class="header-section-number">7.2</span> 시뮬레이션에 대하여</h2>
-<p>TBD</p>
-<p><code>wnl</code> 패키지가 CRAN에 올라와 있습니다.</p>
-</div>
-<div id="--" class="section level2">
-<h2><span class="header-section-number">7.3</span> 시뮬레이션 후 비구획분석</h2>
-<p>TBD</p>
-</div>
-<div id="---" class="section level2">
-<h2><span class="header-section-number">7.4</span> 앱을 통해 살펴보는 시뮬레이션</h2>
-<p>샤이니 앱을 통해서 시뮬레이션을 구현할 수 있습니다. Shinyapp: PK Simulation - 1 Comp IV or Oral <a href="https://asan.shinyapps.io/pk1c/" class="uri">https://asan.shinyapps.io/pk1c/</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_app</span>(<span class="st">&quot;https://asan.shinyapps.io/pk1c/&quot;</span>) <span class="co">#, height = &quot;600px&quot;)</span></code></pre></div>
-<iframe src="https://asan.shinyapps.io/pk1c/?showcase=0" width="672" height="400px">
-</iframe>
+<div id="noncompartmental-analysis-by-r" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> Noncompartmental Analysis by R</h1>
+<p>진행 중인 작업.</p>
+<div id="noncompart-0.3.3---2017-08-14-local" class="section level2">
+<h2><span class="header-section-number">10.1</span> NonCompart 0.3.3 - 2017-08-14 (local)</h2>
+<ul>
+<li>NonCompart::tblNCA()</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">make gitbook</code></pre></div>
 
 </div>
+</div>
+
+
+
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="pkr.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="result.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="softwares.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -261,7 +254,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/ms-45-simulation.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/README.Rmd",
 "text": "Edit"
 },
 "download": null,

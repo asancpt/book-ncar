@@ -136,46 +136,16 @@ iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24))
 
 ## 함수 살펴보기
 
-```r
-AUC = function(x, y, down="Linear")
-{
-# Author: Kyun-Seop Bae k@acr.kr
-# Last modification; 2017-07-24
-# Called by: sNCA
-# Calls: UT
-# INPUT
-#    x: time or similar vector
-#    y: concentration or similar vector
+NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. `r paste0(paste0(ls('package:NonCompart'), '()'), collapse = ', ')`라는 함수가 있습니다.
 
-  n = length(x)
-# RETURNS
-  Result = c(AUC = rep(NA_real_, n),   # vector of cumulative AUC
-             AUMC = rep(NA_real_, n))  # vector of cumulative AUMC
-# Input check
-  if (n != length(y) | !is.numeric(x) | !is.numeric(y)) return(Result)
 
-#
-  Res = matrix(nrow=n, ncol=2) # temporary result
-  Res[1,] = c(0, 0)
-  for (i in 2:n) {
-    if (y[i] >= y[i - 1]) { # if upward
-      Res[i,1] = (x[i] - x[i-1])*(y[i] + y[i-1])/2
-      Res[i,2] = (x[i] - x[i-1])*(x[i]*y[i] + x[i-1]*y[i-1])/2
-    } else if (UT(down) == "LINEAR") { # downward & linear
-      Res[i,1] = (x[i] - x[i-1])*(y[i] + y[i-1])/2
-      Res[i,2] = (x[i] - x[i-1])*(x[i]*y[i] + x[i-1]*y[i-1])/2
-    } else if (UT(down) == "LOG") { # downward & log
-      k = (log(y[i - 1]) - log(y[i]))/(x[i] - x[i-1]) # -k slope in y-log scale
-      Res[i,1] = (y[i-1] - y[i])/k
-      Res[i,2] = (x[i-1]*y[i-1] - x[i]*y[i])/k + (y[i-1] - y[i])/k/k
-    } else {
-      Res[i,1] = NA_real_
-      Res[i,2] = NA_real_
-    }
-  }
-  Result = cbind(AUC=cumsum(Res[,1]), AUMC=cumsum(Res[,2]))
-  return(Result)
-}
+### AUC
+
+AUC와 AUMC를  'Linear trapezoidal method' 혹은 'linear-up and log-down method'의 두가지 방식으로 계산하게 됩니다.
+
+```{r}
+AUC(Theoph[Theoph$Subject==1, "Time"], Theoph[Theoph$Subject==1, "conc"])
+AUC(Theoph[Theoph$Subject==1, "Time"], Theoph[Theoph$Subject==1, "conc"], down="Log")
 ```
 
 ## 긴 형식으로 변환하면서 단위 추가하기 {#long-format}
@@ -192,3 +162,6 @@ left_join(as_tibble(ncares) %>% gather(PPTESTCD, PPORRES, -Subject),
   arrange(Subject, PPTESTCD) %>% 
   head(20)
 ```
+
+
+

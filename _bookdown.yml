@@ -3,6 +3,7 @@ chapter_name: "Chapter "
 repo: https://github.com/asancpt/book-ncar
 output_dir: docs
 delete_merged_file: true
+
 # rmd_files: [
 #     "index.Rmd", 
 #     "ms-10-intro.Rmd",
@@ -16,5 +17,5 @@ delete_merged_file: true
 #     "app-10-others.Rmd",
 #     "app-99-references.Rmd"
 # ]
-  # latex: ["index.Rmd"]
+# latex: ["index.Rmd"]
 
