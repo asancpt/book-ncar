@@ -7,12 +7,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="<a href="https://asancpt.github.io/book-ncar" class="uri">https://asancpt.github.io/book-ncar</a>" />
-  <meta property="og:image" content="<a href="https://asancpt.github.io/book-ncar" class="uri">https://asancpt.github.io/book-ncar</a>assets/cover.jpg" />
+  <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
+  <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
   <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="github-repo" content="asancpt/book-ncar" />
 
@@ -20,12 +20,12 @@
   <meta name="twitter:title" content="R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
-  <meta name="twitter:image" content="<a href="https://asancpt.github.io/book-ncar" class="uri">https://asancpt.github.io/book-ncar</a>assets/cover.jpg" />
+  <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
 
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-10-19">
+<meta name="date" content="2017-10-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -33,7 +33,7 @@
   
   
 <link rel="prev" href="result.html">
-<link rel="next" href="noncompartmental-analysis-by-r.html">
+<link rel="next" href="sessioninfo.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -112,35 +112,30 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="r-packages.html"><a href="r-packages.html"><i class="fa fa-check"></i><b>2</b> R 패키지</a><ul>
-<li class="chapter" data-level="2.1" data-path="r-packages.html"><a href="r-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="2" data-path="installation.html"><a href="installation.html"><i class="fa fa-check"></i><b>2</b> 설치하기</a><ul>
+<li class="chapter" data-level="2.1" data-path="installation.html"><a href="installation.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.2</b> 패키지에 대하여</a></li>
-<li class="chapter" data-level="2.3" data-path="r-packages.html"><a href="r-packages.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
+<li class="chapter" data-level="2.3" data-path="installation.html"><a href="installation.html#section-2.3"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
 <li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>3</b> R을 사용한 비구획분석</a><ul>
 <li class="chapter" data-level="3.1" data-path="noncompart.html"><a href="noncompart.html#summary-noncompart"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="3.2" data-path="noncompart.html"><a href="noncompart.html#TheophData"><i class="fa fa-check"></i><b>3.2</b> 데이타에 대해</a></li>
-<li class="chapter" data-level="3.3" data-path="noncompart.html"><a href="noncompart.html#noncompart-"><i class="fa fa-check"></i><b>3.3</b> NonCompart 사용법</a></li>
-<li class="chapter" data-level="3.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>3.4</b> 함수 살펴보기</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="noncompart.html"><a href="noncompart.html#auc"><i class="fa fa-check"></i><b>3.4.1</b> AUC</a></li>
+<li class="chapter" data-level="3.3" data-path="noncompart.html"><a href="noncompart.html#how-to-use"><i class="fa fa-check"></i><b>3.3</b> NonCompart 사용법</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>3.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
+<li class="chapter" data-level="4" data-path="interval-NCA.html"><a href="interval-NCA.html"><i class="fa fa-check"></i><b>4</b> 구간 NCA</a><ul>
+<li class="chapter" data-level="4.1" data-path="interval-NCA.html"><a href="interval-NCA.html#functions"><i class="fa fa-check"></i><b>4.1</b> 함수 살펴보기</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="interval-NCA.html"><a href="interval-NCA.html#auc"><i class="fa fa-check"></i><b>4.1.1</b> AUC</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html"><i class="fa fa-check"></i><b>4</b> 2nd Basic PK and PD Workshop</a><ul>
-<li class="chapter" data-level="4.1" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html#data-prep."><i class="fa fa-check"></i><b>4.1</b> data prep.</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html#pkr"><i class="fa fa-check"></i><b>4.1.1</b> pkr</a></li>
-<li class="chapter" data-level="4.1.2" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html#ncar"><i class="fa fa-check"></i><b>4.1.2</b> ncar</a></li>
-<li class="chapter" data-level="4.1.3" data-path="noncompart.html"><a href="noncompart.html#noncompart"><i class="fa fa-check"></i><b>4.1.3</b> NonCompart</a></li>
+<li class="chapter" data-level="4.2" data-path="interval-NCA.html"><a href="interval-NCA.html#long-format"><i class="fa fa-check"></i><b>4.2</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html#ncar"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>5.2</b> txtNCA</a></li>
 <li class="chapter" data-level="5.3" data-path="ncar.html"><a href="ncar.html#ncar-"><i class="fa fa-check"></i><b>5.3</b> ncar 사용법</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="nd-basic-pk-and-pd-workshop.html"><a href="nd-basic-pk-and-pd-workshop.html#pkr"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
-<li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
+<li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="6.2" data-path="pkr.html"><a href="pkr.html#pkr-"><i class="fa fa-check"></i><b>6.2</b> pkr 사용법</a></li>
 </ul></li>
 <li class="chapter" data-level="7" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
@@ -149,38 +144,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
 <li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#---"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>8</b> 결과 및 논의</a></li>
-<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
-<li class="chapter" data-level="10" data-path="noncompartmental-analysis-by-r.html"><a href="noncompartmental-analysis-by-r.html"><i class="fa fa-check"></i><b>10</b> Noncompartmental Analysis by R</a><ul>
-<li class="chapter" data-level="10.1" data-path="noncompartmental-analysis-by-r.html"><a href="noncompartmental-analysis-by-r.html#noncompart-0.3.3---2017-08-14-local"><i class="fa fa-check"></i><b>10.1</b> NonCompart 0.3.3 - 2017-08-14 (local)</a></li>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
+<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#be"><i class="fa fa-check"></i><b>8.1</b> 생물학적 동등성</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.2</b> Dose Proportionality</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>A</b> 비구획분석 소프트웨어</a><ul>
-<li class="chapter" data-level="A.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>A.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="A.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>A.2</b> Certara Phoenix WinNonLin</a><ul>
-<li class="chapter" data-level="A.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>A.2.1</b> Pros</a></li>
-<li class="chapter" data-level="A.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>A.2.2</b> Cons</a></li>
-</ul></li>
-<li class="chapter" data-level="A.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>A.3</b> R package: PKNCA</a><ul>
-<li class="chapter" data-level="A.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>A.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="A.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>A.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="A.3.3" data-path="ms-50-conclusion.html"><a href="#section-A.3.3"><i class="fa fa-check"></i><b>A.3.3</b> 한계</a></li>
-<li class="chapter" data-level="A.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>A.3.4</b> PKNCA 현재는 0.7</a></li>
-<li class="chapter" data-level="A.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>A.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="A.3.6" data-path="ms-50-conclusion.html"><a href="#section-A.3.6"><i class="fa fa-check"></i><b>A.3.6</b> 참고사항</a></li>
-<li class="chapter" data-level="A.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>A.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
-<li class="chapter" data-level="A.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>A.3.8</b> Closing</a></li>
-<li class="chapter" data-level="A.3.9" data-path="ms-50-conclusion.html"><a href="#section-A.3.9"><i class="fa fa-check"></i><b>A.3.9</b> 결론</a></li>
-<li class="chapter" data-level="A.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>A.3.10</b> Pros</a></li>
-<li class="chapter" data-level="A.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>A.3.11</b> Cons</a></li>
-</ul></li>
-<li class="chapter" data-level="A.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>A.4</b> R package: ncappc</a></li>
-<li class="chapter" data-level="A.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>A.5</b> R package: PK</a></li>
-<li class="chapter" data-level="A.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>A.6</b> Kinetica</a></li>
-<li class="chapter" data-level="A.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>A.7</b> Scientist</a></li>
-<li class="chapter" data-level="A.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>A.8</b> PKSolver</a></li>
-<li class="chapter" data-level="A.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>A.9</b> Summary</a></li>
-</ul></li>
 <li class="chapter" data-level="" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i>sessionInfo</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
@@ -204,9 +174,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="conclusion" class="section level1">
-<h1><span class="header-section-number">Chapter 9</span> 결론</h1>
+<h1><span class="header-section-number">Chapter 10</span> 결론</h1>
 <p>약물을 연구하고 개발하는데 있어서 약동학은 굉장히 필수적인 분야이며, 그 동안 이러한 약동학 지표들을 구하기 위해서 그러한 결론이 도출되는 과정을 고려하지 않고 일부 프로그램의 사용에만 의존하는 모습이 주를 이뤘습니다.</p>
 <p>하지만 이번 Edison program과 다양한 수학적, 통계적 지식을 coding에 활용하여 실제 임상적으로도 활용 가능한 결과값을 도출해 낼 수 있음을 확인하였으며 앞으로도 약동학 분야에서 다양하게 활용할 수 있을 것으로 예측됩니다.</p>
+
+</div>
+
+
 
 </div>
             </section>
@@ -215,7 +189,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
         </div>
       </div>
 <a href="result.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="noncompartmental-analysis-by-r.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="sessioninfo.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -250,6 +224,9 @@ gitbook.start({
 "download": null,
 "toc": {
 "collapse": "section"
+},
+"toolbar": {
+"position": "static"
 }
 });
 });

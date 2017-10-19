@@ -1,4 +1,4 @@
-# R 패키지 {#r-packages}
+# 설치하기 {#installation}
 
 ```{r}
 library(tidyverse)

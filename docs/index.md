@@ -2,7 +2,7 @@
 title: "R을 사용한 비구획분석"
 author: "배균섭, 한성필, 윤석규, 조용순"
 description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다.  값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다.  무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다."
-date: "`r Sys.Date()`"
+date: "2017-10-20"
 documentclass: "krantz"
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
@@ -26,8 +26,6 @@ output:
     css: css/style.css
     split_by: chapter
     config:
-      toolbar:
-        position: static
       toc:
         collapse: section
         before: |
@@ -46,19 +44,7 @@ output:
     citation_package: natbib
 ---
 
-```{r include = FALSE}
-library(tidyverse)
-library(knitr)
-library(cowplot)
-library(NonCompart)
-library(pkr) 
-library(ncar)
-knitr::opts_chunk$set(error = TRUE)
 
-# detach("package:ncar", unload = TRUE)
-# detach("package:pkr", unload = TRUE)
-# detach("package:NonCompart", unload = TRUE)
-```
 
 # 책 머리에 {-}
 

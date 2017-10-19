@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ncar.html">
-<link rel="next" href="simulation.html">
+<link rel="prev" href="noncompart.html">
+<link rel="next" href="ncar.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,54 +173,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pkr" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> R을 사용한 비구획분석 시각화</h1>
-<div id="summary-pkr" class="section level2">
-<h2><span class="header-section-number">6.1</span> 이 장에서는</h2>
-<p>NCA에 대한 다양한 시각화를 가능하게 해 주는 <code>pkr</code> 패키지 <span class="citation">(Bae and Lee <a href="#ref-R-pkr">2017</a>)</span> 에 대해 알아보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pkr)
-<span class="kw">library</span>(tidyverse)</code></pre></div>
+<div id="interval-NCA" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> 구간 NCA</h1>
+<ol style="list-style-type: decimal">
+<li>iAUC
+<ul>
+<li>일부구간에 대한 AUC를 구하기 위한 구간설정 옵션입니다.</li>
+<li>“Name”, “Start”, “End” 3개의 컬럼으로 구성된 데이터 프레임으로 설정해야 합니다.</li>
+</ul></li>
+</ol>
+<p>일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다. 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다. 먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</code></pre></div>
+<pre><code>##         Name Start End
+## 1 AUC[0-12h]     0  12
+## 2 AUC[0-24h]     0  24</code></pre>
+<pre><code>    Name Start End</code></pre>
+<p>1 AUC[0-12h] 0 12 2 AUC[0-24h] 0 24</p>
+<p>이제 iAUC 옵션을 이용해서 이를 구합니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></code></pre></div>
+<p>맨 마지막 파라미터로 AUC[0-12h], AUC[0-24h]가 추가되었음을 알 수 있습니다.</p>
+<div id="functions" class="section level2">
+<h2><span class="header-section-number">4.1</span> 함수 살펴보기</h2>
+<p>NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(), tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.</p>
+<div id="auc" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> AUC</h3>
+<p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</code></pre></div>
+<pre><code>##             AUC        AUMC
+##  [1,]   0.00000    0.000000
+##  [2,]   0.44750    0.088750
+##  [3,]   1.95310    0.801534
+##  [4,]   6.64735    5.065382
+##  [5,]  15.71935   19.138321
+##  [6,]  32.13535   66.198241
+##  [7,]  42.97695  114.461665
+##  [8,]  58.25290  206.281512
+##  [9,]  72.75650  322.298798
+## [10,]  92.45055  528.521903
+## [11,] 148.92305 1459.071104</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</code></pre></div>
+<pre><code>## Error in AUC(Theoph[Theoph$Subject == 1, &quot;Time&quot;], Theoph[Theoph$Subject == : unused argument (down = &quot;Log&quot;)</code></pre>
 </div>
-<div id="pkr-" class="section level2">
-<h2><span class="header-section-number">6.2</span> pkr 사용법</h2>
-<p><code>pkr</code> 함수의 가장 핵심적인 기능은 <code>plotPK()</code> 함수에 있고 이 함수의 인자는 다음과 같습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(plotPK)</code></pre></div>
-<pre><code>## function (concData, id, Time, conc, unitTime = &quot;hr&quot;, unitConc = &quot;ng/mL&quot;, 
-##     trt = &quot;&quot;, fit = &quot;Linear&quot;, dose = 0, adm = &quot;Extravascular&quot;, 
-##     dur = 0, outdir = &quot;Output&quot;) 
-## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotPK</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">unitTime=</span><span class="st">&quot;hr&quot;</span>, <span class="dt">unitConc=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>)</code></pre></div>
-<pre><code>## quartz_off_screen 
-##                 2</code></pre>
-<p>예제를 돌려보면 여러 그림이 생성됩니다.</p>
-<p>conv-tiff-png.sh, PK Profile Linear Scale for Theoph.tiff, PK Profile Log 10 Scale for Theoph.tiff, PK Profile with CI for Theoph.tiff 의 세개의 그림 파일이 생성된 것을 알 수 있습니다. conv-pdf-png.sh, Individual PK Linear Scale for Theoph.pdf, Individual PK Log 10 Scale for Theoph.pdf 의 또한 두개의 그림 파일이 생성되었습니다.</p>
-<div class="figure">
-<img src="Output/PK%20Profile%20Linear%20Scale%20for%20Theoph.png" />
+</div>
+<div id="long-format" class="section level2">
+<h2><span class="header-section-number">4.2</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
+<p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 문자형식의 행렬이 생성되고 그 attr로 dimnames와 units를 갖는데 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncares &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">str</span>(ncares)</code></pre></div>
+<pre><code>##  chr [1:12, 1:37] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot; &quot;10&quot; &quot;11&quot; &quot;12&quot; ...
+##  - attr(*, &quot;dimnames&quot;)=List of 2
+##   ..$ : NULL
+##   ..$ : chr [1:37] &quot;Subject&quot; &quot;b0&quot; &quot;CMAX&quot; &quot;CMAXD&quot; ...
+##  - attr(*, &quot;units&quot;)= chr [1:37] &quot;&quot; &quot;&quot; &quot;mg/L&quot; &quot;mg/L/mg&quot; ...</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(ncares) <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),
+          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;dimnames&#39;</span>)[[<span class="dv">2</span>]], <span class="dt">UNIT =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;units&#39;</span>)),
+          <span class="dt">by =</span> <span class="st">&#39;PPTESTCD&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">arrange</span>(Subject, PPTESTCD) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">head</span>(<span class="dv">20</span>)</code></pre></div>
+<pre><code>## # A tibble: 20 x 4
+##    Subject PPTESTCD           PPORRES      UNIT
+##      &lt;chr&gt;    &lt;chr&gt;             &lt;chr&gt;     &lt;chr&gt;
+##  1       1   AUCALL         148.92305    h*mg/L
+##  2       1   AUCIFO  216.611933038226    h*mg/L
+##  3       1  AUCIFOD 0.676912290744456 h*mg/L/mg
+##  4       1   AUCIFP  216.614955803818    h*mg/L
+##  5       1  AUCIFPD  0.67692173688693 h*mg/L/mg
+##  6       1   AUCLST         148.92305    h*mg/L
+##  7       1   AUCPEO  31.2489169404534         %
+##  8       1   AUCPEP  31.2498763313113         %
+##  9       1  AUMCIFO  4505.53481941065   h2*mg/L
+## 10       1  AUMCIFP  4505.67086458209   h2*mg/L
+## 11       1  AUMCLST      1459.0711035   h2*mg/L
+## 12       1  AUMCPEO  67.6160286851172         %
+## 13       1  AUMCPEP  67.6170064935417         %
+## 14       1       b0  2.36878509420585          
+## 15       1     CLFO  1.47729626669981       L/h
+## 16       1     CLFP  1.47727565168591       L/h
+## 17       1     CLST              3.28      mg/L
+## 18       1    CLSTP  3.28014647414312      mg/L
+## 19       1     CMAX              10.5      mg/L
+## 20       1    CMAXD         0.0328125   mg/L/mg</code></pre>
 
-</div>
-<div class="figure">
-<img src="Output/PK%20Profile%20Log%2010%20Scale%20for%20Theoph.png" />
-
-</div>
-<div class="figure">
-<img src="Output/PK%20Profile%20with%20CI%20for%20Theoph.png" />
-
-</div>
-<div class="figure">
-<img src="Output/Individual%20PK%20Linear%20Scale%20for%20Theoph00.png" />
-
-</div>
-<div class="figure">
-<img src="Output/Individual%20PK%20Log%2010%20Scale%20for%20Theoph00.png" />
-
-</div>
-
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-pkr">
-<p>Bae, Kyun-Seop, and Jee Eun Lee. 2017. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr" class="uri">https://CRAN.R-project.org/package=pkr</a>.</p>
 </div>
 </div>
             </section>
@@ -228,8 +261,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="ncar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="noncompart.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ncar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -258,7 +291,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/ms-40-visualization.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/ms-30-noncompartmental.Rmd",
 "text": "Edit"
 },
 "download": null,

@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="ncar.html">
-<link rel="next" href="simulation.html">
+<link rel="prev" href="simulation.html">
+<link rel="next" href="result.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -173,54 +173,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pkr" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> R을 사용한 비구획분석 시각화</h1>
-<div id="summary-pkr" class="section level2">
-<h2><span class="header-section-number">6.1</span> 이 장에서는</h2>
-<p>NCA에 대한 다양한 시각화를 가능하게 해 주는 <code>pkr</code> 패키지 <span class="citation">(Bae and Lee <a href="#ref-R-pkr">2017</a>)</span> 에 대해 알아보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pkr)
-<span class="kw">library</span>(tidyverse)</code></pre></div>
+<div id="statistics" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> 통계처리</h1>
+<div id="be" class="section level2">
+<h2><span class="header-section-number">8.1</span> 생물학적 동등성</h2>
+<p>BE 처리.</p>
 </div>
-<div id="pkr-" class="section level2">
-<h2><span class="header-section-number">6.2</span> pkr 사용법</h2>
-<p><code>pkr</code> 함수의 가장 핵심적인 기능은 <code>plotPK()</code> 함수에 있고 이 함수의 인자는 다음과 같습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">args</span>(plotPK)</code></pre></div>
-<pre><code>## function (concData, id, Time, conc, unitTime = &quot;hr&quot;, unitConc = &quot;ng/mL&quot;, 
-##     trt = &quot;&quot;, fit = &quot;Linear&quot;, dose = 0, adm = &quot;Extravascular&quot;, 
-##     dur = 0, outdir = &quot;Output&quot;) 
-## NULL</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plotPK</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">unitTime=</span><span class="st">&quot;hr&quot;</span>, <span class="dt">unitConc=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>)</code></pre></div>
-<pre><code>## quartz_off_screen 
-##                 2</code></pre>
-<p>예제를 돌려보면 여러 그림이 생성됩니다.</p>
-<p>conv-tiff-png.sh, PK Profile Linear Scale for Theoph.tiff, PK Profile Log 10 Scale for Theoph.tiff, PK Profile with CI for Theoph.tiff 의 세개의 그림 파일이 생성된 것을 알 수 있습니다. conv-pdf-png.sh, Individual PK Linear Scale for Theoph.pdf, Individual PK Log 10 Scale for Theoph.pdf 의 또한 두개의 그림 파일이 생성되었습니다.</p>
-<div class="figure">
-<img src="Output/PK%20Profile%20Linear%20Scale%20for%20Theoph.png" />
+<div id="dp" class="section level2">
+<h2><span class="header-section-number">8.2</span> Dose Proportionality</h2>
+<p>DP 처리.</p>
 
-</div>
-<div class="figure">
-<img src="Output/PK%20Profile%20Log%2010%20Scale%20for%20Theoph.png" />
-
-</div>
-<div class="figure">
-<img src="Output/PK%20Profile%20with%20CI%20for%20Theoph.png" />
-
-</div>
-<div class="figure">
-<img src="Output/Individual%20PK%20Linear%20Scale%20for%20Theoph00.png" />
-
-</div>
-<div class="figure">
-<img src="Output/Individual%20PK%20Log%2010%20Scale%20for%20Theoph00.png" />
-
-</div>
-
-</div>
-</div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-R-pkr">
-<p>Bae, Kyun-Seop, and Jee Eun Lee. 2017. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr" class="uri">https://CRAN.R-project.org/package=pkr</a>.</p>
 </div>
 </div>
             </section>
@@ -228,8 +190,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="ncar.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="simulation.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="result.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -258,7 +220,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/ms-40-visualization.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/ms-46-statistics.Rmd",
 "text": "Edit"
 },
 "download": null,
