@@ -8,7 +8,7 @@ knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 #csl: springer-vancouver.csl
 ###
-bibliography: ["assets/bib/manual.bib", "assets/bib/packages.bib"]
+bibliography: ["bib/manual.bib", "bib/packages.bib"]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes

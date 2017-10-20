@@ -1,8 +1,51 @@
 # 통계처리 {#statistics}
 
-## 생물학적 동등성 {#be}
+## 이 장에서는 {#stat-intro}
 
-BE 처리.
+생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.
+
+```{r, message = FALSE}
+library(tidyverse)
+library(ncarbe)
+library(broom)
+```
+
+
+## 기술통계량 구하기
+
+앞서 \@ref(noncompart)장에서 구한 `TheophNca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `broom::tidy()` 함수를 사용하면 간단히 구할 수 있습니다. 다만 `NonCompart::tblNCA()` 후 `data.frame` 형태로 저장되어 입력으로 주어져야 합니다.
+
+```{r}
+descStatTheophNca <- tidy(data.frame(TheophNca, stringsAsFactors = FALSE)) %>% 
+  select(column, n, mean, sd, min, max, skew, kurtosis)
+
+knitr::kable(descStatTheophNca, digits = 2)
+```
+
+## 생물학적 동등성 {#bioequivalence}
+
+생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
+Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
+현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다.
+핵심이 되는 함수는 `beNCA()` 입니다. 
+
+```{r echo = FALSE}
+args(beNCA)
+```
+
+다음과 같은 함수 인자를 설정해 주면 됩니다.
+
+- SUBJ: Subject ID, any data type
+- GRP: column name in which information of "RT" or "TR" exists.
+- PRD: column name in which information of 1 or 2 exists.
+- TRT: column name in which information of "R" or "T" exists.
+- method: `kbe` by authors or `nlme` package uploaded on CRAN
+
+```{r}
+file <- system.file('example', 'beConc.csv', package = 'ncarbe')
+concData <- read.csv(file, as.is = TRUE)
+beNCA(concData)
+```
 
 ## Dose Proportionality {#dp}
 

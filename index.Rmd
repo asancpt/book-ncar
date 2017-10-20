@@ -8,7 +8,7 @@ knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 #csl: springer-vancouver.csl
 ###
-bibliography: ["assets/bib/manual.bib", "assets/bib/packages.bib"]
+bibliography: ["bib/manual.bib", "bib/packages.bib"]
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
@@ -44,6 +44,14 @@ output:
     keep_tex: yes
     latex_engine: xelatex
     citation_package: natbib
+  html_document:
+    theme: readable
+    number_sections: no
+    toc: true
+  bookdown::html_chapters:
+    css: css/style.css
+  bookdown::epub_book:
+    stylesheet: css/style.css
 ---
 
 ```{r include = FALSE}

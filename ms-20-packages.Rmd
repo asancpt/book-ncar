@@ -1,34 +1,18 @@
-# 설치하기 {#installation}
-
-```{r}
-library(tidyverse)
-library(NonCompart)
-```
+# R과 그 패키지에 대하여 {#R-and-packages}
 
 ## 이 장에서는 {#summary-r-packages}
 
-`NonCompart` [@R-NonCompart],  `ncar` [@R-ncar], `pkr` [@R-pkr] 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 
-이에 대해 알아보겠습니다.
+R [@R-base]은 통계 소프트웨어 입니다. 
+굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다. 
+R에 대한 많은 책들을 bookdown.org^[https://bookdown.org]에서 무료로 읽을 수 있습니다. 
 
-## 패키지에 대하여
+또한 이 책에서 주로 다루게 될 `NonCompart` [@R-NonCompart],  `ncar` [@R-ncar], `pkr` [@R-pkr] 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 R 패키지입니다.
 
 `NonCompart`의 패키지 제목은 `r packageDescription("NonCompart")$Title`, 
 `ncar`의 패키지 제목은 `r packageDescription("ncar")$Title`,
 `pkr`의 패키지 제목은 `r packageDescription("pkr")$Title` 입니다.
 
-`NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
-
-> `r packageDescription('NonCompart')$Description`
-
-`ncar`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
-
-> `r packageDescription('ncar')$Description`
-
-`pkr`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
-
-> `r packageDescription('pkr')$Description`
-
-## 설치 
+## 설치 {#install}
 
 우선 R을 설치합니다. 
 R은 아래 링크에서 다운로드 받을 수 있습니다.
@@ -63,3 +47,6 @@ devtools::install_github('tidyverse/tidyverse')
 library(tidyverse)
 ```
 
+## 기본적인 R 사용법 {#basic}
+
+R의 사용법을 익히는 것은 여러모로 유용합니다. 특히 자료의 재현가능한 편집이라는 측면이 가장 중요합니다. 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문입니다.

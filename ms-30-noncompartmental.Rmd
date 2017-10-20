@@ -9,8 +9,11 @@ editor_options:
 ## 이 장에서는 {#summary-noncompart}
 
 `NonCompart` [@R-NonCompart],  `ncar` [@R-ncar] 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 
-`NonCompart`의 제목은 `r packageDescription("NonCompart")$Title`이고, `ncar`의 제목은 `r packageDescription("ncar")$Title`입니다.
-이에 대해 알아보겠습니다.
+이에 대해 좀더 자세히 알아보겠습니다.
+
+`NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
+
+> `r packageDescription('NonCompart')$Description`
 
 ```{r setup}
 library(tidyverse)
@@ -37,6 +40,7 @@ tail(Theoph)
 
 ```{r}
 TheophNca <- tblNCA(Theoph, key="Subject", dose=320, concUnit="mg/L")
+head(TheophNca)
 ```
 
 이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.
@@ -60,8 +64,9 @@ groupLog <- groupLinear + scale_y_log10()
 #   draw_plot(groupLog, .5, 0, .5, .5) +
 #   draw_plot_label(c("A", "B", "C"), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)
 ```
+
 이 패키지로 NCA 비구획방법으로 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
-우선 Theophilline 의 약동학 파라미터를 구해보면,
+우선 Theophilline 의 약동학 파라미터를 구해보겠습니다.
 
 ```{r}
 NonCompart::tblNCA(Theoph, "Subject", "Time", "conc", dose=320)
@@ -108,7 +113,7 @@ NCA의 옵션들에 대해서 간단히 살펴보자면 다음과 같습니다.
 4. `dur`
     - 주입하는 기간(infusion duration)을 설정한다. 기본값은 0이다.
 
-# 구간 NCA {#interval-NCA}
+## 구간 NCA {#interval-NCA}
 
 1. iAUC
     - 일부구간에 대한 AUC를 구하기 위한 구간설정 옵션입니다.
