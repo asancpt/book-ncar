@@ -12,3 +12,6 @@ clean:
 
 publish:
 	Rscript --quiet _render.R "bookdown::gitbook" ; lazygit 'publish: gitbook'
+
+rmd:
+	Rscript -e "rmarkdown::render('keynote.Rmd', output_format = 'html_document', encoding = 'UTF-8')"

@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-10-20">
+<meta name="date" content="2017-11-03">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -580,7 +580,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <div id="bioequivalence" class="section level2">
 <h2><span class="header-section-number">7.3</span> 생물학적 동등성</h2>
 <p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2017</a>)</span>를 쓰는 것입니다.<br />
-Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
+Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">7.1</a>) 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">include_graphics</span>(<span class="st">&#39;assets/figures/twobytwo.jpg&#39;</span>)</code></pre></div>
+<div class="figure"><span id="fig:twobytwo"></span>
+<img src="assets/figures/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
+<p class="caption">
+Figure 7.1: 전형적인 2x2 설계
+</p>
+</div>
 <pre><code>## function (concData, SUBJ = &quot;SUBJ&quot;, GRP = &quot;GRP&quot;, PRD = &quot;PRD&quot;, 
 ##     TRT = &quot;TRT&quot;, ...) 
 ## NULL</code></pre>
@@ -669,10 +676,233 @@ concData &lt;-<span class="st"> </span><span class="kw">read.csv</span>(file, <s
 ##                            Lower Limit Point Estimate Upper Limit
 ## 90% Confidence Interval       -0.10000         0.0300       0.405
 ## 90% Confidence Interval(%)    92.18517       102.3444     131.650</code></pre>
+<p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">include_graphics</span>(<span class="st">&#39;assets/figures/fixed-random.jpg&#39;</span>)</code></pre></div>
+<div class="figure"><span id="fig:fixedrandom"></span>
+<img src="assets/figures/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
+<p class="caption">
+Figure 7.2: 모수 인자와 변량 인자의 비교
+</p>
+</div>
 </div>
 <div id="dp" class="section level2">
 <h2><span class="header-section-number">7.4</span> Dose Proportionality</h2>
 <p>DP 처리.</p>
+<p>lm() 함수를 써서 구할 수 있습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># setup ----</span>
+
+<span class="kw">library</span>(readxl)
+<span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(broom)
+
+dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span>
+<span class="st">&#39;Dose,Subject,Cmax,AUClast</span>
+<span class="st">50,101,860,2000</span>
+<span class="st">50,102,510,2300</span>
+<span class="st">50,103,620,2900</span>
+<span class="st">50,104,540,2400</span>
+<span class="st">100,201,1550,6600</span>
+<span class="st">100,202,1440,7400</span>
+<span class="st">100,203,2000,7300</span>
+<span class="st">100,204,1600,7000</span>
+<span class="st">200,301,4100,20400</span>
+<span class="st">200,302,2800,9500</span>
+<span class="st">200,303,3200,8000</span>
+<span class="st">200,304,2550,7070</span>
+<span class="st">400,401,4800,22000</span>
+<span class="st">400,402,5700,23000</span>
+<span class="st">400,403,5800,26700</span>
+<span class="st">400,404,5760,28884&#39;</span>
+
+sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)
+sad_indi_pk</code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">Dose</th>
+<th align="right">Subject</th>
+<th align="right">Cmax</th>
+<th align="right">AUClast</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">50</td>
+<td align="right">101</td>
+<td align="right">860</td>
+<td align="right">2000</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="right">102</td>
+<td align="right">510</td>
+<td align="right">2300</td>
+</tr>
+<tr class="odd">
+<td align="right">50</td>
+<td align="right">103</td>
+<td align="right">620</td>
+<td align="right">2900</td>
+</tr>
+<tr class="even">
+<td align="right">50</td>
+<td align="right">104</td>
+<td align="right">540</td>
+<td align="right">2400</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="right">201</td>
+<td align="right">1550</td>
+<td align="right">6600</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">202</td>
+<td align="right">1440</td>
+<td align="right">7400</td>
+</tr>
+<tr class="odd">
+<td align="right">100</td>
+<td align="right">203</td>
+<td align="right">2000</td>
+<td align="right">7300</td>
+</tr>
+<tr class="even">
+<td align="right">100</td>
+<td align="right">204</td>
+<td align="right">1600</td>
+<td align="right">7000</td>
+</tr>
+<tr class="odd">
+<td align="right">200</td>
+<td align="right">301</td>
+<td align="right">4100</td>
+<td align="right">20400</td>
+</tr>
+<tr class="even">
+<td align="right">200</td>
+<td align="right">302</td>
+<td align="right">2800</td>
+<td align="right">9500</td>
+</tr>
+<tr class="odd">
+<td align="right">200</td>
+<td align="right">303</td>
+<td align="right">3200</td>
+<td align="right">8000</td>
+</tr>
+<tr class="even">
+<td align="right">200</td>
+<td align="right">304</td>
+<td align="right">2550</td>
+<td align="right">7070</td>
+</tr>
+<tr class="odd">
+<td align="right">400</td>
+<td align="right">401</td>
+<td align="right">4800</td>
+<td align="right">22000</td>
+</tr>
+<tr class="even">
+<td align="right">400</td>
+<td align="right">402</td>
+<td align="right">5700</td>
+<td align="right">23000</td>
+</tr>
+<tr class="odd">
+<td align="right">400</td>
+<td align="right">403</td>
+<td align="right">5800</td>
+<td align="right">26700</td>
+</tr>
+<tr class="even">
+<td align="right">400</td>
+<td align="right">404</td>
+<td align="right">5760</td>
+<td align="right">28884</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</code></pre></div>
+<p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. 먼저 그림을 살펴보겠습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
+               <span class="dt">size =</span> <span class="dv">1</span>, 
+               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, 
+               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, 
+               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL) / Dose (mg)&#39;</span>),<span class="co">#&#39;Cmax / Dose&#39;, </span>
+       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))
+figA</code></pre></div>
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
+               <span class="dt">size =</span> <span class="dv">1</span>, 
+               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, 
+               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, 
+               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL) / Dose (mg)&#39;</span>),<span class="co">#&#39;Cmax / Dose&#39;, </span>
+       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))
+figB</code></pre></div>
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-31-2.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># stat ----</span>
+
+calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
+  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
+            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
+            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)
+}
+
+fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)
+fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)
+
+<span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),
+          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">parameters</th>
+<th align="left">est</th>
+<th align="left">ci</th>
+<th align="right">r.squared</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cmax</td>
+<td align="left">1.04 (0.06)</td>
+<td align="left">0.90-1.18</td>
+<td align="right">0.9494890</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">AUClast</td>
+<td align="left">1.07 (0.09)</td>
+<td align="left">0.87-1.27</td>
+<td align="right">0.9053706</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>C<sub>max</sub>는 생동 기준을 만족하는데 반해 AUC<sub>last</sub>는 만족하지 않는 것을 알 수 있습니다.</p>
 
 </div>
 </div>

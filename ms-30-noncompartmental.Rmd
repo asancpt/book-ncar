@@ -8,7 +8,7 @@ editor_options:
 
 ## 이 장에서는 {#summary-noncompart}
 
-`NonCompart` [@R-NonCompart],  `ncar` [@R-ncar] 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 
+`NonCompart` [@R-NonCompart]은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 
 이에 대해 좀더 자세히 알아보겠습니다.
 
 `NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
