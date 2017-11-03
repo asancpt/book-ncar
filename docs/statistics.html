@@ -688,7 +688,7 @@ Figure 7.2: 모수 인자와 변량 인자의 비교
 <div id="dp" class="section level2">
 <h2><span class="header-section-number">7.4</span> Dose Proportionality</h2>
 <p>DP 처리.</p>
-<p>lm() 함수를 써서 구할 수 있습니다.</p>
+<p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. Table <a href="statistics.html#tab:sad-pk">7.1</a></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># setup ----</span>
 
 <span class="kw">library</span>(readxl)
@@ -715,9 +715,9 @@ dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dos
 <span class="st">400,404,5760,28884&#39;</span>
 
 sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)
-sad_indi_pk</code></pre></div>
-<div class="kable-table">
+<span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</code></pre></div>
 <table>
+<caption><span id="tab:sad-pk">Table 7.1: </span>16명의 C<sub>max</sub>, AUC<sub>last</sub></caption>
 <thead>
 <tr class="header">
 <th align="right">Dose</th>
@@ -825,10 +825,10 @@ sad_indi_pk</code></pre></div>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</code></pre></div>
-<p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. 먼저 그림을 살펴보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span>
+<p>그림을 살펴보겠습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)
+
+figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
                <span class="dt">size =</span> <span class="dv">1</span>, 
@@ -837,10 +837,10 @@ sad_indi_pk</code></pre></div>
                <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL) / Dose (mg)&#39;</span>),<span class="co">#&#39;Cmax / Dose&#39;, </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))
 figA</code></pre></div>
-<p><img src="book-ncar_files/figure-html/unnamed-chunk-31-1.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
@@ -850,13 +850,12 @@ figA</code></pre></div>
                <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
 <span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL) / Dose (mg)&#39;</span>),<span class="co">#&#39;Cmax / Dose&#39;, </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))
 figB</code></pre></div>
-<p><img src="book-ncar_files/figure-html/unnamed-chunk-31-2.png" width="672" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># stat ----</span>
-
-calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-30-2.png" width="672" /></p>
+<p>lm() 함수를 써서 구할 수 있습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
   <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
             fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
             fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance) <span class="op">%&gt;%</span><span class="st"> </span>
