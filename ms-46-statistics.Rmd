@@ -10,7 +10,6 @@ library(ncarbe)
 library(broom)
 ```
 
-
 ## 기술통계량 구하기
 
 앞서 \@ref(noncompart)장에서 구한 `TheophNca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `broom::tidy()` 함수를 사용하면 간단히 구할 수 있습니다. 다만 `NonCompart::tblNCA()` 후 `data.frame` 형태로 저장되어 입력으로 주어져야 합니다.
@@ -30,9 +29,8 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009desig
 핵심이 되는 함수는 `beNCA()` 입니다. 
 
 ```{r twobytwo, fig.cap = '전형적인 2x2 설계'}
-include_graphics('assets/figures/twobytwo.jpg')
+include_graphics('assets/twobytwo.jpg')
 ```
-
 
 ```{r echo = FALSE}
 args(beNCA)
@@ -56,7 +54,7 @@ beNCA(concData)
 배균섭 교수님의 강의 자료에서 가져왔습니다.
 
 ```{r fixedrandom, fig.cap = '모수 인자와 변량 인자의 비교'}
-include_graphics('assets/figures/fixed-random.jpg')
+include_graphics('assets/fixed-random.jpg')
 ```
 
 

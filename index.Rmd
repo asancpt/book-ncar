@@ -3,25 +3,31 @@ title: "R을 사용한 비구획분석"
 author: "배균섭, 한성필, 윤석규, 조용순"
 description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다.  값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다.  무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다."
 date: "`r Sys.Date()`"
-documentclass: "krantz"
-knit: "bookdown::render_book"
-site: bookdown::bookdown_site
-#csl: springer-vancouver.csl
-###
-bibliography: ["bib/manual.bib", "bib/packages.bib"]
-biblio-style: apalike
-link-citations: yes
-colorlinks: yes
-lot: yes
-lof: yes
-fontsize: 12pt
-monofont: "Source Code Pro"
-monofontoptions: "Scale=0.7"
-###
 url: 'https\://asancpt.github.io/book-ncar/'
 github-repo: asancpt/book-ncar
 cover-image: assets/cover.jpg
+bibliography: ["bib/manual.bib", "bib/packages.bib", "keynote.bib"]
+documentclass: krantz
+biblio-style: apalike
+link-citations: yes
+colorlinks: yes
+fontsize: 12pt
+header-includes:
+  - \usepackage{kotex}
 output:
+  bookdown::pdf_book: 
+    keep_tex: yes
+    pandoc_args: --top-level-division=chapter
+    toc_depth: 3
+    toc_unnumbered: no
+    toc_appendix: yes
+    #template: null
+    #dev: "cairo_pdf"
+    #latex_engine: xelatex
+    #includes:
+    #  in_header: latex/preamble.tex
+    #  before_body: latex/before_body.tex
+    #  after_body: latex/after_body.tex
   bookdown::gitbook:
     df_print: kable
     css: css/style.css
@@ -35,27 +41,24 @@ output:
           <li><a href="./index.html">R을 사용한 비구획분석</a></li>
         after: |
           <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
-#    download: [pdf, epub, mobi]
+      download: [pdf]
       edit:
         link: https://github.com/asancpt/book-ncar/edit/master/%s
         text: "Edit"
-  bookdown::pdf_book:
-    includes:
-      in_header: latex/preamble.tex
-    keep_tex: yes
-    latex_engine: xelatex
-    citation_package: natbib
-  html_document:
-    theme: readable
-    number_sections: no
-    toc: true
+  bookdown::pdf_document2: default
+  bookdown::tufte_book2: default
+  html_document: 
+    df_print: kable
   bookdown::html_chapters:
     css: css/style.css
   bookdown::epub_book:
     stylesheet: css/style.css
+editor_options: 
+  chunk_output_type: console
 ---
 
-```{r include = FALSE}
+
+```{r init, include = FALSE}
 library(tidyverse)
 library(knitr)
 library(cowplot)
@@ -63,7 +66,11 @@ library(NonCompart)
 library(pkr) 
 library(ncar)
 knitr::opts_chunk$set(error = TRUE)
-
+opts_chunk$set(error = TRUE, #results = 'hide',
+               cache = TRUE,
+               message = FALSE, warning = FALSE)
+# options(knitr.table.format = 'html')
+#Sys.setlocale('LC_ALL','C')
 # detach("package:ncar", unload = TRUE)
 # detach("package:pkr", unload = TRUE)
 # detach("package:NonCompart", unload = TRUE)
@@ -115,3 +122,6 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 **조용순**
 
 서울아산병원 임상약리학과 전공의입니다.
+
+\mainmatter
+

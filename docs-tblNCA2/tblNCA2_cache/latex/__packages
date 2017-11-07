@@ -1,0 +1,8 @@
+base
+NonCompart
+dplyr
+purrr
+knitr
+bindrcpp
+ggplot2
+tidyr

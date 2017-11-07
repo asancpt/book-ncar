@@ -1,8 +1,9 @@
 book_filename: book-ncar
 chapter_name: "Chapter "
-# repo: https://github.com/asancpt/book-ncar
+repo: https://github.com/asancpt/book-ncar
 output_dir: docs
 delete_merged_file: yes
+
 # new_session: yes # Knit-Merge approach 
 
 # rmd_files: [
@@ -18,5 +19,4 @@ delete_merged_file: yes
 #     "app-10-others.Rmd",
 #     "app-99-references.Rmd"
 # ]
-# latex: ["index.Rmd"]
 

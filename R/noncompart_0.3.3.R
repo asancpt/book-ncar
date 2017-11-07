@@ -22,7 +22,7 @@ tblNcaWrap <- function(df) {
 
 # main ----
 
-Conc <- read.csv("lib/NonCompart-src/tests/BE-Conc.csv", as.is=TRUE) # folder 위치는 맞추세요.
+Conc <- read.csv("cran/NonCompart/tests/BE-Conc.csv", as.is=TRUE) 
 Res1 <- tblNCA(Conc, key=c("SUBJ", "GRP", "PRD", "TRT"), colTime="TIME", colConc="CONC", dose=100)
 
 tblNcaWrap(Res1) #%>% View

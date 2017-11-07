@@ -1,0 +1,9 @@
+[submodule "cran/NonCompart"]
+	path = cran/NonCompart
+	url = https://github.com/cran/NonCompart
+[submodule "cran/ncar"]
+	path = cran/ncar
+	url = https://github.com/cran/ncar
+[submodule "cran/pkr"]
+	path = cran/pkr
+	url = https://github.com/cran/pkr

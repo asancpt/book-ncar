@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5.4 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-11-03">
+<meta name="date" content="2017-11-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -180,8 +180,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2><span class="header-section-number">7.1</span> 이 장에서는</h2>
 <p>생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(ncarbe)
-<span class="kw">library</span>(broom)</code></pre></div>
+<span class="kw">library</span>(ncarbe)</code></pre></div>
+<pre><code>## Error in library(ncarbe): there is no package called &#39;ncarbe&#39;</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)</code></pre></div>
 </div>
 <div id="-" class="section level2">
 <h2><span class="header-section-number">7.2</span> 기술통계량 구하기</h2>
@@ -579,18 +580,16 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 </div>
 <div id="bioequivalence" class="section level2">
 <h2><span class="header-section-number">7.3</span> 생물학적 동등성</h2>
-<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2017</a>)</span>를 쓰는 것입니다.<br />
+<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(<span class="citeproc-not-found" data-reference-id="R-ncarbe"><strong>???</strong></span>)</span>를 쓰는 것입니다.<br />
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">7.1</a>) 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">include_graphics</span>(<span class="st">&#39;assets/figures/twobytwo.jpg&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">include_graphics</span>(<span class="st">&#39;assets/twobytwo.jpg&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:twobytwo"></span>
-<img src="assets/figures/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
+<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
 <p class="caption">
 Figure 7.1: 전형적인 2x2 설계
 </p>
 </div>
-<pre><code>## function (concData, SUBJ = &quot;SUBJ&quot;, GRP = &quot;GRP&quot;, PRD = &quot;PRD&quot;, 
-##     TRT = &quot;TRT&quot;, ...) 
-## NULL</code></pre>
+<pre><code>## Error in args(beNCA): 객체 &#39;beNCA&#39;를 찾을 수 없습니다</code></pre>
 <p>다음과 같은 함수 인자를 설정해 주면 됩니다.</p>
 <ul>
 <li>SUBJ: Subject ID, any data type</li>
@@ -600,86 +599,14 @@ Figure 7.1: 전형적인 2x2 설계
 <li>method: <code>kbe</code> by authors or <code>nlme</code> package uploaded on CRAN</li>
 </ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;example&#39;</span>, <span class="st">&#39;beConc.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;ncarbe&#39;</span>)
-concData &lt;-<span class="st"> </span><span class="kw">read.csv</span>(file, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)
-<span class="kw">beNCA</span>(concData)</code></pre></div>
-<pre><code>## 
-## 
-## [AUClast]
-## 
-## $`Analysis of Variance`
-##                       SS DF         MS        F          p
-## SUBJECT        2.8102897 35 0.08029399 2.049048 0.01947896
-## GROUP          0.2811516  1 0.28115157 3.779609 0.06019307
-## SUBJECT(GROUP) 2.5291381 34 0.07438642 1.898290 0.03291404
-## PERIOD         0.2887407  1 0.28874073 7.368465 0.01035002
-## DRUG           0.1186721  1 0.11867210 3.028430 0.09086256
-## ERROR          1.3323243 34 0.03918601       NA         NA
-## TOTAL          4.5500268 71         NA       NA         NA
-## 
-## $`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                     0.0176002     0.03918601
-## Coefficient of Variation, CV(%)      13.3251642    19.99097469
-## 
-## $`Least Square Means`
-##                 Reference Drug Test Drug
-## Geometric Means       5047.026  4648.063
-## 
-## $`90% Confidence Interval`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.8501323       0.920951   0.9976692
-## 
-## $`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size            8                        13
-## 
-## 
-## 
-## [Cmax]</code></pre>
-<pre><code>## Warning in sqrt(exp(sig2b) - 1): NaN이 생성되었습니다</code></pre>
-<pre><code>## $`Analysis of Variance`
-##                        SS DF         MS         F         p
-## SUBJECT        2.85581816 35 0.08159480 0.9764709 0.5283290
-## GROUP          0.08840271  1 0.08840271 1.0861008 0.3046908
-## SUBJECT(GROUP) 2.76741545 34 0.08139457 0.9740747 0.5302983
-## PERIOD         0.04931289  1 0.04931289 0.5901430 0.4476669
-## DRUG           0.10908566  1 0.10908566 1.3054627 0.2612001
-## ERROR          2.84107119 34 0.08356092        NA        NA
-## TOTAL          5.85528790 71         NA        NA        NA
-## 
-## $`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                  -0.001083173     0.08356092
-## Coefficient of Variation, CV(%)             NaN    29.52142270
-## 
-## $`Least Square Means`
-##                 Reference Drug Test Drug
-## Geometric Means       791.1619     731.1
-## 
-## $`90% Confidence Interval`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.8221796       0.924084    1.038619
-## 
-## $`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size           16                        26
-## 
-## 
-## 
-## [Tmax]
-## 
-## $`Wilcoxon Signed-Rank Test`
-##   p-value 
-## 0.3059991 
-## 
-## $`Hodges-Lehmann Estimate`
-##                            Lower Limit Point Estimate Upper Limit
-## 90% Confidence Interval       -0.10000         0.0300       0.405
-## 90% Confidence Interval(%)    92.18517       102.3444     131.650</code></pre>
+concData &lt;-<span class="st"> </span><span class="kw">read.csv</span>(file, <span class="dt">as.is =</span> <span class="ot">TRUE</span>)</code></pre></div>
+<pre><code>## Error in read.table(file = file, header = header, sep = sep, quote = quote, : no lines available in input</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">beNCA</span>(concData)</code></pre></div>
+<pre><code>## Error in beNCA(concData): 함수 &quot;beNCA&quot;를 찾을 수 없습니다</code></pre>
 <p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">include_graphics</span>(<span class="st">&#39;assets/figures/fixed-random.jpg&#39;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">include_graphics</span>(<span class="st">&#39;assets/fixed-random.jpg&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:fixedrandom"></span>
-<img src="assets/figures/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
+<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
 <p class="caption">
 Figure 7.2: 모수 인자와 변량 인자의 비교
 </p>
@@ -840,7 +767,7 @@ figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_lo
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))
 figA</code></pre></div>
-<p><img src="book-ncar_files/figure-html/unnamed-chunk-30-1.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
@@ -853,7 +780,7 @@ figA</code></pre></div>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))
 figB</code></pre></div>
-<p><img src="book-ncar_files/figure-html/unnamed-chunk-30-2.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-29-2.png" width="672" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
   <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
@@ -907,9 +834,6 @@ fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class
 </div>
 <h3>References</h3>
 <div id="refs" class="references">
-<div id="ref-R-ncarbe">
-<p>Bae, Kyun-Seop, and Sungpil Han. 2017. <em>Ncarbe: Perform Be Test Using Noncompart Package</em>.</p>
-</div>
 <div id="ref-chow2009design">
 <p>Chow. 2009. <em>Design and Analysis of Bioavailability and Bioequivalence Studies</em>. Boca Raton: CRC Press.</p>
 </div>
@@ -952,7 +876,7 @@ gitbook.start({
 "link": "https://github.com/asancpt/book-ncar/edit/master/ms-46-statistics.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["book-ncar.pdf"],
 "toc": {
 "collapse": "section"
 },
