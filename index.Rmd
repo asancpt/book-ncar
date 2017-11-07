@@ -67,7 +67,7 @@ library(pkr)
 library(ncar)
 knitr::opts_chunk$set(error = TRUE)
 opts_chunk$set(error = TRUE, #results = 'hide',
-               cache = TRUE,
+               #cache = TRUE,
                message = FALSE, warning = FALSE)
 # options(knitr.table.format = 'html')
 #Sys.setlocale('LC_ALL','C')
