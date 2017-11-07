@@ -22,3 +22,16 @@ knitr::include_app("https://asan.shinyapps.io/pk1c/") #, height = "600px")
 
 
 
+
+### shiny 앱
+
+웹브라우저를 통해 간단히 비구획분석을 할 수 있는 앱을 개발하였습니다.
+
+- Han, S. (2017) pkrshiny: Noncompartmental Analysis using pkr R package Shiny application. URL: https://asan.shinyapps.io/pkrshiny
+
+그 외 약동학과 관련된 몇가지 shiny 앱도 참고하세요.
+
+- Han, S. (2017) Pharmacokinetic Simulation of one-compartment Models. URL: https://asan.shinyapps.io/pk1c/ 
+- Han, S. (2017) caff: Monte Carlo Simulation of Caffeine Shiny application. URL: https://asan.shinyapps.io/caff
+- Han, S. (2016) vtdm: Vancomycin TDM Shiny application. URL: https://asan.shinyapps.io/vtdm
+

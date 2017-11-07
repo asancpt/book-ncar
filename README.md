@@ -244,38 +244,3 @@ pkr::plotPK(Theoph, "Subject", "Time", "conc",
 
 
 # 기타 사항
-
-## shiny 앱
-
-웹브라우저를 통해 간단히 비구획분석을 할 수 있는 앱을 개발하였습니다.
-
-- Han, S. (2017) pkrshiny: Noncompartmental Analysis using pkr R package Shiny application. URL: https://asan.shinyapps.io/pkrshiny
-
-그 외 약동학과 관련된 몇가지 shiny 앱도 참고하세요.
-
-- Han, S. (2017) Pharmacokinetic Simulation of one-compartment Models. URL: https://asan.shinyapps.io/pk1c/ 
-- Han, S. (2017) caff: Monte Carlo Simulation of Caffeine Shiny application. URL: https://asan.shinyapps.io/caff
-- Han, S. (2016) vtdm: Vancomycin TDM Shiny application. URL: https://asan.shinyapps.io/vtdm
-
-## 지원
-
-패키지와 관련한 모든 의문은 <shan@acp.kr> / 02-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
-혹은 StackOverflow^[https://stackoverflow.com]에 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
-아직 미완성이지만 Gitbook (일종의 웹북)^[https://asancpt.github.io/book-ncar]을 통해 전자출판도 진행 중이므로 시간 나실때 틈틈이 확인해 주시면 감사하겠습니다. (Figure \@ref(fig:gitbook))
-
-서울아산병원 임상약리학과 전공의 한성필
-
-```{r gitbook, fig.cap = 'Gitbook: Noncompartmental analysis by R (work in progress)', fig.width = 6, echo = FALSE, out.width = "400px"}
-include_graphics('gitbook.png')
-```
-
-## 고지
-
-본 출판물은 2016, 2017년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 결과입니다 (NRF-2016-936606).
-
-
-# 참고문헌
-
-```{r include = FALSE}
-write_bib(c('base', 'NonCompart', 'ncar', 'pkr'), file = 'keynote.bib')
-```
