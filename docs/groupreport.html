@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R을 사용한 비구획분석</title>
+  <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R을 사용한 비구획분석" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
+  <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
+  <meta property="og:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
+  <meta name="github-repo" content="asancpt/book-ncar" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R을 사용한 비구획분석" />
+  
+  <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
+  <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
+
+<meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
+
+
+<meta name="date" content="2017-11-08">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="conclusion.html">
+<link rel="next" href="support.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">R을 사용한 비구획분석</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>감사의 글</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>저자 소개</a></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
+<li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
+<li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#parameters"><i class="fa fa-check"></i><b>1.4</b> 파라메터의 의미</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a><ul>
+<li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
+<li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
+<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
+<li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#TheophData"><i class="fa fa-check"></i><b>3.2</b> 데이타에 대해</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석</a><ul>
+<li class="chapter" data-level="4.1" data-path="noncompart.html"><a href="noncompart.html#summary-noncompart"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="4.2" data-path="noncompart.html"><a href="noncompart.html#how-to-use"><i class="fa fa-check"></i><b>4.2</b> NonCompart 사용법</a></li>
+<li class="chapter" data-level="4.3" data-path="noncompart.html"><a href="noncompart.html#interval-NCA"><i class="fa fa-check"></i><b>4.3</b> 구간 NCA</a></li>
+<li class="chapter" data-level="4.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>4.4</b> 함수 살펴보기</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="noncompart.html"><a href="noncompart.html#auc"><i class="fa fa-check"></i><b>4.4.1</b> AUC</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>4.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#ncar-"><i class="fa fa-check"></i><b>5.2</b> ncar 사용법</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="ncar.html"><a href="ncar.html#txtnca---"><i class="fa fa-check"></i><b>5.2.1</b> txtNCA(): 한 대상자 보고서</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ncar.html"><a href="ncar.html#txtnca2---"><i class="fa fa-check"></i><b>5.2.2</b> txtNCA2(): 여러 대상자 보고서</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
+<li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="6.2" data-path="pkr.html"><a href="pkr.html#pkr-"><i class="fa fa-check"></i><b>6.2</b> pkr 사용법</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
+<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#---"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
+<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
+<li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
+<li class="appendix"><span><b>부록</b></span></li>
+<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
+<li class="chapter" data-level="C" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i><b>C</b> sessionInfo</a></li>
+<li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="divider"></li>
+<li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 사용한 비구획분석</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="groupreport" class="section level1">
+<h1><span class="header-section-number">A</span> R에 내장된 자료의 비구획분석 보고서</h1>
+<div id="theophgroup" class="section level2">
+<h2><span class="header-section-number">A.1</span> Theoph의 보고서</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ID=<span class="dv">6</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">14</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2700</span>       <span class="fl">1.2900</span>                           <span class="fl">0.1742</span>     <span class="fl">0.0470</span>
+     <span class="fl">0.5800</span>       <span class="fl">3.0800</span>                           <span class="fl">0.8515</span>     <span class="fl">0.3779</span>
+     <span class="fl">1.1500</span>       <span class="fl">6.4400</span>                           <span class="fl">3.5647</span>     <span class="fl">2.9977</span>
+     <span class="fl">2.0300</span> <span class="op">*</span><span class="st">     </span><span class="fl">6.3200</span>     <span class="fl">6.3928</span> <span class="op">-</span><span class="fl">7.284e-02</span>     <span class="fl">9.1791</span>    <span class="fl">11.9014</span>
+     <span class="fl">3.5700</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.5300</span>     <span class="fl">5.5844</span> <span class="op">-</span><span class="fl">5.438e-02</span>    <span class="fl">18.3036</span>    <span class="fl">36.9816</span>
+     <span class="fl">5.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.9400</span>     <span class="fl">4.9255</span> <span class="op">+</span><span class="fl">1.450e-02</span>    <span class="fl">25.7897</span>    <span class="fl">68.7577</span>
+     <span class="fl">7.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.0200</span>     <span class="fl">4.1323</span> <span class="op">-</span><span class="fl">1.123e-01</span>    <span class="fl">34.7497</span>   <span class="fl">121.5977</span>
+     <span class="fl">9.2200</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.4600</span>     <span class="fl">3.4005</span> <span class="op">+</span><span class="fl">5.948e-02</span>    <span class="fl">43.0525</span>   <span class="fl">188.2434</span>
+    <span class="fl">12.1000</span> <span class="op">*</span><span class="st">     </span><span class="fl">2.7800</span>     <span class="fl">2.6408</span> <span class="op">+</span><span class="fl">1.392e-01</span>    <span class="fl">52.0381</span>   <span class="fl">282.6199</span>
+    <span class="fl">23.8500</span> <span class="op">*</span><span class="st">     </span><span class="fl">0.9200</span>     <span class="fl">0.9413</span> <span class="op">-</span><span class="fl">2.127e-02</span>    <span class="fl">73.7756</span>   <span class="fl">609.1524</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">6.4400</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0201</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">1.1500</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">0.9200</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">0.9413</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">23.8500</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">7.8950</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0878</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">2.0300</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">23.8500</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">7</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9991</span> 
+R2         R Squared                                       <span class="fl">0.9982</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9979</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">73.7756</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">73.7756</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                               <span class="fl">84.2544</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.2633</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                              <span class="fl">84.4967</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.2641</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         12.4372 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        12.6882 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">609.1524</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                             <span class="fl">978.4285</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                            <span class="fl">986.9665</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        37.7418 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      38.2803 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">43.2597</span> L
+VZFP       Vz Pred by F                                   <span class="fl">43.1357</span> L
+CLFO       Total CL Obs by F                               <span class="fl">3.7980</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">3.7871</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.2568</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">11.6128</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">11.6805</span> h
+
+
+
+
+
+ID=<span class="dv">7</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.1500</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2500</span>       <span class="fl">0.8500</span>                           <span class="fl">0.1250</span>     <span class="fl">0.0266</span>
+     <span class="fl">0.5000</span>       <span class="fl">2.3500</span>                           <span class="fl">0.5250</span>     <span class="fl">0.2000</span>
+     <span class="fl">1.0200</span>       <span class="fl">5.0200</span>                           <span class="fl">2.4412</span>     <span class="fl">1.8368</span>
+     <span class="fl">2.0200</span>       <span class="fl">6.5800</span>                           <span class="fl">8.2412</span>    <span class="fl">11.0428</span>
+     <span class="fl">3.4800</span>       <span class="fl">7.0900</span>                          <span class="fl">18.2203</span>    <span class="fl">38.7571</span>
+     <span class="fl">5.0000</span>       <span class="fl">6.6600</span>                          <span class="fl">28.6703</span>    <span class="fl">82.8167</span>
+     <span class="fl">6.9800</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.2500</span>     <span class="fl">5.3226</span> <span class="op">-</span><span class="fl">7.260e-02</span>    <span class="fl">40.4612</span>   <span class="fl">152.0623</span>
+     <span class="fl">9.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.3900</span>     <span class="fl">4.4527</span> <span class="op">-</span><span class="fl">6.275e-02</span>    <span class="fl">50.1976</span>   <span class="fl">228.9788</span>
+    <span class="fl">12.0500</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.5300</span>     <span class="fl">3.4011</span> <span class="op">+</span><span class="fl">1.289e-01</span>    <span class="fl">62.2756</span>   <span class="fl">354.0998</span>
+    <span class="fl">24.2200</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.1500</span>     <span class="fl">1.1607</span> <span class="op">-</span><span class="fl">1.072e-02</span>    <span class="fl">90.7534</span>   <span class="fl">782.4199</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">7.0900</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0222</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">3.4800</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.1500</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.1607</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.2200</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">7.8467</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0883</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">6.9800</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.2200</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">4</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9993</span> 
+R2         R Squared                                       <span class="fl">0.9987</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9980</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">90.7534</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">90.7534</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">103.7718</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.3243</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">103.8931</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.3247</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         12.5452 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        12.6474 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">782.4199</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1245.0984</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1249.4111</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        37.1600 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      37.3769 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">34.9084</span> L
+VZFP       Vz Pred by F                                   <span class="fl">34.8677</span> L
+CLFO       Total CL Obs by F                               <span class="fl">3.0837</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">3.0801</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.6214</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">11.9984</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">12.0259</span> h
+
+
+
+
+
+ID=<span class="dv">8</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2500</span>       <span class="fl">3.0500</span>                           <span class="fl">0.3813</span>     <span class="fl">0.0953</span>
+     <span class="fl">0.5200</span>       <span class="fl">3.0500</span>                           <span class="fl">1.2048</span>     <span class="fl">0.4124</span>
+     <span class="fl">0.9800</span>       <span class="fl">7.3100</span>                           <span class="fl">3.5875</span>     <span class="fl">2.4248</span>
+     <span class="fl">2.0200</span>       <span class="fl">7.5600</span>                          <span class="fl">11.3200</span>    <span class="fl">14.0910</span>
+     <span class="fl">3.5300</span> <span class="op">*</span><span class="st">     </span><span class="fl">6.5900</span>     <span class="fl">6.5724</span> <span class="op">+</span><span class="fl">1.758e-02</span>    <span class="fl">22.0032</span>    <span class="fl">43.1841</span>
+     <span class="fl">5.0500</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.8800</span>     <span class="fl">5.8071</span> <span class="op">+</span><span class="fl">7.292e-02</span>    <span class="fl">31.4804</span>    <span class="fl">83.4312</span>
+     <span class="fl">7.1500</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.7300</span>     <span class="fl">4.8941</span> <span class="op">-</span><span class="fl">1.641e-01</span>    <span class="fl">42.6209</span>   <span class="fl">150.1204</span>
+     <span class="fl">9.0700</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.5700</span>     <span class="fl">4.1856</span> <span class="op">+</span><span class="fl">3.844e-01</span>    <span class="fl">51.5489</span>   <span class="fl">222.3790</span>
+    <span class="fl">12.1000</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.0000</span>     <span class="fl">3.2702</span> <span class="op">-</span><span class="fl">2.702e-01</span>    <span class="fl">63.0175</span>   <span class="fl">340.1701</span>
+    <span class="fl">24.1200</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.2500</span>     <span class="fl">1.2285</span> <span class="op">+</span><span class="fl">2.147e-02</span>    <span class="fl">88.5600</span>   <span class="fl">739.5346</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">7.5600</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0236</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">2.0200</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.2500</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.2285</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.1200</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">8.5100</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0815</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">3.5300</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.1200</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">6</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9955</span> 
+R2         R Squared                                       <span class="fl">0.9910</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9888</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">88.5600</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">88.5600</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">103.9067</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.3247</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">103.6431</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.3239</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         14.7697 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        14.5529 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">739.5346</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1298.1158</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1288.5201</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        43.0302 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      42.6059 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">37.8105</span> L
+VZFP       Vz Pred by F                                   <span class="fl">37.9067</span> L
+CLFO       Total CL Obs by F                               <span class="fl">3.0797</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">3.0875</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.3507</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">12.4931</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">12.4323</span> h
+
+
+
+
+
+ID=<span class="dv">11</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2500</span>       <span class="fl">4.8600</span>                           <span class="fl">0.6075</span>     <span class="fl">0.1519</span>
+     <span class="fl">0.5000</span>       <span class="fl">7.2400</span>                           <span class="fl">2.1200</span>     <span class="fl">0.7563</span>
+     <span class="fl">0.9800</span>       <span class="fl">8.0000</span>                           <span class="fl">5.7776</span>     <span class="fl">3.5067</span>
+     <span class="fl">1.9800</span>       <span class="fl">6.8100</span>                          <span class="fl">13.1826</span>    <span class="fl">14.1686</span>
+     <span class="fl">3.6000</span>       <span class="fl">5.8700</span>                          <span class="fl">23.4534</span>    <span class="fl">42.2073</span>
+     <span class="fl">5.0200</span>       <span class="fl">5.2200</span>                          <span class="fl">31.3273</span>    <span class="fl">75.8162</span>
+     <span class="fl">7.0300</span>       <span class="fl">4.4500</span>                          <span class="fl">41.0457</span>   <span class="fl">133.5915</span>
+     <span class="fl">9.0300</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.6200</span>     <span class="fl">3.6169</span> <span class="op">+</span><span class="fl">3.150e-03</span>    <span class="fl">49.1156</span>   <span class="fl">197.5636</span>
+    <span class="fl">12.1200</span> <span class="op">*</span><span class="st">     </span><span class="fl">2.6900</span>     <span class="fl">2.6929</span> <span class="op">-</span><span class="fl">2.948e-03</span>    <span class="fl">58.8646</span>   <span class="fl">298.4388</span>
+    <span class="fl">24.0800</span> <span class="op">*</span><span class="st">     </span><span class="fl">0.8600</span>     <span class="fl">0.8598</span> <span class="op">+</span><span class="fl">1.934e-04</span>    <span class="fl">80.0936</span>   <span class="fl">617.2422</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">8.0000</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0250</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">0.9800</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">0.8600</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">0.8598</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.0800</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">7.2612</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0955</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">9.0300</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.0800</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">1.0000</span> 
+R2         R Squared                                       <span class="fl">1.0000</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">1.0000</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">80.0936</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">80.0936</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                               <span class="fl">89.1027</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.2784</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                              <span class="fl">89.1007</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.2784</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         10.1110 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        10.1089 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">617.2422</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                             <span class="fl">928.5600</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                            <span class="fl">928.4900</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        33.5269 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      33.5219 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">37.6222</span> L
+VZFP       Vz Pred by F                                   <span class="fl">37.6230</span> L
+CLFO       Total CL Obs by F                               <span class="fl">3.5914</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">3.5914</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">7.7065</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">10.4212</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">10.4207</span> h
+
+
+
+
+
+ID=<span class="dv">3</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2700</span>       <span class="fl">4.4000</span>                           <span class="fl">0.5940</span>     <span class="fl">0.1604</span>
+     <span class="fl">0.5800</span>       <span class="fl">6.9000</span>                           <span class="fl">2.3455</span>     <span class="fl">0.9648</span>
+     <span class="fl">1.0200</span>       <span class="fl">8.2000</span>                           <span class="fl">5.6675</span>     <span class="fl">3.6854</span>
+     <span class="fl">2.0200</span>       <span class="fl">7.8000</span>                          <span class="fl">13.6675</span>    <span class="fl">15.7453</span>
+     <span class="fl">3.6200</span>       <span class="fl">7.5000</span>                          <span class="fl">25.9075</span>    <span class="fl">50.0702</span>
+     <span class="fl">5.0800</span>       <span class="fl">6.2000</span>                          <span class="fl">35.9085</span>    <span class="fl">92.8817</span>
+     <span class="fl">7.0700</span>       <span class="fl">5.3000</span>                          <span class="fl">47.3510</span>   <span class="fl">161.5039</span>
+     <span class="fl">9.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.9000</span>     <span class="fl">4.9914</span> <span class="op">-</span><span class="fl">9.138e-02</span>    <span class="fl">57.1940</span>   <span class="fl">240.2199</span>
+    <span class="fl">12.1500</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.7000</span>     <span class="fl">3.6147</span> <span class="op">+</span><span class="fl">8.528e-02</span>    <span class="fl">70.7390</span>   <span class="fl">380.4815</span>
+    <span class="fl">24.1700</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.0500</span>     <span class="fl">1.0551</span> <span class="op">-</span><span class="fl">5.097e-03</span>    <span class="fl">99.2865</span>   <span class="fl">803.1859</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">8.2000</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0256</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">1.0200</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.0500</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.0551</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.1700</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">6.7661</span> h
+LAMZ       Lambda z                                        <span class="fl">0.1024</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">9.0000</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.1700</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9997</span> 
+R2         R Squared                                       <span class="fl">0.9993</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9986</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">99.2865</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">99.2865</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">109.5360</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.3423</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">109.5857</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.3425</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                          9.3572 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                         9.3983 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">803.1859</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1150.9648</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1152.6529</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        30.2163 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      30.3185 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">28.5171</span> L
+VZFP       Vz Pred by F                                   <span class="fl">28.5042</span> L
+CLFO       Total CL Obs by F                               <span class="fl">2.9214</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">2.9201</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.0896</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">10.5076</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">10.5183</span> h
+
+
+
+
+
+ID=<span class="dv">2</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2700</span>       <span class="fl">1.7200</span>                           <span class="fl">0.2322</span>     <span class="fl">0.0627</span>
+     <span class="fl">0.5200</span>       <span class="fl">7.9100</span>                           <span class="fl">1.4360</span>     <span class="fl">0.6349</span>
+     <span class="fl">1.0000</span>       <span class="fl">8.3100</span>                           <span class="fl">5.3287</span>     <span class="fl">3.6165</span>
+     <span class="fl">1.9200</span>       <span class="fl">8.3300</span>                          <span class="fl">12.9832</span>    <span class="fl">14.7961</span>
+     <span class="fl">3.5000</span>       <span class="fl">6.8500</span>                          <span class="fl">24.9754</span>    <span class="fl">46.3713</span>
+     <span class="fl">5.0200</span>       <span class="fl">6.0800</span>                          <span class="fl">34.8022</span>    <span class="fl">87.7887</span>
+     <span class="fl">7.0300</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.4000</span>     <span class="fl">5.3629</span> <span class="op">+</span><span class="fl">3.707e-02</span>    <span class="fl">46.3396</span>   <span class="fl">156.6147</span>
+     <span class="fl">9.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.5500</span>     <span class="fl">4.3687</span> <span class="op">+</span><span class="fl">1.813e-01</span>    <span class="fl">56.1403</span>   <span class="fl">234.3431</span>
+    <span class="fl">12.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.0100</span>     <span class="fl">3.1970</span> <span class="op">-</span><span class="fl">1.870e-01</span>    <span class="fl">67.4803</span>   <span class="fl">349.9481</span>
+    <span class="fl">24.3000</span> <span class="op">*</span><span class="st">     </span><span class="fl">0.9000</span>     <span class="fl">0.8886</span> <span class="op">+</span><span class="fl">1.136e-02</span>    <span class="fl">91.5268</span>   <span class="fl">706.5866</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">8.3300</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0260</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">1.9200</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">0.9000</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">0.8886</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.3000</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">6.6593</span> h
+LAMZ       Lambda z                                        <span class="fl">0.1041</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">7.0300</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.3000</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">4</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9986</span> 
+R2         R Squared                                       <span class="fl">0.9972</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9958</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">91.5268</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">91.5268</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">100.1735</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.3130</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">100.0643</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.3127</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                          8.6317 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                         8.5320 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">706.5866</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                             <span class="fl">999.7723</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                            <span class="fl">996.0716</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        29.3252 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      29.0627 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">30.6904</span> L
+VZFP       Vz Pred by F                                   <span class="fl">30.7239</span> L
+CLFO       Total CL Obs by F                               <span class="fl">3.1945</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">3.1979</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">7.7200</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                      <span class="fl">9.9804</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                     <span class="fl">9.9543</span> h
+
+
+
+
+
+ID=<span class="dv">4</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.3500</span>       <span class="fl">1.8900</span>                           <span class="fl">0.3308</span>     <span class="fl">0.1158</span>
+     <span class="fl">0.6000</span>       <span class="fl">4.6000</span>                           <span class="fl">1.1420</span>     <span class="fl">0.5435</span>
+     <span class="fl">1.0700</span>       <span class="fl">8.6000</span>                           <span class="fl">4.2440</span>     <span class="fl">3.3545</span>
+     <span class="fl">2.1300</span>       <span class="fl">8.3800</span>                          <span class="fl">13.2434</span>    <span class="fl">17.6918</span>
+     <span class="fl">3.5000</span>       <span class="fl">7.5400</span>                          <span class="fl">24.1486</span>    <span class="fl">47.9958</span>
+     <span class="fl">5.0200</span>       <span class="fl">6.8800</span>                          <span class="fl">35.1078</span>    <span class="fl">94.3007</span>
+     <span class="fl">7.0200</span>       <span class="fl">5.7800</span>                          <span class="fl">47.7678</span>   <span class="fl">169.4139</span>
+     <span class="fl">9.0200</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.3300</span>     <span class="fl">5.4586</span> <span class="op">-</span><span class="fl">1.286e-01</span>    <span class="fl">58.8778</span>   <span class="fl">258.0661</span>
+    <span class="fl">11.9800</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.1900</span>     <span class="fl">4.0686</span> <span class="op">+</span><span class="fl">1.214e-01</span>    <span class="fl">72.9674</span>   <span class="fl">403.5099</span>
+    <span class="fl">24.6500</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.1500</span>     <span class="fl">1.1564</span> <span class="op">-</span><span class="fl">6.422e-03</span>   <span class="fl">106.7963</span>   <span class="fl">901.0842</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">8.6000</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0269</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">1.0700</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.1500</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.1564</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.6500</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">6.9812</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0993</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">9.0200</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.6500</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9995</span> 
+R2         R Squared                                       <span class="fl">0.9989</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9978</span> 
+AUCLST     AUC to Last Nonzero Conc                      <span class="fl">106.7963</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                       <span class="fl">106.7963</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">118.3789</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.3699</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">118.4436</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.3701</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                          9.7843 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                         9.8336 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">901.0842</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1303.2524</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1305.4981</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        30.8588 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      30.9777 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">27.2260</span> L
+VZFP       Vz Pred by F                                   <span class="fl">27.2111</span> L
+CLFO       Total CL Obs by F                               <span class="fl">2.7032</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">2.7017</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.4374</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">11.0092</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">11.0221</span> h
+
+
+
+
+
+ID=<span class="dv">9</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.3000</span>       <span class="fl">7.3700</span>                           <span class="fl">1.1055</span>     <span class="fl">0.3316</span>
+     <span class="fl">0.6300</span>       <span class="fl">9.0300</span>                           <span class="fl">3.8115</span>     <span class="fl">1.6351</span>
+     <span class="fl">1.0500</span>       <span class="fl">7.1400</span>                           <span class="fl">7.2072</span>     <span class="fl">4.4042</span>
+     <span class="fl">2.0200</span>       <span class="fl">6.3300</span>                          <span class="fl">13.7402</span>    <span class="fl">14.2417</span>
+     <span class="fl">3.5300</span>       <span class="fl">5.6600</span>                          <span class="fl">22.7926</span>    <span class="fl">38.9804</span>
+     <span class="fl">5.0200</span>       <span class="fl">5.6700</span>                          <span class="fl">31.2335</span>    <span class="fl">75.0705</span>
+     <span class="fl">7.1700</span>       <span class="fl">4.2400</span>                          <span class="fl">41.8867</span>   <span class="fl">138.3495</span>
+     <span class="fl">8.8000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.1100</span>     <span class="fl">4.0512</span> <span class="op">+</span><span class="fl">5.880e-02</span>    <span class="fl">48.6920</span>   <span class="fl">192.6031</span>
+    <span class="fl">11.6000</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.1600</span>     <span class="fl">3.2160</span> <span class="op">-</span><span class="fl">5.597e-02</span>    <span class="fl">58.8700</span>   <span class="fl">294.5567</span>
+    <span class="fl">24.4300</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.1200</span>     <span class="fl">1.1165</span> <span class="op">+</span><span class="fl">3.517e-03</span>    <span class="fl">86.3262</span>   <span class="fl">705.2296</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">9.0300</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0282</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">0.6300</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.1200</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.1165</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.4300</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">8.4060</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0825</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">8.8000</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.4300</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9997</span> 
+R2         R Squared                                       <span class="fl">0.9994</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9989</span> 
+AUCLST     AUC to Last Nonzero Conc                       <span class="fl">86.3262</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                        <span class="fl">86.3262</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                               <span class="fl">99.9087</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.3122</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                              <span class="fl">99.8661</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.3121</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         13.5950 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        13.5581 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">705.2296</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1201.7715</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1200.2124</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        41.3175 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      41.2413 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">38.8428</span> L
+VZFP       Vz Pred by F                                   <span class="fl">38.8594</span> L
+CLFO       Total CL Obs by F                               <span class="fl">3.2029</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">3.2043</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.1694</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">12.0287</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">12.0182</span> h
+
+
+
+
+
+ID=<span class="dv">12</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2500</span>       <span class="fl">1.2500</span>                           <span class="fl">0.1563</span>     <span class="fl">0.0391</span>
+     <span class="fl">0.5000</span>       <span class="fl">3.9600</span>                           <span class="fl">0.8075</span>     <span class="fl">0.3256</span>
+     <span class="fl">1.0000</span>       <span class="fl">7.8200</span>                           <span class="fl">3.7525</span>     <span class="fl">2.7756</span>
+     <span class="fl">2.0000</span>       <span class="fl">9.7200</span>                          <span class="fl">12.5225</span>    <span class="fl">16.4056</span>
+     <span class="fl">3.5200</span>       <span class="fl">9.7500</span>                          <span class="fl">27.3197</span>    <span class="fl">57.2632</span>
+     <span class="fl">5.0700</span>       <span class="fl">8.5700</span>                          <span class="fl">41.5177</span>   <span class="fl">117.5349</span>
+     <span class="fl">7.0700</span>       <span class="fl">6.5900</span>                          <span class="fl">56.6777</span>   <span class="fl">207.5761</span>
+     <span class="fl">9.0300</span> <span class="op">*</span><span class="st">     </span><span class="fl">6.1100</span>     <span class="fl">6.2267</span> <span class="op">-</span><span class="fl">1.167e-01</span>    <span class="fl">69.1237</span>   <span class="fl">307.3054</span>
+    <span class="fl">12.0500</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.5700</span>     <span class="fl">4.4632</span> <span class="op">+</span><span class="fl">1.068e-01</span>    <span class="fl">85.2505</span>   <span class="fl">473.7705</span>
+    <span class="fl">24.1500</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.1700</span>     <span class="fl">1.1755</span> <span class="op">-</span><span class="fl">5.539e-03</span>   <span class="fl">119.9775</span>   <span class="fl">977.8807</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                        <span class="fl">9.7500</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0305</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">3.5200</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.1700</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.1755</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.1500</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">6.2865</span> h
+LAMZ       Lambda z                                        <span class="fl">0.1103</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">9.0300</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.1500</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9997</span> 
+R2         R Squared                                       <span class="fl">0.9994</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9988</span> 
+AUCLST     AUC to Last Nonzero Conc                      <span class="fl">119.9775</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                       <span class="fl">119.9775</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">130.5888</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.4081</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">130.6391</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.4082</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                          8.1258 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                         8.1611 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                     <span class="fl">977.8807</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1330.3840</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1332.0528</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        26.4964 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      26.5884 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">22.2243</span> L
+VZFP       Vz Pred by F                                   <span class="fl">22.2157</span> L
+CLFO       Total CL Obs by F                               <span class="fl">2.4504</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">2.4495</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.1505</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">10.1876</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">10.1964</span> h
+
+
+
+
+
+ID=<span class="dv">10</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.2400</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.3700</span>       <span class="fl">2.8900</span>                           <span class="fl">0.5790</span>     <span class="fl">0.1978</span>
+     <span class="fl">0.7700</span>       <span class="fl">5.2200</span>                           <span class="fl">2.2011</span>     <span class="fl">1.2156</span>
+     <span class="fl">1.0200</span>       <span class="fl">6.4100</span>                           <span class="fl">3.6548</span>     <span class="fl">2.5353</span>
+     <span class="fl">2.0500</span>       <span class="fl">7.8300</span>                          <span class="fl">10.9884</span>    <span class="fl">14.1690</span>
+     <span class="fl">3.5500</span>      <span class="fl">10.2100</span>                          <span class="fl">24.5184</span>    <span class="fl">53.3917</span>
+     <span class="fl">5.0500</span>       <span class="fl">9.1800</span>                          <span class="fl">39.0609</span>   <span class="fl">115.3451</span>
+     <span class="fl">7.0800</span>       <span class="fl">8.0200</span>                          <span class="fl">56.5189</span>   <span class="fl">220.0328</span>
+     <span class="fl">9.3800</span> <span class="op">*</span><span class="st">     </span><span class="fl">7.1400</span>     <span class="fl">7.0610</span> <span class="op">+</span><span class="fl">7.903e-02</span>    <span class="fl">73.9529</span>   <span class="fl">362.3508</span>
+    <span class="fl">12.1000</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.6800</span>     <span class="fl">5.7586</span> <span class="op">-</span><span class="fl">7.858e-02</span>    <span class="fl">91.3881</span>   <span class="fl">546.9044</span>
+    <span class="fl">23.7000</span> <span class="op">*</span><span class="st">     </span><span class="fl">2.4200</span>     <span class="fl">2.4137</span> <span class="op">+</span><span class="fl">6.308e-03</span>   <span class="fl">138.3681</span>  <span class="fl">1278.1800</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                       <span class="fl">10.2100</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0319</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">3.5500</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">2.4200</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">2.4137</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">23.7000</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">9.2469</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0750</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">9.3800</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">23.7000</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9998</span> 
+R2         R Squared                                       <span class="fl">0.9995</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9990</span> 
+AUCLST     AUC to Last Nonzero Conc                      <span class="fl">138.3681</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                       <span class="fl">138.3681</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">170.6521</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.5333</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">170.5679</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.5330</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         18.9180 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        18.8780 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                    <span class="fl">1278.1800</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">2473.9934</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">2470.8765</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        48.3354 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      48.2702 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">25.0155</span> L
+VZFP       Vz Pred by F                                   <span class="fl">25.0279</span> L
+CLFO       Total CL Obs by F                               <span class="fl">1.8752</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">1.8761</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">9.2375</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">14.4973</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">14.4862</span> h
+
+
+
+
+
+ID=<span class="dv">1</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.7400</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.2500</span>       <span class="fl">2.8400</span>                           <span class="fl">0.4475</span>     <span class="fl">0.0888</span>
+     <span class="fl">0.5700</span>       <span class="fl">6.5700</span>                           <span class="fl">1.9531</span>     <span class="fl">0.8015</span>
+     <span class="fl">1.1200</span>      <span class="fl">10.5000</span>                           <span class="fl">6.6474</span>     <span class="fl">5.0654</span>
+     <span class="fl">2.0200</span>       <span class="fl">9.6600</span>                          <span class="fl">15.7194</span>    <span class="fl">19.1383</span>
+     <span class="fl">3.8200</span>       <span class="fl">8.5800</span>                          <span class="fl">32.1354</span>    <span class="fl">66.1982</span>
+     <span class="fl">5.1000</span>       <span class="fl">8.3600</span>                          <span class="fl">42.9769</span>   <span class="fl">114.4617</span>
+     <span class="fl">7.0300</span>       <span class="fl">7.4700</span>                          <span class="fl">58.2529</span>   <span class="fl">206.2815</span>
+     <span class="fl">9.0500</span> <span class="op">*</span><span class="st">     </span><span class="fl">6.8900</span>     <span class="fl">6.8912</span> <span class="op">-</span><span class="fl">1.228e-03</span>    <span class="fl">72.7565</span>   <span class="fl">322.2988</span>
+    <span class="fl">12.1200</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.9400</span>     <span class="fl">5.9387</span> <span class="op">+</span><span class="fl">1.324e-03</span>    <span class="fl">92.4505</span>   <span class="fl">528.5219</span>
+    <span class="fl">24.3700</span> <span class="op">*</span><span class="st">     </span><span class="fl">3.2800</span>     <span class="fl">3.2801</span> <span class="op">-</span><span class="fl">1.465e-04</span>   <span class="fl">148.9231</span>  <span class="fl">1459.0711</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                       <span class="fl">10.5000</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0328</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">1.1200</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">3.2800</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">3.2801</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.3700</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                             <span class="fl">14.3044</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0485</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">9.0500</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.3700</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">3</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">1.0000</span> 
+R2         R Squared                                       <span class="fl">1.0000</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">1.0000</span> 
+AUCLST     AUC to Last Nonzero Conc                      <span class="fl">148.9231</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                       <span class="fl">148.9231</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">216.6119</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.6769</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">216.6150</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.6769</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         31.2489 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        31.2499 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                    <span class="fl">1459.0711</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">4505.5348</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">4505.6709</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        67.6160 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      67.6170 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">30.4867</span> L
+VZFP       Vz Pred by F                                   <span class="fl">30.4863</span> L
+CLFO       Total CL Obs by F                               <span class="fl">1.4773</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">1.4773</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">9.7975</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">20.8000</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">20.8004</span> h
+
+
+
+
+
+ID=<span class="dv">5</span>
+
+                        NONCOMPARTMENTAL ANALYSIS REPORT
+                       Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
+                          R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
+
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">08</span> <span class="dv">02</span><span class="op">:</span><span class="dv">38</span><span class="op">:</span><span class="dv">15</span> <span class="ot">NA</span>
+
+Calculation Setting
+<span class="op">-------------------</span>
+Drug Administration<span class="op">:</span><span class="st"> </span>Extravascular
+Observation count excluding trailing zero<span class="op">:</span><span class="st"> </span><span class="dv">11</span>
+Dose at time <span class="dv">0</span><span class="op">:</span><span class="st"> </span><span class="dv">320</span> mg
+AUC Calculation Method<span class="op">:</span><span class="st"> </span>Linear<span class="op">-</span>up Linear<span class="op">-</span>down
+Weighting <span class="cf">for</span> lambda z<span class="op">:</span><span class="st"> </span><span class="kw">Uniform</span> (Ordinary Least Square, OLS)
+Lambda z selection criterion<span class="op">:</span><span class="st"> </span>Heighest adjusted R<span class="op">-</span>squared value with precision=<span class="fl">1e-4</span>
+
+
+Fitting, AUC, AUMC Result
+<span class="op">-------------------------</span>
+<span class="st">      </span>Time         Conc.      Pred.   Residual       AUC       AUMC
+<span class="op">---------------------------------------------------------------------</span>
+<span class="st">     </span><span class="fl">0.0000</span>       <span class="fl">0.0000</span>                           <span class="fl">0.0000</span>     <span class="fl">0.0000</span>
+     <span class="fl">0.3000</span>       <span class="fl">2.0200</span>                           <span class="fl">0.3030</span>     <span class="fl">0.0909</span>
+     <span class="fl">0.5200</span>       <span class="fl">5.6300</span>                           <span class="fl">1.1445</span>     <span class="fl">0.4796</span>
+     <span class="fl">1.0000</span>      <span class="fl">11.4000</span>                           <span class="fl">5.2317</span>     <span class="fl">3.9182</span>
+     <span class="fl">2.0200</span>       <span class="fl">9.3300</span>                          <span class="fl">15.8040</span>    <span class="fl">19.3440</span>
+     <span class="fl">3.5000</span>       <span class="fl">8.7400</span>                          <span class="fl">29.1758</span>    <span class="fl">55.9271</span>
+     <span class="fl">5.0200</span>       <span class="fl">7.5600</span>                          <span class="fl">41.5638</span>   <span class="fl">108.0184</span>
+     <span class="fl">7.0200</span> <span class="op">*</span><span class="st">     </span><span class="fl">7.0900</span>     <span class="fl">6.9799</span> <span class="op">+</span><span class="fl">1.101e-01</span>    <span class="fl">56.2138</span>   <span class="fl">195.7414</span>
+     <span class="fl">9.1000</span> <span class="op">*</span><span class="st">     </span><span class="fl">5.9000</span>     <span class="fl">5.8291</span> <span class="op">+</span><span class="fl">7.091e-02</span>    <span class="fl">69.7234</span>   <span class="fl">303.3417</span>
+    <span class="fl">12.0000</span> <span class="op">*</span><span class="st">     </span><span class="fl">4.3700</span>     <span class="fl">4.5343</span> <span class="op">-</span><span class="fl">1.643e-01</span>    <span class="fl">84.6149</span>   <span class="fl">457.2302</span>
+    <span class="fl">24.3500</span> <span class="op">*</span><span class="st">     </span><span class="fl">1.5700</span>     <span class="fl">1.5557</span> <span class="op">+</span><span class="fl">1.430e-02</span>   <span class="fl">121.2944</span>  <span class="fl">1017.1143</span>
+
+<span class="op">*</span><span class="er">:</span><span class="st"> </span>Used <span class="cf">for</span> the calculation of Lambda z.
+
+
+Calculated Values
+<span class="op">-----------------</span>
+CMAX       Max Conc                                       <span class="fl">11.4000</span> mg<span class="op">/</span>L
+CMAXD      Max Conc Norm by Dose                           <span class="fl">0.0356</span> mg<span class="op">/</span>L<span class="op">/</span>mg
+TMAX       Time of CMAX                                    <span class="fl">1.0000</span> h
+TLAG       Time Until First Nonzero Conc                   <span class="fl">0.0000</span> h
+CLST       Last Nonzero Conc                               <span class="fl">1.5700</span> mg<span class="op">/</span>L
+CLSTP      Last Nonzero Conc Pred                          <span class="fl">1.5557</span> mg<span class="op">/</span>L
+TLST       Time of Last Nonzero Conc                      <span class="fl">24.3500</span> h
+LAMZHL     Half<span class="op">-</span>Life Lambda z                              <span class="fl">8.0023</span> h
+LAMZ       Lambda z                                        <span class="fl">0.0866</span> <span class="op">/</span>h
+LAMZLL     Lambda z Lower Limit                            <span class="fl">7.0200</span> h
+LAMZUL     Lambda z Upper Limit                           <span class="fl">24.3500</span> h
+LAMZNPT    Number of Points <span class="cf">for</span> Lambda z                   <span class="dv">4</span>
+CORRXY     Correlation Between TimeX and Log ConcY        <span class="op">-</span><span class="fl">0.9993</span> 
+R2         R Squared                                       <span class="fl">0.9986</span> 
+R2ADJ      R Squared Adjusted                              <span class="fl">0.9980</span> 
+AUCLST     AUC to Last Nonzero Conc                      <span class="fl">121.2944</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCALL     AUC All                                       <span class="fl">121.2944</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFO     AUC Infinity Obs                              <span class="fl">139.4198</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFOD    AUC Infinity Obs Norm by Dose                   <span class="fl">0.4357</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCIFP     AUC Infinity Pred                             <span class="fl">139.2546</span> h<span class="op">*</span>mg<span class="op">/</span>L
+AUCIFPD    AUC Infinity Pred Norm by Dose                  <span class="fl">0.4352</span> h<span class="op">*</span>mg<span class="op">/</span>L<span class="op">/</span>mg
+AUCPEO     AUC <span class="op">%Extrapolation Obs                         13.0006 %</span>
+AUCPEP     AUC <span class="op">%Extrapolation Pred                        12.8974 %</span>
+AUMCLST    AUMC to Last Nonzero Conc                    <span class="fl">1017.1143</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFO    AUMC Infinity Obs                            <span class="fl">1667.7216</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCIFP    AUMC Infinity Pred                           <span class="fl">1661.7937</span> h2<span class="op">*</span>mg<span class="op">/</span>L
+AUMCPEO    AUMC <span class="op">%Extrapolation Obs                        39.0117 %</span>
+AUMCPEP    AUMC <span class="op">% Extrapolation Pred                      38.7942 %</span>
+VZFO       Vz Obs by F                                    <span class="fl">26.4980</span> L
+VZFP       Vz Pred by F                                   <span class="fl">26.5294</span> L
+CLFO       Total CL Obs by F                               <span class="fl">2.2952</span> L<span class="op">/</span>h
+CLFP       Total CL Pred by F                              <span class="fl">2.2979</span> L<span class="op">/</span>h
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              <span class="fl">8.3855</span> h
+MRTEVIFO   MRT Extravasc Infinity Obs                     <span class="fl">11.9619</span> h
+MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">11.9335</span> h</code></pre></div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="support.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/asancpt/book-ncar/edit/master/z-99-references.Rmd",
+"text": "Edit"
+},
+"download": ["book-ncar.pdf"],
+"toc": {
+"collapse": "section"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

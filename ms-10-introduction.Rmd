@@ -101,3 +101,17 @@ Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script
 
 Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예
 
+## 파라메터의 의미 {#parameters}
+
+비구획분석 시 여러 파라메터가 나오며 약어로 표현하는 경우가 많습니다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있습니다. 콘솔창에 다음을 입력합니다.
+
+```{r eval = FALSE}
+?ncar::txtNCA()
+ncar::RptCfg
+```
+
+ncar::RptCfg의 일부를 첨부합니다. (Table \@ref(tab:rptcfg)) `PPTESTCD`는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)^[다음과 같이 CDISC note에 표시되어 있습니다. 'Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST"). PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: "AUCALL", "TMAX", "CMAX".' https://wiki.cdisc.org/pages/viewpage.action?pageId=42309513]와 같은 값입니다. `WNL` 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름입니다.
+
+```{r rptcfg, echo = FALSE}
+kable(ncar::RptCfg %>% select(PPTESTCD, SYNONYM, WNL), caption = 'Description of NonCompart parameters',booktabs=TRUE, longtable = TRUE)
+```

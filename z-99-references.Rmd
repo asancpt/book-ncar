@@ -1,15 +1,22 @@
-# 지원 
+# R에 내장된 자료의 비구획분석 보고서 {#groupreport}
+
+## Theoph의 보고서 {#theophgroup}
+
+```{r code = readLines('Output-ncar/txtNCA-group-Theoph.txt'), eval = FALSE}
+```
+
+# 지원 {#support}
 
 패키지와 관련한 모든 의문은 <shan@acp.kr> / 02-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
 혹은 StackOverflow^[https://stackoverflow.com]에 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
 
-# sessionInfo {-}
+# sessionInfo
 
 ```{r}
 sessionInfo()
 ```
 
-`r if (knitr:::is_html_output()) '# References {-}'`
+`r if (knitr:::is_html_output()) '# 참고문헌 {-}'`
 
 ```{r include = FALSE}
 knitr::write_bib(file = "bib/packages.bib")

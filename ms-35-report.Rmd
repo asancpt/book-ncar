@@ -9,9 +9,8 @@ editor_options:
 ## 이 장에서는 {#summary-ncar}
 
 보고서를 일정한 형식으로 작성하여 다른 사람/기관과 공유하는 것은 중요합니다. 이를 `ncar` 패키지를 사용하여 좀더 쉽게 할 수 있습니다.
-
+이 패키지를 통해서 약동학 파라이터를 보고서 형식의 text, pdf, rtf 파일로 저장할 수 있습니다.
 이에 대해 좀더 자세히 알아보겠습니다.
-
 
 `ncar`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
 
@@ -23,211 +22,65 @@ library(tidyverse)
 library(ncar)
 ```
 
-## txtNCA
-
-```{r, results = 'markup'}
-txtNCA_Theoph <- Theoph %>% 
-  as_tibble() %>% 
-  group_by(Subject) %>% 
-  summarise(res = c(ID = glue::glue('ID={unique(Subject)}\n\n'),
-                   txtNCA(Time, 
-                         conc, 
-                         dose=320, 
-                         doseUnit="mg", 
-                         concUnit="mg/L", 
-                         timeUnit="h")) %>% paste(collapse = '\n')) %>%
-  .$res %>%
-  paste(collapse = '\n\n\n\n\n\n')
-txtNCA_Theoph
-```
-
-
 ## ncar 사용법
 
-약동학 파라이터를 보고서 형식의 text 파일로 저장해보자.
-
-우선 저장될 폴더를 확인해면,
+우선 저장될 폴더를 확인하면 다음과 같습니다.
 
 ```{r}
 getwd()
 ```
 
-저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 된다.
-위에서 사용한 NCA 명령어에 Report="Text" 라는 옵션을 추가하면 된다.
-먼저, Theophilline 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있다.
+저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 됩니다.
+
+### txtNCA(): 한 대상자 보고서
+
+```{r eval = FALSE}
+txtNCA(Theoph[Theoph$Subject=="1","Time"],
+       Theoph[Theoph$Subject=="1","conc"], 
+       dose=320, doseUnit="mg", concUnit="mg/L", timeUnit="h")
+```
+
+먼저, Theoph 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있습니다.
 
 ```{r}
-#writeLines(NCA(Theoph, "Subject", "Time", "conc", Dose=320, Report="Text"), "Theoph_Linear_CoreOutput.txt")
+writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
+                  Theoph[Theoph$Subject=="1","conc"], 
+                  dose=320, doseUnit="mg", concUnit="mg/L",
+                  timeUnit="h"), 
+           'Output-ncar/txtNCA-Theoph.txt')
 ```
 
-저장된 파일 내용은 아래와 같다.
+저장된 파일 내용은 아래와 같습니다.
 
-```
-NCA REPORT
-Subject=1
-
-                        NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.2.6 (2017-01-01)
-                          R version 3.3.3 (2017-03-06)
-
-Date and Time: 2017-03-11 20:46:33 KST
-
-Calculation Setting
--------------------
-Drug Administration: Extravascular
-Observation count excluding trailing zero: 11
-Dose at time 0: 320
-AUC Calculation method: Linear-up Linear-down method
-Weighting for lambda z: Uniform (Ordinary Least Square, OLS)
-Lambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4
-
-
-Fitting, AUC, AUMC Result
--------------------------
-      Time         Conc.      Pred.   Residual       AUC       AUMC      Weight
--------------------------------------------------------------------------------
-     0.0000       0.7400                           0.0000     0.0000            
-     0.2500       2.8400                           0.4475     0.0888            
-     0.5700       6.5700                           1.9531     0.8015            
-     1.1200      10.5000                           6.6474     5.0654            
-     2.0200       9.6600                          15.7194    19.1383            
-     3.8200       8.5800                          32.1354    66.1982            
-     5.1000       8.3600                          42.9769   114.4617            
-     7.0300       7.4700                          58.2529   206.2815            
-     9.0500 *     6.8900     6.8912 -1.228e-03    72.7565   322.2988     1.0000
-    12.1200 *     5.9400     5.9387 +1.324e-03    92.4505   528.5219     1.0000
-    24.3700 *     3.2800     3.2801 -1.465e-04   148.9231  1459.0711     1.0000
-
-\*: Used for the calculation of Lambda z.
-
-
-Calculated Values
------------------
-CMAX       Max Conc                                       10.5000
-CMAXD      Max Conc Norm by Dose                           0.0328
-TMAX       Time of CMAX                                    1.1200
-TLAG       Time Until First Nonzero Conc                   0.0000
-CLST       Last Nonzero Conc                               3.2800
+```{r code = readLines('Output-ncar/txtNCA-Theoph.txt'), eval = FALSE}
 ```
 
+### txtNCA2(): 여러 대상자 보고서
 
-개인별 약동학 파라미터를 구하려면 아래와 같이 할 수 있다.
-IndiNCA를 사용하면 되며, NCA와의 차이점은 데이터셋과 subject 설정이 빠진다는 점이다.
+`txtNCA2()`를 다음과 같이 정의하면 여러 대상자에 대한 보고서를 작성 가능합니다.
 
-> IndiNCA(Theoph[Theoph$Subject==1,"Time"], Theoph[Theoph$Subject==1, "conc"], Dose=320)
-        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
-  10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
-      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
-   9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997    0.9999995  148.9230500  148.9230500  216.6119330 
-     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP 
-   0.6769123   31.2489169  216.6149558    0.6769217   31.2498763 1459.0711035 4505.5348194   67.6160287 4505.6708646 
-     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP 
-  67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757 
-
-개인별 약동학 파라미터를 보고서 형식의 text 파일로 저장해보자. 
-Report 옵션을 추가하면 된다. Report="Text" 를 추가해보자.
-
-> IndiNCA(Theoph[Theoph$Subject==1,"Time"], Theoph[Theoph$Subject==1, "conc"], Dose=320, Report="Text")
- [1] "                        NONCOMPARTMENTAL ANALYSIS REPORT"                           
- [2] "                       Package version 0.2.6 (2017-01-01)"                          
- [3] "                          R version 3.3.3 (2017-03-06)"                             
- [4] ""                                                                                   
- [5] "Date and Time: 2017-03-11 21:12:40 KST"                                             
- [6] ""                                                                                   
- [7] "Calculation Setting"                                                                
- [8] "-------------------"                                                                
- [9] "Drug Administration: Extravascular"                                                 
-[10] "Observation count excluding trailing zero: 11"                                      
-[11] "Dose at time 0: 320"                                                                
-[12] "AUC Calculation method: Linear-up Linear-down method"                               
-[13] "Weighting for lambda z: Uniform (Ordinary Least Square, OLS)"                       
-[14] "Lambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4"
-[15] ""                                                                                   
-[16] ""                                                                                   
-[17] "Fitting, AUC, AUMC Result"                                                          
-[18] "-------------------------"                                                          
-[19] "      Time         Conc.      Pred.   Residual       AUC       AUMC      Weight"    
-[20] "-------------------------------------------------------------------------------"    
-[21] "     0.0000       0.7400                           0.0000     0.0000            "   
-[22] "     0.2500       2.8400                           0.4475     0.0888            "   
-[23] "     0.5700       6.5700                           1.9531     0.8015            "   
-[24] "     1.1200      10.5000                           6.6474     5.0654            "   
-[25] "     2.0200       9.6600                          15.7194    19.1383            "   
-[26] "     3.8200       8.5800                          32.1354    66.1982            "   
-[27] "     5.1000       8.3600                          42.9769   114.4617            "   
-[28] "     7.0300       7.4700                          58.2529   206.2815            "   
-[29] "     9.0500 *     6.8900     6.8912 -1.228e-03    72.7565   322.2988     1.0000"    
-[30] "    12.1200 *     5.9400     5.9387 +1.324e-03    92.4505   528.5219     1.0000"    
-[31] "    24.3700 *     3.2800     3.2801 -1.465e-04   148.9231  1459.0711     1.0000"    
-[32] ""                                                                                   
-[33] "*: Used for the calculation of Lambda z."                                           
-[34] ""                                                                                   
-[35] ""                                                                                   
-[36] "Calculated Values"                                                                  
-[37] "-----------------"                                                                  
-[38] "CMAX       Max Conc                                       10.5000"                  
-[39] "CMAXD      Max Conc Norm by Dose                           0.0328"                  
-[40] "TMAX       Time of CMAX                                    1.1200"                  
-[41] "TLAG       Time Until First Nonzero Conc                   0.0000"                  
-[42] "CLST       Last Nonzero Conc                               3.2800"                  
-[43] "CLSTP      Last Nonzero Conc Pred                          3.2801"                  
-[44] "TLST       Time of Last Nonzero Conc                      24.3700"                  
-[45] "LAMZHL     Half-Life Lambda z                             14.3044"                  
-[46] "LAMZ       Lambda z                                        0.0485"                  
-[47] "LAMZLL     Lambda z Lower Limit                            9.0500"                  
-[48] "LAMZUL     Lambda z Upper Limit                           24.3700"                  
-[49] "LAMZNPT    Number of Points for Lambda z                   3"                       
-[50] "CORRXY     Correlation Between TimeX and Log ConcY        -1.0000"                  
-[51] "R2         R Squared                                       1.0000"                  
-[52] "R2ADJ      R Squared Adjusted                              1.0000"                  
-[53] "AUCLST     AUC to Last Nonzero Conc                      148.9231"                  
-[54] "AUCALL     AUC All                                       148.9231"                  
-[55] "AUCIFO     AUC Infinity Obs                              216.6119"                  
-[56] "AUCIFOD    AUC Infinity Obs Norm by Dose                   0.6769"                  
-[57] "AUCPEO     AUC %Extrapolation Obs                         31.2489"                  
-[58] "AUCIFP     AUC Infinity Pred                             216.6150"                  
-[59] "AUCIFPD    AUC Infinity Pred Norm by Dose                  0.6769"                  
-[60] "AUCPEP     AUC %Extrapolation Pred                        31.2499"                  
-[61] "AUMCLST    AUMC to Last Nonzero Conc                    1459.0711"                  
-[62] "AUMCIFO    AUMC Infinity Obs                            4505.5348"                  
-[63] "AUMCPEO    AUMC %Extrapolation Obs                        67.6160"                  
-[64] "AUMCIFP    AUMC Infinity Pred                           4505.6709"                  
-[65] "AUMCPEP    AUMC % Extrapolation Pred                      67.6170"                  
-[66] "MRTEVLST   MRT Extravasc to Last Nonzero Conc              9.7975"                  
-[67] "MRTEVIFO   MRT Extravasc Infinity Obs                     20.8000"                  
-[68] "MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004"                  
-[69] "VZFO       Vz Obs by F                                    30.4867"                  
-[70] "VZFP       Vz Pred by F                                   30.4863"                  
-[71] "CLFO       Total CL Obs by F                               1.4773"                  
-[72] "CLFP       Total CL Pred by F                              1.4773"  
-
-개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
-예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.
-
-> iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
-
-        Name Start End
-1 AUC[0-12h]     0  12
-2 AUC[0-24h]     0  24
-
-
-```{r eval = TRUE}
-#IntAUC
-#IntAUC(Theoph[Theoph$Subject==1,"Time"], Theoph[Theoph$Subject==1, "conc"], Dose=320, iAUC=iAUC)
+```{r}
+txtNCA2 <- function(dataset){
+  dataset %>% 
+    as_tibble() %>% 
+    group_by(Subject) %>% 
+    summarise(res = c(ID = glue::glue('ID={unique(Subject)}\n\n'),
+                     txtNCA(Time, 
+                           conc, 
+                           dose=320, 
+                           doseUnit="mg", 
+                           concUnit="mg/L", 
+                           timeUnit="h")) %>% paste(collapse = '\n')) %>%
+    .$res %>%
+    paste(collapse = '\n\n\n\n\n\n')
+}
 ```
 
-```
-        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
-  10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
-      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
-   9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997    0.9999995  148.9230500  148.9230500  216.6119330 
-     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP 
-   0.6769123   31.2489169  216.6149558    0.6769217   31.2498763 1459.0711035 4505.5348194   67.6160287 4505.6708646 
-     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP   AUC[0-12h] 
-  67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757   91.7355220 
-  AUC[0-24h] 
- 147.6945866 
+```{r}
+txtNCA2(Theoph) %>% writeLines('Output-ncar/txtNCA-group-Theoph.txt')
 ```
 
-김민걸 선생님 자료를 옮겨와서 변형합니다. <http://blog.naver.com/kimmingul>
+저장된 파일 내용은 Theoph의 경우 Appendix \@ref(theophgroup) 에서 확인 가능합니다.
+
+<!--Indometh의 경우 Appendix \@ref(indomethgroup)-->
 

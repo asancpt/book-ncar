@@ -21,70 +21,10 @@ library(NonCompart)
 library(ncar)
 ```
 
-## 데이타에 대해 {#TheophData}
-
-R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있습니다.
-
-- `Theoph`: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.
-- `Indometh`: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
-(데이터명의 첫글짜가 대문자임에 주의하길)
-
-먼저 데이터를 살펴보겠습니다. 
-
-```{r}
-head(Theoph)
-tail(Theoph)
-```
-
-다음과 같이 테스트 할 수 있습니다.
-
-```{r}
-TheophNca <- tblNCA(Theoph, key="Subject", dose=320, concUnit="mg/L")
-head(TheophNca)
-```
-
-이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.
-
-데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
-
-```{r TheophFig, include = FALSE, fig.width=8, fig.height=12, fig.cap='Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves'}
-Backbone <- ggplot(Theoph %>% 
-                     mutate(Subject = as.numeric(Subject)), 
-                   aes(Time, conc, group = Subject, colour = Wt)) +
-  geom_line() +
-  geom_point() 
-
-Individual <- Backbone + facet_wrap(~ Subject) + scale_y_log10()
-groupLinear <- Backbone
-groupLog <- groupLinear + scale_y_log10()
-
-# ggdraw() +
-#   draw_plot(Individual, 0, .5, 1, .5) +
-#   draw_plot(groupLinear, 0, 0, .5, .5) +
-#   draw_plot(groupLog, .5, 0, .5, .5) +
-#   draw_plot_label(c("A", "B", "C"), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)
-```
-
-이 패키지로 NCA 비구획방법으로 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
-우선 Theophilline 의 약동학 파라미터를 구해보겠습니다.
-
-```{r}
-NonCompart::tblNCA(Theoph, "Subject", "Time", "conc", dose=320)
-```
-
-다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus 이므로 AdmMode 옵션이 추가된다.
-
-```{r}
-NonCompart::tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", dur=0.5, concUnit="mg/L")
-```
 
 ## NonCompart 사용법 {#how-to-use}
 
-NCA의 사용법은 다음과 같습니다.
-
-`NCA(Data, colSubj, colTime, colConc, colTrt, Method = "Linear", Dose = 0, AdmMode = "Extravascular", TimeInfusion = 0, Report = "Table", iAUC)`
-
-Data는 데이터셋을 설정하며, colSubj는 subject ID의 컬럼명, colTime은 time의 컬럼명, colConc는 concentration의 컬럼명, colTrT는 treatment code의 컬럼명(교차시험에서 사용)이다.
+tblNCA의 사용법은 다음과 같습니다.
 
 ```r
 tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", 
@@ -93,13 +33,7 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc",
 # args(NonCompart::tblNCA)
 ```
 
-```{r, include = FALSE, evel = FALSE}
-NonCompartdb <- tools::Rd_db('NonCompart')
-tblNcaExample <- sapply(NonCompartdb, tools:::.Rd_get_metadata, 'usage')$tblNCA.Rd %>% .[-1]
-paste(tblNcaExample, collapse = '\\n')
-```
-
-NCA의 옵션들에 대해서 간단히 살펴보자면 다음과 같습니다. 
+concData는 데이터셋을 설정하며, `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 간단히 살펴보자면 다음과 같습니다. 
 
 1. `down`
     - AUC와 AUMC를 구하는 trapezoidal method 설정, 기본값은 Method="Linear"
@@ -112,6 +46,28 @@ NCA의 옵션들에 대해서 간단히 살펴보자면 다음과 같습니다.
     - Bolus, Infusion, Extravascular 중에서 선택 가능하다.
 4. `dur`
     - 주입하는 기간(infusion duration)을 설정한다. 기본값은 0이다.
+
+이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
+우선 Theophilline 의 약동학 파라미터를 구해보겠습니다.
+
+```{r}
+TheophNca <- NonCompart::tblNCA(Theoph, "Subject", "Time", "conc", dose=320, concUnit="mg/L")
+head(TheophNca)
+```
+
+이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.
+
+다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus 이므로 AdmMode 옵션이 추가됩니다.
+
+```{r}
+NonCompart::tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", dur=0.5, concUnit="mg/L")
+```
+
+```{r, include = FALSE, evel = FALSE}
+NonCompartdb <- tools::Rd_db('NonCompart')
+tblNcaExample <- sapply(NonCompartdb, tools:::.Rd_get_metadata, 'usage')$tblNCA.Rd %>% .[-1]
+paste(tblNcaExample, collapse = '\\n')
+```
 
 ## 구간 NCA {#interval-NCA}
 
@@ -137,6 +93,37 @@ iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)
 ```
 
 맨 마지막 파라미터로 AUC[0-12h], AUC[0-24h]가 추가되었음을 알 수 있습니다.
+
+개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
+예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.
+
+> iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
+
+        Name Start End
+1 AUC[0-12h]     0  12
+2 AUC[0-24h]     0  24
+
+
+```{r eval = TRUE}
+#IntAUC
+#IntAUC(Theoph[Theoph$Subject==1,"Time"], Theoph[Theoph$Subject==1, "conc"], Dose=320, iAUC=iAUC)
+```
+
+```
+        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
+  10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
+      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
+   9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997    0.9999995  148.9230500  148.9230500  216.6119330 
+     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP 
+   0.6769123   31.2489169  216.6149558    0.6769217   31.2498763 1459.0711035 4505.5348194   67.6160287 4505.6708646 
+     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP   AUC[0-12h] 
+  67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757   91.7355220 
+  AUC[0-24h] 
+ 147.6945866 
+```
+
+김민걸 선생님 자료를 옮겨와서 변형합니다. <http://blog.naver.com/kimmingul>
+
 
 ## 함수 살펴보기 {#functions}
 
