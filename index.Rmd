@@ -36,12 +36,12 @@ output:
       toolbar:
         position: static
       toc:
-        collapse: section
+        #collapse: chapter
         before: |
           <li><a href="./index.html">R을 사용한 비구획분석</a></li>
         after: |
           <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
-      download: [pdf]
+      #download: [pdf]
       edit:
         link: https://github.com/asancpt/book-ncar/edit/master/%s
         text: "Edit"
@@ -57,20 +57,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-
 ```{r init, include = FALSE}
-library(tidyverse)
-library(knitr)
-library(cowplot)
-library(NonCompart)
-library(pkr) 
-library(ncar)
-knitr::opts_chunk$set(error = TRUE)
-opts_chunk$set(error = TRUE, #results = 'hide',
-               #cache = TRUE,
-               message = FALSE, warning = FALSE)
 # options(knitr.table.format = 'html')
-#Sys.setlocale('LC_ALL','C')
+# Sys.setlocale('LC_ALL','C')
 # detach("package:ncar", unload = TRUE)
 # detach("package:pkr", unload = TRUE)
 # detach("package:NonCompart", unload = TRUE)

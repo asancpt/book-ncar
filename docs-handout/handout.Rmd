@@ -29,7 +29,7 @@ output:
   bookdown::tufte_book2: default
   bookdown::gitbook:
     df_print: kable
-    css: ../css/style.css
+    css: css/style.css
     split_by: chapter
     config:
       toolbar:
@@ -334,4 +334,7 @@ include_graphics('assets/gitbook.png')
 ```{r include = FALSE}
 write_bib(c('base', 'NonCompart', 'ncar', 'pkr'), file = 'keynote.bib')
 ```
+
+
+<!--chapter:end:index.Rmd-->
 

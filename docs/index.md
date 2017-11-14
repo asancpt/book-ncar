@@ -1,3 +1,4 @@
+
 ---
 title: "R을 사용한 비구획분석"
 author: "배균섭, 한성필, 윤석규, 조용순"
@@ -36,12 +37,12 @@ output:
       toolbar:
         position: static
       toc:
-        collapse: section
+        #collapse: chapter
         before: |
           <li><a href="./index.html">R을 사용한 비구획분석</a></li>
         after: |
           <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
-      download: [pdf]
+      #download: [pdf]
       edit:
         link: https://github.com/asancpt/book-ncar/edit/master/%s
         text: "Edit"
@@ -56,7 +57,6 @@ output:
 editor_options: 
   chunk_output_type: console
 ---
-
 
 
 

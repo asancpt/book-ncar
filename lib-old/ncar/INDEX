@@ -1,7 +1,0 @@
-Round                   Round Half Away from Zero
-RptCfg                  NCA Report Configuation Table
-ncar-package            Noncompartmental Analysis for Pharmacokinetic
-                        Report
-pdfNCA                  NCA output to pdf file
-rtfNCA                  NCA output to rtf file
-txtNCA                  Text output of NCA for one subject

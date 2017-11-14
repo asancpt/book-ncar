@@ -1,3 +1,10 @@
+
+# R에 내장된 자료의 비구획분석 보고서 {#groupreport}
+
+## Theoph의 보고서 {#theophgroup}
+
+
+```r
 ID=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
@@ -941,3 +948,64 @@ CLFP       Total CL Pred by F                              2.2979 L/h
 MRTEVLST   MRT Extravasc to Last Nonzero Conc              8.3855 h
 MRTEVIFO   MRT Extravasc Infinity Obs                     11.9619 h
 MRTEVIFP   MRT Extravasc Infinity Pred                    11.9335 h
+```
+
+# 지원 {#support}
+
+패키지와 관련한 모든 의문은 <shan@acp.kr> / 02-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
+혹은 StackOverflow^[https://stackoverflow.com]에 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
+
+# sessionInfo
+
+
+```r
+devtools::session_info()
+```
+
+```
+##  setting  value                       
+##  version  R version 3.4.2 (2017-09-28)
+##  system   x86_64, darwin17.0.0        
+##  ui       unknown                     
+##  language (EN)                        
+##  collate  en_US.UTF-8                 
+##  tz       Asia/Seoul                  
+##  date     2017-11-14                  
+## 
+##  package   * version date       source                           
+##  backports   1.1.1   2017-09-25 CRAN (R 3.4.2)                   
+##  base      * 3.4.2   2017-09-29 local                            
+##  bookdown    0.5.9   2017-11-14 Github (rstudio/bookdown@83d914f)
+##  compiler    3.4.2   2017-09-29 local                            
+##  datasets  * 3.4.2   2017-09-29 local                            
+##  devtools    1.13.4  2017-11-09 CRAN (R 3.4.2)                   
+##  digest      0.6.12  2017-01-27 CRAN (R 3.4.2)                   
+##  evaluate    0.10.1  2017-06-24 CRAN (R 3.4.2)                   
+##  graphics  * 3.4.2   2017-09-29 local                            
+##  grDevices * 3.4.2   2017-09-29 local                            
+##  htmltools   0.3.6   2017-04-28 CRAN (R 3.4.2)                   
+##  knitr       1.17    2017-08-10 CRAN (R 3.4.2)                   
+##  magrittr    1.5     2014-11-22 CRAN (R 3.4.2)                   
+##  memoise     1.1.0   2017-04-21 CRAN (R 3.4.2)                   
+##  methods     3.4.2   2017-09-29 local                            
+##  Rcpp        0.12.13 2017-09-28 CRAN (R 3.4.2)                   
+##  rmarkdown   1.7     2017-11-10 CRAN (R 3.4.2)                   
+##  rprojroot   1.2     2017-01-16 CRAN (R 3.4.2)                   
+##  stats     * 3.4.2   2017-09-29 local                            
+##  stringi     1.1.5   2017-04-07 CRAN (R 3.4.2)                   
+##  stringr     1.2.0   2017-02-18 CRAN (R 3.4.2)                   
+##  tools       3.4.2   2017-09-29 local                            
+##  utils     * 3.4.2   2017-09-29 local                            
+##  withr       2.1.0   2017-11-01 CRAN (R 3.4.2)
+```
+
+# 참고문헌 {-}
+
+
+
+- U.S. Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research (CDER) , Guidance for Industry Pharmacokinetics in Pregnancy — Study Design, Data Analysis, and Impact on Dosing and Labeling, (2004)
+- Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th Ed. 2010 (ISBN:9780781750097)
+- Hadley Wickham, Advanced R (Chapman & Hall/CRC The R Series) 1st Ed ,25 sep 2014
+- Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
+- http://www.edison.re.kr. EDISON 웹사이트. 
+
