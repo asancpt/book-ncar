@@ -55,6 +55,10 @@ TheophNca <- NonCompart::tblNCA(Theoph, "Subject", "Time", "conc", dose=320, con
 head(TheophNca)
 ```
 
+```{r include = FALSE}
+save(TheophNca, file = 'data/TheophNca.Rdata')
+```
+
 이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.
 
 다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus 이므로 AdmMode 옵션이 추가됩니다.

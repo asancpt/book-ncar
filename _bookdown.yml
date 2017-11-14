@@ -4,7 +4,7 @@ repo: https://github.com/asancpt/book-ncar
 output_dir: docs
 delete_merged_file: yes
 
-# new_session: yes # Knit-Merge approach 
+new_session: yes # Knit-Merge approach 
 
 # rmd_files: [
 #     "index.Rmd", 

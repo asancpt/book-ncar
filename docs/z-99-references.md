@@ -1,3 +1,9 @@
+# R에 내장된 자료의 비구획분석 보고서 {#groupreport}
+
+## Theoph의 보고서 {#theophgroup}
+
+
+```r
 ID=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
@@ -941,3 +947,49 @@ CLFP       Total CL Pred by F                              2.2979 L/h
 MRTEVLST   MRT Extravasc to Last Nonzero Conc              8.3855 h
 MRTEVIFO   MRT Extravasc Infinity Obs                     11.9619 h
 MRTEVIFP   MRT Extravasc Infinity Pred                    11.9335 h
+```
+
+# 지원 {#support}
+
+패키지와 관련한 모든 의문은 <shan@acp.kr> / 02-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
+혹은 StackOverflow^[https://stackoverflow.com]에 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
+
+# sessionInfo
+
+
+```r
+sessionInfo()
+```
+
+```
+## R version 3.4.2 (2017-09-28)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 7 x64 (build 7601) Service Pack 1
+## 
+## Matrix products: default
+## 
+## locale:
+## [1] LC_COLLATE=Korean_Korea.949  LC_CTYPE=Korean_Korea.949   
+## [3] LC_MONETARY=Korean_Korea.949 LC_NUMERIC=C                
+## [5] LC_TIME=Korean_Korea.949    
+## 
+## attached base packages:
+## [1] stats     graphics  grDevices utils     datasets  base     
+## 
+## loaded via a namespace (and not attached):
+##  [1] compiler_3.4.2  backports_1.1.1 bookdown_0.5.4  magrittr_1.5   
+##  [5] rprojroot_1.2   tools_3.4.2     htmltools_0.3.6 Rcpp_0.12.13   
+##  [9] stringi_1.1.5   rmarkdown_1.7   knitr_1.17      methods_3.4.2  
+## [13] stringr_1.2.0   digest_0.6.12   evaluate_0.10.1
+```
+
+# 참고문헌 {-}
+
+
+
+- U.S. Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research (CDER) , Guidance for Industry Pharmacokinetics in Pregnancy — Study Design, Data Analysis, and Impact on Dosing and Labeling, (2004)
+- Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th Ed. 2010 (ISBN:9780781750097)
+- Hadley Wickham, Advanced R (Chapman & Hall/CRC The R Series) 1st Ed ,25 sep 2014
+- Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
+- http://www.edison.re.kr. EDISON 웹사이트. 
+

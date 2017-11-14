@@ -6,9 +6,9 @@ R [@R-base]은 통계 소프트웨어 입니다.
 특히 자료의 재현가능한 편집이라는 측면이 가장 중요합니다. 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문입니다.
 이 책에서 주로 다루게 될 `NonCompart` [@R-NonCompart],  `ncar` [@R-ncar], `pkr` [@R-pkr] 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 R 패키지입니다.
 
-`NonCompart`의 패키지 제목은 `r packageDescription("NonCompart")$Title`, 
-`ncar`의 패키지 제목은 `r packageDescription("ncar")$Title`,
-`pkr`의 패키지 제목은 `r packageDescription("pkr")$Title` 입니다.
+`NonCompart`의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Data, 
+`ncar`의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Report,
+`pkr`의 패키지 제목은 Pharmacokinetics in R 입니다.
 
 ## R에 대하여 {#basic}
 
@@ -24,7 +24,8 @@ R은 아래 링크^[https://cran.r-project.org/]에서 다운로드 받을 수 �
 R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설치하는 방법은 다음과 같습니다. 
 홑따옴표 등의 인용 부호에 주의하세요.
 
-```{r eval = FALSE}
+
+```r
 install.packages('NonCompart')
 install.packages('ncar')
 install.packages('pkr')
@@ -32,25 +33,106 @@ install.packages('pkr')
 
 설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 *불러오기*해야 합니다.
 
-```{r}
+
+```r
 library(NonCompart)
 library(ncar)
+```
+
+```
+## 필요한 패키지를 로딩중입니다: rtf
+```
+
+```r
 library(pkr)
+```
+
+```
+## 필요한 패키지를 로딩중입니다: foreign
+```
+
+```
+## 필요한 패키지를 로딩중입니다: binr
+```
+
+```
+## 필요한 패키지를 로딩중입니다: forestplot
+```
+
+```
+## 필요한 패키지를 로딩중입니다: grid
+```
+
+```
+## 필요한 패키지를 로딩중입니다: magrittr
+```
+
+```
+## 필요한 패키지를 로딩중입니다: checkmate
+```
+
+```
+## 
+## 다음의 패키지를 부착합니다: 'pkr'
+```
+
+```
+## The following object is masked from 'package:grid':
+## 
+##     unit
+```
+
+```
+## The following objects are masked from 'package:ncar':
+## 
+##     AddPage, ClosePDF, Note, PrepPDF, Round, RptCfg, Text1, TextM,
+##     toproper
+```
+
+```
+## The following objects are masked from 'package:NonCompart':
+## 
+##     AUC, BestSlope, IntAUC, Interpol, LinAUC, LogAUC, Slope, Unit
 ```
 
 ## 기타 설치
 
 아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다. 
 
-```{r}
+
+```r
 # install.packages(c('tidyverse', 'knitr')) # 설치 안되어 있으면 맨앞의 #을 지우고 설치.
 library(tidyverse) # For presentation only, dplyr, tidyr, ggplot2
+```
+
+```
+## -- Attaching packages ----------------------------- tidyverse 1.2.0.9000 --
+```
+
+```
+## √ ggplot2 2.2.1          √ purrr   0.2.4     
+## √ tibble  1.3.4          √ dplyr   0.7.4.9000
+## √ tidyr   0.7.2          √ stringr 1.2.0     
+## √ readr   1.1.1          √ forcats 0.2.0
+```
+
+```
+## -- Conflicts ------------------------------------- tidyverse_conflicts() --
+## x tidyr::extract()   masks magrittr::extract()
+## x dplyr::filter()    masks stats::filter()
+## x dplyr::lag()       masks stats::lag()
+## x purrr::set_names() masks magrittr::set_names()
+## x ggplot2::unit()    masks pkr::unit(), grid::unit()
+```
+
+```r
 library(knitr) # For reports
 ```
 
 도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 `help()` 함수를 사용합니다.
 
-```{r, eval = FALSE}
+
+```r
 ?NonCompart
 help(tblNCA)
 ```
@@ -90,14 +172,26 @@ head(Theoph, n=10)
 tail(Theoph, n=10)
 ```
 
-```{r head, echo = FALSE}
-knitr::kable(head(Theoph, n=10), caption = 'Theoph 자료의 첫 10개 관찰값',
-      row.names = FALSE, booktabs = TRUE)
-```
+
+Table: (\#tab:head)Theoph 자료의 첫 10개 관찰값
+
+Subject      Wt   Dose    Time    conc
+--------  -----  -----  ------  ------
+1          79.6   4.02    0.00    0.74
+1          79.6   4.02    0.25    2.84
+1          79.6   4.02    0.57    6.57
+1          79.6   4.02    1.12   10.50
+1          79.6   4.02    2.02    9.66
+1          79.6   4.02    3.82    8.58
+1          79.6   4.02    5.10    8.36
+1          79.6   4.02    7.03    7.47
+1          79.6   4.02    9.05    6.89
+1          79.6   4.02   12.12    5.94
 
 그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure \@ref(fig:ggtheoph))
 
-```{r ggtheoph, fig.cap = 'Concentration-time curves of oral administration of Theoph (N = 12)', fig.width = 6, fig.height = 3.5}
+
+```r
 ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
   geom_point(size = 4) + 
   geom_line(size = 1) +
@@ -106,24 +200,13 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
        x = 'Time (hour)', y = 'Concentration (ng/mL)')
 ```
 
+<div class="figure">
+<img src="ms-20-packages_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="576" />
+<p class="caption">(\#fig:ggtheoph)Concentration-time curves of oral administration of Theoph (N = 12)</p>
+</div>
+
 
 데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
 
-```{r TheophFig, include = FALSE, fig.width=8, fig.height=12, fig.cap='Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves'}
-Backbone <- ggplot(Theoph %>% 
-                     mutate(Subject = as.numeric(Subject)), 
-                   aes(Time, conc, group = Subject, colour = Wt)) +
-  geom_line() +
-  geom_point() 
 
-Individual <- Backbone + facet_wrap(~ Subject) + scale_y_log10()
-groupLinear <- Backbone
-groupLog <- groupLinear + scale_y_log10()
-
-# ggdraw() +
-#   draw_plot(Individual, 0, .5, 1, .5) +
-#   draw_plot(groupLinear, 0, 0, .5, .5) +
-#   draw_plot(groupLog, .5, 0, .5, .5) +
-#   draw_plot_label(c("A", "B", "C"), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)
-```
 
