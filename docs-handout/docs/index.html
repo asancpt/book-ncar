@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R을 통한 비구획분석: 실습</title>
+  <meta name="description" content="R을 통한 비구획분석: 실습">
+  <meta name="generator" content="bookdown 0.5.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R을 통한 비구획분석: 실습" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R을 통한 비구획분석: 실습" />
+  
+  
+  
+
+<meta name="author" content="서울아산병원 임상약리학과 전공의 한성필">
+
+
+<meta name="date" content="2017-11-14">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+
+<link rel="next" href="-noncompart.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">R을 사용한 비구획분석: 실습</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 서론</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section-1.1"><i class="fa fa-check"></i><b>1.1</b> 설치</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#r-"><i class="fa fa-check"></i><b>1.2</b> R에 대하여</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.3</b> 자료 탐색</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.4</b> 파라메터의 의미</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="-noncompart.html"><a href="-noncompart.html"><i class="fa fa-check"></i><b>2</b> 패키지: NonCompart</a><ul>
+<li class="chapter" data-level="2.1" data-path="-noncompart.html"><a href="-noncompart.html#snca"><i class="fa fa-check"></i><b>2.1</b> sNCA()</a></li>
+<li class="chapter" data-level="2.2" data-path="-noncompart.html"><a href="-noncompart.html#tblnca----"><i class="fa fa-check"></i><b>2.2</b> tblNCA(): 전체 대상자 비구획 분석</a></li>
+<li class="chapter" data-level="2.3" data-path="-noncompart.html"><a href="-noncompart.html#-descriptive-statistics"><i class="fa fa-check"></i><b>2.3</b> 기술통계 (Descriptive statistics)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="-ncar.html"><a href="-ncar.html"><i class="fa fa-check"></i><b>3</b> 패키지: ncar</a><ul>
+<li class="chapter" data-level="3.1" data-path="-ncar.html"><a href="-ncar.html#txtnca"><i class="fa fa-check"></i><b>3.1</b> txtNCA()</a></li>
+<li class="chapter" data-level="3.2" data-path="-ncar.html"><a href="-ncar.html#pdfnca"><i class="fa fa-check"></i><b>3.2</b> pdfNCA()</a></li>
+<li class="chapter" data-level="3.3" data-path="-ncar.html"><a href="-ncar.html#rtfnca"><i class="fa fa-check"></i><b>3.3</b> rtfNCA()</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="-pkr.html"><a href="-pkr.html"><i class="fa fa-check"></i><b>4</b> 패키지: pkr</a><ul>
+<li class="chapter" data-level="4.1" data-path="-pkr.html"><a href="-pkr.html#plotpk"><i class="fa fa-check"></i><b>4.1</b> plotPK()</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="etc.html"><a href="etc.html"><i class="fa fa-check"></i><b>5</b> 기타 사항</a><ul>
+<li class="chapter" data-level="5.1" data-path="etc.html"><a href="etc.html#shiny-"><i class="fa fa-check"></i><b>5.1</b> shiny 앱</a></li>
+<li class="chapter" data-level="5.2" data-path="etc.html"><a href="etc.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 지원</a></li>
+<li class="chapter" data-level="5.3" data-path="etc.html"><a href="etc.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 고지</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> 참고문헌</a></li>
+<li class="divider"></li>
+<li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 통한 비구획분석: 실습</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">R을 통한 비구획분석: 실습</h1>
+<h4 class="author"><em>서울아산병원 임상약리학과 전공의 한성필</em></h4>
+<h4 class="date"><em>2017-11-14</em></h4>
+</div>
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> 서론</h1>
+<p>약동학 분야에서 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)입니다. <em>미국의 FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아</em>, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있습니다. 따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 비구획분석을 통한 약동학적 주요 지표를 구할 수 있습니다.</p>
+<ul>
+<li>NonCompart <span class="citation" data-cites="R-NonCompart">(Bae <a href="#ref-R-NonCompart">2017</a><a href="#ref-R-NonCompart">b</a>)</span></li>
+<li>ncar <span class="citation" data-cites="R-ncar">(Bae <a href="#ref-R-ncar">2017</a><a href="#ref-R-ncar">a</a>)</span></li>
+<li>pkr <span class="citation" data-cites="R-pkr">(Bae and Lee <a href="#ref-R-pkr">2017</a>)</span></li>
+</ul>
+<div id="section-1.1" class="section level2">
+<h2><span class="header-section-number">1.1</span> 설치</h2>
+<p>우선 R을 설치합니다. R은 아래 링크<a href="references.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>에서 다운로드 받을 수 있습니다.</p>
+<p>R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설치하는 방법은 다음과 같습니다. 홑따옴표 등의 인용 부호에 주의하세요.</p>
+<pre class="sourceCode r" id="cb1"><code class="sourceCode r"><div class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;NonCompart&#39;</span>)</div>
+<div class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&#39;ncar&#39;</span>)</div>
+<div class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&#39;pkr&#39;</span>)</div></code></pre>
+<p>설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 <em>불러오기</em>해야 합니다.</p>
+<pre class="sourceCode r" id="cb2"><code class="sourceCode r"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(NonCompart)</div>
+<div class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(ncar)</div>
+<div class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">library</span>(pkr)</div></code></pre>
+<p>아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다.</p>
+<pre class="sourceCode r" id="cb3"><code class="sourceCode r"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># install.packages(c(&#39;tidyverse&#39;, &#39;knitr&#39;)) # 설치 안되어 있으면 맨앞의 #을 지우고 설치.</span></div>
+<div class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(tidyverse) <span class="co"># For presentation only, dplyr, tidyr, ggplot2</span></div>
+<div class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">library</span>(knitr) <span class="co"># For reports</span></div></code></pre>
+<p>도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 <code>help()</code> 함수를 사용합니다.</p>
+<pre class="sourceCode r" id="cb4"><code class="sourceCode r"><div class="sourceLine" id="cb4-1" data-line-number="1">?NonCompart</div>
+<div class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">help</span>(tblNCA)</div></code></pre>
+</div>
+<div id="r-" class="section level2">
+<h2><span class="header-section-number">1.2</span> R에 대하여</h2>
+<p>R <span class="citation" data-cites="R-base">(R Core Team <a href="#ref-R-base">2017</a>)</span>은 통계 소프트웨어 입니다. 굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다. R에 대한 많은 책들을 bookdown.org<a href="references.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>에서 무료로 읽을 수 있습니다. Coursera<a href="references.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>에서 무료 온라인 강의를 들을 수 있습니다.</p>
+</div>
+<div id="-" class="section level2">
+<h2><span class="header-section-number">1.3</span> 자료 탐색</h2>
+<p>자료의 첫 10개 (Table <a href="index.html#tab:head">1.1</a>) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다. 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다.</p>
+<pre class="sourceCode r" id="cb5"><code class="sourceCode r"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">head</span>(Theoph, <span class="dt">n=</span><span class="dv">10</span>)</div>
+<div class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">tail</span>(Theoph, <span class="dt">n=</span><span class="dv">10</span>)</div></code></pre>
+<table>
+<caption><span id="tab:head">Table 1.1: </span>Theoph 자료의 첫 10개 관찰값</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Subject</th>
+<th style="text-align: right;">Wt</th>
+<th style="text-align: right;">Dose</th>
+<th style="text-align: right;">Time</th>
+<th style="text-align: right;">conc</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.74</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">2.84</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">0.57</td>
+<td style="text-align: right;">6.57</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">1.12</td>
+<td style="text-align: right;">10.50</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">2.02</td>
+<td style="text-align: right;">9.66</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">3.82</td>
+<td style="text-align: right;">8.58</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">5.10</td>
+<td style="text-align: right;">8.36</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">7.03</td>
+<td style="text-align: right;">7.47</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">9.05</td>
+<td style="text-align: right;">6.89</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">79.6</td>
+<td style="text-align: right;">4.02</td>
+<td style="text-align: right;">12.12</td>
+<td style="text-align: right;">5.94</td>
+</tr>
+</tbody>
+</table>
+<p>그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure <a href="index.html#fig:ggtheoph">1.1</a>)</p>
+<pre class="sourceCode r" id="cb6"><code class="sourceCode r"><div class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">ggplot</span>(Theoph, <span class="kw">aes</span>(Time, conc, <span class="dt">group =</span> Subject, <span class="dt">color =</span> Subject)) <span class="op">+</span></div>
+<div class="sourceLine" id="cb6-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span></div>
+<div class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></div>
+<div class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></div>
+<div class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg)&#39;</span>,</div>
+<div class="sourceLine" id="cb6-6" data-line-number="6">       <span class="dt">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</div></code></pre>
+<div class="figure"><span id="fig:ggtheoph"></span>
+<img src="handout_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="576" />
+<p class="caption">
+Figure 1.1: Concentration-time curves of oral administration of Theoph (N = 12)
+</p>
+</div>
+</div>
+<div id="-" class="section level2">
+<h2><span class="header-section-number">1.4</span> 파라메터의 의미</h2>
+<p>비구획분석 시 여러 파라메터가 나오며 약어로 표현하는 경우가 많습니다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있습니다. 콘솔창에 다음을 입력합니다.</p>
+<pre class="sourceCode r" id="cb7"><code class="sourceCode r"><div class="sourceLine" id="cb7-1" data-line-number="1">?ncar<span class="op">::</span><span class="kw">txtNCA</span>()</div>
+<div class="sourceLine" id="cb7-2" data-line-number="2">ncar<span class="op">::</span>RptCfg</div></code></pre>
+<p>ncar::RptCfg의 일부를 첨부합니다. (Table <a href="index.html#tab:rptcfg">1.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="references.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>와 같은 값입니다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름입니다.</p>
+<table>
+<caption><span id="tab:rptcfg">Table 1.2: </span>Description of NonCompart parameters</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">PPTESTCD</th>
+<th style="text-align: left;">SYNONYM</th>
+<th style="text-align: left;">WNL</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">b0</td>
+<td style="text-align: left;">Intercept</td>
+<td style="text-align: left;">b0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">TLAG</td>
+<td style="text-align: left;">Time Until First Nonzero Conc</td>
+<td style="text-align: left;">Tlag</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MRTEVLST</td>
+<td style="text-align: left;">MRT Extravasc to Last Nonzero Conc</td>
+<td style="text-align: left;">MRTlast</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MRTEVIFO</td>
+<td style="text-align: left;">MRT Extravasc Infinity Obs</td>
+<td style="text-align: left;">MRTINF_obs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MRTEVIFP</td>
+<td style="text-align: left;">MRT Extravasc Infinity Pred</td>
+<td style="text-align: left;">MRTINF_pred</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VZFO</td>
+<td style="text-align: left;">Vz Obs by F</td>
+<td style="text-align: left;">Vz_F_obs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VZFP</td>
+<td style="text-align: left;">Vz Pred by F</td>
+<td style="text-align: left;">Vz_F_pred</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CLFO</td>
+<td style="text-align: left;">Total CL Obs by F</td>
+<td style="text-align: left;">Cl_F_obs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CLFP</td>
+<td style="text-align: left;">Total CL Pred by F</td>
+<td style="text-align: left;">Cl_F_pred</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">C0</td>
+<td style="text-align: left;">Initial Conc</td>
+<td style="text-align: left;">C0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUCPBEO</td>
+<td style="text-align: left;">AUC %Back Extrapolation Obs</td>
+<td style="text-align: left;">AUC_.Back_Ext_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCPBEP</td>
+<td style="text-align: left;">AUC %Back Extrapolation Pred</td>
+<td style="text-align: left;">AUC_.Back_Ext_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CMAX</td>
+<td style="text-align: left;">Max Conc</td>
+<td style="text-align: left;">Cmax</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMAXD</td>
+<td style="text-align: left;">Max Conc Norm by Dose</td>
+<td style="text-align: left;">Cmax_D</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TMAX</td>
+<td style="text-align: left;">Time of CMAX</td>
+<td style="text-align: left;">Tmax</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CLST</td>
+<td style="text-align: left;">Last Nonzero Conc</td>
+<td style="text-align: left;">Clast</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TLST</td>
+<td style="text-align: left;">Time of Last Nonzero Conc</td>
+<td style="text-align: left;">Tlast</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CLSTP</td>
+<td style="text-align: left;">Last Nonzero Conc Pred</td>
+<td style="text-align: left;">Clast_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LAMZHL</td>
+<td style="text-align: left;">Half-Life Lambda z</td>
+<td style="text-align: left;">HL_Lambda_z</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LAMZ</td>
+<td style="text-align: left;">Lambda z</td>
+<td style="text-align: left;">Lambda_z</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LAMZLL</td>
+<td style="text-align: left;">Lambda z Lower Limit</td>
+<td style="text-align: left;">Lambda_z_lower</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">LAMZUL</td>
+<td style="text-align: left;">Lambda z Upper Limit</td>
+<td style="text-align: left;">Lambda_z_upper</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">LAMZNPT</td>
+<td style="text-align: left;">Number of Points for Lambda z</td>
+<td style="text-align: left;">No_points_lambda_z</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CORRXY</td>
+<td style="text-align: left;">Correlation Between TimeX and Log ConcY</td>
+<td style="text-align: left;">Corr_XY</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">R2</td>
+<td style="text-align: left;">R Squared</td>
+<td style="text-align: left;">Rsq</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R2ADJ</td>
+<td style="text-align: left;">R Squared Adjusted</td>
+<td style="text-align: left;">Rsq_adjusted</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUCLST</td>
+<td style="text-align: left;">AUC to Last Nonzero Conc</td>
+<td style="text-align: left;">AUClast</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCALL</td>
+<td style="text-align: left;">AUC All</td>
+<td style="text-align: left;">AUCall</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUCIFO</td>
+<td style="text-align: left;">AUC Infinity Obs</td>
+<td style="text-align: left;">AUCINF_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCIFOD</td>
+<td style="text-align: left;">AUC Infinity Obs Norm by Dose</td>
+<td style="text-align: left;">AUCINF_D_obs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUCPEO</td>
+<td style="text-align: left;">AUC %Extrapolation Obs</td>
+<td style="text-align: left;">AUC_.Extrap_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCIFP</td>
+<td style="text-align: left;">AUC Infinity Pred</td>
+<td style="text-align: left;">AUCINF_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUCIFPD</td>
+<td style="text-align: left;">AUC Infinity Pred Norm by Dose</td>
+<td style="text-align: left;">AUCINF_D_pred</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCPEP</td>
+<td style="text-align: left;">AUC %Extrapolation Pred</td>
+<td style="text-align: left;">AUC_.Extrap_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUMCLST</td>
+<td style="text-align: left;">AUMC to Last Nonzero Conc</td>
+<td style="text-align: left;">AUMClast</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUMCIFO</td>
+<td style="text-align: left;">AUMC Infinity Obs</td>
+<td style="text-align: left;">AUMCINF_obs</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUMCPEO</td>
+<td style="text-align: left;">AUMC %Extrapolation Obs</td>
+<td style="text-align: left;">AUMC_.Extrap_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUMCIFP</td>
+<td style="text-align: left;">AUMC Infinity Pred</td>
+<td style="text-align: left;">AUMCINF_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">AUMCPEP</td>
+<td style="text-align: left;">AUMC % Extrapolation Pred</td>
+<td style="text-align: left;">AUMC_.Extrap_pred</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MRTIVLST</td>
+<td style="text-align: left;">MRT Intravasc to Last Nonzero Conc</td>
+<td style="text-align: left;">MRTlast</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">MRTIVIFO</td>
+<td style="text-align: left;">MRT Intravasc Infinity Obs</td>
+<td style="text-align: left;">MRTINF_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">MRTIVIFP</td>
+<td style="text-align: left;">MRT Intravasc Infinity Pred</td>
+<td style="text-align: left;">MRTINF_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VZO</td>
+<td style="text-align: left;">Vz Obs</td>
+<td style="text-align: left;">Vz_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VZP</td>
+<td style="text-align: left;">Vz Pred</td>
+<td style="text-align: left;">Vz_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CLO</td>
+<td style="text-align: left;">Total CL Obs</td>
+<td style="text-align: left;">Cl_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CLP</td>
+<td style="text-align: left;">Total CL Pred</td>
+<td style="text-align: left;">Cl_pred</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">VSSO</td>
+<td style="text-align: left;">Vol Dist Steady State Obs</td>
+<td style="text-align: left;">Vss_obs</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VSSP</td>
+<td style="text-align: left;">Vol Dist Steady State Pred</td>
+<td style="text-align: left;">Vss_pred</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3> 참고문헌</h3>
+<div id="refs" class="references">
+<div id="ref-R-NonCompart">
+<p>Bae, Kyun-Seop. 2017b. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart" class="uri">https://CRAN.R-project.org/package=NonCompart</a>.</p>
+</div>
+<div id="ref-R-ncar">
+<p>Bae, Kyun-Seop. 2017a. <em>Ncar: Noncompartmental Analysis for Pharmacokinetic Report</em>. <a href="https://CRAN.R-project.org/package=ncar" class="uri">https://CRAN.R-project.org/package=ncar</a>.</p>
+</div>
+<div id="ref-R-pkr">
+<p>Bae, Kyun-Seop, and Jee Eun Lee. 2017. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr" class="uri">https://CRAN.R-project.org/package=pkr</a>.</p>
+</div>
+<div id="ref-R-base">
+<p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="-noncompart.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/asancpt/book-ncar/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": ["handout.pdf"],
+"toc": {
+"collapse": "section"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

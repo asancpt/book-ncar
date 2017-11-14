@@ -3,7 +3,7 @@ title: "R을 통한 비구획분석: 실습"
 author: "서울아산병원 임상약리학과 전공의 한성필"
 date: "`r Sys.Date()`"
 bibliography: "keynote.bib"
-#knit: "bookdown::render_book"
+knit: "bookdown::render_book"
 documentclass: krantz
 biblio-style: apalike
 link-citations: yes
@@ -27,25 +27,47 @@ output:
     #  after_body: latex/after_body.tex
   bookdown::pdf_document2: default
   bookdown::tufte_book2: default
-  html_document: 
+  bookdown::gitbook:
     df_print: kable
+    css: css/style.css
+    split_by: chapter
+    config:
+      toolbar:
+        position: static
+      toc:
+        collapse: section
+        before: |
+          <li><a href="./index.html">R을 사용한 비구획분석: 실습</a></li>
+        after: |
+          <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
+      download: [pdf]
+      edit:
+        link: https://github.com/asancpt/book-ncar/edit/master/%s
+        text: "Edit"
 editor_options: 
   chunk_output_type: console
 ---
-
-\mainmatter
-
-# 서론 {#intro}
 
 ```{r setup, include = FALSE}
 library(tidyverse)
 library(knitr)
 # options(knitr.table.format = 'html')
 #Sys.setlocale('LC_ALL','C')
-opts_chunk$set(error = TRUE, #results = 'hide',
-               cache = TRUE,
+opts_chunk$set(#error = TRUE, 
+	       #results = 'hide',
+               #cache = TRUE,
                message = FALSE, warning = FALSE)
 ```
+
+<!-- R을 통한 비구획분석: 실습 {-}
+Test-->
+
+\mainmatter
+
+
+
+# 서론 {#intro}
+
 
 약동학 분야에서 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)입니다. 
 *미국의 FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아*, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있습니다.
@@ -276,7 +298,7 @@ pkr::plotPK(Theoph, "Subject", "Time", "conc",
 
 
 
-# 기타 사항
+# 기타 사항 {#etc}
 
 ## shiny 앱
 
@@ -299,7 +321,7 @@ pkr::plotPK(Theoph, "Subject", "Time", "conc",
 서울아산병원 임상약리학과 전공의 한성필
 
 ```{r gitbook, fig.cap = 'Gitbook: Noncompartmental analysis by R (work in progress)', fig.width = 6, echo = FALSE, out.width = "400px"}
-include_graphics('gitbook.png')
+include_graphics('assets/gitbook.png')
 ```
 
 ## 고지
@@ -307,8 +329,9 @@ include_graphics('gitbook.png')
 본 출판물은 2016, 2017년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 결과입니다 (NRF-2016-936606).
 
 
-# 참고문헌
+# 참고문헌 {#references}
 
 ```{r include = FALSE}
 write_bib(c('base', 'NonCompart', 'ncar', 'pkr'), file = 'keynote.bib')
 ```
+
