@@ -50,60 +50,44 @@
 
 
 <style type="text/css">
-div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource div.sourceLine, .numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em; }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
-}
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
-code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -205,39 +189,39 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <h1><span class="header-section-number">Chapter 2</span> R과 그 패키지에 대하여</h1>
 <div id="summary-r-packages" class="section level2">
 <h2><span class="header-section-number">2.1</span> 이 장에서는</h2>
-<p>R <span class="citation" data-cites="R-base">(R Core Team <a href="#ref-R-base">2017</a>)</span>은 통계 소프트웨어 입니다. 특히 자료의 재현가능한 편집이라는 측면이 가장 중요합니다. 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문입니다. 이 책에서 주로 다루게 될 <code>NonCompart</code> <span class="citation" data-cites="R-NonCompart">(Bae <a href="#ref-R-NonCompart">2017</a><a href="#ref-R-NonCompart">b</a>)</span>, <code>ncar</code> <span class="citation" data-cites="R-ncar">(Bae <a href="#ref-R-ncar">2017</a><a href="#ref-R-ncar">a</a>)</span>, <code>pkr</code> <span class="citation" data-cites="R-pkr">(Bae and Lee <a href="#ref-R-pkr">2017</a>)</span> 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 R 패키지입니다.</p>
+<p>R <span class="citation">(R Core Team <a href="#ref-R-base">2017</a>)</span>은 통계 소프트웨어 입니다. 특히 자료의 재현가능한 편집이라는 측면이 가장 중요합니다. 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문입니다. 이 책에서 주로 다루게 될 <code>NonCompart</code> <span class="citation">(Bae <a href="#ref-R-NonCompart">2017</a><a href="#ref-R-NonCompart">b</a>)</span>, <code>ncar</code> <span class="citation">(Bae <a href="#ref-R-ncar">2017</a><a href="#ref-R-ncar">a</a>)</span>, <code>pkr</code> <span class="citation">(Bae and Lee <a href="#ref-R-pkr">2017</a>)</span> 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 R 패키지입니다.</p>
 <p><code>NonCompart</code>의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Data, <code>ncar</code>의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Report, <code>pkr</code>의 패키지 제목은 Pharmacokinetics in R 입니다.</p>
 </div>
 <div id="basic" class="section level2">
 <h2><span class="header-section-number">2.2</span> R에 대하여</h2>
-<p>굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다. R에 대한 많은 책들을 bookdown.org<a href="ecb0b8eab3a0ebacb8ed978c.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>에서 무료로 읽을 수 있습니다. Coursera<a href="ecb0b8eab3a0ebacb8ed978c.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>에서 무료 온라인 강의를 들을 수 있습니다.</p>
+<p>굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다. R에 대한 많은 책들을 bookdown.org<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>에서 무료로 읽을 수 있습니다. Coursera<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>에서 무료 온라인 강의를 들을 수 있습니다.</p>
 </div>
 <div id="install" class="section level2">
 <h2><span class="header-section-number">2.3</span> 설치</h2>
-<p>우선 R을 설치합니다. R은 아래 링크<a href="ecb0b8eab3a0ebacb8ed978c.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>에서 다운로드 받을 수 있습니다.</p>
+<p>우선 R을 설치합니다. R은 아래 링크<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>에서 다운로드 받을 수 있습니다.</p>
 <p>R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설치하는 방법은 다음과 같습니다. 홑따옴표 등의 인용 부호에 주의하세요.</p>
-<pre class="sourceCode r" id="cb1"><code class="sourceCode r"><div class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;NonCompart&#39;</span>)</div>
-<div class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&#39;ncar&#39;</span>)</div>
-<div class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&#39;pkr&#39;</span>)</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;NonCompart&#39;</span>)
+<span class="kw">install.packages</span>(<span class="st">&#39;ncar&#39;</span>)
+<span class="kw">install.packages</span>(<span class="st">&#39;pkr&#39;</span>)</code></pre></div>
 <p>설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 <em>불러오기</em>해야 합니다.</p>
-<pre class="sourceCode r" id="cb2"><code class="sourceCode r"><div class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">library</span>(NonCompart)</div>
-<div class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">library</span>(ncar)</div>
-<div class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">library</span>(pkr)</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(NonCompart)
+<span class="kw">library</span>(ncar)
+<span class="kw">library</span>(pkr)</code></pre></div>
 </div>
 <div id="-" class="section level2">
 <h2><span class="header-section-number">2.4</span> 기타 설치</h2>
 <p>아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다.</p>
-<pre class="sourceCode r" id="cb3"><code class="sourceCode r"><div class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># install.packages(c(&#39;tidyverse&#39;, &#39;knitr&#39;)) # 설치 안되어 있으면 맨앞의 #을 지우고 설치.</span></div>
-<div class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(tidyverse) <span class="co"># For presentation only, dplyr, tidyr, ggplot2</span></div>
-<div class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">library</span>(knitr) <span class="co"># For reports</span></div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(c(&#39;tidyverse&#39;, &#39;knitr&#39;)) # 설치 안되어 있으면 맨앞의 #을 지우고 설치.</span>
+<span class="kw">library</span>(tidyverse) <span class="co"># For presentation only, dplyr, tidyr, ggplot2</span>
+<span class="kw">library</span>(knitr) <span class="co"># For reports</span></code></pre></div>
 <p>도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 <code>help()</code> 함수를 사용합니다.</p>
-<pre class="sourceCode r" id="cb4"><code class="sourceCode r"><div class="sourceLine" id="cb4-1" data-line-number="1">?NonCompart</div>
-<div class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">help</span>(tblNCA)</div></code></pre>
-<p>자료 분석을 위해 몇가지 도구가 필요한데 <code>tidyverse</code><span class="citation" data-cites="R-tidyverse">(<span class="citeproc-not-found" data-reference-id="R-tidyverse"><strong>???</strong></span>)</span>를 설치하면 다수의 편리한 패키지 <code>tidyr</code> <span class="citation" data-cites="R-tidyr">(<span class="citeproc-not-found" data-reference-id="R-tidyr"><strong>???</strong></span>)</span>, <code>dplyr</code> <span class="citation" data-cites="R-dplyr">(<span class="citeproc-not-found" data-reference-id="R-dplyr"><strong>???</strong></span>)</span>, <code>tibble</code> <span class="citation" data-cites="R-tibble">(<span class="citeproc-not-found" data-reference-id="R-tibble"><strong>???</strong></span>)</span>, <code>ggplot2</code> [R-ggplot2], <code>purrr</code> <span class="citation" data-cites="R-purrr">(<span class="citeproc-not-found" data-reference-id="R-purrr"><strong>???</strong></span>)</span>, <code>readr</code> <span class="citation" data-cites="R-readr">(<span class="citeproc-not-found" data-reference-id="R-readr"><strong>???</strong></span>)</span>의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">?NonCompart
+<span class="kw">help</span>(tblNCA)</code></pre></div>
+<p>자료 분석을 위해 몇가지 도구가 필요한데 <code>tidyverse</code><span class="citation">(Wickham <a href="#ref-R-tidyverse">2017</a>)</span>를 설치하면 다수의 편리한 패키지 <code>tidyr</code> <span class="citation">(Wickham and Henry <a href="#ref-R-tidyr">2017</a>)</span>, <code>dplyr</code> <span class="citation">(Wickham et al. <a href="#ref-R-dplyr">2017</a>)</span>, <code>tibble</code> <span class="citation">(Muller and Wickham <a href="#ref-R-tibble">2017</a>)</span>, <code>ggplot2</code> [R-ggplot2], <code>purrr</code> <span class="citation">(Henry and Wickham <a href="#ref-R-purrr">2017</a>)</span>, <code>readr</code> <span class="citation">(Wickham, Hester, and Francois <a href="#ref-R-readr">2017</a>)</span>의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.</p>
 <p>다만 비구획분석을 위한 함수의 입력을 위해 <code>tibble</code> 형식은 <code>as.data.frame()</code>을 통하여 데이타프레임으로 자료 형식을 변환하는 것이 좋습니다. 마찬가지로 <code>readr</code> 패키지의 <code>read_csv()</code> 명령어를 쓸 경우 <code>tibble</code>로 읽혀지기 때문에 <code>as.data.frame()</code>으로 바꿔주거나 처음부터 <code>read_csv()</code>를 쓰는 것을 고려할 수 있습니다.</p>
-<pre class="sourceCode r" id="cb5"><code class="sourceCode r"><div class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</div>
-<div class="sourceLine" id="cb5-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;tidyverse/tidyverse&#39;</span>)</div>
-<div class="sourceLine" id="cb5-3" data-line-number="3"><span class="kw">library</span>(tidyverse)</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;tidyverse/tidyverse&#39;</span>)
+<span class="kw">library</span>(tidyverse)</code></pre></div>
 </div>
 </div>
 <h3>References</h3>
@@ -254,6 +238,32 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="ref-R-pkr">
 <p>Bae, Kyun-Seop, and Jee Eun Lee. 2017. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr" class="uri">https://CRAN.R-project.org/package=pkr</a>.</p>
 </div>
+<div id="ref-R-tidyverse">
+<p>Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>.</p>
+</div>
+<div id="ref-R-tidyr">
+<p>Wickham, Hadley, and Lionel Henry. 2017. <em>Tidyr: Easily Tidy Data with ’Spread()’ and ’Gather()’ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+<div id="ref-R-dplyr">
+<p>Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Muller. 2017. <em>Dplyr: A Grammar of Data Manipulation</em>.</p>
+</div>
+<div id="ref-R-tibble">
+<p>Muller, Kirill, and Hadley Wickham. 2017. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble" class="uri">https://CRAN.R-project.org/package=tibble</a>.</p>
+</div>
+<div id="ref-R-purrr">
+<p>Henry, Lionel, and Hadley Wickham. 2017. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr" class="uri">https://CRAN.R-project.org/package=purrr</a>.</p>
+</div>
+<div id="ref-R-readr">
+<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2017. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr" class="uri">https://CRAN.R-project.org/package=readr</a>.</p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="2">
+<li id="fn2"><p><a href="https://bookdown.org" class="uri">https://bookdown.org</a><a href="R-and-packages.html#fnref2">↩</a></p></li>
+<li id="fn3"><p><a href="https://coursera.com" class="uri">https://coursera.com</a><a href="R-and-packages.html#fnref3">↩</a></p></li>
+<li id="fn4"><p><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a><a href="R-and-packages.html#fnref4">↩</a></p></li>
+</ol>
 </div>
             </section>
 
@@ -309,7 +319,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

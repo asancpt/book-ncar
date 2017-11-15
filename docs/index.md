@@ -7,7 +7,7 @@ date: "2017-11-15"
 url: 'https\://asancpt.github.io/book-ncar/'
 github-repo: asancpt/book-ncar
 cover-image: assets/cover.jpg
-bibliography: ["bib/manual.bib", "bib/packages.bib", "keynote.bib"]
+bibliography: ["bib/manual.bib", "bib/packages.bib"]
 documentclass: krantz
 biblio-style: apalike
 link-citations: yes

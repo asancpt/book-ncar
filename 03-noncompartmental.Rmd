@@ -9,6 +9,7 @@ editor_options:
 ## 이 장에서는 {#summary-noncompart}
 
 `NonCompart` [@R-NonCompart]은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 
+약동학 교재의 내용을 충실히 반영하였습니다. [@gab; @tozer]
 이에 대해 좀더 자세히 알아보겠습니다.
 
 `NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
@@ -21,7 +22,6 @@ library(NonCompart)
 library(ncar)
 ```
 
-
 ## NonCompart 사용법 {#how-to-use}
 
 tblNCA의 사용법은 다음과 같습니다.
@@ -33,27 +33,29 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc",
 # args(NonCompart::tblNCA)
 ```
 
-concData는 데이터셋을 설정하며, `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 간단히 살펴보자면 다음과 같습니다. 
+concData는 데이터셋을 설정하며, `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다. 
 
 1. `down`
-    - AUC와 AUMC를 구하는 trapezoidal method 설정, 기본값은 Method="Linear"
-    - Linear와 Log 중 선택 가능하다.
-    - Linear는 Linear trapezoidal method이며, Log는 Linear-up and log-down method 입니다.
+    - AUC와 AUMC를 구하는 trapezoidal method 설정, 기본값은 `Linear`
+    - `Linear`와 `Log` 중 선택 가능하며 각각 linear trapezoidal method와 linear-up and log-down method를 의미합니다.
 2. `dose`
-    - 투여량에 대한 설정이다. 단위에 주의해야 한다. 벡터값을 줌으로서 각 대상자별 용량을 다르게 할 수 있습니다.
+    - 투여량에 대한 설정입니다. 단위에 주의해야 합니다.  벡터값을 줌으로서 각 대상자별 용량을 다르게 할 수 있습니다.
 3. `adm`
     - 투여경로에 대한 설정, 기본값은 "Extravascular"으로 경구 투여 등을 의미합니다.
     - Bolus, Infusion, Extravascular 중에서 선택 가능하다.
 4. `dur`
-    - 주입하는 기간(infusion duration)을 설정한다. 기본값은 0이다.
+    - 주입하는 기간(infusion duration)을 설정합니다. 기본값은 0입니다.
 
 이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
-우선 Theophilline 의 약동학 파라미터를 구해보겠습니다.
+우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.
 
 ```{r}
 TheophNca <- NonCompart::tblNCA(Theoph, "Subject", "Time", "conc", dose=320, concUnit="mg/L")
 head(TheophNca)
 ```
+
+여기서 `dose=320`으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 체내로 들어감을 의미합니다.
+
 
 ```{r include = FALSE}
 save(TheophNca, file = 'data/TheophNca.Rdata')

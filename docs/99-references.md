@@ -11,7 +11,7 @@ ID=6
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -90,7 +90,7 @@ ID=7
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -169,7 +169,7 @@ ID=8
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -248,7 +248,7 @@ ID=11
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -327,7 +327,7 @@ ID=3
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -406,7 +406,7 @@ ID=2
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -485,7 +485,7 @@ ID=4
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -564,7 +564,7 @@ ID=9
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -643,7 +643,7 @@ ID=12
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -722,7 +722,7 @@ ID=10
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -801,7 +801,7 @@ ID=1
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -880,7 +880,7 @@ ID=5
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 13:24:14 KST
+Date and Time: 2017-11-15 13:41:27 KST
 
 Calculation Setting
 -------------------
@@ -1002,10 +1002,11 @@ devtools::session_info()
 # 참고문헌 {-}
 
 
-
 - U.S. Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research (CDER) , Guidance for Industry Pharmacokinetics in Pregnancy — Study Design, Data Analysis, and Impact on Dosing and Labeling, (2004)
 - Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th Ed. 2010 (ISBN:9780781750097)
 - Hadley Wickham, Advanced R (Chapman & Hall/CRC The R Series) 1st Ed ,25 sep 2014
 - Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
 - http://www.edison.re.kr. EDISON 웹사이트. 
+
+
 

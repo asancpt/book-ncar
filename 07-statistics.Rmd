@@ -27,10 +27,6 @@ knitr::kable(descStatTheophNca, digits = 2)
 
 ## 생물학적 동등성 {#bioequivalence}
 
-```
-'cran/ncarbe/inst/example/beConc.csv'
-'cran/NonCompart/tests/be-conc.csv'
-```
 
 생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
@@ -53,9 +49,19 @@ args(beNCA)
 - TRT: column name in which information of "R" or "T" exists.
 - method: `kbe` by authors or `nlme` package uploaded on CRAN
 
+ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table \@ref(tab:beconcdata))
+
 ```{r}
 file <- system.file('example', 'beConc.csv', package = 'ncarbe')
-concData <- read.csv(file, as.is = TRUE)
+concData <- read_csv(file)
+```
+
+```{r beconcdata, echo = FALSE}
+knitr::kable(head(concData, 10), caption = 'A example dataset for the bioequivalence test.')
+```
+
+
+```{r}
 beNCA(concData)
 ```
 
@@ -161,6 +167,6 @@ bind_rows(calc_dp(param = 'Cmax', fit = fit_cmax),
           calc_dp(param = 'AUClast', fit = fit_auclast))
 ```
 
-C~max~는 생동 기준을 만족하는데 반해 AUC~last~는 만족하지 않는 것을 알 수 있습니다.
+C~max~는 dose proportionality 기준을 만족하는데 반해 AUC~last~는 만족하지 않는 것을 알 수 있습니다.
 
 
