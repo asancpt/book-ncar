@@ -50,60 +50,44 @@
 
 
 <style type="text/css">
-div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; }
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource div.sourceLine, .numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em; }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
-@media screen {
-a.sourceLine::before { text-decoration: underline; color: initial; }
-}
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.bn { color: #40a070; } /* BaseN */
-code span.fl { color: #40a070; } /* Float */
-code span.ch { color: #4070a0; } /* Char */
-code span.st { color: #4070a0; } /* String */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.ot { color: #007020; } /* Other */
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.fu { color: #06287e; } /* Function */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code span.cn { color: #880000; } /* Constant */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.im { } /* Import */
-code span.va { color: #19177c; } /* Variable */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.op { color: #666666; } /* Operator */
-code span.bu { } /* BuiltIn */
-code span.ex { } /* Extension */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.at { color: #7d9029; } /* Attribute */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="../css/style.css" />
+<link rel="stylesheet" href="..\css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -170,14 +154,14 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 <div id="txtnca" class="section level2">
 <h2><span class="header-section-number">3.1</span> txtNCA()</h2>
 <p>txtNCA()를 통해서 다음 결과를 얻을 수 있습니다.</p>
-<pre class="sourceCode r" id="cb19"><code class="sourceCode r"><div class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],</div>
-<div class="sourceLine" id="cb19-2" data-line-number="2">       Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], </div>
-<div class="sourceLine" id="cb19-3" data-line-number="3">       <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],
+       Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], 
+       <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)</code></pre></div>
 <pre><code>##  [1] &quot;                        NONCOMPARTMENTAL ANALYSIS REPORT&quot;                           
 ##  [2] &quot;                       Package version 0.3.7 (2017-08-16 KST)&quot;                      
 ##  [3] &quot;                          R version 3.4.2 (2017-09-28)&quot;                             
 ##  [4] &quot;&quot;                                                                                   
-##  [5] &quot;Date and Time: 2017-11-15 11:15:44 Asia/Seoul&quot;                                      
+##  [5] &quot;Date and Time: 2017-11-15 17:28:03 KST&quot;                                             
 ##  [6] &quot;&quot;                                                                                   
 ##  [7] &quot;Calculation Setting&quot;                                                                
 ##  [8] &quot;-------------------&quot;                                                                
@@ -246,25 +230,25 @@ code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Infor
 ## [71] &quot;MRTEVIFO   MRT Extravasc Infinity Obs                     20.8000 h&quot;                
 ## [72] &quot;MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h&quot;</code></pre>
 <p>파일로 저장하려면 다음을 입력합니다.</p>
-<pre class="sourceCode r" id="cb21"><code class="sourceCode r"><div class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">writeLines</span>(<span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],</div>
-<div class="sourceLine" id="cb21-2" data-line-number="2">                  Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], </div>
-<div class="sourceLine" id="cb21-3" data-line-number="3">                  <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>,</div>
-<div class="sourceLine" id="cb21-4" data-line-number="4">                  <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>), </div>
-<div class="sourceLine" id="cb21-5" data-line-number="5">           <span class="st">&#39;Output-ncar/txtNCA-Theoph.txt&#39;</span>)</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">writeLines</span>(<span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],
+                  Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], 
+                  <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>,
+                  <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>), 
+           <span class="st">&#39;Output-ncar/txtNCA-Theoph.txt&#39;</span>)</code></pre></div>
 </div>
 <div id="pdfnca" class="section level2">
 <h2><span class="header-section-number">3.2</span> pdfNCA()</h2>
 <p>pdfNCA()로 pdf로 결과를 볼 수 있습니다.</p>
-<pre class="sourceCode r" id="cb22"><code class="sourceCode r"><div class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;Output-ncar/pdfNCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, </div>
-<div class="sourceLine" id="cb22-2" data-line-number="2">       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</div></code></pre>
-<pre><code>## quartz_off_screen 
-##                 2</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;Output-ncar/pdfNCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, 
+       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<pre><code>## png 
+##   2</code></pre>
 </div>
 <div id="rtfnca" class="section level2">
 <h2><span class="header-section-number">3.3</span> rtfNCA()</h2>
 <p>마이크로소프트 워드에서 편집가능한 rtf파일을 만듭니다.</p>
-<pre class="sourceCode r" id="cb24"><code class="sourceCode r"><div class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, </div>
-<div class="sourceLine" id="cb24-2" data-line-number="2">       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</div></code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="dt">colSubj=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, 
+       <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
 </div>
 </div>
             </section>

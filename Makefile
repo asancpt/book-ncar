@@ -1,7 +1,7 @@
-
 handout:
 	cd Rmd-handout ;\
 	Rscript --quiet _render.R "bookdown::gitbook" ;\
+	Rscript --quiet _render.R "bookdown::pdf_book" ;\
 	cd ..
 
 publish:

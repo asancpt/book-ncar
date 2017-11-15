@@ -1,14 +1,24 @@
 ---
+#papersize: A4
+#fontsize: 10pt
+#documentclass: krantz
+#geometry: "margin=4in"               
+#geometry: "a4paper,left=1.5in,right=1.5in,top=1in,bottom=1in"
+#geometry: "a4paper, nohead, nomarginpar, left=1.5in,right=1.5in,top=5in,bottom=3in,foot=1in"
+#geometry: "a4paper, nohead, nomarginpar"
+#geometry: "total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot"
+#geometry: "a4paper, nohead, nomarginpar, left=1.5in,right=1.5in,top=1in,bottom=1in, includeheadfoot"
 title: "R을 통한 비구획분석: 실습"
 author: "서울아산병원 임상약리학과 전공의 한성필"
 date: "`r Sys.Date()`"
 bibliography: "keynote.bib"
 knit: "bookdown::render_book"
 documentclass: krantz
+#documentclass: svmono
 biblio-style: apalike
 link-citations: yes
 colorlinks: yes
-fontsize: 12pt
+fontsize: 9pt
 header-includes:
   - \usepackage{kotex}
 output:
@@ -18,7 +28,7 @@ output:
     toc_depth: 3
     toc_unnumbered: no
     toc_appendix: yes
-    #template: null
+    template: null
     #dev: "cairo_pdf"
     #latex_engine: xelatex
     #includes:
@@ -59,12 +69,7 @@ opts_chunk$set(#error = TRUE,
                message = FALSE, warning = FALSE)
 ```
 
-<!-- R을 통한 비구획분석: 실습 {-}
-Test-->
-
 \mainmatter
-
-
 
 # 서론 {#intro}
 

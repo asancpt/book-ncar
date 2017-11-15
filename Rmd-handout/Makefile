@@ -4,6 +4,9 @@ gitbook:
 pdf:
 	Rscript --quiet _render.R "bookdown::pdf_book"
 
+openpdf:
+	start ../docs-handout/handout.pdf
+
 all:
 	Rscript --quiet _render.R
 

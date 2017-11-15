@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1510730232 "book-ncar.tex" "book-ncar.pdf" "book-ncar" 1510730232
+["pdflatex"] 1510732314 "book-ncar.tex" "book-ncar.pdf" "book-ncar" 1510732314
   "C:/Users/mdlhs/AppData/Local/MiKTeX/2.9/miktex/data/le/pdftex/pdflatex.fmt" 1510730228 4055275 16cdf47faf03451f00946edf9be7116a ""
   "C:/Users/mdlhs/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map" 1510730217 140959 7b98a6b4a7ee6b282da6e8d25062cf5f ""
   "C:/Users/mdlhs/AppData/Roaming/MiKTeX/2.9/fonts/tfm/public/nanumtype1/nanummjbac.tfm" 1362357355 1288 3d6009e2287bdc513a35f02ff5545b30 ""
@@ -197,14 +197,14 @@
   "D:/MiKTeX 2.9/tex/latex/oberdiek/rerunfilecheck.sty" 1489934434 9581 023642318cef9f4677efe364de1e2a27 ""
   "D:/MiKTeX 2.9/tex/latex/tools/longtable.sty" 1492423194 12529 e4a1a000d2436a6e24b6184b5109fe8b ""
   "assets/cc.png" 1510217139 1888 76f1bdea2757fcfe7b5d2dc86df14968 ""
-  "book-ncar.aux" 1510730231 1463 2133a6daed7ccb7f875dd1d74c5e1c7d ""
-  "book-ncar.out" 0 -1 0 ""
-  "book-ncar.tex" 1510730201 217171 3b4cdfd5b3d6bb45af2f08124c032472 ""
-  "book-ncar.toc" 0 -1 0 ""
+  "book-ncar.aux" 1510732314 1463 2133a6daed7ccb7f875dd1d74c5e1c7d ""
+  "book-ncar.out" 1510732314 375 18c3274d6d03ca8f343a41b88f2fc6ea ""
+  "book-ncar.tex" 1510732312 198090 280e246f7adcecca0f26b79e8a88c57d ""
+  "book-ncar.toc" 1510732314 0 d41d8cd98f00b204e9800998ecf8427e ""
   "krantz.cls" 1508400777 62996 74cc26205727920b73a908240fe81a39 ""
   (generated)
-  "book-ncar.aux"
-  "book-ncar.pdf"
   "book-ncar.out"
   "book-ncar.log"
+  "book-ncar.aux"
+  "book-ncar.pdf"
   "book-ncar.toc"

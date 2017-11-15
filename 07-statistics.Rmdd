@@ -1,0 +1,180 @@
+# 통계처리 {#statistics}
+
+## 이 장에서는 {#stat-intro}
+
+생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.
+
+```{r, message = FALSE}
+library(tidyverse)
+library(ncarbe)
+library(broom)
+```
+
+## 기술통계량 구하기
+
+앞서 \@ref(noncompart)장에서 구한 `TheophNca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `broom::tidy()` 함수를 사용하면 간단히 구할 수 있습니다. 다만 `NonCompart::tblNCA()` 후 `data.frame` 형태로 저장되어 입력으로 주어져야 합니다.
+
+```{r include = FALSE}
+load('data/TheophNca.Rdata')
+```
+
+```{r}
+descStatTheophNca <- tidy(as.data.frame(TheophNca, stringsAsFactors = FALSE)) %>% 
+  select(column, n, mean, sd, min, max, skew, kurtosis)
+
+knitr::kable(descStatTheophNca, digits = 2)
+```
+
+## 생물학적 동등성 {#bioequivalence}
+
+생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
+Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
+생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:be)
+
+$$
+\begin{align}
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 (\#eq:be)
+\end{align}
+$$
+
+현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
+핵심이 되는 함수는 `beNCA()` 입니다. 
+
+```{r twobytwo, fig.cap = '전형적인 2x2 설계'}
+knitr::include_graphics('assets/twobytwo.jpg')
+```
+
+```{r echo = FALSE}
+args(beNCA)
+```
+
+다음과 같은 함수 인자를 설정해 주면 됩니다.
+
+- SUBJ: Subject ID, any data type
+- GRP: column name in which information of "RT" or "TR" exists.
+- PRD: column name in which information of 1 or 2 exists.
+- TRT: column name in which information of "R" or "T" exists.
+- method: `kbe` by authors or `nlme` package uploaded on CRAN
+
+ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table \@ref(tab:beconcdata))
+
+```{r}
+file <- system.file('example', 'beConc.csv', package = 'ncarbe')
+concData <- read_csv(file)
+```
+
+```{r beconcdata, echo = FALSE}
+knitr::kable(head(concData, 10), caption = 'A example dataset for the bioequivalence test.')
+```
+
+
+```{r}
+beNCA(concData)
+```
+
+
+배균섭 교수님의 강의 자료에서 가져왔습니다.
+
+```{r fixedrandom, fig.cap = '모수 인자와 변량 인자의 비교'}
+knitr::include_graphics('assets/fixed-random.jpg')
+```
+
+
+## Dose Proportionality {#dp}
+
+DP 처리.
+
+
+
+16명의 C~max~와 AUC~last~가 나온 표입니다. Table \@ref(tab:sad-pk)
+
+
+```{r, sad-pk}
+# setup ----
+
+library(readxl)
+library(tidyverse)
+library(broom)
+
+dp_data <- # Virtual data from 4 dose groups (N=16)
+'Dose,Subject,Cmax,AUClast
+50,101,860,2000
+50,102,510,2300
+50,103,620,2900
+50,104,540,2400
+100,201,1550,6600
+100,202,1440,7400
+100,203,2000,7300
+100,204,1600,7000
+200,301,4100,20400
+200,302,2800,9500
+200,303,3200,8000
+200,304,2550,7070
+400,401,4800,22000
+400,402,5700,23000
+400,403,5800,26700
+400,404,5760,28884'
+
+sad_indi_pk <- read_csv(dp_data)
+knitr::kable(sad_indi_pk, caption = '16명의 C~max~, AUC~last~')
+```
+
+
+그림을 살펴보겠습니다.
+
+```{r sad-indi-pk-log}
+sad_indi_pk_log <- sad_indi_pk %>% mutate_all(log)
+
+figA <- ggplot(sad_indi_pk_log, aes(x=Dose, y=Cmax)) +
+  geom_smooth(method = 'lm')+
+  geom_boxplot(aes(group = Dose), 
+               size = 1, 
+               outlier.colour = "red", 
+               outlier.shape = 1, 
+               outlier.size = 3) +
+  theme_bw() +
+  scale_x_continuous(breaks = c(50, 100, 200, 400)) +
+  labs(x = 'Dose (mg)', y = expression('C'[max]*' (ng/mL)'),
+       title = expression('C'[max]))
+figA
+
+figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
+  geom_smooth(method = 'lm')+
+  geom_boxplot(aes(group = Dose), 
+               size = 1, 
+               outlier.colour = "red", 
+               outlier.shape = 1, 
+               outlier.size = 3) +
+  theme_bw() +
+  scale_x_continuous(breaks = c(50, 100, 200, 400)) +
+  labs(x = 'Dose (mg)', y = expression('AUC'[(0-last)]*' (ng·hr/mL)'),
+       title = expression('AUC'[(0-last)]))
+figB
+```
+
+lm() 함수를 써서 구할 수 있습니다.
+
+```{r}
+calc_dp <- function(param, fit) {
+  bind_cols(fit %>% summary %>% tidy %>% filter(term == 'Dose'), 
+            fit %>% confint(level = 0.95) %>% tidy %>% filter(.rownames == 'Dose'), 
+            fit %>% summary %>% glance) %>% 
+    filter(term == 'Dose') %>% 
+    select(-.rownames, -term) %>% 
+    mutate(parameters = param) %>% 
+    mutate(est = sprintf('%0.2f (%0.2f)', estimate, std.error)) %>% 
+    mutate(ci = sprintf('%0.2f-%0.2f', X2.5.., X97.5..)) %>% 
+    select(parameters, est, ci, r.squared, p.value)
+}
+
+fit_cmax <- lm(formula = Cmax ~ Dose, data = sad_indi_pk_log)
+fit_auclast <- lm(formula = AUClast ~ Dose, data = sad_indi_pk_log)
+
+bind_rows(calc_dp(param = 'Cmax', fit = fit_cmax),
+          calc_dp(param = 'AUClast', fit = fit_auclast))
+```
+
+C~max~는 dose proportionality 기준을 만족하는데 반해 AUC~last~는 만족하지 않는 것을 알 수 있습니다.
+
+
