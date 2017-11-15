@@ -11,7 +11,7 @@ ID=6
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -90,7 +90,7 @@ ID=7
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -169,7 +169,7 @@ ID=8
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -248,7 +248,7 @@ ID=11
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -327,7 +327,7 @@ ID=3
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -406,7 +406,7 @@ ID=2
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -485,7 +485,7 @@ ID=4
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -564,7 +564,7 @@ ID=9
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -643,7 +643,7 @@ ID=12
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -722,7 +722,7 @@ ID=10
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -801,7 +801,7 @@ ID=1
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -880,7 +880,7 @@ ID=5
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:49 Asia/Seoul
+Date and Time: 2017-11-15 11:19:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -970,7 +970,7 @@ devtools::session_info()
 ##  language (EN)                        
 ##  collate  en_US.UTF-8                 
 ##  tz       Asia/Seoul                  
-##  date     2017-11-14                  
+##  date     2017-11-15                  
 ## 
 ##  package   * version date       source                           
 ##  backports   1.1.1   2017-09-25 CRAN (R 3.4.2)                   
@@ -999,7 +999,7 @@ devtools::session_info()
 ##  withr       2.1.0   2017-11-01 CRAN (R 3.4.2)
 ```
 
-# 참고문헌 {-}
+
 
 
 

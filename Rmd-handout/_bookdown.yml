@@ -1,7 +1,7 @@
 book_filename: handout
 chapter_name: "Chapter "
 repo: https://github.com/asancpt/book-ncar
-output_dir: docs
+output_dir: ../docs-handout
 # delete_merged_file: yes
 # delete_merged_file: no
 clean: no

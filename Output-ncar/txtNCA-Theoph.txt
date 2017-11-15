@@ -2,7 +2,7 @@
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-14 14:45:48 Asia/Seoul
+Date and Time: 2017-11-15 11:19:32 Asia/Seoul
 
 Calculation Setting
 -------------------

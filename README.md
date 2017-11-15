@@ -2,7 +2,7 @@
 
 진행 중인 작업.
 
-- NonCompart::tblNCA()
+
 
 ``` r
 make gitbook
@@ -10,7 +10,12 @@ make gitbook
 
 
 
-이 아래로는 
+- <https://ncar.netlify.com>
+- <https://ncarhandbook.netlify.com>
+- <https://ncarpaper.netlify.com>
+
+이 아래로는 수정 중인 사항.
+
 
 ---------
 

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>R을 통한 비구획분석: 실습</title>
+  <meta name="description" content="R을 통한 비구획분석: 실습">
+  <meta name="generator" content="bookdown 0.5.9 and GitBook 2.6.7">
+
+  <meta property="og:title" content="R을 통한 비구획분석: 실습" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="R을 통한 비구획분석: 실습" />
+  
+  
+  
+
+<meta name="author" content="서울아산병원 임상약리학과 전공의 한성필">
+
+
+<meta name="date" content="2017-11-15">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="-ncar.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceLine, a.sourceLine { display: inline-block; min-height: 1.25em; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; }
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+div.sourceLine, a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource div.sourceLine, .numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource div.sourceLine::before, .numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; color: #aaaaaa;  padding-left: 4px; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; color: initial; }
+}
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.bn { color: #40a070; } /* BaseN */
+code span.fl { color: #40a070; } /* Float */
+code span.ch { color: #4070a0; } /* Char */
+code span.st { color: #4070a0; } /* String */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.ot { color: #007020; } /* Other */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.fu { color: #06287e; } /* Function */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code span.cn { color: #880000; } /* Constant */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.im { } /* Import */
+code span.va { color: #19177c; } /* Variable */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.op { color: #666666; } /* Operator */
+code span.bu { } /* BuiltIn */
+code span.ex { } /* Extension */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.at { color: #7d9029; } /* Attribute */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="../css/style.css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./index.html">R을 사용한 비구획분석: 실습</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 서론</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section-1.1"><i class="fa fa-check"></i><b>1.1</b> 설치</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#r-"><i class="fa fa-check"></i><b>1.2</b> R에 대하여</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.3</b> 자료 탐색</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>1.4</b> 파라메터의 의미</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="-noncompart.html"><a href="-noncompart.html"><i class="fa fa-check"></i><b>2</b> 패키지: NonCompart</a><ul>
+<li class="chapter" data-level="2.1" data-path="-noncompart.html"><a href="-noncompart.html#snca"><i class="fa fa-check"></i><b>2.1</b> sNCA()</a></li>
+<li class="chapter" data-level="2.2" data-path="-noncompart.html"><a href="-noncompart.html#tblnca----"><i class="fa fa-check"></i><b>2.2</b> tblNCA(): 전체 대상자 비구획 분석</a></li>
+<li class="chapter" data-level="2.3" data-path="-noncompart.html"><a href="-noncompart.html#-descriptive-statistics"><i class="fa fa-check"></i><b>2.3</b> 기술통계 (Descriptive statistics)</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="-ncar.html"><a href="-ncar.html"><i class="fa fa-check"></i><b>3</b> 패키지: ncar</a><ul>
+<li class="chapter" data-level="3.1" data-path="-ncar.html"><a href="-ncar.html#txtnca"><i class="fa fa-check"></i><b>3.1</b> txtNCA()</a></li>
+<li class="chapter" data-level="3.2" data-path="-ncar.html"><a href="-ncar.html#pdfnca"><i class="fa fa-check"></i><b>3.2</b> pdfNCA()</a></li>
+<li class="chapter" data-level="3.3" data-path="-ncar.html"><a href="-ncar.html#rtfnca"><i class="fa fa-check"></i><b>3.3</b> rtfNCA()</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="-pkr.html"><a href="-pkr.html"><i class="fa fa-check"></i><b>4</b> 패키지: pkr</a><ul>
+<li class="chapter" data-level="4.1" data-path="-pkr.html"><a href="-pkr.html#plotpk"><i class="fa fa-check"></i><b>4.1</b> plotPK()</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="etc.html"><a href="etc.html"><i class="fa fa-check"></i><b>5</b> 기타 사항</a><ul>
+<li class="chapter" data-level="5.1" data-path="etc.html"><a href="etc.html#shiny-"><i class="fa fa-check"></i><b>5.1</b> shiny 앱</a></li>
+<li class="chapter" data-level="5.2" data-path="etc.html"><a href="etc.html#section-5.2"><i class="fa fa-check"></i><b>5.2</b> 지원</a></li>
+<li class="chapter" data-level="5.3" data-path="etc.html"><a href="etc.html#section-5.3"><i class="fa fa-check"></i><b>5.3</b> 고지</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> 참고문헌</a></li>
+<li class="divider"></li>
+<li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 통한 비구획분석: 실습</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="-noncompart" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> 패키지: NonCompart</h1>
+<div id="snca" class="section level2">
+<h2><span class="header-section-number">2.1</span> sNCA()</h2>
+<p>한명의 대상자에 대해 비구획 분석을 시행합니다.</p>
+<pre class="sourceCode r" id="cb8"><code class="sourceCode r"><div class="sourceLine" id="cb8-1" data-line-number="1"><span class="co"># For one subject</span></div>
+<div class="sourceLine" id="cb8-2" data-line-number="2">x =<span class="st"> </span>Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>]</div>
+<div class="sourceLine" id="cb8-3" data-line-number="3">y =<span class="st"> </span>Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>]</div>
+<div class="sourceLine" id="cb8-4" data-line-number="4"></div>
+<div class="sourceLine" id="cb8-5" data-line-number="5"><span class="kw">sNCA</span>(x, y, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)</div></code></pre>
+<pre><code>##           b0         CMAX        CMAXD         TMAX         TLAG 
+##    2.3687851   10.5000000    0.0328125    1.1200000    0.0000000 
+##         CLST        CLSTP         TLST       LAMZHL         LAMZ 
+##    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
+##       LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2 
+##    9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997 
+##        R2ADJ       AUCLST       AUCALL       AUCIFO      AUCIFOD 
+##    0.9999995  148.9230500  148.9230500  216.6119330    0.6769123 
+##       AUCIFP      AUCIFPD       AUCPEO       AUCPEP      AUMCLST 
+##  216.6149558    0.6769217   31.2489169   31.2498763 1459.0711035 
+##      AUMCIFO      AUMCIFP      AUMCPEO      AUMCPEP         VZFO 
+## 4505.5348194 4505.6708646   67.6160287   67.6170065   30.4867482 
+##         VZFP         CLFO         CLFP     MRTEVLST     MRTEVIFO 
+##   30.4863228    1.4772963    1.4772757    9.7974834   20.8000305 
+##     MRTEVIFP 
+##   20.8003683 
+## attr(,&quot;units&quot;)
+##  [1] &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;         &quot;h&quot;        
+##  [6] &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;         &quot;h&quot;         &quot;/h&quot;       
+## [11] &quot;h&quot;         &quot;h&quot;         &quot;&quot;          &quot;&quot;          &quot;&quot;         
+## [16] &quot;&quot;          &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot;
+## [21] &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot; &quot;%&quot;         &quot;%&quot;         &quot;h2*mg/L&quot;  
+## [26] &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;%&quot;         &quot;%&quot;         &quot;L&quot;        
+## [31] &quot;L&quot;         &quot;L/h&quot;       &quot;L/h&quot;       &quot;h&quot;         &quot;h&quot;        
+## [36] &quot;h&quot;</code></pre>
+<p>이때의 그림은 다음과 같습니다. (Figure <a href="-noncompart.html#fig:ggtheophindi">2.1</a>)</p>
+<pre class="sourceCode r" id="cb10"><code class="sourceCode r"><div class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">ggplot</span>(Theoph <span class="op">%&gt;%</span><span class="st"> </span>dplyr<span class="op">::</span><span class="kw">filter</span>(Subject <span class="op">==</span><span class="st"> </span><span class="dv">1</span>), </div>
+<div class="sourceLine" id="cb10-2" data-line-number="2">       <span class="kw">aes</span>(Time, conc, <span class="dt">group =</span> Subject, <span class="dt">color =</span> Subject)) <span class="op">+</span></div>
+<div class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></div>
+<div class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_minimal</span>() <span class="op">+</span></div>
+<div class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg) (Subject 1)&#39;</span>,</div>
+<div class="sourceLine" id="cb10-6" data-line-number="6">       <span class="dt">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</div></code></pre>
+<div class="figure"><span id="fig:ggtheophindi"></span>
+<img src="handout_files/figure-html/ggtheophindi-1.png" alt="Individual concentration-time curves of oral administration of Theoph (Subject 1)" width="576" />
+<p class="caption">
+Figure 2.1: Individual concentration-time curves of oral administration of Theoph (Subject 1)
+</p>
+</div>
+</div>
+<div id="tblnca----" class="section level2">
+<h2><span class="header-section-number">2.2</span> tblNCA(): 전체 대상자 비구획 분석</h2>
+<p>가장 많이 쓰는 함수 입니다! NonCompart 패키지의 핵심적인 기능입니다. 아래의 코드를 R의 콘솔창에 넣어보세요. 테오필린 경구 투여시의 비구획 분석입니다.</p>
+<pre class="sourceCode r" id="cb11"><code class="sourceCode r"><div class="sourceLine" id="cb11-1" data-line-number="1">Theoph_tblNCA &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</div></code></pre>
+<p>결과는 matrix 형태인데 너무 길기 때문에 핵심적인 일부 파라메터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>)만 표시할 수도 있습니다.</p>
+<pre class="sourceCode r" id="cb12"><code class="sourceCode r"><div class="sourceLine" id="cb12-1" data-line-number="1">Theoph_tblNCA_selected &lt;-<span class="st"> </span>Theoph_tblNCA[ , <span class="kw">c</span>(<span class="st">&#39;Subject&#39;</span>, <span class="st">&#39;CMAX&#39;</span>, <span class="st">&#39;TMAX&#39;</span>, <span class="st">&#39;AUCLST&#39;</span>)]</div>
+<div class="sourceLine" id="cb12-2" data-line-number="2">Theoph_tblNCA_selected</div></code></pre>
+<pre><code>##       Subject CMAX    TMAX   AUCLST     
+##  [1,] &quot;1&quot;     &quot;10.5&quot;  &quot;1.12&quot; &quot;148.92305&quot;
+##  [2,] &quot;2&quot;     &quot;8.33&quot;  &quot;1.92&quot; &quot;91.5268&quot;  
+##  [3,] &quot;3&quot;     &quot;8.2&quot;   &quot;1.02&quot; &quot;99.2865&quot;  
+##  [4,] &quot;4&quot;     &quot;8.6&quot;   &quot;1.07&quot; &quot;106.7963&quot; 
+##  [5,] &quot;5&quot;     &quot;11.4&quot;  &quot;1&quot;    &quot;121.2944&quot; 
+##  [6,] &quot;6&quot;     &quot;6.44&quot;  &quot;1.15&quot; &quot;73.77555&quot; 
+##  [7,] &quot;7&quot;     &quot;7.09&quot;  &quot;3.48&quot; &quot;90.7534&quot;  
+##  [8,] &quot;8&quot;     &quot;7.56&quot;  &quot;2.02&quot; &quot;88.55995&quot; 
+##  [9,] &quot;9&quot;     &quot;9.03&quot;  &quot;0.63&quot; &quot;86.32615&quot; 
+## [10,] &quot;10&quot;    &quot;10.21&quot; &quot;3.55&quot; &quot;138.3681&quot; 
+## [11,] &quot;11&quot;    &quot;8&quot;     &quot;0.98&quot; &quot;80.0936&quot;  
+## [12,] &quot;12&quot;    &quot;9.75&quot;  &quot;3.52&quot; &quot;119.9775&quot;</code></pre>
+<p>인도메타신 정맥 투여시의 비구획 분석입니다. 함수인자 <code>adm</code>을 infusion으로 바꾼 것을 볼 수 있고 <code>dur</code>가 추가된 것을 볼 수 있습니다.</p>
+<pre class="sourceCode r" id="cb14"><code class="sourceCode r"><div class="sourceLine" id="cb14-1" data-line-number="1">Indometh_tblNCA &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, </div>
+<div class="sourceLine" id="cb14-2" data-line-number="2">       <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</div></code></pre>
+<p>역시 핵심적인 일부 파라메터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>)만 표시할 수도 있습니다.</p>
+<pre class="sourceCode r" id="cb15"><code class="sourceCode r"><div class="sourceLine" id="cb15-1" data-line-number="1">Indometh_tblNCA_selected &lt;-<span class="st"> </span>Indometh_tblNCA[ , <span class="kw">c</span>(<span class="st">&#39;Subject&#39;</span>, <span class="st">&#39;CMAX&#39;</span>, <span class="st">&#39;TMAX&#39;</span>, <span class="st">&#39;AUCLST&#39;</span>)]</div>
+<div class="sourceLine" id="cb15-2" data-line-number="2">Indometh_tblNCA_selected</div></code></pre>
+<pre><code>##      Subject CMAX   TMAX   AUCLST   
+## [1,] &quot;1&quot;     &quot;1.5&quot;  &quot;0.25&quot; &quot;1.74125&quot;
+## [2,] &quot;2&quot;     &quot;2.03&quot; &quot;0.25&quot; &quot;2.9325&quot; 
+## [3,] &quot;3&quot;     &quot;2.72&quot; &quot;0.25&quot; &quot;2.93375&quot;
+## [4,] &quot;4&quot;     &quot;1.85&quot; &quot;0.25&quot; &quot;2.4775&quot; 
+## [5,] &quot;5&quot;     &quot;2.05&quot; &quot;0.25&quot; &quot;1.95375&quot;
+## [6,] &quot;6&quot;     &quot;2.31&quot; &quot;0.25&quot; &quot;2.8725&quot;</code></pre>
+</div>
+<div id="-descriptive-statistics" class="section level2">
+<h2><span class="header-section-number">2.3</span> 기술통계 (Descriptive statistics)</h2>
+<p>R에서는 필요에 따라서 자신만의 함수를 만들 수도 있습니다. 아래 두줄을 실행하면 <code>desc_tblNCA()</code> 함수를 사용하여 기술통계량을 쉽게 구할 수 있습니다. (Table <a href="-noncompart.html#tab:theodesc">2.1</a> and <a href="-noncompart.html#tab:indodesc">2.2</a>)</p>
+<pre class="sourceCode r" id="cb17"><code class="sourceCode r"><div class="sourceLine" id="cb17-1" data-line-number="1">desc_tblNCA &lt;-<span class="st"> </span><span class="cf">function</span>(tblNCA){<span class="kw">as.data.frame</span>(tblNCA) <span class="op">%&gt;%</span><span class="st"> </span></div>
+<div class="sourceLine" id="cb17-2" data-line-number="2"><span class="st">    </span><span class="kw">mutate_all</span>(<span class="cf">function</span>(x) <span class="kw">as.numeric</span>(<span class="kw">as.character</span>(x))) <span class="op">%&gt;%</span><span class="st"> </span>broom<span class="op">::</span><span class="kw">tidy</span>()}</div></code></pre>
+<pre class="sourceCode r" id="cb18"><code class="sourceCode r"><div class="sourceLine" id="cb18-1" data-line-number="1"><span class="kw">desc_tblNCA</span>(Theoph_tblNCA_selected)</div>
+<div class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">desc_tblNCA</span>(Indometh_tblNCA_selected)</div></code></pre>
+<table>
+<caption><span id="tab:theodesc">Table 2.1: </span>Descriptive statistics of selected PK parameters of Theoph oral administration</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">column</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">median</th>
+<th style="text-align: right;">trimmed</th>
+<th style="text-align: right;">mad</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">range</th>
+<th style="text-align: right;">skew</th>
+<th style="text-align: right;">kurtosis</th>
+<th style="text-align: right;">se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Subject</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">6.500000</td>
+<td style="text-align: right;">3.605551</td>
+<td style="text-align: right;">6.50000</td>
+<td style="text-align: right;">6.5000</td>
+<td style="text-align: right;">4.447800</td>
+<td style="text-align: right;">1.00000</td>
+<td style="text-align: right;">12.000</td>
+<td style="text-align: right;">11.0000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-1.501603</td>
+<td style="text-align: right;">1.0408330</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMAX</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">8.759167</td>
+<td style="text-align: right;">1.472959</td>
+<td style="text-align: right;">8.46500</td>
+<td style="text-align: right;">8.7270</td>
+<td style="text-align: right;">1.623447</td>
+<td style="text-align: right;">6.44000</td>
+<td style="text-align: right;">11.400</td>
+<td style="text-align: right;">4.9600</td>
+<td style="text-align: right;">0.2137012</td>
+<td style="text-align: right;">-1.186397</td>
+<td style="text-align: right;">0.4252066</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TMAX</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">1.788333</td>
+<td style="text-align: right;">1.112408</td>
+<td style="text-align: right;">1.13500</td>
+<td style="text-align: right;">1.7280</td>
+<td style="text-align: right;">0.489258</td>
+<td style="text-align: right;">0.63000</td>
+<td style="text-align: right;">3.550</td>
+<td style="text-align: right;">2.9200</td>
+<td style="text-align: right;">0.6998568</td>
+<td style="text-align: right;">-1.345075</td>
+<td style="text-align: right;">0.3211245</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCLST</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">103.806775</td>
+<td style="text-align: right;">23.645216</td>
+<td style="text-align: right;">95.40665</td>
+<td style="text-align: right;">102.2983</td>
+<td style="text-align: right;">19.794711</td>
+<td style="text-align: right;">73.77555</td>
+<td style="text-align: right;">148.923</td>
+<td style="text-align: right;">75.1475</td>
+<td style="text-align: right;">0.5625746</td>
+<td style="text-align: right;">-1.117566</td>
+<td style="text-align: right;">6.8257858</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption><span id="tab:indodesc">Table 2.2: </span>Descriptive statistics of selected PK parameters of Indometh IV infusion</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">column</th>
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">median</th>
+<th style="text-align: right;">trimmed</th>
+<th style="text-align: right;">mad</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">range</th>
+<th style="text-align: right;">skew</th>
+<th style="text-align: right;">kurtosis</th>
+<th style="text-align: right;">se</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Subject</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">3.500000</td>
+<td style="text-align: right;">1.8708287</td>
+<td style="text-align: right;">3.500</td>
+<td style="text-align: right;">3.500000</td>
+<td style="text-align: right;">2.2239000</td>
+<td style="text-align: right;">1.00000</td>
+<td style="text-align: right;">6.00000</td>
+<td style="text-align: right;">5.0000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">-1.797619</td>
+<td style="text-align: right;">0.7637626</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CMAX</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2.076667</td>
+<td style="text-align: right;">0.4135537</td>
+<td style="text-align: right;">2.040</td>
+<td style="text-align: right;">2.076667</td>
+<td style="text-align: right;">0.3409980</td>
+<td style="text-align: right;">1.50000</td>
+<td style="text-align: right;">2.72000</td>
+<td style="text-align: right;">1.2200</td>
+<td style="text-align: right;">0.1777485</td>
+<td style="text-align: right;">-1.361889</td>
+<td style="text-align: right;">0.1688326</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">TMAX</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">0.250000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.250</td>
+<td style="text-align: right;">0.250000</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.25000</td>
+<td style="text-align: right;">0.25000</td>
+<td style="text-align: right;">0.0000</td>
+<td style="text-align: right;">NaN</td>
+<td style="text-align: right;">NaN</td>
+<td style="text-align: right;">0.0000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">AUCLST</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">2.485208</td>
+<td style="text-align: right;">0.5267325</td>
+<td style="text-align: right;">2.675</td>
+<td style="text-align: right;">2.485208</td>
+<td style="text-align: right;">0.3826961</td>
+<td style="text-align: right;">1.74125</td>
+<td style="text-align: right;">2.93375</td>
+<td style="text-align: right;">1.1925</td>
+<td style="text-align: right;">-0.3695625</td>
+<td style="text-align: right;">-1.940994</td>
+<td style="text-align: right;">0.2150376</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="-ncar.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/asancpt/book-ncar/edit/master/index.Rmd",
+"text": "Edit"
+},
+"download": ["handout.pdf"],
+"toc": {
+"collapse": "section"
+},
+"toolbar": {
+"position": "static"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
