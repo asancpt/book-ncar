@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="conclusion.html">
+<link rel="prev" href="tblnca2.html">
 <link rel="next" href="support.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,11 +159,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
+<li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="tblnca2.html"><a href="tblnca2.html#writing-tblnca2"><i class="fa fa-check"></i><b>A.1.1</b> Writing <code>tblNCA2()</code></a></li>
+<li class="chapter" data-level="A.1.2" data-path="tblnca2.html"><a href="tblnca2.html#examples"><i class="fa fa-check"></i><b>A.1.2</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
-<li class="chapter" data-level="C" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i><b>C</b> sessionInfo</a></li>
+<li class="chapter" data-level="A.2" data-path="tblnca2.html"><a href="tblnca2.html#how-to-get-descriptive-statistics"><i class="fa fa-check"></i><b>A.2</b> How to get descriptive statistics</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="tblnca2.html"><a href="tblnca2.html#write-your-own-scripts"><i class="fa fa-check"></i><b>A.2.1</b> Write your own scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>C</b> 지원</a></li>
+<li class="chapter" data-level="D" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>D</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -186,16 +195,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="groupreport" class="section level1">
-<h1><span class="header-section-number">A</span> R에 내장된 자료의 비구획분석 보고서</h1>
+<h1><span class="header-section-number">B</span> R에 내장된 자료의 비구획분석 보고서</h1>
 <div id="theophgroup" class="section level2">
-<h2><span class="header-section-number">A.1</span> Theoph의 보고서</h2>
+<h2><span class="header-section-number">B.1</span> Theoph의 보고서</h2>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ID=<span class="dv">6</span>
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -274,7 +283,7 @@ ID=<span class="dv">7</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -353,7 +362,7 @@ ID=<span class="dv">8</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -432,7 +441,7 @@ ID=<span class="dv">11</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -511,7 +520,7 @@ ID=<span class="dv">3</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -590,7 +599,7 @@ ID=<span class="dv">2</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -669,7 +678,7 @@ ID=<span class="dv">4</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">46</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -748,7 +757,7 @@ ID=<span class="dv">9</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">47</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -827,7 +836,7 @@ ID=<span class="dv">12</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">47</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -906,7 +915,7 @@ ID=<span class="dv">10</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">47</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -985,7 +994,7 @@ ID=<span class="dv">1</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">47</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -1064,7 +1073,7 @@ ID=<span class="dv">5</span>
                        Package version <span class="fl">0.3</span>.<span class="dv">7</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">08</span><span class="op">-</span><span class="dv">16</span> KST)
                           R version <span class="fl">3.4</span>.<span class="dv">2</span> (<span class="dv">2017</span><span class="op">-</span><span class="dv">09</span><span class="op">-</span><span class="dv">28</span>)
 
-Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">13</span><span class="op">:</span><span class="dv">41</span><span class="op">:</span><span class="dv">27</span> KST
+Date and Time<span class="op">:</span><span class="st"> </span><span class="dv">2017</span><span class="op">-</span><span class="dv">11</span><span class="op">-</span><span class="dv">15</span> <span class="dv">16</span><span class="op">:</span><span class="dv">15</span><span class="op">:</span><span class="dv">47</span> KST
 
 Calculation Setting
 <span class="op">-------------------</span>
@@ -1139,7 +1148,7 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    <span class="fl">11.93
           </div>
         </div>
       </div>
-<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="tblnca2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="support.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

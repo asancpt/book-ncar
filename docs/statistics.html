@@ -159,11 +159,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
+<li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="tblnca2.html"><a href="tblnca2.html#writing-tblnca2"><i class="fa fa-check"></i><b>A.1.1</b> Writing <code>tblNCA2()</code></a></li>
+<li class="chapter" data-level="A.1.2" data-path="tblnca2.html"><a href="tblnca2.html#examples"><i class="fa fa-check"></i><b>A.1.2</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
-<li class="chapter" data-level="C" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i><b>C</b> sessionInfo</a></li>
+<li class="chapter" data-level="A.2" data-path="tblnca2.html"><a href="tblnca2.html#how-to-get-descriptive-statistics"><i class="fa fa-check"></i><b>A.2</b> How to get descriptive statistics</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="tblnca2.html"><a href="tblnca2.html#write-your-own-scripts"><i class="fa fa-check"></i><b>A.2.1</b> Write your own scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>C</b> 지원</a></li>
+<li class="chapter" data-level="D" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>D</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -591,7 +600,14 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <div id="bioequivalence" class="section level2">
 <h2><span class="header-section-number">8.3</span> 생물학적 동등성</h2>
 <p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2017</a>)</span>를 쓰는 것입니다.<br />
-Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">8.1</a>) 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
+Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="statistics.html#eq:be">(8.1)</a></p>
+<p><span class="math display" id="eq:be">\[
+\begin{align}
+  0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \\
+  0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \tag{8.1}
+\end{align}
+\]</span></p>
+<p>현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">8.1</a>) 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/twobytwo.jpg&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:twobytwo"></span>
 <img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
@@ -997,7 +1013,7 @@ fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class
 
 </div>
 </div>
-<h3>References</h3>
+<h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-R-ncarbe">
 <p>Bae, Kyun-Seop, and Sungpil Han. 2017. <em>Ncarbe: Perform Be Test Using Noncompart Package</em>.</p>

@@ -27,52 +27,99 @@ knitr::kable(descStatTheophNca, digits = 2)
 ```
 
 
-
-column        n      mean        sd      min       max    skew   kurtosis
-----------  ---  --------  --------  -------  --------  ------  ---------
-Subject*     12      6.50      3.61     1.00     12.00    0.00      -1.50
-b0*          12      2.39      0.25     2.03      2.82    0.13      -1.38
-CMAX*        12      8.76      1.47     6.44     11.40    0.21      -1.19
-CMAXD*       12      0.03      0.00     0.02      0.04    0.21      -1.19
-TMAX*        12      1.79      1.11     0.63      3.55    0.70      -1.35
-TLAG*        12      0.00      0.00     0.00      0.00     NaN        NaN
-CLST*        12      1.40      0.72     0.86      3.28    1.57       1.14
-CLSTP*       12      1.40      0.72     0.86      3.28    1.58       1.19
-TLST*        12     24.20      0.25    23.70     24.65   -0.28      -0.57
-LAMZHL*      12      8.18      2.12     6.29     14.30    1.90       2.97
-LAMZ*        12      0.09      0.02     0.05      0.11   -0.92       0.40
-LAMZLL*      12      7.49      2.40     2.03      9.38   -1.20      -0.03
-LAMZUL*      12     24.20      0.25    23.70     24.65   -0.28      -0.57
-LAMZNPT*     12      3.83      1.34     3.00      7.00    1.32       0.28
-CORRXY*      12     -1.00      0.00    -1.00     -1.00    2.20       3.87
-R2*          12      1.00      0.00     0.99      1.00   -2.20       3.87
-R2ADJ*       12      1.00      0.00     0.99      1.00   -2.05       3.39
-AUCLST*      12    103.81     23.65    73.78    148.92    0.56      -1.12
-AUCALL*      12    103.81     23.65    73.78    148.92    0.56      -1.12
-AUCIFO*      12    122.19     38.13    84.25    216.61    1.25       0.51
-AUCIFOD*     12      0.38      0.12     0.26      0.68    1.25       0.51
-AUCIFP*      12    122.18     38.11    84.50    216.61    1.26       0.52
-AUCIFPD*     12      0.38      0.12     0.26      0.68    1.26       0.52
-AUCPEO*      12     13.54      6.35     8.13     31.25    1.71       2.19
-AUCPEP*      12     13.54      6.34     8.16     31.25    1.72       2.23
-AUMCLST*     12    883.06    262.98   609.15   1459.07    0.92      -0.42
-AUMCIFO*     12   1590.30   1006.57   928.56   4505.53    2.00       2.96
-AUMCIFP*     12   1589.85   1006.06   928.49   4505.67    2.01       2.97
-AUMCPEO*     12     38.72     11.10    26.50     67.62    1.29       1.10
-AUMCPEP*     12     38.72     11.07    26.59     67.62    1.30       1.14
-VZFO*        12     31.93      6.47    22.22     43.26    0.20      -1.40
-VZFP*        12     31.92      6.46    22.22     43.14    0.19      -1.41
-CLFO*        12      2.81      0.68     1.48      3.80   -0.45      -0.93
-CLFP*        12      2.81      0.68     1.48      3.79   -0.46      -0.93
-MRTEVLST*    12      8.41      0.59     7.71      9.80    0.99       0.12
-MRTEVIFO*    12     12.29      2.96     9.98     20.80    1.90       2.83
-MRTEVIFP*    12     12.29      2.95     9.95     20.80    1.91       2.84
+\begin{tabular}{l|r|r|r|r|r|r|r}
+\hline
+column & n & mean & sd & min & max & skew & kurtosis\\
+\hline
+Subject* & 12 & 6.50 & 3.61 & 1.00 & 12.00 & 0.00 & -1.50\\
+\hline
+b0* & 12 & 2.39 & 0.25 & 2.03 & 2.82 & 0.13 & -1.38\\
+\hline
+CMAX* & 12 & 8.76 & 1.47 & 6.44 & 11.40 & 0.21 & -1.19\\
+\hline
+CMAXD* & 12 & 0.03 & 0.00 & 0.02 & 0.04 & 0.21 & -1.19\\
+\hline
+TMAX* & 12 & 1.79 & 1.11 & 0.63 & 3.55 & 0.70 & -1.35\\
+\hline
+TLAG* & 12 & 0.00 & 0.00 & 0.00 & 0.00 & NaN & NaN\\
+\hline
+CLST* & 12 & 1.40 & 0.72 & 0.86 & 3.28 & 1.57 & 1.14\\
+\hline
+CLSTP* & 12 & 1.40 & 0.72 & 0.86 & 3.28 & 1.58 & 1.19\\
+\hline
+TLST* & 12 & 24.20 & 0.25 & 23.70 & 24.65 & -0.28 & -0.57\\
+\hline
+LAMZHL* & 12 & 8.18 & 2.12 & 6.29 & 14.30 & 1.90 & 2.97\\
+\hline
+LAMZ* & 12 & 0.09 & 0.02 & 0.05 & 0.11 & -0.92 & 0.40\\
+\hline
+LAMZLL* & 12 & 7.49 & 2.40 & 2.03 & 9.38 & -1.20 & -0.03\\
+\hline
+LAMZUL* & 12 & 24.20 & 0.25 & 23.70 & 24.65 & -0.28 & -0.57\\
+\hline
+LAMZNPT* & 12 & 3.83 & 1.34 & 3.00 & 7.00 & 1.32 & 0.28\\
+\hline
+CORRXY* & 12 & -1.00 & 0.00 & -1.00 & -1.00 & 2.20 & 3.87\\
+\hline
+R2* & 12 & 1.00 & 0.00 & 0.99 & 1.00 & -2.20 & 3.87\\
+\hline
+R2ADJ* & 12 & 1.00 & 0.00 & 0.99 & 1.00 & -2.05 & 3.39\\
+\hline
+AUCLST* & 12 & 103.81 & 23.65 & 73.78 & 148.92 & 0.56 & -1.12\\
+\hline
+AUCALL* & 12 & 103.81 & 23.65 & 73.78 & 148.92 & 0.56 & -1.12\\
+\hline
+AUCIFO* & 12 & 122.19 & 38.13 & 84.25 & 216.61 & 1.25 & 0.51\\
+\hline
+AUCIFOD* & 12 & 0.38 & 0.12 & 0.26 & 0.68 & 1.25 & 0.51\\
+\hline
+AUCIFP* & 12 & 122.18 & 38.11 & 84.50 & 216.61 & 1.26 & 0.52\\
+\hline
+AUCIFPD* & 12 & 0.38 & 0.12 & 0.26 & 0.68 & 1.26 & 0.52\\
+\hline
+AUCPEO* & 12 & 13.54 & 6.35 & 8.13 & 31.25 & 1.71 & 2.19\\
+\hline
+AUCPEP* & 12 & 13.54 & 6.34 & 8.16 & 31.25 & 1.72 & 2.23\\
+\hline
+AUMCLST* & 12 & 883.06 & 262.98 & 609.15 & 1459.07 & 0.92 & -0.42\\
+\hline
+AUMCIFO* & 12 & 1590.30 & 1006.57 & 928.56 & 4505.53 & 2.00 & 2.96\\
+\hline
+AUMCIFP* & 12 & 1589.85 & 1006.06 & 928.49 & 4505.67 & 2.01 & 2.97\\
+\hline
+AUMCPEO* & 12 & 38.72 & 11.10 & 26.50 & 67.62 & 1.29 & 1.10\\
+\hline
+AUMCPEP* & 12 & 38.72 & 11.07 & 26.59 & 67.62 & 1.30 & 1.14\\
+\hline
+VZFO* & 12 & 31.93 & 6.47 & 22.22 & 43.26 & 0.20 & -1.40\\
+\hline
+VZFP* & 12 & 31.92 & 6.46 & 22.22 & 43.14 & 0.19 & -1.41\\
+\hline
+CLFO* & 12 & 2.81 & 0.68 & 1.48 & 3.80 & -0.45 & -0.93\\
+\hline
+CLFP* & 12 & 2.81 & 0.68 & 1.48 & 3.79 & -0.46 & -0.93\\
+\hline
+MRTEVLST* & 12 & 8.41 & 0.59 & 7.71 & 9.80 & 0.99 & 0.12\\
+\hline
+MRTEVIFO* & 12 & 12.29 & 2.96 & 9.98 & 20.80 & 1.90 & 2.83\\
+\hline
+MRTEVIFP* & 12 & 12.29 & 2.95 & 9.95 & 20.80 & 1.91 & 2.84\\
+\hline
+\end{tabular}
 
 ## 생물학적 동등성 {#bioequivalence}
 
-
 생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
+생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:be)
+
+$$
+\begin{align}
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 (\#eq:be)
+\end{align}
+$$
+
 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
 핵심이 되는 함수는 `beNCA()` 입니다. 
 
@@ -81,10 +128,9 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009desig
 knitr::include_graphics('assets/twobytwo.jpg')
 ```
 
-<div class="figure">
-<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
-<p class="caption">(\#fig:twobytwo)전형적인 2x2 설계</p>
-</div>
+\begin{figure}
+\includegraphics[width=18.01in]{assets/twobytwo} \caption{전형적인 2x2 설계}(\#fig:twobytwo)
+\end{figure}
 
 
 ```
@@ -109,21 +155,36 @@ file <- system.file('example', 'beConc.csv', package = 'ncarbe')
 concData <- read_csv(file)
 ```
 
+\begin{table}
 
-Table: (\#tab:beconcdata)A example dataset for the bioequivalence test.
-
- SUBJ  GRP    PRD  TRT    nTIME   TIME     CONC
------  ----  ----  ----  ------  -----  -------
-    1  RT       1  R       0.00   0.02    63.42
-    1  RT       1  R       0.25   0.24   432.76
-    1  RT       1  R       0.50   0.51   622.88
-    1  RT       1  R       0.75   0.80   809.93
-    1  RT       1  R       1.00   1.02   824.34
-    1  RT       1  R       2.00   2.04   602.22
-    1  RT       1  R       3.00   2.96   512.28
-    1  RT       1  R       4.00   3.99   421.99
-    1  RT       1  R       6.00   6.04   302.73
-    1  RT       1  R       8.00   8.04   181.60
+\caption{(\#tab:beconcdata)A example dataset for the bioequivalence test.}
+\centering
+\begin{tabular}[t]{r|l|r|l|r|r|r}
+\hline
+SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC\\
+\hline
+1 & RT & 1 & R & 0.00 & 0.02 & 63.42\\
+\hline
+1 & RT & 1 & R & 0.25 & 0.24 & 432.76\\
+\hline
+1 & RT & 1 & R & 0.50 & 0.51 & 622.88\\
+\hline
+1 & RT & 1 & R & 0.75 & 0.80 & 809.93\\
+\hline
+1 & RT & 1 & R & 1.00 & 1.02 & 824.34\\
+\hline
+1 & RT & 1 & R & 2.00 & 2.04 & 602.22\\
+\hline
+1 & RT & 1 & R & 3.00 & 2.96 & 512.28\\
+\hline
+1 & RT & 1 & R & 4.00 & 3.99 & 421.99\\
+\hline
+1 & RT & 1 & R & 6.00 & 6.04 & 302.73\\
+\hline
+1 & RT & 1 & R & 8.00 & 8.04 & 181.60\\
+\hline
+\end{tabular}
+\end{table}
 
 
 
@@ -216,10 +277,9 @@ beNCA(concData)
 knitr::include_graphics('assets/fixed-random.jpg')
 ```
 
-<div class="figure">
-<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
-<p class="caption">(\#fig:fixedrandom)모수 인자와 변량 인자의 비교</p>
-</div>
+\begin{figure}
+\includegraphics[width=16.86in]{assets/fixed-random} \caption{모수 인자와 변량 인자의 비교}(\#fig:fixedrandom)
+\end{figure}
 
 
 ## Dose Proportionality {#dp}
@@ -262,28 +322,48 @@ sad_indi_pk <- read_csv(dp_data)
 knitr::kable(sad_indi_pk, caption = '16명의 C~max~, AUC~last~')
 ```
 
+\begin{table}
 
-
-Table: (\#tab:sad-pk)16명의 C~max~, AUC~last~
-
- Dose   Subject   Cmax   AUClast
------  --------  -----  --------
-   50       101    860      2000
-   50       102    510      2300
-   50       103    620      2900
-   50       104    540      2400
-  100       201   1550      6600
-  100       202   1440      7400
-  100       203   2000      7300
-  100       204   1600      7000
-  200       301   4100     20400
-  200       302   2800      9500
-  200       303   3200      8000
-  200       304   2550      7070
-  400       401   4800     22000
-  400       402   5700     23000
-  400       403   5800     26700
-  400       404   5760     28884
+\caption{(\#tab:sad-pk)16명의 C~max~, AUC~last~}
+\centering
+\begin{tabular}[t]{r|r|r|r}
+\hline
+Dose & Subject & Cmax & AUClast\\
+\hline
+50 & 101 & 860 & 2000\\
+\hline
+50 & 102 & 510 & 2300\\
+\hline
+50 & 103 & 620 & 2900\\
+\hline
+50 & 104 & 540 & 2400\\
+\hline
+100 & 201 & 1550 & 6600\\
+\hline
+100 & 202 & 1440 & 7400\\
+\hline
+100 & 203 & 2000 & 7300\\
+\hline
+100 & 204 & 1600 & 7000\\
+\hline
+200 & 301 & 4100 & 20400\\
+\hline
+200 & 302 & 2800 & 9500\\
+\hline
+200 & 303 & 3200 & 8000\\
+\hline
+200 & 304 & 2550 & 7070\\
+\hline
+400 & 401 & 4800 & 22000\\
+\hline
+400 & 402 & 5700 & 23000\\
+\hline
+400 & 403 & 5800 & 26700\\
+\hline
+400 & 404 & 5760 & 28884\\
+\hline
+\end{tabular}
+\end{table}
 
 
 그림을 살펴보겠습니다.
@@ -306,7 +386,7 @@ figA <- ggplot(sad_indi_pk_log, aes(x=Dose, y=Cmax)) +
 figA
 ```
 
-<img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="672" />
+![](07-statistics_files/figure-latex/sad-indi-pk-log-1.pdf)<!-- --> 
 
 ```r
 figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
@@ -323,7 +403,7 @@ figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
 figB
 ```
 
-<img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="672" />
+![](07-statistics_files/figure-latex/sad-indi-pk-log-2.pdf)<!-- --> 
 
 lm() 함수를 써서 구할 수 있습니다.
 

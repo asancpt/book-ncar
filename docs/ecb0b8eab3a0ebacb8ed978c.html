@@ -32,7 +32,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="sessioninfo.html">
+<link rel="prev" href="session-info.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,11 +159,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
+<li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
+<li class="chapter" data-level="A.1.1" data-path="tblnca2.html"><a href="tblnca2.html#writing-tblnca2"><i class="fa fa-check"></i><b>A.1.1</b> Writing <code>tblNCA2()</code></a></li>
+<li class="chapter" data-level="A.1.2" data-path="tblnca2.html"><a href="tblnca2.html#examples"><i class="fa fa-check"></i><b>A.1.2</b> Examples</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
-<li class="chapter" data-level="C" data-path="sessioninfo.html"><a href="sessioninfo.html"><i class="fa fa-check"></i><b>C</b> sessionInfo</a></li>
+<li class="chapter" data-level="A.2" data-path="tblnca2.html"><a href="tblnca2.html#how-to-get-descriptive-statistics"><i class="fa fa-check"></i><b>A.2</b> How to get descriptive statistics</a><ul>
+<li class="chapter" data-level="A.2.1" data-path="tblnca2.html"><a href="tblnca2.html#write-your-own-scripts"><i class="fa fa-check"></i><b>A.2.1</b> Write your own scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>C</b> 지원</a></li>
+<li class="chapter" data-level="D" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>D</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -187,13 +196,6 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="ecb0b8eab3a0ebacb8ed978c" class="section level1 unnumbered">
 <h1>참고문헌</h1>
-<ul>
-<li>U.S. Department of Health and Human Services Food and Drug Administration Center for Drug Evaluation and Research (CDER) , Guidance for Industry Pharmacokinetics in Pregnancy — Study Design, Data Analysis, and Impact on Dosing and Labeling, (2004)</li>
-<li>Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th Ed. 2010 (<a href="ISBN:9780781750097" class="uri">ISBN:9780781750097</a>)</li>
-<li>Hadley Wickham, Advanced R (Chapman &amp; Hall/CRC The R Series) 1st Ed ,25 sep 2014</li>
-<li>Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</li>
-<li><a href="http://www.edison.re.kr" class="uri">http://www.edison.re.kr</a>. EDISON 웹사이트.</li>
-</ul>
 
 <div id="refs" class="references">
 <div>
@@ -221,7 +223,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>Muller, Kirill, and Hadley Wickham. 2017. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble" class="uri">https://CRAN.R-project.org/package=tibble</a>.</p>
 </div>
 <div>
+<p>Pastoor, Devin. 2014. <em>PKPDdatasets: Data Sets for Pharmacometric Analysis and Visualization</em>.</p>
+</div>
+<div>
 <p>R Core Team. 2017. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+</div>
+<div>
+<p>Robinson, David. 2016. <em>Broom: Convert Statistical Analysis Objects into Tidy Data Frames</em>. <a href="http://github.com/tidyverse/broom" class="uri">http://github.com/tidyverse/broom</a>.</p>
 </div>
 <div>
 <p>Rowland, Malcolm. 2011. <em>Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications</em>. Philadelphia: Wolters Kluwer Health/Lippincott William &amp; Wilkins.</p>
@@ -255,7 +263,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="sessioninfo.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="session-info.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

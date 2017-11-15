@@ -1,3 +1,10 @@
+```{r include=FALSE, cache=FALSE}
+rm(list = ls(all = TRUE))
+knitr::opts_chunk$set(error = TRUE, #results = 'hide',
+               #cache = TRUE,
+               message = FALSE, warning = FALSE)
+
+```
 ---
 title: "R을 사용한 비구획분석"
 author: "배균섭, 한성필, 윤석규, 조용순"

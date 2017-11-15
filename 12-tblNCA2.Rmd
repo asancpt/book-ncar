@@ -1,0 +1,156 @@
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(message = FALSE, 
+                      #cache = TRUE,
+                      warning = FALSE)
+```
+
+\pagebreak
+
+# tblNCA2()
+
+This document may be temporarily meaningful because the functionality will be included in `NonCompart` [@R-NonCompart] package someday as Prof.Bae said. Until then, I hope that these tips can save several minutes (or hours) for a few people. 
+
+One thing we should keep in mind is that the output of `tblNCA()` is a character matrix so we probably want to change it to **data.frame** (or **tibble**) for the further manipulation and the PK parameters should be converted to numeric by `as.numeric()` to find descriptive statistics.
+
+These R packages are used.
+
+```{r lib, message = FALSE}
+library(NonCompart) # for tblNCA(), IntAUC()
+library(dplyr) # for data manipulation
+library(tidyr) # for data manipulation
+library(purrr) # for pmap_dbl()
+library(knitr) # make pretty tables (can be ignored when we don't need them.)
+```
+
+\pagebreak
+
+## How to include iAUC in the tblNCA
+
+### Writing `tblNCA2()`
+
+`tblNCA2()` is a wrapper function of `tblNCA()` to include iAUC. In the function, iAUC is calculated by `IntAUC()`. Data manipulation can be done in numerous ways but I prefer using Hadley's packages for functional programming [@R-purrr] and tidy data handling [@R-tidyr;@R-dplyr].
+
+```{r tblNCA2}
+tblNCA2 <- function(concData, key = "Subject", 
+                    colTime = "Time", colConc = "conc", 
+                    down = "linear", t1 = 0, t2 = 0, ...){
+  # tblNCA() and data calculation
+  input_tbl <- tblNCA(as.data.frame(concData), 
+                      key, colTime, colConc, down = down, ...) %>% # calculation
+    as_tibble() %>% mutate_all(as.character) %>% 
+    left_join(concData %>% 
+                as_tibble() %>% mutate_all(as.character) %>% 
+                group_by_(.dots = key) %>% # grouping by keys (Subject)
+                summarise_(x = sprintf('list(%s)', colTime), 
+                           y = sprintf('list(%s)', colConc)))
+  
+  # calculation of IntAUC()
+  output <- input_tbl %>% 
+    mutate(Res = do.call(c, input_tbl %>% select(-x, -y) %>% apply(1, list))) %>% 
+    mutate(iAUC = pmap_dbl(.l = list(x, y, Res), 
+                           .f = ~IntAUC(x = as.numeric(..1), y = as.numeric(..2), 
+                                        t1, t2, 
+                                        Res = ..3, down = down))) %>% 
+    select(-x, -y, -Res) %>% 
+    mutate_at(vars(b0:iAUC), as.numeric) # character -> number
+  return(output)
+}
+```
+
+### Examples
+
+#### Example 1: datasets::Theoph
+
+Now we can use `tblNCA2()` to find NCA parameters and *interval AUC between 0-12 hours* of Theoph dataset internally available in R.
+
+```{r wide, warning=FALSE, message=FALSE}
+Theoph_with_iAUC <- tblNCA2(Theoph, dose = 320, t1 = 0, t2 = 12) # 0-12h
+Theoph_with_iAUC %>% 
+  kable(caption = 'Entire PK parameters calculated by NonCompart', booktabs=TRUE, digits = 2)
+```
+
+Table \@ref(tab:wide) is so wide that we may want to focus on C~max~, T~max~, AUC~last~, AUC~inf~, and iAUC. Table \@ref(tab:pkparam) looks okay. We can compare the values with the concentration-time curves in Figure \@ref(fig:ggfig)
+
+```{r pkparam}
+Theoph_with_iAUC_selected <- Theoph_with_iAUC %>% 
+  select(Subject, CMAX, TMAX, AUCLST, AUCIFO, iAUC) 
+
+Theoph_with_iAUC_selected %>% 
+  kable(caption = 'Selected PK parameters including iAUC', booktabs=TRUE, digits = 2)
+```
+
+```{r ggfig, fig.cap = 'Individual concentration-time curves'}
+library(ggplot2)
+ggplot(Theoph %>% left_join(Theoph_with_iAUC), aes(x = Time, y = conc)) +
+  geom_line() + 
+  geom_point(color = 'red') + 
+  facet_wrap(~ sprintf('Subject %2s,Cmax %0.1f,\nAUClast %0.1f,iAUC %0.1f', 
+                       Subject, CMAX, AUCLST, iAUC), ncol = 4) +
+  scale_x_continuous(breaks = c(0, 6, 12, 24)) +
+  theme_minimal()
+```
+
+#### Example 2: PKPDdatasets::sd_oral_richpk
+
+`PKPDdatasets` package [@R-PKPDdatasets] contains some interesting PK/PD datasets and I want to apply `tblNCA2()` to one of them. In this case, I'll add some more *keys* such as gender and race. Factors should be converted to characters and *strangely* the lower case should be avoided as a input of keys in `tblNCA()`. Table \@ref(tab:sdoral) shows the results and multiple keys are working fine.  Results of only 10 subjects are shown here out of total 50 subjects.
+
+```{r sdoral}
+sd_oral_richpk_char <- PKPDdatasets::sd_oral_richpk %>% 
+  filter(ID <= 12) %>% 
+  mutate_at(vars(ID, Gender, Race), function(x) toupper(as.character(x)))
+
+tblNCA2(sd_oral_richpk_char, 
+        key = c('ID', 'Gender', 'Race'), 'Time', 'Conc', dose = 5000, t1 = 0, t2 = 12) %>% 
+  select(ID, Gender, Race, CMAX, TMAX, AUCLST, AUCIFO, iAUC) %>% 
+  kable(caption = 'Selected PK parameters including iAUC of sd oral richpk', 
+        booktabs=TRUE, digits = 2)
+```
+
+\pagebreak
+
+## How to get descriptive statistics
+
+You may want to use `psych::describe()` or `broom::tidy()` [@R-broom]. They returns basically the same results. One thing to be mentioned is that `broom::tidy()` returns the descriptive statistics when the input is data.frame so `as.data.frame()` should be first applied to the output of `tblNCA()`. (Table \@ref(tab:descstat-iauc))
+
+```{r descstat-iauc}
+broom::tidy(as.data.frame(Theoph_with_iAUC_selected)) %>% 
+  kable(caption = 'Descriptive statistics of selected PK parameters of Theoph',
+        booktabs = TRUE, digits = 2)
+```
+
+### Write your own scripts
+
+You can write some codes to customize the descriptive statistics.
+
+```{r}
+Theoph_tblNCA <- tblNCA(Theoph)
+
+as_tibble(Theoph_tblNCA) %>% 
+  gather(PPTESTCD, PPORRES, -Subject) %>% 
+  left_join(tibble(PPTESTCD = attr(Theoph_tblNCA, 'dimnames')[[2]], 
+                   UNIT = attr(Theoph_tblNCA, 'units')),
+          by = 'PPTESTCD') %>% 
+  mutate(PPORRES = as.numeric(PPORRES)) %>% 
+  group_by(PPTESTCD, UNIT) %>% 
+  summarise_at(vars(PPORRES), funs(n(), mean, sd, cv = sd/mean*100,
+                                   geomean = PKNCA::geomean, 
+                                   geosd = PKNCA::geosd, 
+                                   geocv = PKNCA::geocv,
+                                   median, min, max)) %>% 
+  mutate(`Arithmetic mean ± SD (CV%)` = sprintf('%0.1f ± %0.1f (%0.1f%%)', mean, sd, cv)) %>% 
+  mutate(`Geometric mean ± SD (CV%)` = sprintf('%0.1f ± %0.1f (%0.1f%%)', geomean, geosd, geocv)) %>% 
+  mutate(`Median [range]` = sprintf('%0.1f [%0.1f-%0.1f]', median, min, max)) %>% 
+  select(-mean, -sd, -cv, -geomean, -geosd, -geocv, -median, -min, -max) %>% 
+  filter(PPTESTCD %in% c('CMAX', 'TMAX', 'AUCLST', 'AUCIFO')) %>% 
+  kable(caption = 'Descriptive statistics of selected PK parameters manually calculated.', 
+        booktabs = TRUE) 
+```
+
+Although there's an advantage of customization, the script is quite lengthy, so if you're not preparing a journal paper, I'll just use `broom::tidy()`.
+
+\pagebreak
+
+```{r, include = FALSE}
+write_bib(c('PKPDdatasets', 'broom'), file = 'appendix.bib')
+```
+

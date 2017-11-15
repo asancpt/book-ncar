@@ -152,8 +152,7 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{-}{%
-\chapter*{책 머리에}\label{-}}
+\chapter*{책 머리에}\label{-}
 
 
 \href{https://github.com/asancpt/book-ncar}{}
@@ -186,16 +185,14 @@
 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 라이선스} 에 따라
 이용할 수 있습니다.
 
-\hypertarget{-}{%
-\section*{감사의 글}\label{-}}
+\section*{감사의 글}\label{-}
 
 
 본 출판물은 2016, 2017년도 정부(미래창조과학부)의 재원으로 한국연구재단
 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다
 (NRF-2016-936606).
 
-\hypertarget{-}{%
-\section*{저자 소개}\label{-}}
+\section*{저자 소개}\label{-}
 
 
 \textbf{배균섭}
@@ -218,16 +215,13 @@
 
 \mainmatter
 
-\hypertarget{introduction}{%
-\chapter{비구획 분석이란}\label{introduction}}
+\chapter{비구획 분석이란}\label{introduction}
 
-\hypertarget{summary-introduction}{%
-\section{이 장에서는}\label{summary-introduction}}
+\section{이 장에서는}\label{summary-introduction}
 
 약동학과 비구획 분석에 대해 간략히 알아보겠습니다.
 
-\hypertarget{PK-introduction}{%
-\section{약동학}\label{PK-introduction}}
+\section{약동학}\label{PK-introduction}
 
 신체에 약물이 들어올 때, 약물의 양과 효과는 관련성이 있습니다. 따라서
 약물의 효과를 파악하기 위해 우리 몸에서 약물이 가지는 약동학적 특성을
@@ -275,8 +269,7 @@ Administration)에서는 NCA 계산을 하는 소프트웨어를 규정하고 �
   \protect\hyperlink{ref-R-ncar}{2017}\protect\hyperlink{ref-R-ncar}{a})
 \end{itemize}
 
-\hypertarget{ncar-method}{%
-\section{비구획 분석 이론 및 계산 방법}\label{ncar-method}}
+\section{비구획 분석 이론 및 계산 방법}\label{ncar-method}
 
 비구획 분석이란 시간, 농도가 표현되어 있는 곡선에서 아무런 가정을 하지
 않고 분석하는 것을 의미합니다. 이때 다음과 같은 가정을 통해서 최대농도
@@ -291,10 +284,13 @@ time-concentration curve, AUC)등을 구하게 됩니다. 이를 통해 측정�
 얼마나 머무는지에 대한 평균값을 예상할 수 있게 됩니다. 이 시간을 MRT
 (mean residence time)이라고 지칭하게 되며, 이것은 농도와 시간의 곱을
 적분한 값에서 단순 농도 값을 적분한 농도를 나누어 준 값으로 다음과 같이
-표현해 줄 수 있습니다.
+표현해 줄 수 있습니다. (Equation \eqref{eq:mrt})
 
 \[
-MRT = \frac{AUMC}{AUC} = \frac{\int_{0}^{\infty} t \cdot C(t) dt}{\int_{0}^{\infty} C(t) dt}
+\begin{equation}
+  MRT = \frac{AUMC}{AUC} = \frac{\int_{0}^{\infty} t \cdot C(t) dt}{\int_{0}^{\infty} C(t) dt}
+  \label{eq:mrt}
+\end{equation}
 \]
 
 이때 식에서 표현된 AUMC는 area under the first moment curve로 농도와
@@ -399,11 +395,9 @@ Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script
 
 Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예
 
-\hypertarget{R-and-packages}{%
-\chapter{R과 그 패키지에 대하여}\label{R-and-packages}}
+\chapter{R과 그 패키지에 대하여}\label{R-and-packages}
 
-\hypertarget{summary-r-packages}{%
-\section{이 장에서는}\label{summary-r-packages}}
+\section{이 장에서는}\label{summary-r-packages}
 
 R (R Core Team \protect\hyperlink{ref-R-base}{2017})은 통계 소프트웨어
 입니다. 특히 자료의 재현가능한 편집이라는 측면이 가장 중요합니다. 오류를
@@ -420,16 +414,14 @@ Pharmacokinetic Data, \texttt{ncar}의 패키지 제목은 Noncompartmental
 Analysis for Pharmacokinetic Report, \texttt{pkr}의 패키지 제목은
 Pharmacokinetics in R 입니다.
 
-\hypertarget{basic}{%
-\section{R에 대하여}\label{basic}}
+\section{R에 대하여}\label{basic}
 
 굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴
 힘듭니다. R에 대한 많은 책들을 bookdown.org\footnote{\url{https://bookdown.org}}에서
 무료로 읽을 수 있습니다. Coursera\footnote{\url{https://coursera.com}}에서
 무료 온라인 강의를 들을 수 있습니다.
 
-\hypertarget{install}{%
-\section{설치}\label{install}}
+\section{설치}\label{install}
 
 우선 R을 설치합니다. R은 아래 링크\footnote{\url{https://cran.r-project.org/}}에서
 다운로드 받을 수 있습니다.
@@ -456,8 +448,7 @@ R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{-}{%
-\section{기타 설치}\label{-}}
+\section{기타 설치}\label{-}
 
 아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을
 그리는데 도움을 줍니다.
@@ -480,12 +471,16 @@ R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설�
 \end{Highlighting}
 \end{Shaded}
 
-자료 분석을 위해 몇가지 도구가 필요한데
-\texttt{tidyverse}({\textbf{???}})를 설치하면 다수의 편리한 패키지
-\texttt{tidyr} ({\textbf{???}}), \texttt{dplyr} ({\textbf{???}}),
-\texttt{tibble} ({\textbf{???}}), \texttt{ggplot2} {[}R-ggplot2{]},
-\texttt{purrr} ({\textbf{???}}), \texttt{readr} ({\textbf{???}})의
-설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.
+자료 분석을 위해 몇가지 도구가 필요한데 \texttt{tidyverse}(Wickham
+\protect\hyperlink{ref-R-tidyverse}{2017})를 설치하면 다수의 편리한
+패키지 \texttt{tidyr} (Wickham and Henry
+\protect\hyperlink{ref-R-tidyr}{2017}), \texttt{dplyr} (Wickham et al.
+\protect\hyperlink{ref-R-dplyr}{2017}), \texttt{tibble} (Muller and
+Wickham \protect\hyperlink{ref-R-tibble}{2017}), \texttt{ggplot2}
+{[}R-ggplot2{]}, \texttt{purrr} (Henry and Wickham
+\protect\hyperlink{ref-R-purrr}{2017}), \texttt{readr} (Wickham, Hester,
+and Francois \protect\hyperlink{ref-R-readr}{2017})의 설치와 불러오기
+과정을 쉽게 끝낼 수 있습니다.
 
 다만 비구획분석을 위한 함수의 입력을 위해 \texttt{tibble} 형식은
 \texttt{as.data.frame()}을 통하여 데이타프레임으로 자료 형식을 변환하는
@@ -502,11 +497,9 @@ R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{datasets}{%
-\chapter{기본 자료}\label{datasets}}
+\chapter{기본 자료}\label{datasets}
 
-\hypertarget{introdatasets}{%
-\section{이 장에서는}\label{introdatasets}}
+\section{이 장에서는}\label{introdatasets}
 
 R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있습니다.
 
@@ -524,8 +517,7 @@ R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있�
 
 먼저 데이터를 살펴보겠습니다.
 
-\hypertarget{TheophData}{%
-\section{데이타에 대해}\label{TheophData}}
+\section{데이타에 대해}\label{TheophData}
 
 Theoph 자료의 첫 10개 (Table \ref{tab:head}) 혹은 마지막 10개 관찰값만
 보고 싶으면 다음을 입력합니다. 대상자 번호가 첫 열에 나와있고 시간
@@ -585,16 +577,17 @@ administration of Theoph (N = 12)}
 데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알
 수 있습니다.
 
-\hypertarget{noncompart}{%
-\chapter{R을 사용한 비구획분석}\label{noncompart}}
+\chapter{R을 사용한 비구획분석}\label{noncompart}
 
-\hypertarget{summary-noncompart}{%
-\section{이 장에서는}\label{summary-noncompart}}
+\section{이 장에서는}\label{summary-noncompart}
 
 \texttt{NonCompart} (Bae
 \protect\hyperlink{ref-R-NonCompart}{2017}\protect\hyperlink{ref-R-NonCompart}{b})은
 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는
-패키지입니다. 이에 대해 좀더 자세히 알아보겠습니다.
+패키지입니다. 약동학 교재의 내용을 충실히 반영하였습니다. (Gabrielsson
+\protect\hyperlink{ref-gab}{2016}; Rowland
+\protect\hyperlink{ref-tozer}{2011}) 이에 대해 좀더 자세히
+알아보겠습니다.
 
 \texttt{NonCompart}의 \texttt{DESCRIPTION} 파일을 보면 다음과 같이
 설명하고 있습니다.
@@ -621,8 +614,7 @@ Data Analysis - Concepts and Applications. 5th ed. 2016.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{how-to-use}{%
-\section{NonCompart 사용법}\label{how-to-use}}
+\section{NonCompart 사용법}\label{how-to-use}
 
 tblNCA의 사용법은 다음과 같습니다.
 
@@ -638,7 +630,7 @@ tblNCA의 사용법은 다음과 같습니다.
 concData는 데이터셋을 설정하며, \texttt{key}는 subject ID의 컬럼명 혹은
 treatment code의 컬럼명(교차시험에서 사용), \texttt{colTime}은 time의
 컬럼명, \texttt{colConc}는 concentration의 컬럼명 등을 함수 인자로
-갖습니다. 그 외 인자들에 대해서 간단히 살펴보자면 다음과 같습니다.
+갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -650,12 +642,10 @@ treatment code의 컬럼명(교차시험에서 사용), \texttt{colTime}은 time
   \tightlist
   \item
     AUC와 AUMC를 구하는 trapezoidal method 설정, 기본값은
-    Method=``Linear''
+    \texttt{Linear}
   \item
-    Linear와 Log 중 선택 가능하다.
-  \item
-    Linear는 Linear trapezoidal method이며, Log는 Linear-up and log-down
-    method 입니다.
+    \texttt{Linear}와 \texttt{Log} 중 선택 가능하며 각각 linear
+    trapezoidal method와 linear-up and log-down method를 의미합니다.
   \end{itemize}
 \item
   \texttt{dose}
@@ -663,8 +653,8 @@ treatment code의 컬럼명(교차시험에서 사용), \texttt{colTime}은 time
   \begin{itemize}
   \tightlist
   \item
-    투여량에 대한 설정이다. 단위에 주의해야 한다. 벡터값을 줌으로서 각
-    대상자별 용량을 다르게 할 수 있습니다.
+    투여량에 대한 설정입니다. 단위에 주의해야 합니다. 벡터값을 줌으로서
+    각 대상자별 용량을 다르게 할 수 있습니다.
   \end{itemize}
 \item
   \texttt{adm}
@@ -683,12 +673,12 @@ treatment code의 컬럼명(교차시험에서 사용), \texttt{colTime}은 time
   \begin{itemize}
   \tightlist
   \item
-    주입하는 기간(infusion duration)을 설정한다. 기본값은 0이다.
+    주입하는 기간(infusion duration)을 설정합니다. 기본값은 0입니다.
   \end{itemize}
 \end{enumerate}
 
 이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다. 우선
-Theophilline 의 약동학 파라미터를 구해보겠습니다.
+Theophylline 의 약동학 파라미터를 구해보겠습니다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -769,6 +759,9 @@ Theophilline 의 약동학 파라미터를 구해보겠습니다.
 ## [5,] "11.9618725389051" "11.9334895308224"
 ## [6,] "11.612785479182"  "11.6805328053348"
 \end{verbatim}
+
+여기서 \texttt{dose=320}으로 되었다는 것은 아미노필린 400mg 투여시
+테오필린 320mg이 체내로 들어감을 의미합니다.
 
 이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴
 attribute를 포함하고 있습니다.
@@ -879,8 +872,7 @@ attribute를 포함하고 있습니다.
 ## [41] "L"         "L"
 \end{verbatim}
 
-\hypertarget{interval-NCA}{%
-\section{구간 NCA}\label{interval-NCA}}
+\section{구간 NCA}\label{interval-NCA}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -971,15 +963,13 @@ Start=c(0,0), End=c(12,24)) ; iAUC
 김민걸 선생님 자료를 옮겨와서 변형합니다.
 \url{http://blog.naver.com/kimmingul}
 
-\hypertarget{functions}{%
-\section{함수 살펴보기}\label{functions}}
+\section{함수 살펴보기}\label{functions}
 
 NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(),
 BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(),
 tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.
 
-\hypertarget{auc}{%
-\subsection{AUC}\label{auc}}
+\subsection{AUC}\label{auc}
 
 AUC와 AUMC를 `Linear trapezoidal method' 혹은 'linear-up and log-down
 method'의 두가지 방식으로 계산하게 됩니다.
@@ -1026,8 +1016,7 @@ method'의 두가지 방식으로 계산하게 됩니다.
 ## [11,] 147.23475 1499.129085
 \end{verbatim}
 
-\hypertarget{long-format}{%
-\section{긴 형식으로 변환하면서 단위 추가하기}\label{long-format}}
+\section{긴 형식으로 변환하면서 단위 추가하기}\label{long-format}
 
 NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면
 문자형식의 행렬이 생성되고 그 attr로 dimnames와 units를 갖는데 이를 long
@@ -1084,11 +1073,9 @@ format의 tidy data로 변환하는 방법은 다음과 같습니다.
 ## 20       1    CMAXD         0.0328125   mg/L/mg
 \end{verbatim}
 
-\hypertarget{ncar}{%
-\chapter{R을 사용한 비구획분석 보고서}\label{ncar}}
+\chapter{R을 사용한 비구획분석 보고서}\label{ncar}
 
-\hypertarget{summary-ncar}{%
-\section{이 장에서는}\label{summary-ncar}}
+\section{이 장에서는}\label{summary-ncar}
 
 보고서를 일정한 형식으로 작성하여 다른 사람/기관과 공유하는 것은
 중요합니다. 이를 \texttt{ncar} 패키지를 사용하여 좀더 쉽게 할 수
@@ -1119,8 +1106,7 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ncar-}{%
-\section{ncar 사용법}\label{ncar-}}
+\section{ncar 사용법}\label{ncar-}
 
 우선 저장될 폴더를 확인하면 다음과 같습니다.
 
@@ -1131,14 +1117,13 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "/Users/shanmdphd/asancpt/book-ncar"
+## [1] "C:/Users/mdlhs/asancpt/book-ncar"
 \end{verbatim}
 
 저장될 폴더를 변경하고자 한다면 setwd(``저장될 경로'') 이렇게 설정하면
 됩니다.
 
-\hypertarget{txtnca---}{%
-\subsection{txtNCA(): 한 대상자 보고서}\label{txtnca---}}
+\subsection{txtNCA(): 한 대상자 보고서}\label{txtnca---}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1166,10 +1151,10 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{32}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -1193,9 +1178,9 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
      \FloatTok{3.8200}       \FloatTok{8.5800}                          \FloatTok{32.1354}    \FloatTok{66.1982}
      \FloatTok{5.1000}       \FloatTok{8.3600}                          \FloatTok{42.9769}   \FloatTok{114.4617}
      \FloatTok{7.0300}       \FloatTok{7.4700}                          \FloatTok{58.2529}   \FloatTok{206.2815}
-     \FloatTok{9.0500} \OperatorTok{*}\StringTok{     }\FloatTok{6.8900}     \FloatTok{6.8912} \FloatTok{-1.228e-03}    \FloatTok{72.7565}   \FloatTok{322.2988}
-    \FloatTok{12.1200} \OperatorTok{*}\StringTok{     }\FloatTok{5.9400}     \FloatTok{5.9387} \FloatTok{+1.324e-03}    \FloatTok{92.4505}   \FloatTok{528.5219}
-    \FloatTok{24.3700} \OperatorTok{*}\StringTok{     }\FloatTok{3.2800}     \FloatTok{3.2801} \FloatTok{-1.465e-04}   \FloatTok{148.9231}  \FloatTok{1459.0711}
+     \FloatTok{9.0500} \OperatorTok{*}\StringTok{     }\FloatTok{6.8900}     \FloatTok{6.8912} \OperatorTok{-}\FloatTok{1.228e-03}    \FloatTok{72.7565}   \FloatTok{322.2988}
+    \FloatTok{12.1200} \OperatorTok{*}\StringTok{     }\FloatTok{5.9400}     \FloatTok{5.9387} \OperatorTok{+}\FloatTok{1.324e-03}    \FloatTok{92.4505}   \FloatTok{528.5219}
+    \FloatTok{24.3700} \OperatorTok{*}\StringTok{     }\FloatTok{3.2800}     \FloatTok{3.2801} \OperatorTok{-}\FloatTok{1.465e-04}   \FloatTok{148.9231}  \FloatTok{1459.0711}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -1214,7 +1199,7 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.0500}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.3700}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-1.0000} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{1.0000} 
 \NormalTok{R2         R Squared                                       }\FloatTok{1.0000} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{1.0000} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                      }\FloatTok{148.9231}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -1240,8 +1225,7 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{txtnca2---}{%
-\subsection{txtNCA2(): 여러 대상자 보고서}\label{txtnca2---}}
+\subsection{txtNCA2(): 여러 대상자 보고서}\label{txtnca2---}
 
 \texttt{txtNCA2()}를 다음과 같이 정의하면 여러 대상자에 대한 보고서를
 작성 가능합니다.
@@ -1274,11 +1258,9 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 저장된 파일 내용은 Theoph의 경우 Appendix \ref{theophgroup} 에서 확인
 가능합니다.
 
-\hypertarget{pkr}{%
-\chapter{R을 사용한 비구획분석 시각화}\label{pkr}}
+\chapter{R을 사용한 비구획분석 시각화}\label{pkr}
 
-\hypertarget{summary-pkr}{%
-\section{이 장에서는}\label{summary-pkr}}
+\section{이 장에서는}\label{summary-pkr}
 
 비구획분석에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줍니다. 이를
 가능하게 해 주는 \texttt{pkr} 패키지(Bae and Lee
@@ -1307,8 +1289,7 @@ and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pkr-}{%
-\section{pkr 사용법}\label{pkr-}}
+\section{pkr 사용법}\label{pkr-}
 
 \texttt{pkr} 함수의 가장 핵심적인 기능은 \texttt{plotPK()} 함수에 있고
 이 함수의 인자는 다음과 같습니다.
@@ -1345,11 +1326,11 @@ and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
 \begin{itemize}
 \tightlist
 \item
-  ./Output//PK Profile Linear Scale for Theoph.tiff
+  ./Output/PK Profile Linear Scale for Theoph.tiff
 \item
-  ./Output//PK Profile Log 10 Scale for Theoph.tiff
+  ./Output/PK Profile Log 10 Scale for Theoph.tiff
 \item
-  ./Output//PK Profile with CI for Theoph.tiff
+  ./Output/PK Profile with CI for Theoph.tiff
 \end{itemize}
 
 \begin{figure}
@@ -1369,9 +1350,9 @@ and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
 \begin{itemize}
 \tightlist
 \item
-  ./Output//Individual PK Linear Scale for Theoph.pdf
+  ./Output/Individual PK Linear Scale for Theoph.pdf
 \item
-  ./Output//Individual PK Log 10 Scale for Theoph.pdf
+  ./Output/Individual PK Log 10 Scale for Theoph.pdf
 \end{itemize}
 
 \begin{figure}
@@ -1382,26 +1363,21 @@ and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
 \includegraphics[width=41.67in]{Output/Individual_PK_Log_10_Scale_for_Theoph00} \caption{약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-10}
 \end{figure}
 
-\hypertarget{simulation}{%
-\chapter{R을 사용한 약동학 시뮬레이션}\label{simulation}}
+\chapter{R을 사용한 약동학 시뮬레이션}\label{simulation}
 
-\hypertarget{summary-simulation}{%
-\section{이 장에서는}\label{summary-simulation}}
+\section{이 장에서는}\label{summary-simulation}
 
-\hypertarget{-}{%
-\section{시뮬레이션에 대하여}\label{-}}
+\section{시뮬레이션에 대하여}\label{-}
 
 TBD
 
 \texttt{wnl} 패키지가 CRAN에 올라와 있습니다.
 
-\hypertarget{--}{%
-\section{시뮬레이션 후 비구획분석}\label{--}}
+\section{시뮬레이션 후 비구획분석}\label{--}
 
 TBD
 
-\hypertarget{---}{%
-\section{앱을 통해 살펴보는 시뮬레이션}\label{---}}
+\section{앱을 통해 살펴보는 시뮬레이션}\label{---}
 
 샤이니 앱을 통해서 시뮬레이션을 구현할 수 있습니다. Shinyapp: PK
 Simulation - 1 Comp IV or Oral \url{https://asan.shinyapps.io/pk1c/}
@@ -1412,8 +1388,7 @@ Simulation - 1 Comp IV or Oral \url{https://asan.shinyapps.io/pk1c/}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{shiny-}{%
-\subsection{shiny 앱}\label{shiny-}}
+\subsection{shiny 앱}\label{shiny-}
 
 웹브라우저를 통해 간단히 비구획분석을 할 수 있는 앱을 개발하였습니다.
 
@@ -1439,11 +1414,9 @@ Simulation - 1 Comp IV or Oral \url{https://asan.shinyapps.io/pk1c/}
   \url{https://asan.shinyapps.io/vtdm}
 \end{itemize}
 
-\hypertarget{statistics}{%
-\chapter{통계처리}\label{statistics}}
+\chapter{통계처리}\label{statistics}
 
-\hypertarget{stat-intro}{%
-\section{이 장에서는}\label{stat-intro}}
+\section{이 장에서는}\label{stat-intro}
 
 생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.
 
@@ -1455,8 +1428,7 @@ Simulation - 1 Comp IV or Oral \url{https://asan.shinyapps.io/pk1c/}
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{-}{%
-\section{기술통계량 구하기}\label{-}}
+\section{기술통계량 구하기}\label{-}
 
 앞서 \ref{noncompart}장에서 구한 \texttt{TheophNca}를 갖고 기술 통계량
 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다.
@@ -1553,20 +1525,23 @@ MRTEVIFP* & 12 & 12.29 & 2.95 & 9.95 & 20.80 & 1.91 & 2.84\\
 \hline
 \end{tabular}
 
-\hypertarget{bioequivalence}{%
-\section{생물학적 동등성}\label{bioequivalence}}
+\section{생물학적 동등성}\label{bioequivalence}
 
-\begin{verbatim}
-'cran/ncarbe/inst/example/beConc.csv'
-'cran/NonCompart/tests/be-conc.csv'
-\end{verbatim}
-
-생물학적 동등성을 위한 가장 간단한 방법은 \texttt{ncarbe}
-패키지({\textbf{???}})를 쓰는 것입니다.\\
+생물학적 동등성을 위한 가장 간단한 방법은 \texttt{ncarbe} 패키지(Bae and
+Han \protect\hyperlink{ref-R-ncarbe}{2017})를 쓰는 것입니다.\\
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. (Chow
-\protect\hyperlink{ref-chow2009design}{2009}) 현재로서는 2x2 디자인의
-간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \ref{fig:twobytwo})
-핵심이 되는 함수는 \texttt{beNCA()} 입니다.
+\protect\hyperlink{ref-chow2009design}{2009}) 생물학적 동등성을 위한
+수학 식은 다음과 같습니다. \eqref{eq:be}
+
+\[
+\begin{align}
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \label{eq:be}
+\end{align}
+\]
+
+현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다.
+(그림 \ref{fig:twobytwo}) 핵심이 되는 함수는 \texttt{beNCA()} 입니다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1575,14 +1550,12 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. (Chow
 \end{Shaded}
 
 \begin{figure}
-\centering
-\includegraphics{assets/twobytwo.jpg}
-\caption{\label{fig:twobytwo}전형적인 2x2 설계}
+\includegraphics[width=18.01in]{assets/twobytwo} \caption{전형적인 2x2 설계}\label{fig:twobytwo}
 \end{figure}
 
 \begin{verbatim}
 ## function (concData, SUBJ = "SUBJ", GRP = "GRP", PRD = "PRD", 
-##     TRT = "TRT", method = "kbe", ...) 
+##     TRT = "TRT", ...) 
 ## NULL
 \end{verbatim}
 
@@ -1603,10 +1576,49 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. (Chow
   CRAN
 \end{itemize}
 
+ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table
+\ref{tab:beconcdata})
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{file <-}\StringTok{ }\KeywordTok{system.file}\NormalTok{(}\StringTok{'example'}\NormalTok{, }\StringTok{'beConc.csv'}\NormalTok{, }\DataTypeTok{package =} \StringTok{'ncarbe'}\NormalTok{)}
-\NormalTok{concData <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(file, }\DataTypeTok{as.is =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{concData <-}\StringTok{ }\KeywordTok{read_csv}\NormalTok{(file)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:beconcdata}A example dataset for the bioequivalence test.}
+\centering
+\begin{tabular}[t]{r|l|r|l|r|r|r}
+\hline
+SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC\\
+\hline
+1 & RT & 1 & R & 0.00 & 0.02 & 63.42\\
+\hline
+1 & RT & 1 & R & 0.25 & 0.24 & 432.76\\
+\hline
+1 & RT & 1 & R & 0.50 & 0.51 & 622.88\\
+\hline
+1 & RT & 1 & R & 0.75 & 0.80 & 809.93\\
+\hline
+1 & RT & 1 & R & 1.00 & 1.02 & 824.34\\
+\hline
+1 & RT & 1 & R & 2.00 & 2.04 & 602.22\\
+\hline
+1 & RT & 1 & R & 3.00 & 2.96 & 512.28\\
+\hline
+1 & RT & 1 & R & 4.00 & 3.99 & 421.99\\
+\hline
+1 & RT & 1 & R & 6.00 & 6.04 & 302.73\\
+\hline
+1 & RT & 1 & R & 8.00 & 8.04 & 181.60\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \KeywordTok{beNCA}\NormalTok{(concData)}
 \end{Highlighting}
 \end{Shaded}
@@ -1697,13 +1709,10 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. (Chow
 \end{Shaded}
 
 \begin{figure}
-\centering
-\includegraphics{assets/fixed-random.jpg}
-\caption{\label{fig:fixedrandom}모수 인자와 변량 인자의 비교}
+\includegraphics[width=16.86in]{assets/fixed-random} \caption{모수 인자와 변량 인자의 비교}\label{fig:fixedrandom}
 \end{figure}
 
-\hypertarget{dp}{%
-\section{Dose Proportionality}\label{dp}}
+\section{Dose Proportionality}\label{dp}
 
 DP 처리.
 
@@ -1857,11 +1866,10 @@ lm() 함수를 써서 구할 수 있습니다.
 ## 2    AUClast 1.07 (0.09) 0.87-1.27 0.9053706 1.486278e-08
 \end{verbatim}
 
-C\textsubscript{max}는 생동 기준을 만족하는데 반해
+C\textsubscript{max}는 dose proportionality 기준을 만족하는데 반해
 AUC\textsubscript{last}는 만족하지 않는 것을 알 수 있습니다.
 
-\hypertarget{result}{%
-\chapter{결과 및 논의}\label{result}}
+\chapter{결과 및 논의}\label{result}
 
 R을 통해서 NCA 를 구할 수 있도록 R 패키지를 구축하였습니다. 값비싼
 상용소프트웨어를 사용하지 않고도 동일한 비구획분석이 가능한 것은 비용과
@@ -1925,8 +1933,7 @@ Figure 11. theophylline data에 대한 model
 Figure 12. nonlinear mixed effect modeling First order method를 통해
 도출된 parameter
 
-\hypertarget{conclusion}{%
-\chapter{결론}\label{conclusion}}
+\chapter{결론}\label{conclusion}
 
 약물을 연구하고 개발하는데 있어서 약동학은 굉장히 필수적인 분야이며, 그
 동안 이러한 약동학 지표들을 구하기 위해서 그러한 결론이 도출되는 과정을
@@ -1939,25 +1946,341 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 
 \cleardoublepage
 
-\hypertarget{appendix-}{%
-\appendix \addcontentsline{toc}{chapter}{\appendixname}}
+\appendix \addcontentsline{toc}{chapter}{\appendixname}
 
 
-\hypertarget{groupreport}{%
-\chapter{R에 내장된 자료의 비구획분석 보고서}\label{groupreport}}
+\pagebreak
 
-\hypertarget{theophgroup}{%
-\section{Theoph의 보고서}\label{theophgroup}}
+\chapter{tblNCA2()}\label{tblnca2}
+
+This document may be temporarily meaningful because the functionality
+will be included in \texttt{NonCompart} (Bae
+\protect\hyperlink{ref-R-NonCompart}{2017}\protect\hyperlink{ref-R-NonCompart}{b})
+package someday as Prof.Bae said. Until then, I hope that these tips can
+save several minutes (or hours) for a few people.
+
+One thing we should keep in mind is that the output of \texttt{tblNCA()}
+is a character matrix so we probably want to change it to
+\textbf{data.frame} (or \textbf{tibble}) for the further manipulation
+and the PK parameters should be converted to numeric by
+\texttt{as.numeric()} to find descriptive statistics.
+
+These R packages are used.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(NonCompart) }\CommentTok{# for tblNCA(), IntAUC()}
+\KeywordTok{library}\NormalTok{(dplyr) }\CommentTok{# for data manipulation}
+\KeywordTok{library}\NormalTok{(tidyr) }\CommentTok{# for data manipulation}
+\KeywordTok{library}\NormalTok{(purrr) }\CommentTok{# for pmap_dbl()}
+\KeywordTok{library}\NormalTok{(knitr) }\CommentTok{# make pretty tables (can be ignored when we don't need them.)}
+\end{Highlighting}
+\end{Shaded}
+
+\pagebreak
+
+\section{How to include iAUC in the
+tblNCA}\label{how-to-include-iauc-in-the-tblnca}
+
+\subsection{\texorpdfstring{Writing
+\texttt{tblNCA2()}}{Writing tblNCA2()}}\label{writing-tblnca2}
+
+\texttt{tblNCA2()} is a wrapper function of \texttt{tblNCA()} to include
+iAUC. In the function, iAUC is calculated by \texttt{IntAUC()}. Data
+manipulation can be done in numerous ways but I prefer using Hadley's
+packages for functional programming (Henry and Wickham
+\protect\hyperlink{ref-R-purrr}{2017}) and tidy data handling (Wickham
+and Henry \protect\hyperlink{ref-R-tidyr}{2017}; Wickham et al.
+\protect\hyperlink{ref-R-dplyr}{2017}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{tblNCA2 <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(concData, }\DataTypeTok{key =} \StringTok{"Subject"}\NormalTok{, }
+                    \DataTypeTok{colTime =} \StringTok{"Time"}\NormalTok{, }\DataTypeTok{colConc =} \StringTok{"conc"}\NormalTok{, }
+                    \DataTypeTok{down =} \StringTok{"linear"}\NormalTok{, }\DataTypeTok{t1 =} \DecValTok{0}\NormalTok{, }\DataTypeTok{t2 =} \DecValTok{0}\NormalTok{, ...)\{}
+  \CommentTok{# tblNCA() and data calculation}
+\NormalTok{  input_tbl <-}\StringTok{ }\KeywordTok{tblNCA}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(concData), }
+\NormalTok{                      key, colTime, colConc, }\DataTypeTok{down =}\NormalTok{ down, ...) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# calculation}
+\StringTok{    }\KeywordTok{as_tibble}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate_all}\NormalTok{(as.character) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{left_join}\NormalTok{(concData }\OperatorTok{%>%}\StringTok{ }
+\StringTok{                }\KeywordTok{as_tibble}\NormalTok{() }\OperatorTok{%>%}\StringTok{ }\KeywordTok{mutate_all}\NormalTok{(as.character) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{                }\KeywordTok{group_by_}\NormalTok{(}\DataTypeTok{.dots =}\NormalTok{ key) }\OperatorTok{%>%}\StringTok{ }\CommentTok{# grouping by keys (Subject)}
+\StringTok{                }\KeywordTok{summarise_}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{sprintf}\NormalTok{(}\StringTok{'list(%s)'}\NormalTok{, colTime), }
+                           \DataTypeTok{y =} \KeywordTok{sprintf}\NormalTok{(}\StringTok{'list(%s)'}\NormalTok{, colConc)))}
+  
+  \CommentTok{# calculation of IntAUC()}
+\NormalTok{  output <-}\StringTok{ }\NormalTok{input_tbl }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{Res =} \KeywordTok{do.call}\NormalTok{(c, input_tbl }\OperatorTok{%>%}\StringTok{ }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{x, }\OperatorTok{-}\NormalTok{y) }\OperatorTok{%>%}\StringTok{ }\KeywordTok{apply}\NormalTok{(}\DecValTok{1}\NormalTok{, list))) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{iAUC =} \KeywordTok{pmap_dbl}\NormalTok{(}\DataTypeTok{.l =} \KeywordTok{list}\NormalTok{(x, y, Res), }
+                           \DataTypeTok{.f =} \OperatorTok{~}\KeywordTok{IntAUC}\NormalTok{(}\DataTypeTok{x =} \KeywordTok{as.numeric}\NormalTok{(..}\DecValTok{1}\NormalTok{), }\DataTypeTok{y =} \KeywordTok{as.numeric}\NormalTok{(..}\DecValTok{2}\NormalTok{), }
+\NormalTok{                                        t1, t2, }
+                                        \DataTypeTok{Res =}\NormalTok{ ..}\DecValTok{3}\NormalTok{, }\DataTypeTok{down =}\NormalTok{ down))) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{x, }\OperatorTok{-}\NormalTok{y, }\OperatorTok{-}\NormalTok{Res) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{    }\KeywordTok{mutate_at}\NormalTok{(}\KeywordTok{vars}\NormalTok{(b0}\OperatorTok{:}\NormalTok{iAUC), as.numeric) }\CommentTok{# character -> number}
+  \KeywordTok{return}\NormalTok{(output)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\subsection{Examples}\label{examples}
+
+\subsubsection{Example 1:
+datasets::Theoph}\label{example-1-datasetstheoph}
+
+Now we can use \texttt{tblNCA2()} to find NCA parameters and
+\emph{interval AUC between 0-12 hours} of Theoph dataset internally
+available in R.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Theoph_with_iAUC <-}\StringTok{ }\KeywordTok{tblNCA2}\NormalTok{(Theoph, }\DataTypeTok{dose =} \DecValTok{320}\NormalTok{, }\DataTypeTok{t1 =} \DecValTok{0}\NormalTok{, }\DataTypeTok{t2 =} \DecValTok{12}\NormalTok{) }\CommentTok{# 0-12h}
+\NormalTok{Theoph_with_iAUC }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{caption =} \StringTok{'Entire PK parameters calculated by NonCompart'}\NormalTok{, }\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:wide}Entire PK parameters calculated by NonCompart}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr}
+\toprule
+Subject & b0 & CMAX & CMAXD & TMAX & TLAG & CLST & CLSTP & TLST & LAMZHL & LAMZ & LAMZLL & LAMZUL & LAMZNPT & CORRXY & R2 & R2ADJ & AUCLST & AUCALL & AUCIFO & AUCIFOD & AUCIFP & AUCIFPD & AUCPEO & AUCPEP & AUMCLST & AUMCIFO & AUMCIFP & AUMCPEO & AUMCPEP & VZFO & VZFP & CLFO & CLFP & MRTEVLST & MRTEVIFO & MRTEVIFP & iAUC\\
+\midrule
+1 & 2.37 & 10.50 & 0.03 & 1.12 & 0 & 3.28 & 3.28 & 24.37 & 14.30 & 0.05 & 9.05 & 24.37 & 3 & -1 & 1.00 & 1.00 & 148.92 & 148.92 & 216.61 & 0.68 & 216.61 & 0.68 & 31.25 & 31.25 & 1459.07 & 4505.53 & 4505.67 & 67.62 & 67.62 & 30486.75 & 30486.32 & 1477.30 & 1477.28 & 9.80 & 20.80 & 20.80 & 91.74\\
+2 & 2.41 & 8.33 & 0.03 & 1.92 & 0 & 0.90 & 0.89 & 24.30 & 6.66 & 0.10 & 7.03 & 24.30 & 4 & -1 & 1.00 & 1.00 & 91.53 & 91.53 & 100.17 & 0.31 & 100.06 & 0.31 & 8.63 & 8.53 & 706.59 & 999.77 & 996.07 & 29.33 & 29.06 & 30690.44 & 30723.92 & 3194.46 & 3197.94 & 7.72 & 9.98 & 9.95 & 67.48\\
+3 & 2.53 & 8.20 & 0.03 & 1.02 & 0 & 1.05 & 1.06 & 24.17 & 6.77 & 0.10 & 9.00 & 24.17 & 3 & -1 & 1.00 & 1.00 & 99.29 & 99.29 & 109.54 & 0.34 & 109.59 & 0.34 & 9.36 & 9.40 & 803.19 & 1150.96 & 1152.65 & 30.22 & 30.32 & 28517.10 & 28504.15 & 2921.41 & 2920.09 & 8.09 & 10.51 & 10.52 & 70.18\\
+4 & 2.59 & 8.60 & 0.03 & 1.07 & 0 & 1.15 & 1.16 & 24.65 & 6.98 & 0.10 & 9.02 & 24.65 & 3 & -1 & 1.00 & 1.00 & 106.80 & 106.80 & 118.38 & 0.37 & 118.44 & 0.37 & 9.78 & 9.83 & 901.08 & 1303.25 & 1305.50 & 30.86 & 30.98 & 27225.96 & 27211.10 & 2703.18 & 2701.71 & 8.44 & 11.01 & 11.02 & 73.05\\
+5 & 2.55 & 11.40 & 0.04 & 1.00 & 0 & 1.57 & 1.56 & 24.35 & 8.00 & 0.09 & 7.02 & 24.35 & 4 & -1 & 1.00 & 1.00 & 121.29 & 121.29 & 139.42 & 0.44 & 139.25 & 0.44 & 13.00 & 12.90 & 1017.11 & 1667.72 & 1661.79 & 39.01 & 38.79 & 26497.99 & 26529.42 & 2295.23 & 2297.95 & 8.39 & 11.96 & 11.93 & 84.61\\
+\addlinespace
+6 & 2.03 & 6.44 & 0.02 & 1.15 & 0 & 0.92 & 0.94 & 23.85 & 7.89 & 0.09 & 2.03 & 23.85 & 7 & -1 & 1.00 & 1.00 & 73.78 & 73.78 & 84.25 & 0.26 & 84.50 & 0.26 & 12.44 & 12.69 & 609.15 & 978.43 & 986.97 & 37.74 & 38.28 & 43259.73 & 43135.69 & 3798.02 & 3787.13 & 8.26 & 11.61 & 11.68 & 51.76\\
+7 & 2.29 & 7.09 & 0.02 & 3.48 & 0 & 1.15 & 1.16 & 24.22 & 7.85 & 0.09 & 6.98 & 24.22 & 4 & -1 & 1.00 & 1.00 & 90.75 & 90.75 & 103.77 & 0.32 & 103.89 & 0.32 & 12.55 & 12.65 & 782.42 & 1245.10 & 1249.41 & 37.16 & 37.38 & 34908.44 & 34867.67 & 3083.69 & 3080.09 & 8.62 & 12.00 & 12.03 & 62.10\\
+8 & 2.17 & 7.56 & 0.02 & 2.02 & 0 & 1.25 & 1.23 & 24.12 & 8.51 & 0.08 & 3.53 & 24.12 & 6 & -1 & 0.99 & 0.99 & 88.56 & 88.56 & 103.91 & 0.32 & 103.64 & 0.32 & 14.77 & 14.55 & 739.53 & 1298.12 & 1288.52 & 43.03 & 42.61 & 37810.51 & 37906.69 & 3079.69 & 3087.52 & 8.35 & 12.49 & 12.43 & 62.71\\
+9 & 2.12 & 9.03 & 0.03 & 0.63 & 0 & 1.12 & 1.12 & 24.43 & 8.41 & 0.08 & 8.80 & 24.43 & 3 & -1 & 1.00 & 1.00 & 86.33 & 86.33 & 99.91 & 0.31 & 99.87 & 0.31 & 13.59 & 13.56 & 705.23 & 1201.77 & 1200.21 & 41.32 & 41.24 & 38842.79 & 38859.38 & 3202.92 & 3204.29 & 8.17 & 12.03 & 12.02 & 60.12\\
+10 & 2.66 & 10.21 & 0.03 & 3.55 & 0 & 2.42 & 2.41 & 23.70 & 9.25 & 0.07 & 9.38 & 23.70 & 3 & -1 & 1.00 & 1.00 & 138.37 & 138.37 & 170.65 & 0.53 & 170.57 & 0.53 & 18.92 & 18.88 & 1278.18 & 2473.99 & 2470.88 & 48.34 & 48.27 & 25015.54 & 25027.88 & 1875.16 & 1876.09 & 9.24 & 14.50 & 14.49 & 90.82\\
+\addlinespace
+11 & 2.15 & 8.00 & 0.02 & 0.98 & 0 & 0.86 & 0.86 & 24.08 & 7.26 & 0.10 & 9.03 & 24.08 & 3 & -1 & 1.00 & 1.00 & 80.09 & 80.09 & 89.10 & 0.28 & 89.10 & 0.28 & 10.11 & 10.11 & 617.24 & 928.56 & 928.49 & 33.53 & 33.52 & 37622.19 & 37623.04 & 3591.36 & 3591.44 & 7.71 & 10.42 & 10.42 & 58.54\\
+12 & 2.82 & 9.75 & 0.03 & 3.52 & 0 & 1.17 & 1.18 & 24.15 & 6.29 & 0.11 & 9.03 & 24.15 & 3 & -1 & 1.00 & 1.00 & 119.98 & 119.98 & 130.59 & 0.41 & 130.64 & 0.41 & 8.13 & 8.16 & 977.88 & 1330.38 & 1332.05 & 26.50 & 26.59 & 22224.29 & 22215.75 & 2450.44 & 2449.50 & 8.15 & 10.19 & 10.20 & 85.02\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Table \ref{tab:wide} is so wide that we may want to focus on
+C\textsubscript{max}, T\textsubscript{max}, AUC\textsubscript{last},
+AUC\textsubscript{inf}, and iAUC. Table \ref{tab:pkparam} looks okay. We
+can compare the values with the concentration-time curves in Figure
+\ref{fig:ggfig}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Theoph_with_iAUC_selected <-}\StringTok{ }\NormalTok{Theoph_with_iAUC }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(Subject, CMAX, TMAX, AUCLST, AUCIFO, iAUC) }
+
+\NormalTok{Theoph_with_iAUC_selected }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{caption =} \StringTok{'Selected PK parameters including iAUC'}\NormalTok{, }\DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:pkparam}Selected PK parameters including iAUC}
+\centering
+\begin{tabular}[t]{lrrrrr}
+\toprule
+Subject & CMAX & TMAX & AUCLST & AUCIFO & iAUC\\
+\midrule
+1 & 10.50 & 1.12 & 148.92 & 216.61 & 91.74\\
+2 & 8.33 & 1.92 & 91.53 & 100.17 & 67.48\\
+3 & 8.20 & 1.02 & 99.29 & 109.54 & 70.18\\
+4 & 8.60 & 1.07 & 106.80 & 118.38 & 73.05\\
+5 & 11.40 & 1.00 & 121.29 & 139.42 & 84.61\\
+\addlinespace
+6 & 6.44 & 1.15 & 73.78 & 84.25 & 51.76\\
+7 & 7.09 & 3.48 & 90.75 & 103.77 & 62.10\\
+8 & 7.56 & 2.02 & 88.56 & 103.91 & 62.71\\
+9 & 9.03 & 0.63 & 86.33 & 99.91 & 60.12\\
+10 & 10.21 & 3.55 & 138.37 & 170.65 & 90.82\\
+\addlinespace
+11 & 8.00 & 0.98 & 80.09 & 89.10 & 58.54\\
+12 & 9.75 & 3.52 & 119.98 & 130.59 & 85.02\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{ggplot}\NormalTok{(Theoph }\OperatorTok{%>%}\StringTok{ }\KeywordTok{left_join}\NormalTok{(Theoph_with_iAUC), }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ Time, }\DataTypeTok{y =}\NormalTok{ conc)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_point}\NormalTok{(}\DataTypeTok{color =} \StringTok{'red'}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'Subject %2s,Cmax %0.1f,}\CharTok{\textbackslash{}n}\StringTok{AUClast %0.1f,iAUC %0.1f'}\NormalTok{, }
+\NormalTok{                       Subject, CMAX, AUCLST, iAUC), }\DataTypeTok{ncol =} \DecValTok{4}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_continuous}\NormalTok{(}\DataTypeTok{breaks =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{6}\NormalTok{, }\DecValTok{12}\NormalTok{, }\DecValTok{24}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{12-tblNCA2_files/figure-latex/ggfig-1.pdf}
+\caption{\label{fig:ggfig}Individual concentration-time curves}
+\end{figure}
+
+\subsubsection{Example 2:
+PKPDdatasets::sd\_oral\_richpk}\label{example-2-pkpddatasetssd_oral_richpk}
+
+\texttt{PKPDdatasets} package (Pastoor
+\protect\hyperlink{ref-R-PKPDdatasets}{2014}) contains some interesting
+PK/PD datasets and I want to apply \texttt{tblNCA2()} to one of them. In
+this case, I'll add some more \emph{keys} such as gender and race.
+Factors should be converted to characters and \emph{strangely} the lower
+case should be avoided as a input of keys in \texttt{tblNCA()}. Table
+\ref{tab:sdoral} shows the results and multiple keys are working fine.
+Results of only 10 subjects are shown here out of total 50 subjects.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sd_oral_richpk_char <-}\StringTok{ }\NormalTok{PKPDdatasets}\OperatorTok{::}\NormalTok{sd_oral_richpk }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(ID }\OperatorTok{<=}\StringTok{ }\DecValTok{12}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate_at}\NormalTok{(}\KeywordTok{vars}\NormalTok{(ID, Gender, Race), }\ControlFlowTok{function}\NormalTok{(x) }\KeywordTok{toupper}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(x)))}
+
+\KeywordTok{tblNCA2}\NormalTok{(sd_oral_richpk_char, }
+        \DataTypeTok{key =} \KeywordTok{c}\NormalTok{(}\StringTok{'ID'}\NormalTok{, }\StringTok{'Gender'}\NormalTok{, }\StringTok{'Race'}\NormalTok{), }\StringTok{'Time'}\NormalTok{, }\StringTok{'Conc'}\NormalTok{, }\DataTypeTok{dose =} \DecValTok{5000}\NormalTok{, }\DataTypeTok{t1 =} \DecValTok{0}\NormalTok{, }\DataTypeTok{t2 =} \DecValTok{12}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(ID, Gender, Race, CMAX, TMAX, AUCLST, AUCIFO, iAUC) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{caption =} \StringTok{'Selected PK parameters including iAUC of sd oral richpk'}\NormalTok{, }
+        \DataTypeTok{booktabs=}\OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:sdoral}Selected PK parameters including iAUC of sd oral richpk}
+\centering
+\begin{tabular}[t]{lllrrrrr}
+\toprule
+ID & Gender & Race & CMAX & TMAX & AUCLST & AUCIFO & iAUC\\
+\midrule
+1 & MALE & HISPANIC & 34.01 & 1 & 385.58 & 449.44 & 280.59\\
+2 & MALE & CAUCASIAN & 100.18 & 2 & 1203.49 & 2495.10 & 732.30\\
+3 & MALE & OTHER & 53.86 & 3 & 466.31 & 481.99 & 389.24\\
+4 & FEMALE & CAUCASIAN & 96.68 & 4 & 1219.64 & 1789.21 & 775.31\\
+5 & FEMALE & CAUCASIAN & 51.63 & 2 & 487.57 & 516.44 & 385.18\\
+\addlinespace
+6 & MALE & HISPANIC & 27.94 & 4 & 295.25 & 342.57 & 208.93\\
+7 & MALE & OTHER & 71.81 & 4 & 739.03 & 876.99 & 521.99\\
+8 & MALE & ASIAN & 44.45 & 3 & 453.77 & 472.76 & 345.15\\
+9 & FEMALE & OTHER & 48.47 & 4 & 698.99 & 817.67 & 435.38\\
+10 & MALE & OTHER & 23.52 & 2 & 161.45 & 162.89 & 146.59\\
+\addlinespace
+11 & MALE & ASIAN & 68.10 & 6 & 962.56 & 1272.65 & 611.06\\
+12 & MALE & OTHER & 83.63 & 2 & 721.85 & 768.82 & 550.52\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\pagebreak
+
+\section{How to get descriptive
+statistics}\label{how-to-get-descriptive-statistics}
+
+You may want to use \texttt{psych::describe()} or \texttt{broom::tidy()}
+(Robinson \protect\hyperlink{ref-R-broom}{2016}). They returns basically
+the same results. One thing to be mentioned is that
+\texttt{broom::tidy()} returns the descriptive statistics when the input
+is data.frame so \texttt{as.data.frame()} should be first applied to the
+output of \texttt{tblNCA()}. (Table \ref{tab:descstat-iauc})
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{broom}\OperatorTok{::}\KeywordTok{tidy}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(Theoph_with_iAUC_selected)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{caption =} \StringTok{'Descriptive statistics of selected PK parameters of Theoph'}\NormalTok{,}
+        \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{digits =} \DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:descstat-iauc}Descriptive statistics of selected PK parameters of Theoph}
+\centering
+\begin{tabular}[t]{lrrrrrrrrrrrr}
+\toprule
+column & n & mean & sd & median & trimmed & mad & min & max & range & skew & kurtosis & se\\
+\midrule
+Subject* & 12 & 6.50 & 3.61 & 6.50 & 6.50 & 4.45 & 1.00 & 12.00 & 11.00 & 0.00 & -1.50 & 1.04\\
+CMAX & 12 & 8.76 & 1.47 & 8.46 & 8.73 & 1.62 & 6.44 & 11.40 & 4.96 & 0.21 & -1.19 & 0.43\\
+TMAX & 12 & 1.79 & 1.11 & 1.14 & 1.73 & 0.49 & 0.63 & 3.55 & 2.92 & 0.70 & -1.35 & 0.32\\
+AUCLST & 12 & 103.81 & 23.65 & 95.41 & 102.30 & 19.79 & 73.78 & 148.92 & 75.15 & 0.56 & -1.12 & 6.83\\
+AUCIFO & 12 & 122.19 & 38.13 & 106.72 & 116.54 & 21.70 & 84.25 & 216.61 & 132.36 & 1.25 & 0.51 & 11.01\\
+iAUC & 12 & 71.51 & 13.52 & 68.83 & 71.46 & 14.08 & 51.76 & 91.74 & 39.98 & 0.24 & -1.55 & 3.90\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Write your own scripts}\label{write-your-own-scripts}
+
+You can write some codes to customize the descriptive statistics.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Theoph_tblNCA <-}\StringTok{ }\KeywordTok{tblNCA}\NormalTok{(Theoph)}
+
+\KeywordTok{as_tibble}\NormalTok{(Theoph_tblNCA) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{gather}\NormalTok{(PPTESTCD, PPORRES, }\OperatorTok{-}\NormalTok{Subject) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{left_join}\NormalTok{(}\KeywordTok{tibble}\NormalTok{(}\DataTypeTok{PPTESTCD =} \KeywordTok{attr}\NormalTok{(Theoph_tblNCA, }\StringTok{'dimnames'}\NormalTok{)[[}\DecValTok{2}\NormalTok{]], }
+                   \DataTypeTok{UNIT =} \KeywordTok{attr}\NormalTok{(Theoph_tblNCA, }\StringTok{'units'}\NormalTok{)),}
+          \DataTypeTok{by =} \StringTok{'PPTESTCD'}\NormalTok{) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\DataTypeTok{PPORRES =} \KeywordTok{as.numeric}\NormalTok{(PPORRES)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{group_by}\NormalTok{(PPTESTCD, UNIT) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{summarise_at}\NormalTok{(}\KeywordTok{vars}\NormalTok{(PPORRES), }\KeywordTok{funs}\NormalTok{(}\KeywordTok{n}\NormalTok{(), mean, sd, }\DataTypeTok{cv =}\NormalTok{ sd}\OperatorTok{/}\NormalTok{mean}\OperatorTok{*}\DecValTok{100}\NormalTok{,}
+                                   \DataTypeTok{geomean =}\NormalTok{ PKNCA}\OperatorTok{::}\NormalTok{geomean, }
+                                   \DataTypeTok{geosd =}\NormalTok{ PKNCA}\OperatorTok{::}\NormalTok{geosd, }
+                                   \DataTypeTok{geocv =}\NormalTok{ PKNCA}\OperatorTok{::}\NormalTok{geocv,}
+\NormalTok{                                   median, min, max)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\StringTok{`}\DataTypeTok{Arithmetic mean ± SD (CV%)}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'%0.1f ± %0.1f (%0.1f%%)'}\NormalTok{, mean, sd, cv)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\StringTok{`}\DataTypeTok{Geometric mean ± SD (CV%)}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'%0.1f ± %0.1f (%0.1f%%)'}\NormalTok{, geomean, geosd, geocv)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{mutate}\NormalTok{(}\StringTok{`}\DataTypeTok{Median [range]}\StringTok{`}\NormalTok{ =}\StringTok{ }\KeywordTok{sprintf}\NormalTok{(}\StringTok{'%0.1f [%0.1f-%0.1f]'}\NormalTok{, median, min, max)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{select}\NormalTok{(}\OperatorTok{-}\NormalTok{mean, }\OperatorTok{-}\NormalTok{sd, }\OperatorTok{-}\NormalTok{cv, }\OperatorTok{-}\NormalTok{geomean, }\OperatorTok{-}\NormalTok{geosd, }\OperatorTok{-}\NormalTok{geocv, }\OperatorTok{-}\NormalTok{median, }\OperatorTok{-}\NormalTok{min, }\OperatorTok{-}\NormalTok{max) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{filter}\NormalTok{(PPTESTCD }\OperatorTok{%in%}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{'CMAX'}\NormalTok{, }\StringTok{'TMAX'}\NormalTok{, }\StringTok{'AUCLST'}\NormalTok{, }\StringTok{'AUCIFO'}\NormalTok{)) }\OperatorTok{%>%}\StringTok{ }
+\StringTok{  }\KeywordTok{kable}\NormalTok{(}\DataTypeTok{caption =} \StringTok{'Descriptive statistics of selected PK parameters manually calculated.'}\NormalTok{, }
+        \DataTypeTok{booktabs =} \OtherTok{TRUE}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:unnamed-chunk-2}Descriptive statistics of selected PK parameters manually calculated.}
+\centering
+\begin{tabular}[t]{llrlll}
+\toprule
+PPTESTCD & UNIT & n & Arithmetic mean ± SD (CV\%) & Geometric mean ± SD (CV\%) & Median [range]\\
+\midrule
+AUCIFO & h*ug/L & 12 & 122.2 ± 38.1 (31.2\%) & 117.7 ± 1.3 (28.0\%) & 106.7 [84.3-216.6]\\
+AUCLST & h*ug/L & 12 & 103.8 ± 23.6 (22.8\%) & 101.5 ± 1.2 (22.3\%) & 95.4 [73.8-148.9]\\
+CMAX & ug/L & 12 & 8.8 ± 1.5 (16.8\%) & 8.6 ± 1.2 (17.0\%) & 8.5 [6.4-11.4]\\
+TMAX & h & 12 & 1.8 ± 1.1 (62.2\%) & 1.5 ± 1.8 (64.7\%) & 1.1 [0.6-3.5]\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Although there's an advantage of customization, the script is quite
+lengthy, so if you're not preparing a journal paper, I'll just use
+\texttt{broom::tidy()}.
+
+\pagebreak
+
+\chapter{R에 내장된 자료의 비구획분석 보고서}\label{groupreport}
+
+\section{Theoph의 보고서}\label{theophgroup}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{ID=}\DecValTok{6}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -1977,13 +2300,13 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{0.2700}       \FloatTok{1.2900}                           \FloatTok{0.1742}     \FloatTok{0.0470}
      \FloatTok{0.5800}       \FloatTok{3.0800}                           \FloatTok{0.8515}     \FloatTok{0.3779}
      \FloatTok{1.1500}       \FloatTok{6.4400}                           \FloatTok{3.5647}     \FloatTok{2.9977}
-     \FloatTok{2.0300} \OperatorTok{*}\StringTok{     }\FloatTok{6.3200}     \FloatTok{6.3928} \FloatTok{-7.284e-02}     \FloatTok{9.1791}    \FloatTok{11.9014}
-     \FloatTok{3.5700} \OperatorTok{*}\StringTok{     }\FloatTok{5.5300}     \FloatTok{5.5844} \FloatTok{-5.438e-02}    \FloatTok{18.3036}    \FloatTok{36.9816}
-     \FloatTok{5.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.9400}     \FloatTok{4.9255} \FloatTok{+1.450e-02}    \FloatTok{25.7897}    \FloatTok{68.7577}
-     \FloatTok{7.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.0200}     \FloatTok{4.1323} \FloatTok{-1.123e-01}    \FloatTok{34.7497}   \FloatTok{121.5977}
-     \FloatTok{9.2200} \OperatorTok{*}\StringTok{     }\FloatTok{3.4600}     \FloatTok{3.4005} \FloatTok{+5.948e-02}    \FloatTok{43.0525}   \FloatTok{188.2434}
-    \FloatTok{12.1000} \OperatorTok{*}\StringTok{     }\FloatTok{2.7800}     \FloatTok{2.6408} \FloatTok{+1.392e-01}    \FloatTok{52.0381}   \FloatTok{282.6199}
-    \FloatTok{23.8500} \OperatorTok{*}\StringTok{     }\FloatTok{0.9200}     \FloatTok{0.9413} \FloatTok{-2.127e-02}    \FloatTok{73.7756}   \FloatTok{609.1524}
+     \FloatTok{2.0300} \OperatorTok{*}\StringTok{     }\FloatTok{6.3200}     \FloatTok{6.3928} \OperatorTok{-}\FloatTok{7.284e-02}     \FloatTok{9.1791}    \FloatTok{11.9014}
+     \FloatTok{3.5700} \OperatorTok{*}\StringTok{     }\FloatTok{5.5300}     \FloatTok{5.5844} \OperatorTok{-}\FloatTok{5.438e-02}    \FloatTok{18.3036}    \FloatTok{36.9816}
+     \FloatTok{5.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.9400}     \FloatTok{4.9255} \OperatorTok{+}\FloatTok{1.450e-02}    \FloatTok{25.7897}    \FloatTok{68.7577}
+     \FloatTok{7.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.0200}     \FloatTok{4.1323} \OperatorTok{-}\FloatTok{1.123e-01}    \FloatTok{34.7497}   \FloatTok{121.5977}
+     \FloatTok{9.2200} \OperatorTok{*}\StringTok{     }\FloatTok{3.4600}     \FloatTok{3.4005} \OperatorTok{+}\FloatTok{5.948e-02}    \FloatTok{43.0525}   \FloatTok{188.2434}
+    \FloatTok{12.1000} \OperatorTok{*}\StringTok{     }\FloatTok{2.7800}     \FloatTok{2.6408} \OperatorTok{+}\FloatTok{1.392e-01}    \FloatTok{52.0381}   \FloatTok{282.6199}
+    \FloatTok{23.8500} \OperatorTok{*}\StringTok{     }\FloatTok{0.9200}     \FloatTok{0.9413} \OperatorTok{-}\FloatTok{2.127e-02}    \FloatTok{73.7756}   \FloatTok{609.1524}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2002,7 +2325,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{2.0300}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{23.8500}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{7}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9991} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9991} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9982} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9979} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{73.7756}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2033,10 +2356,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{7}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2059,10 +2382,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{2.0200}       \FloatTok{6.5800}                           \FloatTok{8.2412}    \FloatTok{11.0428}
      \FloatTok{3.4800}       \FloatTok{7.0900}                          \FloatTok{18.2203}    \FloatTok{38.7571}
      \FloatTok{5.0000}       \FloatTok{6.6600}                          \FloatTok{28.6703}    \FloatTok{82.8167}
-     \FloatTok{6.9800} \OperatorTok{*}\StringTok{     }\FloatTok{5.2500}     \FloatTok{5.3226} \FloatTok{-7.260e-02}    \FloatTok{40.4612}   \FloatTok{152.0623}
-     \FloatTok{9.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.3900}     \FloatTok{4.4527} \FloatTok{-6.275e-02}    \FloatTok{50.1976}   \FloatTok{228.9788}
-    \FloatTok{12.0500} \OperatorTok{*}\StringTok{     }\FloatTok{3.5300}     \FloatTok{3.4011} \FloatTok{+1.289e-01}    \FloatTok{62.2756}   \FloatTok{354.0998}
-    \FloatTok{24.2200} \OperatorTok{*}\StringTok{     }\FloatTok{1.1500}     \FloatTok{1.1607} \FloatTok{-1.072e-02}    \FloatTok{90.7534}   \FloatTok{782.4199}
+     \FloatTok{6.9800} \OperatorTok{*}\StringTok{     }\FloatTok{5.2500}     \FloatTok{5.3226} \OperatorTok{-}\FloatTok{7.260e-02}    \FloatTok{40.4612}   \FloatTok{152.0623}
+     \FloatTok{9.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.3900}     \FloatTok{4.4527} \OperatorTok{-}\FloatTok{6.275e-02}    \FloatTok{50.1976}   \FloatTok{228.9788}
+    \FloatTok{12.0500} \OperatorTok{*}\StringTok{     }\FloatTok{3.5300}     \FloatTok{3.4011} \OperatorTok{+}\FloatTok{1.289e-01}    \FloatTok{62.2756}   \FloatTok{354.0998}
+    \FloatTok{24.2200} \OperatorTok{*}\StringTok{     }\FloatTok{1.1500}     \FloatTok{1.1607} \OperatorTok{-}\FloatTok{1.072e-02}    \FloatTok{90.7534}   \FloatTok{782.4199}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2081,7 +2404,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{6.9800}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.2200}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{4}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9993} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9993} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9987} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9980} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{90.7534}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2112,10 +2435,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{8}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2136,12 +2459,12 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{0.5200}       \FloatTok{3.0500}                           \FloatTok{1.2048}     \FloatTok{0.4124}
      \FloatTok{0.9800}       \FloatTok{7.3100}                           \FloatTok{3.5875}     \FloatTok{2.4248}
      \FloatTok{2.0200}       \FloatTok{7.5600}                          \FloatTok{11.3200}    \FloatTok{14.0910}
-     \FloatTok{3.5300} \OperatorTok{*}\StringTok{     }\FloatTok{6.5900}     \FloatTok{6.5724} \FloatTok{+1.758e-02}    \FloatTok{22.0032}    \FloatTok{43.1841}
-     \FloatTok{5.0500} \OperatorTok{*}\StringTok{     }\FloatTok{5.8800}     \FloatTok{5.8071} \FloatTok{+7.292e-02}    \FloatTok{31.4804}    \FloatTok{83.4312}
-     \FloatTok{7.1500} \OperatorTok{*}\StringTok{     }\FloatTok{4.7300}     \FloatTok{4.8941} \FloatTok{-1.641e-01}    \FloatTok{42.6209}   \FloatTok{150.1204}
-     \FloatTok{9.0700} \OperatorTok{*}\StringTok{     }\FloatTok{4.5700}     \FloatTok{4.1856} \FloatTok{+3.844e-01}    \FloatTok{51.5489}   \FloatTok{222.3790}
-    \FloatTok{12.1000} \OperatorTok{*}\StringTok{     }\FloatTok{3.0000}     \FloatTok{3.2702} \FloatTok{-2.702e-01}    \FloatTok{63.0175}   \FloatTok{340.1701}
-    \FloatTok{24.1200} \OperatorTok{*}\StringTok{     }\FloatTok{1.2500}     \FloatTok{1.2285} \FloatTok{+2.147e-02}    \FloatTok{88.5600}   \FloatTok{739.5346}
+     \FloatTok{3.5300} \OperatorTok{*}\StringTok{     }\FloatTok{6.5900}     \FloatTok{6.5724} \OperatorTok{+}\FloatTok{1.758e-02}    \FloatTok{22.0032}    \FloatTok{43.1841}
+     \FloatTok{5.0500} \OperatorTok{*}\StringTok{     }\FloatTok{5.8800}     \FloatTok{5.8071} \OperatorTok{+}\FloatTok{7.292e-02}    \FloatTok{31.4804}    \FloatTok{83.4312}
+     \FloatTok{7.1500} \OperatorTok{*}\StringTok{     }\FloatTok{4.7300}     \FloatTok{4.8941} \OperatorTok{-}\FloatTok{1.641e-01}    \FloatTok{42.6209}   \FloatTok{150.1204}
+     \FloatTok{9.0700} \OperatorTok{*}\StringTok{     }\FloatTok{4.5700}     \FloatTok{4.1856} \OperatorTok{+}\FloatTok{3.844e-01}    \FloatTok{51.5489}   \FloatTok{222.3790}
+    \FloatTok{12.1000} \OperatorTok{*}\StringTok{     }\FloatTok{3.0000}     \FloatTok{3.2702} \OperatorTok{-}\FloatTok{2.702e-01}    \FloatTok{63.0175}   \FloatTok{340.1701}
+    \FloatTok{24.1200} \OperatorTok{*}\StringTok{     }\FloatTok{1.2500}     \FloatTok{1.2285} \OperatorTok{+}\FloatTok{2.147e-02}    \FloatTok{88.5600}   \FloatTok{739.5346}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2160,7 +2483,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{3.5300}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.1200}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{6}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9955} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9955} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9910} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9888} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{88.5600}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2191,10 +2514,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{11}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2218,9 +2541,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.6000}       \FloatTok{5.8700}                          \FloatTok{23.4534}    \FloatTok{42.2073}
      \FloatTok{5.0200}       \FloatTok{5.2200}                          \FloatTok{31.3273}    \FloatTok{75.8162}
      \FloatTok{7.0300}       \FloatTok{4.4500}                          \FloatTok{41.0457}   \FloatTok{133.5915}
-     \FloatTok{9.0300} \OperatorTok{*}\StringTok{     }\FloatTok{3.6200}     \FloatTok{3.6169} \FloatTok{+3.150e-03}    \FloatTok{49.1156}   \FloatTok{197.5636}
-    \FloatTok{12.1200} \OperatorTok{*}\StringTok{     }\FloatTok{2.6900}     \FloatTok{2.6929} \FloatTok{-2.948e-03}    \FloatTok{58.8646}   \FloatTok{298.4388}
-    \FloatTok{24.0800} \OperatorTok{*}\StringTok{     }\FloatTok{0.8600}     \FloatTok{0.8598} \FloatTok{+1.934e-04}    \FloatTok{80.0936}   \FloatTok{617.2422}
+     \FloatTok{9.0300} \OperatorTok{*}\StringTok{     }\FloatTok{3.6200}     \FloatTok{3.6169} \OperatorTok{+}\FloatTok{3.150e-03}    \FloatTok{49.1156}   \FloatTok{197.5636}
+    \FloatTok{12.1200} \OperatorTok{*}\StringTok{     }\FloatTok{2.6900}     \FloatTok{2.6929} \OperatorTok{-}\FloatTok{2.948e-03}    \FloatTok{58.8646}   \FloatTok{298.4388}
+    \FloatTok{24.0800} \OperatorTok{*}\StringTok{     }\FloatTok{0.8600}     \FloatTok{0.8598} \OperatorTok{+}\FloatTok{1.934e-04}    \FloatTok{80.0936}   \FloatTok{617.2422}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2239,7 +2562,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.0300}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.0800}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-1.0000} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{1.0000} 
 \NormalTok{R2         R Squared                                       }\FloatTok{1.0000} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{1.0000} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{80.0936}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2270,10 +2593,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{3}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2297,9 +2620,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.6200}       \FloatTok{7.5000}                          \FloatTok{25.9075}    \FloatTok{50.0702}
      \FloatTok{5.0800}       \FloatTok{6.2000}                          \FloatTok{35.9085}    \FloatTok{92.8817}
      \FloatTok{7.0700}       \FloatTok{5.3000}                          \FloatTok{47.3510}   \FloatTok{161.5039}
-     \FloatTok{9.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.9000}     \FloatTok{4.9914} \FloatTok{-9.138e-02}    \FloatTok{57.1940}   \FloatTok{240.2199}
-    \FloatTok{12.1500} \OperatorTok{*}\StringTok{     }\FloatTok{3.7000}     \FloatTok{3.6147} \FloatTok{+8.528e-02}    \FloatTok{70.7390}   \FloatTok{380.4815}
-    \FloatTok{24.1700} \OperatorTok{*}\StringTok{     }\FloatTok{1.0500}     \FloatTok{1.0551} \FloatTok{-5.097e-03}    \FloatTok{99.2865}   \FloatTok{803.1859}
+     \FloatTok{9.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.9000}     \FloatTok{4.9914} \OperatorTok{-}\FloatTok{9.138e-02}    \FloatTok{57.1940}   \FloatTok{240.2199}
+    \FloatTok{12.1500} \OperatorTok{*}\StringTok{     }\FloatTok{3.7000}     \FloatTok{3.6147} \OperatorTok{+}\FloatTok{8.528e-02}    \FloatTok{70.7390}   \FloatTok{380.4815}
+    \FloatTok{24.1700} \OperatorTok{*}\StringTok{     }\FloatTok{1.0500}     \FloatTok{1.0551} \OperatorTok{-}\FloatTok{5.097e-03}    \FloatTok{99.2865}   \FloatTok{803.1859}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2318,7 +2641,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.0000}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.1700}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9997} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9997} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9993} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9986} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{99.2865}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2349,10 +2672,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{2}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2375,10 +2698,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{1.9200}       \FloatTok{8.3300}                          \FloatTok{12.9832}    \FloatTok{14.7961}
      \FloatTok{3.5000}       \FloatTok{6.8500}                          \FloatTok{24.9754}    \FloatTok{46.3713}
      \FloatTok{5.0200}       \FloatTok{6.0800}                          \FloatTok{34.8022}    \FloatTok{87.7887}
-     \FloatTok{7.0300} \OperatorTok{*}\StringTok{     }\FloatTok{5.4000}     \FloatTok{5.3629} \FloatTok{+3.707e-02}    \FloatTok{46.3396}   \FloatTok{156.6147}
-     \FloatTok{9.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.5500}     \FloatTok{4.3687} \FloatTok{+1.813e-01}    \FloatTok{56.1403}   \FloatTok{234.3431}
-    \FloatTok{12.0000} \OperatorTok{*}\StringTok{     }\FloatTok{3.0100}     \FloatTok{3.1970} \FloatTok{-1.870e-01}    \FloatTok{67.4803}   \FloatTok{349.9481}
-    \FloatTok{24.3000} \OperatorTok{*}\StringTok{     }\FloatTok{0.9000}     \FloatTok{0.8886} \FloatTok{+1.136e-02}    \FloatTok{91.5268}   \FloatTok{706.5866}
+     \FloatTok{7.0300} \OperatorTok{*}\StringTok{     }\FloatTok{5.4000}     \FloatTok{5.3629} \OperatorTok{+}\FloatTok{3.707e-02}    \FloatTok{46.3396}   \FloatTok{156.6147}
+     \FloatTok{9.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.5500}     \FloatTok{4.3687} \OperatorTok{+}\FloatTok{1.813e-01}    \FloatTok{56.1403}   \FloatTok{234.3431}
+    \FloatTok{12.0000} \OperatorTok{*}\StringTok{     }\FloatTok{3.0100}     \FloatTok{3.1970} \OperatorTok{-}\FloatTok{1.870e-01}    \FloatTok{67.4803}   \FloatTok{349.9481}
+    \FloatTok{24.3000} \OperatorTok{*}\StringTok{     }\FloatTok{0.9000}     \FloatTok{0.8886} \OperatorTok{+}\FloatTok{1.136e-02}    \FloatTok{91.5268}   \FloatTok{706.5866}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2397,7 +2720,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{7.0300}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.3000}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{4}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9986} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9986} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9972} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9958} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{91.5268}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2428,10 +2751,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{4}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2455,9 +2778,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.5000}       \FloatTok{7.5400}                          \FloatTok{24.1486}    \FloatTok{47.9958}
      \FloatTok{5.0200}       \FloatTok{6.8800}                          \FloatTok{35.1078}    \FloatTok{94.3007}
      \FloatTok{7.0200}       \FloatTok{5.7800}                          \FloatTok{47.7678}   \FloatTok{169.4139}
-     \FloatTok{9.0200} \OperatorTok{*}\StringTok{     }\FloatTok{5.3300}     \FloatTok{5.4586} \FloatTok{-1.286e-01}    \FloatTok{58.8778}   \FloatTok{258.0661}
-    \FloatTok{11.9800} \OperatorTok{*}\StringTok{     }\FloatTok{4.1900}     \FloatTok{4.0686} \FloatTok{+1.214e-01}    \FloatTok{72.9674}   \FloatTok{403.5099}
-    \FloatTok{24.6500} \OperatorTok{*}\StringTok{     }\FloatTok{1.1500}     \FloatTok{1.1564} \FloatTok{-6.422e-03}   \FloatTok{106.7963}   \FloatTok{901.0842}
+     \FloatTok{9.0200} \OperatorTok{*}\StringTok{     }\FloatTok{5.3300}     \FloatTok{5.4586} \OperatorTok{-}\FloatTok{1.286e-01}    \FloatTok{58.8778}   \FloatTok{258.0661}
+    \FloatTok{11.9800} \OperatorTok{*}\StringTok{     }\FloatTok{4.1900}     \FloatTok{4.0686} \OperatorTok{+}\FloatTok{1.214e-01}    \FloatTok{72.9674}   \FloatTok{403.5099}
+    \FloatTok{24.6500} \OperatorTok{*}\StringTok{     }\FloatTok{1.1500}     \FloatTok{1.1564} \OperatorTok{-}\FloatTok{6.422e-03}   \FloatTok{106.7963}   \FloatTok{901.0842}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2476,7 +2799,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.0200}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.6500}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9995} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9995} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9989} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9978} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                      }\FloatTok{106.7963}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2507,10 +2830,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{9}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2534,9 +2857,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.5300}       \FloatTok{5.6600}                          \FloatTok{22.7926}    \FloatTok{38.9804}
      \FloatTok{5.0200}       \FloatTok{5.6700}                          \FloatTok{31.2335}    \FloatTok{75.0705}
      \FloatTok{7.1700}       \FloatTok{4.2400}                          \FloatTok{41.8867}   \FloatTok{138.3495}
-     \FloatTok{8.8000} \OperatorTok{*}\StringTok{     }\FloatTok{4.1100}     \FloatTok{4.0512} \FloatTok{+5.880e-02}    \FloatTok{48.6920}   \FloatTok{192.6031}
-    \FloatTok{11.6000} \OperatorTok{*}\StringTok{     }\FloatTok{3.1600}     \FloatTok{3.2160} \FloatTok{-5.597e-02}    \FloatTok{58.8700}   \FloatTok{294.5567}
-    \FloatTok{24.4300} \OperatorTok{*}\StringTok{     }\FloatTok{1.1200}     \FloatTok{1.1165} \FloatTok{+3.517e-03}    \FloatTok{86.3262}   \FloatTok{705.2296}
+     \FloatTok{8.8000} \OperatorTok{*}\StringTok{     }\FloatTok{4.1100}     \FloatTok{4.0512} \OperatorTok{+}\FloatTok{5.880e-02}    \FloatTok{48.6920}   \FloatTok{192.6031}
+    \FloatTok{11.6000} \OperatorTok{*}\StringTok{     }\FloatTok{3.1600}     \FloatTok{3.2160} \OperatorTok{-}\FloatTok{5.597e-02}    \FloatTok{58.8700}   \FloatTok{294.5567}
+    \FloatTok{24.4300} \OperatorTok{*}\StringTok{     }\FloatTok{1.1200}     \FloatTok{1.1165} \OperatorTok{+}\FloatTok{3.517e-03}    \FloatTok{86.3262}   \FloatTok{705.2296}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2555,7 +2878,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{8.8000}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.4300}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9997} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9997} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9994} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9989} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                       }\FloatTok{86.3262}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2586,10 +2909,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{12}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2613,9 +2936,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.5200}       \FloatTok{9.7500}                          \FloatTok{27.3197}    \FloatTok{57.2632}
      \FloatTok{5.0700}       \FloatTok{8.5700}                          \FloatTok{41.5177}   \FloatTok{117.5349}
      \FloatTok{7.0700}       \FloatTok{6.5900}                          \FloatTok{56.6777}   \FloatTok{207.5761}
-     \FloatTok{9.0300} \OperatorTok{*}\StringTok{     }\FloatTok{6.1100}     \FloatTok{6.2267} \FloatTok{-1.167e-01}    \FloatTok{69.1237}   \FloatTok{307.3054}
-    \FloatTok{12.0500} \OperatorTok{*}\StringTok{     }\FloatTok{4.5700}     \FloatTok{4.4632} \FloatTok{+1.068e-01}    \FloatTok{85.2505}   \FloatTok{473.7705}
-    \FloatTok{24.1500} \OperatorTok{*}\StringTok{     }\FloatTok{1.1700}     \FloatTok{1.1755} \FloatTok{-5.539e-03}   \FloatTok{119.9775}   \FloatTok{977.8807}
+     \FloatTok{9.0300} \OperatorTok{*}\StringTok{     }\FloatTok{6.1100}     \FloatTok{6.2267} \OperatorTok{-}\FloatTok{1.167e-01}    \FloatTok{69.1237}   \FloatTok{307.3054}
+    \FloatTok{12.0500} \OperatorTok{*}\StringTok{     }\FloatTok{4.5700}     \FloatTok{4.4632} \OperatorTok{+}\FloatTok{1.068e-01}    \FloatTok{85.2505}   \FloatTok{473.7705}
+    \FloatTok{24.1500} \OperatorTok{*}\StringTok{     }\FloatTok{1.1700}     \FloatTok{1.1755} \OperatorTok{-}\FloatTok{5.539e-03}   \FloatTok{119.9775}   \FloatTok{977.8807}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2634,7 +2957,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.0300}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.1500}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9997} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9997} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9994} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9988} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                      }\FloatTok{119.9775}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2665,10 +2988,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{10}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2692,9 +3015,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.5500}      \FloatTok{10.2100}                          \FloatTok{24.5184}    \FloatTok{53.3917}
      \FloatTok{5.0500}       \FloatTok{9.1800}                          \FloatTok{39.0609}   \FloatTok{115.3451}
      \FloatTok{7.0800}       \FloatTok{8.0200}                          \FloatTok{56.5189}   \FloatTok{220.0328}
-     \FloatTok{9.3800} \OperatorTok{*}\StringTok{     }\FloatTok{7.1400}     \FloatTok{7.0610} \FloatTok{+7.903e-02}    \FloatTok{73.9529}   \FloatTok{362.3508}
-    \FloatTok{12.1000} \OperatorTok{*}\StringTok{     }\FloatTok{5.6800}     \FloatTok{5.7586} \FloatTok{-7.858e-02}    \FloatTok{91.3881}   \FloatTok{546.9044}
-    \FloatTok{23.7000} \OperatorTok{*}\StringTok{     }\FloatTok{2.4200}     \FloatTok{2.4137} \FloatTok{+6.308e-03}   \FloatTok{138.3681}  \FloatTok{1278.1800}
+     \FloatTok{9.3800} \OperatorTok{*}\StringTok{     }\FloatTok{7.1400}     \FloatTok{7.0610} \OperatorTok{+}\FloatTok{7.903e-02}    \FloatTok{73.9529}   \FloatTok{362.3508}
+    \FloatTok{12.1000} \OperatorTok{*}\StringTok{     }\FloatTok{5.6800}     \FloatTok{5.7586} \OperatorTok{-}\FloatTok{7.858e-02}    \FloatTok{91.3881}   \FloatTok{546.9044}
+    \FloatTok{23.7000} \OperatorTok{*}\StringTok{     }\FloatTok{2.4200}     \FloatTok{2.4137} \OperatorTok{+}\FloatTok{6.308e-03}   \FloatTok{138.3681}  \FloatTok{1278.1800}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2713,7 +3036,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.3800}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{23.7000}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9998} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9998} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9995} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9990} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                      }\FloatTok{138.3681}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2744,10 +3067,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{1}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2771,9 +3094,9 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{3.8200}       \FloatTok{8.5800}                          \FloatTok{32.1354}    \FloatTok{66.1982}
      \FloatTok{5.1000}       \FloatTok{8.3600}                          \FloatTok{42.9769}   \FloatTok{114.4617}
      \FloatTok{7.0300}       \FloatTok{7.4700}                          \FloatTok{58.2529}   \FloatTok{206.2815}
-     \FloatTok{9.0500} \OperatorTok{*}\StringTok{     }\FloatTok{6.8900}     \FloatTok{6.8912} \FloatTok{-1.228e-03}    \FloatTok{72.7565}   \FloatTok{322.2988}
-    \FloatTok{12.1200} \OperatorTok{*}\StringTok{     }\FloatTok{5.9400}     \FloatTok{5.9387} \FloatTok{+1.324e-03}    \FloatTok{92.4505}   \FloatTok{528.5219}
-    \FloatTok{24.3700} \OperatorTok{*}\StringTok{     }\FloatTok{3.2800}     \FloatTok{3.2801} \FloatTok{-1.465e-04}   \FloatTok{148.9231}  \FloatTok{1459.0711}
+     \FloatTok{9.0500} \OperatorTok{*}\StringTok{     }\FloatTok{6.8900}     \FloatTok{6.8912} \OperatorTok{-}\FloatTok{1.228e-03}    \FloatTok{72.7565}   \FloatTok{322.2988}
+    \FloatTok{12.1200} \OperatorTok{*}\StringTok{     }\FloatTok{5.9400}     \FloatTok{5.9387} \OperatorTok{+}\FloatTok{1.324e-03}    \FloatTok{92.4505}   \FloatTok{528.5219}
+    \FloatTok{24.3700} \OperatorTok{*}\StringTok{     }\FloatTok{3.2800}     \FloatTok{3.2801} \OperatorTok{-}\FloatTok{1.465e-04}   \FloatTok{148.9231}  \FloatTok{1459.0711}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2792,7 +3115,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{9.0500}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.3700}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{3}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-1.0000} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{1.0000} 
 \NormalTok{R2         R Squared                                       }\FloatTok{1.0000} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{1.0000} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                      }\FloatTok{148.9231}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2823,10 +3146,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{ID=}\DecValTok{5}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{3.7}\NormalTok{ (}\DecValTok{2017-08-16}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2017-09-28}\NormalTok{)}
+\NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
+\NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{2}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{09}\OperatorTok{-}\DecValTok{28}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017-11-15} \DecValTok{11}\OperatorTok{:}\DecValTok{19}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{15} \DecValTok{16}\OperatorTok{:}\DecValTok{16}\OperatorTok{:}\DecValTok{21}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2849,10 +3172,10 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
      \FloatTok{2.0200}       \FloatTok{9.3300}                          \FloatTok{15.8040}    \FloatTok{19.3440}
      \FloatTok{3.5000}       \FloatTok{8.7400}                          \FloatTok{29.1758}    \FloatTok{55.9271}
      \FloatTok{5.0200}       \FloatTok{7.5600}                          \FloatTok{41.5638}   \FloatTok{108.0184}
-     \FloatTok{7.0200} \OperatorTok{*}\StringTok{     }\FloatTok{7.0900}     \FloatTok{6.9799} \FloatTok{+1.101e-01}    \FloatTok{56.2138}   \FloatTok{195.7414}
-     \FloatTok{9.1000} \OperatorTok{*}\StringTok{     }\FloatTok{5.9000}     \FloatTok{5.8291} \FloatTok{+7.091e-02}    \FloatTok{69.7234}   \FloatTok{303.3417}
-    \FloatTok{12.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.3700}     \FloatTok{4.5343} \FloatTok{-1.643e-01}    \FloatTok{84.6149}   \FloatTok{457.2302}
-    \FloatTok{24.3500} \OperatorTok{*}\StringTok{     }\FloatTok{1.5700}     \FloatTok{1.5557} \FloatTok{+1.430e-02}   \FloatTok{121.2944}  \FloatTok{1017.1143}
+     \FloatTok{7.0200} \OperatorTok{*}\StringTok{     }\FloatTok{7.0900}     \FloatTok{6.9799} \OperatorTok{+}\FloatTok{1.101e-01}    \FloatTok{56.2138}   \FloatTok{195.7414}
+     \FloatTok{9.1000} \OperatorTok{*}\StringTok{     }\FloatTok{5.9000}     \FloatTok{5.8291} \OperatorTok{+}\FloatTok{7.091e-02}    \FloatTok{69.7234}   \FloatTok{303.3417}
+    \FloatTok{12.0000} \OperatorTok{*}\StringTok{     }\FloatTok{4.3700}     \FloatTok{4.5343} \OperatorTok{-}\FloatTok{1.643e-01}    \FloatTok{84.6149}   \FloatTok{457.2302}
+    \FloatTok{24.3500} \OperatorTok{*}\StringTok{     }\FloatTok{1.5700}     \FloatTok{1.5557} \OperatorTok{+}\FloatTok{1.430e-02}   \FloatTok{121.2944}  \FloatTok{1017.1143}
 
 \OperatorTok{*}\ErrorTok{:}\StringTok{ }\NormalTok{Used }\ControlFlowTok{for}\NormalTok{ the calculation of Lambda z.}
 
@@ -2871,7 +3194,7 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \NormalTok{LAMZLL     Lambda z Lower Limit                            }\FloatTok{7.0200}\NormalTok{ h}
 \NormalTok{LAMZUL     Lambda z Upper Limit                           }\FloatTok{24.3500}\NormalTok{ h}
 \NormalTok{LAMZNPT    Number of Points }\ControlFlowTok{for}\NormalTok{ Lambda z                   }\DecValTok{4}
-\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\FloatTok{-0.9993} 
+\NormalTok{CORRXY     Correlation Between TimeX and Log ConcY        }\OperatorTok{-}\FloatTok{0.9993} 
 \NormalTok{R2         R Squared                                       }\FloatTok{0.9986} 
 \NormalTok{R2ADJ      R Squared Adjusted                              }\FloatTok{0.9980} 
 \NormalTok{AUCLST     AUC to Last Nonzero Conc                      }\FloatTok{121.2944}\NormalTok{ h}\OperatorTok{*}\NormalTok{mg}\OperatorTok{/}\NormalTok{L}
@@ -2897,16 +3220,14 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{support}{%
-\chapter{지원}\label{support}}
+\chapter{지원}\label{support}
 
 패키지와 관련한 모든 의문은
 \href{mailto:shan@acp.kr}{\nolinkurl{shan@acp.kr}} / 02-3010-4614 으로
 연락 주시면 빠르게 도움 드리겠습니다. 혹은 StackOverflow\footnote{\url{https://stackoverflow.com}}에
 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
 
-\hypertarget{sessioninfo}{%
-\chapter{sessionInfo}\label{sessioninfo}}
+\chapter{세션 정보}\label{session-info}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2917,84 +3238,109 @@ Figure 12. nonlinear mixed effect modeling First order method를 통해
 \begin{verbatim}
 ##  setting  value                       
 ##  version  R version 3.4.2 (2017-09-28)
-##  system   x86_64, darwin17.0.0        
-##  ui       unknown                     
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
 ##  language (EN)                        
-##  collate  en_US.UTF-8                 
+##  collate  Korean_Korea.949            
 ##  tz       Asia/Seoul                  
 ##  date     2017-11-15                  
 ## 
 ##  package   * version date       source                           
-##  backports   1.1.1   2017-09-25 CRAN (R 3.4.2)                   
-##  base      * 3.4.2   2017-09-29 local                            
+##  backports   1.1.1   2017-09-25 CRAN (R 3.4.1)                   
+##  base      * 3.4.2   2017-09-28 local                            
 ##  bookdown    0.5.9   2017-11-14 Github (rstudio/bookdown@83d914f)
-##  compiler    3.4.2   2017-09-29 local                            
-##  datasets  * 3.4.2   2017-09-29 local                            
+##  compiler    3.4.2   2017-09-28 local                            
+##  datasets  * 3.4.2   2017-09-28 local                            
 ##  devtools    1.13.4  2017-11-09 CRAN (R 3.4.2)                   
-##  digest      0.6.12  2017-01-27 CRAN (R 3.4.2)                   
-##  evaluate    0.10.1  2017-06-24 CRAN (R 3.4.2)                   
-##  graphics  * 3.4.2   2017-09-29 local                            
-##  grDevices * 3.4.2   2017-09-29 local                            
-##  htmltools   0.3.6   2017-04-28 CRAN (R 3.4.2)                   
-##  knitr       1.17    2017-08-10 CRAN (R 3.4.2)                   
-##  magrittr    1.5     2014-11-22 CRAN (R 3.4.2)                   
-##  memoise     1.1.0   2017-04-21 CRAN (R 3.4.2)                   
-##  methods     3.4.2   2017-09-29 local                            
+##  digest      0.6.12  2017-01-27 CRAN (R 3.4.0)                   
+##  evaluate    0.10.1  2017-06-24 CRAN (R 3.4.1)                   
+##  graphics  * 3.4.2   2017-09-28 local                            
+##  grDevices * 3.4.2   2017-09-28 local                            
+##  htmltools   0.3.6   2017-04-28 CRAN (R 3.4.0)                   
+##  knitr       1.17.9  2017-11-15 Github (yihui/knitr@6f69c42)     
+##  magrittr    1.5     2014-11-22 CRAN (R 3.4.0)                   
+##  memoise     1.1.0   2017-04-21 CRAN (R 3.4.0)                   
+##  methods     3.4.2   2017-09-28 local                            
 ##  Rcpp        0.12.13 2017-09-28 CRAN (R 3.4.2)                   
 ##  rmarkdown   1.7     2017-11-10 CRAN (R 3.4.2)                   
-##  rprojroot   1.2     2017-01-16 CRAN (R 3.4.2)                   
-##  stats     * 3.4.2   2017-09-29 local                            
-##  stringi     1.1.5   2017-04-07 CRAN (R 3.4.2)                   
-##  stringr     1.2.0   2017-02-18 CRAN (R 3.4.2)                   
-##  tools       3.4.2   2017-09-29 local                            
-##  utils     * 3.4.2   2017-09-29 local                            
+##  rprojroot   1.2     2017-01-16 CRAN (R 3.4.0)                   
+##  stats     * 3.4.2   2017-09-28 local                            
+##  stringi     1.1.5   2017-04-07 CRAN (R 3.4.0)                   
+##  stringr     1.2.0   2017-02-18 CRAN (R 3.4.0)                   
+##  tools       3.4.2   2017-09-28 local                            
+##  utils     * 3.4.2   2017-09-28 local                            
 ##  withr       2.1.0   2017-11-01 CRAN (R 3.4.2)
 \end{verbatim}
 
-\begin{itemize}
-\tightlist
-\item
-  U.S. Department of Health and Human Services Food and Drug
-  Administration Center for Drug Evaluation and Research (CDER) ,
-  Guidance for Industry Pharmacokinetics in Pregnancy --- Study Design,
-  Data Analysis, and Impact on Dosing and Labeling, (2004)
-\item
-  Malcolm Rowland and Thomas N. Tozer PharmD PhD, Clinical
-  Pharmacokinetics and Pharmacodynamics : Concepts and Applications 4th
-  Ed. 2010 (\url{ISBN:9780781750097})
-\item
-  Hadley Wickham, Advanced R (Chapman \& Hall/CRC The R Series) 1st Ed
-  ,25 sep 2014
-\item
-  Gabrielsson J and Weiner D. Pharmacokinetic and Pharmacodynamic Data
-  Analysis - Concepts and Applications. 5th ed. 2016.
-  (\url{ISBN:9198299107}).
-\item
-  \url{http://www.edison.re.kr}. EDISON 웹사이트.
-\end{itemize}
-
 \hypertarget{refs}{}
-\leavevmode\hypertarget{ref-R-ncar}{}%
+\hypertarget{ref-R-ncar}{}
 Bae, Kyun-Seop. 2017a. \emph{Ncar: Noncompartmental Analysis for
 Pharmacokinetic Report}. \url{https://CRAN.R-project.org/package=ncar}.
 
-\leavevmode\hypertarget{ref-R-NonCompart}{}%
+\hypertarget{ref-R-NonCompart}{}
 ---------. 2017b. \emph{NonCompart: Noncompartmental Analysis for
 Pharmacokinetic Data}.
 \url{https://CRAN.R-project.org/package=NonCompart}.
 
-\leavevmode\hypertarget{ref-R-pkr}{}%
+\hypertarget{ref-R-ncarbe}{}
+Bae, Kyun-Seop, and Sungpil Han. 2017. \emph{Ncarbe: Perform Be Test
+Using Noncompart Package}.
+
+\hypertarget{ref-R-pkr}{}
 Bae, Kyun-Seop, and Jee Eun Lee. 2017. \emph{Pkr: Pharmacokinetics in
 R}. \url{https://CRAN.R-project.org/package=pkr}.
 
-\leavevmode\hypertarget{ref-chow2009design}{}%
+\hypertarget{ref-chow2009design}{}
 Chow. 2009. \emph{Design and Analysis of Bioavailability and
 Bioequivalence Studies}. Boca Raton: CRC Press.
 
-\leavevmode\hypertarget{ref-R-base}{}%
+\hypertarget{ref-gab}{}
+Gabrielsson, Johan. 2016. \emph{Pharmacokinetic and Pharmacodynamic Data
+Analysis : Concepts and Applications}. Stockholm: Apotekarsocieteten.
+
+\hypertarget{ref-R-purrr}{}
+Henry, Lionel, and Hadley Wickham. 2017. \emph{Purrr: Functional
+Programming Tools}. \url{https://CRAN.R-project.org/package=purrr}.
+
+\hypertarget{ref-R-tibble}{}
+Muller, Kirill, and Hadley Wickham. 2017. \emph{Tibble: Simple Data
+Frames}. \url{https://CRAN.R-project.org/package=tibble}.
+
+\hypertarget{ref-R-PKPDdatasets}{}
+Pastoor, Devin. 2014. \emph{PKPDdatasets: Data Sets for Pharmacometric
+Analysis and Visualization}.
+
+\hypertarget{ref-R-base}{}
 R Core Team. 2017. \emph{R: A Language and Environment for Statistical
 Computing}. Vienna, Austria: R Foundation for Statistical Computing.
 \url{https://www.R-project.org/}.
+
+\hypertarget{ref-R-broom}{}
+Robinson, David. 2016. \emph{Broom: Convert Statistical Analysis Objects
+into Tidy Data Frames}. \url{http://github.com/tidyverse/broom}.
+
+\hypertarget{ref-tozer}{}
+Rowland, Malcolm. 2011. \emph{Clinical Pharmacokinetics and
+Pharmacodynamics : Concepts and Applications}. Philadelphia: Wolters
+Kluwer Health/Lippincott William \& Wilkins.
+
+\hypertarget{ref-R-tidyverse}{}
+Wickham, Hadley. 2017. \emph{Tidyverse: Easily Install and Load the
+'Tidyverse'}.
+
+\hypertarget{ref-R-tidyr}{}
+Wickham, Hadley, and Lionel Henry. 2017. \emph{Tidyr: Easily Tidy Data
+with 'Spread()' and 'Gather()' Functions}.
+\url{https://CRAN.R-project.org/package=tidyr}.
+
+\hypertarget{ref-R-dplyr}{}
+Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Muller. 2017.
+\emph{Dplyr: A Grammar of Data Manipulation}.
+
+\hypertarget{ref-R-readr}{}
+Wickham, Hadley, Jim Hester, and Romain Francois. 2017. \emph{Readr:
+Read Rectangular Text Data}.
+\url{https://CRAN.R-project.org/package=readr}.
 
 
 \end{document}
