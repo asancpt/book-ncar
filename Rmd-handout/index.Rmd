@@ -164,7 +164,13 @@ ncar::RptCfg
 ncar::RptCfg의 일부를 첨부합니다. (Table \@ref(tab:rptcfg)) `PPTESTCD`는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)^[다음과 같이 CDISC note에 표시되어 있습니다. 'Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST"). PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: "AUCALL", "TMAX", "CMAX".' https://wiki.cdisc.org/pages/viewpage.action?pageId=42309513]와 같은 값입니다. `WNL` 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름입니다.
 
 ```{r rptcfg, echo = FALSE}
-kable(ncar::RptCfg %>% select(PPTESTCD, SYNONYM, WNL), caption = 'Description of NonCompart parameters',booktabs=TRUE, longtable = TRUE)
+param_table <- ncar::RptCfg %>% 
+  select(PPTESTCD, SYNONYM, WNL) %>%
+  mutate(`Description (WNL)` = sprintf('%s (%s)', SYNONYM, WNL)) %>%
+  select(1, 4)
+
+kable(param_table, 
+      caption = 'Description of NonCompart parameters',booktabs=TRUE, longtable = TRUE)
 ```
 
 # 패키지: NonCompart
