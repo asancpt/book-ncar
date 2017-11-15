@@ -27,6 +27,11 @@ knitr::kable(descStatTheophNca, digits = 2)
 
 ## 생물학적 동등성 {#bioequivalence}
 
+```
+'cran/ncarbe/inst/example/beConc.csv'
+'cran/NonCompart/tests/be-conc.csv'
+```
+
 생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
