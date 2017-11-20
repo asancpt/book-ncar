@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-11-15">
+<meta name="date" content="2017-11-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -150,14 +150,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
-<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
-<li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
-<li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
-<li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
+<li class="chapter" data-level="8" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>8</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
 <li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
@@ -365,11 +359,9 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

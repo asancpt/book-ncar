@@ -316,7 +316,7 @@ iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)
 
 ## 함수 살펴보기 {#functions}
 
-NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(), tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.
+NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), UT(), Unit(), UnitUrine(), sNCA(), tblNCA()라는 함수가 있습니다.
 
 ### AUC
 
@@ -404,12 +404,12 @@ left_join(as_tibble(ncares) %>% tidyr::gather(PPTESTCD, PPORRES, -Subject),
 ## 11       1  AUMCLST      1459.0711035   h2*mg/L
 ## 12       1  AUMCPEO  67.6160286851172         %
 ## 13       1  AUMCPEP  67.6170064935417         %
-## 14       1       b0  2.36878509420585          
-## 15       1     CLFO  1.47729626669981       L/h
-## 16       1     CLFP  1.47727565168591       L/h
-## 17       1     CLST              3.28      mg/L
-## 18       1    CLSTP  3.28014647414312      mg/L
-## 19       1     CMAX              10.5      mg/L
-## 20       1    CMAXD         0.0328125   mg/L/mg
+## 14       1     CLFO  1.47729626669981       L/h
+## 15       1     CLFP  1.47727565168591       L/h
+## 16       1     CLST              3.28      mg/L
+## 17       1    CLSTP  3.28014647414312      mg/L
+## 18       1     CMAX              10.5      mg/L
+## 19       1    CMAXD         0.0328125   mg/L/mg
+## 20       1   CORRXY -0.99999986483748
 ```
 
