@@ -93,30 +93,33 @@ tblNCA(concData, key = "Subject",
 
 One can input several keys such as subject demographics, information regarding dose, period, or sequence and the result of `tblNCA()` will print the keys and the carried keys can be further used for additional statistical analysis (i.e. descriptive statistics, bioequivalence test, t-test or ANOVA). The `adm` argument can be 'Extravascular', 'Bolus', or 'Infusion'. The `down` argument can be 'Linear' or 'Log'.
 
-To calculated tblNCA
+<!-- To calculated tblNCA -->
 
-```r
-tblNCA(Theoph, key="Subject", dose=320, concUnit="mg/L")
-```
+<!-- ```r -->
+<!-- tblNCA(Theoph, key="Subject", dose=320, concUnit="mg/L") -->
+<!-- ``` -->
 
-```r
-tblNCA(Indometh, key="Subject", colTime="time", colConc="conc", dose=25, 
-       adm="Infusion", dur=0.5, concUnit="mg/L")
-```
+<!-- ```r -->
+<!-- tblNCA(Indometh, key="Subject", colTime="time", colConc="conc", dose=25,  -->
+<!--        adm="Infusion", dur=0.5, concUnit="mg/L") -->
+<!-- ``` -->
 
 
 ## Reports
 
+(Refer to Dr. Kim's manuscript)
 
 ## Plots
 
+`plotPK()` function generates multiple files. (Figure \@ref(fig:pkr-vis))
 
-## Descriptive statistics
+```{r message = FALSE}
+plotPK(Theoph, "Subject", "Time", "conc", unitTime="hr", unitConc="mg/L", dose=320)
+```
 
-One thing we should keep in mind is that the output of `tblNCA()` is a character matrix so we probably want to change it to a data frame for the further manipulation and the PK parameters should be converted to numeric by `as.numeric()` to find descriptive statistics.
+<!-- ## Descriptive statistics -->
 
-## Bioequivalence test
-
+<!-- One thing we should keep in mind is that the output of `tblNCA()` is a character matrix so we probably want to change it to a data frame for the further manipulation and the PK parameters should be converted to numeric by `as.numeric()` to find descriptive statistics. -->
 
 # Summary
 
@@ -132,9 +135,11 @@ We hope that our newly-developed packages enable researchers to perform reliable
 include_graphics('assets/report.png')
 ```
 
+```{r pkr-vis, fig.cap = 'Individual and group concerntration-time curves'}
+include_graphics('assets/pkr.png')
+```
 
 # References
-
 
 ```{r}
 write_bib(file = 'packages.bib')
