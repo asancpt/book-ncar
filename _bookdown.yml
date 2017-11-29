@@ -3,9 +3,10 @@ chapter_name: "Chapter "
 repo: https://github.com/asancpt/book-ncar
 output_dir: docs
 delete_merged_file: yes
+rmd_subdir: yes
 before_chapter_script: ["R/before.R"]
 # after_chapter_script: ["R/after.R"]
-new_session: yes # Knit-Merge approach 
+# new_session: yes # Knit-Merge approach 
 
 # rmd_files: [
 #     "index.Rmd", 
