@@ -95,28 +95,21 @@ head(Theoph, n=10)
 tail(Theoph, n=10)
 ```
 
-\begin{table}
 
-\caption{(\#tab:head)Theoph 자료의 첫 10개 관찰값}
-\centering
-\begin{tabular}[t]{lrrrr}
-\toprule
-Subject & Wt & Dose & Time & conc\\
-\midrule
-1 & 79.6 & 4.02 & 0.00 & 0.74\\
-1 & 79.6 & 4.02 & 0.25 & 2.84\\
-1 & 79.6 & 4.02 & 0.57 & 6.57\\
-1 & 79.6 & 4.02 & 1.12 & 10.50\\
-1 & 79.6 & 4.02 & 2.02 & 9.66\\
-\addlinespace
-1 & 79.6 & 4.02 & 3.82 & 8.58\\
-1 & 79.6 & 4.02 & 5.10 & 8.36\\
-1 & 79.6 & 4.02 & 7.03 & 7.47\\
-1 & 79.6 & 4.02 & 9.05 & 6.89\\
-1 & 79.6 & 4.02 & 12.12 & 5.94\\
-\bottomrule
-\end{tabular}
-\end{table}
+Table: (\#tab:head)Theoph 자료의 첫 10개 관찰값
+
+Subject      Wt   Dose    Time    conc
+--------  -----  -----  ------  ------
+1          79.6   4.02    0.00    0.74
+1          79.6   4.02    0.25    2.84
+1          79.6   4.02    0.57    6.57
+1          79.6   4.02    1.12   10.50
+1          79.6   4.02    2.02    9.66
+1          79.6   4.02    3.82    8.58
+1          79.6   4.02    5.10    8.36
+1          79.6   4.02    7.03    7.47
+1          79.6   4.02    9.05    6.89
+1          79.6   4.02   12.12    5.94
 
 그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure \@ref(fig:ggtheoph))
 
@@ -130,7 +123,10 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
        x = 'Time (hour)', y = 'Concentration (ng/mL)')
 ```
 
-![(\#fig:ggtheoph)Concentration-time curves of oral administration of Theoph (N = 12)](02-packages_files/figure-latex/ggtheoph-1.pdf) 
+<div class="figure">
+<img src="02-packages_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="576" />
+<p class="caption">(\#fig:ggtheoph)Concentration-time curves of oral administration of Theoph (N = 12)</p>
+</div>
 
 
 데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.

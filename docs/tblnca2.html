@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-11-15">
+<meta name="date" content="2017-11-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -150,14 +150,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
-<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
-<li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
-<li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
-<li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
+<li class="chapter" data-level="8" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>8</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
 <li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
@@ -1057,7 +1051,7 @@ Figure A.1: Individual concentration-time curves
 </div>
 <div id="how-to-get-descriptive-statistics" class="section level2">
 <h2><span class="header-section-number">A.2</span> How to get descriptive statistics</h2>
-<p>You may want to use <code>psych::describe()</code> or <code>broom::tidy()</code> <span class="citation">(Robinson <a href="#ref-R-broom">2016</a>)</span>. They returns basically the same results. One thing to be mentioned is that <code>broom::tidy()</code> returns the descriptive statistics when the input is data.frame so <code>as.data.frame()</code> should be first applied to the output of <code>tblNCA()</code>. (Table <a href="tblnca2.html#tab:descstat-iauc">A.4</a>)</p>
+<p>You may want to use <code>psych::describe()</code> or <code>broom::tidy()</code> <span class="citation">(Robinson <a href="#ref-R-broom">2017</a>)</span>. They returns basically the same results. One thing to be mentioned is that <code>broom::tidy()</code> returns the descriptive statistics when the input is data.frame so <code>as.data.frame()</code> should be first applied to the output of <code>tblNCA()</code>. (Table <a href="tblnca2.html#tab:descstat-iauc">A.4</a>)</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">broom<span class="op">::</span><span class="kw">tidy</span>(<span class="kw">as.data.frame</span>(Theoph_with_iAUC_selected)) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">kable</span>(<span class="dt">caption =</span> <span class="st">&#39;Descriptive statistics of selected PK parameters of Theoph&#39;</span>,
         <span class="dt">booktabs =</span> <span class="ot">TRUE</span>, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
@@ -1204,9 +1198,9 @@ Figure A.1: Individual concentration-time curves
 <th align="left">PPTESTCD</th>
 <th align="left">UNIT</th>
 <th align="right">n</th>
-<th>Arithmetic mean ± SD (CV%) G</th>
-<th>eometric mean ± SD (CV%) Me</th>
-<th align="left">dian [range]</th>
+<th align="left">Arithmetic mean ± SD (CV%)</th>
+<th align="left">Geometric mean ± SD (CV%)</th>
+<th align="left">Median [range]</th>
 </tr>
 </thead>
 <tbody>
@@ -1214,33 +1208,33 @@ Figure A.1: Individual concentration-time curves
 <td align="left">AUCIFO</td>
 <td align="left">h*ug/L</td>
 <td align="right">12</td>
-<td>122.2 ± 38.1 (31.2%) 1</td>
-<td>17.7 ± 1.3 (28.0%) 10</td>
-<td align="left">6.7 [84.3-216.6]</td>
+<td align="left">122.2 ± 38.1 (31.2%)</td>
+<td align="left">117.7 ± 1.3 (28.0%)</td>
+<td align="left">106.7 [84.3-216.6]</td>
 </tr>
 <tr class="even">
 <td align="left">AUCLST</td>
 <td align="left">h*ug/L</td>
 <td align="right">12</td>
-<td>103.8 ± 23.6 (22.8%) 1</td>
-<td>01.5 ± 1.2 (22.3%) 95</td>
-<td align="left">.4 [73.8-148.9]</td>
+<td align="left">103.8 ± 23.6 (22.8%)</td>
+<td align="left">101.5 ± 1.2 (22.3%)</td>
+<td align="left">95.4 [73.8-148.9]</td>
 </tr>
 <tr class="odd">
 <td align="left">CMAX</td>
 <td align="left">ug/L</td>
 <td align="right">12</td>
-<td>8.8 ± 1.5 (16.8%) 8</td>
-<td>.6 ± 1.2 (17.0%) 8.</td>
-<td align="left">5 [6.4-11.4]</td>
+<td align="left">8.8 ± 1.5 (16.8%)</td>
+<td align="left">8.6 ± 1.2 (17.0%)</td>
+<td align="left">8.5 [6.4-11.4]</td>
 </tr>
 <tr class="even">
 <td align="left">TMAX</td>
 <td align="left">h</td>
 <td align="right">12</td>
-<td>1.8 ± 1.1 (62.2%) 1</td>
-<td>.5 ± 1.8 (64.7%) 1.</td>
-<td align="left">1 [0.6-3.5]</td>
+<td align="left">1.8 ± 1.1 (62.2%)</td>
+<td align="left">1.5 ± 1.8 (64.7%)</td>
+<td align="left">1.1 [0.6-3.5]</td>
 </tr>
 </tbody>
 </table>
@@ -1262,13 +1256,13 @@ Figure A.1: Individual concentration-time curves
 <p>Wickham, Hadley, and Lionel Henry. 2017. <em>Tidyr: Easily Tidy Data with ’Spread()’ and ’Gather()’ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
 </div>
 <div id="ref-R-dplyr">
-<p>Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Muller. 2017. <em>Dplyr: A Grammar of Data Manipulation</em>.</p>
+<p>Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Müller. 2017. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
 </div>
 <div id="ref-R-PKPDdatasets">
 <p>Pastoor, Devin. 2014. <em>PKPDdatasets: Data Sets for Pharmacometric Analysis and Visualization</em>.</p>
 </div>
 <div id="ref-R-broom">
-<p>Robinson, David. 2016. <em>Broom: Convert Statistical Analysis Objects into Tidy Data Frames</em>. <a href="http://github.com/tidyverse/broom" class="uri">http://github.com/tidyverse/broom</a>.</p>
+<p>Robinson, David. 2017. <em>Broom: Convert Statistical Analysis Objects into Tidy Data Frames</em>. <a href="https://CRAN.R-project.org/package=broom" class="uri">https://CRAN.R-project.org/package=broom</a>.</p>
 </div>
 </div>
             </section>
@@ -1325,11 +1319,9 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

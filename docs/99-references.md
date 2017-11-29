@@ -11,7 +11,7 @@ ID=6
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -90,7 +90,7 @@ ID=7
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -169,7 +169,7 @@ ID=8
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -248,7 +248,7 @@ ID=11
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -327,7 +327,7 @@ ID=3
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -406,7 +406,7 @@ ID=2
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -485,7 +485,7 @@ ID=4
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -564,7 +564,7 @@ ID=9
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -643,7 +643,7 @@ ID=12
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -722,7 +722,7 @@ ID=10
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -801,7 +801,7 @@ ID=1
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -880,7 +880,7 @@ ID=5
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-15 16:51:39 KST
+Date and Time: 2017-11-20 13:19:15 NA
 
 Calculation Setting
 -------------------
@@ -965,41 +965,41 @@ devtools::session_info()
 ```
 ##  setting  value                       
 ##  version  R version 3.4.2 (2017-09-28)
-##  system   x86_64, mingw32             
-##  ui       RTerm                       
+##  system   x86_64, darwin17.0.0        
+##  ui       unknown                     
 ##  language (EN)                        
-##  collate  Korean_Korea.949            
-##  tz       Asia/Seoul                  
-##  date     2017-11-15                  
+##  collate  C                           
+##  tz       <NA>                        
+##  date     2017-11-20                  
 ## 
-##  package   * version date       source                           
-##  backports   1.1.1   2017-09-25 CRAN (R 3.4.1)                   
-##  base      * 3.4.2   2017-09-28 local                            
-##  bookdown    0.5.9   2017-11-14 Github (rstudio/bookdown@83d914f)
-##  compiler    3.4.2   2017-09-28 local                            
-##  datasets  * 3.4.2   2017-09-28 local                            
-##  devtools    1.13.4  2017-11-09 CRAN (R 3.4.2)                   
-##  digest      0.6.12  2017-01-27 CRAN (R 3.4.0)                   
-##  evaluate    0.10.1  2017-06-24 CRAN (R 3.4.1)                   
-##  graphics  * 3.4.2   2017-09-28 local                            
-##  grDevices * 3.4.2   2017-09-28 local                            
-##  htmltools   0.3.6   2017-04-28 CRAN (R 3.4.0)                   
-##  knitr       1.17.9  2017-11-15 Github (yihui/knitr@6f69c42)     
-##  magrittr    1.5     2014-11-22 CRAN (R 3.4.0)                   
-##  memoise     1.1.0   2017-04-21 CRAN (R 3.4.0)                   
-##  methods     3.4.2   2017-09-28 local                            
-##  Rcpp        0.12.13 2017-09-28 CRAN (R 3.4.2)                   
-##  rmarkdown   1.7     2017-11-10 CRAN (R 3.4.2)                   
-##  rprojroot   1.2     2017-01-16 CRAN (R 3.4.0)                   
-##  stats     * 3.4.2   2017-09-28 local                            
-##  stringi     1.1.5   2017-04-07 CRAN (R 3.4.0)                   
-##  stringr     1.2.0   2017-02-18 CRAN (R 3.4.0)                   
-##  tools       3.4.2   2017-09-28 local                            
-##  utils     * 3.4.2   2017-09-28 local                            
+##  package   * version date       source         
+##  backports   1.1.1   2017-09-25 cran (@1.1.1)  
+##  base      * 3.4.2   2017-09-29 local          
+##  bookdown    0.5     2017-08-20 CRAN (R 3.4.2) 
+##  compiler    3.4.2   2017-09-29 local          
+##  datasets  * 3.4.2   2017-09-29 local          
+##  devtools    1.13.4  2017-11-09 CRAN (R 3.4.2) 
+##  digest      0.6.12  2017-01-27 CRAN (R 3.4.2) 
+##  evaluate    0.10.1  2017-06-24 cran (@0.10.1) 
+##  graphics  * 3.4.2   2017-09-29 local          
+##  grDevices * 3.4.2   2017-09-29 local          
+##  htmltools   0.3.6   2017-04-28 cran (@0.3.6)  
+##  knitr       1.17    2017-08-10 cran (@1.17)   
+##  magrittr    1.5     2014-11-22 cran (@1.5)    
+##  memoise     1.1.0   2017-04-21 CRAN (R 3.4.2) 
+##  methods     3.4.2   2017-09-29 local          
+##  Rcpp        0.12.13 2017-09-28 cran (@0.12.13)
+##  rmarkdown   1.8     2017-11-17 CRAN (R 3.4.2) 
+##  rprojroot   1.2     2017-01-16 cran (@1.2)    
+##  stats     * 3.4.2   2017-09-29 local          
+##  stringi     1.1.6   2017-11-17 CRAN (R 3.4.2) 
+##  stringr     1.2.0   2017-02-18 cran (@1.2.0)  
+##  tools       3.4.2   2017-09-29 local          
+##  utils     * 3.4.2   2017-09-29 local          
 ##  withr       2.1.0   2017-11-01 CRAN (R 3.4.2)
 ```
 
-
+# 참고문헌 {-}
 
 
 
