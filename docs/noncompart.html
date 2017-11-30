@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -159,20 +159,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
-<li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
-<li class="chapter" data-level="A.1.1" data-path="tblnca2.html"><a href="tblnca2.html#writing-tblnca2"><i class="fa fa-check"></i><b>A.1.1</b> Writing <code>tblNCA2()</code></a></li>
-<li class="chapter" data-level="A.1.2" data-path="tblnca2.html"><a href="tblnca2.html#examples"><i class="fa fa-check"></i><b>A.1.2</b> Examples</a></li>
+<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="tblnca2.html"><a href="tblnca2.html#how-to-get-descriptive-statistics"><i class="fa fa-check"></i><b>A.2</b> How to get descriptive statistics</a><ul>
-<li class="chapter" data-level="A.2.1" data-path="tblnca2.html"><a href="tblnca2.html#write-your-own-scripts"><i class="fa fa-check"></i><b>A.2.1</b> Write your own scripts</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>C</b> 지원</a></li>
-<li class="chapter" data-level="D" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>D</b> 세션 정보</a></li>
+<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
+<li class="chapter" data-level="C" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>C</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -468,7 +459,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">4.4</span> 함수 살펴보기</h2>
-<p>NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), UT(), Unit(), UnitUrine(), sNCA(), tblNCA()라는 함수가 있습니다.</p>
+<p>NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(), tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.</p>
 <div id="auc" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> AUC</h3>
 <p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
@@ -595,45 +586,45 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </tr>
 <tr class="even">
 <td align="left">1</td>
+<td align="left">b0</td>
+<td align="left">2.36878509420585</td>
+<td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="left">1</td>
 <td align="left">CLFO</td>
 <td align="left">1.47729626669981</td>
 <td align="left">L/h</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">1</td>
 <td align="left">CLFP</td>
 <td align="left">1.47727565168591</td>
 <td align="left">L/h</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">1</td>
 <td align="left">CLST</td>
 <td align="left">3.28</td>
 <td align="left">mg/L</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">1</td>
 <td align="left">CLSTP</td>
 <td align="left">3.28014647414312</td>
 <td align="left">mg/L</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left">1</td>
 <td align="left">CMAX</td>
 <td align="left">10.5</td>
 <td align="left">mg/L</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left">1</td>
 <td align="left">CMAXD</td>
 <td align="left">0.0328125</td>
 <td align="left">mg/L/mg</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">CORRXY</td>
-<td align="left">-0.99999986483748</td>
-<td align="left"></td>
 </tr>
 </tbody>
 </table>
@@ -707,9 +698,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

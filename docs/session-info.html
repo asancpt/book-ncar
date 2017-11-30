@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5.10 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
 </head>
 
 <body>
@@ -159,20 +159,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
-<li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
-<li class="chapter" data-level="A.1.1" data-path="tblnca2.html"><a href="tblnca2.html#writing-tblnca2"><i class="fa fa-check"></i><b>A.1.1</b> Writing <code>tblNCA2()</code></a></li>
-<li class="chapter" data-level="A.1.2" data-path="tblnca2.html"><a href="tblnca2.html#examples"><i class="fa fa-check"></i><b>A.1.2</b> Examples</a></li>
+<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="A.2" data-path="tblnca2.html"><a href="tblnca2.html#how-to-get-descriptive-statistics"><i class="fa fa-check"></i><b>A.2</b> How to get descriptive statistics</a><ul>
-<li class="chapter" data-level="A.2.1" data-path="tblnca2.html"><a href="tblnca2.html#write-your-own-scripts"><i class="fa fa-check"></i><b>A.2.1</b> Write your own scripts</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
-</ul></li>
-<li class="chapter" data-level="C" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>C</b> 지원</a></li>
-<li class="chapter" data-level="D" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>D</b> 세션 정보</a></li>
+<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
+<li class="chapter" data-level="C" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>C</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -195,103 +186,101 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="session-info" class="section level1">
-<h1><span class="header-section-number">D</span> 세션 정보</h1>
+<h1><span class="header-section-number">C</span> 세션 정보</h1>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">session_info</span>()</code></pre></div>
 <pre><code>##  setting  value                       
 ##  version  R version 3.4.2 (2017-09-28)
-##  system   x86_64, darwin17.0.0        
-##  ui       unknown                     
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
 ##  language (EN)                        
-##  collate  C                           
-##  tz       &lt;NA&gt;                        
+##  collate  Korean_Korea.949            
+##  tz       Asia/Seoul                  
 ##  date     2017-11-30                  
 ## 
-##  package      * version date       source                                
-##  assertthat     0.2.0   2017-04-11 cran (@0.2.0)                         
-##  backports      1.1.1   2017-09-25 cran (@1.1.1)                         
-##  base         * 3.4.2   2017-09-29 local                                 
-##  bindr          0.1     2016-11-13 cran (@0.1)                           
-##  bindrcpp     * 0.2     2017-06-17 cran (@0.2)                           
-##  binr         * 1.1     2015-03-10 CRAN (R 3.4.2)                        
-##  bookdown       0.5     2017-08-20 CRAN (R 3.4.2)                        
-##  broom        * 0.4.3   2017-11-20 CRAN (R 3.4.2)                        
-##  cellranger     1.1.0   2016-07-27 cran (@1.1.0)                         
-##  checkmate    * 1.8.5   2017-10-24 CRAN (R 3.4.2)                        
-##  cli            1.0.0   2017-11-05 CRAN (R 3.4.2)                        
-##  colorspace     1.3-2   2016-12-14 cran (@1.3-2)                         
-##  compiler       3.4.2   2017-09-29 local                                 
-##  crayon         1.3.4   2017-10-01 Github (gaborcsardi/crayon@b5221ab)   
-##  datasets     * 3.4.2   2017-09-29 local                                 
-##  devtools       1.13.4  2017-11-09 CRAN (R 3.4.2)                        
-##  digest         0.6.12  2017-01-27 CRAN (R 3.4.2)                        
-##  dplyr        * 0.7.4   2017-09-28 cran (@0.7.4)                         
-##  evaluate       0.10.1  2017-06-24 cran (@0.10.1)                        
-##  forcats      * 0.2.0   2017-01-23 cran (@0.2.0)                         
-##  foreign      * 0.8-69  2017-06-22 CRAN (R 3.4.2)                        
-##  forestplot   * 1.7.2   2017-09-16 CRAN (R 3.4.2)                        
-##  ggplot2      * 2.2.1   2016-12-30 cran (@2.2.1)                         
-##  glue           1.2.0   2017-10-29 CRAN (R 3.4.2)                        
-##  graphics     * 3.4.2   2017-09-29 local                                 
-##  grDevices    * 3.4.2   2017-09-29 local                                 
-##  grid         * 3.4.2   2017-09-29 local                                 
-##  gtable         0.2.0   2016-02-26 cran (@0.2.0)                         
-##  haven          1.1.0   2017-07-09 cran (@1.1.0)                         
-##  highr          0.6     2016-05-09 cran (@0.6)                           
-##  hms            0.4.0   2017-11-23 CRAN (R 3.4.2)                        
-##  htmltools      0.3.6   2017-04-28 cran (@0.3.6)                         
-##  httr           1.3.1   2017-08-20 CRAN (R 3.4.2)                        
-##  jpeg           0.1-8   2014-01-23 CRAN (R 3.4.2)                        
-##  jsonlite       1.5     2017-06-01 CRAN (R 3.4.2)                        
-##  knitr        * 1.17    2017-08-10 cran (@1.17)                          
-##  labeling       0.3     2014-08-23 cran (@0.3)                           
-##  lattice        0.20-35 2017-03-25 CRAN (R 3.4.2)                        
-##  lazyeval       0.2.1   2017-10-29 CRAN (R 3.4.2)                        
-##  lubridate      1.7.1   2017-11-03 CRAN (R 3.4.2)                        
-##  magrittr     * 1.5     2014-11-22 cran (@1.5)                           
-##  memoise        1.1.0   2017-04-21 CRAN (R 3.4.2)                        
-##  methods        3.4.2   2017-09-29 local                                 
-##  mnormt         1.5-5   2016-10-15 cran (@1.5-5)                         
-##  modelr         0.1.1   2017-07-24 cran (@0.1.1)                         
-##  munsell        0.4.3   2016-02-13 cran (@0.4.3)                         
-##  ncar         * 0.3.7   2017-08-16 CRAN (R 3.4.2)                        
-##  ncarbe       * 0.1.0   2017-11-07 Github (asancpt/ncarbe@f33f427)       
-##  nlme           3.1-131 2017-02-06 CRAN (R 3.4.2)                        
-##  NonCompart   * 0.3.3   2017-08-16 CRAN (R 3.4.2)                        
-##  parallel       3.4.2   2017-09-29 local                                 
-##  pkgconfig      2.0.1   2017-03-21 cran (@2.0.1)                         
-##  PKNCA          0.8.1   2017-02-27 CRAN (R 3.4.2)                        
-##  PKPDdatasets   0.1.0   2017-11-04 Github (dpastoor/PKPDdatasets@9eaa831)
-##  pkr          * 0.1.1   2017-07-10 CRAN (R 3.4.2)                        
-##  plyr           1.8.4   2016-06-08 cran (@1.8.4)                         
-##  png            0.1-7   2013-12-03 CRAN (R 3.4.2)                        
-##  psych          1.7.8   2017-09-09 cran (@1.7.8)                         
-##  purrr        * 0.2.4   2017-10-18 CRAN (R 3.4.2)                        
-##  R.methodsS3    1.7.1   2016-02-16 CRAN (R 3.4.2)                        
-##  R.oo           1.21.0  2016-11-01 CRAN (R 3.4.2)                        
-##  R6             2.2.2   2017-06-17 CRAN (R 3.4.2)                        
-##  Rcpp           0.12.14 2017-11-23 CRAN (R 3.4.2)                        
-##  readr        * 1.1.1   2017-05-16 cran (@1.1.1)                         
-##  readxl       * 1.0.0   2017-04-18 cran (@1.0.0)                         
-##  reshape2       1.4.2   2016-10-22 cran (@1.4.2)                         
-##  rlang          0.1.4   2017-11-05 CRAN (R 3.4.2)                        
-##  rmarkdown      1.8     2017-11-17 CRAN (R 3.4.2)                        
-##  rprojroot      1.2     2017-01-16 cran (@1.2)                           
-##  rstudioapi     0.7     2017-09-07 CRAN (R 3.4.2)                        
-##  rtf          * 0.4-11  2013-11-12 CRAN (R 3.4.2)                        
-##  rvest          0.3.2   2016-06-17 cran (@0.3.2)                         
-##  scales         0.5.0   2017-08-24 cran (@0.5.0)                         
-##  stats        * 3.4.2   2017-09-29 local                                 
-##  stringi        1.1.6   2017-11-17 CRAN (R 3.4.2)                        
-##  stringr      * 1.2.0   2017-02-18 cran (@1.2.0)                         
-##  tibble       * 1.3.4   2017-08-22 cran (@1.3.4)                         
-##  tidyr        * 0.7.2   2017-10-16 CRAN (R 3.4.2)                        
-##  tidyselect     0.2.3   2017-11-06 CRAN (R 3.4.2)                        
-##  tidyverse    * 1.2.1   2017-11-14 CRAN (R 3.4.2)                        
-##  tools          3.4.2   2017-09-29 local                                 
-##  utils        * 3.4.2   2017-09-29 local                                 
-##  withr          2.1.0   2017-11-01 CRAN (R 3.4.2)                        
-##  xml2           1.1.1   2017-01-24 cran (@1.1.1)                         
-##  yaml           2.1.14  2016-11-12 cran (@2.1.14)</code></pre>
+##  package     * version    date       source                              
+##  assertthat    0.2.0      2017-04-11 CRAN (R 3.4.0)                      
+##  backports     1.1.1      2017-09-25 CRAN (R 3.4.1)                      
+##  base        * 3.4.2      2017-09-28 local                               
+##  bindr         0.1        2016-11-13 CRAN (R 3.4.0)                      
+##  bindrcpp    * 0.2        2017-06-17 CRAN (R 3.4.1)                      
+##  binr        * 1.1        2015-03-10 CRAN (R 3.4.0)                      
+##  bookdown      0.5.10     2017-11-29 Github (rstudio/bookdown@d78c661)   
+##  broom       * 0.4.3      2017-11-20 CRAN (R 3.4.2)                      
+##  cellranger    1.1.0      2016-07-27 CRAN (R 3.4.0)                      
+##  checkmate   * 1.8.5      2017-10-24 CRAN (R 3.4.2)                      
+##  cli           1.0.0      2017-11-05 CRAN (R 3.4.2)                      
+##  colorspace    1.3-2      2016-12-14 CRAN (R 3.4.0)                      
+##  compiler      3.4.2      2017-09-28 local                               
+##  crayon        1.3.4      2017-09-29 Github (gaborcsardi/crayon@b5221ab) 
+##  datasets    * 3.4.2      2017-09-28 local                               
+##  devtools      1.13.4     2017-11-09 CRAN (R 3.4.2)                      
+##  digest        0.6.12     2017-01-27 CRAN (R 3.4.0)                      
+##  dplyr       * 0.7.4.9000 2017-11-13 Github (tidyverse/dplyr@0c7a849)    
+##  evaluate      0.10.1     2017-06-24 CRAN (R 3.4.1)                      
+##  forcats     * 0.2.0      2017-01-23 CRAN (R 3.4.0)                      
+##  foreign     * 0.8-69     2017-06-22 CRAN (R 3.4.2)                      
+##  forestplot  * 1.7.2      2017-09-16 CRAN (R 3.4.1)                      
+##  ggplot2     * 2.2.1      2016-12-30 CRAN (R 3.4.0)                      
+##  glue          1.2.0      2017-10-29 CRAN (R 3.4.2)                      
+##  graphics    * 3.4.2      2017-09-28 local                               
+##  grDevices   * 3.4.2      2017-09-28 local                               
+##  grid        * 3.4.2      2017-09-28 local                               
+##  gtable        0.2.0      2016-02-26 CRAN (R 3.4.0)                      
+##  haven         1.1.0      2017-07-09 CRAN (R 3.4.1)                      
+##  highr         0.6        2016-05-09 CRAN (R 3.4.0)                      
+##  hms           0.4.0      2017-11-23 CRAN (R 3.4.2)                      
+##  htmltools     0.3.6      2017-04-28 CRAN (R 3.4.0)                      
+##  httr          1.3.1      2017-08-20 CRAN (R 3.4.1)                      
+##  jpeg          0.1-8      2014-01-23 CRAN (R 3.4.0)                      
+##  jsonlite      1.5        2017-06-01 CRAN (R 3.4.0)                      
+##  knitr       * 1.17.20    2017-11-29 Github (yihui/knitr@33a3ba6)        
+##  labeling      0.3        2014-08-23 CRAN (R 3.4.0)                      
+##  lattice       0.20-35    2017-03-25 CRAN (R 3.4.2)                      
+##  lazyeval      0.2.1      2017-10-29 CRAN (R 3.4.2)                      
+##  lubridate     1.7.1      2017-11-03 CRAN (R 3.4.2)                      
+##  magrittr    * 1.5        2014-11-22 CRAN (R 3.4.0)                      
+##  memoise       1.1.0      2017-04-21 CRAN (R 3.4.0)                      
+##  methods       3.4.2      2017-09-28 local                               
+##  mnormt        1.5-5      2016-10-15 CRAN (R 3.4.0)                      
+##  modelr        0.1.1      2017-07-24 CRAN (R 3.4.1)                      
+##  munsell       0.4.3      2016-02-13 CRAN (R 3.4.0)                      
+##  ncar        * 0.3.7      2017-08-16 CRAN (R 3.4.1)                      
+##  ncarbe      * 0.0.1      2017-09-22 Github (asancpt/ncarbe@a34160a)     
+##  nlme          3.1-131    2017-02-06 CRAN (R 3.4.2)                      
+##  NonCompart  * 0.3.3      2017-08-16 CRAN (R 3.4.1)                      
+##  parallel      3.4.2      2017-09-28 local                               
+##  pkgconfig     2.0.1      2017-03-21 CRAN (R 3.4.0)                      
+##  pkr         * 0.1.1      2017-07-10 CRAN (R 3.4.1)                      
+##  plyr          1.8.4      2016-06-08 CRAN (R 3.4.0)                      
+##  png           0.1-7      2013-12-03 CRAN (R 3.4.0)                      
+##  psych         1.7.8      2017-09-09 CRAN (R 3.4.1)                      
+##  purrr       * 0.2.4      2017-10-18 CRAN (R 3.4.2)                      
+##  R.methodsS3   1.7.1      2016-02-16 CRAN (R 3.4.0)                      
+##  R.oo          1.21.0     2016-11-01 CRAN (R 3.4.0)                      
+##  R6            2.2.2      2017-06-17 CRAN (R 3.4.1)                      
+##  Rcpp          0.12.14    2017-11-23 CRAN (R 3.4.2)                      
+##  readr       * 1.1.1      2017-05-16 CRAN (R 3.4.0)                      
+##  readxl      * 1.0.0      2017-04-18 CRAN (R 3.4.0)                      
+##  reshape2      1.4.2      2016-10-22 CRAN (R 3.4.0)                      
+##  rlang         0.1.4      2017-11-05 CRAN (R 3.4.2)                      
+##  rmarkdown     1.8        2017-11-17 CRAN (R 3.4.2)                      
+##  rprojroot     1.2        2017-01-16 CRAN (R 3.4.0)                      
+##  rstudioapi    0.7        2017-09-07 CRAN (R 3.4.1)                      
+##  rtf         * 0.4-11     2013-11-12 CRAN (R 3.4.0)                      
+##  rvest         0.3.2      2016-06-17 CRAN (R 3.4.0)                      
+##  scales        0.5.0      2017-08-24 CRAN (R 3.4.1)                      
+##  stats       * 3.4.2      2017-09-28 local                               
+##  stringi       1.1.6      2017-11-17 CRAN (R 3.4.2)                      
+##  stringr     * 1.2.0      2017-02-18 CRAN (R 3.4.0)                      
+##  tibble      * 1.3.4      2017-08-22 CRAN (R 3.4.1)                      
+##  tidyr       * 0.7.2      2017-10-16 CRAN (R 3.4.2)                      
+##  tidyselect    0.2.3      2017-11-06 CRAN (R 3.4.2)                      
+##  tidyverse   * 1.2.1      2017-11-14 Github (tidyverse/tidyverse@3769ff2)
+##  tools         3.4.2      2017-09-28 local                               
+##  utils       * 3.4.2      2017-09-28 local                               
+##  withr         2.1.0      2017-11-01 CRAN (R 3.4.2)                      
+##  xml2          1.1.1      2017-01-24 CRAN (R 3.4.0)                      
+##  yaml          2.1.14     2016-11-12 CRAN (R 3.4.0)</code></pre>
 </div>
             </section>
 
@@ -347,9 +336,11 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(script.src))
-      script.src  = script.src.replace(/^https?:/, '');
+    var src = "";
+    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
