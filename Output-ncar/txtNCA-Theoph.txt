@@ -2,7 +2,7 @@
                        Package version 0.3.7 (2017-08-16 KST)
                           R version 3.4.2 (2017-09-28)
 
-Date and Time: 2017-11-29 17:46:14 KST
+Date and Time: 2017-11-30 00:10:20 NA
 
 Calculation Setting
 -------------------

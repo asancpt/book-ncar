@@ -25,14 +25,14 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-11-20">
+<meta name="date" content="2017-11-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="simulation.html">
+<link rel="prev" href="statistics.html">
 <link rel="next" href="conclusion.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -150,8 +150,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>8</b> 결과 및 논의</a></li>
-<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
+<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
+<li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
+<li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="tblnca2.html"><a href="tblnca2.html"><i class="fa fa-check"></i><b>A</b> tblNCA2()</a><ul>
 <li class="chapter" data-level="A.1" data-path="tblnca2.html"><a href="tblnca2.html#how-to-include-iauc-in-the-tblnca"><i class="fa fa-check"></i><b>A.1</b> How to include iAUC in the tblNCA</a><ul>
@@ -189,7 +195,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="result" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> 결과 및 논의</h1>
+<h1><span class="header-section-number">Chapter 9</span> 결과 및 논의</h1>
 <p>R을 통해서 NCA 를 구할 수 있도록 R 패키지를 구축하였습니다. 값비싼 상용소프트웨어를 사용하지 않고도 동일한 비구획분석이 가능한 것은 비용과 작업 효율 측면에서 큰 잇점을 가져올 것입니다.</p>
 <p>현재 R에 기본적으로 내장되어 있는 PO 테오필린(theophylline)과 IV bolus 인도메타신(indomethacin)에 대해서 예가 잘 나와있습니다. 약물에 대한 자료를 고른 후 각 약물의 복용량, 감소 구간에서의 log 치환 여부, 복용방법, 정맥주사일 경우 투입 시간(정맥주사 이외의 값들 경우에는 infusion time은 내부 함수에 따라 값이 적용되지 않는다.)을 각각 설정할 경우 값을 도출할 수 있습니다.</p>
 <p>Edison 내에서 실제 Theophylline의 용량에 따라 구현된 각각의 graph를 spaghetti plot형태로 Edison의 결과 가시화 tab을 이용하여 확인할 수 있으며, 그래프의 형태를 변형할 수 있게 설정하였다. Y축(농도)의 경우 linear plot과 semi-logarithmic plot을 모두 함께 확인할 수 있도록 하여 다양한 구간에서의 그래프의 추세를 선택적으로 확인할 수 있도록 하였다.</p>
@@ -212,7 +218,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="simulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistics.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>

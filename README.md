@@ -2,17 +2,16 @@
 
 진행 중인 작업.
 
-
+docs-tcp : 김형섭 선생님과 논문 쓰는것을 참고로 영어로 변환.
 
 ``` r
 make gitbook
 ```
 
-
-
 - <https://ncar.netlify.com>
 - <https://ncarhandbook.netlify.com>
 - <https://ncarpaper.netlify.com>
+
 
 이 아래로는 수정 중인 사항.
 

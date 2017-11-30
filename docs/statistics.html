@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.5.9 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown 0.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순">
 
 
-<meta name="date" content="2017-11-15">
+<meta name="date" content="2017-11-30">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -87,7 +87,7 @@ code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* Com
 code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -616,7 +616,7 @@ Figure 8.1: 전형적인 2x2 설계
 </p>
 </div>
 <pre><code>## function (concData, SUBJ = &quot;SUBJ&quot;, GRP = &quot;GRP&quot;, PRD = &quot;PRD&quot;, 
-##     TRT = &quot;TRT&quot;, ...) 
+##     TRT = &quot;TRT&quot;, method = &quot;kbe&quot;, ...) 
 ## NULL</code></pre>
 <p>다음과 같은 함수 인자를 설정해 주면 됩니다.</p>
 <ul>
@@ -974,7 +974,7 @@ figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_lo
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))
 figA</code></pre></div>
-<p><img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
@@ -987,7 +987,7 @@ figA</code></pre></div>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))
 figB</code></pre></div>
-<p><img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.png" width="672" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
   <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
@@ -1006,9 +1006,35 @@ fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class
 
 <span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),
           <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</code></pre></div>
-<pre><code>##   parameters         est        ci r.squared      p.value
-## 1       Cmax 1.04 (0.06) 0.90-1.18 0.9494890 1.797428e-10
-## 2    AUClast 1.07 (0.09) 0.87-1.27 0.9053706 1.486278e-08</code></pre>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="left">parameters</th>
+<th align="left">est</th>
+<th align="left">ci</th>
+<th align="right">r.squared</th>
+<th align="right">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Cmax</td>
+<td align="left">1.04 (0.06)</td>
+<td align="left">0.90-1.18</td>
+<td align="right">0.9494890</td>
+<td align="right">0</td>
+</tr>
+<tr class="even">
+<td align="left">AUClast</td>
+<td align="left">1.07 (0.09)</td>
+<td align="left">0.87-1.27</td>
+<td align="right">0.9053706</td>
+<td align="right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
 <p>C<sub>max</sub>는 dose proportionality 기준을 만족하는데 반해 AUC<sub>last</sub>는 만족하지 않는 것을 알 수 있습니다.</p>
 
 </div>
@@ -1076,11 +1102,9 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
-    script.src = src;
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>
