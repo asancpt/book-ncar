@@ -601,7 +601,7 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="ci
 <p>현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">8.1</a>) 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/twobytwo.jpg&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:twobytwo"></span>
-<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
+<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="100%" />
 <p class="caption">
 Figure 8.1: 전형적인 2x2 설계
 </p>
@@ -804,7 +804,7 @@ concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</c
 <p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/fixed-random.jpg&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:fixedrandom"></span>
-<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
+<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="100%" />
 <p class="caption">
 Figure 8.2: 모수 인자와 변량 인자의 비교
 </p>
@@ -965,7 +965,7 @@ figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_lo
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))
 figA</code></pre></div>
-<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.png" width="100%" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
@@ -978,7 +978,7 @@ figA</code></pre></div>
 <span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),
        <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))
 figB</code></pre></div>
-<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.png" width="672" /></p>
+<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.png" width="100%" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
   <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 

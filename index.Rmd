@@ -69,7 +69,7 @@ editor_options:
 
 ```{r setup, include = FALSE}
 rm(list = ls(all = TRUE))
-knitr::opts_chunk$set(error = TRUE, #results = 'hide',
+knitr::opts_chunk$set(error = TRUE, out.width = '100%', #results = 'hide',
                #cache = TRUE,
                message = FALSE, warning = FALSE)
 system('cp -r images docs')
