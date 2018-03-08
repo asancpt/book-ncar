@@ -17,8 +17,8 @@ for (fmt in formats) {
   cmd = sprintf("bookdown::render_book('index.Rmd', '%s', quiet = %s)", fmt, quiet)
   res = bookdown:::Rscript(c('-e', shQuote(cmd)))
   if (res != 0) stop('Failed to compile the book to ', fmt)
-  if (!travis && fmt == 'bookdown::epub_book')
-    bookdown::calibre('_book/bookdown.epub', 'mobi')
+  # if (!travis && fmt == 'bookdown::epub_book')
+  #   bookdown::calibre('_book/bookdown.epub', 'mobi')
 }
 
 r = '<body onload="window.location = \'https://bookdown.org/yihui\'+location.pathname">'

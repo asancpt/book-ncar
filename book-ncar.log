@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.1.10)  11 JAN 2018 17:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (TeX Live 2017/W32TeX) (preloaded format=pdflatex 2018.2.20)  8 MAR 2018 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **./book-ncar.tex
 (./book-ncar.tex
 LaTeX2e <2017-04-15>
-Babel <3.16> and hyphenation patterns for 3 language(s) loaded.
+Babel <3.18> and hyphenation patterns for 3 language(s) loaded.
 (./krantz.cls
 Document Class: krantz 2005/09/16 v1.4f Standard LaTeX document class
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/bk12.clo
@@ -737,7 +737,7 @@ Package ifvtex Info: VTeX not detected.
 )
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.
 sty
-Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
+Package: hyperref 2018/02/06 v6.86b Hypertext links for LaTeX
 
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/hobsub-
 hyperref.sty
@@ -761,7 +761,7 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
 Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
-Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
+Package: pdftexcmds 2018/01/21 v0.26 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
@@ -797,7 +797,7 @@ Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.de
 f
-File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2018/02/06 v6.86b Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -807,43 +807,41 @@ Now handling font encoding PD1 ...
 ef.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4498.
-Package hyperref Info: Link nesting OFF on input line 4503.
-Package hyperref Info: Hyper index ON on input line 4506.
-Package hyperref Info: Plain pages OFF on input line 4513.
-Package hyperref Info: Backreferencing OFF on input line 4518.
+Package hyperref Info: Hyper figures OFF on input line 4509.
+Package hyperref Info: Link nesting OFF on input line 4514.
+Package hyperref Info: Hyper index ON on input line 4517.
+Package hyperref Info: Plain pages OFF on input line 4524.
+Package hyperref Info: Backreferencing OFF on input line 4529.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4751.
+Package hyperref Info: Bookmarks ON on input line 4762.
 \c@Hy@tempcnt=\count108
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 5104.
+LaTeX Info: Redefining \url on input line 5115.
 \XeTeXLinkMargin=\dimen143
 \Fld@menulength=\count109
 \Field@Width=\dimen144
 \Fld@charsize=\dimen145
-Package hyperref Info: Hyper figures OFF on input line 6358.
-Package hyperref Info: Link nesting OFF on input line 6363.
-Package hyperref Info: Hyper index ON on input line 6366.
-Package hyperref Info: backreferencing OFF on input line 6373.
-Package hyperref Info: Link coloring OFF on input line 6378.
-Package hyperref Info: Link coloring with OCG OFF on input line 6383.
-Package hyperref Info: PDF/A mode OFF on input line 6388.
-LaTeX Info: Redefining \ref on input line 6428.
-LaTeX Info: Redefining \pageref on input line 6432.
+Package hyperref Info: Hyper figures OFF on input line 6369.
+Package hyperref Info: Link nesting OFF on input line 6374.
+Package hyperref Info: Hyper index ON on input line 6377.
+Package hyperref Info: backreferencing OFF on input line 6384.
+Package hyperref Info: Link coloring OFF on input line 6389.
+Package hyperref Info: Link coloring with OCG OFF on input line 6394.
+Package hyperref Info: PDF/A mode OFF on input line 6399.
+LaTeX Info: Redefining \ref on input line 6439.
+LaTeX Info: Redefining \pageref on input line 6443.
 \Hy@abspage=\count110
 \c@Item=\count111
 \c@Hfootnote=\count112
 )
-
-Package hyperref Message: Driver (autodetected): hpdftex.
-
+Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.d
 ef
-File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+File: hpdftex.def 2018/02/06 v6.86b Hyperref driver for pdfTeX
 \Fld@listcount=\count113
 \c@bookmark@seq@number=\count114
 
@@ -858,7 +856,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 Package hyperref Info: Option `unicode' set `true' on input line 34.
 
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2017/03/14 v6.85a Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2018/02/06 v6.86b Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
@@ -964,11 +962,11 @@ Package graphics Info: Driver file: pdftex.def on input line 99.
 )
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/grffile.s
 ty
-Package: grffile 2016/05/16 v1.17 Extended file name support for graphics (HO)
+Package: grffile 2017/06/30 v1.18 Extended file name support for graphics (HO)
 Package grffile Info: Option `multidot' is set to `true'.
 Package grffile Info: Option `extendedchars' is set to `false'.
 Package grffile Info: Option `space' is set to `true'.
-Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 486.
+Package grffile Info: \Gin@ii of package `graphicx' fixed on input line 494.
 )
 (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/titling/titling.st
 y
@@ -976,26 +974,569 @@ Package: titling 2009/09/04 v2.1d maketitle typesetting
 \thanksmarkwidth=\skip80
 \thanksmargin=\skip81
 \droptitle=\skip82
+) (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk-ko/kotex.sty
+Package: kotex 2015/04/19 v1.6 Korean TeX (ko.TeX)
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk-ko/cjkutf8-ko.
+sty
+Package: cjkutf8-ko 2016/04/04 v1.8 Hangul typesetting on CJKutf8
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/CJKut
+f8.sty
+Package: CJKutf8 2015/04/18 4.8.4
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/CJK.s
+ty
+Package: CJK 2015/04/18 4.8.4
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/mule/
+MULEenc.sty
+Package: MULEenc 2015/04/18 4.8.4
 )
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/CJK.e
+nc
+File: CJK.enc 2015/04/18 4.8.4
+Now handling font encoding C00 ...
+... no UTF-8 mapping file for font encoding C00
+Now handling font encoding C05 ...
+... no UTF-8 mapping file for font encoding C05
+Now handling font encoding C09 ...
+... no UTF-8 mapping file for font encoding C09
+Now handling font encoding C10 ...
+... no UTF-8 mapping file for font encoding C10
+Now handling font encoding C20 ...
+... no UTF-8 mapping file for font encoding C20
+Now handling font encoding C19 ...
+... no UTF-8 mapping file for font encoding C19
+Now handling font encoding C40 ...
+... no UTF-8 mapping file for font encoding C40
+Now handling font encoding C42 ...
+... no UTF-8 mapping file for font encoding C42
+Now handling font encoding C43 ...
+... no UTF-8 mapping file for font encoding C43
+Now handling font encoding C50 ...
+... no UTF-8 mapping file for font encoding C50
+Now handling font encoding C52 ...
+... no UTF-8 mapping file for font encoding C52
+Now handling font encoding C49 ...
+... no UTF-8 mapping file for font encoding C49
+Now handling font encoding C60 ...
+... no UTF-8 mapping file for font encoding C60
+Now handling font encoding C61 ...
+... no UTF-8 mapping file for font encoding C61
+Now handling font encoding C63 ...
+... no UTF-8 mapping file for font encoding C63
+Now handling font encoding C64 ...
+... no UTF-8 mapping file for font encoding C64
+Now handling font encoding C65 ...
+... no UTF-8 mapping file for font encoding C65
+Now handling font encoding C70 ...
+... no UTF-8 mapping file for font encoding C70
+Now handling font encoding C31 ...
+... no UTF-8 mapping file for font encoding C31
+Now handling font encoding C32 ...
+... no UTF-8 mapping file for font encoding C32
+Now handling font encoding C33 ...
+... no UTF-8 mapping file for font encoding C33
+Now handling font encoding C34 ...
+... no UTF-8 mapping file for font encoding C34
+Now handling font encoding C35 ...
+... no UTF-8 mapping file for font encoding C35
+Now handling font encoding C36 ...
+... no UTF-8 mapping file for font encoding C36
+Now handling font encoding C37 ...
+... no UTF-8 mapping file for font encoding C37
+Now handling font encoding C80 ...
+... no UTF-8 mapping file for font encoding C80
+Now handling font encoding C81 ...
+... no UTF-8 mapping file for font encoding C81
+Now handling font encoding C01 ...
+... no UTF-8 mapping file for font encoding C01
+Now handling font encoding C11 ...
+... no UTF-8 mapping file for font encoding C11
+Now handling font encoding C21 ...
+... no UTF-8 mapping file for font encoding C21
+Now handling font encoding C41 ...
+... no UTF-8 mapping file for font encoding C41
+Now handling font encoding C62 ...
+... no UTF-8 mapping file for font encoding C62
+)
+LaTeX Info: Redefining \selectfont on input line 755.
+\CJK@indent=\box58
+) (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2017/04/05 v2.0i Standard LaTeX package
+))
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/utf8/
+UTF8.bdg
+File: UTF8.bdg 2015/04/18 4.8.4
+)
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/utf8/
+UTF8.enc
+File: UTF8.enc 2015/04/18 4.8.4
+)
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/utf8/
+UTF8.chr
+File: UTF8.chr 2015/04/18 4.8.4
+)
+LaTeX Info: Redefining \CJKpunctsymbol on input line 305.
 
-! LaTeX Error: File `kotex.sty' not found.
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk-ko/cjkutf8-jos
+a.sty
+Package: cjkutf8-josa 2016/04/04 v1.8 Automatic Josa selection for cjk-ko
+)
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk-ko/kolabels-ut
+f.sty
+Package: kolabels-utf 2015/03/20 v1.5 UTF-8 Hangul item labels
+)
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/pdftex/glyphtoun
+icode.tex)
+   defining Unicode char U+FE00 (decimal 65024)
+   defining Unicode char U+FE01 (decimal 65025)
+   defining Unicode char U+FE02 (decimal 65026)
+)) (c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amscls/amsthm.s
+ty
+Package: amsthm 2017/10/31 v2.20.4
+\thm@style=\toks25
+\thm@bodyfont=\toks26
+\thm@headfont=\toks27
+\thm@notefont=\toks28
+\thm@headpunct=\toks29
+\thm@preskip=\skip83
+\thm@postskip=\skip84
+\thm@headsep=\skip85
+\dth@everypar=\toks30
+)
+\c@theorem=\count127
+\c@lemma=\count128
+\c@definition=\count129
+\c@corollary=\count130
+\c@proposition=\count131
+\c@example=\count132
+\c@exercise=\count133
+No file book-ncar.aux.
+\openout1 = `book-ncar.aux'.
 
-Type X to quit or <RETURN> to proceed,
-or enter new name. (Default extension: sty)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 148.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 148.
 
-Enter file name: 
-! Emergency stop.
-<read *> 
-         
-l.132 ^^M
-          
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 148.
+LaTeX Font Info:    ... okay on input line 148.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 148.
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 148.
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: <default>
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: twoside 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=650.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=-24.0pt
+* \headheight=12.0pt
+* \headsep=12.0pt
+* \topskip=12.0pt
+* \footskip=24.0pt
+* \marginparwidth=48.0pt
+* \marginparsep=12.0pt
+* \columnsep=10.0pt
+* \skip\footins=12.0pt plus 3.0pt minus 1.5pt
+* \hoffset=-15.0pt
+* \voffset=39.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidetrue
+* \@mparswitchtrue
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box59
+Package hyperref Info: Link coloring ON on input line 148.
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.s
+ty
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/gettitl
+estring.sty
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
+)
+\c@section@level=\count134
+)
+LaTeX Info: Redefining \ref on input line 148.
+LaTeX Info: Redefining \pageref on input line 148.
+LaTeX Info: Redefining \nameref on input line 148.
+\@outlinefile=\write4
+\openout4 = `book-ncar.out'.
+
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/epstopdf-
+base.sty
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/grfext.st
+y
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
+)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+38.
+Package grfext Info: Graphics extension search list:
+(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 456.
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/epstop
+df-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+   defining Unicode char U+00B7 (decimal 183)
+LaTeX Font Info:    Try loading font information for C70+mj on input line 149.
+
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/utf8/
+c70mj.fd
+File: c70mj.fd 2015/04/18 4.8.4
+)
+(c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/utf8/
+c70mj.fdx
+File: c70mj.fdx 2015/04/18 4.8.4
+)
+LaTeX Font Info:    Font shape `C70/mj/m/it'
+(Font)              in size <14.4> not available.
+(Font)              Font shape `C70/mj/m/sl'
+(Font)              tried instead on input line 149.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[1
+
+
+{c:/Users/mdlhs/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdfte
+x.map}]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[2
+
+]
+Underfull \vbox (badness 10000) detected at line 154
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 154
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 154
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 154
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 154
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 154
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 154
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 154
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 154
+[]
+ []
+
+\tf@toc=\write5
+\openout5 = `book-ncar.toc'.
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[3]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (469.50502pt too wide) has occurred while \output is active
+[]
+ []
+
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[4
+
+]
+Underfull \vbox (badness 10000) detected at line 156
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 156
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 156
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 156
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 156
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 156
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 156
+ []
+
+
+Overfull \hbox (469.50502pt too wide) detected at line 156
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 156
+[]
+ []
+
+
+Package hyperref Warning: bookmark level for unknown fm defaults to 0.
+
+
+Package hyperref Warning: Suppressing empty link on input line 159.
+
+<assets/cc.png, id=39, 88.33pt x 31.11626pt>
+File: assets/cc.png Graphic file (type png)
+<use assets/cc.png>
+Package pdftex.def Info: assets/cc.png  used on input line 183.
+(pdftex.def)             Requested size: 88.33112pt x 31.11664pt.
+
+! LaTeX Error: Environment rmdnote undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.192 \BeginKnitrBlock{rmdnote}
+                                
 Here is how much of TeX's memory you used:
- 11243 strings out of 494921
- 155980 string characters out of 6179478
- 226452 words of memory out of 5000000
- 14483 multiletter control sequences out of 15000+600000
- 4702 words of font info for 16 fonts, out of 8000000 for 9000
+ 13449 strings out of 494923
+ 185971 string characters out of 6179496
+ 272793 words of memory out of 5000000
+ 16469 multiletter control sequences out of 15000+600000
+ 62993 words of font info for 121 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 28i,0n,32p,250b,270s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 42i,7n,32p,250b,496s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 !  ==> Fatal error occurred, no output PDF file produced!

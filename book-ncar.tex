@@ -26,7 +26,7 @@
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
             pdftitle={R을 사용한 비구획분석},
-            pdfauthor={배균섭, 한성필, 윤석규, 조용순},
+            pdfauthor={배균섭, 한성필, 윤석규, 조용순, 김형섭},
             colorlinks=true,
             linkcolor=Maroon,
             citecolor=Blue,
@@ -121,12 +121,12 @@
   \title{R을 사용한 비구획분석}
   \pretitle{\vspace{\droptitle}\centering\huge}
   \posttitle{\par}
-  \author{배균섭, 한성필, 윤석규, 조용순}
+  \author{배균섭, 한성필, 윤석규, 조용순, 김형섭}
   \preauthor{\centering\large\emph}
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2018-01-11}
+  \date{2018-03-08}
 
 \usepackage{kotex}
 
@@ -178,7 +178,7 @@
 2017년 11월\\
 서울아산병원 임상약리학과, 울산대학교 임상약리학교실\\
 교수 배균섭,\\
-전공의 한성필, 윤석규, 조용순
+전공의 한성필, 윤석규, 조용순, 김형섭
 
 \includegraphics{assets/cc.png}\\
 이 저작물은
@@ -204,13 +204,20 @@
 갖고 있습니다.
 
 \emph{한성필}\\
-서울아산병원 임상약리학과 전공의입니다.
+서울아산병원 임상약리학과 전공의입니다. 부산대학교 의학전문대학원을
+졸업하였습니다.
 
 \emph{윤석규}\\
-서울아산병원 임상약리학과 전공의입니다.
+서울아산병원 임상약리학과 전공의입니다. 연세대학교 원주캠퍼스 의과대학을
+졸업하였습니다.
 
 \emph{조용순}\\
-서울아산병원 임상약리학과 전공의입니다.
+서울아산병원 임상약리학과 전공의입니다. 중앙대학교 의학전문대학원을
+졸업하였습니다.
+
+\emph{김형섭}\\
+서울아산병원 임상약리학과 전공의입니다. 고려대학교 의학전문대학원을
+졸업하였습니다.
 
 \mainmatter
 
@@ -475,13 +482,13 @@ R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설�
 \end{Shaded}
 
 자료 분석을 위해 몇가지 도구가 필요한데 \texttt{tidyverse}(Wickham
-\protect\hyperlink{ref-R-tidyverse}{2017})를 설치하면 다수의 편리한
+\protect\hyperlink{ref-R-tidyverse}{2018})를 설치하면 다수의 편리한
 패키지 \texttt{tidyr} (Wickham and Henry
-\protect\hyperlink{ref-R-tidyr}{2017}), \texttt{dplyr} (Wickham et al.
-\protect\hyperlink{ref-R-dplyr}{2017}), \texttt{tibble} (Muller and
-Wickham \protect\hyperlink{ref-R-tibble}{2017}), \texttt{ggplot2}
+\protect\hyperlink{ref-R-tidyr}{2018}), \texttt{dplyr} (Wickham et al.
+\protect\hyperlink{ref-R-dplyr}{2018}), \texttt{tibble} (Muller and
+Wickham \protect\hyperlink{ref-R-tibble}{2018}), \texttt{ggplot2}
 {[}R-ggplot2{]}, \texttt{purrr} (Henry and Wickham
-\protect\hyperlink{ref-R-purrr}{2017}), \texttt{readr} (Wickham, Hester,
+\protect\hyperlink{ref-R-purrr}{2018}), \texttt{readr} (Wickham, Hester,
 and Francois \protect\hyperlink{ref-R-readr}{2017})의 설치와 불러오기
 과정을 쉽게 끝낼 수 있습니다.
 
@@ -1106,7 +1113,7 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "C:/Users/mdlhs/asancpt/book-ncar"
+## [1] "C:/Users/mdlhs/asancpt/book-ncar-kr"
 \end{verbatim}
 
 저장될 폴더를 변경하고자 한다면 setwd(``저장될 경로'') 이렇게 설정하면
@@ -1143,7 +1150,7 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{02}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -1941,7 +1948,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2020,7 +2027,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2099,7 +2106,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2178,7 +2185,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2257,7 +2264,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2336,7 +2343,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2415,7 +2422,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2494,7 +2501,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2573,7 +2580,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2652,7 +2659,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2731,7 +2738,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2810,7 +2817,7 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 \NormalTok{                       Package version }\FloatTok{0.3}\NormalTok{.}\DecValTok{7}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{08}\OperatorTok{-}\DecValTok{16}\NormalTok{ KST)}
 \NormalTok{                          R version }\FloatTok{3.4}\NormalTok{.}\DecValTok{3}\NormalTok{ (}\DecValTok{2017}\OperatorTok{-}\DecValTok{11}\OperatorTok{-}\DecValTok{30}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{01}\OperatorTok{-}\DecValTok{11} \DecValTok{17}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{49}\NormalTok{ KST}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018}\OperatorTok{-}\DecValTok{03}\OperatorTok{-}\DecValTok{08} \DecValTok{17}\OperatorTok{:}\DecValTok{45}\OperatorTok{:}\DecValTok{03}\NormalTok{ KST}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2904,29 +2911,29 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-01-11                  
+##  date     2018-03-08                  
 ## 
 ##  package     * version    date       source                              
 ##  assertthat    0.2.0      2017-04-11 CRAN (R 3.4.0)                      
 ##  backports     1.1.2      2017-12-13 CRAN (R 3.4.3)                      
 ##  base        * 3.4.3      2017-11-30 local                               
-##  bindr         0.1        2016-11-13 CRAN (R 3.4.0)                      
-##  bindrcpp    * 0.2        2017-06-17 CRAN (R 3.4.1)                      
+##  bindr         0.1.0.9000 2018-02-08 Github (krlmlr/bindr@4b20179)       
+##  bindrcpp    * 0.2.0.9000 2018-02-08 Github (krlmlr/bindrcpp@7553d4f)    
 ##  binr        * 1.1        2015-03-10 CRAN (R 3.4.0)                      
-##  bookdown      0.5.10     2017-11-30 Github (rstudio/bookdown@d78c661)   
+##  bookdown      0.7        2018-02-18 CRAN (R 3.4.3)                      
 ##  broom       * 0.4.3      2017-11-20 CRAN (R 3.4.2)                      
 ##  cellranger    1.1.0      2016-07-27 CRAN (R 3.4.0)                      
 ##  checkmate   * 1.8.5      2017-10-24 CRAN (R 3.4.2)                      
 ##  cli           1.0.0      2017-11-05 CRAN (R 3.4.2)                      
 ##  colorspace    1.3-2      2016-12-14 CRAN (R 3.4.0)                      
 ##  compiler      3.4.3      2017-11-30 local                               
-##  crayon        1.3.4      2017-09-29 Github (gaborcsardi/crayon@b5221ab) 
+##  crayon        1.3.4      2018-03-02 Github (gaborcsardi/crayon@95b3eae) 
 ##  datasets    * 3.4.3      2017-11-30 local                               
-##  devtools      1.13.4     2017-11-09 CRAN (R 3.4.2)                      
-##  digest        0.6.13     2017-12-14 CRAN (R 3.4.3)                      
-##  dplyr       * 0.7.4.9000 2017-11-13 Github (tidyverse/dplyr@0c7a849)    
+##  devtools      1.13.5     2018-02-18 CRAN (R 3.4.3)                      
+##  digest        0.6.15     2018-01-28 CRAN (R 3.4.3)                      
+##  dplyr       * 0.7.4.9000 2018-02-08 Github (tidyverse/dplyr@0a2c208)    
 ##  evaluate      0.10.1     2017-06-24 CRAN (R 3.4.1)                      
-##  forcats     * 0.2.0      2017-01-23 CRAN (R 3.4.0)                      
+##  forcats     * 0.3.0      2018-02-19 CRAN (R 3.4.3)                      
 ##  foreign     * 0.8-69     2017-06-22 CRAN (R 3.4.3)                      
 ##  forestplot  * 1.7.2      2017-09-16 CRAN (R 3.4.1)                      
 ##  ggplot2     * 2.2.1      2016-12-30 CRAN (R 3.4.0)                      
@@ -2935,17 +2942,17 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 ##  grDevices   * 3.4.3      2017-11-30 local                               
 ##  grid        * 3.4.3      2017-11-30 local                               
 ##  gtable        0.2.0      2016-02-26 CRAN (R 3.4.0)                      
-##  haven         1.1.0      2017-07-09 CRAN (R 3.4.1)                      
+##  haven         1.1.1      2018-01-18 CRAN (R 3.4.3)                      
 ##  highr         0.6        2016-05-09 CRAN (R 3.4.0)                      
-##  hms           0.4.0      2017-11-23 CRAN (R 3.4.2)                      
+##  hms           0.4.1      2018-01-24 CRAN (R 3.4.3)                      
 ##  htmltools     0.3.6      2017-04-28 CRAN (R 3.4.0)                      
 ##  httr          1.3.1      2017-08-20 CRAN (R 3.4.1)                      
 ##  jsonlite      1.5        2017-06-01 CRAN (R 3.4.0)                      
-##  knitr       * 1.18       2017-12-27 CRAN (R 3.4.3)                      
+##  knitr       * 1.20       2018-02-20 CRAN (R 3.4.3)                      
 ##  labeling      0.3        2014-08-23 CRAN (R 3.4.0)                      
 ##  lattice       0.20-35    2017-03-25 CRAN (R 3.4.3)                      
 ##  lazyeval      0.2.1      2017-10-29 CRAN (R 3.4.2)                      
-##  lubridate     1.7.1      2017-11-03 CRAN (R 3.4.2)                      
+##  lubridate     1.7.3      2018-02-27 CRAN (R 3.4.3)                      
 ##  magrittr    * 1.5        2014-11-22 CRAN (R 3.4.0)                      
 ##  memoise       1.1.0      2017-04-21 CRAN (R 3.4.0)                      
 ##  methods       3.4.3      2017-11-30 local                               
@@ -2954,24 +2961,24 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 ##  munsell       0.4.3      2016-02-13 CRAN (R 3.4.0)                      
 ##  ncar        * 0.3.7      2017-08-16 CRAN (R 3.4.1)                      
 ##  ncarbe      * 0.1.0      2017-12-05 local                               
-##  nlme          3.1-131    2017-02-06 CRAN (R 3.4.3)                      
+##  nlme          3.1-131.1  2018-02-16 CRAN (R 3.4.3)                      
 ##  NonCompart  * 0.3.3      2017-08-16 CRAN (R 3.4.1)                      
 ##  parallel      3.4.3      2017-11-30 local                               
-##  pillar        1.0.1      2017-11-27 CRAN (R 3.4.3)                      
+##  pillar        1.2.1      2018-02-27 CRAN (R 3.4.3)                      
 ##  pkgconfig     2.0.1      2017-03-21 CRAN (R 3.4.0)                      
 ##  pkr         * 0.1.1      2017-07-10 CRAN (R 3.4.1)                      
 ##  plyr          1.8.4      2016-06-08 CRAN (R 3.4.0)                      
 ##  psych         1.7.8      2017-09-09 CRAN (R 3.4.1)                      
-##  purrr       * 0.2.4.9000 2017-11-30 Github (tidyverse/purrr@62b135a)    
+##  purrr       * 0.2.4.9000 2018-03-02 Github (tidyverse/purrr@84ce1ad)    
 ##  R.methodsS3   1.7.1      2016-02-16 CRAN (R 3.4.0)                      
 ##  R.oo          1.21.0     2016-11-01 CRAN (R 3.4.0)                      
 ##  R6            2.2.2      2017-06-17 CRAN (R 3.4.1)                      
-##  Rcpp          0.12.14    2017-11-23 CRAN (R 3.4.2)                      
+##  Rcpp          0.12.15    2018-01-20 CRAN (R 3.4.3)                      
 ##  readr       * 1.1.1      2017-05-16 CRAN (R 3.4.0)                      
 ##  readxl      * 1.0.0      2017-04-18 CRAN (R 3.4.0)                      
 ##  reshape2      1.4.3      2017-12-11 CRAN (R 3.4.3)                      
-##  rlang         0.1.6      2017-12-21 CRAN (R 3.4.3)                      
-##  rmarkdown     1.8.3      2017-12-05 Github (rstudio/rmarkdown@07f7d8e)  
+##  rlang         0.2.0      2018-02-20 CRAN (R 3.4.3)                      
+##  rmarkdown     1.9        2018-03-01 CRAN (R 3.4.3)                      
 ##  rprojroot     1.3-2      2018-01-03 CRAN (R 3.4.3)                      
 ##  rstudioapi    0.7        2017-09-07 CRAN (R 3.4.1)                      
 ##  rtf         * 0.4-11     2013-11-12 CRAN (R 3.4.0)                      
@@ -2979,17 +2986,18 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 ##  scales        0.5.0      2017-08-24 CRAN (R 3.4.1)                      
 ##  stats       * 3.4.3      2017-11-30 local                               
 ##  stringi       1.1.6      2017-11-17 CRAN (R 3.4.2)                      
-##  stringr     * 1.2.0      2017-02-18 CRAN (R 3.4.0)                      
-##  tibble      * 1.4.1.9000 2018-01-04 Github (tidyverse/tibble@bb664cb)   
-##  tidyr       * 0.7.2      2017-10-16 CRAN (R 3.4.2)                      
-##  tidyselect    0.2.3      2017-11-06 CRAN (R 3.4.2)                      
+##  stringr     * 1.3.0      2018-02-19 CRAN (R 3.4.3)                      
+##  tibble      * 1.4.2      2018-01-22 CRAN (R 3.4.3)                      
+##  tidyr       * 0.8.0      2018-01-29 CRAN (R 3.4.3)                      
+##  tidyselect    0.2.4      2018-02-26 CRAN (R 3.4.3)                      
 ##  tidyverse   * 1.2.1      2017-11-14 Github (tidyverse/tidyverse@3769ff2)
 ##  tools         3.4.3      2017-11-30 local                               
 ##  utf8          1.1.3      2018-01-03 CRAN (R 3.4.3)                      
 ##  utils       * 3.4.3      2017-11-30 local                               
-##  withr         2.1.1      2017-12-19 CRAN (R 3.4.3)                      
-##  xml2          1.1.1      2017-01-24 CRAN (R 3.4.0)                      
-##  yaml          2.1.16     2017-12-12 CRAN (R 3.4.3)
+##  withr         2.1.1.9000 2018-03-02 Github (r-lib/withr@5d05571)        
+##  xfun          0.1        2018-01-22 CRAN (R 3.4.3)                      
+##  xml2          1.2.0      2018-01-24 CRAN (R 3.4.3)                      
+##  yaml          2.1.17     2018-02-27 CRAN (R 3.4.3)
 \end{verbatim}
 
 \hypertarget{refs}{}
@@ -3019,12 +3027,12 @@ Gabrielsson, Johan. 2016. \emph{Pharmacokinetic and Pharmacodynamic Data
 Analysis : Concepts and Applications}. Stockholm: Apotekarsocieteten.
 
 \hypertarget{ref-R-purrr}{}
-Henry, Lionel, and Hadley Wickham. 2017. \emph{Purrr: Functional
+Henry, Lionel, and Hadley Wickham. 2018. \emph{Purrr: Functional
 Programming Tools}.
 
 \hypertarget{ref-R-tibble}{}
-Muller, Kirill, and Hadley Wickham. 2017. \emph{Tibble: Simple Data
-Frames}.
+Muller, Kirill, and Hadley Wickham. 2018. \emph{Tibble: Simple Data
+Frames}. \url{https://CRAN.R-project.org/package=tibble}.
 
 \hypertarget{ref-R-base}{}
 R Core Team. 2017. \emph{R: A Language and Environment for Statistical
@@ -3037,16 +3045,16 @@ Pharmacodynamics : Concepts and Applications}. Philadelphia: Wolters
 Kluwer Health/Lippincott William \& Wilkins.
 
 \hypertarget{ref-R-tidyverse}{}
-Wickham, Hadley. 2017. \emph{Tidyverse: Easily Install and Load the
+Wickham, Hadley. 2018. \emph{Tidyverse: Easily Install and Load the
 'Tidyverse'}.
 
 \hypertarget{ref-R-tidyr}{}
-Wickham, Hadley, and Lionel Henry. 2017. \emph{Tidyr: Easily Tidy Data
+Wickham, Hadley, and Lionel Henry. 2018. \emph{Tidyr: Easily Tidy Data
 with 'Spread()' and 'Gather()' Functions}.
 \url{https://CRAN.R-project.org/package=tidyr}.
 
 \hypertarget{ref-R-dplyr}{}
-Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Muller. 2017.
+Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Muller. 2018.
 \emph{Dplyr: A Grammar of Data Manipulation}.
 
 \hypertarget{ref-R-readr}{}

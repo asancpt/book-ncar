@@ -8,6 +8,7 @@ publish:
 	git pull ;\
 	Rscript --quiet _render.R "bookdown::gitbook" ;\
 	Rscript --quiet _render.R "bookdown::pdf_book" ;\
+	Rscript --quiet _render.R "bookdown::epub_book" ;\
 	git add .; git commit -m 'publish: gitbook'; git push
 
 gitbook:
