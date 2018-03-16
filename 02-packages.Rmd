@@ -43,9 +43,9 @@ library(pkr)
 아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다. 
 
 ```{r}
-# install.packages(c('tidyverse', 'knitr')) # 설치 안되어 있으면 맨앞의 #을 지우고 설치.
-library(tidyverse) # For presentation only, dplyr, tidyr, ggplot2
-library(knitr) # For reports
+library(ggplot2) 
+library(dplyr) 
+library(knitr) 
 ```
 
 도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 `help()` 함수를 사용합니다.
