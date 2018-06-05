@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-03-16">
+<meta name="date" content="2018-06-05">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,69 +50,41 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -217,9 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">Chapter 10</span> 결론</h1>
 <p>약물을 연구하고 개발하는데 있어서 약동학은 굉장히 필수적인 분야이며, 그 동안 이러한 약동학 지표들을 구하기 위해서 그러한 결론이 도출되는 과정을 고려하지 않고 일부 프로그램의 사용에만 의존하는 모습이 주를 이뤘습니다.</p>
 <p>하지만 이번 Edison program과 다양한 수학적, 통계적 지식을 coding에 활용하여 실제 임상적으로도 활용 가능한 결과값을 도출해 낼 수 있음을 확인하였으며 앞으로도 약동학 분야에서 다양하게 활용할 수 있을 것으로 예측됩니다.</p>
-<p>R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 그릴 수 있으므로 빠르고 효과적임. 만약 자료의 오류나 변화가 생겼을 때 수정이 쉽다. 계산 방식의 변경이 있을때 (Linear에서 Log로 변경 원할 때) 역시 마찬가지이다.
-SDTM의 PPTESTCD를 사용하므로 PP도메인 구성하기 쉽다. 변경할 때 추가적인 비용이 안든다. 현재 practice는 Winnonlin에서 나온 것을 일일히 변경해야 하는데 이 작업은 약동학자라도 SDTM에 대한 이해가 없이는 이 작업이 쉽지 않다. R을 통해 NCA를 해주는 패키지가 많지만 SDTM 자료 형태로 결과를 계산하거나, pkr처럼 인풋으로 받을 수 있는 패키지는 없다. 상용 소프트웨어도 마찬가지 이다.
-모든 것이 무료이고 소스코드가 공개되어 있으므로 약동학을 공부할 수 있다. 추가적으로 소프트웨어가 확장할 여지가 크다. (확장성이 좋다. 실제로 ncarbe 패키지처럼 BE 처리 해주는 것도 쉽게 개발할 수 있다.)</p>
+<p>R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 그릴 수 있으므로 빠르고 효과적임. 만약 자료의 오류나 변화가 생겼을 때 수정이 쉽다. 계산 방식의 변경이 있을때 (Linear에서 Log로 변경 원할 때) 역시 마찬가지이다. SDTM의 PPTESTCD를 사용하므로 PP도메인 구성하기 쉽다. 변경할 때 추가적인 비용이 안든다. 현재 practice는 Winnonlin에서 나온 것을 일일히 변경해야 하는데 이 작업은 약동학자라도 SDTM에 대한 이해가 없이는 이 작업이 쉽지 않다. R을 통해 NCA를 해주는 패키지가 많지만 SDTM 자료 형태로 결과를 계산하거나, pkr처럼 인풋으로 받을 수 있는 패키지는 없다. 상용 소프트웨어도 마찬가지 이다. 모든 것이 무료이고 소스코드가 공개되어 있으므로 약동학을 공부할 수 있다. 추가적으로 소프트웨어가 확장할 여지가 크다. (확장성이 좋다. 실제로 ncarbe 패키지처럼 BE 처리 해주는 것도 쉽게 개발할 수 있다.)</p>
 
 
 </div>
@@ -266,7 +236,7 @@ gitbook.start({
 "link": "https://github.com/asancpt/book-ncar/edit/master/08-conclusion.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["book-ncar.epub"],
 "toc": {
 "collapse": "subsection"
 },
@@ -282,7 +252,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "true";
+    var src = "";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

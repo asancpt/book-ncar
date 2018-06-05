@@ -28,6 +28,12 @@ knitr::kable(descStatTheophNca, digits = 2)
 ## 생물학적 동등성 {#bioequivalence}
 
 생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
+
+```{r, eval = FALSE}
+install.packages('devtools')
+devtools::install_github('asancpt/ncarbe')
+```
+
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
 생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:be)
 

@@ -1,8 +1,8 @@
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.3.7 (2017-08-16 KST)
-                          R version 3.4.4 (2018-03-15)
+                       Package version 0.1.2 (2018-06-04)
+                          R version 3.5.0 (2018-04-23)
 
-Date and Time: 2018-03-16 14:59:56 KST
+Date and Time: 2018-06-05 12:14:33 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -63,10 +63,10 @@ AUMCIFO    AUMC Infinity Obs                            4505.5348 h2*mg/L
 AUMCIFP    AUMC Infinity Pred                           4505.6709 h2*mg/L
 AUMCPEO    AUMC %Extrapolation Obs                        67.6160 %
 AUMCPEP    AUMC % Extrapolation Pred                      67.6170 %
+MRTEVLST   MRT Extravasc to Last Nonzero Conc              9.7975 h
+MRTEVIFO   MRT Extravasc Infinity Obs                     20.8000 h
+MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h
 VZFO       Vz Obs by F                                    30.4867 L
 VZFP       Vz Pred by F                                   30.4863 L
 CLFO       Total CL Obs by F                               1.4773 L/h
 CLFP       Total CL Pred by F                              1.4773 L/h
-MRTEVLST   MRT Extravasc to Last Nonzero Conc              9.7975 h
-MRTEVIFO   MRT Extravasc Infinity Obs                     20.8000 h
-MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h
