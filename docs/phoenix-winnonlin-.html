@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="support.html">
-<link rel="next" href="ecb0b8eab3a0ebacb8ed978c.html">
+<link rel="prev" href="conclusion.html">
+<link rel="next" href="groupreport.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -190,8 +190,155 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="session-info" class="section level1">
-<h1><span class="header-section-number">D</span> 세션 정보</h1>
+<div id="phoenix-winnonlin---" class="section level1">
+<h1><span class="header-section-number">A</span> Phoenix WinNonLin 과 결과 비교</h1>
+<div id="introduction" class="section level2">
+<h2><span class="header-section-number">A.1</span> Introduction</h2>
+<p>NonCompart R package <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">b</a>; Kim et al. <a href="#ref-Kim_2018">2018</a>)</span> can conduct a noncompartmental analysis as similar as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/">Phoenix<sup>®</sup> WinNonlin<sup>®</sup></a> <span class="citation">(Certara USA <a href="#ref-wnl">2018</a>)</span>. This document provides validation of noncompartmental analysis performed by NonCompart R package version 0.4.1 as compared to the results from the commercial software, WinNonlin<sup>®</sup> version 6.3 and 7.0.</p>
+</div>
+<div id="results" class="section level2">
+<h2><span class="header-section-number">A.2</span> Results</h2>
+<p>A function, <code>Equal()</code> will return <code>TRUE</code> if there is no difference between results from NonCompart and WinNonlin.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;NonCompart&quot;, repos=&quot;http://pmx.amc.seoul.kr&quot;)</span>
+<span class="kw">library</span>(NonCompart)
+RptCfg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/RptCfg.csv&quot;</span>, <span class="dt">as.is=</span><span class="ot">TRUE</span>)
+
+Equal =<span class="st"> </span><span class="cf">function</span>(Wres, Rres, <span class="dt">Tol=</span><span class="fl">0.001</span>)
+{
+  Wres[,<span class="st">&quot;ID&quot;</span>] =<span class="st"> </span><span class="kw">as.character</span>(Wres[,<span class="st">&quot;Subject&quot;</span>])
+  ColName0 =<span class="st"> </span><span class="kw">colnames</span>(Rres)
+  <span class="kw">rownames</span>(RptCfg) =<span class="st"> </span>RptCfg[,<span class="st">&quot;PPTESTCD&quot;</span>]
+  <span class="kw">colnames</span>(Rres) =<span class="st"> </span><span class="kw">c</span>(ColName0[<span class="dv">1</span>], RptCfg[ColName0[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;WNL&quot;</span>])
+  Inter =<span class="st"> </span><span class="kw">intersect</span>(<span class="kw">colnames</span>(Wres), <span class="kw">colnames</span>(Rres))
+  
+  IsSame =<span class="st"> </span><span class="ot">TRUE</span>
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(Wres)) {
+    <span class="cf">for</span> (j <span class="cf">in</span> Inter) {
+      R =<span class="st"> </span><span class="kw">as.numeric</span>(Rres[i,j])
+      W =<span class="st"> </span><span class="kw">as.numeric</span>(Wres[i,j])
+      <span class="cf">if</span> (W <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {
+        <span class="cf">if</span>(<span class="kw">abs</span>((R <span class="op">-</span><span class="st"> </span>W)<span class="op">/</span>W) <span class="op">&gt;</span><span class="st"> </span>Tol) {
+          <span class="kw">print</span>(Wres[i,j])
+          <span class="kw">print</span>(Rres[i,j])
+          IsSame =<span class="st"> </span><span class="ot">FALSE</span>
+        }
+      }
+    }
+  }
+  <span class="kw">return</span>(IsSame)
+}</code></pre></div>
+<p>Eight comparison tests were performed using <code>Theoph</code> and <code>Indometh</code> default datasets. (Table 1) Detailed side-by-side comparison is in Appendix A.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-52">Table A.1: </span>Description of settings for the noncompartmental analysis performed in WinNonlin and links to the raw data</caption>
+<thead>
+<tr class="header">
+<th align="right">No.</th>
+<th align="left">Dataset</th>
+<th align="left">Down</th>
+<th align="left">Route</th>
+<th align="left">Hyperlink</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">Theoph (n=12)</td>
+<td align="left">Linear</td>
+<td align="left">Extravascular</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Theoph_Linear.csv">CSV</a></td>
+</tr>
+<tr class="even">
+<td align="right">2</td>
+<td align="left">Theoph (n=12)</td>
+<td align="left">Log</td>
+<td align="left">Extravascular</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Theoph_Log.csv">CSV</a></td>
+</tr>
+<tr class="odd">
+<td align="right">3</td>
+<td align="left">Indometh (n=6)</td>
+<td align="left">Linear</td>
+<td align="left">IV Bolus</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Linear.csv">CSV</a></td>
+</tr>
+<tr class="even">
+<td align="right">4</td>
+<td align="left">Indometh (n=6)</td>
+<td align="left">Log</td>
+<td align="left">IV Bolus</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Log.csv">CSV</a></td>
+</tr>
+<tr class="odd">
+<td align="right">5</td>
+<td align="left">Indometh (n=6)</td>
+<td align="left">Linear</td>
+<td align="left">IV Infusion (0.25hr)</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv">CSV</a></td>
+</tr>
+<tr class="even">
+<td align="right">6</td>
+<td align="left">Indometh (n=6)</td>
+<td align="left">Log</td>
+<td align="left">IV Infusion (0.25hr)</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv">CSV</a></td>
+</tr>
+<tr class="odd">
+<td align="right">7</td>
+<td align="left">Indometh (n=6)</td>
+<td align="left">Linear</td>
+<td align="left">Extravascular</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv">CSV</a></td>
+</tr>
+<tr class="even">
+<td align="right">8</td>
+<td align="left">Indometh (n=6)</td>
+<td align="left">Log</td>
+<td align="left">Extravascular</td>
+<td align="left"><a href="https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv">CSV</a></td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Theoph[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Theoph[,<span class="st">&quot;Subject&quot;</span>]))
+Indometh[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Indometh[,<span class="st">&quot;Subject&quot;</span>]))
+
+Wres1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Linear.csv&quot;</span>)
+Rres1 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres1, Rres1)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Log.csv&quot;</span>)
+Rres2 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, 
+               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres2, Rres2) </code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres3 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear.csv&quot;</span>)
+Rres3 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, 
+               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres3, Rres3)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres4 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log.csv&quot;</span>)
+Rres4 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, 
+               <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres4, Rres4)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres5 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv&quot;</span>)
+Rres5 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, 
+               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres5, Rres5)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres6 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv&quot;</span>)
+Rres6 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, 
+               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres6, Rres6)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres7 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv&quot;</span>)
+Rres7 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres7, Rres7)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Wres8 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv&quot;</span>)
+Rres8 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, 
+               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres8, Rres8)</code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">session_info</span>()</code></pre></div>
 <pre><code>##  setting  value                       
 ##  version  R version 3.5.0 (2018-04-23)
@@ -286,14 +433,44 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  xfun          0.1     2018-01-22 CRAN (R 3.4.3)
 ##  xml2          1.2.0   2018-01-24 CRAN (R 3.5.0)
 ##  yaml          2.1.19  2018-05-01 CRAN (R 3.5.0)</code></pre>
+
+</div>
+<div id="conclusion" class="section level2">
+<h2><span class="header-section-number">A.3</span> Conclusion</h2>
+<p><em>There is no discrepancy</em> between results from NonCompart and WinNonlin. We also performed multiple analyses with the real clinical trial datasets and have found no differences (data not shown: confidential). Noncompartmental analysis performed by the open-source R package, NonCompart can be <strong>qualified and validated</strong> enough to acquire the identical results of the commercial software, WinNonlin.</p>
+<p><em>Please report issues regarding validation of the R package to <a href="https://github.com/asancpt/NonCompart-tests/issues" class="uri">https://github.com/asancpt/NonCompart-tests/issues</a>.</em></p>
+<hr />
+<p><strong>Affiliation</strong>:<br />
+Sungpil Han<br />
+M.D/Ph.D, Resident<br />
+Department of Clinical Pharmacology and Therapeutics,<br />
+Asan Medical Center, University of Ulsan,<br />
+Seoul 05505, Republic of Korea<br />
+E-mail: <a href="mailto:shan@acp.kr">shan@acp.kr</a><br />
+URL: www.github.com/shanmdphd</p>
+
+
+</div>
+</div>
+<h3>참고문헌</h3>
+<div id="refs" class="references">
+<div id="ref-R-NonCompart">
+<p>Bae, Kyun-Seop. 2018b. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart" class="uri">https://CRAN.R-project.org/package=NonCompart</a>.</p>
+</div>
+<div id="ref-Kim_2018">
+<p>Kim, Hyungsub, Sungpil Han, Yong-Soon Cho, Seok-Kyu Yoon, and Kyun-Seop Bae. 2018. “Development of R Packages: ‘NonCompart’ and ‘Ncar’ for Noncompartmental Analysis (Nca).” <em>Translational and Clinical Pharmacology</em> 26 (1). Korean Society for Clinical Pharmacology; Therapeutics (KAMJE): 01–48. <a href="http://www.tcpharm.org/Data/Journal/2/358.pdf" class="uri">http://www.tcpharm.org/Data/Journal/2/358.pdf</a>.</p>
+</div>
+<div id="ref-wnl">
+<p>Certara USA, Inc. 2018. <em>Phoenix Winnonlin: The Industry Standard for Nca and Pk/Pd Modeling and Simulation</em>. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="support.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="ecb0b8eab3a0ebacb8ed978c.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="groupreport.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -323,7 +500,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/99-references.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/11-appendix.Rmd",
 "text": "Edit"
 },
 "download": ["book-ncar.epub"],

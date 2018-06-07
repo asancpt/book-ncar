@@ -2,3 +2,129 @@
 
 # (APPENDIX) 부록 {-}
 
+# Phoenix WinNonLin 과 결과 비교
+
+## Introduction
+
+NonCompart R package [@R-NonCompart; @Kim_2018] can conduct a noncompartmental analysis as similar as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. [Phoenix^®^   WinNonlin^®^](https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/) [@wnl].
+This document provides validation of noncompartmental analysis performed by NonCompart R package version 0.4.1 as compared to the results from the commercial software, WinNonlin^®^ version 6.3 and 7.0.
+
+## Results
+
+A function, `Equal()` will return `TRUE` if there is no difference between results from NonCompart and WinNonlin.
+
+```{r}
+# install.packages("NonCompart", repos="http://pmx.amc.seoul.kr")
+library(NonCompart)
+RptCfg = read.csv("data-raw/RptCfg.csv", as.is=TRUE)
+
+Equal = function(Wres, Rres, Tol=0.001)
+{
+  Wres[,"ID"] = as.character(Wres[,"Subject"])
+  ColName0 = colnames(Rres)
+  rownames(RptCfg) = RptCfg[,"PPTESTCD"]
+  colnames(Rres) = c(ColName0[1], RptCfg[ColName0[-1],"WNL"])
+  Inter = intersect(colnames(Wres), colnames(Rres))
+  
+  IsSame = TRUE
+  for (i in 1:nrow(Wres)) {
+    for (j in Inter) {
+      R = as.numeric(Rres[i,j])
+      W = as.numeric(Wres[i,j])
+      if (W != 0) {
+        if(abs((R - W)/W) > Tol) {
+          print(Wres[i,j])
+          print(Rres[i,j])
+          IsSame = FALSE
+        }
+      }
+    }
+  }
+  return(IsSame)
+}
+```
+
+Eight comparison tests were performed using `Theoph` and `Indometh` default datasets. (Table 1)
+Detailed side-by-side comparison is in Appendix A.
+
+```{r results = 'asis', echo = FALSE}
+table_1 <- 'No.,Dataset,Down,Route,Hyperlink
+1,Theoph (n=12),Linear,Extravascular,[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Theoph_Linear.csv)
+2,Theoph (n=12),Log,Extravascular,[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Theoph_Log.csv)
+3,Indometh (n=6),Linear,IV Bolus,[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Linear.csv)
+4,Indometh (n=6),Log,IV Bolus,[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Log.csv)
+5,Indometh (n=6),Linear,IV Infusion (0.25hr),[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv)
+6,Indometh (n=6),Log,IV Infusion (0.25hr),[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv)
+7,Indometh (n=6),Linear,Extravascular,[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv)
+8,Indometh (n=6),Log,Extravascular,[CSV](https://raw.githubusercontent.com/asancpt/NonCompart-tests/master/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv)'
+
+knitr::kable(readr::read_csv(table_1), caption = 'Description of settings for the noncompartmental analysis performed in WinNonlin and links to the raw data', booktabs = TRUE, format = 'pandoc')
+```
+
+```{r}
+Theoph[,"Subject"] = as.numeric(as.character(Theoph[,"Subject"]))
+Indometh[,"Subject"] = as.numeric(as.character(Indometh[,"Subject"]))
+
+Wres1 = read.csv("data-raw/Final_Parameters_Pivoted_Theoph_Linear.csv")
+Rres1 = tblNCA(Theoph, "Subject", "Time", "conc", dose=320, concUnit="mg/L")
+Equal(Wres1, Rres1)
+
+Wres2 = read.csv("data-raw/Final_Parameters_Pivoted_Theoph_Log.csv")
+Rres2 = tblNCA(Theoph, "Subject", "Time", "conc", dose=320, down="Log", 
+               concUnit="mg/L")
+Equal(Wres2, Rres2) 
+Wres3 = read.csv("data-raw/Final_Parameters_Pivoted_Indometh_Linear.csv")
+Rres3 = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", 
+               concUnit="mg/L")
+Equal(Wres3, Rres3)
+
+Wres4 = read.csv("data-raw/Final_Parameters_Pivoted_Indometh_Log.csv")
+Rres4 = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", 
+               down="Log", concUnit="mg/L")
+Equal(Wres4, Rres4)
+
+Wres5 = read.csv("data-raw/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv")
+Rres5 = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", 
+               dur=0.25, concUnit="mg/L")
+Equal(Wres5, Rres5)
+
+Wres6 = read.csv("data-raw/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv")
+Rres6 = tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Infusion", 
+               dur=0.25, down="Log", concUnit="mg/L")
+Equal(Wres6, Rres6)
+
+Wres7 = read.csv("data-raw/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv")
+Rres7 = tblNCA(Indometh, "Subject", "time", "conc", dose=25, concUnit="mg/L")
+Equal(Wres7, Rres7)
+
+Wres8 = read.csv("data-raw/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv")
+Rres8 = tblNCA(Indometh, "Subject", "time", "conc", dose=25, down="Log", 
+               concUnit="mg/L")
+Equal(Wres8, Rres8)
+
+devtools::session_info()
+```
+
+
+
+\pagebreak
+
+## Conclusion 
+
+*There is no discrepancy* between results from NonCompart and WinNonlin. We also performed multiple analyses with the real clinical trial datasets and have found no differences (data not shown: confidential).  Noncompartmental analysis performed by the open-source R package, NonCompart can be **qualified and validated** enough to acquire the identical results of the commercial software, WinNonlin.
+
+*Please report issues regarding validation of the R package to <https://github.com/asancpt/NonCompart-tests/issues>.*
+
+------
+
+**Affiliation**:  
+Sungpil Han  
+M.D/Ph.D, Resident  
+Department of Clinical Pharmacology and Therapeutics,  
+Asan Medical Center, University of Ulsan,  
+Seoul 05505, Republic of Korea  
+E-mail: shan@acp.kr  
+URL: www.github.com/shanmdphd
+
+\pagebreak
+

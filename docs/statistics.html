@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-06-05">
+<meta name="date" content="2018-06-07">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -159,11 +159,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="result.html"><a href="result.html"><i class="fa fa-check"></i><b>9</b> 결과 및 논의</a></li>
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
-<li class="chapter" data-level="A" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>A</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="A.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>A.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="A" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
+<li class="chapter" data-level="A.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
+<li class="chapter" data-level="A.2" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
+<li class="chapter" data-level="A.3" data-path="conclusion.html"><a href="conclusion.html#conclusion"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>B</b> 지원</a></li>
-<li class="chapter" data-level="C" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>C</b> 세션 정보</a></li>
+<li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>C</b> 지원</a></li>
+<li class="chapter" data-level="D" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>D</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -590,7 +595,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 </div>
 <div id="bioequivalence" class="section level2">
 <h2><span class="header-section-number">8.3</span> 생물학적 동등성</h2>
-<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2017</a>)</span>를 쓰는 것입니다.</p>
+<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2018</a>)</span>를 쓰는 것입니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)
 devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;asancpt/ncarbe&#39;</span>)</code></pre></div>
 <p>Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="statistics.html#eq:be">(8.1)</a></p>
@@ -734,62 +739,62 @@ concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</c
 ## [AUClast]
 ## 
 ## $`Analysis of Variance`
-##                       SS DF         MS        F          p
-## SUBJECT        2.8102897 35 0.08029399 2.049048 0.01947896
-## GROUP          0.2811516  1 0.28115157 3.779609 0.06019307
-## SUBJECT(GROUP) 2.5291381 34 0.07438642 1.898290 0.03291404
-## PERIOD         0.2887407  1 0.28874073 7.368465 0.01035002
-## DRUG           0.1186721  1 0.11867210 3.028430 0.09086256
-## ERROR          1.3323243 34 0.03918601       NA         NA
-## TOTAL          4.5500268 71         NA       NA         NA
+##                        SS DF        MS        F           p
+## SUBJECT        35.7817072 35 1.0223345 1.854676 0.037320327
+## GROUP           1.1390308  1 1.1390308 1.117900 0.297825788
+## SUBJECT(GROUP) 34.6426764 34 1.0189022 1.848449 0.038831903
+## PERIOD          4.1989873  1 4.1989873 7.617625 0.009244748
+## DRUG            0.7021705  1 0.7021705 1.273848 0.266947114
+## ERROR          18.7414811 34 0.5512200       NA          NA
+## TOTAL          58.9756619 71        NA       NA          NA
 ## 
 ## $`Between and Within Subject Variability`
 ##                                 Between Subject Within Subject
-## Variance Estimate                     0.0176002     0.03918601
-## Coefficient of Variation, CV(%)      13.3251642    19.99097469
+## Variance Estimate                     0.2338411        0.55122
+## Coefficient of Variation, CV(%)      51.3267693       85.75365
 ## 
 ## $`Least Square Means`
 ##                 Reference Drug Test Drug
-## Geometric Means       5047.026  4648.063
+## Geometric Means       31.20441   25.5401
 ## 
 ## $`90% Confidence Interval`
 ##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.8501323       0.920951   0.9976692
+## 90% CI for Ratio   0.6062815      0.8184771     1.10494
 ## 
 ## $`Sample Size`
 ##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size            8                        13
+## 80% Power Sample Size           96                      6538
 ## 
 ## 
 ## 
 ## [Cmax]
 ## 
 ## $`Analysis of Variance`
-##                        SS DF         MS         F         p
-## SUBJECT        2.85581816 35 0.08159480 0.9764709 0.5283290
-## GROUP          0.08840271  1 0.08840271 1.0861008 0.3046908
-## SUBJECT(GROUP) 2.76741545 34 0.08139457 0.9740747 0.5302983
-## PERIOD         0.04931289  1 0.04931289 0.5901430 0.4476669
-## DRUG           0.10908566  1 0.10908566 1.3054627 0.2612001
-## ERROR          2.84107119 34 0.08356092        NA        NA
-## TOTAL          5.85528790 71         NA        NA        NA
+##                        SS DF        MS         F          p
+## SUBJECT        22.1199814 35 0.6319995 0.6475704 0.89703843
+## GROUP           0.2047080  1 0.2047080 0.3175901 0.57675784
+## SUBJECT(GROUP) 21.9152734 34 0.6445669 0.6604475 0.88422171
+## PERIOD          3.6728929  1 3.6728929 3.7633843 0.06071806
+## DRUG            0.1136911  1 0.1136911 0.1164922 0.73497096
+## ERROR          33.1824629 34 0.9759548        NA         NA
+## TOTAL          58.9756619 71        NA        NA         NA
 ## 
 ## $`Between and Within Subject Variability`
 ##                                 Between Subject Within Subject
-## Variance Estimate                  -0.001083173     0.08356092
-## Coefficient of Variation, CV(%)             NaN    29.52142270
+## Variance Estimate                     -0.165694      0.9759548
+## Coefficient of Variation, CV(%)             NaN    128.5962569
 ## 
 ## $`Least Square Means`
 ##                 Reference Drug Test Drug
-## Geometric Means       791.1619     731.1
+## Geometric Means       26.30688  28.51506
 ## 
 ## $`90% Confidence Interval`
 ##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.8221796       0.924084    1.038619
+## 90% CI for Ratio   0.7270811       1.083939    1.615946
 ## 
 ## $`Sample Size`
 ##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size           16                        26
+## 80% Power Sample Size          169                       298
 ## 
 ## 
 ## 
@@ -797,12 +802,12 @@ concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</c
 ## 
 ## $`Wilcoxon Signed-Rank Test`
 ##   p-value 
-## 0.3059991 
+## 0.3286283 
 ## 
 ## $`Hodges-Lehmann Estimate`
 ##                            Lower Limit Point Estimate Upper Limit
-## 90% Confidence Interval       -0.10000         0.0300       0.405
-## 90% Confidence Interval(%)    92.18517       102.3444     131.650</code></pre>
+## 90% Confidence Interval       -2.00000         1.0000      4.0000
+## 90% Confidence Interval(%)    87.11261       106.4437    125.7748</code></pre>
 <p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/fixed-random.jpg&#39;</span>)</code></pre></div>
 <div class="figure"><span id="fig:fixedrandom"></span>
@@ -1035,7 +1040,7 @@ fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class
 <h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-R-ncarbe">
-<p>Bae, Kyun-Seop, and Sungpil Han. 2017. <em>Ncarbe: Perform Be Test Using Noncompart Package</em>.</p>
+<p>Bae, Kyun-Seop, and Sungpil Han. 2018. <em>Ncarbe: Perform Be Test Using Noncompart Package</em>.</p>
 </div>
 <div id="ref-chow2009design">
 <p>Chow. 2009. <em>Design and Analysis of Bioavailability and Bioequivalence Studies</em>. Boca Raton: CRC Press.</p>
