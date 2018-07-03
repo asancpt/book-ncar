@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-06-07">
+<meta name="date" content="2018-07-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -160,9 +188,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
-<li class="chapter" data-level="A.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
+<li class="chapter" data-level="A.1" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#introduction-1"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
 <li class="chapter" data-level="A.2" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
-<li class="chapter" data-level="A.3" data-path="conclusion.html"><a href="conclusion.html#conclusion"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.3" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#conclusion-1"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
 <li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
@@ -195,17 +223,17 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="stat-intro" class="section level2">
 <h2><span class="header-section-number">8.1</span> 이 장에서는</h2>
 <p>생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(ncarbe)
-<span class="kw">library</span>(broom)</code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb42-2" data-line-number="2"><span class="kw">library</span>(ncarbe)</a>
+<a class="sourceLine" id="cb42-3" data-line-number="3"><span class="kw">library</span>(broom)</a></code></pre></div>
 </div>
 <div id="-" class="section level2">
 <h2><span class="header-section-number">8.2</span> 기술통계량 구하기</h2>
 <p>앞서 <a href="noncompart.html#noncompart">4</a>장에서 구한 <code>TheophNca</code>를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. <code>broom::tidy()</code> 함수를 사용하면 간단히 구할 수 있습니다. 다만 <code>NonCompart::tblNCA()</code> 후 <code>data.frame</code> 형태로 저장되어 입력으로 주어져야 합니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">descStatTheophNca &lt;-<span class="st"> </span><span class="kw">tidy</span>(<span class="kw">as.data.frame</span>(TheophNca, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(column, n, mean, sd, min, max, skew, kurtosis)
-
-knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, <span class="dt">digits =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" data-line-number="1">descStatTheophNca &lt;-<span class="st"> </span><span class="kw">tidy</span>(<span class="kw">as.data.frame</span>(TheophNca, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb43-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(column, n, mean, sd, min, max, skew, kurtosis)</a>
+<a class="sourceLine" id="cb43-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb43-4" data-line-number="4">knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -221,7 +249,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">Subject*</td>
+<td align="left">Subject</td>
 <td align="right">12</td>
 <td align="right">6.50</td>
 <td align="right">3.61</td>
@@ -231,7 +259,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.50</td>
 </tr>
 <tr class="even">
-<td align="left">b0*</td>
+<td align="left">b0</td>
 <td align="right">12</td>
 <td align="right">2.39</td>
 <td align="right">0.25</td>
@@ -241,7 +269,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.38</td>
 </tr>
 <tr class="odd">
-<td align="left">CMAX*</td>
+<td align="left">CMAX</td>
 <td align="right">12</td>
 <td align="right">8.76</td>
 <td align="right">1.47</td>
@@ -251,7 +279,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.19</td>
 </tr>
 <tr class="even">
-<td align="left">CMAXD*</td>
+<td align="left">CMAXD</td>
 <td align="right">12</td>
 <td align="right">0.03</td>
 <td align="right">0.00</td>
@@ -261,7 +289,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.19</td>
 </tr>
 <tr class="odd">
-<td align="left">TMAX*</td>
+<td align="left">TMAX</td>
 <td align="right">12</td>
 <td align="right">1.79</td>
 <td align="right">1.11</td>
@@ -271,7 +299,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.35</td>
 </tr>
 <tr class="even">
-<td align="left">TLAG*</td>
+<td align="left">TLAG</td>
 <td align="right">12</td>
 <td align="right">0.00</td>
 <td align="right">0.00</td>
@@ -281,7 +309,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">NaN</td>
 </tr>
 <tr class="odd">
-<td align="left">CLST*</td>
+<td align="left">CLST</td>
 <td align="right">12</td>
 <td align="right">1.40</td>
 <td align="right">0.72</td>
@@ -291,7 +319,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">1.14</td>
 </tr>
 <tr class="even">
-<td align="left">CLSTP*</td>
+<td align="left">CLSTP</td>
 <td align="right">12</td>
 <td align="right">1.40</td>
 <td align="right">0.72</td>
@@ -301,7 +329,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">1.19</td>
 </tr>
 <tr class="odd">
-<td align="left">TLST*</td>
+<td align="left">TLST</td>
 <td align="right">12</td>
 <td align="right">24.20</td>
 <td align="right">0.25</td>
@@ -311,7 +339,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-0.57</td>
 </tr>
 <tr class="even">
-<td align="left">LAMZHL*</td>
+<td align="left">LAMZHL</td>
 <td align="right">12</td>
 <td align="right">8.18</td>
 <td align="right">2.12</td>
@@ -321,7 +349,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">2.97</td>
 </tr>
 <tr class="odd">
-<td align="left">LAMZ*</td>
+<td align="left">LAMZ</td>
 <td align="right">12</td>
 <td align="right">0.09</td>
 <td align="right">0.02</td>
@@ -331,7 +359,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.40</td>
 </tr>
 <tr class="even">
-<td align="left">LAMZLL*</td>
+<td align="left">LAMZLL</td>
 <td align="right">12</td>
 <td align="right">7.49</td>
 <td align="right">2.40</td>
@@ -341,7 +369,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-0.03</td>
 </tr>
 <tr class="odd">
-<td align="left">LAMZUL*</td>
+<td align="left">LAMZUL</td>
 <td align="right">12</td>
 <td align="right">24.20</td>
 <td align="right">0.25</td>
@@ -351,7 +379,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-0.57</td>
 </tr>
 <tr class="even">
-<td align="left">LAMZNPT*</td>
+<td align="left">LAMZNPT</td>
 <td align="right">12</td>
 <td align="right">3.83</td>
 <td align="right">1.34</td>
@@ -361,7 +389,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.28</td>
 </tr>
 <tr class="odd">
-<td align="left">CORRXY*</td>
+<td align="left">CORRXY</td>
 <td align="right">12</td>
 <td align="right">-1.00</td>
 <td align="right">0.00</td>
@@ -371,7 +399,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">3.87</td>
 </tr>
 <tr class="even">
-<td align="left">R2*</td>
+<td align="left">R2</td>
 <td align="right">12</td>
 <td align="right">1.00</td>
 <td align="right">0.00</td>
@@ -381,7 +409,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">3.87</td>
 </tr>
 <tr class="odd">
-<td align="left">R2ADJ*</td>
+<td align="left">R2ADJ</td>
 <td align="right">12</td>
 <td align="right">1.00</td>
 <td align="right">0.00</td>
@@ -391,7 +419,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">3.39</td>
 </tr>
 <tr class="even">
-<td align="left">AUCLST*</td>
+<td align="left">AUCLST</td>
 <td align="right">12</td>
 <td align="right">103.81</td>
 <td align="right">23.65</td>
@@ -401,7 +429,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.12</td>
 </tr>
 <tr class="odd">
-<td align="left">AUCALL*</td>
+<td align="left">AUCALL</td>
 <td align="right">12</td>
 <td align="right">103.81</td>
 <td align="right">23.65</td>
@@ -411,7 +439,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.12</td>
 </tr>
 <tr class="even">
-<td align="left">AUCIFO*</td>
+<td align="left">AUCIFO</td>
 <td align="right">12</td>
 <td align="right">122.19</td>
 <td align="right">38.13</td>
@@ -421,7 +449,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.51</td>
 </tr>
 <tr class="odd">
-<td align="left">AUCIFOD*</td>
+<td align="left">AUCIFOD</td>
 <td align="right">12</td>
 <td align="right">0.38</td>
 <td align="right">0.12</td>
@@ -431,7 +459,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.51</td>
 </tr>
 <tr class="even">
-<td align="left">AUCIFP*</td>
+<td align="left">AUCIFP</td>
 <td align="right">12</td>
 <td align="right">122.18</td>
 <td align="right">38.11</td>
@@ -441,7 +469,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.52</td>
 </tr>
 <tr class="odd">
-<td align="left">AUCIFPD*</td>
+<td align="left">AUCIFPD</td>
 <td align="right">12</td>
 <td align="right">0.38</td>
 <td align="right">0.12</td>
@@ -451,7 +479,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.52</td>
 </tr>
 <tr class="even">
-<td align="left">AUCPEO*</td>
+<td align="left">AUCPEO</td>
 <td align="right">12</td>
 <td align="right">13.54</td>
 <td align="right">6.35</td>
@@ -461,7 +489,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">2.19</td>
 </tr>
 <tr class="odd">
-<td align="left">AUCPEP*</td>
+<td align="left">AUCPEP</td>
 <td align="right">12</td>
 <td align="right">13.54</td>
 <td align="right">6.34</td>
@@ -471,7 +499,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">2.23</td>
 </tr>
 <tr class="even">
-<td align="left">AUMCLST*</td>
+<td align="left">AUMCLST</td>
 <td align="right">12</td>
 <td align="right">883.06</td>
 <td align="right">262.98</td>
@@ -481,7 +509,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-0.42</td>
 </tr>
 <tr class="odd">
-<td align="left">AUMCIFO*</td>
+<td align="left">AUMCIFO</td>
 <td align="right">12</td>
 <td align="right">1590.30</td>
 <td align="right">1006.57</td>
@@ -491,7 +519,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">2.96</td>
 </tr>
 <tr class="even">
-<td align="left">AUMCIFP*</td>
+<td align="left">AUMCIFP</td>
 <td align="right">12</td>
 <td align="right">1589.85</td>
 <td align="right">1006.06</td>
@@ -501,7 +529,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">2.97</td>
 </tr>
 <tr class="odd">
-<td align="left">AUMCPEO*</td>
+<td align="left">AUMCPEO</td>
 <td align="right">12</td>
 <td align="right">38.72</td>
 <td align="right">11.10</td>
@@ -511,7 +539,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">1.10</td>
 </tr>
 <tr class="even">
-<td align="left">AUMCPEP*</td>
+<td align="left">AUMCPEP</td>
 <td align="right">12</td>
 <td align="right">38.72</td>
 <td align="right">11.07</td>
@@ -521,7 +549,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">1.14</td>
 </tr>
 <tr class="odd">
-<td align="left">VZFO*</td>
+<td align="left">VZFO</td>
 <td align="right">12</td>
 <td align="right">31.93</td>
 <td align="right">6.47</td>
@@ -531,7 +559,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.40</td>
 </tr>
 <tr class="even">
-<td align="left">VZFP*</td>
+<td align="left">VZFP</td>
 <td align="right">12</td>
 <td align="right">31.92</td>
 <td align="right">6.46</td>
@@ -541,7 +569,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-1.41</td>
 </tr>
 <tr class="odd">
-<td align="left">CLFO*</td>
+<td align="left">CLFO</td>
 <td align="right">12</td>
 <td align="right">2.81</td>
 <td align="right">0.68</td>
@@ -551,7 +579,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-0.93</td>
 </tr>
 <tr class="even">
-<td align="left">CLFP*</td>
+<td align="left">CLFP</td>
 <td align="right">12</td>
 <td align="right">2.81</td>
 <td align="right">0.68</td>
@@ -561,7 +589,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">-0.93</td>
 </tr>
 <tr class="odd">
-<td align="left">MRTEVLST*</td>
+<td align="left">MRTEVLST</td>
 <td align="right">12</td>
 <td align="right">8.41</td>
 <td align="right">0.59</td>
@@ -571,7 +599,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">0.12</td>
 </tr>
 <tr class="even">
-<td align="left">MRTEVIFO*</td>
+<td align="left">MRTEVIFO</td>
 <td align="right">12</td>
 <td align="right">12.29</td>
 <td align="right">2.96</td>
@@ -581,7 +609,7 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 <td align="right">2.83</td>
 </tr>
 <tr class="odd">
-<td align="left">MRTEVIFP*</td>
+<td align="left">MRTEVIFP</td>
 <td align="right">12</td>
 <td align="right">12.29</td>
 <td align="right">2.95</td>
@@ -595,18 +623,20 @@ knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, 
 </div>
 <div id="bioequivalence" class="section level2">
 <h2><span class="header-section-number">8.3</span> 생물학적 동등성</h2>
-<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2018</a>)</span>를 쓰는 것입니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)
-devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;asancpt/ncarbe&#39;</span>)</code></pre></div>
-<p>Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span> 생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="statistics.html#eq:be">(8.1)</a></p>
+<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>ncarbe</code> 패키지<span class="citation">(Bae and Han <a href="#ref-R-ncarbe">2017</a>)</span>를 쓰는 것입니다.</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</a>
+<a class="sourceLine" id="cb44-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;asancpt/ncarbe&#39;</span>)</a></code></pre></div>
+<p>Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow <a href="#ref-chow2009design">2009</a>)</span>
+생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="statistics.html#eq:be">(8.1)</a></p>
 <p><span class="math display" id="eq:be">\[
 \begin{align}
   0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \\
   0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \tag{8.1}
 \end{align}
 \]</span></p>
-<p>현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">8.1</a>) 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/twobytwo.jpg&#39;</span>)</code></pre></div>
+<p>현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">8.1</a>)
+핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/twobytwo.jpg&#39;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:twobytwo"></span>
 <img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="100%" />
 <p class="caption">
@@ -625,8 +655,8 @@ Figure 8.1: 전형적인 2x2 설계
 <li>method: <code>kbe</code> by authors or <code>nlme</code> package uploaded on CRAN</li>
 </ul>
 <p>ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table <a href="statistics.html#tab:beconcdata">8.1</a>)</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;example&#39;</span>, <span class="st">&#39;beConc.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;ncarbe&#39;</span>)
-concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" data-line-number="1">file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;example&#39;</span>, <span class="st">&#39;beConc.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;ncarbe&#39;</span>)</a>
+<a class="sourceLine" id="cb47-2" data-line-number="2">concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</a></code></pre></div>
 <table>
 <caption><span id="tab:beconcdata">Table 8.1: </span>A example dataset for the bioequivalence test.</caption>
 <thead>
@@ -733,83 +763,10 @@ concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</c
 </tr>
 </tbody>
 </table>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">beNCA</span>(concData)</code></pre></div>
-<pre><code>## 
-## 
-## [AUClast]
-## 
-## $`Analysis of Variance`
-##                        SS DF        MS        F           p
-## SUBJECT        35.7817072 35 1.0223345 1.854676 0.037320327
-## GROUP           1.1390308  1 1.1390308 1.117900 0.297825788
-## SUBJECT(GROUP) 34.6426764 34 1.0189022 1.848449 0.038831903
-## PERIOD          4.1989873  1 4.1989873 7.617625 0.009244748
-## DRUG            0.7021705  1 0.7021705 1.273848 0.266947114
-## ERROR          18.7414811 34 0.5512200       NA          NA
-## TOTAL          58.9756619 71        NA       NA          NA
-## 
-## $`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                     0.2338411        0.55122
-## Coefficient of Variation, CV(%)      51.3267693       85.75365
-## 
-## $`Least Square Means`
-##                 Reference Drug Test Drug
-## Geometric Means       31.20441   25.5401
-## 
-## $`90% Confidence Interval`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.6062815      0.8184771     1.10494
-## 
-## $`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size           96                      6538
-## 
-## 
-## 
-## [Cmax]
-## 
-## $`Analysis of Variance`
-##                        SS DF        MS         F          p
-## SUBJECT        22.1199814 35 0.6319995 0.6475704 0.89703843
-## GROUP           0.2047080  1 0.2047080 0.3175901 0.57675784
-## SUBJECT(GROUP) 21.9152734 34 0.6445669 0.6604475 0.88422171
-## PERIOD          3.6728929  1 3.6728929 3.7633843 0.06071806
-## DRUG            0.1136911  1 0.1136911 0.1164922 0.73497096
-## ERROR          33.1824629 34 0.9759548        NA         NA
-## TOTAL          58.9756619 71        NA        NA         NA
-## 
-## $`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                     -0.165694      0.9759548
-## Coefficient of Variation, CV(%)             NaN    128.5962569
-## 
-## $`Least Square Means`
-##                 Reference Drug Test Drug
-## Geometric Means       26.30688  28.51506
-## 
-## $`90% Confidence Interval`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.7270811       1.083939    1.615946
-## 
-## $`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size          169                       298
-## 
-## 
-## 
-## [Tmax]
-## 
-## $`Wilcoxon Signed-Rank Test`
-##   p-value 
-## 0.3286283 
-## 
-## $`Hodges-Lehmann Estimate`
-##                            Lower Limit Point Estimate Upper Limit
-## 90% Confidence Interval       -2.00000         1.0000      4.0000
-## 90% Confidence Interval(%)    87.11261       106.4437    125.7748</code></pre>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" data-line-number="1"><span class="kw">beNCA</span>(concData)</a></code></pre></div>
+<pre><code>## Error in `[.data.frame`(concData, concData$SUBJ == 1 &amp; concData$GRP == : 객체 &#39;RT&#39;를 찾을 수 없습니다</code></pre>
 <p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/fixed-random.jpg&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/fixed-random.jpg&#39;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:fixedrandom"></span>
 <img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="100%" />
 <p class="caption">
@@ -821,33 +778,33 @@ Figure 8.2: 모수 인자와 변량 인자의 비교
 <h2><span class="header-section-number">8.4</span> Dose Proportionality</h2>
 <p>DP 처리.</p>
 <p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. Table <a href="statistics.html#tab:sad-pk">8.2</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># setup ----</span>
-
-<span class="kw">library</span>(readxl)
-<span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(broom)
-
-dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span>
-<span class="st">&#39;Dose,Subject,Cmax,AUClast</span>
-<span class="st">50,101,860,2000</span>
-<span class="st">50,102,510,2300</span>
-<span class="st">50,103,620,2900</span>
-<span class="st">50,104,540,2400</span>
-<span class="st">100,201,1550,6600</span>
-<span class="st">100,202,1440,7400</span>
-<span class="st">100,203,2000,7300</span>
-<span class="st">100,204,1600,7000</span>
-<span class="st">200,301,4100,20400</span>
-<span class="st">200,302,2800,9500</span>
-<span class="st">200,303,3200,8000</span>
-<span class="st">200,304,2550,7070</span>
-<span class="st">400,401,4800,22000</span>
-<span class="st">400,402,5700,23000</span>
-<span class="st">400,403,5800,26700</span>
-<span class="st">400,404,5760,28884&#39;</span>
-
-sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)
-knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1"><span class="co"># setup ----</span></a>
+<a class="sourceLine" id="cb51-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb51-3" data-line-number="3"><span class="kw">library</span>(readxl)</a>
+<a class="sourceLine" id="cb51-4" data-line-number="4"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb51-5" data-line-number="5"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb51-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb51-7" data-line-number="7">dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span></a>
+<a class="sourceLine" id="cb51-8" data-line-number="8"><span class="st">&#39;Dose,Subject,Cmax,AUClast</span></a>
+<a class="sourceLine" id="cb51-9" data-line-number="9"><span class="st">50,101,860,2000</span></a>
+<a class="sourceLine" id="cb51-10" data-line-number="10"><span class="st">50,102,510,2300</span></a>
+<a class="sourceLine" id="cb51-11" data-line-number="11"><span class="st">50,103,620,2900</span></a>
+<a class="sourceLine" id="cb51-12" data-line-number="12"><span class="st">50,104,540,2400</span></a>
+<a class="sourceLine" id="cb51-13" data-line-number="13"><span class="st">100,201,1550,6600</span></a>
+<a class="sourceLine" id="cb51-14" data-line-number="14"><span class="st">100,202,1440,7400</span></a>
+<a class="sourceLine" id="cb51-15" data-line-number="15"><span class="st">100,203,2000,7300</span></a>
+<a class="sourceLine" id="cb51-16" data-line-number="16"><span class="st">100,204,1600,7000</span></a>
+<a class="sourceLine" id="cb51-17" data-line-number="17"><span class="st">200,301,4100,20400</span></a>
+<a class="sourceLine" id="cb51-18" data-line-number="18"><span class="st">200,302,2800,9500</span></a>
+<a class="sourceLine" id="cb51-19" data-line-number="19"><span class="st">200,303,3200,8000</span></a>
+<a class="sourceLine" id="cb51-20" data-line-number="20"><span class="st">200,304,2550,7070</span></a>
+<a class="sourceLine" id="cb51-21" data-line-number="21"><span class="st">400,401,4800,22000</span></a>
+<a class="sourceLine" id="cb51-22" data-line-number="22"><span class="st">400,402,5700,23000</span></a>
+<a class="sourceLine" id="cb51-23" data-line-number="23"><span class="st">400,403,5800,26700</span></a>
+<a class="sourceLine" id="cb51-24" data-line-number="24"><span class="st">400,404,5760,28884&#39;</span></a>
+<a class="sourceLine" id="cb51-25" data-line-number="25"></a>
+<a class="sourceLine" id="cb51-26" data-line-number="26">sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)</a>
+<a class="sourceLine" id="cb51-27" data-line-number="27">knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</a></code></pre></div>
 <table>
 <caption><span id="tab:sad-pk">Table 8.2: </span>16명의 C<sub>max</sub>, AUC<sub>last</sub></caption>
 <thead>
@@ -958,52 +915,52 @@ knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span 
 </tbody>
 </table>
 <p>그림을 살펴보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)
-
-figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
-               <span class="dt">size =</span> <span class="dv">1</span>, 
-               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, 
-               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, 
-               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),
-       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))
-figA</code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" data-line-number="1">sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</a>
+<a class="sourceLine" id="cb52-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb52-3" data-line-number="3">figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-4" data-line-number="4"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb52-5" data-line-number="5"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </a>
+<a class="sourceLine" id="cb52-6" data-line-number="6">               <span class="dt">size =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb52-7" data-line-number="7">               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </a>
+<a class="sourceLine" id="cb52-8" data-line-number="8">               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb52-9" data-line-number="9">               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-10" data-line-number="10"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-11" data-line-number="11"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb52-12" data-line-number="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),</a>
+<a class="sourceLine" id="cb52-13" data-line-number="13">       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))</a>
+<a class="sourceLine" id="cb52-14" data-line-number="14">figA</a></code></pre></div>
 <p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.png" width="100%" /></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), 
-               <span class="dt">size =</span> <span class="dv">1</span>, 
-               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, 
-               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, 
-               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),
-       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))
-figB</code></pre></div>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" data-line-number="1">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb53-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </a>
+<a class="sourceLine" id="cb53-4" data-line-number="4">               <span class="dt">size =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb53-5" data-line-number="5">               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </a>
+<a class="sourceLine" id="cb53-6" data-line-number="6">               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </a>
+<a class="sourceLine" id="cb53-7" data-line-number="7">               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-8" data-line-number="8"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-9" data-line-number="9"><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb53-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),</a>
+<a class="sourceLine" id="cb53-11" data-line-number="11">       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))</a>
+<a class="sourceLine" id="cb53-12" data-line-number="12">figB</a></code></pre></div>
 <p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.png" width="100%" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {
-  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
-            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), 
-            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)
-}
-
-fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)
-fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)
-
-<span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),
-          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {</a>
+<a class="sourceLine" id="cb54-2" data-line-number="2">  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </a>
+<a class="sourceLine" id="cb54-3" data-line-number="3">            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </a>
+<a class="sourceLine" id="cb54-4" data-line-number="4">            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-5" data-line-number="5"><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-6" data-line-number="6"><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-7" data-line-number="7"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-8" data-line-number="8"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-9" data-line-number="9"><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb54-10" data-line-number="10"><span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)</a>
+<a class="sourceLine" id="cb54-11" data-line-number="11">}</a>
+<a class="sourceLine" id="cb54-12" data-line-number="12"></a>
+<a class="sourceLine" id="cb54-13" data-line-number="13">fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</a>
+<a class="sourceLine" id="cb54-14" data-line-number="14">fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</a>
+<a class="sourceLine" id="cb54-15" data-line-number="15"></a>
+<a class="sourceLine" id="cb54-16" data-line-number="16"><span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),</a>
+<a class="sourceLine" id="cb54-17" data-line-number="17">          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</a></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -1040,7 +997,7 @@ fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class
 <h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-R-ncarbe">
-<p>Bae, Kyun-Seop, and Sungpil Han. 2018. <em>Ncarbe: Perform Be Test Using Noncompart Package</em>.</p>
+<p>Bae, Kyun-Seop, and Sungpil Han. 2017. <em>Ncarbe: Perform Be Test Using Noncompart Package</em>.</p>
 </div>
 <div id="ref-chow2009design">
 <p>Chow. 2009. <em>Design and Analysis of Bioavailability and Bioequivalence Studies</em>. Boca Raton: CRC Press.</p>
@@ -1101,7 +1058,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

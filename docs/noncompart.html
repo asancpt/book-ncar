@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-06-07">
+<meta name="date" content="2018-07-04">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,41 +50,69 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
@@ -160,9 +188,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="10" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>10</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
-<li class="chapter" data-level="A.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
+<li class="chapter" data-level="A.1" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#introduction-1"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
 <li class="chapter" data-level="A.2" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
-<li class="chapter" data-level="A.3" data-path="conclusion.html"><a href="conclusion.html#conclusion"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.3" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#conclusion-1"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>B</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
 <li class="chapter" data-level="B.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>B.1</b> Theoph의 보고서</a></li>
@@ -194,21 +222,29 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 4</span> R을 사용한 비구획분석</h1>
 <div id="summary-noncompart" class="section level2">
 <h2><span class="header-section-number">4.1</span> 이 장에서는</h2>
-<p><code>NonCompart</code> <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">b</a>)</span>은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 약동학 교재의 내용을 충실히 반영하였습니다. <span class="citation">(Gabrielsson <a href="#ref-gab">2016</a>; Rowland <a href="#ref-tozer">2011</a>)</span> 이에 대해 좀더 자세히 알아보겠습니다.</p>
+<p><code>NonCompart</code> <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">b</a>)</span>은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다.
+약동학 교재의 내용을 충실히 반영하였습니다. <span class="citation">(Gabrielsson <a href="#ref-gab">2016</a>; Rowland <a href="#ref-tozer">2011</a>)</span>
+이에 대해 좀더 자세히 알아보겠습니다.</p>
 <p><code>NonCompart</code>의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있습니다.</p>
 <blockquote>
-<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>. Some features are 1) Use of CDISC SDTM terms 2) Automatic slope selection with the same criterion of WinNonlin(R) 3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method 4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
+<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.
+Some features are
+1) Use of CDISC SDTM terms
+2) Automatic slope selection with the same criterion of WinNonlin(R)
+3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method
+4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method
+* Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(NonCompart)
-<span class="kw">library</span>(ncar)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">library</span>(ncar)</a></code></pre></div>
 </div>
 <div id="how-to-use" class="section level2">
 <h2><span class="header-section-number">4.2</span> NonCompart 사용법</h2>
 <p>tblNCA의 사용법은 다음과 같습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tblNCA</span>(concData, <span class="dt">key =</span> <span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">colConc =</span> <span class="st">&quot;conc&quot;</span>, <span class="dt">dose =</span> <span class="dv">0</span>, 
-       <span class="dt">adm =</span> <span class="st">&quot;Extravascular&quot;</span>, <span class="dt">dur =</span> <span class="dv">0</span>, <span class="dt">doseUnit =</span> <span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit =</span> <span class="st">&quot;h&quot;</span>, 
-       <span class="dt">concUnit =</span> <span class="st">&quot;ug/L&quot;</span>, <span class="dt">down =</span> <span class="st">&quot;Linear&quot;</span>, <span class="dt">R2ADJ =</span> <span class="fl">0.7</span>, <span class="dt">MW =</span> <span class="dv">0</span>) <span class="co"># args(NonCompart::tblNCA)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">tblNCA</span>(concData, <span class="dt">key =</span> <span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">colConc =</span> <span class="st">&quot;conc&quot;</span>, <span class="dt">dose =</span> <span class="dv">0</span>, </a>
+<a class="sourceLine" id="cb10-2" data-line-number="2">       <span class="dt">adm =</span> <span class="st">&quot;Extravascular&quot;</span>, <span class="dt">dur =</span> <span class="dv">0</span>, <span class="dt">doseUnit =</span> <span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit =</span> <span class="st">&quot;h&quot;</span>, </a>
+<a class="sourceLine" id="cb10-3" data-line-number="3">       <span class="dt">concUnit =</span> <span class="st">&quot;ug/L&quot;</span>, <span class="dt">down =</span> <span class="st">&quot;Linear&quot;</span>, <span class="dt">R2ADJ =</span> <span class="fl">0.7</span>, <span class="dt">MW =</span> <span class="dv">0</span>) <span class="co"># args(NonCompart::tblNCA)</span></a></code></pre></div>
 <p>concData는 데이터셋을 설정하며, <code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), <code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.</p>
 <ol style="list-style-type: decimal">
 <li><code>down</code>
@@ -234,167 +270,91 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>R2ADJ</code> 값이 설정값 이하인 경우 <code>DetSlope()</code>함수에 의해 terminal slope를 수동으로 interactive하게 고를 수 있게됩니다.</li>
 </ul></li>
 </ol>
-<p>이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다. 우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">TheophNca &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
-<span class="kw">head</span>(TheophNca)</code></pre></div>
-<pre><code>##      Subject b0                 CMAX   CMAXD        TMAX   TLAG CLST  
-## [1,] &quot;1&quot;     &quot;2.36878509420585&quot; &quot;10.5&quot; &quot;0.0328125&quot;  &quot;1.12&quot; &quot;0&quot;  &quot;3.28&quot;
-## [2,] &quot;2&quot;     &quot;2.41123733696293&quot; &quot;8.33&quot; &quot;0.02603125&quot; &quot;1.92&quot; &quot;0&quot;  &quot;0.9&quot; 
-## [3,] &quot;3&quot;     &quot;2.52971150145858&quot; &quot;8.2&quot;  &quot;0.025625&quot;   &quot;1.02&quot; &quot;0&quot;  &quot;1.05&quot;
-## [4,] &quot;4&quot;     &quot;2.59275546723663&quot; &quot;8.6&quot;  &quot;0.026875&quot;   &quot;1.07&quot; &quot;0&quot;  &quot;1.15&quot;
-## [5,] &quot;5&quot;     &quot;2.55109229061238&quot; &quot;11.4&quot; &quot;0.035625&quot;   &quot;1&quot;    &quot;0&quot;  &quot;1.57&quot;
-## [6,] &quot;6&quot;     &quot;2.0334043955261&quot;  &quot;6.44&quot; &quot;0.020125&quot;   &quot;1.15&quot; &quot;0&quot;  &quot;0.92&quot;
-##      CLSTP               TLST    LAMZHL             LAMZ                
-## [1,] &quot;3.28014647414312&quot;  &quot;24.37&quot; &quot;14.304377571097&quot;  &quot;0.0484569969657749&quot;
-## [2,] &quot;0.888639849106919&quot; &quot;24.3&quot;  &quot;6.65934156262252&quot; &quot;0.104086443688432&quot; 
-## [3,] &quot;1.05509670837553&quot;  &quot;24.17&quot; &quot;6.76608737718236&quot; &quot;0.102444314109434&quot; 
-## [4,] &quot;1.15642160174997&quot;  &quot;24.65&quot; &quot;6.98124666099893&quot; &quot;0.0992870205306231&quot;
-## [5,] &quot;1.55569511595616&quot;  &quot;24.35&quot; &quot;8.0022640410078&quot;  &quot;0.0866188839818201&quot;
-## [6,] &quot;0.941271173708175&quot; &quot;23.85&quot; &quot;7.89499786796582&quot; &quot;0.0877957400561702&quot;
-##      LAMZLL LAMZUL  LAMZNPT CORRXY               R2                 
-## [1,] &quot;9.05&quot; &quot;24.37&quot; &quot;3&quot;     &quot;-0.99999986483748&quot;  &quot;0.999999729674979&quot;
-## [2,] &quot;7.03&quot; &quot;24.3&quot;  &quot;4&quot;     &quot;-0.998596709529913&quot; &quot;0.99719538828397&quot; 
-## [3,] &quot;9&quot;    &quot;24.17&quot; &quot;3&quot;     &quot;-0.999662423945811&quot; &quot;0.999324961849213&quot;
-## [4,] &quot;9.02&quot; &quot;24.65&quot; &quot;3&quot;     &quot;-0.999461923749821&quot; &quot;0.998924137025692&quot;
-## [5,] &quot;7.02&quot; &quot;24.35&quot; &quot;4&quot;     &quot;-0.999323363372814&quot; &quot;0.998647184582752&quot;
-## [6,] &quot;2.03&quot; &quot;23.85&quot; &quot;7&quot;     &quot;-0.999120281624298&quot; &quot;0.998241337153017&quot;
-##      R2ADJ               AUCLST      AUCALL      AUCIFO            
-## [1,] &quot;0.999999459349959&quot; &quot;148.92305&quot; &quot;148.92305&quot; &quot;216.611933038226&quot;
-## [2,] &quot;0.995793082425955&quot; &quot;91.5268&quot;   &quot;91.5268&quot;   &quot;100.173459143183&quot;
-## [3,] &quot;0.998649923698427&quot; &quot;99.2865&quot;   &quot;99.2865&quot;   &quot;109.535970740547&quot;
-## [4,] &quot;0.997848274051385&quot; &quot;106.7963&quot;  &quot;106.7963&quot;  &quot;118.378881427603&quot;
-## [5,] &quot;0.997970776874129&quot; &quot;121.2944&quot;  &quot;121.2944&quot;  &quot;139.419777837118&quot;
-## [6,] &quot;0.99788960458362&quot;  &quot;73.77555&quot;  &quot;73.77555&quot;  &quot;84.2544183301878&quot;
-##      AUCIFOD             AUCIFP             AUCIFPD            
-## [1,] &quot;0.676912290744456&quot; &quot;216.614955803818&quot; &quot;0.67692173688693&quot; 
-## [2,] &quot;0.313042059822447&quot; &quot;100.064317640308&quot; &quot;0.312700992625963&quot;
-## [3,] &quot;0.342299908564208&quot; &quot;109.585721753278&quot; &quot;0.342455380478994&quot;
-## [4,] &quot;0.369934004461258&quot; &quot;118.44355857992&quot;  &quot;0.370136120562249&quot;
-## [5,] &quot;0.435686805740995&quot; &quot;139.254630430615&quot; &quot;0.435170720095671&quot;
-## [6,] &quot;0.263295057281837&quot; &quot;84.4966985785753&quot; &quot;0.264052183058048&quot;
-##      AUCPEO             AUCPEP             AUMCLST       
-## [1,] &quot;31.2489169404534&quot; &quot;31.2498763313113&quot; &quot;1459.0711035&quot;
-## [2,] &quot;8.63168669340252&quot; &quot;8.53203003991598&quot; &quot;706.586566&quot;  
-## [3,] &quot;9.3571734209797&quot;  &quot;9.39832451573008&quot; &quot;803.18587&quot;   
-## [4,] &quot;9.7843308603032&quot;  &quot;9.83359392402986&quot; &quot;901.0842105&quot; 
-## [5,] &quot;13.0005786254328&quot; &quot;12.8974026752838&quot; &quot;1017.1143165&quot;
-## [6,] &quot;12.4371736674055&quot; &quot;12.688245527848&quot;  &quot;609.1523875&quot; 
-##      AUMCIFO            AUMCIFP            AUMCPEO           
-## [1,] &quot;4505.53481941065&quot; &quot;4505.67086458209&quot; &quot;67.6160286851172&quot;
-## [2,] &quot;999.772287999786&quot; &quot;996.071583509104&quot; &quot;29.3252499112927&quot;
-## [3,] &quot;1150.96476871455&quot; &quot;1152.65289026304&quot; &quot;30.2162940315685&quot;
-## [4,] &quot;1303.25240140958&quot; &quot;1305.4981091996&quot;  &quot;30.8588106551423&quot;
-## [5,] &quot;1667.72161189007&quot; &quot;1661.79367436228&quot; &quot;39.011744571249&quot; 
-## [6,] &quot;978.428485741731&quot; &quot;986.966459689532&quot; &quot;37.7417566662308&quot;
-##      AUMCPEP            VZFO               VZFP              
-## [1,] &quot;67.6170064935417&quot; &quot;30.4867482345887&quot; &quot;30.4863228055447&quot;
-## [2,] &quot;29.0626720309864&quot; &quot;30.6904415765423&quot; &quot;30.7239160557228&quot;
-## [3,] &quot;30.318495985664&quot;  &quot;28.5170999496524&quot; &quot;28.5041534217657&quot;
-## [4,] &quot;30.9777467963968&quot; &quot;27.2259641330176&quot; &quot;27.2110971545992&quot;
-## [5,] &quot;38.7941877387202&quot; &quot;26.4979946505636&quot; &quot;26.5294196385914&quot;
-## [6,] &quot;38.280335514986&quot;  &quot;43.2597344953234&quot; &quot;43.135694392041&quot; 
-##      CLFO               CLFP               MRTEVLST          
-## [1,] &quot;1.47729626669981&quot; &quot;1.47727565168591&quot; &quot;9.79748335465867&quot;
-## [2,] &quot;3.19445891892989&quot; &quot;3.19794315842211&quot; &quot;7.71999639449866&quot;
-## [3,] &quot;2.92141474473231&quot; &quot;2.92008844656286&quot; &quot;8.08957783787323&quot;
-## [4,] &quot;2.70318485984093&quot; &quot;2.70170876184947&quot; &quot;8.43741038313125&quot;
-## [5,] &quot;2.29522672438806&quot; &quot;2.29794872178016&quot; &quot;8.38550103302378&quot;
-## [6,] &quot;3.79802040465035&quot; &quot;3.78713021198604&quot; &quot;8.25683288704727&quot;
-##      MRTEVIFO           MRTEVIFP          
-## [1,] &quot;20.8000305256292&quot; &quot;20.8003683211179&quot;
-## [2,] &quot;9.98041094468705&quot; &quot;9.95431345556755&quot;
-## [3,] &quot;10.5076420187191&quot; &quot;10.5182762117325&quot;
-## [4,] &quot;11.0091630001303&quot; &quot;11.0221115006327&quot;
-## [5,] &quot;11.9618725389051&quot; &quot;11.9334895308224&quot;
-## [6,] &quot;11.612785479182&quot;  &quot;11.6805328053348&quot;</code></pre>
+<p>이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
+우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">TheophNca &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">head</span>(TheophNca)</a></code></pre></div>
+<pre><code>##      Subject       b0  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST
+## [1,]      11 2.368785 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37
+## [2,]       6 2.411237  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30
+## [3,]       5 2.529712  8.20 0.02562500 1.02    0 1.05 1.0550967 24.17
+## [4,]       7 2.592755  8.60 0.02687500 1.07    0 1.15 1.1564216 24.65
+## [5,]      12 2.551092 11.40 0.03562500 1.00    0 1.57 1.5556951 24.35
+## [6,]       1 2.033404  6.44 0.02012500 1.15    0 0.92 0.9412712 23.85
+##         LAMZHL       LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2
+## [1,] 14.304378 0.04845700   9.05  24.37       3 -0.9999999 0.9999997
+## [2,]  6.659342 0.10408644   7.03  24.30       4 -0.9985967 0.9971954
+## [3,]  6.766087 0.10244431   9.00  24.17       3 -0.9996624 0.9993250
+## [4,]  6.981247 0.09928702   9.02  24.65       3 -0.9994619 0.9989241
+## [5,]  8.002264 0.08661888   7.02  24.35       4 -0.9993234 0.9986472
+## [6,]  7.894998 0.08779574   2.03  23.85       7 -0.9991203 0.9982413
+##          R2ADJ    AUCLST    AUCALL    AUCIFO   AUCIFOD   AUCIFP   AUCIFPD
+## [1,] 0.9999995 148.92305 148.92305 216.61193 0.6769123 216.6150 0.6769217
+## [2,] 0.9957931  91.52680  91.52680 100.17346 0.3130421 100.0643 0.3127010
+## [3,] 0.9986499  99.28650  99.28650 109.53597 0.3422999 109.5857 0.3424554
+## [4,] 0.9978483 106.79630 106.79630 118.37888 0.3699340 118.4436 0.3701361
+## [5,] 0.9979708 121.29440 121.29440 139.41978 0.4356868 139.2546 0.4351707
+## [6,] 0.9978896  73.77555  73.77555  84.25442 0.2632951  84.4967 0.2640522
+##         AUCPEO    AUCPEP   AUMCLST   AUMCIFO   AUMCIFP  AUMCPEO  AUMCPEP
+## [1,] 31.248917 31.249876 1459.0711 4505.5348 4505.6709 67.61603 67.61701
+## [2,]  8.631687  8.532030  706.5866  999.7723  996.0716 29.32525 29.06267
+## [3,]  9.357173  9.398325  803.1859 1150.9648 1152.6529 30.21629 30.31850
+## [4,]  9.784331  9.833594  901.0842 1303.2524 1305.4981 30.85881 30.97775
+## [5,] 13.000579 12.897403 1017.1143 1667.7216 1661.7937 39.01174 38.79419
+## [6,] 12.437174 12.688246  609.1524  978.4285  986.9665 37.74176 38.28034
+##          VZFO     VZFP     CLFO     CLFP MRTEVLST  MRTEVIFO  MRTEVIFP
+## [1,] 30.48675 30.48632 1.477296 1.477276 9.797483 20.800031 20.800368
+## [2,] 30.69044 30.72392 3.194459 3.197943 7.719996  9.980411  9.954313
+## [3,] 28.51710 28.50415 2.921415 2.920088 8.089578 10.507642 10.518276
+## [4,] 27.22596 27.21110 2.703185 2.701709 8.437410 11.009163 11.022112
+## [5,] 26.49799 26.52942 2.295227 2.297949 8.385501 11.961873 11.933490
+## [6,] 43.25973 43.13569 3.798020 3.787130 8.256833 11.612785 11.680533</code></pre>
 <p>여기서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 체내로 들어감을 의미합니다.</p>
 <p>이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.</p>
 <p>다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus 이므로 AdmMode 옵션이 추가됩니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
-<pre><code>##      Subject b0                   CMAX   CMAXD    TMAX   TLAG CLST  
-## [1,] &quot;1&quot;     &quot;-1.72421059639646&quot;  &quot;1.5&quot;  &quot;0.06&quot;   &quot;0.25&quot; NA   &quot;0.05&quot;
-## [2,] &quot;2&quot;     &quot;-0.175286858431038&quot; &quot;2.03&quot; &quot;0.0812&quot; &quot;0.25&quot; NA   &quot;0.08&quot;
-## [3,] &quot;3&quot;     NA                   &quot;2.72&quot; &quot;0.1088&quot; &quot;0.25&quot; NA   &quot;0.08&quot;
-## [4,] &quot;4&quot;     NA                   &quot;1.85&quot; &quot;0.074&quot;  &quot;0.25&quot; NA   &quot;0.07&quot;
-## [5,] &quot;5&quot;     NA                   &quot;2.05&quot; &quot;0.082&quot;  &quot;0.25&quot; NA   &quot;0.06&quot;
-## [6,] &quot;6&quot;     NA                   &quot;2.31&quot; &quot;0.0924&quot; &quot;0.25&quot; NA   &quot;0.09&quot;
-##      CLSTP                TLST LAMZHL             LAMZ               
-## [1,] &quot;0.0502485064135143&quot; &quot;8&quot;  &quot;4.37812701206528&quot; &quot;0.158320482400297&quot;
-## [2,] &quot;0.0747559092002026&quot; &quot;8&quot;  &quot;2.293063170278&quot;   &quot;0.302280019819912&quot;
-## [3,] NA                   &quot;8&quot;  NA                 NA                 
-## [4,] NA                   &quot;8&quot;  NA                 NA                 
-## [5,] NA                   &quot;8&quot;  NA                 NA                 
-## [6,] NA                   &quot;8&quot;  NA                 NA                 
-##      LAMZLL LAMZUL LAMZNPT CORRXY               R2                 
-## [1,] &quot;5&quot;    &quot;8&quot;    &quot;3&quot;     &quot;-0.998532286621828&quot; &quot;0.997066727426216&quot;
-## [2,] &quot;0.75&quot; &quot;8&quot;    &quot;9&quot;     &quot;-0.973482979595454&quot; &quot;0.947669111562043&quot;
-## [3,] NA     NA     &quot;0&quot;     NA                   NA                 
-## [4,] NA     NA     &quot;0&quot;     NA                   NA                 
-## [5,] NA     NA     &quot;0&quot;     NA                   NA                 
-## [6,] NA     NA     &quot;0&quot;     NA                   NA                 
-##      R2ADJ               AUCLST             AUCALL            
-## [1,] &quot;0.994133454852432&quot; &quot;2.04045212765957&quot; &quot;2.04045212765957&quot;
-## [2,] &quot;0.94019327035662&quot;  &quot;3.24851993865031&quot; &quot;3.24851993865031&quot;
-## [3,] NA                  &quot;3.5544211409396&quot;  &quot;3.5544211409396&quot; 
-## [4,] NA                  &quot;2.78527877697842&quot; &quot;2.78527877697842&quot;
-## [5,] NA                  &quot;2.45885817307692&quot; &quot;2.45885817307692&quot;
-## [6,] NA                  &quot;3.335703125&quot;      &quot;3.335703125&quot;     
-##      AUCIFO             AUCIFOD              AUCIFP            
-## [1,] &quot;2.356267234094&quot;   &quot;0.0942506893637602&quot; &quot;2.35783687568268&quot;
-## [2,] &quot;3.51317520778672&quot; &quot;0.140527008311469&quot;  &quot;3.49582675451177&quot;
-## [3,] NA                 NA                   NA                
-## [4,] NA                 NA                   NA                
-## [5,] NA                 NA                   NA                
-## [6,] NA                 NA                   NA                
-##      AUCIFPD              AUCPEO             AUCPEP             AUMCLST   
-## [1,] &quot;0.0943134750273071&quot; &quot;13.4031956080679&quot; &quot;13.4608441871624&quot; &quot;3.27125&quot; 
-## [2,] &quot;0.139833070180471&quot;  &quot;7.53322147298048&quot; &quot;7.07434416028442&quot; &quot;6.39875&quot; 
-## [3,] NA                   NA                 NA                 &quot;5.00625&quot; 
-## [4,] NA                   NA                 NA                 &quot;4.381875&quot;
-## [5,] NA                   NA                 NA                 &quot;3.7075&quot;  
-## [6,] NA                   NA                 NA                 &quot;5.5325&quot;  
-##      AUMCIFO            AUMCIFP            AUMCPEO           
-## [1,] &quot;7.79255448051925&quot; &quot;7.81502594373644&quot; &quot;58.0208260567461&quot;
-## [2,] &quot;9.39152229661219&quot; &quot;9.19534267578028&quot; &quot;31.8667432402495&quot;
-## [3,] NA                 NA                 NA                
-## [4,] NA                 NA                 NA                
-## [5,] NA                 NA                 NA                
-## [6,] NA                 NA                 NA                
-##      AUMCPEP            C0                 AUCPBEO           
-## [1,] &quot;58.1415337127341&quot; &quot;2.3936170212766&quot;  &quot;20.6556421367339&quot;
-## [2,] &quot;30.4131425481974&quot; &quot;2.52815950920245&quot; &quot;16.2180906146511&quot;
-## [3,] NA                 &quot;4.96536912751678&quot; NA                
-## [4,] NA                 &quot;2.46223021582734&quot; NA                
-## [5,] NA                 &quot;4.04086538461538&quot; NA                
-## [6,] NA                 &quot;3.705625&quot;         NA                
-##      AUCPBEP            VZO                VZP               
-## [1,] &quot;20.6418914166255&quot; &quot;67.0159780403394&quot; &quot;66.9713646630007&quot;
-## [2,] &quot;16.2985748053719&quot; &quot;23.541317103064&quot;  &quot;23.6581436704179&quot;
-## [3,] NA                 NA                 NA                
-## [4,] NA                 NA                 NA                
-## [5,] NA                 NA                 NA                
-## [6,] NA                 NA                 NA                
-##      CLO                CLP                MRTIVLST          
-## [1,] &quot;10.6100019718742&quot; &quot;10.6029387604525&quot; &quot;1.35319860272937&quot;
-## [2,] &quot;7.11606980050102&quot; &quot;7.15138413759623&quot; &quot;1.7197431817699&quot; 
-## [3,] NA                 NA                 &quot;1.15845718655517&quot;
-## [4,] NA                 NA                 &quot;1.32322672194186&quot;
-## [5,] NA                 NA                 &quot;1.2578136838452&quot; 
-## [6,] NA                 NA                 &quot;1.40857085977938&quot;
-##      MRTIVIFO           MRTIVIFP           VSSO              
-## [1,] &quot;3.05716073616986&quot; &quot;3.06448965971139&quot; &quot;32.4364814390986&quot;
-## [2,] &quot;2.42322912782616&quot; &quot;2.38037711005347&quot; &quot;17.2438676162182&quot;
-## [3,] NA                 NA                 NA                
-## [4,] NA                 NA                 NA                
-## [5,] NA                 NA                 NA                
-## [6,] NA                 NA                 NA                
-##      VSSP              
-## [1,] &quot;32.4925961939597&quot;
-## [2,] &quot;17.0229911063336&quot;
-## [3,] NA                
-## [4,] NA                
-## [5,] NA                
-## [6,] NA                
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a></code></pre></div>
+<pre><code>##      Subject         b0 CMAX  CMAXD TMAX TLAG CLST      CLSTP TLST
+## [1,]       1 -1.7242106 1.50 0.0600 0.25   NA 0.05 0.05024851    8
+## [2,]       3 -0.1752869 2.03 0.0812 0.25   NA 0.08 0.07475591    8
+## [3,]       6         NA 2.72 0.1088 0.25   NA 0.08         NA    8
+## [4,]       2         NA 1.85 0.0740 0.25   NA 0.07         NA    8
+## [5,]       4         NA 2.05 0.0820 0.25   NA 0.06         NA    8
+## [6,]       5         NA 2.31 0.0924 0.25   NA 0.09         NA    8
+##        LAMZHL      LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2
+## [1,] 4.378127 0.1583205   5.00      8       3 -0.9985323 0.9970667
+## [2,] 2.293063 0.3022800   0.75      8       9 -0.9734830 0.9476691
+## [3,]       NA        NA     NA     NA       0         NA        NA
+## [4,]       NA        NA     NA     NA       0         NA        NA
+## [5,]       NA        NA     NA     NA       0         NA        NA
+## [6,]       NA        NA     NA     NA       0         NA        NA
+##          R2ADJ   AUCLST   AUCALL   AUCIFO    AUCIFOD   AUCIFP    AUCIFPD
+## [1,] 0.9941335 2.040452 2.040452 2.356267 0.09425069 2.357837 0.09431348
+## [2,] 0.9401933 3.248520 3.248520 3.513175 0.14052701 3.495827 0.13983307
+## [3,]        NA 3.554421 3.554421       NA         NA       NA         NA
+## [4,]        NA 2.785279 2.785279       NA         NA       NA         NA
+## [5,]        NA 2.458858 2.458858       NA         NA       NA         NA
+## [6,]        NA 3.335703 3.335703       NA         NA       NA         NA
+##         AUCPEO    AUCPEP  AUMCLST  AUMCIFO  AUMCIFP  AUMCPEO  AUMCPEP
+## [1,] 13.403196 13.460844 3.271250 7.792554 7.815026 58.02083 58.14153
+## [2,]  7.533221  7.074344 6.398750 9.391522 9.195343 31.86674 30.41314
+## [3,]        NA        NA 5.006250       NA       NA       NA       NA
+## [4,]        NA        NA 4.381875       NA       NA       NA       NA
+## [5,]        NA        NA 3.707500       NA       NA       NA       NA
+## [6,]        NA        NA 5.532500       NA       NA       NA       NA
+##            C0  AUCPBEO  AUCPBEP      VZO      VZP      CLO       CLP
+## [1,] 2.393617 20.65564 20.64189 67.01598 66.97136 10.61000 10.602939
+## [2,] 2.528160 16.21809 16.29857 23.54132 23.65814  7.11607  7.151384
+## [3,] 4.965369       NA       NA       NA       NA       NA        NA
+## [4,] 2.462230       NA       NA       NA       NA       NA        NA
+## [5,] 4.040865       NA       NA       NA       NA       NA        NA
+## [6,] 3.705625       NA       NA       NA       NA       NA        NA
+##      MRTIVLST MRTIVIFO MRTIVIFP     VSSO     VSSP
+## [1,] 1.353199 3.057161 3.064490 32.43648 32.49260
+## [2,] 1.719743 2.423229 2.380377 17.24387 17.02299
+## [3,] 1.158457       NA       NA       NA       NA
+## [4,] 1.323227       NA       NA       NA       NA
+## [5,] 1.257814       NA       NA       NA       NA
+## [6,] 1.408571       NA       NA       NA       NA
 ## attr(,&quot;units&quot;)
 ##  [1] &quot;&quot;          &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;        
 ##  [6] &quot;h&quot;         &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;         &quot;h&quot;        
@@ -415,8 +375,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li>“Name”, “Start”, “End” 3개의 컬럼으로 구성된 데이터 프레임으로 설정해야 합니다.</li>
 </ul></li>
 </ol>
-<p>일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다. 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다. 먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</code></pre></div>
+<p>일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다.
+예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다.
+먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</a></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -441,18 +403,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </table>
 </div>
 <pre><code>    Name Start End</code></pre>
-<p>1 AUC[0-12h] 0 12 2 AUC[0-24h] 0 24</p>
+<p>1 AUC[0-12h] 0 12
+2 AUC[0-24h] 0 24</p>
 <p>이제 iAUC 옵션을 이용해서 이를 구합니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></a></code></pre></div>
 <p>맨 마지막 파라미터로 AUC[0-12h], AUC[0-24h]가 추가되었음을 알 수 있습니다.</p>
-<p>개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다. 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.</p>
+<p>개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
+예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.</p>
 <blockquote>
 <p>iAUC = data.frame(Name=c(“AUC[0-12h]”,“AUC[0-24h]”), Start=c(0,0), End=c(12,24)) ; iAUC</p>
 </blockquote>
 <pre><code>    Name Start End</code></pre>
-<p>1 AUC[0-12h] 0 12 2 AUC[0-24h] 0 24</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#IntAUC</span>
-<span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></code></pre></div>
+<p>1 AUC[0-12h] 0 12
+2 AUC[0-24h] 0 24</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">#IntAUC</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></a></code></pre></div>
 <pre><code>        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
   10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
       LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
@@ -467,11 +432,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">4.4</span> 함수 살펴보기</h2>
-<p>NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), DetSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), UT(), Unit(), UnitUrine(), sNCA(), tblNCA()라는 함수가 있습니다.</p>
+<p>NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), DetSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(), tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.</p>
 <div id="auc" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> AUC</h3>
 <p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</a></code></pre></div>
 <pre><code>##            [,1]        [,2]
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
@@ -484,7 +449,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ##  [9,]  72.75650  322.298798
 ## [10,]  92.45055  528.521903
 ## [11,] 148.92305 1459.071104</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</a></code></pre></div>
 <pre><code>##            [,1]        [,2]
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
@@ -502,148 +467,148 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="long-format" class="section level2">
 <h2><span class="header-section-number">4.5</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
 <p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 문자형식의 행렬이 생성되고 그 attr로 dimnames와 units를 갖는데 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">ncares &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
-<span class="kw">str</span>(ncares)</code></pre></div>
-<pre><code>##  chr [1:12, 1:37] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; &quot;5&quot; &quot;6&quot; &quot;7&quot; &quot;8&quot; &quot;9&quot; &quot;10&quot; &quot;11&quot; &quot;12&quot; ...
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1">ncares &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="kw">str</span>(ncares)</a></code></pre></div>
+<pre><code>##  num [1:12, 1:37] 11 6 5 7 12 1 2 3 8 10 ...
 ##  - attr(*, &quot;dimnames&quot;)=List of 2
 ##   ..$ : NULL
 ##   ..$ : chr [1:37] &quot;Subject&quot; &quot;b0&quot; &quot;CMAX&quot; &quot;CMAXD&quot; ...
 ##  - attr(*, &quot;units&quot;)= chr [1:37] &quot;&quot; &quot;&quot; &quot;mg/L&quot; &quot;mg/L/mg&quot; ...</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(ncares) <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),
-          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;dimnames&#39;</span>)[[<span class="dv">2</span>]], <span class="dt">UNIT =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;units&#39;</span>)),
-          <span class="dt">by =</span> <span class="st">&#39;PPTESTCD&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(Subject, PPTESTCD) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">head</span>(<span class="dv">20</span>)</code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" data-line-number="1"><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(ncares) <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</a>
+<a class="sourceLine" id="cb27-2" data-line-number="2">          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;dimnames&#39;</span>)[[<span class="dv">2</span>]], <span class="dt">UNIT =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;units&#39;</span>)),</a>
+<a class="sourceLine" id="cb27-3" data-line-number="3">          <span class="dt">by =</span> <span class="st">&#39;PPTESTCD&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb27-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(Subject, PPTESTCD) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb27-5" data-line-number="5"><span class="st">  </span><span class="kw">head</span>(<span class="dv">20</span>)</a></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
 <tr class="header">
-<th align="left">Subject</th>
+<th align="right">Subject</th>
 <th align="left">PPTESTCD</th>
-<th align="left">PPORRES</th>
+<th align="right">PPORRES</th>
 <th align="left">UNIT</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCALL</td>
-<td align="left">148.92305</td>
+<td align="right">73.7755500</td>
 <td align="left">h*mg/L</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCIFO</td>
-<td align="left">216.611933038226</td>
+<td align="right">84.2544183</td>
 <td align="left">h*mg/L</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCIFOD</td>
-<td align="left">0.676912290744456</td>
+<td align="right">0.2632951</td>
 <td align="left">h*mg/L/mg</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCIFP</td>
-<td align="left">216.614955803818</td>
+<td align="right">84.4966986</td>
 <td align="left">h*mg/L</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCIFPD</td>
-<td align="left">0.67692173688693</td>
+<td align="right">0.2640522</td>
 <td align="left">h*mg/L/mg</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCLST</td>
-<td align="left">148.92305</td>
+<td align="right">73.7755500</td>
 <td align="left">h*mg/L</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCPEO</td>
-<td align="left">31.2489169404534</td>
+<td align="right">12.4371737</td>
 <td align="left">%</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUCPEP</td>
-<td align="left">31.2498763313113</td>
+<td align="right">12.6882455</td>
 <td align="left">%</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUMCIFO</td>
-<td align="left">4505.53481941065</td>
+<td align="right">978.4284857</td>
 <td align="left">h2*mg/L</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUMCIFP</td>
-<td align="left">4505.67086458209</td>
+<td align="right">986.9664597</td>
 <td align="left">h2*mg/L</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUMCLST</td>
-<td align="left">1459.0711035</td>
+<td align="right">609.1523875</td>
 <td align="left">h2*mg/L</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUMCPEO</td>
-<td align="left">67.6160286851172</td>
+<td align="right">37.7417567</td>
 <td align="left">%</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
+<td align="right">1</td>
 <td align="left">AUMCPEP</td>
-<td align="left">67.6170064935417</td>
+<td align="right">38.2803355</td>
 <td align="left">%</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="left">CLFO</td>
-<td align="left">1.47729626669981</td>
-<td align="left">L/h</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="left">CLFP</td>
-<td align="left">1.47727565168591</td>
-<td align="left">L/h</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">CLST</td>
-<td align="left">3.28</td>
-<td align="left">mg/L</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="left">CLSTP</td>
-<td align="left">3.28014647414312</td>
-<td align="left">mg/L</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">CMAX</td>
-<td align="left">10.5</td>
-<td align="left">mg/L</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="left">CMAXD</td>
-<td align="left">0.0328125</td>
-<td align="left">mg/L/mg</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="left">CORRXY</td>
-<td align="left">-0.99999986483748</td>
+<td align="right">1</td>
+<td align="left">b0</td>
+<td align="right">2.0334044</td>
 <td align="left"></td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">CLFO</td>
+<td align="right">3.7980204</td>
+<td align="left">L/h</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">CLFP</td>
+<td align="right">3.7871302</td>
+<td align="left">L/h</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">CLST</td>
+<td align="right">0.9200000</td>
+<td align="left">mg/L</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">CLSTP</td>
+<td align="right">0.9412712</td>
+<td align="left">mg/L</td>
+</tr>
+<tr class="odd">
+<td align="right">1</td>
+<td align="left">CMAX</td>
+<td align="right">6.4400000</td>
+<td align="left">mg/L</td>
+</tr>
+<tr class="even">
+<td align="right">1</td>
+<td align="left">CMAXD</td>
+<td align="right">0.0201250</td>
+<td align="left">mg/L/mg</td>
 </tr>
 </tbody>
 </table>
@@ -718,7 +683,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
