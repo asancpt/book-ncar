@@ -26,11 +26,17 @@ library(ncar)
 
 tblNCA의 사용법은 다음과 같습니다.
 
+```{r echo = FALSE}
+args(NonCompart::tblNCA)
+```
+
+<!---
 ```r
 tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0, 
        adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
        concUnit = "ug/L", down = "Linear", R2ADJ = 0.7, MW = 0) # args(NonCompart::tblNCA)
 ```
+--->
 
 concData는 데이터셋을 설정하며, `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다. 
 

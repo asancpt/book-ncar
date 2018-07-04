@@ -40,7 +40,7 @@ output:
     #  after_body: latex/after_body.tex
   bookdown::gitbook:
     df_print: kable
-    css: style.css
+    css: css/style.css
     split_by: chapter
     config:
       toolbar:
@@ -60,9 +60,9 @@ output:
   html_document: 
     df_print: kable
   bookdown::html_chapters:
-    css: style.css
+    css: css/style.css
   bookdown::epub_book:
-    stylesheet: style.css
+    stylesheet: css/style.css
 editor_options: 
   chunk_output_type: console
 ---
