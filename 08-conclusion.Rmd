@@ -1,4 +1,4 @@
-# 결과 및 논의 {#result}
+# 결론 {#conclusion}
 
 R을 통해서 NCA 를 구할 수 있도록 R 패키지를 구축하였습니다. 값비싼 상용소프트웨어를 사용하지 않고도 동일한 비구획분석이 가능한 것은 비용과 작업 효율 측면에서 큰 잇점을 가져올 것입니다.
 
@@ -36,7 +36,7 @@ Figure 11. theophylline data에 대한 model
 Figure 12. nonlinear mixed effect modeling First order method를 통해 도출된 parameter
 -->
 
-# 결론 {#conclusion}
+---
 
 약물을 연구하고 개발하는데 있어서 약동학은 굉장히 필수적인 분야이며, 그 동안 이러한 약동학 지표들을 구하기 위해서 그러한 결론이 도출되는 과정을 고려하지 않고 일부 프로그램의 사용에만 의존하는 모습이 주를 이뤘습니다.
 

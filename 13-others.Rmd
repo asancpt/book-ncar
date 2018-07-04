@@ -1,4 +1,4 @@
-# 비구획분석 소프트웨어 {#softwares}
+# 기타 비구획분석 소프트웨어 {#softwares}
 
 ## 이 장에서는 {#detailschapter}
 
@@ -174,3 +174,6 @@ library(PK)
 ```{r echo = FALSE}
 knitr::kable(read.csv("comparison.csv", check.names = FALSE))
 ```
+
+
+

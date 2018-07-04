@@ -1,24 +1,38 @@
-# Noncompartmental Analysis by R
+# R을 사용한 비구획분석
 
-진행 중인 작업.
+[<img src="assets/cover.jpg" style="max-width:20%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="Github repo" />](https://github.com/asancpt/book-ncar)
 
-docs-tcp : 김형섭 선생님과 논문 쓰는것을 참고로 영어로 변환.
+이 책은 R을 사용하여 비구획분석을 수행할 수 있도록 소개할 것입니다. 
+값비싼 상용 소프트웨어와 동일한 결과를 얻을 수 있음을 실제 임상시험 자료를 통해 반복적으로 확인하였습니다. 
+숫자 계산 뿐만 아니라 시각화도 가능하여 농도-시간 곡선, 용량군 별 파라메터의 forest plot 등의 유용한 그림도 쉽게 그릴 수 있습니다.
+CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
-``` r
-make gitbook
-```
+한번 익혀두면 속도와 연속성 측면에서 커다란 잇점이 있음을 것을 발견할 수 있을 것입니다. 
+또한 재현가능한 연구를 보다 수월하게 구현할 수 있습니다.
+무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 학교, 연구소, 정부기관, 제약회사 등에서 라이센스 등의 제약 없이 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.
+책에 대한 피드백, 오탈자 신고 등은 [깃허브 저장소](https://github.com/asancpt/book-ncar/issues)에 남겨주십시오.
+
+감사합니다.
+
+`r Sys.Date()`  
+서울아산병원 임상약리학과, 울산대학교 임상약리학교실  
+교수 배균섭,  
+전공의 한성필, 윤석규, 조용순, 김형섭
+
+![Creative Commons License](assets/cc.png)  
+이 저작물은 [크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 라이선스](http://creativecommons.org/licenses/by-nc-sa/4.0/) 에 따라 이용할 수 있습니다.
 
 - <https://ncar.netlify.com>
 - <https://ncarhandbook.netlify.com>
 - <https://ncarpaper.netlify.com>
 
+**출판**
 
-이 아래로는 수정 중인 사항.
-
+```bash
+make publish
+```
 
 ---------
-
-
 
 # 서론 {#intro}
 

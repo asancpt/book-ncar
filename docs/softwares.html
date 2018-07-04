@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="R-and-packages.html">
-<link rel="next" href="noncompart.html">
+<link rel="prev" href="phoenix-winnonlin-.html">
+<link rel="next" href="groupreport.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -200,13 +200,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
 <li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="02-packages.html"><a href="#section-B.3.3"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
+<li class="chapter" data-level="B.3.3" data-path="13-others.html"><a href="#section-B.3.3"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
 <li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>B.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="B.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>B.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="B.3.6" data-path="02-packages.html"><a href="#section-B.3.6"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="B.3.6" data-path="13-others.html"><a href="#section-B.3.6"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="B.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>B.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="B.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>B.3.8</b> Closing</a></li>
-<li class="chapter" data-level="B.3.9" data-path="02-packages.html"><a href="#section-B.3.9"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
+<li class="chapter" data-level="B.3.9" data-path="13-others.html"><a href="#section-B.3.9"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
 <li class="chapter" data-level="B.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.10</b> Pros</a></li>
 <li class="chapter" data-level="B.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.11</b> Cons</a></li>
 </ul></li>
@@ -243,123 +243,457 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datasets" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> 기본 자료</h1>
-<div id="introdatasets" class="section level2">
-<h2><span class="header-section-number">3.1</span> 이 장에서는</h2>
-<p>R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있습니다.</p>
-<ul>
-<li><code>Theoph</code>: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.</li>
-<li><code>Indometh</code>: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
-(데이터명의 첫글짜가 대문자임에 주의하길)</li>
-</ul>
-<p>먼저 데이터를 살펴보겠습니다.</p>
+<div id="softwares" class="section level1">
+<h1><span class="header-section-number">B</span> 기타 비구획분석 소프트웨어</h1>
+<div id="detailschapter" class="section level2">
+<h2><span class="header-section-number">B.1</span> 이 장에서는</h2>
+<p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
+특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
 </div>
-<div id="TheophData" class="section level2">
-<h2><span class="header-section-number">3.2</span> 데이타에 대해</h2>
-<p>Theoph 자료의 첫 10개 (Table <a href="datasets.html#tab:head">3.1</a>) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다.
-대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1"><span class="kw">head</span>(Theoph, <span class="dt">n=</span><span class="dv">10</span>)</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">tail</span>(Theoph, <span class="dt">n=</span><span class="dv">10</span>)</a></code></pre></div>
+<div id="certara-phoenix-winnonlin" class="section level2">
+<h2><span class="header-section-number">B.2</span> Certara Phoenix WinNonLin</h2>
+<p><a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a></p>
+<div id="pros" class="section level3">
+<h3><span class="header-section-number">B.2.1</span> Pros</h3>
+<ul>
+<li>Validated for several years</li>
+<li>Industry standard</li>
+<li>Versatile unit setting</li>
+<li>Easy using by GUI</li>
+<li>Generating plots supported</li>
+</ul>
+</div>
+<div id="cons" class="section level3">
+<h3><span class="header-section-number">B.2.2</span> Cons</h3>
+<ul>
+<li>Expansive (~several thousand dollars)</li>
+<li>Not suitable for reproducible research</li>
+<li>CDISC SDTM not compatible (input and output)</li>
+</ul>
+</div>
+</div>
+<div id="r-package-pknca" class="section level2">
+<h2><span class="header-section-number">B.3</span> R package: PKNCA</h2>
+<p>Automation of Noncompartmental Analysis in R <a href="https://github.com/billdenney/pknca" class="uri">https://github.com/billdenney/pknca</a></p>
+<div id="isop-pharmacometrics-study-group-presentation" class="section level3">
+<h3><span class="header-section-number">B.3.1</span> ISoP Pharmacometrics Study Group Presentation</h3>
+<ul>
+<li>강의 동영상 <a href="https://www.youtube.com/watch?v=WCmFrheYtcc" class="uri">https://www.youtube.com/watch?v=WCmFrheYtcc</a></li>
+<li>프로젝트 <a href="https://github.com/billdenney/pknca" class="uri">https://github.com/billdenney/pknca</a></li>
+<li>Package <a href="https://cran.r-project.org/web/packages/PKNCA/" class="uri">https://cran.r-project.org/web/packages/PKNCA/</a>
+<ul>
+<li>예제 R Markdown 파일 : <a href="https://github.com/billdenney/pknca/tree/master/vignettes" class="uri">https://github.com/billdenney/pknca/tree/master/vignettes</a></li>
+</ul></li>
+<li>PPT 파일</li>
+<li>PKNCA 패키지란 무엇인가? * Pharmacokinetic(PK) data를 위한 모든 noncompartmental analysis (NCA) 계산이 가능한 R용 패키지</li>
+</ul>
+<pre><code>library(devtools)
+install_github(&quot;billdenney/pknca&quot;)</code></pre>
+</div>
+<div id="-nca----." class="section level3">
+<h3><span class="header-section-number">B.3.2</span> 오픈소스 NCA - 지금이 적기이다.</h3>
+<ul>
+<li>Data standards 가 점점 많아짐</li>
+<li>CDISC/SDTM가 FDA requirement</li>
+<li>CDISC ADaM working group is standardizing NCA data set (ADNCA) |
+<ul>
+<li>CDISC SDTM pharmacokinetic concentration (PC) and pharmacokinetic parameter (PP) domains have been standardized</li>
+</ul></li>
+<li><p>우리도 R로 NCA?</p>
+<p>### 할수 있는 것</p>
+<ul>
+<li>Organizes concentration/time and dose/time data</li>
+</ul></li>
+<li>Predicts what you most likely need from NCA parameters from the concentration and dosing data.</li>
+<li>Allows user control of all NCA parameter and summary calculations</li>
+<li>Calculates all (standard) NCA parameters (Targeting the SDTM PK 파라메터)</li>
+<li><p>Summarizes the parameters</p></li>
+</ul>
+</div>
+<div id="section-11.3.3" class="section level3">
+<h3><span class="header-section-number">B.3.3</span> 한계</h3>
+<ul>
+<li>그래픽 못그림</li>
+<li>파라메터의 statistics 못구함 (곧 기능 추가할듯)</li>
+</ul>
+</div>
+<div id="pknca--0.7" class="section level3">
+<h3><span class="header-section-number">B.3.4</span> PKNCA 현재는 0.7</h3>
+<ul>
+<li>NCA 파라메터 계산가능 (Cmax, Tmax, AUClast, AUCinf, AUMC, half-life, …)</li>
+<li>NCA-related calculations (Superposition, Concentration interpolation/extrapolation (with AUC methods), Time to steady-state)</li>
+<li>SDTM PP-READY OUTPUT 가능</li>
+<li>인풋에서 아웃풋까지 TRACK가능하다.</li>
+<li>800개 넘는 테스트 케이스가 있음.</li>
+</ul>
+</div>
+<div id="pknca--1.0-." class="section level3">
+<h3><span class="header-section-number">B.3.5</span> PKNCA 곧 1.0이 나올것이다.</h3>
+<ul>
+<li>Improved prediction of desired parameters (정확도 accuracy, number 등)</li>
+</ul>
+</div>
+<div id="section-11.3.6" class="section level3">
+<h3><span class="header-section-number">B.3.6</span> 참고사항</h3>
+<ul>
+<li>Github에서 모두 다운로드 가능</li>
+<li>CRAN에 package올라왔다. (0.7) <a href="https://cran.r-project.org/web/packages/PKNCA/" class="uri">https://cran.r-project.org/web/packages/PKNCA/</a>
+<ul>
+<li><a href="mailto:wdenney@humanpredictions.com">wdenney@humanpredictions.com</a> 으로 메일 보내라</li>
+</ul></li>
+<li>모든게 오픈이기 때문에 Github에서 기여 환영</li>
+</ul>
+</div>
+<div id="rstudio--hands-on-" class="section level3">
+<h3><span class="header-section-number">B.3.7</span> RStudio를 사용한 Hands-on 실습</h3>
+<div id="example-theophylline.rmd" class="section level4">
+<h4><span class="header-section-number">B.3.7.1</span> Example-theophylline.Rmd</h4>
+<ul>
+<li>Theophylline 농도를 가지고 PK Parameter 구하는 법</li>
+<li><a href="https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd" class="uri">https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd</a></li>
+<li>이 파일을 RStudio에서 실행해본다.</li>
+<li>이후 article에서 분석할 것입니다.</li>
+</ul>
+</div>
+<div id="superposition.rmd" class="section level4">
+<h4><span class="header-section-number">B.3.7.2</span> Superposition.Rmd</h4>
+<ul>
+<li><a href="https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd" class="uri">https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd</a></li>
+<li>이 파일을 RStudio에서 실행해본다.</li>
+</ul>
+</div>
+</div>
+<div id="closing" class="section level3">
+<h3><span class="header-section-number">B.3.8</span> Closing</h3>
+<ul>
+<li>PKNCA.options() 모든 옵션을 볼 수 있다.</li>
+</ul>
+</div>
+<div id="section-11.3.9" class="section level3">
+<h3><span class="header-section-number">B.3.9</span> 결론</h3>
+<ul>
+<li>써보고 feedback주고 contribute해라.</li>
+</ul>
+</div>
+<div id="pros-1" class="section level3">
+<h3><span class="header-section-number">B.3.10</span> Pros</h3>
+<ul>
+<li>Open source and free of charge</li>
+<li>CDISC SDTM semi compatible (output)</li>
+<li>Calculate partial(interval) AUC with ‘linear’ or ‘log’ interpolation method but in a cumbersome way</li>
+</ul>
+</div>
+<div id="cons-1" class="section level3">
+<h3><span class="header-section-number">B.3.11</span> Cons</h3>
+<ul>
+<li>CDISC SDTM not compatible (input)</li>
+<li>More tests required</li>
+<li>Experience with R language required</li>
+<li>Generating plots not supported for now (To be supported soon)</li>
+</ul>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1"><span class="kw">library</span>(PKNCA)</a>
+<a class="sourceLine" id="cb75-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb75-3" data-line-number="3">my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
+<a class="sourceLine" id="cb75-4" data-line-number="4">d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb75-5" data-line-number="5">                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</a>
+<a class="sourceLine" id="cb75-6" data-line-number="6">my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
+<a class="sourceLine" id="cb75-7" data-line-number="7">my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</a>
+<a class="sourceLine" id="cb75-8" data-line-number="8">my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</a>
+<a class="sourceLine" id="cb75-9" data-line-number="9">my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb75-10" data-line-number="10"><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
+<div class="kable-table">
 <table>
-<caption><span id="tab:head">Table 3.1: </span>Theoph 자료의 첫 10개 관찰값</caption>
 <thead>
 <tr class="header">
+<th align="right">start</th>
+<th align="right">end</th>
 <th align="left">Subject</th>
-<th align="right">Wt</th>
-<th align="right">Dose</th>
-<th align="right">Time</th>
-<th align="right">conc</th>
+<th align="left">PPTESTCD</th>
+<th align="right">PPORRES</th>
+<th align="left">exclude</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
 <td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">0.00</td>
-<td align="right">0.74</td>
+<td align="left">aucinf.obs</td>
+<td align="right">214.92363</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">0.25</td>
-<td align="right">2.84</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">2</td>
+<td align="left">aucinf.obs</td>
+<td align="right">97.37793</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">0.57</td>
-<td align="right">6.57</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">3</td>
+<td align="left">aucinf.obs</td>
+<td align="right">106.12767</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">1.12</td>
-<td align="right">10.50</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">4</td>
+<td align="left">aucinf.obs</td>
+<td align="right">114.21620</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">2.02</td>
-<td align="right">9.66</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">5</td>
+<td align="left">aucinf.obs</td>
+<td align="right">136.30473</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">3.82</td>
-<td align="right">8.58</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">6</td>
+<td align="left">aucinf.obs</td>
+<td align="right">82.17588</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">5.10</td>
-<td align="right">8.36</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">7</td>
+<td align="left">aucinf.obs</td>
+<td align="right">100.98763</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">7.03</td>
-<td align="right">7.47</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">8</td>
+<td align="left">aucinf.obs</td>
+<td align="right">102.15330</td>
+<td align="left">NA</td>
 </tr>
 <tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">9.05</td>
-<td align="right">6.89</td>
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">9</td>
+<td align="left">aucinf.obs</td>
+<td align="right">97.52000</td>
+<td align="left">NA</td>
 </tr>
 <tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">10</td>
+<td align="left">aucinf.obs</td>
+<td align="right">167.86003</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">11</td>
+<td align="left">aucinf.obs</td>
+<td align="right">86.90262</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">12</td>
+<td align="left">aucinf.obs</td>
+<td align="right">125.83154</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
 <td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">12.12</td>
-<td align="right">5.94</td>
+<td align="left">cmax</td>
+<td align="right">10.50000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">2</td>
+<td align="left">cmax</td>
+<td align="right">8.33000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">3</td>
+<td align="left">cmax</td>
+<td align="right">8.20000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">4</td>
+<td align="left">cmax</td>
+<td align="right">8.60000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">5</td>
+<td align="left">cmax</td>
+<td align="right">11.40000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">6</td>
+<td align="left">cmax</td>
+<td align="right">6.44000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">7</td>
+<td align="left">cmax</td>
+<td align="right">7.09000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">8</td>
+<td align="left">cmax</td>
+<td align="right">7.56000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">9</td>
+<td align="left">cmax</td>
+<td align="right">9.03000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">10</td>
+<td align="left">cmax</td>
+<td align="right">10.21000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">11</td>
+<td align="left">cmax</td>
+<td align="right">8.00000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">12</td>
+<td align="left">cmax</td>
+<td align="right">9.75000</td>
+<td align="left">NA</td>
 </tr>
 </tbody>
 </table>
-<p>그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure <a href="datasets.html#fig:ggtheoph">3.1</a>)</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw">ggplot</span>(Theoph, <span class="kw">aes</span>(Time, conc, <span class="dt">group =</span> Subject, <span class="dt">color =</span> Subject)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg)&#39;</span>,</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">       <span class="dt">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</a></code></pre></div>
-<div class="figure"><span id="fig:ggtheoph"></span>
-<img src="book-ncar_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
-<p class="caption">
-Figure 3.1: Concentration-time curves of oral administration of Theoph (N = 12)
-</p>
 </div>
-<p>데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">summary</span>(my.results.automatic)</a></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">start</th>
+<th align="right">end</th>
+<th align="left">N</th>
+<th align="left">auclast</th>
+<th align="left">cmax</th>
+<th align="left">tmax</th>
+<th align="left">half.life</th>
+<th align="left">aucinf.obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">24</td>
+<td align="left">12</td>
+<td align="left">74.6 [24.3]</td>
+<td align="left">.</td>
+<td align="left">.</td>
+<td align="left">.</td>
+<td align="left">.</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">12</td>
+<td align="left">.</td>
+<td align="left">8.65 [17.0]</td>
+<td align="left">1.14 [0.630, 3.55]</td>
+<td align="left">8.18 [2.12]</td>
+<td align="left">115 [28.4]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="r-package-ncappc" class="section level2">
+<h2><span class="header-section-number">B.4</span> R package: ncappc</h2>
+<p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="#ref-Acharya201683">2016</a>)</span></p>
+<p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a>
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="co">#install.packages(&quot;ncappc&quot;)</span></a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"><span class="kw">library</span>(ncappc)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="kw">library</span>(ncappc)</a>
+<a class="sourceLine" id="cb78-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb78-3" data-line-number="3"><span class="kw">write.csv</span>(Theoph <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject, <span class="dt">TIME =</span> Time, <span class="dt">DV =</span> conc), </a>
+<a class="sourceLine" id="cb78-4" data-line-number="4">          <span class="st">&quot;Theoph.csv&quot;</span>, <span class="dt">row.names =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb78-5" data-line-number="5"><span class="kw">ncappc</span>(<span class="dt">obsFile=</span><span class="st">&quot;Theoph.csv&quot;</span>, <span class="dt">psnOut =</span> <span class="ot">FALSE</span>, <span class="dt">noPlot =</span> <span class="ot">TRUE</span>, <span class="dt">printOut =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb78-6" data-line-number="6">       <span class="dt">method =</span> <span class="st">&quot;linear-log&quot;</span>, <span class="dt">evid =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb78-7" data-line-number="7">Theoph_ncappc &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="st">&quot;ncaOutput-.tsv&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>, <span class="dt">check.names =</span> <span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb78-8" data-line-number="8">Theoph_ncappc[ , <span class="kw">c</span>(<span class="st">&quot;Cmax (M.L^-3)&quot;</span>, <span class="st">&quot;AUCINF_obs (T*M.L^-3)&quot;</span>)]</a></code></pre></div>
+<pre><code>## Error in file(file, &quot;rt&quot;): 커넥션을 열 수 없습니다</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): 객체 &#39;Theoph_ncappc&#39;를 찾을 수 없습니다</code></pre>
+</div>
+<div id="r-package-pk" class="section level2">
+<h2><span class="header-section-number">B.5</span> R package: PK</h2>
+<p>Basic Non-Compartmental Pharmacokinetics</p>
+<p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co">#install.packages(&quot;PK&quot;)</span></a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">library</span>(PK)</a></code></pre></div>
+</div>
+<div id="kinetica" class="section level2">
+<h2><span class="header-section-number">B.6</span> Kinetica</h2>
+</div>
+<div id="scientist" class="section level2">
+<h2><span class="header-section-number">B.7</span> Scientist</h2>
+</div>
+<div id="pksolver" class="section level2">
+<h2><span class="header-section-number">B.8</span> PKSolver</h2>
+</div>
+<div id="summary" class="section level2">
+<h2><span class="header-section-number">B.9</span> Summary</h2>
+<pre><code>## Error in file(file, &quot;rt&quot;): 커넥션을 열 수 없습니다</code></pre>
 
+</div>
+</div>
+<h3>참고문헌</h3>
+<div id="refs" class="references">
+<div id="ref-Acharya201683">
+<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127:83–93. <a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013" class="uri">https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
 </div>
 </div>
             </section>
@@ -367,8 +701,8 @@ Figure 3.1: Concentration-time curves of oral administration of Theoph (N = 12)
           </div>
         </div>
       </div>
-<a href="R-and-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="noncompart.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="phoenix-winnonlin-.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="groupreport.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -398,7 +732,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/02-packages.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/13-others.Rmd",
 "text": "Edit"
 },
 "download": null,
