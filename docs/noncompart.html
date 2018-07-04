@@ -115,7 +115,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -242,9 +242,18 @@ Some features are
 <div id="how-to-use" class="section level2">
 <h2><span class="header-section-number">4.2</span> NonCompart 사용법</h2>
 <p>tblNCA의 사용법은 다음과 같습니다.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">tblNCA</span>(concData, <span class="dt">key =</span> <span class="st">&quot;Subject&quot;</span>, <span class="dt">colTime =</span> <span class="st">&quot;Time&quot;</span>, <span class="dt">colConc =</span> <span class="st">&quot;conc&quot;</span>, <span class="dt">dose =</span> <span class="dv">0</span>, </a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">       <span class="dt">adm =</span> <span class="st">&quot;Extravascular&quot;</span>, <span class="dt">dur =</span> <span class="dv">0</span>, <span class="dt">doseUnit =</span> <span class="st">&quot;mg&quot;</span>, <span class="dt">timeUnit =</span> <span class="st">&quot;h&quot;</span>, </a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">       <span class="dt">concUnit =</span> <span class="st">&quot;ug/L&quot;</span>, <span class="dt">down =</span> <span class="st">&quot;Linear&quot;</span>, <span class="dt">R2ADJ =</span> <span class="fl">0.7</span>, <span class="dt">MW =</span> <span class="dv">0</span>) <span class="co"># args(NonCompart::tblNCA)</span></a></code></pre></div>
+<pre><code>## function (concData, key = &quot;Subject&quot;, colTime = &quot;Time&quot;, colConc = &quot;conc&quot;, 
+##     dose = 0, adm = &quot;Extravascular&quot;, dur = 0, doseUnit = &quot;mg&quot;, 
+##     timeUnit = &quot;h&quot;, concUnit = &quot;ug/L&quot;, down = &quot;Linear&quot;, R2ADJ = 0.9, 
+##     MW = 0) 
+## NULL</code></pre>
+<!---
+```r
+tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0, 
+       adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
+       concUnit = "ug/L", down = "Linear", R2ADJ = 0.7, MW = 0) # args(NonCompart::tblNCA)
+```
+--->
 <p>concData는 데이터셋을 설정하며, <code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), <code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.</p>
 <ol style="list-style-type: decimal">
 <li><code>down</code>

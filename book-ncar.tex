@@ -644,13 +644,13 @@ Data Analysis - Concepts and Applications. 5th ed. 2016.
 
 tblNCA의 사용법은 다음과 같습니다.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{tblNCA}\NormalTok{(concData, }\DataTypeTok{key =} \StringTok{"Subject"}\NormalTok{, }\DataTypeTok{colTime =} \StringTok{"Time"}\NormalTok{, }\DataTypeTok{colConc =} \StringTok{"conc"}\NormalTok{, }\DataTypeTok{dose =} \DecValTok{0}\NormalTok{, }
-       \DataTypeTok{adm =} \StringTok{"Extravascular"}\NormalTok{, }\DataTypeTok{dur =} \DecValTok{0}\NormalTok{, }\DataTypeTok{doseUnit =} \StringTok{"mg"}\NormalTok{, }\DataTypeTok{timeUnit =} \StringTok{"h"}\NormalTok{, }
-       \DataTypeTok{concUnit =} \StringTok{"ug/L"}\NormalTok{, }\DataTypeTok{down =} \StringTok{"Linear"}\NormalTok{, }\DataTypeTok{R2ADJ =} \FloatTok{0.7}\NormalTok{, }\DataTypeTok{MW =} \DecValTok{0}\NormalTok{) }\CommentTok{# args(NonCompart::tblNCA)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+## function (concData, key = "Subject", colTime = "Time", colConc = "conc", 
+##     dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", 
+##     timeUnit = "h", concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, 
+##     MW = 0) 
+## NULL
+\end{verbatim}
 
 concData는 데이터셋을 설정하며, \texttt{key}는 subject ID의 컬럼명 혹은
 treatment code의 컬럼명(교차시험에서 사용), \texttt{colTime}은 time의
@@ -1120,7 +1120,7 @@ Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016.
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -1304,15 +1304,15 @@ and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{Output/PK_Profile_Linear_Scale_for_Theoph} \caption{평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)}\label{fig:unnamed-chunk-33}
+\includegraphics[width=1\linewidth]{Output/PK_Profile_Linear_Scale_for_Theoph} \caption{평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)}\label{fig:unnamed-chunk-34}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{Output/PK_Profile_Log_10_Scale_for_Theoph} \caption{평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-34}
+\includegraphics[width=1\linewidth]{Output/PK_Profile_Log_10_Scale_for_Theoph} \caption{평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-35}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{Output/PK_Profile_with_CI_for_Theoph} \caption{평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-35}
+\includegraphics[width=1\linewidth]{Output/PK_Profile_with_CI_for_Theoph} \caption{평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-36}
 \end{figure}
 
 또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.
@@ -1326,11 +1326,11 @@ and Applications. 5th ed. 2016. (\url{ISBN:9198299107}).
 \end{itemize}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{Output/Individual_PK_Linear_Scale_for_Theoph00} \caption{약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)}\label{fig:unnamed-chunk-36}
+\includegraphics[width=1\linewidth]{Output/Individual_PK_Linear_Scale_for_Theoph00} \caption{약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)}\label{fig:unnamed-chunk-37}
 \end{figure}
 
 \begin{figure}
-\includegraphics[width=1\linewidth]{Output/Individual_PK_Log_10_Scale_for_Theoph00} \caption{약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-37}
+\includegraphics[width=1\linewidth]{Output/Individual_PK_Log_10_Scale_for_Theoph00} \caption{약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-38}
 \end{figure}
 
 \hypertarget{simulation}{%
@@ -1921,7 +1921,7 @@ Eight comparison tests were performed using \texttt{Theoph} and
 comparison is in Appendix A.
 
 \begin{longtable}[]{@{}rllll@{}}
-\caption{\label{tab:unnamed-chunk-52}Description of settings for the
+\caption{\label{tab:unnamed-chunk-53}Description of settings for the
 noncompartmental analysis performed in WinNonlin and links to the raw
 data}\tabularnewline
 \toprule
@@ -2203,7 +2203,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2282,7 +2282,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2361,7 +2361,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2440,7 +2440,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2519,7 +2519,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2598,7 +2598,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2677,7 +2677,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2756,7 +2756,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2835,7 +2835,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2914,7 +2914,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2993,7 +2993,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3072,7 +3072,7 @@ URL: www.github.com/shanmdphd
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{1.2}\NormalTok{ (}\DecValTok{2018-06-04}\NormalTok{)}
 \NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{08}\OperatorTok{:}\DecValTok{56}\OperatorTok{:}\DecValTok{38}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-07-04} \DecValTok{09}\OperatorTok{:}\DecValTok{07}\OperatorTok{:}\DecValTok{33}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
