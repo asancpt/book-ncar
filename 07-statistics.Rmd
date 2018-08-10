@@ -6,7 +6,7 @@
 
 ```{r, message = FALSE}
 library(tidyverse)
-library(ncarbe)
+library(BE)
 library(broom)
 ```
 
@@ -27,12 +27,7 @@ knitr::kable(descStatTheophNca, digits = 2)
 
 ## 생물학적 동등성 {#bioequivalence}
 
-생물학적 동등성을 위한 가장 간단한 방법은 `ncarbe` 패키지[@R-ncarbe]를 쓰는 것입니다.  
-
-```{r, eval = FALSE}
-install.packages('devtools')
-devtools::install_github('asancpt/ncarbe')
-```
+생물학적 동등성을 위한 가장 간단한 방법은 `BE` 패키지[@R-BE]를 쓰는 것입니다.  
 
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
 생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:be)
@@ -52,7 +47,7 @@ knitr::include_graphics('assets/twobytwo.jpg')
 ```
 
 ```{r echo = FALSE}
-args(beNCA)
+args(BE::be2x2)
 ```
 
 다음과 같은 함수 인자를 설정해 주면 됩니다.
@@ -71,16 +66,16 @@ concData <- read_csv(file)
 ```
 
 ```{r beconcdata, echo = FALSE}
-knitr::kable(head(concData, 10), caption = 'A example dataset for the bioequivalence test.')
+knitr::kable(BE::NCAResult4BE, caption = 'A example dataset for the bioequivalence test.')
 ```
-
-
-```{r}
-beNCA(concData)
-```
-
 
 배균섭 교수님의 강의 자료에서 가져왔습니다.
+
+```{r}
+print(be2x2(NCAResult4BE, c("AUClast", "Cmax", "Tmax")), na.print="") 
+```
+
+
 
 ```{r fixedrandom, fig.cap = '모수 인자와 변량 인자의 비교'}
 knitr::include_graphics('assets/fixed-random.jpg')

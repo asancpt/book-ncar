@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-07-04">
+<meta name="date" content="2018-08-10">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -253,38 +253,38 @@ This document provides validation of noncompartmental analysis performed by NonC
 <div id="results" class="section level2">
 <h2><span class="header-section-number">A.2</span> Results</h2>
 <p>A function, <code>Equal()</code> will return <code>TRUE</code> if there is no difference between results from NonCompart and WinNonlin.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1"><span class="co"># install.packages(&quot;NonCompart&quot;, repos=&quot;http://pmx.amc.seoul.kr&quot;)</span></a>
-<a class="sourceLine" id="cb55-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a>
-<a class="sourceLine" id="cb55-3" data-line-number="3">RptCfg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/RptCfg.csv&quot;</span>, <span class="dt">as.is=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb55-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb55-5" data-line-number="5">Equal =<span class="st"> </span><span class="cf">function</span>(Wres, Rres, <span class="dt">Tol=</span><span class="fl">0.001</span>)</a>
-<a class="sourceLine" id="cb55-6" data-line-number="6">{</a>
-<a class="sourceLine" id="cb55-7" data-line-number="7">  Wres[,<span class="st">&quot;ID&quot;</span>] =<span class="st"> </span><span class="kw">as.character</span>(Wres[,<span class="st">&quot;Subject&quot;</span>])</a>
-<a class="sourceLine" id="cb55-8" data-line-number="8">  ColName0 =<span class="st"> </span><span class="kw">colnames</span>(Rres)</a>
-<a class="sourceLine" id="cb55-9" data-line-number="9">  <span class="kw">rownames</span>(RptCfg) =<span class="st"> </span>RptCfg[,<span class="st">&quot;PPTESTCD&quot;</span>]</a>
-<a class="sourceLine" id="cb55-10" data-line-number="10">  <span class="kw">colnames</span>(Rres) =<span class="st"> </span><span class="kw">c</span>(ColName0[<span class="dv">1</span>], RptCfg[ColName0[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;WNL&quot;</span>])</a>
-<a class="sourceLine" id="cb55-11" data-line-number="11">  Inter =<span class="st"> </span><span class="kw">intersect</span>(<span class="kw">colnames</span>(Wres), <span class="kw">colnames</span>(Rres))</a>
-<a class="sourceLine" id="cb55-12" data-line-number="12">  </a>
-<a class="sourceLine" id="cb55-13" data-line-number="13">  IsSame =<span class="st"> </span><span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb55-14" data-line-number="14">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(Wres)) {</a>
-<a class="sourceLine" id="cb55-15" data-line-number="15">    <span class="cf">for</span> (j <span class="cf">in</span> Inter) {</a>
-<a class="sourceLine" id="cb55-16" data-line-number="16">      R =<span class="st"> </span><span class="kw">as.numeric</span>(Rres[i,j])</a>
-<a class="sourceLine" id="cb55-17" data-line-number="17">      W =<span class="st"> </span><span class="kw">as.numeric</span>(Wres[i,j])</a>
-<a class="sourceLine" id="cb55-18" data-line-number="18">      <span class="cf">if</span> (W <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb55-19" data-line-number="19">        <span class="cf">if</span>(<span class="kw">abs</span>((R <span class="op">-</span><span class="st"> </span>W)<span class="op">/</span>W) <span class="op">&gt;</span><span class="st"> </span>Tol) {</a>
-<a class="sourceLine" id="cb55-20" data-line-number="20">          <span class="kw">print</span>(Wres[i,j])</a>
-<a class="sourceLine" id="cb55-21" data-line-number="21">          <span class="kw">print</span>(Rres[i,j])</a>
-<a class="sourceLine" id="cb55-22" data-line-number="22">          IsSame =<span class="st"> </span><span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb55-23" data-line-number="23">        }</a>
-<a class="sourceLine" id="cb55-24" data-line-number="24">      }</a>
-<a class="sourceLine" id="cb55-25" data-line-number="25">    }</a>
-<a class="sourceLine" id="cb55-26" data-line-number="26">  }</a>
-<a class="sourceLine" id="cb55-27" data-line-number="27">  <span class="kw">return</span>(IsSame)</a>
-<a class="sourceLine" id="cb55-28" data-line-number="28">}</a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1"><span class="co"># install.packages(&quot;NonCompart&quot;, repos=&quot;http://pmx.amc.seoul.kr&quot;)</span></a>
+<a class="sourceLine" id="cb56-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a>
+<a class="sourceLine" id="cb56-3" data-line-number="3">RptCfg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/RptCfg.csv&quot;</span>, <span class="dt">as.is=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb56-4" data-line-number="4"></a>
+<a class="sourceLine" id="cb56-5" data-line-number="5">Equal =<span class="st"> </span><span class="cf">function</span>(Wres, Rres, <span class="dt">Tol=</span><span class="fl">0.001</span>)</a>
+<a class="sourceLine" id="cb56-6" data-line-number="6">{</a>
+<a class="sourceLine" id="cb56-7" data-line-number="7">  Wres[,<span class="st">&quot;ID&quot;</span>] =<span class="st"> </span><span class="kw">as.character</span>(Wres[,<span class="st">&quot;Subject&quot;</span>])</a>
+<a class="sourceLine" id="cb56-8" data-line-number="8">  ColName0 =<span class="st"> </span><span class="kw">colnames</span>(Rres)</a>
+<a class="sourceLine" id="cb56-9" data-line-number="9">  <span class="kw">rownames</span>(RptCfg) =<span class="st"> </span>RptCfg[,<span class="st">&quot;PPTESTCD&quot;</span>]</a>
+<a class="sourceLine" id="cb56-10" data-line-number="10">  <span class="kw">colnames</span>(Rres) =<span class="st"> </span><span class="kw">c</span>(ColName0[<span class="dv">1</span>], RptCfg[ColName0[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;WNL&quot;</span>])</a>
+<a class="sourceLine" id="cb56-11" data-line-number="11">  Inter =<span class="st"> </span><span class="kw">intersect</span>(<span class="kw">colnames</span>(Wres), <span class="kw">colnames</span>(Rres))</a>
+<a class="sourceLine" id="cb56-12" data-line-number="12">  </a>
+<a class="sourceLine" id="cb56-13" data-line-number="13">  IsSame =<span class="st"> </span><span class="ot">TRUE</span></a>
+<a class="sourceLine" id="cb56-14" data-line-number="14">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(Wres)) {</a>
+<a class="sourceLine" id="cb56-15" data-line-number="15">    <span class="cf">for</span> (j <span class="cf">in</span> Inter) {</a>
+<a class="sourceLine" id="cb56-16" data-line-number="16">      R =<span class="st"> </span><span class="kw">as.numeric</span>(Rres[i,j])</a>
+<a class="sourceLine" id="cb56-17" data-line-number="17">      W =<span class="st"> </span><span class="kw">as.numeric</span>(Wres[i,j])</a>
+<a class="sourceLine" id="cb56-18" data-line-number="18">      <span class="cf">if</span> (W <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {</a>
+<a class="sourceLine" id="cb56-19" data-line-number="19">        <span class="cf">if</span>(<span class="kw">abs</span>((R <span class="op">-</span><span class="st"> </span>W)<span class="op">/</span>W) <span class="op">&gt;</span><span class="st"> </span>Tol) {</a>
+<a class="sourceLine" id="cb56-20" data-line-number="20">          <span class="kw">print</span>(Wres[i,j])</a>
+<a class="sourceLine" id="cb56-21" data-line-number="21">          <span class="kw">print</span>(Rres[i,j])</a>
+<a class="sourceLine" id="cb56-22" data-line-number="22">          IsSame =<span class="st"> </span><span class="ot">FALSE</span></a>
+<a class="sourceLine" id="cb56-23" data-line-number="23">        }</a>
+<a class="sourceLine" id="cb56-24" data-line-number="24">      }</a>
+<a class="sourceLine" id="cb56-25" data-line-number="25">    }</a>
+<a class="sourceLine" id="cb56-26" data-line-number="26">  }</a>
+<a class="sourceLine" id="cb56-27" data-line-number="27">  <span class="kw">return</span>(IsSame)</a>
+<a class="sourceLine" id="cb56-28" data-line-number="28">}</a></code></pre></div>
 <p>Eight comparison tests were performed using <code>Theoph</code> and <code>Indometh</code> default datasets. (Table 1)
 Detailed side-by-side comparison is in Appendix A.</p>
 <table>
-<caption><span id="tab:unnamed-chunk-53">Table A.1: </span>Description of settings for the noncompartmental analysis performed in WinNonlin and links to the raw data</caption>
+<caption><span id="tab:unnamed-chunk-52">Table A.1: </span>Description of settings for the noncompartmental analysis performed in WinNonlin and links to the raw data</caption>
 <thead>
 <tr class="header">
 <th align="right">No.</th>
@@ -353,48 +353,48 @@ Detailed side-by-side comparison is in Appendix A.</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" data-line-number="1">Theoph[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Theoph[,<span class="st">&quot;Subject&quot;</span>]))</a>
-<a class="sourceLine" id="cb56-2" data-line-number="2">Indometh[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Indometh[,<span class="st">&quot;Subject&quot;</span>]))</a>
-<a class="sourceLine" id="cb56-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb56-4" data-line-number="4">Wres1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Linear.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb56-5" data-line-number="5">Rres1 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb56-6" data-line-number="6"><span class="kw">Equal</span>(Wres1, Rres1)</a></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" data-line-number="1">Theoph[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Theoph[,<span class="st">&quot;Subject&quot;</span>]))</a>
+<a class="sourceLine" id="cb57-2" data-line-number="2">Indometh[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Indometh[,<span class="st">&quot;Subject&quot;</span>]))</a>
+<a class="sourceLine" id="cb57-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb57-4" data-line-number="4">Wres1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Linear.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb57-5" data-line-number="5">Rres1 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb57-6" data-line-number="6"><span class="kw">Equal</span>(Wres1, Rres1)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" data-line-number="1">Wres2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Log.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb58-2" data-line-number="2">Rres2 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, </a>
-<a class="sourceLine" id="cb58-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb58-4" data-line-number="4"><span class="kw">Equal</span>(Wres2, Rres2) </a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" data-line-number="1">Wres2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Log.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb59-2" data-line-number="2">Rres2 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, </a>
+<a class="sourceLine" id="cb59-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb59-4" data-line-number="4"><span class="kw">Equal</span>(Wres2, Rres2) </a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1">Wres3 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb60-2" data-line-number="2">Rres3 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, </a>
-<a class="sourceLine" id="cb60-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb60-4" data-line-number="4"><span class="kw">Equal</span>(Wres3, Rres3)</a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">Wres3 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb61-2" data-line-number="2">Rres3 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, </a>
+<a class="sourceLine" id="cb61-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb61-4" data-line-number="4"><span class="kw">Equal</span>(Wres3, Rres3)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" data-line-number="1">Wres4 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb62-2" data-line-number="2">Rres4 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, </a>
-<a class="sourceLine" id="cb62-3" data-line-number="3">               <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb62-4" data-line-number="4"><span class="kw">Equal</span>(Wres4, Rres4)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">Wres4 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb63-2" data-line-number="2">Rres4 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, </a>
+<a class="sourceLine" id="cb63-3" data-line-number="3">               <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb63-4" data-line-number="4"><span class="kw">Equal</span>(Wres4, Rres4)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" data-line-number="1">Wres5 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb64-2" data-line-number="2">Rres5 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, </a>
-<a class="sourceLine" id="cb64-3" data-line-number="3">               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb64-4" data-line-number="4"><span class="kw">Equal</span>(Wres5, Rres5)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">Wres5 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb65-2" data-line-number="2">Rres5 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, </a>
+<a class="sourceLine" id="cb65-3" data-line-number="3">               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb65-4" data-line-number="4"><span class="kw">Equal</span>(Wres5, Rres5)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" data-line-number="1">Wres6 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb66-2" data-line-number="2">Rres6 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, </a>
-<a class="sourceLine" id="cb66-3" data-line-number="3">               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb66-4" data-line-number="4"><span class="kw">Equal</span>(Wres6, Rres6)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">Wres6 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb67-2" data-line-number="2">Rres6 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, </a>
+<a class="sourceLine" id="cb67-3" data-line-number="3">               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="kw">Equal</span>(Wres6, Rres6)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" data-line-number="1">Wres7 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb68-2" data-line-number="2">Rres7 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb68-3" data-line-number="3"><span class="kw">Equal</span>(Wres7, Rres7)</a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">Wres7 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb69-2" data-line-number="2">Rres7 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb69-3" data-line-number="3"><span class="kw">Equal</span>(Wres7, Rres7)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" data-line-number="1">Wres8 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb70-2" data-line-number="2">Rres8 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, </a>
-<a class="sourceLine" id="cb70-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb70-4" data-line-number="4"><span class="kw">Equal</span>(Wres8, Rres8)</a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">Wres8 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb71-2" data-line-number="2">Rres8 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, </a>
+<a class="sourceLine" id="cb71-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb71-4" data-line-number="4"><span class="kw">Equal</span>(Wres8, Rres8)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb72-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
 <pre><code>##  setting  value                       
 ##  version  R version 3.5.1 (2018-07-02)
 ##  system   x86_64, mingw32             
@@ -402,17 +402,18 @@ Detailed side-by-side comparison is in Appendix A.</p>
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-07-04                  
+##  date     2018-08-10                  
 ## 
 ##  package     * version date       source                             
 ##  assertthat    0.2.0   2017-04-11 CRAN (R 3.5.0)                     
 ##  backports     1.1.2   2017-12-13 CRAN (R 3.5.0)                     
 ##  base        * 3.5.1   2018-07-02 local                              
+##  BE          * 0.1.1   2018-07-19 CRAN (R 3.5.1)                     
 ##  bindr         0.1.1   2018-03-13 CRAN (R 3.5.0)                     
 ##  bindrcpp    * 0.2.2   2018-03-29 CRAN (R 3.5.0)                     
 ##  binr        * 1.1     2015-03-10 CRAN (R 3.5.0)                     
 ##  bookdown      0.7     2018-02-18 CRAN (R 3.5.0)                     
-##  broom       * 0.4.5   2018-07-03 CRAN (R 3.5.1)                     
+##  broom       * 0.5.0   2018-07-17 CRAN (R 3.5.1)                     
 ##  cellranger    1.1.0   2016-07-27 CRAN (R 3.5.0)                     
 ##  checkmate   * 1.8.5   2017-10-24 CRAN (R 3.5.0)                     
 ##  cli           1.0.0   2017-11-05 CRAN (R 3.5.0)                     
@@ -423,12 +424,12 @@ Detailed side-by-side comparison is in Appendix A.</p>
 ##  devtools      1.13.6  2018-06-27 CRAN (R 3.5.0)                     
 ##  digest        0.6.15  2018-01-28 CRAN (R 3.5.0)                     
 ##  dplyr       * 0.7.6   2018-06-29 CRAN (R 3.5.0)                     
-##  evaluate      0.10.1  2017-06-24 CRAN (R 3.5.0)                     
+##  evaluate      0.11    2018-07-17 CRAN (R 3.5.1)                     
 ##  forcats     * 0.3.0   2018-02-19 CRAN (R 3.5.0)                     
-##  foreign     * 0.8-70  2017-11-28 CRAN (R 3.5.1)                     
+##  foreign     * 0.8-71  2018-07-20 CRAN (R 3.5.1)                     
 ##  forestplot  * 1.7.2   2017-09-16 CRAN (R 3.5.0)                     
 ##  ggplot2     * 3.0.0   2018-07-03 CRAN (R 3.5.1)                     
-##  glue          1.2.0   2017-10-29 CRAN (R 3.5.0)                     
+##  glue          1.3.0   2018-07-17 CRAN (R 3.5.1)                     
 ##  graphics    * 3.5.1   2018-07-02 local                              
 ##  grDevices   * 3.5.1   2018-07-02 local                              
 ##  grid        * 3.5.1   2018-07-02 local                              
@@ -447,36 +448,31 @@ Detailed side-by-side comparison is in Appendix A.</p>
 ##  magrittr    * 1.5     2014-11-22 CRAN (R 3.5.0)                     
 ##  memoise       1.1.0   2017-04-21 CRAN (R 3.5.0)                     
 ##  methods     * 3.5.1   2018-07-02 local                              
-##  mnormt        1.5-5   2016-10-15 CRAN (R 3.5.0)                     
 ##  modelr        0.1.2   2018-05-11 CRAN (R 3.5.0)                     
 ##  munsell       0.5.0   2018-06-12 CRAN (R 3.5.0)                     
-##  ncar        * 0.4.1   2018-06-20 CRAN (R 3.5.0)                     
-##  ncarbe      * 0.1.0   2017-12-05 local                              
+##  ncar        * 0.4.1   2018-07-10 CRAN (R 3.5.0)                     
 ##  nlme          3.1-137 2018-04-07 CRAN (R 3.5.1)                     
-##  NonCompart  * 0.4.3   2018-06-20 CRAN (R 3.5.0)                     
-##  parallel      3.5.1   2018-07-02 local                              
-##  pillar        1.2.3   2018-05-25 CRAN (R 3.5.0)                     
+##  NonCompart  * 0.4.4   2018-08-06 CRAN (R 3.5.1)                     
+##  pillar        1.3.0   2018-07-14 CRAN (R 3.5.1)                     
 ##  pkgconfig     2.0.1   2017-03-21 CRAN (R 3.5.0)                     
-##  pkr         * 0.1.2   2018-06-04 CRAN (R 3.5.0)                     
+##  pkr         * 0.1.2   2018-06-04 CRAN (R 3.5.1)                     
 ##  plyr          1.8.4   2016-06-08 CRAN (R 3.5.0)                     
-##  psych         1.8.4   2018-05-06 CRAN (R 3.5.0)                     
 ##  purrr       * 0.2.5   2018-05-29 CRAN (R 3.5.0)                     
 ##  R.methodsS3   1.7.1   2016-02-16 CRAN (R 3.5.0)                     
 ##  R.oo          1.22.0  2018-04-22 CRAN (R 3.5.0)                     
 ##  R6            2.2.2   2017-06-17 CRAN (R 3.5.0)                     
-##  Rcpp          0.12.17 2018-05-18 CRAN (R 3.5.0)                     
+##  Rcpp          0.12.18 2018-07-23 CRAN (R 3.5.1)                     
 ##  readr       * 1.1.1   2017-05-16 CRAN (R 3.5.0)                     
 ##  readxl      * 1.1.0   2018-04-20 CRAN (R 3.5.0)                     
-##  reshape2      1.4.3   2017-12-11 CRAN (R 3.5.0)                     
 ##  rlang         0.2.1   2018-05-30 CRAN (R 3.5.0)                     
 ##  rmarkdown     1.10    2018-06-11 CRAN (R 3.5.0)                     
 ##  rprojroot     1.3-2   2018-01-03 CRAN (R 3.5.0)                     
 ##  rstudioapi    0.7     2017-09-07 CRAN (R 3.5.0)                     
-##  rtf         * 0.4-13  2018-05-17 CRAN (R 3.5.0)                     
+##  rtf         * 0.4-13  2018-05-17 CRAN (R 3.5.1)                     
 ##  rvest         0.3.2   2016-06-17 CRAN (R 3.5.0)                     
-##  scales        0.5.0   2017-08-24 CRAN (R 3.5.0)                     
+##  scales        1.0.0   2018-08-09 CRAN (R 3.5.1)                     
 ##  stats       * 3.5.1   2018-07-02 local                              
-##  stringi       1.2.3   2018-06-12 CRAN (R 3.5.0)                     
+##  stringi       1.2.4   2018-07-20 CRAN (R 3.5.1)                     
 ##  stringr     * 1.3.1   2018-05-10 CRAN (R 3.5.0)                     
 ##  tibble      * 1.4.2   2018-01-22 CRAN (R 3.5.0)                     
 ##  tidyr       * 0.8.1   2018-05-18 CRAN (R 3.5.0)                     
@@ -486,9 +482,9 @@ Detailed side-by-side comparison is in Appendix A.</p>
 ##  utils       * 3.5.1   2018-07-02 local                              
 ##  viridisLite   0.3.0   2018-02-01 CRAN (R 3.5.0)                     
 ##  withr         2.1.2   2018-03-15 CRAN (R 3.5.0)                     
-##  xfun          0.2     2018-06-16 CRAN (R 3.5.0)                     
+##  xfun          0.3     2018-07-06 CRAN (R 3.5.1)                     
 ##  xml2          1.2.0   2018-01-24 CRAN (R 3.5.0)                     
-##  yaml          2.1.19  2018-05-01 CRAN (R 3.5.0)</code></pre>
+##  yaml          2.2.0   2018-07-25 CRAN (R 3.5.1)</code></pre>
 
 </div>
 <div id="conclusion-1" class="section level2">
@@ -559,7 +555,7 @@ gitbook.start({
 "link": "https://github.com/asancpt/book-ncar/edit/master/11-appendix.Rmd",
 "text": "Edit"
 },
-"download": null,
+"download": ["book-ncar.epub"],
 "toc": {
 "collapse": "subsection"
 },
