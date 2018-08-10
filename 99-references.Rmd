@@ -7,7 +7,7 @@
 
 # 지원 {#support}
 
-패키지와 관련한 모든 의문은 <shan@acp.kr> / 02-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
+패키지와 관련한 모든 의문은 <shan@acp.kr> / +82-2-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
 혹은 StackOverflow^[https://stackoverflow.com]에 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
 
 # 세션 정보 {#session-info}
@@ -20,7 +20,7 @@ devtools::session_info()
 
 ```{r include = FALSE}
 knitr::write_bib(c('base', 'dplyr', 'tidyr', 'tibble', 'purrr', 'readr',
-                   'ncarbe', 'tidyverse', 'PKPDdatasets', 'broom',
+                   'ncarbe', 'tidyverse', 'PKPDdatasets', 'broom', 'BE',
                    'NonCompart', 'ncar', 'pkr'), file = "bib/packages.bib")
 ```
 

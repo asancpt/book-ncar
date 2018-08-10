@@ -2,7 +2,7 @@
                        Package version 0.1.2 (2018-06-04)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-10 18:14:29 Asia/Seoul
+Date and Time: 2018-08-10 18:28:47 Asia/Seoul
 
 Calculation Setting
 -------------------
