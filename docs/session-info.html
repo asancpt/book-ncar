@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-10">
+<meta name="date" content="2018-08-20">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -52,7 +52,7 @@
 <style type="text/css">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; position: absolute; }
+a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -65,13 +65,11 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; }
-pre.numberSource a.sourceLine:empty
-  { position: absolute; }
+  { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all;
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -245,7 +243,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="session-info" class="section level1">
 <h1><span class="header-section-number">E</span> 세션 정보</h1>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
 <pre><code>##  setting  value                       
 ##  version  R version 3.5.1 (2018-07-02)
 ##  system   x86_64, mingw32             
@@ -253,97 +251,188 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-08-10                  
+##  date     2018-08-20                  
 ## 
-##  package     * version    date       source                             
-##  assertthat    0.2.0      2017-04-11 CRAN (R 3.5.0)                     
-##  backports     1.1.2      2017-12-13 CRAN (R 3.5.0)                     
-##  base        * 3.5.1      2018-07-02 local                              
-##  BE          * 0.1.1      2018-07-19 CRAN (R 3.5.1)                     
-##  bindr         0.1.1      2018-03-13 CRAN (R 3.5.0)                     
-##  bindrcpp    * 0.2.2      2018-03-29 CRAN (R 3.5.0)                     
-##  binr        * 1.1        2015-03-10 CRAN (R 3.5.0)                     
-##  bookdown      0.7        2018-02-18 CRAN (R 3.5.0)                     
-##  broom       * 0.5.0      2018-07-17 CRAN (R 3.5.1)                     
-##  cellranger    1.1.0      2016-07-27 CRAN (R 3.5.0)                     
-##  checkmate   * 1.8.5      2017-10-24 CRAN (R 3.5.0)                     
-##  cli           1.0.0      2017-11-05 CRAN (R 3.5.0)                     
-##  colorspace    1.3-2      2016-12-14 CRAN (R 3.5.0)                     
-##  compiler      3.5.1      2018-07-02 local                              
-##  crayon        1.3.4      2018-06-08 Github (gaborcsardi/crayon@3e751fb)
-##  datasets    * 3.5.1      2018-07-02 local                              
-##  devtools      1.13.6     2018-06-27 CRAN (R 3.5.0)                     
-##  digest        0.6.15     2018-01-28 CRAN (R 3.5.0)                     
-##  dplyr       * 0.7.6      2018-06-29 CRAN (R 3.5.0)                     
-##  evaluate      0.11       2018-07-17 CRAN (R 3.5.1)                     
-##  forcats     * 0.3.0      2018-02-19 CRAN (R 3.5.0)                     
-##  foreign     * 0.8-71     2018-07-20 CRAN (R 3.5.1)                     
-##  forestplot  * 1.7.2      2017-09-16 CRAN (R 3.5.0)                     
-##  ggplot2     * 3.0.0      2018-07-03 CRAN (R 3.5.1)                     
-##  glue          1.3.0      2018-07-17 CRAN (R 3.5.1)                     
-##  graphics    * 3.5.1      2018-07-02 local                              
-##  grDevices   * 3.5.1      2018-07-02 local                              
-##  grid        * 3.5.1      2018-07-02 local                              
-##  gridExtra   * 2.3        2017-09-09 CRAN (R 3.5.0)                     
-##  gtable        0.2.0      2016-02-26 CRAN (R 3.5.0)                     
-##  haven         1.1.2      2018-06-27 CRAN (R 3.5.0)                     
-##  highr         0.7        2018-06-09 CRAN (R 3.5.0)                     
-##  hms           0.4.2      2018-03-10 CRAN (R 3.5.0)                     
-##  htmltools     0.3.6      2017-04-28 CRAN (R 3.5.0)                     
-##  httr          1.3.1      2017-08-20 CRAN (R 3.5.0)                     
-##  jsonlite      1.5        2017-06-01 CRAN (R 3.5.0)                     
-##  knitr       * 1.20       2018-02-20 CRAN (R 3.5.0)                     
-##  labeling      0.3        2014-08-23 CRAN (R 3.5.0)                     
-##  lattice       0.20-35    2017-03-25 CRAN (R 3.5.0)                     
-##  lazyeval      0.2.1      2017-10-29 CRAN (R 3.5.0)                     
-##  lubridate     1.7.4      2018-04-11 CRAN (R 3.5.0)                     
-##  magrittr    * 1.5        2014-11-22 CRAN (R 3.5.0)                     
-##  memoise       1.1.0      2017-04-21 CRAN (R 3.5.0)                     
-##  methods     * 3.5.1      2018-07-02 local                              
-##  modelr        0.1.2      2018-05-11 CRAN (R 3.5.0)                     
-##  munsell       0.5.0      2018-06-12 CRAN (R 3.5.0)                     
-##  ncappc      * 0.2.1.4    2017-06-15 Github (cacha0227/ncappc@5b7c8b4)  
-##  ncar        * 0.4.1      2018-07-10 CRAN (R 3.5.0)                     
-##  nlme          3.1-137    2018-04-07 CRAN (R 3.5.1)                     
-##  NonCompart  * 0.4.4      2018-08-06 CRAN (R 3.5.1)                     
-##  parallel      3.5.1      2018-07-02 local                              
-##  pillar        1.3.0      2018-07-14 CRAN (R 3.5.1)                     
-##  PK          * 1.3-4      2018-02-26 CRAN (R 3.5.0)                     
-##  pkgconfig     2.0.1      2017-03-21 CRAN (R 3.5.0)                     
-##  PKNCA       * 0.8.5.9000 2018-07-04 Github (billdenney/pknca@48bc5a6)  
-##  pkr         * 0.1.2      2018-06-04 CRAN (R 3.5.1)                     
-##  plyr          1.8.4      2016-06-08 CRAN (R 3.5.0)                     
-##  purrr       * 0.2.5      2018-05-29 CRAN (R 3.5.0)                     
-##  R.methodsS3   1.7.1      2016-02-16 CRAN (R 3.5.0)                     
-##  R.oo          1.22.0     2018-04-22 CRAN (R 3.5.0)                     
-##  R6            2.2.2      2017-06-17 CRAN (R 3.5.0)                     
-##  Rcpp          0.12.18    2018-07-23 CRAN (R 3.5.1)                     
-##  readr       * 1.1.1      2017-05-16 CRAN (R 3.5.0)                     
-##  readxl      * 1.1.0      2018-04-20 CRAN (R 3.5.0)                     
-##  reshape2      1.4.3      2017-12-11 CRAN (R 3.5.0)                     
-##  rlang         0.2.1      2018-05-30 CRAN (R 3.5.0)                     
-##  rmarkdown     1.10       2018-06-11 CRAN (R 3.5.0)                     
-##  rprojroot     1.3-2      2018-01-03 CRAN (R 3.5.0)                     
-##  rstudioapi    0.7        2017-09-07 CRAN (R 3.5.0)                     
-##  rtf         * 0.4-13     2018-05-17 CRAN (R 3.5.1)                     
-##  rvest         0.3.2      2016-06-17 CRAN (R 3.5.0)                     
-##  scales        1.0.0      2018-08-09 CRAN (R 3.5.1)                     
-##  stats       * 3.5.1      2018-07-02 local                              
-##  stringi       1.2.4      2018-07-20 CRAN (R 3.5.1)                     
-##  stringr     * 1.3.1      2018-05-10 CRAN (R 3.5.0)                     
-##  testthat      2.0.0      2017-12-13 CRAN (R 3.5.0)                     
-##  tibble      * 1.4.2      2018-01-22 CRAN (R 3.5.0)                     
-##  tidyr       * 0.8.1      2018-05-18 CRAN (R 3.5.0)                     
-##  tidyselect    0.2.4      2018-02-26 CRAN (R 3.5.0)                     
-##  tidyverse   * 1.2.1      2017-11-14 CRAN (R 3.5.0)                     
-##  tools         3.5.1      2018-07-02 local                              
-##  utils       * 3.5.1      2018-07-02 local                              
-##  viridisLite   0.3.0      2018-02-01 CRAN (R 3.5.0)                     
-##  withr         2.1.2      2018-03-15 CRAN (R 3.5.0)                     
-##  xfun          0.3        2018-07-06 CRAN (R 3.5.1)                     
-##  xml2          1.2.0      2018-01-24 CRAN (R 3.5.0)                     
-##  xtable        1.8-2      2016-02-05 CRAN (R 3.5.0)                     
-##  yaml          2.2.0      2018-07-25 CRAN (R 3.5.1)</code></pre>
+##  package     * version    date      
+##  assertthat    0.2.0      2017-04-11
+##  backports     1.1.2      2017-12-13
+##  base        * 3.5.1      2018-07-02
+##  BE          * 0.1.1      2018-07-19
+##  bindr         0.1.1      2018-03-13
+##  bindrcpp    * 0.2.2      2018-03-29
+##  binr        * 1.1        2015-03-10
+##  bookdown      0.7        2018-02-18
+##  broom       * 0.5.0      2018-07-17
+##  Cairo         1.5-9      2015-09-26
+##  cellranger    1.1.0      2016-07-27
+##  checkmate   * 1.8.5      2017-10-24
+##  cli           1.0.0      2017-11-05
+##  colorspace    1.3-2      2016-12-14
+##  compiler      3.5.1      2018-07-02
+##  crayon        1.3.4      2018-06-08
+##  datasets    * 3.5.1      2018-07-02
+##  devtools      1.13.6     2018-06-27
+##  digest        0.6.15     2018-01-28
+##  dplyr       * 0.7.6      2018-06-29
+##  evaluate      0.11       2018-07-17
+##  forcats     * 0.3.0      2018-02-19
+##  foreign     * 0.8-71     2018-07-20
+##  forestplot  * 1.7.2      2017-09-16
+##  ggplot2     * 3.0.0      2018-07-03
+##  glue          1.3.0      2018-07-17
+##  graphics    * 3.5.1      2018-07-02
+##  grDevices   * 3.5.1      2018-07-02
+##  grid        * 3.5.1      2018-07-02
+##  gridExtra     2.3        2017-09-09
+##  gtable        0.2.0      2016-02-26
+##  haven         1.1.2      2018-06-27
+##  highr         0.7        2018-06-09
+##  hms           0.4.2      2018-03-10
+##  htmltools     0.3.6      2017-04-28
+##  httr          1.3.1      2017-08-20
+##  jsonlite      1.5        2017-06-01
+##  knitr       * 1.20       2018-02-20
+##  labeling      0.3        2014-08-23
+##  lattice       0.20-35    2017-03-25
+##  lazyeval      0.2.1      2017-10-29
+##  lubridate     1.7.4      2018-04-11
+##  magrittr    * 1.5        2014-11-22
+##  memoise       1.1.0      2017-04-21
+##  methods     * 3.5.1      2018-07-02
+##  modelr        0.1.2      2018-05-11
+##  munsell       0.5.0      2018-06-12
+##  ncappc      * 0.3.0      2018-08-20
+##  ncar        * 0.4.1      2018-07-10
+##  nlme          3.1-137    2018-04-07
+##  NonCompart  * 0.4.4      2018-08-06
+##  parallel      3.5.1      2018-07-02
+##  pillar        1.3.0      2018-07-14
+##  PK          * 1.3-4      2018-02-26
+##  pkgconfig     2.0.2      2018-08-16
+##  PKNCA       * 0.8.5.9000 2018-07-04
+##  pkr         * 0.1.2      2018-06-04
+##  plyr          1.8.4      2016-06-08
+##  PopED         0.3.2      2016-12-12
+##  purrr       * 0.2.5      2018-05-29
+##  R.methodsS3   1.7.1      2016-02-16
+##  R.oo          1.22.0     2018-04-22
+##  R6            2.2.2      2017-06-17
+##  Rcpp          0.12.18    2018-07-23
+##  readr       * 1.1.1      2017-05-16
+##  readxl      * 1.1.0      2018-04-20
+##  reshape2      1.4.3      2017-12-11
+##  rlang         0.2.2      2018-08-16
+##  rmarkdown     1.10       2018-06-11
+##  rprojroot     1.3-2      2018-01-03
+##  rstudioapi    0.7        2017-09-07
+##  rtf         * 0.4-13     2018-05-17
+##  rvest         0.3.2      2016-06-17
+##  scales        1.0.0      2018-08-09
+##  stats       * 3.5.1      2018-07-02
+##  stringi       1.2.4      2018-07-20
+##  stringr     * 1.3.1      2018-05-10
+##  tibble      * 1.4.2      2018-01-22
+##  tidyr       * 0.8.1      2018-05-18
+##  tidyselect    0.2.4      2018-02-26
+##  tidyverse   * 1.2.1      2017-11-14
+##  tools         3.5.1      2018-07-02
+##  utils       * 3.5.1      2018-07-02
+##  viridisLite   0.3.0      2018-02-01
+##  withr         2.1.2      2018-03-15
+##  xfun          0.3        2018-07-06
+##  xml2          1.2.0      2018-01-24
+##  xtable        1.8-2      2016-02-05
+##  yaml          2.2.0      2018-07-25
+##  source                                   
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  local                                    
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  local                                    
+##  Github (gaborcsardi/crayon@3e751fb)      
+##  local                                    
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.1)                           
+##  local                                    
+##  local                                    
+##  local                                    
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  local                                    
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  Github (UUPharmacometrics/ncappc@9e5c19f)
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.1)                           
+##  local                                    
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  Github (billdenney/pknca@48bc5a6)        
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  local                                    
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  local                                    
+##  local                                    
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.0)                           
+##  CRAN (R 3.5.1)</code></pre>
 </div>
             </section>
 
