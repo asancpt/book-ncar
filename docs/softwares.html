@@ -50,44 +50,70 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -133,10 +159,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
 <li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#ncar-"><i class="fa fa-check"></i><b>5.2</b> ncar 사용법</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="ncar.html"><a href="ncar.html#txtnca---"><i class="fa fa-check"></i><b>5.2.1</b> txtNCA(): 한 대상자 보고서</a></li>
-<li class="chapter" data-level="5.2.2" data-path="ncar.html"><a href="ncar.html#txtnca2---"><i class="fa fa-check"></i><b>5.2.2</b> txtNCA2(): 여러 대상자 보고서</a></li>
-</ul></li>
+<li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>5.2</b> txtNCA()</a></li>
+<li class="chapter" data-level="5.3" data-path="ncar.html"><a href="ncar.html#pdfnca"><i class="fa fa-check"></i><b>5.3</b> pdfNCA()</a></li>
+<li class="chapter" data-level="5.4" data-path="ncar.html"><a href="ncar.html#rtfnca"><i class="fa fa-check"></i><b>5.4</b> rtfNCA()</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
 <li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
@@ -159,9 +184,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
-<li class="chapter" data-level="A.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
+<li class="chapter" data-level="A.1" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#introduction-1"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
 <li class="chapter" data-level="A.2" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
-<li class="chapter" data-level="A.3" data-path="conclusion.html"><a href="conclusion.html#conclusion"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.3" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#conclusion-1"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a><ul>
 <li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
@@ -219,8 +244,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">B</span> 기타 비구획분석 소프트웨어</h1>
 <div id="detailschapter" class="section level2">
 <h2><span class="header-section-number">B.1</span> 이 장에서는</h2>
-<p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다. 특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
+특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 </div>
 <div id="certara-phoenix-winnonlin" class="section level2">
 <h2><span class="header-section-number">B.2</span> Certara Phoenix WinNonLin</h2>
@@ -272,7 +298,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>CDISC SDTM pharmacokinetic concentration (PC) and pharmacokinetic parameter (PP) domains have been standardized</li>
 </ul></li>
 <li><p>우리도 R로 NCA?</p>
-<h3 id="--"><span class="header-section-number">11.3.2</span> 할수 있는 것</h3>
+<p>### 할수 있는 것</p>
 <ul>
 <li>Organizes concentration/time and dose/time data</li>
 </ul></li>
@@ -363,16 +389,16 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>Experience with R language required</li>
 <li>Generating plots not supported for now (To be supported soon)</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(PKNCA)
-
-my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)
-d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,
-                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])
-my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)
-my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)
-my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)
-my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">library</span>(PKNCA)</a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb81-3" data-line-number="3">my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
+<a class="sourceLine" id="cb81-4" data-line-number="4">d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb81-5" data-line-number="5">                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</a>
+<a class="sourceLine" id="cb81-6" data-line-number="6">my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
+<a class="sourceLine" id="cb81-7" data-line-number="7">my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</a>
+<a class="sourceLine" id="cb81-8" data-line-number="8">my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</a>
+<a class="sourceLine" id="cb81-9" data-line-number="9">my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb81-10" data-line-number="10"><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
 <pre><code>##    start end Subject   PPTESTCD   PPORRES exclude
 ## 1      0 Inf       1 aucinf.obs 214.92363    &lt;NA&gt;
 ## 2      0 Inf       2 aucinf.obs  97.37793    &lt;NA&gt;
@@ -398,7 +424,7 @@ my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</spa
 ## 22     0 Inf      10       cmax  10.21000    &lt;NA&gt;
 ## 23     0 Inf      11       cmax   8.00000    &lt;NA&gt;
 ## 24     0 Inf      12       cmax   9.75000    &lt;NA&gt;</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(my.results.automatic)</code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">summary</span>(my.results.automatic)</a></code></pre></div>
 <pre><code>##   start end  N     auclast        cmax               tmax   half.life
 ## 1     0  24 12 74.6 [24.3]           .                  .           .
 ## 2     0 Inf 12           . 8.65 [17.0] 1.14 [0.630, 3.55] 8.18 [2.12]
@@ -410,33 +436,164 @@ my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</spa
 <div id="r-package-ncappc" class="section level2">
 <h2><span class="header-section-number">B.4</span> R package: ncappc</h2>
 <p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="#ref-Acharya201683">2016</a>)</span></p>
-<p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a> <a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;ncappc&quot;)</span>
-<span class="kw">library</span>(ncappc)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Theoph <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,
-         <span class="dt">TIME =</span> Time,
-         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)
-
-Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,
-       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,
-       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,
-       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,
-       <span class="dt">evid =</span> <span class="ot">FALSE</span>,
-       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</code></pre></div>
-<pre><code>## Error in ncappc(obsFile = &quot;Theoph_ncappc.csv&quot;, onlyNCA = TRUE, extrapolate = TRUE, : unused arguments (onlyNCA = TRUE, extrapolate = TRUE)</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Theoph_ncappc_results</code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;Theoph_ncappc_results&#39; not found</code></pre>
-<pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;Theoph_ncappc&#39; not found</code></pre>
+<p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a>
+<a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co">#install.packages(&quot;ncappc&quot;)</span></a>
+<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">library</span>(ncappc)</a></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">Theoph <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</a>
+<a class="sourceLine" id="cb86-3" data-line-number="3">         <span class="dt">TIME =</span> Time,</a>
+<a class="sourceLine" id="cb86-4" data-line-number="4">         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb86-5" data-line-number="5"><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</a>
+<a class="sourceLine" id="cb86-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb86-7" data-line-number="7">Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</a>
+<a class="sourceLine" id="cb86-8" data-line-number="8">       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb86-9" data-line-number="9">       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb86-10" data-line-number="10">       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb86-11" data-line-number="11">       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb86-12" data-line-number="12">       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="13-others_files/figure-html/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-html/unnamed-chunk-5-2.png" width="100%" /></p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">Theoph_ncappc_results</a></code></pre></div>
+<pre><code>## $ncaOutput
+##    ID Dose C0 Tmax simTmax  Cmax simCmax Cmax_D Tlast Clast   AUClast
+## 1   1   NA NA 1.12       0 10.50       0     NA 24.37  3.28 147.23475
+## 2   2   NA NA 1.92       0  8.33       0     NA 24.30  0.90  88.73128
+## 3   3   NA NA 1.02       0  8.20       0     NA 24.17  1.05  95.87820
+## 4   4   NA NA 1.07       0  8.60       0     NA 24.65  1.15 102.63362
+## 5   5   NA NA 1.00       0 11.40       0     NA 24.35  1.57 118.17935
+## 6   6   NA NA 1.15       0  6.44       0     NA 23.85  0.92  71.69701
+## 7   7   NA NA 3.48       0  7.09       0     NA 24.22  1.15  87.96923
+## 8   8   NA NA 2.02       0  7.56       0     NA 24.12  1.25  86.80656
+## 9   9   NA NA 0.63       0  9.03       0     NA 24.43  1.12  83.93744
+## 10 10   NA NA 3.55       0 10.21       0     NA 23.70  2.42 135.57607
+## 11 11   NA NA 0.98       0  8.00       0     NA 24.08  0.86  77.89347
+## 12 12   NA NA 3.52       0  9.75       0     NA 24.15  1.17 115.22021
+##    simAUClast  AUMClast simAUMClast   MRTlast No_points_Lambda_z
+## 1           0 1499.1291           0 10.181897                  3
+## 2           0  716.2787           0  8.072449                  4
+## 3           0  810.8727           0  8.457321                  3
+## 4           0  911.7828           0  8.883861                  3
+## 5           0 1038.8800           0  8.790706                  4
+## 6           0  618.6659           0  8.628894                  7
+## 7           0  795.6268           0  9.044376                  4
+## 8           0  756.3620           0  8.713189                  6
+## 9           0  723.3794           0  8.618079                  3
+## 10          0 1306.7406           0  9.638431                  3
+## 11          0  626.6358           0  8.044779                  3
+## 12          0  982.6343           0  8.528316                  3
+##    AUClower_upper simAUClower_upper       Rsq Rsq_adjusted    Corr_XY
+## 1       147.23475                 0 0.9999997    0.9999995 -0.9999999
+## 2        88.73128                 0 0.9971954    0.9957931 -0.9985967
+## 3        95.87820                 0 0.9993250    0.9986499 -0.9996624
+## 4       102.63362                 0 0.9989241    0.9978483 -0.9994619
+## 5       118.17935                 0 0.9986472    0.9979708 -0.9993234
+## 6        71.69701                 0 0.9982413    0.9978896 -0.9991203
+## 7        87.96923                 0 0.9986702    0.9980053 -0.9993349
+## 8        86.80656                 0 0.9910124    0.9887655 -0.9954961
+## 9        83.93744                 0 0.9994437    0.9988873 -0.9997218
+## 10      135.57607                 0 0.9995087    0.9990174 -0.9997543
+## 11       77.89347                 0 0.9999983    0.9999965 -0.9999991
+## 12      115.22021                 0 0.9993968    0.9987936 -0.9996984
+##      Lambda_z Lambda_z_lower Lambda_z_upper HL_Lambda_z simHL_Lambda_z
+## 1  0.04845700             NA             NA   14.304378              0
+## 2  0.10408644             NA             NA    6.659342              0
+## 3  0.10244431             NA             NA    6.766087              0
+## 4  0.09928702             NA             NA    6.981247              0
+## 5  0.08661888             NA             NA    8.002264              0
+## 6  0.08779574             NA             NA    7.894998              0
+## 7  0.08833650             NA             NA    7.846668              0
+## 8  0.08145054             NA             NA    8.510038              0
+## 9  0.08245863             NA             NA    8.405999              0
+## 10 0.07495982             NA             NA    9.246916              0
+## 11 0.09545856             NA             NA    7.261237              0
+## 12 0.11025949             NA             NA    6.286508              0
+##    AUCINF_obs simAUCINF_obs AUCINF_D_obs AUC_pExtrap_obs AUC_pBack_Ext_obs
+## 1   214.92363             0           NA       31.494388                NA
+## 2    97.37793             0           NA        8.879485                NA
+## 3   106.12767             0           NA        9.657680                NA
+## 4   114.21620             0           NA       10.140927                NA
+## 5   136.30473             0           NA       13.297688                NA
+## 6    82.17588             0           NA       12.751756                NA
+## 7   100.98763             0           NA       12.891086                NA
+## 8   102.15330             0           NA       15.023241                NA
+## 9    97.52000             0           NA       13.927981                NA
+## 10  167.86003             0           NA       19.232667                NA
+## 11   86.90262             0           NA       10.366943                NA
+## 12  125.83154             0           NA        8.432966                NA
+##    Vz_obs Cl_obs AUCINF_pred simAUCINF_pred AUCINF_D_pred AUC_pExtrap_pred
+## 1      NA     NA   214.92665              0            NA        31.495352
+## 2      NA     NA    97.26879              0            NA         8.777242
+## 3      NA     NA   106.17742              0            NA         9.700011
+## 4      NA     NA   114.28088              0            NA        10.191782
+## 5      NA     NA   136.13958              0            NA        13.192512
+## 6      NA     NA    82.41816              0            NA        13.008235
+## 7      NA     NA   101.10897              0            NA        12.995629
+## 8      NA     NA   101.88966              0            NA        14.803367
+## 9      NA     NA    97.47735              0            NA        13.890321
+## 10     NA     NA   167.77588              0            NA        19.192158
+## 11     NA     NA    86.90059              0            NA        10.364854
+## 12     NA     NA   125.88178              0            NA         8.469509
+##    AUC_pBack_Ext_pred Vz_pred Cl_pred AUMCINF_obs AUMC_pExtrap_obs
+## 1                  NA      NA      NA   4545.5928         67.02016
+## 2                  NA      NA      NA   1009.4644         29.04369
+## 3                  NA      NA      NA   1158.6516         30.01583
+## 4                  NA      NA      NA   1313.9510         30.60755
+## 5                  NA      NA      NA   1689.4873         38.50916
+## 6                  NA      NA      NA    987.9420         37.37832
+## 7                  NA      NA      NA   1258.3053         36.76997
+## 8                  NA      NA      NA   1314.9431         42.47949
+## 9                  NA      NA      NA   1219.9213         40.70278
+## 10                 NA      NA      NA   2502.5540         47.78372
+## 11                 NA      NA      NA    937.9535         33.19117
+## 12                 NA      NA      NA   1335.1376         26.40202
+##    AUMCINF_pred AUMC_pExtrap_pred MRTINF_obs MRTINF_pred Tau Tmin Cmin
+## 1     4545.7288          67.02115   21.14980    21.15014  NA   NA   NA
+## 2     1005.7637          28.78261   10.36646    10.34005  NA   NA   NA
+## 3     1160.3397          30.11765   10.91753    10.92831  NA   NA   NA
+## 4     1316.1967          30.72595   11.50407    11.51721  NA   NA   NA
+## 5     1683.5593          38.29264   12.39493    12.36642  NA   NA   NA
+## 6      996.4800          37.91487   12.02229    12.09054  NA   NA   NA
+## 7     1262.6180          36.98595   12.45999    12.48769  NA   NA   NA
+## 8     1305.3475          42.05666   12.87225    12.81138  NA   NA   NA
+## 9     1218.3621          40.62690   12.50945    12.49893  NA   NA   NA
+## 10    2499.4371          47.71860   14.90858    14.89748  NA   NA   NA
+## 11     937.8835          33.18618   10.79316    10.79260  NA   NA   NA
+## 12    1336.8064          26.49390   10.61052    10.61954  NA   NA   NA
+##    Cavg AUCtau AUMCtau Clss Vss_obs Vss_pred p_Fluctuation
+## 1    NA     NA      NA   NA      NA       NA            NA
+## 2    NA     NA      NA   NA      NA       NA            NA
+## 3    NA     NA      NA   NA      NA       NA            NA
+## 4    NA     NA      NA   NA      NA       NA            NA
+## 5    NA     NA      NA   NA      NA       NA            NA
+## 6    NA     NA      NA   NA      NA       NA            NA
+## 7    NA     NA      NA   NA      NA       NA            NA
+## 8    NA     NA      NA   NA      NA       NA            NA
+## 9    NA     NA      NA   NA      NA       NA            NA
+## 10   NA     NA      NA   NA      NA       NA            NA
+## 11   NA     NA      NA   NA      NA       NA            NA
+## 12   NA     NA      NA   NA      NA       NA            NA
+##    Accumulation_Index
+## 1                  NA
+## 2                  NA
+## 3                  NA
+## 4                  NA
+## 5                  NA
+## 6                  NA
+## 7                  NA
+## 8                  NA
+## 9                  NA
+## 10                 NA
+## 11                 NA
+## 12                 NA</code></pre>
+<pre><code>## Error in file(file, &quot;rt&quot;): 커넥션을 열 수 없습니다</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): 객체 &#39;Theoph_ncappc&#39;를 찾을 수 없습니다</code></pre>
 </div>
 <div id="r-package-pk" class="section level2">
 <h2><span class="header-section-number">B.5</span> R package: PK</h2>
 <p>Basic Non-Compartmental Pharmacokinetics</p>
 <p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;PK&quot;)</span>
-<span class="kw">library</span>(PK)</code></pre></div>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co">#install.packages(&quot;PK&quot;)</span></a>
+<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">library</span>(PK)</a></code></pre></div>
 </div>
 <div id="kinetica" class="section level2">
 <h2><span class="header-section-number">B.6</span> Kinetica</h2>
@@ -449,14 +606,14 @@ Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</spa
 </div>
 <div id="summary" class="section level2">
 <h2><span class="header-section-number">B.9</span> Summary</h2>
-<pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
+<pre><code>## Error in file(file, &quot;rt&quot;): 커넥션을 열 수 없습니다</code></pre>
 
 </div>
 </div>
 <h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-Acharya201683">
-<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127: 83–93. doi:<a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013">http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
+<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127: 83–93. <a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013" class="uri">https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
 </div>
 </div>
             </section>
@@ -514,7 +671,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

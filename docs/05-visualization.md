@@ -51,15 +51,15 @@ plotPK(Theoph, "Subject", "Time", "conc", unitTime="hr", unitConc="mg/L", dose=3
 ```
 
 ```
-## quartz_off_screen 
-##                 2
+## png 
+##   2
 ```
 
 조금 기다린 후 `Output` 폴더를 확인해 보면 세개의 그림 파일이 생성된 것을 알 수 있습니다.
 
-- ./Output//PK Profile Linear Scale for Theoph.tiff
-- ./Output//PK Profile Log 10 Scale for Theoph.tiff
-- ./Output//PK Profile with CI for Theoph.tiff 
+- ./Output/PK Profile Linear Scale for Theoph.tiff
+- ./Output/PK Profile Log 10 Scale for Theoph.tiff
+- ./Output/PK Profile with CI for Theoph.tiff 
 
 
 
@@ -80,8 +80,8 @@ plotPK(Theoph, "Subject", "Time", "conc", unitTime="hr", unitConc="mg/L", dose=3
 
 또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.
 
-- ./Output//Individual PK Linear Scale for Theoph.pdf
-- ./Output//Individual PK Log 10 Scale for Theoph.pdf 
+- ./Output/Individual PK Linear Scale for Theoph.pdf
+- ./Output/Individual PK Log 10 Scale for Theoph.pdf 
 
 
 <div class="figure">

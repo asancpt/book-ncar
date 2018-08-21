@@ -20,3 +20,5 @@ clean:
 rmd:
 	Rscript -e "rmarkdown::render('keynote.Rmd', output_format = 'html_document', encoding = 'UTF-8')"
 
+write_bib:
+	Rscript R/write_bib_references.R

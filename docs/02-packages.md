@@ -60,14 +60,16 @@ library(knitr)
 help(tblNCA)
 ```
 
-자료 분석을 위해 몇가지 도구가 필요한데 `tidyverse`[@R-tidyverse]를 설치하면 다수의 편리한 패키지 `tidyr` [@R-tidyr], `dplyr` [@R-dplyr], `tibble` [@R-tibble], `ggplot2` [R-ggplot2], `purrr` [@R-purrr], `readr` [@R-readr]의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다. 
+자료 분석을 위해 몇가지 도구가 필요한데 `tidyverse`[@R-tidyverse]를 설치하면 다수의 편리한 패키지 `tidyr` [@R-tidyr], `dplyr` [@R-dplyr], `tibble` [@R-tibble], `ggplot2` [@R-ggplot2], `purrr` [@R-purrr], `readr` [@R-readr]의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다. 
 
 다만 비구획분석을 위한 함수의 입력을 위해 `tibble` 형식은 `as.data.frame()`을 통하여 데이타프레임으로 자료 형식을 변환하는 것이 좋습니다.
-마찬가지로 `readr` 패키지의 `read_csv()` 명령어를 쓸 경우 `tibble`로 읽혀지기 때문에 `as.data.frame()`으로 바꿔주거나 처음부터 `read_csv()`를 쓰는 것을 고려할 수 있습니다.
+마찬가지로 `readr` 패키지의 `read_csv()` 명령어를 쓸 경우 `tibble`로 읽혀지기 때문에 `as.data.frame()`으로 바꿔주거나 처음부터 `read.csv()`를 쓰는 것을 고려할 수 있습니다. 
+
 
 ```r
 install.packages('devtools')
-devtools::install_github('tidyverse/tidyverse')
+devtools::install_github('tidyverse/tidyverse') 
+# or `install.packages('tidyverse')`
 library(tidyverse)
 ```
 
@@ -79,16 +81,19 @@ R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있�
 
 - `Theoph`: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.
 - `Indometh`: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
-(데이터명의 첫글짜가 대문자임에 주의하길)
 
 먼저 데이터를 살펴보겠습니다. 
 
 
+```r
+library(ggplot2)
+library(dplyr)
+```
 
 ## 데이타에 대해 {#TheophData}
 
 Theoph 자료의 첫 10개 (Table \@ref(tab:head)) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다. 
-대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다. 
+데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다. 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다. 
 
 ```r
 head(Theoph, n=10)
@@ -128,8 +133,6 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
 <p class="caption">(\#fig:ggtheoph)Concentration-time curves of oral administration of Theoph (N = 12)</p>
 </div>
 
-
-데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
 
 
 

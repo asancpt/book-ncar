@@ -50,44 +50,70 @@
 
 
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<link rel="stylesheet" href="css\style.css" type="text/css" />
 </head>
 
 <body>
@@ -133,10 +159,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul></li>
 <li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
 <li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#ncar-"><i class="fa fa-check"></i><b>5.2</b> ncar 사용법</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="ncar.html"><a href="ncar.html#txtnca---"><i class="fa fa-check"></i><b>5.2.1</b> txtNCA(): 한 대상자 보고서</a></li>
-<li class="chapter" data-level="5.2.2" data-path="ncar.html"><a href="ncar.html#txtnca2---"><i class="fa fa-check"></i><b>5.2.2</b> txtNCA2(): 여러 대상자 보고서</a></li>
-</ul></li>
+<li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>5.2</b> txtNCA()</a></li>
+<li class="chapter" data-level="5.3" data-path="ncar.html"><a href="ncar.html#pdfnca"><i class="fa fa-check"></i><b>5.3</b> pdfNCA()</a></li>
+<li class="chapter" data-level="5.4" data-path="ncar.html"><a href="ncar.html#rtfnca"><i class="fa fa-check"></i><b>5.4</b> rtfNCA()</a></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
 <li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
@@ -159,9 +184,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>부록</b></span></li>
 <li class="chapter" data-level="A" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
-<li class="chapter" data-level="A.1" data-path="introduction.html"><a href="introduction.html#introduction"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
+<li class="chapter" data-level="A.1" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#introduction-1"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
 <li class="chapter" data-level="A.2" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
-<li class="chapter" data-level="A.3" data-path="conclusion.html"><a href="conclusion.html#conclusion"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.3" data-path="phoenix-winnonlin-.html"><a href="phoenix-winnonlin-.html#conclusion-1"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
 </ul></li>
 <li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a><ul>
 <li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
@@ -219,13 +244,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 4</span> R을 사용한 비구획분석</h1>
 <div id="summary-noncompart" class="section level2">
 <h2><span class="header-section-number">4.1</span> 이 장에서는</h2>
-<p><code>NonCompart</code> <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">c</a>)</span>은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다. 약동학 교재의 내용을 충실히 반영하였습니다. <span class="citation">(Gabrielsson <a href="#ref-gab">2016</a>; Rowland <a href="#ref-tozer">2011</a>)</span> 이에 대해 좀더 자세히 알아보겠습니다.</p>
+<p><code>NonCompart</code> <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">c</a>)</span>은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다.
+약동학 교재의 내용을 충실히 반영하였습니다. <span class="citation">(Gabrielsson <a href="#ref-gab">2016</a>; Rowland <a href="#ref-tozer">2011</a>)</span>
+이에 대해 좀더 자세히 알아보겠습니다.</p>
 <p><code>NonCompart</code>의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있습니다.</p>
 <blockquote>
-<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>. Some features are 1) Use of CDISC SDTM terms 2) Automatic slope selection with the same criterion of WinNonlin(R) 3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method 4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
+<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.
+Some features are
+1) Use of CDISC SDTM terms
+2) Automatic slope selection with the same criterion of WinNonlin(R)
+3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method
+4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method
+* Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
-<span class="kw">library</span>(NonCompart)</code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a></code></pre></div>
 </div>
 <div id="how-to-use" class="section level2">
 <h2><span class="header-section-number">4.2</span> NonCompart 사용법</h2>
@@ -242,7 +275,9 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
        concUnit = "ug/L", down = "Linear", R2ADJ = 0.7, MW = 0) # args(NonCompart::tblNCA)
 ```
 --->
-<p><code>concData</code>는 데이터셋 이름을 설정합니다. 참고로 <code>tibble</code> 형식은 지원하지 않으며 <code>as.data.frame()</code> 함수 등을 사용해서 통상적인 <code>data.frame</code> 형식이어야 합니다. <code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태로 지정할 수 있습니다. <code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.</p>
+<p><code>concData</code>는 데이터셋 이름을 설정합니다. 참고로 <code>tibble</code> 형식은 지원하지 않으며 <code>as.data.frame()</code> 함수 등을 사용해서 통상적인 <code>data.frame</code> 형식이어야 합니다.
+<code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태로 지정할 수 있습니다.
+<code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.</p>
 <ol style="list-style-type: decimal">
 <li><code>down</code>
 <ul>
@@ -267,10 +302,11 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <li><code>R2ADJ</code> 값이 설정값 이하인 경우 <code>DetSlope()</code>함수에 의해 terminal slope를 수동으로 interactive하게 고를 수 있게됩니다.</li>
 </ul></li>
 </ol>
-<p>이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다. 우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Theoph_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, 
-                     <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
-Theoph_nca</code></pre></div>
+<p>이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
+우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">Theoph_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </a>
+<a class="sourceLine" id="cb12-2" data-line-number="2">                     <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb12-3" data-line-number="3">Theoph_nca</a></code></pre></div>
 <pre><code>##    Subject       b0  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST
 ## 1        1 2.368785 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37
 ## 2        2 2.411237  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30
@@ -338,9 +374,10 @@ Theoph_nca</code></pre></div>
 ## 12 22.22429 22.21575 2.450439 2.449497 8.150534 10.187579 10.196436</code></pre>
 <p>여기서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미합니다.</p>
 <p>이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.</p>
-<p>다음으로 Indomethacin 의 약동학 파라미터를 구해보겠습니다. 이는 IV bolus 이므로 <code>adm=&quot;bolus&quot;</code> 인자를 정의해야 합니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Indometh_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, 
-                       <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre></div>
+<p>다음으로 Indomethacin 의 약동학 파라미터를 구해보겠습니다.
+이는 IV bolus 이므로 <code>adm=&quot;bolus&quot;</code> 인자를 정의해야 합니다.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">Indometh_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </a>
+<a class="sourceLine" id="cb14-2" data-line-number="2">                       <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a></code></pre></div>
 </div>
 <div id="interval-NCA" class="section level2">
 <h2><span class="header-section-number">4.3</span> 구간 NCA</h2>
@@ -351,24 +388,29 @@ Theoph_nca</code></pre></div>
 <li>“Name”, “Start”, “End” 3개의 컬럼으로 구성된 데이터 프레임으로 설정해야 합니다.</li>
 </ul></li>
 </ol>
-<p>일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다. 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다. 먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</code></pre></div>
+<p>일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다.
+예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다.
+먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</a></code></pre></div>
 <pre><code>##         Name Start End
 ## 1 AUC[0-12h]     0  12
 ## 2 AUC[0-24h]     0  24</code></pre>
 <pre><code>    Name Start End</code></pre>
-<p>1 AUC[0-12h] 0 12 2 AUC[0-24h] 0 24</p>
+<p>1 AUC[0-12h] 0 12
+2 AUC[0-24h] 0 24</p>
 <p>이제 iAUC 옵션을 이용해서 이를 구합니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></a></code></pre></div>
 <p>맨 마지막 파라미터로 AUC[0-12h], AUC[0-24h]가 추가되었음을 알 수 있습니다.</p>
-<p>개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다. 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.</p>
+<p>개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
+예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.</p>
 <blockquote>
 <p>iAUC = data.frame(Name=c(“AUC[0-12h]”,“AUC[0-24h]”), Start=c(0,0), End=c(12,24)) ; iAUC</p>
 </blockquote>
 <pre><code>    Name Start End</code></pre>
-<p>1 AUC[0-12h] 0 12 2 AUC[0-24h] 0 24</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#IntAUC</span>
-<span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></code></pre></div>
+<p>1 AUC[0-12h] 0 12
+2 AUC[0-24h] 0 24</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" data-line-number="1"><span class="co">#IntAUC</span></a>
+<a class="sourceLine" id="cb20-2" data-line-number="2"><span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></a></code></pre></div>
 <pre><code>        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
   10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
       LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
@@ -386,7 +428,7 @@ Theoph_nca</code></pre></div>
 <div id="auc" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> AUC</h3>
 <p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</a></code></pre></div>
 <pre><code>##             AUC        AUMC
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
@@ -399,7 +441,7 @@ Theoph_nca</code></pre></div>
 ##  [9,]  72.75650  322.298798
 ## [10,]  92.45055  528.521903
 ## [11,] 148.92305 1459.071104</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</a></code></pre></div>
 <pre><code>##             AUC        AUMC
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
@@ -417,11 +459,11 @@ Theoph_nca</code></pre></div>
 <div id="long-format" class="section level2">
 <h2><span class="header-section-number">4.5</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
 <p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 attr로 names와 units를 등일 갖게 됩니다. 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">left_join</span>(<span class="kw">as.tibble</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">            </span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),
-          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>names,
-                 <span class="dt">UNIT =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>units)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">arrange</span>(PPTESTCD)</code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" data-line-number="1"><span class="kw">left_join</span>(<span class="kw">as.tibble</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-2" data-line-number="2"><span class="st">            </span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</a>
+<a class="sourceLine" id="cb26-3" data-line-number="3">          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>names,</a>
+<a class="sourceLine" id="cb26-4" data-line-number="4">                 <span class="dt">UNIT =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>units)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb26-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
 <pre><code>## # A tibble: 432 x 4
 ##    Subject PPTESTCD PPORRES UNIT  
 ##    &lt;ord&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; 
@@ -506,7 +548,7 @@ gitbook.start({
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    var src = "";
+    var src = "true";
     if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');

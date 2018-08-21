@@ -11,7 +11,7 @@ ID=6
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -90,7 +90,7 @@ ID=7
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -169,7 +169,7 @@ ID=8
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -248,7 +248,7 @@ ID=11
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -327,7 +327,7 @@ ID=3
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -406,7 +406,7 @@ ID=2
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -485,7 +485,7 @@ ID=4
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -564,7 +564,7 @@ ID=9
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -643,7 +643,7 @@ ID=12
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -722,7 +722,7 @@ ID=10
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -801,7 +801,7 @@ ID=1
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -880,7 +880,7 @@ ID=5
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:11 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -965,37 +965,37 @@ devtools::session_info()
 ```
 ##  setting  value                       
 ##  version  R version 3.5.1 (2018-07-02)
-##  system   x86_64, darwin17.6.0        
-##  ui       unknown                     
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
 ##  language (EN)                        
-##  collate  en_US.UTF-8                 
+##  collate  Korean_Korea.949            
 ##  tz       Asia/Seoul                  
 ##  date     2018-08-21                  
 ## 
 ##  package   * version date       source        
 ##  backports   1.1.2   2017-12-13 CRAN (R 3.5.0)
-##  base      * 3.5.1   2018-07-03 local         
+##  base      * 3.5.1   2018-07-02 local         
 ##  bookdown    0.7     2018-02-18 CRAN (R 3.5.0)
-##  compiler    3.5.1   2018-07-03 local         
-##  datasets  * 3.5.1   2018-07-03 local         
+##  compiler    3.5.1   2018-07-02 local         
+##  datasets  * 3.5.1   2018-07-02 local         
 ##  devtools    1.13.6  2018-06-27 CRAN (R 3.5.0)
 ##  digest      0.6.15  2018-01-28 CRAN (R 3.5.0)
 ##  evaluate    0.11    2018-07-17 CRAN (R 3.5.1)
-##  graphics  * 3.5.1   2018-07-03 local         
-##  grDevices * 3.5.1   2018-07-03 local         
+##  graphics  * 3.5.1   2018-07-02 local         
+##  grDevices * 3.5.1   2018-07-02 local         
 ##  htmltools   0.3.6   2017-04-28 CRAN (R 3.5.0)
 ##  knitr       1.20    2018-02-20 CRAN (R 3.5.0)
 ##  magrittr    1.5     2014-11-22 CRAN (R 3.5.0)
 ##  memoise     1.1.0   2017-04-21 CRAN (R 3.5.0)
-##  methods   * 3.5.1   2018-07-03 local         
+##  methods   * 3.5.1   2018-07-02 local         
 ##  Rcpp        0.12.18 2018-07-23 CRAN (R 3.5.1)
 ##  rmarkdown   1.10    2018-06-11 CRAN (R 3.5.0)
 ##  rprojroot   1.3-2   2018-01-03 CRAN (R 3.5.0)
-##  stats     * 3.5.1   2018-07-03 local         
+##  stats     * 3.5.1   2018-07-02 local         
 ##  stringi     1.2.4   2018-07-20 CRAN (R 3.5.1)
 ##  stringr     1.3.1   2018-05-10 CRAN (R 3.5.0)
-##  tools       3.5.1   2018-07-03 local         
-##  utils     * 3.5.1   2018-07-03 local         
+##  tools       3.5.1   2018-07-02 local         
+##  utils     * 3.5.1   2018-07-02 local         
 ##  withr       2.1.2   2018-03-15 CRAN (R 3.5.0)
 ##  xfun        0.3     2018-07-06 CRAN (R 3.5.1)
 ```

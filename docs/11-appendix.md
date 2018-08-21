@@ -96,7 +96,7 @@ Equal(Wres3, Rres3)
 ```
 
 ```
-## Error in if (abs((R - W)/W) > Tol) {: missing value where TRUE/FALSE needed
+## Error in if (abs((R - W)/W) > Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다
 ```
 
 ```r
@@ -107,7 +107,7 @@ Equal(Wres4, Rres4)
 ```
 
 ```
-## Error in if (abs((R - W)/W) > Tol) {: missing value where TRUE/FALSE needed
+## Error in if (abs((R - W)/W) > Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다
 ```
 
 ```r
@@ -118,7 +118,7 @@ Equal(Wres5, Rres5)
 ```
 
 ```
-## Error in if (abs((R - W)/W) > Tol) {: missing value where TRUE/FALSE needed
+## Error in if (abs((R - W)/W) > Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다
 ```
 
 ```r
@@ -129,7 +129,7 @@ Equal(Wres6, Rres6)
 ```
 
 ```
-## Error in if (abs((R - W)/W) > Tol) {: missing value where TRUE/FALSE needed
+## Error in if (abs((R - W)/W) > Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다
 ```
 
 ```r
@@ -139,7 +139,7 @@ Equal(Wres7, Rres7)
 ```
 
 ```
-## Error in if (abs((R - W)/W) > Tol) {: missing value where TRUE/FALSE needed
+## Error in if (abs((R - W)/W) > Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다
 ```
 
 ```r
@@ -150,7 +150,7 @@ Equal(Wres8, Rres8)
 ```
 
 ```
-## Error in if (abs((R - W)/W) > Tol) {: missing value where TRUE/FALSE needed
+## Error in if (abs((R - W)/W) > Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다
 ```
 
 ```r
@@ -160,48 +160,48 @@ devtools::session_info()
 ```
 ##  setting  value                       
 ##  version  R version 3.5.1 (2018-07-02)
-##  system   x86_64, darwin17.6.0        
-##  ui       unknown                     
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
 ##  language (EN)                        
-##  collate  en_US.UTF-8                 
+##  collate  Korean_Korea.949            
 ##  tz       Asia/Seoul                  
 ##  date     2018-08-21                  
 ## 
-##  package    * version date       source        
-##  backports    1.1.2   2017-12-13 CRAN (R 3.5.0)
-##  base       * 3.5.1   2018-07-03 local         
-##  bookdown     0.7     2018-02-18 CRAN (R 3.5.0)
-##  compiler     3.5.1   2018-07-03 local         
-##  crayon       1.3.4   2017-09-16 CRAN (R 3.5.0)
-##  datasets   * 3.5.1   2018-07-03 local         
-##  devtools     1.13.6  2018-06-27 CRAN (R 3.5.0)
-##  digest       0.6.15  2018-01-28 CRAN (R 3.5.0)
-##  evaluate     0.11    2018-07-17 CRAN (R 3.5.1)
-##  graphics   * 3.5.1   2018-07-03 local         
-##  grDevices  * 3.5.1   2018-07-03 local         
-##  highr        0.7     2018-06-09 CRAN (R 3.5.0)
-##  hms          0.4.2   2018-03-10 CRAN (R 3.5.0)
-##  htmltools    0.3.6   2017-04-28 CRAN (R 3.5.0)
-##  knitr        1.20    2018-02-20 CRAN (R 3.5.0)
-##  magrittr     1.5     2014-11-22 CRAN (R 3.5.0)
-##  memoise      1.1.0   2017-04-21 CRAN (R 3.5.0)
-##  methods    * 3.5.1   2018-07-03 local         
-##  NonCompart * 0.4.4   2018-07-10 CRAN (R 3.5.1)
-##  pillar       1.3.0   2018-07-14 CRAN (R 3.5.1)
-##  pkgconfig    2.0.2   2018-08-16 CRAN (R 3.5.1)
-##  R6           2.2.2   2017-06-17 CRAN (R 3.5.0)
-##  Rcpp         0.12.18 2018-07-23 CRAN (R 3.5.1)
-##  readr        1.1.1   2017-05-16 CRAN (R 3.5.0)
-##  rlang        0.2.2   2018-08-16 CRAN (R 3.5.1)
-##  rmarkdown    1.10    2018-06-11 CRAN (R 3.5.0)
-##  rprojroot    1.3-2   2018-01-03 CRAN (R 3.5.0)
-##  stats      * 3.5.1   2018-07-03 local         
-##  stringi      1.2.4   2018-07-20 CRAN (R 3.5.1)
-##  stringr      1.3.1   2018-05-10 CRAN (R 3.5.0)
-##  tibble       1.4.2   2018-01-22 CRAN (R 3.5.0)
-##  tools        3.5.1   2018-07-03 local         
-##  utils      * 3.5.1   2018-07-03 local         
-##  withr        2.1.2   2018-03-15 CRAN (R 3.5.0)
+##  package    * version date       source                             
+##  backports    1.1.2   2017-12-13 CRAN (R 3.5.0)                     
+##  base       * 3.5.1   2018-07-02 local                              
+##  bookdown     0.7     2018-02-18 CRAN (R 3.5.0)                     
+##  compiler     3.5.1   2018-07-02 local                              
+##  crayon       1.3.4   2018-06-08 Github (gaborcsardi/crayon@3e751fb)
+##  datasets   * 3.5.1   2018-07-02 local                              
+##  devtools     1.13.6  2018-06-27 CRAN (R 3.5.0)                     
+##  digest       0.6.15  2018-01-28 CRAN (R 3.5.0)                     
+##  evaluate     0.11    2018-07-17 CRAN (R 3.5.1)                     
+##  graphics   * 3.5.1   2018-07-02 local                              
+##  grDevices  * 3.5.1   2018-07-02 local                              
+##  highr        0.7     2018-06-09 CRAN (R 3.5.0)                     
+##  hms          0.4.2   2018-03-10 CRAN (R 3.5.0)                     
+##  htmltools    0.3.6   2017-04-28 CRAN (R 3.5.0)                     
+##  knitr        1.20    2018-02-20 CRAN (R 3.5.0)                     
+##  magrittr     1.5     2014-11-22 CRAN (R 3.5.0)                     
+##  memoise      1.1.0   2017-04-21 CRAN (R 3.5.0)                     
+##  methods    * 3.5.1   2018-07-02 local                              
+##  NonCompart * 0.4.4   2018-08-06 CRAN (R 3.5.1)                     
+##  pillar       1.3.0   2018-07-14 CRAN (R 3.5.1)                     
+##  pkgconfig    2.0.2   2018-08-16 CRAN (R 3.5.1)                     
+##  R6           2.2.2   2017-06-17 CRAN (R 3.5.0)                     
+##  Rcpp         0.12.18 2018-07-23 CRAN (R 3.5.1)                     
+##  readr        1.1.1   2017-05-16 CRAN (R 3.5.0)                     
+##  rlang        0.2.2   2018-08-16 CRAN (R 3.5.1)                     
+##  rmarkdown    1.10    2018-06-11 CRAN (R 3.5.0)                     
+##  rprojroot    1.3-2   2018-01-03 CRAN (R 3.5.0)                     
+##  stats      * 3.5.1   2018-07-02 local                              
+##  stringi      1.2.4   2018-07-20 CRAN (R 3.5.1)                     
+##  stringr      1.3.1   2018-05-10 CRAN (R 3.5.0)                     
+##  tibble       1.4.2   2018-01-22 CRAN (R 3.5.0)                     
+##  tools        3.5.1   2018-07-02 local                              
+##  utils      * 3.5.1   2018-07-02 local                              
+##  withr        2.1.2   2018-03-15 CRAN (R 3.5.0)                     
 ##  xfun         0.3     2018-07-06 CRAN (R 3.5.1)
 ```
 

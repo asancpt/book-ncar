@@ -18,9 +18,6 @@ devtools::session_info()
 
 `r if (knitr:::is_html_output()) '# 참고문헌 {-}'`
 
-```{r include = FALSE}
-knitr::write_bib(c('base', 'dplyr', 'tidyr', 'tibble', 'purrr', 'readr',
-                   'ncarbe', 'tidyverse', 'PKPDdatasets', 'broom', 'BE',
-                   'NonCompart', 'ncar', 'pkr'), file = "bib/packages.bib")
+```{r, code=readLines('R/write_bib_references.R'), include = FALSE}
 ```
 

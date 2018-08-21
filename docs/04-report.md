@@ -31,7 +31,7 @@ library(tidyverse)
 library(ncar)
 ```
 
-## ncar 사용법
+## txtNCA()
 
 우선 저장될 폴더를 확인하면 다음과 같습니다.
 
@@ -41,12 +41,12 @@ getwd()
 ```
 
 ```
-## [1] "/Users/Sungpil/asancpt/book-ncar"
+## [1] "C:/Users/mdlhs/asancpt/book-ncar"
 ```
 
 저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 됩니다.
 
-### txtNCA(): 한 대상자 보고서
+`txtNCA()` 함수를 사용하여 한 대상자에 대한 plain text 보고서를 작성할 수 있습니다.
 
 
 ```r
@@ -55,7 +55,7 @@ txtNCA(Theoph[Theoph$Subject=="1","Time"],
        dose=320, doseUnit="mg", concUnit="mg/L", timeUnit="h")
 ```
 
-먼저, Theoph 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있습니다.
+또한, Theoph 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있습니다.
 
 
 ```r
@@ -69,12 +69,12 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
 저장된 파일 내용은 아래와 같습니다.
 
 
-```r
+```bash
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 11:00:10 Asia/Seoul
+Date and Time: 2018-08-21 12:17:54 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -144,9 +144,7 @@ MRTEVIFO   MRT Extravasc Infinity Obs                     20.8000 h
 MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h
 ```
 
-### txtNCA2(): 여러 대상자 보고서
-
-`txtNCA2()`를 다음과 같이 정의하면 여러 대상자에 대한 보고서를 작성 가능합니다.
+한편 `txtNCA2()`를 다음과 같이 정의하면 여러 대상자에 대한 보고서를 작성 가능합니다.
 
 
 ```r
@@ -171,7 +169,49 @@ txtNCA2 <- function(dataset){
 txtNCA2(Theoph) %>% writeLines('Output-ncar/txtNCA-group-Theoph.txt')
 ```
 
-저장된 파일 내용은 Theoph의 경우 Appendix \@ref(theophgroup) 에서 확인 가능합니다.
+저장된 파일 내용은 Appendix \@ref(theophgroup) 에서 확인 가능합니다.
 
 <!--Indometh의 경우 Appendix \@ref(indomethgroup)-->
+
+## pdfNCA()
+
+pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure \@ref(fig:pdfnca-output))
+
+
+```r
+ncar::pdfNCA(fileName="Output-ncar/pdfNCA-Theoph.pdf", Theoph, key="Subject", 
+             colTime="Time",  colConc="conc", dose=320, doseUnit="mg", 
+             timeUnit="h", concUnit="mg/L")
+```
+
+```
+## png 
+##   2
+```
+
+
+```bash
+magick -density 150 Output-ncar/pdfNCA-Theoph.pdf Output-ncar/pdfNCA-Theoph-%02d.png
+magick montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png Output-ncar/montage.png
+```
+
+```
+## magick.exe: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png' @ warning/png.c/MagickPNGWarningHandler/1744.
+```
+
+<div class="figure">
+<img src="Output-ncar/montage.png" alt="pdfNCA() output" width="100%" />
+<p class="caption">(\#fig:pdfnca-output)pdfNCA() output</p>
+</div>
+
+## rtfNCA()
+
+마이크로소프트 워드에서 편집가능한 rtf파일을 만듭니다.
+
+
+```r
+ncar::rtfNCA(fileName="rtfNCA-Theoph.rtf", Theoph, key="Subject", 
+             colTime="Time", colConc="conc", dose=320, doseUnit="mg", 
+             timeUnit="h", concUnit="mg/L")
+```
 

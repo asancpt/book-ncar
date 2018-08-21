@@ -55,14 +55,15 @@ library(knitr)
 help(tblNCA)
 ```
 
-자료 분석을 위해 몇가지 도구가 필요한데 `tidyverse`[@R-tidyverse]를 설치하면 다수의 편리한 패키지 `tidyr` [@R-tidyr], `dplyr` [@R-dplyr], `tibble` [@R-tibble], `ggplot2` [R-ggplot2], `purrr` [@R-purrr], `readr` [@R-readr]의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다. 
+자료 분석을 위해 몇가지 도구가 필요한데 `tidyverse`[@R-tidyverse]를 설치하면 다수의 편리한 패키지 `tidyr` [@R-tidyr], `dplyr` [@R-dplyr], `tibble` [@R-tibble], `ggplot2` [@R-ggplot2], `purrr` [@R-purrr], `readr` [@R-readr]의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다. 
 
 다만 비구획분석을 위한 함수의 입력을 위해 `tibble` 형식은 `as.data.frame()`을 통하여 데이타프레임으로 자료 형식을 변환하는 것이 좋습니다.
-마찬가지로 `readr` 패키지의 `read_csv()` 명령어를 쓸 경우 `tibble`로 읽혀지기 때문에 `as.data.frame()`으로 바꿔주거나 처음부터 `read_csv()`를 쓰는 것을 고려할 수 있습니다.
+마찬가지로 `readr` 패키지의 `read_csv()` 명령어를 쓸 경우 `tibble`로 읽혀지기 때문에 `as.data.frame()`으로 바꿔주거나 처음부터 `read.csv()`를 쓰는 것을 고려할 수 있습니다. 
 
 ```{r eval = FALSE}
 install.packages('devtools')
-devtools::install_github('tidyverse/tidyverse')
+devtools::install_github('tidyverse/tidyverse') 
+# or `install.packages('tidyverse')`
 library(tidyverse)
 ```
 
@@ -77,10 +78,15 @@ R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있�
 
 먼저 데이터를 살펴보겠습니다. 
 
+```{r}
+library(ggplot2)
+library(dplyr)
+```
+
 ## 데이타에 대해 {#TheophData}
 
 Theoph 자료의 첫 10개 (Table \@ref(tab:head)) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다. 
-대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다. 
+데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다. 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다. 
 
 ```r
 head(Theoph, n=10)
@@ -103,7 +109,6 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
        x = 'Time (hour)', y = 'Concentration (ng/mL)')
 ```
 
-데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
 
 ```{r TheophFig, include = FALSE, fig.width=8, fig.height=12, fig.cap='Theoph 데이타를 시각화. A) Individual concentration-time curves, B) linear concentration-time curves, C) semi-logarithmic concentration-time curves'}
 Backbone <- ggplot(Theoph %>% 
@@ -115,11 +120,5 @@ Backbone <- ggplot(Theoph %>%
 Individual <- Backbone + facet_wrap(~ Subject) + scale_y_log10()
 groupLinear <- Backbone
 groupLog <- groupLinear + scale_y_log10()
-
-# ggdraw() +
-#   draw_plot(Individual, 0, .5, 1, .5) +
-#   draw_plot(groupLinear, 0, 0, .5, .5) +
-#   draw_plot(groupLog, .5, 0, .5, .5) +
-#   draw_plot_label(c("A", "B", "C"), c(0, 0, 0.5), c(1, 0.5, 0.5), size = 15)
 ```
 
