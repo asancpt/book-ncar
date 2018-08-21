@@ -1,3 +1,4 @@
+
 ---
 #documentclass: book
 #papersize: A4
@@ -12,7 +13,7 @@
 title: "R을 사용한 비구획분석"
 author: "배균섭, 한성필, 윤석규, 조용순, 김형섭"
 description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다.  값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다.  무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다."
-date: "`r Sys.Date()`"
+date: "2018-08-21"
 url: 'https\://asancpt.github.io/book-ncar/'
 github-repo: asancpt/book-ncar
 cover-image: assets/cover.jpg
@@ -67,22 +68,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include = FALSE}
-rm(list = ls(all = TRUE))
-knitr::opts_chunk$set(error = TRUE, out.width = '100%', 
-               results = 'asis',
-               cache = FALSE,
-               message = FALSE, warning = FALSE)
-system('cp -r images docs')
-```
 
-```{r init, include = FALSE}
-# options(knitr.table.format = 'html')
-# Sys.setlocale('LC_ALL','C')
-# detach("package:ncar", unload = TRUE)
-# detach("package:pkr", unload = TRUE)
-# detach("package:NonCompart", unload = TRUE)
-```
+
+
 
 # 책 머리에 {-}
 
@@ -101,7 +89,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 감사합니다.
 
-`r Sys.Date()`  
+2018-08-21  
 서울아산병원 임상약리학과, 울산대학교 임상약리학교실  
 교수 배균섭,  
 전공의 한성필, 윤석규, 조용순, 김형섭
@@ -113,9 +101,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 ## 감사의 글 {-}
 
-```{block2, type='rmdnote'}
-본 출판물은 2016, 2017, 2018년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).
-```
+\BeginKnitrBlock{rmdnote}<div class="rmdnote">본 출판물은 2016, 2017, 2018년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).</div>\EndKnitrBlock{rmdnote}
 
 
 ## 저자 소개 {-}

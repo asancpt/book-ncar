@@ -12,17 +12,17 @@ library(broom)
 
 ## 기술통계량 구하기
 
-앞서 \@ref(noncompart)장에서 구한 `TheophNca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `broom::tidy()` 함수를 사용하면 간단히 구할 수 있습니다. 다만 `NonCompart::tblNCA()` 후 `data.frame` 형태로 저장되어 입력으로 주어져야 합니다.
+앞서 \@ref(noncompart)장에서 구한 `Theoph_nca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `broom::tidy()` 함수를 사용하면 간단히 구할 수 있습니다. 다만 `NonCompart::tblNCA()` 후 `data.frame` 형태로 저장되어 입력으로 주어져야 합니다.
 
 ```{r include = FALSE}
-load('data/TheophNca.Rdata')
+load('data/Theoph_nca.Rdata')
 ```
 
 ```{r}
-descStatTheophNca <- tidy(as.data.frame(TheophNca, stringsAsFactors = FALSE)) %>% 
+desc_stat_Theoph_nca <- tidy(as.data.frame(Theoph_nca, stringsAsFactors = FALSE)) %>% 
   select(column, n, mean, sd, min, max, skew, kurtosis)
 
-knitr::kable(descStatTheophNca, digits = 2)
+knitr::kable(desc_Stat_Theoph_nca, digits = 2)
 ```
 
 ## 생물학적 동등성 {#bioequivalence}

@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-20">
+<meta name="date" content="2018-08-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -389,263 +389,24 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>Experience with R language required</li>
 <li>Generating plots not supported for now (To be supported soon)</li>
 </ul>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb76-1" data-line-number="1"><span class="kw">library</span>(PKNCA)</a>
-<a class="sourceLine" id="cb76-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb76-3" data-line-number="3">my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
-<a class="sourceLine" id="cb76-4" data-line-number="4">d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb76-5" data-line-number="5">                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</a>
-<a class="sourceLine" id="cb76-6" data-line-number="6">my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
-<a class="sourceLine" id="cb76-7" data-line-number="7">my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</a>
-<a class="sourceLine" id="cb76-8" data-line-number="8">my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</a>
-<a class="sourceLine" id="cb76-9" data-line-number="9">my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb76-10" data-line-number="10"><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
-<div class="kable-table">
-<table>
-<thead>
-<tr class="header">
-<th align="right">start</th>
-<th align="right">end</th>
-<th align="left">Subject</th>
-<th align="left">PPTESTCD</th>
-<th align="right">PPORRES</th>
-<th align="left">exclude</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">1</td>
-<td align="left">aucinf.obs</td>
-<td align="right">214.92363</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">2</td>
-<td align="left">aucinf.obs</td>
-<td align="right">97.37793</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">3</td>
-<td align="left">aucinf.obs</td>
-<td align="right">106.12767</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">4</td>
-<td align="left">aucinf.obs</td>
-<td align="right">114.21620</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">5</td>
-<td align="left">aucinf.obs</td>
-<td align="right">136.30473</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">6</td>
-<td align="left">aucinf.obs</td>
-<td align="right">82.17588</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">7</td>
-<td align="left">aucinf.obs</td>
-<td align="right">100.98763</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">8</td>
-<td align="left">aucinf.obs</td>
-<td align="right">102.15330</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">9</td>
-<td align="left">aucinf.obs</td>
-<td align="right">97.52000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">10</td>
-<td align="left">aucinf.obs</td>
-<td align="right">167.86003</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">11</td>
-<td align="left">aucinf.obs</td>
-<td align="right">86.90262</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">12</td>
-<td align="left">aucinf.obs</td>
-<td align="right">125.83154</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">1</td>
-<td align="left">cmax</td>
-<td align="right">10.50000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">2</td>
-<td align="left">cmax</td>
-<td align="right">8.33000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">3</td>
-<td align="left">cmax</td>
-<td align="right">8.20000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">4</td>
-<td align="left">cmax</td>
-<td align="right">8.60000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">5</td>
-<td align="left">cmax</td>
-<td align="right">11.40000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">6</td>
-<td align="left">cmax</td>
-<td align="right">6.44000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">7</td>
-<td align="left">cmax</td>
-<td align="right">7.09000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">8</td>
-<td align="left">cmax</td>
-<td align="right">7.56000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">9</td>
-<td align="left">cmax</td>
-<td align="right">9.03000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">10</td>
-<td align="left">cmax</td>
-<td align="right">10.21000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">11</td>
-<td align="left">cmax</td>
-<td align="right">8.00000</td>
-<td align="left">NA</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">12</td>
-<td align="left">cmax</td>
-<td align="right">9.75000</td>
-<td align="left">NA</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">summary</span>(my.results.automatic)</a></code></pre></div>
-<div class="kable-table">
-<table>
-<thead>
-<tr class="header">
-<th align="right">start</th>
-<th align="right">end</th>
-<th align="left">N</th>
-<th align="left">auclast</th>
-<th align="left">cmax</th>
-<th align="left">tmax</th>
-<th align="left">half.life</th>
-<th align="left">aucinf.obs</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">24</td>
-<td align="left">12</td>
-<td align="left">74.6 [24.3]</td>
-<td align="left">.</td>
-<td align="left">.</td>
-<td align="left">.</td>
-<td align="left">.</td>
-</tr>
-<tr class="even">
-<td align="right">0</td>
-<td align="right">Inf</td>
-<td align="left">12</td>
-<td align="left">.</td>
-<td align="left">8.65 [17.0]</td>
-<td align="left">1.14 [0.630, 3.55]</td>
-<td align="left">8.18 [2.12]</td>
-<td align="left">115 [28.4]</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1"><span class="kw">library</span>(PKNCA)</a>
+<a class="sourceLine" id="cb77-2" data-line-number="2"></a>
+<a class="sourceLine" id="cb77-3" data-line-number="3">my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
+<a class="sourceLine" id="cb77-4" data-line-number="4">d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
+<a class="sourceLine" id="cb77-5" data-line-number="5">                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</a>
+<a class="sourceLine" id="cb77-6" data-line-number="6">my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
+<a class="sourceLine" id="cb77-7" data-line-number="7">my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</a>
+<a class="sourceLine" id="cb77-8" data-line-number="8">my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</a>
+<a class="sourceLine" id="cb77-9" data-line-number="9">my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb77-10" data-line-number="10"><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
+<pre><code>## Error in my.results.automatic$result %&gt;% filter(grepl(pattern = &quot;cmax|aucinf&quot;, : 함수 &quot;%&gt;%&quot;를 찾을 수 없습니다</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">summary</span>(my.results.automatic)</a></code></pre></div>
+<pre><code>##   start end  N     auclast        cmax               tmax   half.life
+## 1     0  24 12 74.6 [24.3]           .                  .           .
+## 2     0 Inf 12           . 8.65 [17.0] 1.14 [0.630, 3.55] 8.18 [2.12]
+##   aucinf.obs
+## 1          .
+## 2 115 [28.4]</code></pre>
 </div>
 </div>
 <div id="r-package-ncappc" class="section level2">
@@ -653,22 +414,22 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="#ref-Acharya201683">2016</a>)</span></p>
 <p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a>
 <a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" data-line-number="1"><span class="co">#install.packages(&quot;ncappc&quot;)</span></a>
-<a class="sourceLine" id="cb78-2" data-line-number="2"><span class="kw">library</span>(ncappc)</a></code></pre></div>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1">Theoph <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</a>
-<a class="sourceLine" id="cb79-3" data-line-number="3">         <span class="dt">TIME =</span> Time,</a>
-<a class="sourceLine" id="cb79-4" data-line-number="4">         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb79-5" data-line-number="5"><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb79-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb79-7" data-line-number="7">Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</a>
-<a class="sourceLine" id="cb79-8" data-line-number="8">       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb79-9" data-line-number="9">       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb79-10" data-line-number="10">       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb79-11" data-line-number="11">       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb79-12" data-line-number="12">       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</a></code></pre></div>
-<p><img src="book-ncar_files/figure-html/unnamed-chunk-57-1.png" width="100%" /><img src="book-ncar_files/figure-html/unnamed-chunk-57-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" data-line-number="1">Theoph_ncappc_results</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="co">#install.packages(&quot;ncappc&quot;)</span></a>
+<a class="sourceLine" id="cb81-2" data-line-number="2"><span class="kw">library</span>(ncappc)</a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" data-line-number="1">Theoph <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb82-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</a>
+<a class="sourceLine" id="cb82-3" data-line-number="3">         <span class="dt">TIME =</span> Time,</a>
+<a class="sourceLine" id="cb82-4" data-line-number="4">         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb82-5" data-line-number="5"><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</a></code></pre></div>
+<pre><code>## Error in Theoph %&gt;% rename(ID = Subject, TIME = Time, DV = conc) %&gt;% write_csv(&quot;Theoph_ncappc.csv&quot;): 함수 &quot;%&gt;%&quot;를 찾을 수 없습니다</code></pre>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1">Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</a>
+<a class="sourceLine" id="cb84-2" data-line-number="2">       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb84-3" data-line-number="3">       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</a>
+<a class="sourceLine" id="cb84-4" data-line-number="4">       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb84-5" data-line-number="5">       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</a>
+<a class="sourceLine" id="cb84-6" data-line-number="6">       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<p><img src="13-others_files/figure-html/unnamed-chunk-4-1.png" width="672" /><img src="13-others_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1">Theoph_ncappc_results</a></code></pre></div>
 <pre><code>## $ncaOutput
 ##    ID Dose C0 Tmax simTmax  Cmax simCmax Cmax_D Tlast Clast   AUClast
 ## 1   1   NA NA 1.12       0 10.50       0     NA 24.37  3.28 147.23475
@@ -807,8 +568,8 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <h2><span class="header-section-number">B.5</span> R package: PK</h2>
 <p>Basic Non-Compartmental Pharmacokinetics</p>
 <p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" data-line-number="1"><span class="co">#install.packages(&quot;PK&quot;)</span></a>
-<a class="sourceLine" id="cb84-2" data-line-number="2"><span class="kw">library</span>(PK)</a></code></pre></div>
+<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb89-1" data-line-number="1"><span class="co">#install.packages(&quot;PK&quot;)</span></a>
+<a class="sourceLine" id="cb89-2" data-line-number="2"><span class="kw">library</span>(PK)</a></code></pre></div>
 </div>
 <div id="kinetica" class="section level2">
 <h2><span class="header-section-number">B.6</span> Kinetica</h2>

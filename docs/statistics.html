@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-20">
+<meta name="date" content="2018-08-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -252,12 +252,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="-" class="section level2">
 <h2><span class="header-section-number">8.2</span> 기술통계량 구하기</h2>
-<p>앞서 <a href="noncompart.html#noncompart">4</a>장에서 구한 <code>TheophNca</code>를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. <code>broom::tidy()</code> 함수를 사용하면 간단히 구할 수 있습니다. 다만 <code>NonCompart::tblNCA()</code> 후 <code>data.frame</code> 형태로 저장되어 입력으로 주어져야 합니다.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">descStatTheophNca &lt;-<span class="st"> </span><span class="kw">tidy</span>(<span class="kw">as.data.frame</span>(TheophNca, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<p>앞서 <a href="noncompart.html#noncompart">4</a>장에서 구한 <code>Theoph_nca</code>를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. <code>broom::tidy()</code> 함수를 사용하면 간단히 구할 수 있습니다. 다만 <code>NonCompart::tblNCA()</code> 후 <code>data.frame</code> 형태로 저장되어 입력으로 주어져야 합니다.</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" data-line-number="1">desc_stat_Theoph_nca &lt;-<span class="st"> </span><span class="kw">tidy</span>(<span class="kw">as.data.frame</span>(Theoph_nca, <span class="dt">stringsAsFactors =</span> <span class="ot">FALSE</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb42-2" data-line-number="2"><span class="st">  </span><span class="kw">select</span>(column, n, mean, sd, min, max, skew, kurtosis)</a></code></pre></div>
 <pre><code>## Error in median.default(X[[i]], ...): need numeric data</code></pre>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(descStatTheophNca, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
-<pre><code>## Error in knitr::kable(descStatTheophNca, digits = 2): 객체 &#39;descStatTheophNca&#39;를 찾을 수 없습니다</code></pre>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">kable</span>(desc_Stat_Theoph_nca, <span class="dt">digits =</span> <span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## Error in knitr::kable(desc_Stat_Theoph_nca, digits = 2): 객체 &#39;desc_Stat_Theoph_nca&#39;를 찾을 수 없습니다</code></pre>
 </div>
 <div id="bioequivalence" class="section level2">
 <h2><span class="header-section-number">8.3</span> 생물학적 동등성</h2>
@@ -274,7 +274,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/twobytwo.jpg&#39;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:twobytwo"></span>
-<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="100%" />
+<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
 <p class="caption">
 Figure 8.1: 전형적인 2x2 설계
 </p>
@@ -973,7 +973,7 @@ Figure 8.1: 전형적인 2x2 설계
 ## 90% Confidence Interval(%)    74.37661       97.28237    108.1529</code></pre>
 <div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/fixed-random.jpg&#39;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:fixedrandom"></span>
-<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="100%" />
+<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
 <p class="caption">
 Figure 8.2: 모수 인자와 변량 인자의 비교
 </p>
@@ -1134,7 +1134,7 @@ Figure 8.2: 모수 인자와 변량 인자의 비교
 <a class="sourceLine" id="cb53-12" data-line-number="12"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),</a>
 <a class="sourceLine" id="cb53-13" data-line-number="13">       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))</a>
 <a class="sourceLine" id="cb53-14" data-line-number="14">figA</a></code></pre></div>
-<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.png" width="100%" /></p>
+<p><img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="672" /></p>
 <div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" data-line-number="1">figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span></a>
 <a class="sourceLine" id="cb54-2" data-line-number="2"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></a>
 <a class="sourceLine" id="cb54-3" data-line-number="3"><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </a>
@@ -1147,7 +1147,7 @@ Figure 8.2: 모수 인자와 변량 인자의 비교
 <a class="sourceLine" id="cb54-10" data-line-number="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),</a>
 <a class="sourceLine" id="cb54-11" data-line-number="11">       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))</a>
 <a class="sourceLine" id="cb54-12" data-line-number="12">figB</a></code></pre></div>
-<p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.png" width="100%" /></p>
+<p><img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="672" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
 <div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" data-line-number="1">calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {</a>
 <a class="sourceLine" id="cb55-2" data-line-number="2">  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </a>
@@ -1166,35 +1166,11 @@ Figure 8.2: 모수 인자와 변량 인자의 비교
 <a class="sourceLine" id="cb55-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb55-16" data-line-number="16"><span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),</a>
 <a class="sourceLine" id="cb55-17" data-line-number="17">          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</a></code></pre></div>
-<div class="kable-table">
-<table>
-<thead>
-<tr class="header">
-<th align="left">parameters</th>
-<th align="left">est</th>
-<th align="left">ci</th>
-<th align="right">r.squared</th>
-<th align="right">p.value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Cmax</td>
-<td align="left">1.04 (0.06)</td>
-<td align="left">0.90-1.18</td>
-<td align="right">0.9494890</td>
-<td align="right">0</td>
-</tr>
-<tr class="even">
-<td align="left">AUClast</td>
-<td align="left">1.07 (0.09)</td>
-<td align="left">0.87-1.27</td>
-<td align="right">0.9053706</td>
-<td align="right">0</td>
-</tr>
-</tbody>
-</table>
-</div>
+<pre><code>## # A tibble: 2 x 5
+##   parameters est         ci        r.squared  p.value
+##   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;
+## 1 Cmax       1.04 (0.06) 0.90-1.18     0.949 1.80e-10
+## 2 AUClast    1.07 (0.09) 0.87-1.27     0.905 1.49e- 8</code></pre>
 <p>C<sub>max</sub>는 dose proportionality 기준을 만족하는데 반해 AUC<sub>last</sub>는 만족하지 않는 것을 알 수 있습니다.</p>
 
 </div>

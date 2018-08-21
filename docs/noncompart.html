@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-20">
+<meta name="date" content="2018-08-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -259,8 +259,7 @@ Some features are
 * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="kw">library</span>(ncar)</a></code></pre></div>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a></code></pre></div>
 </div>
 <div id="how-to-use" class="section level2">
 <h2><span class="header-section-number">4.2</span> NonCompart 사용법</h2>
@@ -277,7 +276,9 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
        concUnit = "ug/L", down = "Linear", R2ADJ = 0.7, MW = 0) # args(NonCompart::tblNCA)
 ```
 --->
-<p>concData는 데이터셋을 설정하며, <code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), <code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.</p>
+<p><code>concData</code>는 데이터셋 이름을 설정합니다. 참고로 <code>tibble</code> 형식은 지원하지 않으며 <code>as.data.frame()</code> 함수 등을 사용해서 통상적인 <code>data.frame</code> 형식이어야 합니다.
+<code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태로 지정할 수 있습니다.
+<code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다.</p>
 <ol style="list-style-type: decimal">
 <li><code>down</code>
 <ul>
@@ -304,609 +305,80 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 </ol>
 <p>이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
 우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">TheophNca &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw">head</span>(TheophNca)</a></code></pre></div>
-<div class="kable-table">
-<table>
-<thead>
-<tr class="header">
-<th align="left">Subject</th>
-<th align="right">b0</th>
-<th align="right">CMAX</th>
-<th align="right">CMAXD</th>
-<th align="right">TMAX</th>
-<th align="right">TLAG</th>
-<th align="right">CLST</th>
-<th align="right">CLSTP</th>
-<th align="right">TLST</th>
-<th align="right">LAMZHL</th>
-<th align="right">LAMZ</th>
-<th align="right">LAMZLL</th>
-<th align="right">LAMZUL</th>
-<th align="right">LAMZNPT</th>
-<th align="right">CORRXY</th>
-<th align="right">R2</th>
-<th align="right">R2ADJ</th>
-<th align="right">AUCLST</th>
-<th align="right">AUCALL</th>
-<th align="right">AUCIFO</th>
-<th align="right">AUCIFOD</th>
-<th align="right">AUCIFP</th>
-<th align="right">AUCIFPD</th>
-<th align="right">AUCPEO</th>
-<th align="right">AUCPEP</th>
-<th align="right">AUMCLST</th>
-<th align="right">AUMCIFO</th>
-<th align="right">AUMCIFP</th>
-<th align="right">AUMCPEO</th>
-<th align="right">AUMCPEP</th>
-<th align="right">VZFO</th>
-<th align="right">VZFP</th>
-<th align="right">CLFO</th>
-<th align="right">CLFP</th>
-<th align="right">MRTEVLST</th>
-<th align="right">MRTEVIFO</th>
-<th align="right">MRTEVIFP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">2.368785</td>
-<td align="right">10.50</td>
-<td align="right">0.0328125</td>
-<td align="right">1.12</td>
-<td align="right">0</td>
-<td align="right">3.28</td>
-<td align="right">3.2801465</td>
-<td align="right">24.37</td>
-<td align="right">14.304378</td>
-<td align="right">0.0484570</td>
-<td align="right">9.05</td>
-<td align="right">24.37</td>
-<td align="right">3</td>
-<td align="right">-0.9999999</td>
-<td align="right">0.9999997</td>
-<td align="right">0.9999995</td>
-<td align="right">148.92305</td>
-<td align="right">148.92305</td>
-<td align="right">216.61193</td>
-<td align="right">0.6769123</td>
-<td align="right">216.6150</td>
-<td align="right">0.6769217</td>
-<td align="right">31.248917</td>
-<td align="right">31.249876</td>
-<td align="right">1459.0711</td>
-<td align="right">4505.5348</td>
-<td align="right">4505.6709</td>
-<td align="right">67.61603</td>
-<td align="right">67.61701</td>
-<td align="right">30.48675</td>
-<td align="right">30.48632</td>
-<td align="right">1.477296</td>
-<td align="right">1.477276</td>
-<td align="right">9.797483</td>
-<td align="right">20.800030</td>
-<td align="right">20.800368</td>
-</tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="right">2.411237</td>
-<td align="right">8.33</td>
-<td align="right">0.0260312</td>
-<td align="right">1.92</td>
-<td align="right">0</td>
-<td align="right">0.90</td>
-<td align="right">0.8886398</td>
-<td align="right">24.30</td>
-<td align="right">6.659342</td>
-<td align="right">0.1040864</td>
-<td align="right">7.03</td>
-<td align="right">24.30</td>
-<td align="right">4</td>
-<td align="right">-0.9985967</td>
-<td align="right">0.9971954</td>
-<td align="right">0.9957931</td>
-<td align="right">91.52680</td>
-<td align="right">91.52680</td>
-<td align="right">100.17346</td>
-<td align="right">0.3130421</td>
-<td align="right">100.0643</td>
-<td align="right">0.3127010</td>
-<td align="right">8.631687</td>
-<td align="right">8.532030</td>
-<td align="right">706.5866</td>
-<td align="right">999.7723</td>
-<td align="right">996.0716</td>
-<td align="right">29.32525</td>
-<td align="right">29.06267</td>
-<td align="right">30.69044</td>
-<td align="right">30.72392</td>
-<td align="right">3.194459</td>
-<td align="right">3.197943</td>
-<td align="right">7.719996</td>
-<td align="right">9.980411</td>
-<td align="right">9.954313</td>
-</tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="right">2.529711</td>
-<td align="right">8.20</td>
-<td align="right">0.0256250</td>
-<td align="right">1.02</td>
-<td align="right">0</td>
-<td align="right">1.05</td>
-<td align="right">1.0550967</td>
-<td align="right">24.17</td>
-<td align="right">6.766087</td>
-<td align="right">0.1024443</td>
-<td align="right">9.00</td>
-<td align="right">24.17</td>
-<td align="right">3</td>
-<td align="right">-0.9996624</td>
-<td align="right">0.9993250</td>
-<td align="right">0.9986499</td>
-<td align="right">99.28650</td>
-<td align="right">99.28650</td>
-<td align="right">109.53597</td>
-<td align="right">0.3422999</td>
-<td align="right">109.5857</td>
-<td align="right">0.3424554</td>
-<td align="right">9.357173</td>
-<td align="right">9.398324</td>
-<td align="right">803.1859</td>
-<td align="right">1150.9648</td>
-<td align="right">1152.6529</td>
-<td align="right">30.21629</td>
-<td align="right">30.31850</td>
-<td align="right">28.51710</td>
-<td align="right">28.50415</td>
-<td align="right">2.921415</td>
-<td align="right">2.920088</td>
-<td align="right">8.089578</td>
-<td align="right">10.507642</td>
-<td align="right">10.518276</td>
-</tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="right">2.592755</td>
-<td align="right">8.60</td>
-<td align="right">0.0268750</td>
-<td align="right">1.07</td>
-<td align="right">0</td>
-<td align="right">1.15</td>
-<td align="right">1.1564216</td>
-<td align="right">24.65</td>
-<td align="right">6.981247</td>
-<td align="right">0.0992870</td>
-<td align="right">9.02</td>
-<td align="right">24.65</td>
-<td align="right">3</td>
-<td align="right">-0.9994619</td>
-<td align="right">0.9989241</td>
-<td align="right">0.9978483</td>
-<td align="right">106.79630</td>
-<td align="right">106.79630</td>
-<td align="right">118.37888</td>
-<td align="right">0.3699340</td>
-<td align="right">118.4436</td>
-<td align="right">0.3701361</td>
-<td align="right">9.784331</td>
-<td align="right">9.833594</td>
-<td align="right">901.0842</td>
-<td align="right">1303.2524</td>
-<td align="right">1305.4981</td>
-<td align="right">30.85881</td>
-<td align="right">30.97775</td>
-<td align="right">27.22596</td>
-<td align="right">27.21110</td>
-<td align="right">2.703185</td>
-<td align="right">2.701709</td>
-<td align="right">8.437410</td>
-<td align="right">11.009163</td>
-<td align="right">11.022111</td>
-</tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="right">2.551092</td>
-<td align="right">11.40</td>
-<td align="right">0.0356250</td>
-<td align="right">1.00</td>
-<td align="right">0</td>
-<td align="right">1.57</td>
-<td align="right">1.5556951</td>
-<td align="right">24.35</td>
-<td align="right">8.002264</td>
-<td align="right">0.0866189</td>
-<td align="right">7.02</td>
-<td align="right">24.35</td>
-<td align="right">4</td>
-<td align="right">-0.9993234</td>
-<td align="right">0.9986472</td>
-<td align="right">0.9979708</td>
-<td align="right">121.29440</td>
-<td align="right">121.29440</td>
-<td align="right">139.41978</td>
-<td align="right">0.4356868</td>
-<td align="right">139.2546</td>
-<td align="right">0.4351707</td>
-<td align="right">13.000579</td>
-<td align="right">12.897403</td>
-<td align="right">1017.1143</td>
-<td align="right">1667.7216</td>
-<td align="right">1661.7937</td>
-<td align="right">39.01174</td>
-<td align="right">38.79419</td>
-<td align="right">26.49799</td>
-<td align="right">26.52942</td>
-<td align="right">2.295227</td>
-<td align="right">2.297949</td>
-<td align="right">8.385501</td>
-<td align="right">11.961873</td>
-<td align="right">11.933490</td>
-</tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="right">2.033404</td>
-<td align="right">6.44</td>
-<td align="right">0.0201250</td>
-<td align="right">1.15</td>
-<td align="right">0</td>
-<td align="right">0.92</td>
-<td align="right">0.9412712</td>
-<td align="right">23.85</td>
-<td align="right">7.894998</td>
-<td align="right">0.0877957</td>
-<td align="right">2.03</td>
-<td align="right">23.85</td>
-<td align="right">7</td>
-<td align="right">-0.9991203</td>
-<td align="right">0.9982413</td>
-<td align="right">0.9978896</td>
-<td align="right">73.77555</td>
-<td align="right">73.77555</td>
-<td align="right">84.25442</td>
-<td align="right">0.2632951</td>
-<td align="right">84.4967</td>
-<td align="right">0.2640522</td>
-<td align="right">12.437174</td>
-<td align="right">12.688246</td>
-<td align="right">609.1524</td>
-<td align="right">978.4285</td>
-<td align="right">986.9665</td>
-<td align="right">37.74176</td>
-<td align="right">38.28034</td>
-<td align="right">43.25973</td>
-<td align="right">43.13569</td>
-<td align="right">3.798020</td>
-<td align="right">3.787130</td>
-<td align="right">8.256833</td>
-<td align="right">11.612785</td>
-<td align="right">11.680533</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>여기서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 체내로 들어감을 의미합니다.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1">Theoph_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </a>
+<a class="sourceLine" id="cb11-2" data-line-number="2">                     <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
+<a class="sourceLine" id="cb11-3" data-line-number="3">Theoph_nca</a></code></pre></div>
+<pre><code>##    Subject       b0  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST
+## 1        1 2.368785 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37
+## 2        2 2.411237  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30
+## 3        3 2.529712  8.20 0.02562500 1.02    0 1.05 1.0550967 24.17
+## 4        4 2.592755  8.60 0.02687500 1.07    0 1.15 1.1564216 24.65
+## 5        5 2.551092 11.40 0.03562500 1.00    0 1.57 1.5556951 24.35
+## 6        6 2.033404  6.44 0.02012500 1.15    0 0.92 0.9412712 23.85
+## 7        7 2.288550  7.09 0.02215625 3.48    0 1.15 1.1607192 24.22
+## 8        8 2.170403  7.56 0.02362500 2.02    0 1.25 1.2285268 24.12
+## 9        9 2.124648  9.03 0.02821875 0.63    0 1.12 1.1164831 24.43
+## 10      10 2.657705 10.21 0.03190625 3.55    0 2.42 2.4136923 23.70
+## 11      11 2.147594  8.00 0.02500000 0.98    0 0.86 0.8598066 24.08
+## 12      12 2.824493  9.75 0.03046875 3.52    0 1.17 1.1755390 24.15
+##       LAMZHL       LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2
+## 1  14.304378 0.04845700   9.05  24.37       3 -0.9999999 0.9999997
+## 2   6.659342 0.10408644   7.03  24.30       4 -0.9985967 0.9971954
+## 3   6.766087 0.10244431   9.00  24.17       3 -0.9996624 0.9993250
+## 4   6.981247 0.09928702   9.02  24.65       3 -0.9994619 0.9989241
+## 5   8.002264 0.08661888   7.02  24.35       4 -0.9993234 0.9986472
+## 6   7.894998 0.08779574   2.03  23.85       7 -0.9991203 0.9982413
+## 7   7.846668 0.08833650   6.98  24.22       4 -0.9993349 0.9986702
+## 8   8.510038 0.08145054   3.53  24.12       6 -0.9954961 0.9910124
+## 9   8.405999 0.08245863   8.80  24.43       3 -0.9997218 0.9994437
+## 10  9.246916 0.07495982   9.38  23.70       3 -0.9997543 0.9995087
+## 11  7.261237 0.09545856   9.03  24.08       3 -0.9999991 0.9999983
+## 12  6.286508 0.11025949   9.03  24.15       3 -0.9996984 0.9993968
+##        R2ADJ    AUCLST    AUCALL    AUCIFO   AUCIFOD    AUCIFP   AUCIFPD
+## 1  0.9999995 148.92305 148.92305 216.61193 0.6769123 216.61496 0.6769217
+## 2  0.9957931  91.52680  91.52680 100.17346 0.3130421 100.06432 0.3127010
+## 3  0.9986499  99.28650  99.28650 109.53597 0.3422999 109.58572 0.3424554
+## 4  0.9978483 106.79630 106.79630 118.37888 0.3699340 118.44356 0.3701361
+## 5  0.9979708 121.29440 121.29440 139.41978 0.4356868 139.25463 0.4351707
+## 6  0.9978896  73.77555  73.77555  84.25442 0.2632951  84.49670 0.2640522
+## 7  0.9980053  90.75340  90.75340 103.77180 0.3242869 103.89315 0.3246661
+## 8  0.9887655  88.55995  88.55995 103.90669 0.3247084 103.64305 0.3238845
+## 9  0.9988873  86.32615  86.32615  99.90872 0.3122147  99.86607 0.3120815
+## 10 0.9990174 138.36810 138.36810 170.65206 0.5332877 170.56791 0.5330247
+## 11 0.9999965  80.09360  80.09360  89.10274 0.2784461  89.10072 0.2784397
+## 12 0.9987936 119.97750 119.97750 130.58883 0.4080901 130.63907 0.4082471
+##       AUCPEO    AUCPEP   AUMCLST   AUMCIFO   AUMCIFP  AUMCPEO  AUMCPEP
+## 1  31.248917 31.249876 1459.0711 4505.5348 4505.6709 67.61603 67.61701
+## 2   8.631687  8.532030  706.5866  999.7723  996.0716 29.32525 29.06267
+## 3   9.357173  9.398325  803.1859 1150.9648 1152.6529 30.21629 30.31850
+## 4   9.784331  9.833594  901.0842 1303.2524 1305.4981 30.85881 30.97775
+## 5  13.000579 12.897403 1017.1143 1667.7216 1661.7937 39.01174 38.79419
+## 6  12.437174 12.688246  609.1524  978.4285  986.9665 37.74176 38.28034
+## 7  12.545221 12.647366  782.4199 1245.0984 1249.4111 37.16000 37.37691
+## 8  14.769730 14.552931  739.5346 1298.1158 1288.5201 43.03015 42.60589
+## 9  13.594978 13.558076  705.2296 1201.7715 1200.2124 41.31750 41.24126
+## 10 18.918002 18.878001 1278.1800 2473.9934 2470.8765 48.33535 48.27018
+## 11 10.110962 10.108918  617.2422  928.5600  928.4900 33.52694 33.52193
+## 12  8.125757  8.161087  977.8807 1330.3840 1332.0528 26.49636 26.58844
+##        VZFO     VZFP     CLFO     CLFP MRTEVLST  MRTEVIFO  MRTEVIFP
+## 1  30.48675 30.48632 1.477296 1.477276 9.797483 20.800031 20.800368
+## 2  30.69044 30.72392 3.194459 3.197943 7.719996  9.980411  9.954313
+## 3  28.51710 28.50415 2.921415 2.920088 8.089578 10.507642 10.518276
+## 4  27.22596 27.21110 2.703185 2.701709 8.437410 11.009163 11.022112
+## 5  26.49799 26.52942 2.295227 2.297949 8.385501 11.961873 11.933490
+## 6  43.25973 43.13569 3.798020 3.787130 8.256833 11.612785 11.680533
+## 7  34.90844 34.86767 3.083689 3.080088 8.621383 11.998427 12.025924
+## 8  37.81051 37.90669 3.079686 3.087520 8.350666 12.493092 12.432287
+## 9  38.84279 38.85938 3.202924 3.204292 8.169363 12.028695 12.018220
+## 10 25.01554 25.02788 1.875160 1.876086 9.237534 14.497296 14.486174
+## 11 37.62219 37.62304 3.591360 3.591441 7.706511 10.421227 10.420679
+## 12 22.22429 22.21575 2.450439 2.449497 8.150534 10.187579 10.196436</code></pre>
+<p>여기서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미합니다.</p>
 <p>이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.</p>
-<p>다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus 이므로 AdmMode 옵션이 추가됩니다.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1">NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a></code></pre></div>
-<div class="kable-table">
-<table>
-<thead>
-<tr class="header">
-<th align="left">Subject</th>
-<th align="right">b0</th>
-<th align="right">CMAX</th>
-<th align="right">CMAXD</th>
-<th align="right">TMAX</th>
-<th align="right">TLAG</th>
-<th align="right">CLST</th>
-<th align="right">CLSTP</th>
-<th align="right">TLST</th>
-<th align="right">LAMZHL</th>
-<th align="right">LAMZ</th>
-<th align="right">LAMZLL</th>
-<th align="right">LAMZUL</th>
-<th align="right">LAMZNPT</th>
-<th align="right">CORRXY</th>
-<th align="right">R2</th>
-<th align="right">R2ADJ</th>
-<th align="right">AUCLST</th>
-<th align="right">AUCALL</th>
-<th align="right">AUCIFO</th>
-<th align="right">AUCIFOD</th>
-<th align="right">AUCIFP</th>
-<th align="right">AUCIFPD</th>
-<th align="right">AUCPEO</th>
-<th align="right">AUCPEP</th>
-<th align="right">AUMCLST</th>
-<th align="right">AUMCIFO</th>
-<th align="right">AUMCIFP</th>
-<th align="right">AUMCPEO</th>
-<th align="right">AUMCPEP</th>
-<th align="right">C0</th>
-<th align="right">AUCPBEO</th>
-<th align="right">AUCPBEP</th>
-<th align="right">VZO</th>
-<th align="right">VZP</th>
-<th align="right">CLO</th>
-<th align="right">CLP</th>
-<th align="right">MRTIVLST</th>
-<th align="right">MRTIVIFO</th>
-<th align="right">MRTIVIFP</th>
-<th align="right">VSSO</th>
-<th align="right">VSSP</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">-1.7242106</td>
-<td align="right">1.50</td>
-<td align="right">0.0600</td>
-<td align="right">0.25</td>
-<td align="right">NA</td>
-<td align="right">0.05</td>
-<td align="right">0.0502485</td>
-<td align="right">8</td>
-<td align="right">4.378127</td>
-<td align="right">0.1583205</td>
-<td align="right">5.00</td>
-<td align="right">8</td>
-<td align="right">3</td>
-<td align="right">-0.9985323</td>
-<td align="right">0.9970667</td>
-<td align="right">0.9941335</td>
-<td align="right">2.040452</td>
-<td align="right">2.040452</td>
-<td align="right">2.356267</td>
-<td align="right">0.0942507</td>
-<td align="right">2.357837</td>
-<td align="right">0.0943135</td>
-<td align="right">13.403196</td>
-<td align="right">13.460844</td>
-<td align="right">3.271250</td>
-<td align="right">7.792554</td>
-<td align="right">7.815026</td>
-<td align="right">58.02083</td>
-<td align="right">58.14153</td>
-<td align="right">2.393617</td>
-<td align="right">20.65564</td>
-<td align="right">20.64189</td>
-<td align="right">67.01598</td>
-<td align="right">66.97136</td>
-<td align="right">10.61000</td>
-<td align="right">10.602939</td>
-<td align="right">1.353199</td>
-<td align="right">3.057161</td>
-<td align="right">3.064490</td>
-<td align="right">32.43648</td>
-<td align="right">32.49260</td>
-</tr>
-<tr class="even">
-<td align="left">2</td>
-<td align="right">-0.1752869</td>
-<td align="right">2.03</td>
-<td align="right">0.0812</td>
-<td align="right">0.25</td>
-<td align="right">NA</td>
-<td align="right">0.08</td>
-<td align="right">0.0747559</td>
-<td align="right">8</td>
-<td align="right">2.293063</td>
-<td align="right">0.3022800</td>
-<td align="right">0.75</td>
-<td align="right">8</td>
-<td align="right">9</td>
-<td align="right">-0.9734830</td>
-<td align="right">0.9476691</td>
-<td align="right">0.9401933</td>
-<td align="right">3.248520</td>
-<td align="right">3.248520</td>
-<td align="right">3.513175</td>
-<td align="right">0.1405270</td>
-<td align="right">3.495827</td>
-<td align="right">0.1398331</td>
-<td align="right">7.533221</td>
-<td align="right">7.074344</td>
-<td align="right">6.398750</td>
-<td align="right">9.391522</td>
-<td align="right">9.195343</td>
-<td align="right">31.86674</td>
-<td align="right">30.41314</td>
-<td align="right">2.528160</td>
-<td align="right">16.21809</td>
-<td align="right">16.29857</td>
-<td align="right">23.54132</td>
-<td align="right">23.65814</td>
-<td align="right">7.11607</td>
-<td align="right">7.151384</td>
-<td align="right">1.719743</td>
-<td align="right">2.423229</td>
-<td align="right">2.380377</td>
-<td align="right">17.24387</td>
-<td align="right">17.02299</td>
-</tr>
-<tr class="odd">
-<td align="left">3</td>
-<td align="right">NA</td>
-<td align="right">2.72</td>
-<td align="right">0.1088</td>
-<td align="right">0.25</td>
-<td align="right">NA</td>
-<td align="right">0.08</td>
-<td align="right">NA</td>
-<td align="right">8</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">0</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">3.554421</td>
-<td align="right">3.554421</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">5.006250</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">4.965369</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">1.158457</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="even">
-<td align="left">4</td>
-<td align="right">NA</td>
-<td align="right">1.85</td>
-<td align="right">0.0740</td>
-<td align="right">0.25</td>
-<td align="right">NA</td>
-<td align="right">0.07</td>
-<td align="right">NA</td>
-<td align="right">8</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">0</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">2.785279</td>
-<td align="right">2.785279</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">4.381875</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">2.462230</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">1.323227</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">5</td>
-<td align="right">NA</td>
-<td align="right">2.05</td>
-<td align="right">0.0820</td>
-<td align="right">0.25</td>
-<td align="right">NA</td>
-<td align="right">0.06</td>
-<td align="right">NA</td>
-<td align="right">8</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">0</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">2.458858</td>
-<td align="right">2.458858</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">3.707500</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">4.040865</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">1.257814</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="even">
-<td align="left">6</td>
-<td align="right">NA</td>
-<td align="right">2.31</td>
-<td align="right">0.0924</td>
-<td align="right">0.25</td>
-<td align="right">NA</td>
-<td align="right">0.09</td>
-<td align="right">NA</td>
-<td align="right">8</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">0</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">3.335703</td>
-<td align="right">3.335703</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">5.532500</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">3.705625</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">1.408571</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-</tbody>
-</table>
-</div>
+<p>다음으로 Indomethacin 의 약동학 파라미터를 구해보겠습니다.
+이는 IV bolus 이므로 <code>adm=&quot;bolus&quot;</code> 인자를 정의해야 합니다.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">Indometh_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </a>
+<a class="sourceLine" id="cb13-2" data-line-number="2">                       <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a></code></pre></div>
 </div>
 <div id="interval-NCA" class="section level2">
 <h2><span class="header-section-number">4.3</span> 구간 NCA</h2>
@@ -920,35 +392,15 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <p>일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다.
 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다.
 먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" data-line-number="1">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</a></code></pre></div>
-<div class="kable-table">
-<table>
-<thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="right">Start</th>
-<th align="right">End</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">AUC[0-12h]</td>
-<td align="right">0</td>
-<td align="right">12</td>
-</tr>
-<tr class="even">
-<td align="left">AUC[0-24h]</td>
-<td align="right">0</td>
-<td align="right">24</td>
-</tr>
-</tbody>
-</table>
-</div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1">iAUC &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</a></code></pre></div>
+<pre><code>##         Name Start End
+## 1 AUC[0-12h]     0  12
+## 2 AUC[0-24h]     0  24</code></pre>
 <pre><code>    Name Start End</code></pre>
 <p>1 AUC[0-12h] 0 12
 2 AUC[0-24h] 0 24</p>
 <p>이제 iAUC 옵션을 이용해서 이를 구합니다.</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co"># tblNCA(Theoph, &quot;Subject&quot;, &quot;Time&quot;, &quot;conc&quot;, dose=320, iAUC=iAUC)</span></a></code></pre></div>
 <p>맨 마지막 파라미터로 AUC[0-12h], AUC[0-24h]가 추가되었음을 알 수 있습니다.</p>
 <p>개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.</p>
@@ -958,8 +410,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <pre><code>    Name Start End</code></pre>
 <p>1 AUC[0-12h] 0 12
 2 AUC[0-24h] 0 24</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="co">#IntAUC</span></a>
-<a class="sourceLine" id="cb17-2" data-line-number="2"><span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></a></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="co">#IntAUC</span></a>
+<a class="sourceLine" id="cb19-2" data-line-number="2"><span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></a></code></pre></div>
 <pre><code>        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
   10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
       LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
@@ -970,7 +422,6 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
   67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757   91.7355220 
   AUC[0-24h] 
  147.6945866 </code></pre>
-<p>김민걸 선생님 자료를 옮겨와서 변형합니다. <a href="http://blog.naver.com/kimmingul" class="uri">http://blog.naver.com/kimmingul</a></p>
 </div>
 <div id="functions" class="section level2">
 <h2><span class="header-section-number">4.4</span> 함수 살펴보기</h2>
@@ -978,8 +429,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <div id="auc" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> AUC</h3>
 <p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</a></code></pre></div>
-<pre><code>##            [,1]        [,2]
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</a></code></pre></div>
+<pre><code>##             AUC        AUMC
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
 ##  [3,]   1.95310    0.801534
@@ -991,8 +442,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ##  [9,]  72.75650  322.298798
 ## [10,]  92.45055  528.521903
 ## [11,] 148.92305 1459.071104</code></pre>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</a></code></pre></div>
-<pre><code>##            [,1]        [,2]
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1"><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</a></code></pre></div>
+<pre><code>##             AUC        AUMC
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
 ##  [3,]   1.95310    0.801534
@@ -1008,54 +459,26 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 </div>
 <div id="long-format" class="section level2">
 <h2><span class="header-section-number">4.5</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
-<p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 문자형식의 행렬이 생성되고 그 attr로 dimnames와 units를 갖는데 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" data-line-number="1">ncares &lt;-<span class="st"> </span>NonCompart<span class="op">::</span><span class="kw">tblNCA</span>(Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb23-2" data-line-number="2"><span class="kw">str</span>(ncares)</a></code></pre></div>
-<pre><code>## &#39;data.frame&#39;:    12 obs. of  37 variables:
-##  $ Subject : Ord.factor w/ 12 levels &quot;6&quot;&lt;&quot;7&quot;&lt;&quot;8&quot;&lt;&quot;11&quot;&lt;..: 11 6 5 7 12 1 2 3 8 10 ...
-##  $ b0      : num  2.37 2.41 2.53 2.59 2.55 ...
-##  $ CMAX    : num  10.5 8.33 8.2 8.6 11.4 ...
-##  $ CMAXD   : num  0.0328 0.026 0.0256 0.0269 0.0356 ...
-##  $ TMAX    : num  1.12 1.92 1.02 1.07 1 1.15 3.48 2.02 0.63 3.55 ...
-##  $ TLAG    : num  0 0 0 0 0 0 0 0 0 0 ...
-##  $ CLST    : num  3.28 0.9 1.05 1.15 1.57 0.92 1.15 1.25 1.12 2.42 ...
-##  $ CLSTP   : num  3.28 0.889 1.055 1.156 1.556 ...
-##  $ TLST    : num  24.4 24.3 24.2 24.6 24.4 ...
-##  $ LAMZHL  : num  14.3 6.66 6.77 6.98 8 ...
-##  $ LAMZ    : num  0.0485 0.1041 0.1024 0.0993 0.0866 ...
-##  $ LAMZLL  : num  9.05 7.03 9 9.02 7.02 2.03 6.98 3.53 8.8 9.38 ...
-##  $ LAMZUL  : num  24.4 24.3 24.2 24.6 24.4 ...
-##  $ LAMZNPT : num  3 4 3 3 4 7 4 6 3 3 ...
-##  $ CORRXY  : num  -1 -0.999 -1 -0.999 -0.999 ...
-##  $ R2      : num  1 0.997 0.999 0.999 0.999 ...
-##  $ R2ADJ   : num  1 0.996 0.999 0.998 0.998 ...
-##  $ AUCLST  : num  148.9 91.5 99.3 106.8 121.3 ...
-##  $ AUCALL  : num  148.9 91.5 99.3 106.8 121.3 ...
-##  $ AUCIFO  : num  217 100 110 118 139 ...
-##  $ AUCIFOD : num  0.677 0.313 0.342 0.37 0.436 ...
-##  $ AUCIFP  : num  217 100 110 118 139 ...
-##  $ AUCIFPD : num  0.677 0.313 0.342 0.37 0.435 ...
-##  $ AUCPEO  : num  31.25 8.63 9.36 9.78 13 ...
-##  $ AUCPEP  : num  31.25 8.53 9.4 9.83 12.9 ...
-##  $ AUMCLST : num  1459 707 803 901 1017 ...
-##  $ AUMCIFO : num  4506 1000 1151 1303 1668 ...
-##  $ AUMCIFP : num  4506 996 1153 1305 1662 ...
-##  $ AUMCPEO : num  67.6 29.3 30.2 30.9 39 ...
-##  $ AUMCPEP : num  67.6 29.1 30.3 31 38.8 ...
-##  $ VZFO    : num  30.5 30.7 28.5 27.2 26.5 ...
-##  $ VZFP    : num  30.5 30.7 28.5 27.2 26.5 ...
-##  $ CLFO    : num  1.48 3.19 2.92 2.7 2.3 ...
-##  $ CLFP    : num  1.48 3.2 2.92 2.7 2.3 ...
-##  $ MRTEVLST: num  9.8 7.72 8.09 8.44 8.39 ...
-##  $ MRTEVIFO: num  20.8 9.98 10.51 11.01 11.96 ...
-##  $ MRTEVIFP: num  20.8 9.95 10.52 11.02 11.93 ...
-##  - attr(*, &quot;units&quot;)= chr  &quot;&quot; &quot;&quot; &quot;mg/L&quot; &quot;mg/L/mg&quot; ...</code></pre>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(ncares) <span class="op">%&gt;%</span><span class="st"> </span>tidyr<span class="op">::</span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</a>
-<a class="sourceLine" id="cb25-2" data-line-number="2">          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;dimnames&#39;</span>)[[<span class="dv">2</span>]], <span class="dt">UNIT =</span> <span class="kw">attr</span>(ncares, <span class="st">&#39;units&#39;</span>)),</a>
-<a class="sourceLine" id="cb25-3" data-line-number="3">          <span class="dt">by =</span> <span class="st">&#39;PPTESTCD&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb25-4" data-line-number="4"><span class="st">  </span><span class="kw">arrange</span>(Subject, PPTESTCD) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="st">  </span><span class="kw">head</span>(<span class="dv">20</span>)</a></code></pre></div>
-<pre><code>## Error: Column `PPTESTCD` must be a 1d atomic vector or a list</code></pre>
+<p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 attr로 names와 units를 등일 갖게 됩니다. 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" data-line-number="1"><span class="kw">left_join</span>(<span class="kw">as.tibble</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-2" data-line-number="2"><span class="st">            </span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</a>
+<a class="sourceLine" id="cb25-3" data-line-number="3">          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>names,</a>
+<a class="sourceLine" id="cb25-4" data-line-number="4">                 <span class="dt">UNIT =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>units)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb25-5" data-line-number="5"><span class="st">  </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
+<pre><code>## # A tibble: 432 x 4
+##    Subject PPTESTCD PPORRES UNIT  
+##    &lt;ord&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt; 
+##  1 1       AUCALL     149.  h*mg/L
+##  2 2       AUCALL      91.5 h*mg/L
+##  3 3       AUCALL      99.3 h*mg/L
+##  4 4       AUCALL     107.  h*mg/L
+##  5 5       AUCALL     121.  h*mg/L
+##  6 6       AUCALL      73.8 h*mg/L
+##  7 7       AUCALL      90.8 h*mg/L
+##  8 8       AUCALL      88.6 h*mg/L
+##  9 9       AUCALL      86.3 h*mg/L
+## 10 10      AUCALL     138.  h*mg/L
+## # ... with 422 more rows</code></pre>
 
 </div>
 </div>

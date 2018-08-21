@@ -19,7 +19,6 @@ editor_options:
 ```{r}
 library(tidyverse)
 library(NonCompart)
-library(ncar)
 ```
 
 ## NonCompart 사용법 {#how-to-use}
@@ -38,7 +37,9 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ```
 --->
 
-concData는 데이터셋을 설정하며, `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명(교차시험에서 사용), `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다. 
+`concData`는 데이터셋 이름을 설정합니다. 참고로 `tibble` 형식은 지원하지 않으며 `as.data.frame()` 함수 등을 사용해서 통상적인 `data.frame` 형식이어야 합니다.
+`key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태로 지정할 수 있습니다. 
+`colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다. 
 
 1. `down`
     - AUC와 AUMC를 구하는 trapezoidal method 설정이며, 기본값은 `Linear`입니다.
@@ -57,23 +58,25 @@ concData는 데이터셋을 설정하며, `key`는 subject ID의 컬럼명 혹�
 우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.
 
 ```{r}
-TheophNca <- NonCompart::tblNCA(Theoph, "Subject", "Time", "conc", dose=320, concUnit="mg/L")
-head(TheophNca)
+Theoph_nca <- tblNCA(Theoph, "Subject", "Time", "conc", 
+                     dose=320, concUnit="mg/L")
+Theoph_nca
 ```
 
-여기서 `dose=320`으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 체내로 들어감을 의미합니다.
-
+여기서 `dose=320`으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미합니다.
 
 ```{r include = FALSE}
-save(TheophNca, file = 'data/TheophNca.Rdata')
+save(Theoph_nca, file = 'data/Theoph_nca.Rdata')
 ```
 
 이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.
 
-다음으로 Indomethacin 의 약동학 파라미터를 구해보자. 이는 IV bolus 이므로 AdmMode 옵션이 추가됩니다.
+다음으로 Indomethacin 의 약동학 파라미터를 구해보겠습니다. 
+이는 IV bolus 이므로 `adm="bolus"` 인자를 정의해야 합니다. 
 
 ```{r}
-NonCompart::tblNCA(Indometh, "Subject", "time", "conc", dose=25, adm="Bolus", dur=0.5, concUnit="mg/L")
+Indometh_nca <- tblNCA(Indometh, "Subject", "time", "conc", 
+                       dose=25, adm="Bolus", dur=0.5, concUnit="mg/L")
 ```
 
 ```{r, include = FALSE, evel = FALSE}
@@ -135,9 +138,6 @@ iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)
  147.6945866 
 ```
 
-김민걸 선생님 자료를 옮겨와서 변형합니다. <http://blog.naver.com/kimmingul>
-
-
 ## 함수 살펴보기 {#functions}
 
 NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. `r paste0(paste0(ls('package:NonCompart'), '()'), collapse = ', ')`라는 함수가 있습니다.
@@ -153,16 +153,13 @@ AUC(Theoph[Theoph$Subject==1, "Time"], Theoph[Theoph$Subject==1, "conc"], down="
 
 ## 긴 형식으로 변환하면서 단위 추가하기 {#long-format}
 
-NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 문자형식의 행렬이 생성되고 그 attr로 dimnames와 units를 갖는데 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.
+NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 attr로 names와 units를 등일 갖게 됩니다. 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.
 
 ```{r}
-ncares <- NonCompart::tblNCA(Theoph, key="Subject", dose=320, concUnit="mg/L")
-str(ncares)
-
-left_join(as_tibble(ncares) %>% tidyr::gather(PPTESTCD, PPORRES, -Subject),
-          tibble(PPTESTCD = attr(ncares, 'dimnames')[[2]], UNIT = attr(ncares, 'units')),
-          by = 'PPTESTCD') %>% 
-  arrange(Subject, PPTESTCD) %>% 
-  head(20)
+left_join(as.tibble(Theoph_nca) %>% 
+            gather(PPTESTCD, PPORRES, -Subject),
+          tibble(PPTESTCD = attributes(Theoph_nca)$names,
+                 UNIT = attributes(Theoph_nca)$units)) %>% 
+  arrange(PPTESTCD)
 ```
 

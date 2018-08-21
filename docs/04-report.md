@@ -1,3 +1,75 @@
+
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+# R을 사용한 비구획분석 보고서 {#ncar}
+
+## 이 장에서는 {#summary-ncar}
+
+보고서를 일정한 형식으로 작성하여 다른 사람/기관과 공유하는 것은 중요합니다. 이를 `ncar` 패키지를 사용하여 좀더 쉽게 할 수 있습니다.
+이 패키지를 통해서 약동학 파라이터를 보고서 형식의 text, pdf, rtf 파일로 저장할 수 있습니다.
+이에 대해 좀더 자세히 알아보겠습니다.
+
+`ncar`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
+
+> Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
+             Some features are
+             1) CDISC SDTM terms
+             2) Automatic slope selection with the same criterion of WinNonlin(R)
+             3) Supporting both 'linear-up linear-down' and 'linear-up log-down' method
+             4) Interval(partial) AUCs with 'linear' or 'log' interpolation method
+             5) Produce pdf, rtf, text report files.
+             * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
+
+
+
+```r
+library(tidyverse)
+library(ncar)
+```
+
+## ncar 사용법
+
+우선 저장될 폴더를 확인하면 다음과 같습니다.
+
+
+```r
+getwd()
+```
+
+```
+## [1] "C:/Users/mdlhs/asancpt/book-ncar"
+```
+
+저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 됩니다.
+
+### txtNCA(): 한 대상자 보고서
+
+
+```r
+txtNCA(Theoph[Theoph$Subject=="1","Time"],
+       Theoph[Theoph$Subject=="1","conc"], 
+       dose=320, doseUnit="mg", concUnit="mg/L", timeUnit="h")
+```
+
+먼저, Theoph 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있습니다.
+
+
+```r
+writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
+                  Theoph[Theoph$Subject=="1","conc"], 
+                  dose=320, doseUnit="mg", concUnit="mg/L",
+                  timeUnit="h"), 
+           'Output-ncar/txtNCA-Theoph.txt')
+```
+
+저장된 파일 내용은 아래와 같습니다.
+
+
+```r
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
@@ -70,3 +142,36 @@ CLFP       Total CL Pred by F                              1.4773 L/h
 MRTEVLST   MRT Extravasc to Last Nonzero Conc              9.7975 h
 MRTEVIFO   MRT Extravasc Infinity Obs                     20.8000 h
 MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h
+```
+
+### txtNCA2(): 여러 대상자 보고서
+
+`txtNCA2()`를 다음과 같이 정의하면 여러 대상자에 대한 보고서를 작성 가능합니다.
+
+
+```r
+txtNCA2 <- function(dataset){
+  dataset %>% 
+    as_tibble() %>% 
+    group_by(Subject) %>% 
+    summarise(res = c(ID = glue::glue('ID={unique(Subject)}\n\n'),
+                     txtNCA(Time, 
+                           conc, 
+                           dose=320, 
+                           doseUnit="mg", 
+                           concUnit="mg/L", 
+                           timeUnit="h")) %>% paste(collapse = '\n')) %>%
+    .$res %>%
+    paste(collapse = '\n\n\n\n\n\n')
+}
+```
+
+
+```r
+txtNCA2(Theoph) %>% writeLines('Output-ncar/txtNCA-group-Theoph.txt')
+```
+
+저장된 파일 내용은 Theoph의 경우 Appendix \@ref(theophgroup) 에서 확인 가능합니다.
+
+<!--Indometh의 경우 Appendix \@ref(indomethgroup)-->
+

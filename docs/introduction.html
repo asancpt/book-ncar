@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-20">
+<meta name="date" content="2018-08-21">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -291,7 +291,7 @@ AUMC_{t_1-t_2} =
 <p>이 방식을 계속 이용하여 각각의 구간 값의 합을 모두 더한 값으로 AUC<sub>last</sub>(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식), AUMC<sub>last</sub>(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식)를 측정해 주게 됩니다. (그림 <a href="introduction.html#fig:trapezoid">1.1</a>)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/trapezoidal.png&#39;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:trapezoid"></span>
-<img src="assets/trapezoidal.png" alt="Linear trapezoidal method" width="100%" />
+<img src="assets/trapezoidal.png" alt="Linear trapezoidal method" width="328" />
 <p class="caption">
 Figure 1.1: Linear trapezoidal method
 </p>
@@ -328,6 +328,120 @@ F = \frac{D_{iv}}{D_{oral}} \cdot \frac{AUC_{oral}}{AUC_{iv}}
 <p>흡수속도 상수를 구하기 위해서는 구획분석방법(compartmental analysis)이나 비선형 혼합모형(non-linear mixed effect modeling)을 사용하는 것이 바람직합니다.</p>
 <p>Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script</p>
 <p>Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예</p>
+<p><strong>C0</strong><br />
+C0 is the initial concentration at the dosing time. It is the observed concentration at the dosing time, if available. Otherwise it is approximated using the following rules. For iv-bolus data, log-linear back-extrapolation (<em>see “backExtrap” argument</em>) is performed from the first two observations to estimate C0, provided the local slope is negative. However, if the slope is &gt;=0 or at least one of the first two concentrations is 0, the first non-zero concentration is used as C0. For other types of administration, C0 is equal to 0 for non steady-state data and for steady-state data the minimum value observed between the dosing intervals is used to estimate C0, provided the “backExtrap” argument is set to “yes”.</p>
+<p><strong>Cmax, Tmax and Cmax_D</strong><br />
+Cmax and Tmax are the value and the time of maximum observed concentration, respectively. If the maximum concentration is not unique, the first maximum is used. For steady state data, The maximum value between the dosing intervals is considered. Cmax_D is the dose normalized maximum observed concentration.</p>
+<p><strong>Clast and Tlast</strong><br />
+Clast and Tlast are the last measurable positive concentration and the corresponding time, respectively.</p>
+<p><strong>AUClast</strong><br />
+The area under the concentration vs. time curve from the first observed to last measurable concentration.</p>
+<p><strong>AUMClast</strong><br />
+The area under the first moment of the concentration vs. time curve from the first observed to last measurable concentration.</p>
+<p><strong>MRTlast</strong><br />
+Mean residence time from the first observed to last measurable concentration. For non-infusion models,<br />
+<span class="math inline">\(MRTlast = \frac{AUMClast}{AUClast}\)</span><br />
+For infusion models,<br />
+<span class="math inline">\(MRTlast = \frac{AUMClast}{AUClast}-\frac{TI}{2}\)</span><br />
+where TI is the infusion duration.</p>
+<p><strong>No_points_Lambda_z</strong><br />
+No_points_Lambda_z is the number of observed data points used to determine the best fitting regression line in the elimination phase.</p>
+<p><strong>AUC_pBack_Ext_obs and AUC_pBack_Ext_pred</strong><br />
+The percentage of AUC that is contributed by the back extrapolation to estimate C0. The rules to to estimate C0 is given above.</p>
+<p><strong>AUClower_upper</strong><br />
+The AUC under the concentration-time profile within the user-specified window of time provided as the “AUCTimeRange” argument. In case of empty “AUCTimeRange” argument, AUClower_upper is equal to the AUClast.</p>
+<p><strong>Rsq, Rsq_adjusted and Corr_XY</strong><br />
+Regression coefficient of the regression line used to estimate the elimination rate constant. Rsq_adjusted is the adjusted value of Rsq given by the following relation.<br />
+<span class="math inline">\(Rsq\_adjusted = 1-\frac{(1-Rsq^2)*(n-1)}{n-2}\)</span><br />
+where <em>n</em> is the number of points in the regression line. Corr_XY is the square root of Rsq.</p>
+<p><strong>Lambda_z</strong><br />
+Elimination rate constant estimated from the regression line representing the terminal phase of the concentration-time profile. The relation between the slope of the regression line and Lambda_z is:<br />
+<span class="math inline">\(Lambda\_z = -(slope)\)</span></p>
+<p><strong>Lambda_lower and Lambda_upper</strong><br />
+Lower and upper limit of the time values from the concentration-time profile used to estimate Lambda_z, respectively, in case the “LambdaTimeRange” is used to specify the time range.</p>
+<p><strong>HL_Lambda_z</strong><br />
+Terminal half-life of the drug:<br />
+<span class="math inline">\(HL\_Lambda\_z = \frac{ln2}{\lambda_z}\)</span></p>
+<p><strong>AUCINF_obs and AUCINF_obs_D</strong><br />
+AUC estimated from the first sampled data extrapolated to <span class="math inline">\({\infty}\)</span>. The extrapolation in the terminal phase is based on the last observed concentration (<span class="math inline">\({Clast_obs}\)</span>). The equation used for the estimation is given below.<br />
+<span class="math inline">\(AUCINF\_obs = AUClast+\frac{Clast\_obs}{\lambda_z}\)</span><br />
+AUCINF_obs_D is the dose normalized AUCINF_obs.</p>
+<p><strong>AUC_pExtrap_obs</strong><br />
+Percentage of the AUCINF_obs that is contributed by the extrapolation from the last sampling time to <span class="math inline">\({\infty}\)</span>.<br />
+<span class="math inline">\(AUC\_pExtrap\_obs = \frac{AUCINF\_obs-AUClast}{AUCINF\_obs}*100\%\)</span></p>
+<p><strong>AUMCINF_obs</strong><br />
+AUMC estimated from the first sampled data extrapolated to <span class="math inline">\({\infty}\)</span>. The extrapolation in the terminal phase is based on the last observed concentration. The equation used for the estimation is given below.<br />
+<span class="math inline">\(AUMCINF\_obs = AUMClast+\frac{Tlast*Clast\_obs}{\lambda_z}+\frac{Clast\_obs}{\lambda_{z}^2}\)</span></p>
+<p><strong>AUMC_pExtrap_obs</strong><br />
+Percentage of the AUMCINF_obs that is contributed by the extrapolation from the last sampling time to <span class="math inline">\({\infty}\)</span>.<br />
+<span class="math inline">\(AUMC\_pExtrap\_obs = \frac{AUMCINF\_obs-AUMClast}{AUMCINF\_obs}*100\%\)</span></p>
+<p><strong>Vz_obs</strong><br />
+Volume of distribution estimated based on total AUC using the following equation.<br />
+<span class="math inline">\(Vz\_obs = \frac{Dose}{\lambda_z*AUCINF\_obs}\)</span></p>
+<p><strong>Cl_obs</strong><br />
+Total body clearance.
+<span class="math inline">\(Cl\_obs = \frac{Dose}{AUCINF\_obs}\)</span></p>
+<p><strong>AUCINF_pred and AUCINF_pred_D</strong><br />
+AUC from the first sampled data extrapolated to <span class="math inline">\({\infty}\)</span>. The extrapolation in the terminal phase is based on the last predicted concentration obtained from the regression line used to estimate Lambda_z (<span class="math inline">\({Clast\_pred}\)</span>). The equation used for the estimation is given below.<br />
+<span class="math inline">\(AUCINF\_pred = AUClast+\frac{Clast\_pred}{\lambda_z}\)</span><br />
+AUCINF_pred_D is the dose normalized AUCINF_pred.</p>
+<p><strong>AUC_pExtrap_pred</strong><br />
+Percentage of the AUCINF_pred that is contributed by the extrapolation from the last sampling time to <span class="math inline">\({\infty}\)</span>.<br />
+<span class="math inline">\(AUC\_pExtrap\_pred = \frac{AUCINF\_pred-AUClast}{AUCINF\_pred}*100\%\)</span></p>
+<p><strong>AUMCINF_pred</strong><br />
+AUMC estimated from the first sampled data extrapolated to <span class="math inline">\({\infty}\)</span>. The extrapolation in the terminal phase is based on the last predicted concentration obtained from the regression line used to estimate Lambda_z (<span class="math inline">\({Clast\_pred}\)</span>). The equation used for the estimation is given below.</p>
+<p><span class="math inline">\(AUMCINF\_pred = AUMClast+\frac{Tlast*Clast\_pred}{\lambda_z}+\frac{Clast\_pred}{\lambda_{z}^2}\)</span></p>
+<p><strong>AUMC_pExtrap_pred</strong><br />
+Percentage of the AUMCINF_pred that is contributed by the extrapolation from the last sampling time to <span class="math inline">\({\infty}\)</span>.<br />
+<span class="math inline">\(AUMC\_pExtrap\_pred = \frac{AUMCINF\_pred-AUMClast}{AUMCINF\_pred}*100\%\)</span></p>
+<p><strong>Vz_pred</strong><br />
+Volume of distribution estimated based on total AUC using the following equation.<br />
+<span class="math inline">\(Vz\_pred = \frac{Dose}{\lambda_z*AUCINF\_pred}\)</span></p>
+<p><strong>Cl_pred</strong><br />
+Total body clearance.<br />
+<span class="math inline">\(Cl\_pred = \frac{Dose}{AUCINF\_pred}\)</span></p>
+<p><strong>MRTINF_obs</strong><br />
+Mean residence time from the first sampled time extrapolated to <span class="math inline">\({\infty}\)</span> based on the last observed concentration (<span class="math inline">\({Clast\_obs}\)</span>).<br />
+For non-infusion non steady-state data:<br />
+<span class="math inline">\(MRTINF\_obs = \frac{AUMCINF\_obs}{AUCINF\_obs}\)</span><br />
+For infusion non steady-state data:<br />
+<span class="math inline">\(MRTINF\_obs = \frac{AUMCINF\_obs}{AUCINF\_obs}-\frac{TI}{2}\)</span><br />
+where <span class="math inline">\({TI}\)</span> is the infusion duration. For non-infusion steady-state data:<br />
+<span class="math inline">\(MRTINF\_obs = \frac{AUMCINF\_obs|_{0}^{\tau}+\tau*(AUCINF\_obs-AUC|_{0}^{\tau})}{AUCINF\_obs|_{0}^{\tau}}\)</span><br />
+For infusion steady-state data:<br />
+<span class="math inline">\(MRTINF\_obs = \frac{AUMCINF\_obs|_{0}^{\tau}+\tau*(AUCINF\_obs-AUC|_{0}^{\tau})}{AUCINF\_obs|_{0}^{\tau}}-\frac{TI}{2}\)</span><br />
+For steady-state data <span class="math inline">\({\tau}\)</span> represents the dosing interval.</p>
+<p><strong>MRTINF_pred</strong><br />
+Mean residence time from the first sampled time extrapolated to <span class="math inline">\({\infty}\)</span> based on the last predicted concentration obtained from the regression line used to estimate Lambda_z (<span class="math inline">\({Clast\_pred}\)</span>).<br />
+For non-infusion non steady-state data:<br />
+<span class="math inline">\(MRTINF\_pred = \frac{AUMCINF\_pred}{AUCINF\_pred}\)</span><br />
+For infusion non steady-state data:<br />
+<span class="math inline">\(MRTINF\_pred = \frac{AUMCINF\_pred}{AUCINF\_pred}-\frac{TI}{2}\)</span><br />
+where <span class="math inline">\({TI}\)</span> is the infusion duration.<br />
+For non-infusion steady-state data:<br />
+<span class="math inline">\(MRTINF\_pred = \frac{AUMCINF\_pred|_{0}^{\tau}+\tau*(AUCINF\_pred-AUC|_{0}^{\tau})}{AUCINF\_pred|_{0}^{\tau}}\)</span><br />
+For infusion steady-state data:<br />
+<span class="math inline">\(MRTINF\_pred = \frac{AUMCINF\_pred|_{0}^{\tau}+\tau*(AUCINF\_pred-AUC|_{0}^{\tau})}{AUCINF\_pred|_{0}^{\tau}}-\frac{TI}{2}\)</span><br />
+For steady-state data <span class="math inline">\({\tau}\)</span> represents the dosing interval.</p>
+<p><strong>Vss_obs and Vss_pred</strong><br />
+An estimate of the volume of distribution at steady-state.<br />
+<span class="math inline">\(Vss\_obs = MRTINF\_obs*Cl\_obs\)</span><br />
+<span class="math inline">\(Vss\_pred = MRTINF\_pred*Cl\_pred\)</span></p>
+<p><strong>Tau</strong><br />
+The dosing interval for steady-state data. This value is assumed to be the same over multiple doses.</p>
+<p><strong>Cmin and Tmin</strong><br />
+Cmin is the minimum concentration between 0 and Tau and Tmin is the corresponding time for steady-state data.</p>
+<p><strong>Cavg</strong><br />
+The average concentration between 0 and Tau for steady-state data.<br />
+<span class="math inline">\(Cavg = \frac{AUC|_{0}^{Tau}}{Tau}\)</span></p>
+<p><strong>p_Fluctuation</strong><br />
+Percentage of the fluctuation of the concentration between 0 and Tau for steady-state data.<br />
+<span class="math inline">\(p\_Fluctuation = \frac{Cmax-Cmin}{Cavg}*100\%\)</span></p>
+<p><strong>Accumulation_Index</strong><br />
+<span class="math inline">\(Accumulation\_Index = \frac{1}{1-e^{-\lambda_{z}*\tau}}\)</span></p>
+<p><strong>Clss</strong><br />
+An estimate of the total body clearance for steady-state data.<br />
+<span class="math inline">\(Clss = \frac{Dose}{AUC|_{0}^{\tau}}\)</span></p>
 
 </div>
 </div>

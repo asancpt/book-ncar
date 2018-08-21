@@ -1,3 +1,4 @@
+
 # 비구획 분석이란 {#introduction}
 
 ## 이 장에서는 {#summary-introduction}
@@ -52,9 +53,15 @@ $$
 
 이 방식을 계속 이용하여 각각의 구간 값의 합을 모두 더한 값으로 AUC~last~(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식), AUMC~last~(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식)를 측정해 주게 됩니다. (그림 \@ref(fig:trapezoid))
 
-```{r trapezoid, fig.cap = 'Linear trapezoidal method'}
+
+```r
 knitr::include_graphics('assets/trapezoidal.png')
 ```
+
+<div class="figure">
+<img src="assets/trapezoidal.png" alt="Linear trapezoidal method" width="328" />
+<p class="caption">(\#fig:trapezoid)Linear trapezoidal method</p>
+</div>
 
 추가적으로 마지막으로 농도를 잰 시점에서 모든 약물이 우리 몸에서 빠져나가는 시점까지의 값을 구하기 위해서 마지막으로 측정한 점의 기울기가 그대로 약물이 모두 제거되는 시점까지 그대로 유지된다는 가정을 세우게 됩니다.
 다음과 같이 C~last~(가장 마지막으로 농도를 측정한 시점)에서 λ (C~max~ 이후에 선형성이 가장 높은 3점을 선택하여 구한 기울기)를 구한 후 다음과 같은 약동학 공식을 대입하여 값을 구해주게 됩니다.

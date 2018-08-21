@@ -1,3 +1,10 @@
+
+# R에 내장된 자료의 비구획분석 보고서 {#groupreport}
+
+## Theoph의 보고서 {#theophgroup}
+
+
+```r
 ID=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
@@ -941,3 +948,59 @@ CLFP       Total CL Pred by F                              2.2979 L/h
 MRTEVLST   MRT Extravasc to Last Nonzero Conc              8.3855 h
 MRTEVIFO   MRT Extravasc Infinity Obs                     11.9619 h
 MRTEVIFP   MRT Extravasc Infinity Pred                    11.9335 h
+```
+
+# 지원 {#support}
+
+패키지와 관련한 모든 의문은 <shan@acp.kr> / +82-2-3010-4614 으로 연락 주시면 빠르게 도움 드리겠습니다.
+혹은 StackOverflow^[https://stackoverflow.com]에 영어로 질문 올려주시고 링크를 보내주시면 더 좋습니다.
+
+# 세션 정보 {#session-info}
+
+
+```r
+devtools::session_info()
+```
+
+```
+##  setting  value                       
+##  version  R version 3.5.1 (2018-07-02)
+##  system   x86_64, mingw32             
+##  ui       RTerm                       
+##  language (EN)                        
+##  collate  Korean_Korea.949            
+##  tz       Asia/Seoul                  
+##  date     2018-08-21                  
+## 
+##  package   * version date       source        
+##  backports   1.1.2   2017-12-13 CRAN (R 3.5.0)
+##  base      * 3.5.1   2018-07-02 local         
+##  bookdown    0.7     2018-02-18 CRAN (R 3.5.0)
+##  compiler    3.5.1   2018-07-02 local         
+##  datasets  * 3.5.1   2018-07-02 local         
+##  devtools    1.13.6  2018-06-27 CRAN (R 3.5.0)
+##  digest      0.6.15  2018-01-28 CRAN (R 3.5.0)
+##  evaluate    0.11    2018-07-17 CRAN (R 3.5.1)
+##  graphics  * 3.5.1   2018-07-02 local         
+##  grDevices * 3.5.1   2018-07-02 local         
+##  htmltools   0.3.6   2017-04-28 CRAN (R 3.5.0)
+##  knitr       1.20    2018-02-20 CRAN (R 3.5.0)
+##  magrittr    1.5     2014-11-22 CRAN (R 3.5.0)
+##  memoise     1.1.0   2017-04-21 CRAN (R 3.5.0)
+##  methods   * 3.5.1   2018-07-02 local         
+##  Rcpp        0.12.18 2018-07-23 CRAN (R 3.5.1)
+##  rmarkdown   1.10    2018-06-11 CRAN (R 3.5.0)
+##  rprojroot   1.3-2   2018-01-03 CRAN (R 3.5.0)
+##  stats     * 3.5.1   2018-07-02 local         
+##  stringi     1.2.4   2018-07-20 CRAN (R 3.5.1)
+##  stringr     1.3.1   2018-05-10 CRAN (R 3.5.0)
+##  tools       3.5.1   2018-07-02 local         
+##  utils     * 3.5.1   2018-07-02 local         
+##  withr       2.1.2   2018-03-15 CRAN (R 3.5.0)
+##  xfun        0.3     2018-07-06 CRAN (R 3.5.1)
+```
+
+# 참고문헌 {-}
+
+
+
