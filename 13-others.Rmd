@@ -5,6 +5,10 @@
 이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
 특별히 Theoph 데이타셋에서 C~max~, AUC~inf~가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.
 
+```{r}
+library(tidyverse)
+```
+
 ## Certara Phoenix WinNonLin
 
 <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>

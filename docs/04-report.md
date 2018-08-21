@@ -41,7 +41,7 @@ getwd()
 ```
 
 ```
-## [1] "C:/Users/mdlhs/asancpt/book-ncar"
+## [1] "/Users/Sungpil/asancpt/book-ncar"
 ```
 
 저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 됩니다.
@@ -74,7 +74,7 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 09:47:36 Asia/Seoul
+Date and Time: 2018-08-21 11:00:10 Asia/Seoul
 
 Calculation Setting
 -------------------

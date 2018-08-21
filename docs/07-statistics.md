@@ -9,32 +9,62 @@
 ```r
 library(tidyverse)
 library(BE)
-library(broom)
+library(psych)
 ```
 
 ## 기술통계량 구하기
 
-앞서 \@ref(noncompart)장에서 구한 `Theoph_nca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `broom::tidy()` 함수를 사용하면 간단히 구할 수 있습니다. 다만 `NonCompart::tblNCA()` 후 `data.frame` 형태로 저장되어 입력으로 주어져야 합니다.
+앞서 \@ref(noncompart)장에서 구한 `Theoph_nca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `psych::describe()` 함수를 사용하면 간단히 구할 수 있습니다. 
 
 
 
 
 ```r
-desc_stat_Theoph_nca <- tidy(as.data.frame(Theoph_nca, stringsAsFactors = FALSE)) %>% 
-  select(column, n, mean, sd, min, max, skew, kurtosis)
+desc_stat_Theoph_nca <- describe(Theoph_nca) %>% 
+  select(n, mean, sd, min, max, skew, kurtosis)
+
+knitr::kable(desc_stat_Theoph_nca, digits = 2)
 ```
 
-```
-## Error in median.default(X[[i]], ...): need numeric data
-```
-
-```r
-knitr::kable(desc_Stat_Theoph_nca, digits = 2)
-```
-
-```
-## Error in knitr::kable(desc_Stat_Theoph_nca, digits = 2): 객체 'desc_Stat_Theoph_nca'를 찾을 수 없습니다
-```
+             n      mean        sd      min       max    skew   kurtosis
+---------  ---  --------  --------  -------  --------  ------  ---------
+Subject*    12      6.50      3.61     1.00     12.00    0.00      -1.50
+b0          12      2.39      0.25     2.03      2.82    0.13      -1.38
+CMAX        12      8.76      1.47     6.44     11.40    0.21      -1.19
+CMAXD       12      0.03      0.00     0.02      0.04    0.21      -1.19
+TMAX        12      1.79      1.11     0.63      3.55    0.70      -1.35
+TLAG        12      0.00      0.00     0.00      0.00     NaN        NaN
+CLST        12      1.40      0.72     0.86      3.28    1.57       1.14
+CLSTP       12      1.40      0.72     0.86      3.28    1.58       1.19
+TLST        12     24.20      0.25    23.70     24.65   -0.28      -0.57
+LAMZHL      12      8.18      2.12     6.29     14.30    1.90       2.97
+LAMZ        12      0.09      0.02     0.05      0.11   -0.92       0.40
+LAMZLL      12      7.49      2.40     2.03      9.38   -1.20      -0.03
+LAMZUL      12     24.20      0.25    23.70     24.65   -0.28      -0.57
+LAMZNPT     12      3.83      1.34     3.00      7.00    1.32       0.28
+CORRXY      12     -1.00      0.00    -1.00     -1.00    2.20       3.87
+R2          12      1.00      0.00     0.99      1.00   -2.20       3.87
+R2ADJ       12      1.00      0.00     0.99      1.00   -2.05       3.39
+AUCLST      12    103.81     23.65    73.78    148.92    0.56      -1.12
+AUCALL      12    103.81     23.65    73.78    148.92    0.56      -1.12
+AUCIFO      12    122.19     38.13    84.25    216.61    1.25       0.51
+AUCIFOD     12      0.38      0.12     0.26      0.68    1.25       0.51
+AUCIFP      12    122.18     38.11    84.50    216.61    1.26       0.52
+AUCIFPD     12      0.38      0.12     0.26      0.68    1.26       0.52
+AUCPEO      12     13.54      6.35     8.13     31.25    1.71       2.19
+AUCPEP      12     13.54      6.34     8.16     31.25    1.72       2.23
+AUMCLST     12    883.06    262.98   609.15   1459.07    0.92      -0.42
+AUMCIFO     12   1590.30   1006.57   928.56   4505.53    2.00       2.96
+AUMCIFP     12   1589.85   1006.06   928.49   4505.67    2.01       2.97
+AUMCPEO     12     38.72     11.10    26.50     67.62    1.29       1.10
+AUMCPEP     12     38.72     11.07    26.59     67.62    1.30       1.14
+VZFO        12     31.93      6.47    22.22     43.26    0.20      -1.40
+VZFP        12     31.92      6.46    22.22     43.14    0.19      -1.41
+CLFO        12      2.81      0.68     1.48      3.80   -0.45      -0.93
+CLFP        12      2.81      0.68     1.48      3.79   -0.46      -0.93
+MRTEVLST    12      8.41      0.59     7.71      9.80    0.99       0.12
+MRTEVIFO    12     12.29      2.96     9.98     20.80    1.90       2.83
+MRTEVIFP    12     12.29      2.95     9.95     20.80    1.91       2.84
 
 ## 생물학적 동등성 {#bioequivalence}
 
@@ -59,7 +89,7 @@ knitr::include_graphics('assets/twobytwo.jpg')
 ```
 
 <div class="figure">
-<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="648" />
+<img src="assets/twobytwo.jpg" alt="전형적인 2x2 설계" width="100%" />
 <p class="caption">(\#fig:twobytwo)전형적인 2x2 설계</p>
 </div>
 
@@ -242,7 +272,7 @@ knitr::include_graphics('assets/fixed-random.jpg')
 ```
 
 <div class="figure">
-<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="607" />
+<img src="assets/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="100%" />
 <p class="caption">(\#fig:fixedrandom)모수 인자와 변량 인자의 비교</p>
 </div>
 
@@ -331,7 +361,7 @@ figA <- ggplot(sad_indi_pk_log, aes(x=Dose, y=Cmax)) +
 figA
 ```
 
-<img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="672" />
+<img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="100%" />
 
 ```r
 figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
@@ -348,7 +378,7 @@ figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
 figB
 ```
 
-<img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="672" />
+<img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="100%" />
 
 lm() 함수를 써서 구할 수 있습니다.
 

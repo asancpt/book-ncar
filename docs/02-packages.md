@@ -124,7 +124,7 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
 ```
 
 <div class="figure">
-<img src="02-packages_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="576" />
+<img src="02-packages_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
 <p class="caption">(\#fig:ggtheoph)Concentration-time curves of oral administration of Theoph (N = 12)</p>
 </div>
 

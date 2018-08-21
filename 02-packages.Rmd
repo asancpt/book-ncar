@@ -32,7 +32,7 @@ install.packages('pkr')
 
 설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 *불러오기*해야 합니다.
 
-```{r}
+```{r eval = FALSE}
 library(NonCompart)
 library(ncar)
 library(pkr)
@@ -42,7 +42,7 @@ library(pkr)
 
 아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다. 
 
-```{r}
+```{r eval = FALSE}
 library(ggplot2) 
 library(dplyr) 
 library(knitr) 
@@ -60,7 +60,7 @@ help(tblNCA)
 다만 비구획분석을 위한 함수의 입력을 위해 `tibble` 형식은 `as.data.frame()`을 통하여 데이타프레임으로 자료 형식을 변환하는 것이 좋습니다.
 마찬가지로 `readr` 패키지의 `read_csv()` 명령어를 쓸 경우 `tibble`로 읽혀지기 때문에 `as.data.frame()`으로 바꿔주거나 처음부터 `read_csv()`를 쓰는 것을 고려할 수 있습니다.
 
-```r
+```{r eval = FALSE}
 install.packages('devtools')
 devtools::install_github('tidyverse/tidyverse')
 library(tidyverse)
@@ -74,11 +74,8 @@ R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있�
 
 - `Theoph`: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.
 - `Indometh`: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
-(데이터명의 첫글짜가 대문자임에 주의하길)
 
 먼저 데이터를 살펴보겠습니다. 
-
-
 
 ## 데이타에 대해 {#TheophData}
 
@@ -105,7 +102,6 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
   labs(title = 'Oral Administration of Theoph (320 mg)',
        x = 'Time (hour)', y = 'Concentration (ng/mL)')
 ```
-
 
 데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다.
 
