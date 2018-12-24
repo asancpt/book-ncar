@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R을 사용한 비구획분석</title>
+  <title>Chapter 2 R과 그 패키지에 대하여 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R을 사용한 비구획분석" />
+  <meta property="og:title" content="Chapter 2 R과 그 패키지에 대하여 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="Chapter 2 R과 그 패키지에 대하여 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-21">
+<meta name="date" content="2018-12-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="datasets.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -67,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -130,8 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>감사의 글</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>저자 소개</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>감사의 글</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>저자 소개</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
-<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
+<li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#section-3"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
@@ -169,15 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
-<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#---"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.2" data-path="simulation.html"><a href="simulation.html#section-4"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#section-5"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
+<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#section-6"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
 <li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#section-7"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
@@ -196,14 +197,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="02-packages.html"><a href="#section-B.3.3"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#section-8"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
 <li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>B.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="B.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>B.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="B.3.6" data-path="02-packages.html"><a href="#section-B.3.6"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="B.3.6" data-path="softwares.html"><a href="softwares.html#section-9"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="B.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>B.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="B.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>B.3.8</b> Closing</a></li>
-<li class="chapter" data-level="B.3.9" data-path="02-packages.html"><a href="#section-B.3.9"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
+<li class="chapter" data-level="B.3.9" data-path="softwares.html"><a href="softwares.html#section-10"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
 <li class="chapter" data-level="B.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.10</b> Pros</a></li>
 <li class="chapter" data-level="B.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.11</b> Cons</a></li>
 </ul></li>
@@ -219,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
 <li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
-<li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="chapter" data-level="" data-path="section-11.html"><a href="section-11.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
 
@@ -263,66 +264,66 @@ Coursera<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>에서 �
 R은 아래 링크<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>에서 다운로드 받을 수 있습니다.</p>
 <p>R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설치하는 방법은 다음과 같습니다.
 홑따옴표 등의 인용 부호에 주의하세요.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;NonCompart&#39;</span>)</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw">install.packages</span>(<span class="st">&#39;ncar&#39;</span>)</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw">install.packages</span>(<span class="st">&#39;pkr&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;NonCompart&#39;</span>)
+<span class="kw">install.packages</span>(<span class="st">&#39;ncar&#39;</span>)
+<span class="kw">install.packages</span>(<span class="st">&#39;pkr&#39;</span>)</code></pre>
 <p>설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 <em>불러오기</em>해야 합니다.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw">library</span>(NonCompart)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw">library</span>(ncar)</a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw">library</span>(pkr)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(NonCompart)
+<span class="kw">library</span>(ncar)
+<span class="kw">library</span>(pkr)</code></pre>
 </div>
-<div id="-" class="section level2">
+<div id="section-3" class="section level2">
 <h2><span class="header-section-number">2.4</span> 기타 설치</h2>
 <p>아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="kw">library</span>(ggplot2) </a>
-<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="kw">library</span>(dplyr) </a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="kw">library</span>(knitr) </a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2) 
+<span class="kw">library</span>(dplyr) 
+<span class="kw">library</span>(knitr) </code></pre>
 <p>도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 <code>help()</code> 함수를 사용합니다.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">?NonCompart</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="kw">help</span>(tblNCA)</a></code></pre></div>
-<p>자료 분석을 위해 몇가지 도구가 필요한데 <code>tidyverse</code><span class="citation">(Wickham <a href="#ref-R-tidyverse">2017</a>)</span>를 설치하면 다수의 편리한 패키지 <code>tidyr</code> <span class="citation">(Wickham and Henry <a href="#ref-R-tidyr">2018</a>)</span>, <code>dplyr</code> <span class="citation">(Wickham, François, et al. <a href="#ref-R-dplyr">2018</a>)</span>, <code>tibble</code> <span class="citation">(Muller and Wickham <a href="#ref-R-tibble">2018</a>)</span>, <code>ggplot2</code> <span class="citation">(Wickham, Chang, et al. <a href="#ref-R-ggplot2">2018</a>)</span>, <code>purrr</code> <span class="citation">(Henry and Wickham <a href="#ref-R-purrr">2018</a>)</span>, <code>readr</code> <span class="citation">(Wickham, Hester, and Francois <a href="#ref-R-readr">2017</a>)</span>의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.</p>
+<pre class="sourceCode r"><code class="sourceCode r">?NonCompart
+<span class="kw">help</span>(tblNCA)</code></pre>
+<p>자료 분석을 위해 몇가지 도구가 필요한데 <code>tidyverse</code><span class="citation">(Wickham <a href="#ref-R-tidyverse">2017</a>)</span>를 설치하면 다수의 편리한 패키지 <code>tidyr</code> <span class="citation">(Wickham and Henry <a href="#ref-R-tidyr">2018</a>)</span>, <code>dplyr</code> <span class="citation">(Wickham, François, et al. <a href="#ref-R-dplyr">2018</a>)</span>, <code>tibble</code> <span class="citation">(Muller and Wickham <a href="#ref-R-tibble">2018</a>)</span>, <code>ggplot2</code> <span class="citation">(Wickham, Chang, et al. <a href="#ref-R-ggplot2">2018</a>)</span>, <code>purrr</code> <span class="citation">(Henry and Wickham <a href="#ref-R-purrr">2018</a>)</span>, <code>readr</code> <span class="citation">(Wickham, Hester, and Francois <a href="#ref-R-readr">2018</a>)</span>의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.</p>
 <p>다만 비구획분석을 위한 함수의 입력을 위해 <code>tibble</code> 형식은 <code>as.data.frame()</code>을 통하여 데이타프레임으로 자료 형식을 변환하는 것이 좋습니다.
 마찬가지로 <code>readr</code> 패키지의 <code>read_csv()</code> 명령어를 쓸 경우 <code>tibble</code>로 읽혀지기 때문에 <code>as.data.frame()</code>으로 바꿔주거나 처음부터 <code>read.csv()</code>를 쓰는 것을 고려할 수 있습니다.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;tidyverse/tidyverse&#39;</span>) </a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co"># or `install.packages(&#39;tidyverse&#39;)`</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&#39;devtools&#39;</span>)
+devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&#39;tidyverse/tidyverse&#39;</span>) 
+<span class="co"># or `install.packages(&#39;tidyverse&#39;)`</span>
+<span class="kw">library</span>(tidyverse)</code></pre>
 </div>
 </div>
 <h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-R-base">
-<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/" class="uri">https://www.R-project.org/</a>.</p>
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
 </div>
 <div id="ref-R-NonCompart">
-<p>Bae, Kyun-Seop. 2018c. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart" class="uri">https://CRAN.R-project.org/package=NonCompart</a>.</p>
+<p>Bae, Kyun-Seop. 2018c. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart">https://CRAN.R-project.org/package=NonCompart</a>.</p>
 </div>
 <div id="ref-R-ncar">
-<p>Bae, Kyun-Seop. 2018b. <em>Ncar: Noncompartmental Analysis for Pharmacokinetic Report</em>. <a href="https://CRAN.R-project.org/package=ncar" class="uri">https://CRAN.R-project.org/package=ncar</a>.</p>
+<p>Bae, Kyun-Seop. 2018b. <em>Ncar: Noncompartmental Analysis for Pharmacokinetic Report</em>. <a href="https://CRAN.R-project.org/package=ncar">https://CRAN.R-project.org/package=ncar</a>.</p>
 </div>
 <div id="ref-R-pkr">
-<p>Bae, Kyun-Seop, and Jee Eun Lee. 2018. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr" class="uri">https://CRAN.R-project.org/package=pkr</a>.</p>
+<p>Bae, Kyun-Seop, and Jee Eun Lee. 2018. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr">https://CRAN.R-project.org/package=pkr</a>.</p>
 </div>
 <div id="ref-R-tidyverse">
-<p>Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse" class="uri">https://CRAN.R-project.org/package=tidyverse</a>.</p>
+<p>Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.</p>
 </div>
 <div id="ref-R-tidyr">
-<p>Wickham, Hadley, and Lionel Henry. 2018. <em>Tidyr: Easily Tidy Data with ’Spread()’ and ’Gather()’ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr" class="uri">https://CRAN.R-project.org/package=tidyr</a>.</p>
+<p>Wickham, Hadley, and Lionel Henry. 2018. <em>Tidyr: Easily Tidy Data with ’Spread()’ and ’Gather()’ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.</p>
 </div>
 <div id="ref-R-dplyr">
-<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr" class="uri">https://CRAN.R-project.org/package=dplyr</a>.</p>
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
 </div>
 <div id="ref-R-tibble">
-<p>Muller, Kirill, and Hadley Wickham. 2018. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble" class="uri">https://CRAN.R-project.org/package=tibble</a>.</p>
+<p>Muller, Kirill, and Hadley Wickham. 2018. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.</p>
 </div>
 <div id="ref-R-ggplot2">
-<p>Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, and Kara Woo. 2018. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2" class="uri">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+<p>Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, and Kara Woo. 2018. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.</p>
 </div>
 <div id="ref-R-purrr">
-<p>Henry, Lionel, and Hadley Wickham. 2018. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr" class="uri">https://CRAN.R-project.org/package=purrr</a>.</p>
+<p>Henry, Lionel, and Hadley Wickham. 2018. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.</p>
 </div>
 <div id="ref-R-readr">
-<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2017. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr" class="uri">https://CRAN.R-project.org/package=readr</a>.</p>
+<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2018. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.</p>
 </div>
 </div>
 <div class="footnotes">
@@ -359,7 +360,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -371,6 +372,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/asancpt/book-ncar/edit/master/02-packages.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book-ncar.epub"],
 "toc": {
@@ -389,7 +394,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

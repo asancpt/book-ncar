@@ -22,7 +22,7 @@ TBD
 knitr::include_app("https://asan.shinyapps.io/pk1c/") #, height = "600px")
 ```
 
-<iframe src="https://asan.shinyapps.io/pk1c/?showcase=0" width="100%" height="400px"></iframe>
+<a href="https://asan.shinyapps.io/pk1c/" target="_blank"><img src="06-simulation_files/figure-epub3/unnamed-chunk-2-1.png" width="100%" /></a>
 
 
 

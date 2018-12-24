@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R을 사용한 비구획분석</title>
+  <title>Chapter 5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R을 사용한 비구획분석" />
+  <meta property="og:title" content="Chapter 5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="Chapter 5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-21">
+<meta name="date" content="2018-12-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="pkr.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -67,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -130,8 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>감사의 글</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>저자 소개</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>감사의 글</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>저자 소개</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
-<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
+<li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#section-3"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
@@ -169,15 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
-<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#---"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.2" data-path="simulation.html"><a href="simulation.html#section-4"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#section-5"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
+<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#section-6"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
 <li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#section-7"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
@@ -196,14 +197,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="04-report.html"><a href="#section-B.3.3"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#section-8"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
 <li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>B.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="B.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>B.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="B.3.6" data-path="04-report.html"><a href="#section-B.3.6"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="B.3.6" data-path="softwares.html"><a href="softwares.html#section-9"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="B.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>B.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="B.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>B.3.8</b> Closing</a></li>
-<li class="chapter" data-level="B.3.9" data-path="04-report.html"><a href="#section-B.3.9"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
+<li class="chapter" data-level="B.3.9" data-path="softwares.html"><a href="softwares.html#section-10"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
 <li class="chapter" data-level="B.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.10</b> Pros</a></li>
 <li class="chapter" data-level="B.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.11</b> Cons</a></li>
 </ul></li>
@@ -219,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
 <li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
-<li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="chapter" data-level="" data-path="section-11.html"><a href="section-11.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
 
@@ -249,137 +250,137 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 이에 대해 좀더 자세히 알아보겠습니다.</p>
 <p><code>ncar</code>의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있습니다.</p>
 <blockquote>
-<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.
+<p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.
 Some features are
 1) CDISC SDTM terms
 2) Automatic slope selection with the same criterion of WinNonlin(R)
 3) Supporting both ‘linear-up linear-down’ and ‘linear-up log-down’ method
 4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method
 5) Produce pdf, rtf, text report files.
-* Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
+* Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a>
-<a class="sourceLine" id="cb28-2" data-line-number="2"><span class="kw">library</span>(ncar)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)
+<span class="kw">library</span>(ncar)</code></pre>
 </div>
 <div id="txtnca" class="section level2">
 <h2><span class="header-section-number">5.2</span> txtNCA()</h2>
 <p>우선 저장될 폴더를 확인하면 다음과 같습니다.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" data-line-number="1"><span class="kw">getwd</span>()</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">getwd</span>()</code></pre>
 <pre><code>## [1] &quot;C:/Users/mdlhs/asancpt/book-ncar&quot;</code></pre>
 <p>저장될 폴더를 변경하고자 한다면 setwd(“저장될 경로”) 이렇게 설정하면 됩니다.</p>
 <p><code>txtNCA()</code> 함수를 사용하여 한 대상자에 대한 plain text 보고서를 작성할 수 있습니다.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" data-line-number="1"><span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],</a>
-<a class="sourceLine" id="cb31-2" data-line-number="2">       Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], </a>
-<a class="sourceLine" id="cb31-3" data-line-number="3">       <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],
+       Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], 
+       <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)</code></pre>
 <p>또한, Theoph 자료의 약동학 파라미터 분석 결과는 아래와 같이 텍스트파일로 저장할 수 있습니다.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" data-line-number="1"><span class="kw">writeLines</span>(<span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],</a>
-<a class="sourceLine" id="cb32-2" data-line-number="2">                  Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], </a>
-<a class="sourceLine" id="cb32-3" data-line-number="3">                  <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>,</a>
-<a class="sourceLine" id="cb32-4" data-line-number="4">                  <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>), </a>
-<a class="sourceLine" id="cb32-5" data-line-number="5">           <span class="st">&#39;Output-ncar/txtNCA-Theoph.txt&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">writeLines</span>(<span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],
+                  Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], 
+                  <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>,
+                  <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>), 
+           <span class="st">&#39;Output-ncar/txtNCA-Theoph.txt&#39;</span>)</code></pre>
 <p>저장된 파일 내용은 아래와 같습니다.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb33-1" data-line-number="1">                        <span class="ex">NONCOMPARTMENTAL</span> ANALYSIS REPORT</a>
-<a class="sourceLine" id="cb33-2" data-line-number="2">                       <span class="ex">Package</span> version 0.4.1 (2018-06-20 KST)</a>
-<a class="sourceLine" id="cb33-3" data-line-number="3">                          <span class="ex">R</span> version 3.5.1 (2018-07-02)</a>
-<a class="sourceLine" id="cb33-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb33-5" data-line-number="5"><span class="ex">Date</span> and Time: 2018-08-21 12:17:54 Asia/Seoul</a>
-<a class="sourceLine" id="cb33-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb33-7" data-line-number="7"><span class="ex">Calculation</span> Setting</a>
-<a class="sourceLine" id="cb33-8" data-line-number="8"><span class="ex">-------------------</span></a>
-<a class="sourceLine" id="cb33-9" data-line-number="9"><span class="ex">Drug</span> Administration: Extravascular</a>
-<a class="sourceLine" id="cb33-10" data-line-number="10"><span class="ex">Observation</span> count excluding trailing zero: 11</a>
-<a class="sourceLine" id="cb33-11" data-line-number="11"><span class="ex">Dose</span> at time 0: 320 mg</a>
-<a class="sourceLine" id="cb33-12" data-line-number="12"><span class="ex">AUC</span> Calculation Method: Linear-up Linear-down</a>
-<a class="sourceLine" id="cb33-13" data-line-number="13"><span class="ex">Weighting</span> for lambda z: Uniform (Ordinary Least Square, OLS)</a>
-<a class="sourceLine" id="cb33-14" data-line-number="14"><span class="ex">Lambda</span> z selection criterion: Heighest adjusted R-squared value with precision=1e-4</a>
-<a class="sourceLine" id="cb33-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb33-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb33-17" data-line-number="17"><span class="ex">Fitting</span>, AUC, AUMC Result</a>
-<a class="sourceLine" id="cb33-18" data-line-number="18"><span class="ex">-------------------------</span></a>
-<a class="sourceLine" id="cb33-19" data-line-number="19">      <span class="ex">Time</span>         Conc.      Pred.   Residual       AUC       AUMC</a>
-<a class="sourceLine" id="cb33-20" data-line-number="20"><span class="ex">---------------------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb33-21" data-line-number="21">     <span class="ex">0.0000</span>       0.7400                           0.0000     0.0000</a>
-<a class="sourceLine" id="cb33-22" data-line-number="22">     <span class="ex">0.2500</span>       2.8400                           0.4475     0.0888</a>
-<a class="sourceLine" id="cb33-23" data-line-number="23">     <span class="ex">0.5700</span>       6.5700                           1.9531     0.8015</a>
-<a class="sourceLine" id="cb33-24" data-line-number="24">     <span class="ex">1.1200</span>      10.5000                           6.6474     5.0654</a>
-<a class="sourceLine" id="cb33-25" data-line-number="25">     <span class="ex">2.0200</span>       9.6600                          15.7194    19.1383</a>
-<a class="sourceLine" id="cb33-26" data-line-number="26">     <span class="ex">3.8200</span>       8.5800                          32.1354    66.1982</a>
-<a class="sourceLine" id="cb33-27" data-line-number="27">     <span class="ex">5.1000</span>       8.3600                          42.9769   114.4617</a>
-<a class="sourceLine" id="cb33-28" data-line-number="28">     <span class="ex">7.0300</span>       7.4700                          58.2529   206.2815</a>
-<a class="sourceLine" id="cb33-29" data-line-number="29">     <span class="ex">9.0500</span> *     6.8900     6.8912 -1.228e-03    72.7565   322.2988</a>
-<a class="sourceLine" id="cb33-30" data-line-number="30">    <span class="ex">12.1200</span> *     5.9400     5.9387 +1.324e-03    92.4505   528.5219</a>
-<a class="sourceLine" id="cb33-31" data-line-number="31">    <span class="ex">24.3700</span> *     3.2800     3.2801 -1.465e-04   148.9231  1459.0711</a>
-<a class="sourceLine" id="cb33-32" data-line-number="32"></a>
-<a class="sourceLine" id="cb33-33" data-line-number="33"><span class="ex">*</span>: Used for the calculation of Lambda z.</a>
-<a class="sourceLine" id="cb33-34" data-line-number="34"></a>
-<a class="sourceLine" id="cb33-35" data-line-number="35"></a>
-<a class="sourceLine" id="cb33-36" data-line-number="36"><span class="ex">Calculated</span> Values</a>
-<a class="sourceLine" id="cb33-37" data-line-number="37"><span class="ex">-----------------</span></a>
-<a class="sourceLine" id="cb33-38" data-line-number="38"><span class="ex">CMAX</span>       Max Conc                                       10.5000 mg/L</a>
-<a class="sourceLine" id="cb33-39" data-line-number="39"><span class="ex">CMAXD</span>      Max Conc Norm by Dose                           0.0328 mg/L/mg</a>
-<a class="sourceLine" id="cb33-40" data-line-number="40"><span class="ex">TMAX</span>       Time of CMAX                                    1.1200 h</a>
-<a class="sourceLine" id="cb33-41" data-line-number="41"><span class="ex">TLAG</span>       Time Until First Nonzero Conc                   0.0000 h</a>
-<a class="sourceLine" id="cb33-42" data-line-number="42"><span class="ex">CLST</span>       Last Nonzero Conc                               3.2800 mg/L</a>
-<a class="sourceLine" id="cb33-43" data-line-number="43"><span class="ex">CLSTP</span>      Last Nonzero Conc Pred                          3.2801 mg/L</a>
-<a class="sourceLine" id="cb33-44" data-line-number="44"><span class="ex">TLST</span>       Time of Last Nonzero Conc                      24.3700 h</a>
-<a class="sourceLine" id="cb33-45" data-line-number="45"><span class="ex">LAMZHL</span>     Half-Life Lambda z                             14.3044 h</a>
-<a class="sourceLine" id="cb33-46" data-line-number="46"><span class="ex">LAMZ</span>       Lambda z                                        0.0485 /h</a>
-<a class="sourceLine" id="cb33-47" data-line-number="47"><span class="ex">LAMZLL</span>     Lambda z Lower Limit                            9.0500 h</a>
-<a class="sourceLine" id="cb33-48" data-line-number="48"><span class="ex">LAMZUL</span>     Lambda z Upper Limit                           24.3700 h</a>
-<a class="sourceLine" id="cb33-49" data-line-number="49"><span class="ex">LAMZNPT</span>    Number of Points for Lambda z                   3</a>
-<a class="sourceLine" id="cb33-50" data-line-number="50"><span class="ex">CORRXY</span>     Correlation Between TimeX and Log ConcY        -1.0000 </a>
-<a class="sourceLine" id="cb33-51" data-line-number="51"><span class="ex">R2</span>         R Squared                                       1.0000 </a>
-<a class="sourceLine" id="cb33-52" data-line-number="52"><span class="ex">R2ADJ</span>      R Squared Adjusted                              1.0000 </a>
-<a class="sourceLine" id="cb33-53" data-line-number="53"><span class="ex">AUCLST</span>     AUC to Last Nonzero Conc                      148.9231 h*mg/L</a>
-<a class="sourceLine" id="cb33-54" data-line-number="54"><span class="ex">AUCALL</span>     AUC All                                       148.9231 h*mg/L</a>
-<a class="sourceLine" id="cb33-55" data-line-number="55"><span class="ex">AUCIFO</span>     AUC Infinity Obs                              216.6119 h*mg/L</a>
-<a class="sourceLine" id="cb33-56" data-line-number="56"><span class="ex">AUCIFOD</span>    AUC Infinity Obs Norm by Dose                   0.6769 h*mg/L/mg</a>
-<a class="sourceLine" id="cb33-57" data-line-number="57"><span class="ex">AUCIFP</span>     AUC Infinity Pred                             216.6150 h*mg/L</a>
-<a class="sourceLine" id="cb33-58" data-line-number="58"><span class="ex">AUCIFPD</span>    AUC Infinity Pred Norm by Dose                  0.6769 h*mg/L/mg</a>
-<a class="sourceLine" id="cb33-59" data-line-number="59"><span class="ex">AUCPEO</span>     AUC %Extrapolation Obs                         31.2489 %</a>
-<a class="sourceLine" id="cb33-60" data-line-number="60"><span class="ex">AUCPEP</span>     AUC %Extrapolation Pred                        31.2499 %</a>
-<a class="sourceLine" id="cb33-61" data-line-number="61"><span class="ex">AUMCLST</span>    AUMC to Last Nonzero Conc                    1459.0711 h2*mg/L</a>
-<a class="sourceLine" id="cb33-62" data-line-number="62"><span class="ex">AUMCIFO</span>    AUMC Infinity Obs                            4505.5348 h2*mg/L</a>
-<a class="sourceLine" id="cb33-63" data-line-number="63"><span class="ex">AUMCIFP</span>    AUMC Infinity Pred                           4505.6709 h2*mg/L</a>
-<a class="sourceLine" id="cb33-64" data-line-number="64"><span class="ex">AUMCPEO</span>    AUMC %Extrapolation Obs                        67.6160 %</a>
-<a class="sourceLine" id="cb33-65" data-line-number="65"><span class="ex">AUMCPEP</span>    AUMC % Extrapolation Pred                      67.6170 %</a>
-<a class="sourceLine" id="cb33-66" data-line-number="66"><span class="ex">VZFO</span>       Vz Obs by F                                    30.4867 L</a>
-<a class="sourceLine" id="cb33-67" data-line-number="67"><span class="ex">VZFP</span>       Vz Pred by F                                   30.4863 L</a>
-<a class="sourceLine" id="cb33-68" data-line-number="68"><span class="ex">CLFO</span>       Total CL Obs by F                               1.4773 L/h</a>
-<a class="sourceLine" id="cb33-69" data-line-number="69"><span class="ex">CLFP</span>       Total CL Pred by F                              1.4773 L/h</a>
-<a class="sourceLine" id="cb33-70" data-line-number="70"><span class="ex">MRTEVLST</span>   MRT Extravasc to Last Nonzero Conc              9.7975 h</a>
-<a class="sourceLine" id="cb33-71" data-line-number="71"><span class="ex">MRTEVIFO</span>   MRT Extravasc Infinity Obs                     20.8000 h</a>
-<a class="sourceLine" id="cb33-72" data-line-number="72"><span class="ex">MRTEVIFP</span>   MRT Extravasc Infinity Pred                    20.8004 h</a></code></pre></div>
+<pre class="sourceCode bash"><code class="sourceCode bash">                        <span class="ex">NONCOMPARTMENTAL</span> ANALYSIS REPORT
+                       <span class="ex">Package</span> version 0.4.1 (2018-06-20 KST)
+                          <span class="ex">R</span> version 3.5.1 (2018-07-02)
+
+<span class="ex">Date</span> and Time: 2018-12-24 17:32:49 Asia/Seoul
+
+<span class="ex">Calculation</span> Setting
+<span class="ex">-------------------</span>
+<span class="ex">Drug</span> Administration: Extravascular
+<span class="ex">Observation</span> count excluding trailing zero: 11
+<span class="ex">Dose</span> at time 0: 320 mg
+<span class="ex">AUC</span> Calculation Method: Linear-up Linear-down
+<span class="ex">Weighting</span> for lambda z: Uniform (Ordinary Least Square, OLS)
+<span class="ex">Lambda</span> z selection criterion: Heighest adjusted R-squared value with precision=1e-4
+
+
+<span class="ex">Fitting</span>, AUC, AUMC Result
+<span class="ex">-------------------------</span>
+      <span class="ex">Time</span>         Conc.      Pred.   Residual       AUC       AUMC
+<span class="ex">---------------------------------------------------------------------</span>
+     <span class="ex">0.0000</span>       0.7400                           0.0000     0.0000
+     <span class="ex">0.2500</span>       2.8400                           0.4475     0.0888
+     <span class="ex">0.5700</span>       6.5700                           1.9531     0.8015
+     <span class="ex">1.1200</span>      10.5000                           6.6474     5.0654
+     <span class="ex">2.0200</span>       9.6600                          15.7194    19.1383
+     <span class="ex">3.8200</span>       8.5800                          32.1354    66.1982
+     <span class="ex">5.1000</span>       8.3600                          42.9769   114.4617
+     <span class="ex">7.0300</span>       7.4700                          58.2529   206.2815
+     <span class="ex">9.0500</span> *     6.8900     6.8912 -1.228e-03    72.7565   322.2988
+    <span class="ex">12.1200</span> *     5.9400     5.9387 +1.324e-03    92.4505   528.5219
+    <span class="ex">24.3700</span> *     3.2800     3.2801 -1.465e-04   148.9231  1459.0711
+
+<span class="ex">*</span>: Used for the calculation of Lambda z.
+
+
+<span class="ex">Calculated</span> Values
+<span class="ex">-----------------</span>
+<span class="ex">CMAX</span>       Max Conc                                       10.5000 mg/L
+<span class="ex">CMAXD</span>      Max Conc Norm by Dose                           0.0328 mg/L/mg
+<span class="ex">TMAX</span>       Time of CMAX                                    1.1200 h
+<span class="ex">TLAG</span>       Time Until First Nonzero Conc                   0.0000 h
+<span class="ex">CLST</span>       Last Nonzero Conc                               3.2800 mg/L
+<span class="ex">CLSTP</span>      Last Nonzero Conc Pred                          3.2801 mg/L
+<span class="ex">TLST</span>       Time of Last Nonzero Conc                      24.3700 h
+<span class="ex">LAMZHL</span>     Half-Life Lambda z                             14.3044 h
+<span class="ex">LAMZ</span>       Lambda z                                        0.0485 /h
+<span class="ex">LAMZLL</span>     Lambda z Lower Limit                            9.0500 h
+<span class="ex">LAMZUL</span>     Lambda z Upper Limit                           24.3700 h
+<span class="ex">LAMZNPT</span>    Number of Points for Lambda z                   3
+<span class="ex">CORRXY</span>     Correlation Between TimeX and Log ConcY        -1.0000 
+<span class="ex">R2</span>         R Squared                                       1.0000 
+<span class="ex">R2ADJ</span>      R Squared Adjusted                              1.0000 
+<span class="ex">AUCLST</span>     AUC to Last Nonzero Conc                      148.9231 h*mg/L
+<span class="ex">AUCALL</span>     AUC All                                       148.9231 h*mg/L
+<span class="ex">AUCIFO</span>     AUC Infinity Obs                              216.6119 h*mg/L
+<span class="ex">AUCIFOD</span>    AUC Infinity Obs Norm by Dose                   0.6769 h*mg/L/mg
+<span class="ex">AUCIFP</span>     AUC Infinity Pred                             216.6150 h*mg/L
+<span class="ex">AUCIFPD</span>    AUC Infinity Pred Norm by Dose                  0.6769 h*mg/L/mg
+<span class="ex">AUCPEO</span>     AUC %Extrapolation Obs                         31.2489 %
+<span class="ex">AUCPEP</span>     AUC %Extrapolation Pred                        31.2499 %
+<span class="ex">AUMCLST</span>    AUMC to Last Nonzero Conc                    1459.0711 h2*mg/L
+<span class="ex">AUMCIFO</span>    AUMC Infinity Obs                            4505.5348 h2*mg/L
+<span class="ex">AUMCIFP</span>    AUMC Infinity Pred                           4505.6709 h2*mg/L
+<span class="ex">AUMCPEO</span>    AUMC %Extrapolation Obs                        67.6160 %
+<span class="ex">AUMCPEP</span>    AUMC % Extrapolation Pred                      67.6170 %
+<span class="ex">VZFO</span>       Vz Obs by F                                    30.4867 L
+<span class="ex">VZFP</span>       Vz Pred by F                                   30.4863 L
+<span class="ex">CLFO</span>       Total CL Obs by F                               1.4773 L/h
+<span class="ex">CLFP</span>       Total CL Pred by F                              1.4773 L/h
+<span class="ex">MRTEVLST</span>   MRT Extravasc to Last Nonzero Conc              9.7975 h
+<span class="ex">MRTEVIFO</span>   MRT Extravasc Infinity Obs                     20.8000 h
+<span class="ex">MRTEVIFP</span>   MRT Extravasc Infinity Pred                    20.8004 h</code></pre>
 <p>한편 <code>txtNCA2()</code>를 다음과 같이 정의하면 여러 대상자에 대한 보고서를 작성 가능합니다.</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" data-line-number="1">txtNCA2 &lt;-<span class="st"> </span><span class="cf">function</span>(dataset){</a>
-<a class="sourceLine" id="cb34-2" data-line-number="2">  dataset <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb34-3" data-line-number="3"><span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb34-4" data-line-number="4"><span class="st">    </span><span class="kw">group_by</span>(Subject) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb34-5" data-line-number="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">res =</span> <span class="kw">c</span>(<span class="dt">ID =</span> glue<span class="op">::</span><span class="kw">glue</span>(<span class="st">&#39;ID={unique(Subject)}</span><span class="ch">\n\n</span><span class="st">&#39;</span>),</a>
-<a class="sourceLine" id="cb34-6" data-line-number="6">                     <span class="kw">txtNCA</span>(Time, </a>
-<a class="sourceLine" id="cb34-7" data-line-number="7">                           conc, </a>
-<a class="sourceLine" id="cb34-8" data-line-number="8">                           <span class="dt">dose=</span><span class="dv">320</span>, </a>
-<a class="sourceLine" id="cb34-9" data-line-number="9">                           <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </a>
-<a class="sourceLine" id="cb34-10" data-line-number="10">                           <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, </a>
-<a class="sourceLine" id="cb34-11" data-line-number="11">                           <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste</span>(<span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb34-12" data-line-number="12"><span class="st">    </span>.<span class="op">$</span>res <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb34-13" data-line-number="13"><span class="st">    </span><span class="kw">paste</span>(<span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n\n\n\n\n\n</span><span class="st">&#39;</span>)</a>
-<a class="sourceLine" id="cb34-14" data-line-number="14">}</a></code></pre></div>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" data-line-number="1"><span class="kw">txtNCA2</span>(Theoph) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">writeLines</span>(<span class="st">&#39;Output-ncar/txtNCA-group-Theoph.txt&#39;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">txtNCA2 &lt;-<span class="st"> </span><span class="cf">function</span>(dataset){
+  dataset <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">as_tibble</span>() <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">group_by</span>(Subject) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">res =</span> <span class="kw">c</span>(<span class="dt">ID =</span> glue<span class="op">::</span><span class="kw">glue</span>(<span class="st">&#39;ID={unique(Subject)}</span><span class="ch">\n\n</span><span class="st">&#39;</span>),
+                     <span class="kw">txtNCA</span>(Time, 
+                           conc, 
+                           <span class="dt">dose=</span><span class="dv">320</span>, 
+                           <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, 
+                           <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, 
+                           <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">paste</span>(<span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)) <span class="op">%&gt;%</span>
+<span class="st">    </span>.<span class="op">$</span>res <span class="op">%&gt;%</span>
+<span class="st">    </span><span class="kw">paste</span>(<span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n\n\n\n\n\n</span><span class="st">&#39;</span>)
+}</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">txtNCA2</span>(Theoph) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">writeLines</span>(<span class="st">&#39;Output-ncar/txtNCA-group-Theoph.txt&#39;</span>)</code></pre>
 <p>저장된 파일 내용은 Appendix <a href="groupreport.html#theophgroup">C.1</a> 에서 확인 가능합니다.</p>
 <!--Indometh의 경우 Appendix \@ref(indomethgroup)-->
 </div>
 <div id="pdfnca" class="section level2">
 <h2><span class="header-section-number">5.3</span> pdfNCA()</h2>
 <p>pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure <a href="ncar.html#fig:pdfnca-output">5.1</a>)</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" data-line-number="1">ncar<span class="op">::</span><span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;Output-ncar/pdfNCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, </a>
-<a class="sourceLine" id="cb36-2" data-line-number="2">             <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>,  <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </a>
-<a class="sourceLine" id="cb36-3" data-line-number="3">             <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ncar<span class="op">::</span><span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;Output-ncar/pdfNCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, 
+             <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>,  <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, 
+             <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre>
 <pre><code>## png 
 ##   2</code></pre>
-<div class="sourceCode" id="cb38"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb38-1" data-line-number="1"><span class="ex">magick</span> -density 150 Output-ncar/pdfNCA-Theoph.pdf Output-ncar/pdfNCA-Theoph-%02d.png</a>
-<a class="sourceLine" id="cb38-2" data-line-number="2"><span class="ex">magick</span> montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png Output-ncar/montage.png</a></code></pre></div>
-<pre><code>## magick.exe: profile &#39;icc&#39;: &#39;RGB &#39;: RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png&#39; @ warning/png.c/MagickPNGWarningHandler/1744.</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="ex">magick</span> -density 150 Output-ncar/pdfNCA-Theoph.pdf Output-ncar/pdfNCA-Theoph-%02d.png
+<span class="ex">magick</span> montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png Output-ncar/montage.png</code></pre>
+<pre><code>## magick.exe: profile &#39;icc&#39;: &#39;RGB &#39;: RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png&#39; @ warning/png.c/MagickPNGWarningHandler/1747.</code></pre>
 <div class="figure"><span id="fig:pdfnca-output"></span>
 <img src="Output-ncar/montage.png" alt="pdfNCA() output" width="100%" />
 <p class="caption">
@@ -390,9 +391,9 @@ Figure 5.1: pdfNCA() output
 <div id="rtfnca" class="section level2">
 <h2><span class="header-section-number">5.4</span> rtfNCA()</h2>
 <p>마이크로소프트 워드에서 편집가능한 rtf파일을 만듭니다.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" data-line-number="1">ncar<span class="op">::</span><span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, </a>
-<a class="sourceLine" id="cb40-2" data-line-number="2">             <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </a>
-<a class="sourceLine" id="cb40-3" data-line-number="3">             <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">ncar<span class="op">::</span><span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, 
+             <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, 
+             <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</code></pre>
 
 </div>
 </div>
@@ -422,7 +423,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -434,6 +435,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/asancpt/book-ncar/edit/master/04-report.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book-ncar.epub"],
 "toc": {
@@ -452,7 +457,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

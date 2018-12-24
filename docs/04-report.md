@@ -74,7 +74,7 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
                        Package version 0.4.1 (2018-06-20 KST)
                           R version 3.5.1 (2018-07-02)
 
-Date and Time: 2018-08-21 12:17:54 Asia/Seoul
+Date and Time: 2018-12-24 17:34:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -196,7 +196,7 @@ magick montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png
 ```
 
 ```
-## magick.exe: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png' @ warning/png.c/MagickPNGWarningHandler/1744.
+## magick.exe: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png' @ warning/png.c/MagickPNGWarningHandler/1747.
 ```
 
 <div class="figure">

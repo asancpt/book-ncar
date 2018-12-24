@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chapter 3 기본 자료 | R을 사용한 비구획분석</title>
+  <title>참고문헌 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
   <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="Chapter 3 기본 자료 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="참고문헌 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 3 기본 자료 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="참고문헌 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="R-and-packages.html">
-<link rel="next" href="noncompart.html">
+<link rel="prev" href="session-info.html">
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -241,132 +241,83 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="datasets" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> 기본 자료</h1>
-<div id="introdatasets" class="section level2">
-<h2><span class="header-section-number">3.1</span> 이 장에서는</h2>
-<p>R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있습니다.</p>
-<ul>
-<li><code>Theoph</code>: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0~24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.</li>
-<li><code>Indometh</code>: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0~8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)</li>
-</ul>
-<p>먼저 데이터를 살펴보겠습니다.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(dplyr)</code></pre>
+<div id="section-11" class="section level1 unnumbered">
+<h1>참고문헌</h1>
+
+<div id="refs" class="references">
+<div>
+<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127: 83–93. <a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013">https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
 </div>
-<div id="TheophData" class="section level2">
-<h2><span class="header-section-number">3.2</span> 데이타에 대해</h2>
-<p>Theoph 자료의 첫 10개 (Table <a href="datasets.html#tab:head">3.1</a>) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다.
-데이터가 Subject, weight, Dose, Time, Concentration 으로 구성되었음을 알 수 있습니다. 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(Theoph, <span class="dt">n=</span><span class="dv">10</span>)
-<span class="kw">tail</span>(Theoph, <span class="dt">n=</span><span class="dv">10</span>)</code></pre>
-<table>
-<caption><span id="tab:head">Table 3.1: </span>Theoph 자료의 첫 10개 관찰값</caption>
-<thead>
-<tr class="header">
-<th align="left">Subject</th>
-<th align="right">Wt</th>
-<th align="right">Dose</th>
-<th align="right">Time</th>
-<th align="right">conc</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">0.00</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">0.25</td>
-<td align="right">2.84</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">0.57</td>
-<td align="right">6.57</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">1.12</td>
-<td align="right">10.50</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">2.02</td>
-<td align="right">9.66</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">3.82</td>
-<td align="right">8.58</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">5.10</td>
-<td align="right">8.36</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">7.03</td>
-<td align="right">7.47</td>
-</tr>
-<tr class="odd">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">9.05</td>
-<td align="right">6.89</td>
-</tr>
-<tr class="even">
-<td align="left">1</td>
-<td align="right">79.6</td>
-<td align="right">4.02</td>
-<td align="right">12.12</td>
-<td align="right">5.94</td>
-</tr>
-</tbody>
-</table>
-<p>그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure <a href="datasets.html#fig:ggtheoph">3.1</a>)</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(Theoph, <span class="kw">aes</span>(Time, conc, <span class="dt">group =</span> Subject, <span class="dt">color =</span> Subject)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">4</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">size =</span> <span class="dv">1</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg)&#39;</span>,
-       <span class="dt">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="dt">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</code></pre>
-<div class="figure"><span id="fig:ggtheoph"></span>
-<img src="02-packages_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
-<p class="caption">
-Figure 3.1: Concentration-time curves of oral administration of Theoph (N = 12)
-</p>
+<div>
+<p>Bae, Kyun-Seop. 2018a. <em>BE: Bioequivalence Study Data Analysis</em>. <a href="https://CRAN.R-project.org/package=BE">https://CRAN.R-project.org/package=BE</a>.</p>
+</div>
+<div>
+<p>———. 2018b. <em>Ncar: Noncompartmental Analysis for Pharmacokinetic Report</em>. <a href="https://CRAN.R-project.org/package=ncar">https://CRAN.R-project.org/package=ncar</a>.</p>
+</div>
+<div>
+<p>———. 2018c. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart">https://CRAN.R-project.org/package=NonCompart</a>.</p>
+</div>
+<div>
+<p>Bae, Kyun-Seop, and Jee Eun Lee. 2018. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr">https://CRAN.R-project.org/package=pkr</a>.</p>
+</div>
+<div>
+<p>Certara USA, Inc. 2018. <em>Phoenix Winnonlin: The Industry Standard for Nca and Pk/Pd Modeling and Simulation</em>. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.</p>
+</div>
+<div>
+<p>Chow. 2009. <em>Design and Analysis of Bioavailability and Bioequivalence Studies</em>. Boca Raton: CRC Press.</p>
+</div>
+<div>
+<p>Gabrielsson, Johan. 2016. <em>Pharmacokinetic and Pharmacodynamic Data Analysis : Concepts and Applications</em>. Stockholm: Apotekarsocieteten.</p>
+</div>
+<div>
+<p>Henry, Lionel, and Hadley Wickham. 2018. <em>Purrr: Functional Programming Tools</em>. <a href="https://CRAN.R-project.org/package=purrr">https://CRAN.R-project.org/package=purrr</a>.</p>
+</div>
+<div>
+<p>Kim, Hyungsub, Sungpil Han, Yong-Soon Cho, Seok-Kyu Yoon, and Kyun-Seop Bae. 2018. “Development of R Packages: ‘NonCompart’ and ‘Ncar’ for Noncompartmental Analysis (Nca).” <em>Translational and Clinical Pharmacology</em> 26 (1): 01–48. <a href="http://www.tcpharm.org/Data/Journal/2/358.pdf">http://www.tcpharm.org/Data/Journal/2/358.pdf</a>.</p>
+</div>
+<div>
+<p>Muller, Kirill, and Hadley Wickham. 2018. <em>Tibble: Simple Data Frames</em>. <a href="https://CRAN.R-project.org/package=tibble">https://CRAN.R-project.org/package=tibble</a>.</p>
+</div>
+<div>
+<p>R Core Team. 2018. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.</p>
+</div>
+<div>
+<p>Rowland, Malcolm. 2011. <em>Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications</em>. Philadelphia: Wolters Kluwer Health/Lippincott William &amp; Wilkins.</p>
+</div>
+<div>
+<p>Wickham, Hadley. 2017. <em>Tidyverse: Easily Install and Load the ’Tidyverse’</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, and Kara Woo. 2018. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, and Lionel Henry. 2018. <em>Tidyr: Easily Tidy Data with ’Spread()’ and ’Gather()’ Functions</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.</p>
+</div>
+<div>
+<p>Wickham, Hadley, Jim Hester, and Romain Francois. 2018. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.</p>
+</div>
+</div>
 </div>
 
-</div>
-</div>
+
+
+
+
+
+
+
+
+
             </section>
 
           </div>
         </div>
       </div>
-<a href="R-and-packages.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="noncompart.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="session-info.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -396,7 +347,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/02-packages.Rmd",
+"link": "https://github.com/asancpt/book-ncar/edit/master/99-references.Rmd",
 "text": "Edit"
 },
 "history": {

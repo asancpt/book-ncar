@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R을 사용한 비구획분석</title>
+  <title>A Phoenix WinNonLin 과 결과 비교 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R을 사용한 비구획분석" />
+  <meta property="og:title" content="A Phoenix WinNonLin 과 결과 비교 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="A Phoenix WinNonLin 과 결과 비교 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-21">
+<meta name="date" content="2018-12-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="softwares.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -67,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -130,8 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>감사의 글</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>저자 소개</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>감사의 글</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>저자 소개</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
-<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
+<li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#section-3"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
@@ -169,15 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
-<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#---"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.2" data-path="simulation.html"><a href="simulation.html#section-4"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#section-5"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
+<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#section-6"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
 <li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#section-7"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
@@ -196,14 +197,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="11-appendix.html"><a href="#section-B.3.3"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#section-8"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
 <li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>B.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="B.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>B.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="B.3.6" data-path="11-appendix.html"><a href="#section-B.3.6"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="B.3.6" data-path="softwares.html"><a href="softwares.html#section-9"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="B.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>B.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="B.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>B.3.8</b> Closing</a></li>
-<li class="chapter" data-level="B.3.9" data-path="11-appendix.html"><a href="#section-B.3.9"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
+<li class="chapter" data-level="B.3.9" data-path="softwares.html"><a href="softwares.html#section-10"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
 <li class="chapter" data-level="B.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.10</b> Pros</a></li>
 <li class="chapter" data-level="B.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.11</b> Cons</a></li>
 </ul></li>
@@ -219,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
 <li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
-<li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="chapter" data-level="" data-path="section-11.html"><a href="section-11.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
 
@@ -244,40 +245,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h1><span class="header-section-number">A</span> Phoenix WinNonLin 과 결과 비교</h1>
 <div id="introduction-1" class="section level2">
 <h2><span class="header-section-number">A.1</span> Introduction</h2>
-<p>NonCompart R package <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">c</a>; Kim et al. <a href="#ref-Kim_2018">2018</a>)</span> can conduct a noncompartmental analysis as similar as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/">Phoenix<sup>®</sup> WinNonlin<sup>®</sup></a> <span class="citation">(Certara USA <a href="#ref-wnl">2018</a>)</span>.
+<p>NonCompart R package <span class="citation">(Bae <a href="#ref-R-NonCompart">2018</a><a href="#ref-R-NonCompart">c</a>; Kim et al. <a href="#ref-Kim_2018">2018</a>)</span> can conduct a noncompartmental analysis as similar as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/">Phoenix<sup>®</sup> WinNonlin<sup>®</sup></a> <span class="citation">(Certara USA <a href="#ref-wnl">2018</a>)</span>.
 This document provides validation of noncompartmental analysis performed by NonCompart R package version 0.4.1 as compared to the results from the commercial software, WinNonlin<sup>®</sup> version 6.3 and 7.0.</p>
 </div>
 <div id="results" class="section level2">
 <h2><span class="header-section-number">A.2</span> Results</h2>
 <p>A function, <code>Equal()</code> will return <code>TRUE</code> if there is no difference between results from NonCompart and WinNonlin.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" data-line-number="1"><span class="co"># install.packages(&quot;NonCompart&quot;, repos=&quot;http://pmx.amc.seoul.kr&quot;)</span></a>
-<a class="sourceLine" id="cb60-2" data-line-number="2"><span class="kw">library</span>(NonCompart)</a>
-<a class="sourceLine" id="cb60-3" data-line-number="3">RptCfg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/RptCfg.csv&quot;</span>, <span class="dt">as.is=</span><span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb60-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb60-5" data-line-number="5">Equal =<span class="st"> </span><span class="cf">function</span>(Wres, Rres, <span class="dt">Tol=</span><span class="fl">0.001</span>)</a>
-<a class="sourceLine" id="cb60-6" data-line-number="6">{</a>
-<a class="sourceLine" id="cb60-7" data-line-number="7">  Wres[,<span class="st">&quot;ID&quot;</span>] =<span class="st"> </span><span class="kw">as.character</span>(Wres[,<span class="st">&quot;Subject&quot;</span>])</a>
-<a class="sourceLine" id="cb60-8" data-line-number="8">  ColName0 =<span class="st"> </span><span class="kw">colnames</span>(Rres)</a>
-<a class="sourceLine" id="cb60-9" data-line-number="9">  <span class="kw">rownames</span>(RptCfg) =<span class="st"> </span>RptCfg[,<span class="st">&quot;PPTESTCD&quot;</span>]</a>
-<a class="sourceLine" id="cb60-10" data-line-number="10">  <span class="kw">colnames</span>(Rres) =<span class="st"> </span><span class="kw">c</span>(ColName0[<span class="dv">1</span>], RptCfg[ColName0[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;WNL&quot;</span>])</a>
-<a class="sourceLine" id="cb60-11" data-line-number="11">  Inter =<span class="st"> </span><span class="kw">intersect</span>(<span class="kw">colnames</span>(Wres), <span class="kw">colnames</span>(Rres))</a>
-<a class="sourceLine" id="cb60-12" data-line-number="12">  </a>
-<a class="sourceLine" id="cb60-13" data-line-number="13">  IsSame =<span class="st"> </span><span class="ot">TRUE</span></a>
-<a class="sourceLine" id="cb60-14" data-line-number="14">  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(Wres)) {</a>
-<a class="sourceLine" id="cb60-15" data-line-number="15">    <span class="cf">for</span> (j <span class="cf">in</span> Inter) {</a>
-<a class="sourceLine" id="cb60-16" data-line-number="16">      R =<span class="st"> </span><span class="kw">as.numeric</span>(Rres[i,j])</a>
-<a class="sourceLine" id="cb60-17" data-line-number="17">      W =<span class="st"> </span><span class="kw">as.numeric</span>(Wres[i,j])</a>
-<a class="sourceLine" id="cb60-18" data-line-number="18">      <span class="cf">if</span> (W <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {</a>
-<a class="sourceLine" id="cb60-19" data-line-number="19">        <span class="cf">if</span>(<span class="kw">abs</span>((R <span class="op">-</span><span class="st"> </span>W)<span class="op">/</span>W) <span class="op">&gt;</span><span class="st"> </span>Tol) {</a>
-<a class="sourceLine" id="cb60-20" data-line-number="20">          <span class="kw">print</span>(Wres[i,j])</a>
-<a class="sourceLine" id="cb60-21" data-line-number="21">          <span class="kw">print</span>(Rres[i,j])</a>
-<a class="sourceLine" id="cb60-22" data-line-number="22">          IsSame =<span class="st"> </span><span class="ot">FALSE</span></a>
-<a class="sourceLine" id="cb60-23" data-line-number="23">        }</a>
-<a class="sourceLine" id="cb60-24" data-line-number="24">      }</a>
-<a class="sourceLine" id="cb60-25" data-line-number="25">    }</a>
-<a class="sourceLine" id="cb60-26" data-line-number="26">  }</a>
-<a class="sourceLine" id="cb60-27" data-line-number="27">  <span class="kw">return</span>(IsSame)</a>
-<a class="sourceLine" id="cb60-28" data-line-number="28">}</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># install.packages(&quot;NonCompart&quot;, repos=&quot;http://pmx.amc.seoul.kr&quot;)</span>
+<span class="kw">library</span>(NonCompart)
+RptCfg =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/RptCfg.csv&quot;</span>, <span class="dt">as.is=</span><span class="ot">TRUE</span>)
+
+Equal =<span class="st"> </span><span class="cf">function</span>(Wres, Rres, <span class="dt">Tol=</span><span class="fl">0.001</span>)
+{
+  Wres[,<span class="st">&quot;ID&quot;</span>] =<span class="st"> </span><span class="kw">as.character</span>(Wres[,<span class="st">&quot;Subject&quot;</span>])
+  ColName0 =<span class="st"> </span><span class="kw">colnames</span>(Rres)
+  <span class="kw">rownames</span>(RptCfg) =<span class="st"> </span>RptCfg[,<span class="st">&quot;PPTESTCD&quot;</span>]
+  <span class="kw">colnames</span>(Rres) =<span class="st"> </span><span class="kw">c</span>(ColName0[<span class="dv">1</span>], RptCfg[ColName0[<span class="op">-</span><span class="dv">1</span>],<span class="st">&quot;WNL&quot;</span>])
+  Inter =<span class="st"> </span><span class="kw">intersect</span>(<span class="kw">colnames</span>(Wres), <span class="kw">colnames</span>(Rres))
+  
+  IsSame =<span class="st"> </span><span class="ot">TRUE</span>
+  <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(Wres)) {
+    <span class="cf">for</span> (j <span class="cf">in</span> Inter) {
+      R =<span class="st"> </span><span class="kw">as.numeric</span>(Rres[i,j])
+      W =<span class="st"> </span><span class="kw">as.numeric</span>(Wres[i,j])
+      <span class="cf">if</span> (W <span class="op">!=</span><span class="st"> </span><span class="dv">0</span>) {
+        <span class="cf">if</span>(<span class="kw">abs</span>((R <span class="op">-</span><span class="st"> </span>W)<span class="op">/</span>W) <span class="op">&gt;</span><span class="st"> </span>Tol) {
+          <span class="kw">print</span>(Wres[i,j])
+          <span class="kw">print</span>(Rres[i,j])
+          IsSame =<span class="st"> </span><span class="ot">FALSE</span>
+        }
+      }
+    }
+  }
+  <span class="kw">return</span>(IsSame)
+}</code></pre>
 <p>Eight comparison tests were performed using <code>Theoph</code> and <code>Indometh</code> default datasets. (Table 1)
 Detailed side-by-side comparison is in Appendix A.</p>
 <table>
@@ -350,93 +351,106 @@ Detailed side-by-side comparison is in Appendix A.</p>
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb61-1" data-line-number="1">Theoph[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Theoph[,<span class="st">&quot;Subject&quot;</span>]))</a>
-<a class="sourceLine" id="cb61-2" data-line-number="2">Indometh[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Indometh[,<span class="st">&quot;Subject&quot;</span>]))</a>
-<a class="sourceLine" id="cb61-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb61-4" data-line-number="4">Wres1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Linear.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb61-5" data-line-number="5">Rres1 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb61-6" data-line-number="6"><span class="kw">Equal</span>(Wres1, Rres1)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Theoph[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Theoph[,<span class="st">&quot;Subject&quot;</span>]))
+Indometh[,<span class="st">&quot;Subject&quot;</span>] =<span class="st"> </span><span class="kw">as.numeric</span>(<span class="kw">as.character</span>(Indometh[,<span class="st">&quot;Subject&quot;</span>]))
+
+Wres1 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Linear.csv&quot;</span>)
+Rres1 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres1, Rres1)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" data-line-number="1">Wres2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Log.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb63-2" data-line-number="2">Rres2 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, </a>
-<a class="sourceLine" id="cb63-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb63-4" data-line-number="4"><span class="kw">Equal</span>(Wres2, Rres2) </a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres2 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Theoph_Log.csv&quot;</span>)
+Rres2 =<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, 
+               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres2, Rres2) </code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" data-line-number="1">Wres3 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb65-2" data-line-number="2">Rres3 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, </a>
-<a class="sourceLine" id="cb65-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb65-4" data-line-number="4"><span class="kw">Equal</span>(Wres3, Rres3)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres3 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear.csv&quot;</span>)
+Rres3 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, 
+               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres3, Rres3)</code></pre>
 <pre><code>## Error in if (abs((R - W)/W) &gt; Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다</code></pre>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" data-line-number="1">Wres4 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb67-2" data-line-number="2">Rres4 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, </a>
-<a class="sourceLine" id="cb67-3" data-line-number="3">               <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb67-4" data-line-number="4"><span class="kw">Equal</span>(Wres4, Rres4)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres4 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log.csv&quot;</span>)
+Rres4 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, 
+               <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres4, Rres4)</code></pre>
 <pre><code>## Error in if (abs((R - W)/W) &gt; Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다</code></pre>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" data-line-number="1">Wres5 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb69-2" data-line-number="2">Rres5 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, </a>
-<a class="sourceLine" id="cb69-3" data-line-number="3">               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb69-4" data-line-number="4"><span class="kw">Equal</span>(Wres5, Rres5)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres5 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Infusion.csv&quot;</span>)
+Rres5 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, 
+               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres5, Rres5)</code></pre>
 <pre><code>## Error in if (abs((R - W)/W) &gt; Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다</code></pre>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" data-line-number="1">Wres6 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb71-2" data-line-number="2">Rres6 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, </a>
-<a class="sourceLine" id="cb71-3" data-line-number="3">               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb71-4" data-line-number="4"><span class="kw">Equal</span>(Wres6, Rres6)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres6 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Infusion.csv&quot;</span>)
+Rres6 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Infusion&quot;</span>, 
+               <span class="dt">dur=</span><span class="fl">0.25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres6, Rres6)</code></pre>
 <pre><code>## Error in if (abs((R - W)/W) &gt; Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" data-line-number="1">Wres7 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb73-2" data-line-number="2">Rres7 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb73-3" data-line-number="3"><span class="kw">Equal</span>(Wres7, Rres7)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres7 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Linear_Wrong_Extravascular.csv&quot;</span>)
+Rres7 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres7, Rres7)</code></pre>
 <pre><code>## Error in if (abs((R - W)/W) &gt; Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다</code></pre>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" data-line-number="1">Wres8 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv&quot;</span>)</a>
-<a class="sourceLine" id="cb75-2" data-line-number="2">Rres8 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, </a>
-<a class="sourceLine" id="cb75-3" data-line-number="3">               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</a>
-<a class="sourceLine" id="cb75-4" data-line-number="4"><span class="kw">Equal</span>(Wres8, Rres8)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Wres8 =<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data-raw/Final_Parameters_Pivoted_Indometh_Log_Wrong_Extravascular.csv&quot;</span>)
+Rres8 =<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>, 
+               <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)
+<span class="kw">Equal</span>(Wres8, Rres8)</code></pre>
 <pre><code>## Error in if (abs((R - W)/W) &gt; Tol) {: TRUE/FALSE가 필요한 곳에 값이 없습니다</code></pre>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" data-line-number="1">devtools<span class="op">::</span><span class="kw">session_info</span>()</a></code></pre></div>
-<pre><code>##  setting  value                       
+<pre class="sourceCode r"><code class="sourceCode r">devtools<span class="op">::</span><span class="kw">session_info</span>()</code></pre>
+<pre><code>## - Session info ----------------------------------------------------------
+##  setting  value                       
 ##  version  R version 3.5.1 (2018-07-02)
+##  os       Windows 7 x64 SP 1          
 ##  system   x86_64, mingw32             
 ##  ui       RTerm                       
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
+##  ctype    Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-08-21                  
+##  date     2018-12-24                  
 ## 
-##  package    * version date       source                             
-##  backports    1.1.2   2017-12-13 CRAN (R 3.5.0)                     
-##  base       * 3.5.1   2018-07-02 local                              
-##  bookdown     0.7     2018-02-18 CRAN (R 3.5.0)                     
-##  compiler     3.5.1   2018-07-02 local                              
-##  crayon       1.3.4   2018-06-08 Github (gaborcsardi/crayon@3e751fb)
-##  datasets   * 3.5.1   2018-07-02 local                              
-##  devtools     1.13.6  2018-06-27 CRAN (R 3.5.0)                     
-##  digest       0.6.15  2018-01-28 CRAN (R 3.5.0)                     
-##  evaluate     0.11    2018-07-17 CRAN (R 3.5.1)                     
-##  graphics   * 3.5.1   2018-07-02 local                              
-##  grDevices  * 3.5.1   2018-07-02 local                              
-##  highr        0.7     2018-06-09 CRAN (R 3.5.0)                     
-##  hms          0.4.2   2018-03-10 CRAN (R 3.5.0)                     
-##  htmltools    0.3.6   2017-04-28 CRAN (R 3.5.0)                     
-##  knitr        1.20    2018-02-20 CRAN (R 3.5.0)                     
-##  magrittr     1.5     2014-11-22 CRAN (R 3.5.0)                     
-##  memoise      1.1.0   2017-04-21 CRAN (R 3.5.0)                     
-##  methods    * 3.5.1   2018-07-02 local                              
-##  NonCompart * 0.4.4   2018-08-06 CRAN (R 3.5.1)                     
-##  pillar       1.3.0   2018-07-14 CRAN (R 3.5.1)                     
-##  pkgconfig    2.0.2   2018-08-16 CRAN (R 3.5.1)                     
-##  R6           2.2.2   2017-06-17 CRAN (R 3.5.0)                     
-##  Rcpp         0.12.18 2018-07-23 CRAN (R 3.5.1)                     
-##  readr        1.1.1   2017-05-16 CRAN (R 3.5.0)                     
-##  rlang        0.2.2   2018-08-16 CRAN (R 3.5.1)                     
-##  rmarkdown    1.10    2018-06-11 CRAN (R 3.5.0)                     
-##  rprojroot    1.3-2   2018-01-03 CRAN (R 3.5.0)                     
-##  stats      * 3.5.1   2018-07-02 local                              
-##  stringi      1.2.4   2018-07-20 CRAN (R 3.5.1)                     
-##  stringr      1.3.1   2018-05-10 CRAN (R 3.5.0)                     
-##  tibble       1.4.2   2018-01-22 CRAN (R 3.5.0)                     
-##  tools        3.5.1   2018-07-02 local                              
-##  utils      * 3.5.1   2018-07-02 local                              
-##  withr        2.1.2   2018-03-15 CRAN (R 3.5.0)                     
-##  xfun         0.3     2018-07-06 CRAN (R 3.5.1)</code></pre>
+## - Packages --------------------------------------------------------------
+##  package     * version date       lib source                             
+##  assertthat    0.2.0   2017-04-11 [1] CRAN (R 3.5.0)                     
+##  backports     1.1.3   2018-12-14 [1] CRAN (R 3.5.1)                     
+##  bookdown      0.9     2018-12-21 [1] CRAN (R 3.5.1)                     
+##  callr         3.1.1   2018-12-21 [1] CRAN (R 3.5.1)                     
+##  cli           1.0.1   2018-09-25 [1] CRAN (R 3.5.1)                     
+##  crayon        1.3.4   2018-10-25 [1] Github (gaborcsardi/crayon@467939b)
+##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.5.0)                     
+##  devtools      2.0.1   2018-10-26 [1] CRAN (R 3.5.1)                     
+##  digest        0.6.18  2018-10-10 [1] CRAN (R 3.5.1)                     
+##  evaluate      0.12    2018-10-09 [1] CRAN (R 3.5.1)                     
+##  fs            1.2.6   2018-08-23 [1] CRAN (R 3.5.1)                     
+##  glue          1.3.0   2018-07-17 [1] CRAN (R 3.5.1)                     
+##  highr         0.7     2018-06-09 [1] CRAN (R 3.5.0)                     
+##  hms           0.4.2   2018-03-10 [1] CRAN (R 3.5.0)                     
+##  htmltools     0.3.6   2017-04-28 [1] CRAN (R 3.5.0)                     
+##  knitr         1.21    2018-12-10 [1] CRAN (R 3.5.1)                     
+##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.5.0)                     
+##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.5.0)                     
+##  NonCompart  * 0.4.4   2018-07-10 [1] CRAN (R 3.5.0)                     
+##  pillar        1.3.1   2018-12-15 [1] CRAN (R 3.5.1)                     
+##  pkgbuild      1.0.2   2018-10-16 [1] CRAN (R 3.5.1)                     
+##  pkgconfig     2.0.2   2018-08-16 [1] CRAN (R 3.5.1)                     
+##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.5.1)                     
+##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.5.0)                     
+##  processx      3.2.1   2018-12-05 [1] CRAN (R 3.5.1)                     
+##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.5.1)                     
+##  R6            2.3.0   2018-10-04 [1] CRAN (R 3.5.1)                     
+##  Rcpp          1.0.0   2018-11-07 [1] CRAN (R 3.5.1)                     
+##  readr         1.3.1   2018-12-21 [1] CRAN (R 3.5.1)                     
+##  remotes       2.0.2   2018-10-30 [1] CRAN (R 3.5.1)                     
+##  rlang         0.3.0.1 2018-10-25 [1] CRAN (R 3.5.1)                     
+##  rmarkdown     1.11    2018-12-08 [1] CRAN (R 3.5.1)                     
+##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.5.0)                     
+##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.5.1)                     
+##  stringi       1.2.4   2018-07-20 [1] CRAN (R 3.5.1)                     
+##  stringr       1.3.1   2018-05-10 [1] CRAN (R 3.5.0)                     
+##  testthat      2.0.1   2018-10-13 [1] CRAN (R 3.5.1)                     
+##  tibble        1.4.2   2018-01-22 [1] CRAN (R 3.5.0)                     
+##  usethis       1.4.0   2018-08-14 [1] CRAN (R 3.5.1)                     
+##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.5.0)                     
+##  xfun          0.4     2018-10-23 [1] CRAN (R 3.5.1)                     
+## 
+## [1] C:/Users/mdlhs/Rlib
+## [2] C:/Program Files/R/R-3.5.1/library</code></pre>
 
 </div>
 <div id="conclusion-1" class="section level2">
@@ -450,7 +464,7 @@ M.D/Ph.D, Resident<br />
 Department of Clinical Pharmacology and Therapeutics,<br />
 Asan Medical Center, University of Ulsan,<br />
 Seoul 05505, Republic of Korea<br />
-E-mail: <a href="mailto:shan@acp.kr">shan@acp.kr</a><br />
+E-mail: <a href="mailto:shan@acp.kr" class="email">shan@acp.kr</a><br />
 URL: www.github.com/shanmdphd</p>
 
 
@@ -459,13 +473,13 @@ URL: www.github.com/shanmdphd</p>
 <h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-R-NonCompart">
-<p>Bae, Kyun-Seop. 2018c. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart" class="uri">https://CRAN.R-project.org/package=NonCompart</a>.</p>
+<p>Bae, Kyun-Seop. 2018c. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart">https://CRAN.R-project.org/package=NonCompart</a>.</p>
 </div>
 <div id="ref-Kim_2018">
-<p>Kim, Hyungsub, Sungpil Han, Yong-Soon Cho, Seok-Kyu Yoon, and Kyun-Seop Bae. 2018. “Development of R Packages: ‘NonCompart’ and ‘Ncar’ for Noncompartmental Analysis (Nca).” <em>Translational and Clinical Pharmacology</em> 26 (1). Korean Society for Clinical Pharmacology; Therapeutics (KAMJE): 01–48. <a href="http://www.tcpharm.org/Data/Journal/2/358.pdf" class="uri">http://www.tcpharm.org/Data/Journal/2/358.pdf</a>.</p>
+<p>Kim, Hyungsub, Sungpil Han, Yong-Soon Cho, Seok-Kyu Yoon, and Kyun-Seop Bae. 2018. “Development of R Packages: ‘NonCompart’ and ‘Ncar’ for Noncompartmental Analysis (Nca).” <em>Translational and Clinical Pharmacology</em> 26 (1): 01–48. <a href="http://www.tcpharm.org/Data/Journal/2/358.pdf">http://www.tcpharm.org/Data/Journal/2/358.pdf</a>.</p>
 </div>
 <div id="ref-wnl">
-<p>Certara USA, Inc. 2018. <em>Phoenix Winnonlin: The Industry Standard for Nca and Pk/Pd Modeling and Simulation</em>. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.</p>
+<p>Certara USA, Inc. 2018. <em>Phoenix Winnonlin: The Industry Standard for Nca and Pk/Pd Modeling and Simulation</em>. <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.</p>
 </div>
 </div>
             </section>
@@ -494,7 +508,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -506,6 +520,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/asancpt/book-ncar/edit/master/11-appendix.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book-ncar.epub"],
 "toc": {
@@ -524,7 +542,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

@@ -361,7 +361,7 @@ figA <- ggplot(sad_indi_pk_log, aes(x=Dose, y=Cmax)) +
 figA
 ```
 
-<img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="100%" />
+<img src="07-statistics_files/figure-epub3/sad-indi-pk-log-1.png" width="100%" />
 
 ```r
 figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
@@ -378,7 +378,7 @@ figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
 figB
 ```
 
-<img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="100%" />
+<img src="07-statistics_files/figure-epub3/sad-indi-pk-log-2.png" width="100%" />
 
 lm() 함수를 써서 구할 수 있습니다.
 

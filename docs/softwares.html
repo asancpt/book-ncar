@@ -5,11 +5,11 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>R을 사용한 비구획분석</title>
+  <title>B 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다.">
-  <meta name="generator" content="bookdown 0.7 and GitBook 2.6.7">
+  <meta name="generator" content="bookdown  and GitBook 2.6.7">
 
-  <meta property="og:title" content="R을 사용한 비구획분석" />
+  <meta property="og:title" content="B 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -17,7 +17,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="B 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -25,7 +25,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭">
 
 
-<meta name="date" content="2018-08-21">
+<meta name="date" content="2018-12-24">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -36,6 +36,7 @@
 <link rel="next" href="groupreport.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
@@ -67,7 +68,7 @@ a.sourceLine { text-indent: -1em; padding-left: 1em; }
 pre.numberSource a.sourceLine
   { position: relative; left: -4em; }
 pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+  { content: attr(title);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
     border: none; pointer-events: all; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
@@ -130,8 +131,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a><ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>감사의 글</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i>저자 소개</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i>감사의 글</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i>저자 소개</a></li>
 </ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
@@ -142,7 +143,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
-<li class="chapter" data-level="2.4" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
+<li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#section-3"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
@@ -169,15 +170,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="7" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.1" data-path="simulation.html"><a href="simulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="7.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
-<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#--"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#---"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.2" data-path="simulation.html"><a href="simulation.html#section-4"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="7.3" data-path="simulation.html"><a href="simulation.html#section-5"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
+<li class="chapter" data-level="7.4" data-path="simulation.html"><a href="simulation.html#section-6"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
 <li class="chapter" data-level="7.4.1" data-path="simulation.html"><a href="simulation.html#shiny-"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
 <li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="index.html"><a href="index.html#-"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#section-7"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
@@ -196,14 +197,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
 <li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#-nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="13-others.html"><a href="#section-B.3.3"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#nca----."><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#section-8"><i class="fa fa-check"></i><b>B.3.3</b> 한계</a></li>
 <li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#pknca--0.7"><i class="fa fa-check"></i><b>B.3.4</b> PKNCA 현재는 0.7</a></li>
 <li class="chapter" data-level="B.3.5" data-path="softwares.html"><a href="softwares.html#pknca--1.0-."><i class="fa fa-check"></i><b>B.3.5</b> PKNCA 곧 1.0이 나올것이다.</a></li>
-<li class="chapter" data-level="B.3.6" data-path="13-others.html"><a href="#section-B.3.6"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
+<li class="chapter" data-level="B.3.6" data-path="softwares.html"><a href="softwares.html#section-9"><i class="fa fa-check"></i><b>B.3.6</b> 참고사항</a></li>
 <li class="chapter" data-level="B.3.7" data-path="softwares.html"><a href="softwares.html#rstudio--hands-on-"><i class="fa fa-check"></i><b>B.3.7</b> RStudio를 사용한 Hands-on 실습</a></li>
 <li class="chapter" data-level="B.3.8" data-path="softwares.html"><a href="softwares.html#closing"><i class="fa fa-check"></i><b>B.3.8</b> Closing</a></li>
-<li class="chapter" data-level="B.3.9" data-path="13-others.html"><a href="#section-B.3.9"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
+<li class="chapter" data-level="B.3.9" data-path="softwares.html"><a href="softwares.html#section-10"><i class="fa fa-check"></i><b>B.3.9</b> 결론</a></li>
 <li class="chapter" data-level="B.3.10" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.10</b> Pros</a></li>
 <li class="chapter" data-level="B.3.11" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.11</b> Cons</a></li>
 </ul></li>
@@ -219,7 +220,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
 <li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
-<li class="chapter" data-level="" data-path="ecb0b8eab3a0ebacb8ed978c.html"><a href="ecb0b8eab3a0ebacb8ed978c.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="chapter" data-level="" data-path="section-11.html"><a href="section-11.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
 
@@ -246,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">B.1</span> 이 장에서는</h2>
 <p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
 특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre>
 </div>
 <div id="certara-phoenix-winnonlin" class="section level2">
 <h2><span class="header-section-number">B.2</span> Certara Phoenix WinNonLin</h2>
@@ -288,7 +289,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>library(devtools)
 install_github(&quot;billdenney/pknca&quot;)</code></pre>
 </div>
-<div id="-nca----." class="section level3">
+<div id="nca----." class="section level3">
 <h3><span class="header-section-number">B.3.2</span> 오픈소스 NCA - 지금이 적기이다.</h3>
 <ul>
 <li>Data standards 가 점점 많아짐</li>
@@ -308,7 +309,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li><p>Summarizes the parameters</p></li>
 </ul>
 </div>
-<div id="section-11.3.3" class="section level3">
+<div id="section-8" class="section level3">
 <h3><span class="header-section-number">B.3.3</span> 한계</h3>
 <ul>
 <li>그래픽 못그림</li>
@@ -331,13 +332,13 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>Improved prediction of desired parameters (정확도 accuracy, number 등)</li>
 </ul>
 </div>
-<div id="section-11.3.6" class="section level3">
+<div id="section-9" class="section level3">
 <h3><span class="header-section-number">B.3.6</span> 참고사항</h3>
 <ul>
 <li>Github에서 모두 다운로드 가능</li>
 <li>CRAN에 package올라왔다. (0.7) <a href="https://cran.r-project.org/web/packages/PKNCA/" class="uri">https://cran.r-project.org/web/packages/PKNCA/</a>
 <ul>
-<li><a href="mailto:wdenney@humanpredictions.com">wdenney@humanpredictions.com</a> 으로 메일 보내라</li>
+<li><a href="mailto:wdenney@humanpredictions.com" class="email">wdenney@humanpredictions.com</a> 으로 메일 보내라</li>
 </ul></li>
 <li>모든게 오픈이기 때문에 Github에서 기여 환영</li>
 </ul>
@@ -367,7 +368,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>PKNCA.options() 모든 옵션을 볼 수 있다.</li>
 </ul>
 </div>
-<div id="section-11.3.9" class="section level3">
+<div id="section-10" class="section level3">
 <h3><span class="header-section-number">B.3.9</span> 결론</h3>
 <ul>
 <li>써보고 feedback주고 contribute해라.</li>
@@ -389,16 +390,16 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>Experience with R language required</li>
 <li>Generating plots not supported for now (To be supported soon)</li>
 </ul>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" data-line-number="1"><span class="kw">library</span>(PKNCA)</a>
-<a class="sourceLine" id="cb81-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb81-3" data-line-number="3">my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
-<a class="sourceLine" id="cb81-4" data-line-number="4">d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</a>
-<a class="sourceLine" id="cb81-5" data-line-number="5">                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</a>
-<a class="sourceLine" id="cb81-6" data-line-number="6">my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</a>
-<a class="sourceLine" id="cb81-7" data-line-number="7">my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</a>
-<a class="sourceLine" id="cb81-8" data-line-number="8">my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</a>
-<a class="sourceLine" id="cb81-9" data-line-number="9">my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb81-10" data-line-number="10"><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(PKNCA)
+
+my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)
+d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,
+                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])
+my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)
+my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)
+my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)
+my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</code></pre>
 <pre><code>##    start end Subject   PPTESTCD   PPORRES exclude
 ## 1      0 Inf       1 aucinf.obs 214.92363    &lt;NA&gt;
 ## 2      0 Inf       2 aucinf.obs  97.37793    &lt;NA&gt;
@@ -424,7 +425,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 ## 22     0 Inf      10       cmax  10.21000    &lt;NA&gt;
 ## 23     0 Inf      11       cmax   8.00000    &lt;NA&gt;
 ## 24     0 Inf      12       cmax   9.75000    &lt;NA&gt;</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" data-line-number="1"><span class="kw">summary</span>(my.results.automatic)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(my.results.automatic)</code></pre>
 <pre><code>##   start end  N     auclast        cmax               tmax   half.life
 ## 1     0  24 12 74.6 [24.3]           .                  .           .
 ## 2     0 Inf 12           . 8.65 [17.0] 1.14 [0.630, 3.55] 8.18 [2.12]
@@ -438,22 +439,22 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="#ref-Acharya201683">2016</a>)</span></p>
 <p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a>
 <a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb85-1" data-line-number="1"><span class="co">#install.packages(&quot;ncappc&quot;)</span></a>
-<a class="sourceLine" id="cb85-2" data-line-number="2"><span class="kw">library</span>(ncappc)</a></code></pre></div>
-<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb86-1" data-line-number="1">Theoph <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb86-2" data-line-number="2"><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</a>
-<a class="sourceLine" id="cb86-3" data-line-number="3">         <span class="dt">TIME =</span> Time,</a>
-<a class="sourceLine" id="cb86-4" data-line-number="4">         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb86-5" data-line-number="5"><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</a>
-<a class="sourceLine" id="cb86-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb86-7" data-line-number="7">Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</a>
-<a class="sourceLine" id="cb86-8" data-line-number="8">       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb86-9" data-line-number="9">       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</a>
-<a class="sourceLine" id="cb86-10" data-line-number="10">       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb86-11" data-line-number="11">       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb86-12" data-line-number="12">       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;ncappc&quot;)</span>
+<span class="kw">library</span>(ncappc)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">Theoph <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,
+         <span class="dt">TIME =</span> Time,
+         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)
+
+Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,
+       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,
+       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,
+       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,
+       <span class="dt">evid =</span> <span class="ot">FALSE</span>,
+       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</code></pre>
 <p><img src="13-others_files/figure-html/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-html/unnamed-chunk-5-2.png" width="100%" /></p>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb87-1" data-line-number="1">Theoph_ncappc_results</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r">Theoph_ncappc_results</code></pre>
 <pre><code>## $ncaOutput
 ##    ID Dose C0 Tmax simTmax  Cmax simCmax Cmax_D Tlast Clast   AUClast
 ## 1   1   NA NA 1.12       0 10.50       0     NA 24.37  3.28 147.23475
@@ -592,8 +593,8 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <h2><span class="header-section-number">B.5</span> R package: PK</h2>
 <p>Basic Non-Compartmental Pharmacokinetics</p>
 <p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb91-1" data-line-number="1"><span class="co">#install.packages(&quot;PK&quot;)</span></a>
-<a class="sourceLine" id="cb91-2" data-line-number="2"><span class="kw">library</span>(PK)</a></code></pre></div>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co">#install.packages(&quot;PK&quot;)</span>
+<span class="kw">library</span>(PK)</code></pre>
 </div>
 <div id="kinetica" class="section level2">
 <h2><span class="header-section-number">B.6</span> Kinetica</h2>
@@ -613,7 +614,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <h3>참고문헌</h3>
 <div id="refs" class="references">
 <div id="ref-Acharya201683">
-<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127: 83–93. <a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013" class="uri">https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
+<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127: 83–93. <a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013">https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
 </div>
 </div>
             </section>
@@ -642,7 +643,7 @@ gitbook.start({
 "google": false,
 "linkedin": false,
 "weibo": false,
-"instapper": false,
+"instapaper": false,
 "vk": false,
 "all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
 },
@@ -654,6 +655,10 @@ gitbook.start({
 "edit": {
 "link": "https://github.com/asancpt/book-ncar/edit/master/13-others.Rmd",
 "text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
 },
 "download": ["book-ncar.epub"],
 "toc": {
@@ -672,7 +677,7 @@ gitbook.start({
     var script = document.createElement("script");
     script.type = "text/javascript";
     var src = "true";
-    if (src === "" || src === "true") src = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
     if (location.protocol !== "file:" && /^https?:/.test(src))
       src = src.replace(/^https?:/, '');
     script.src = src;

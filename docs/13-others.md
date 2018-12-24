@@ -199,7 +199,7 @@ Theoph_ncappc_results <- ncappc(obsFile = 'Theoph_ncappc.csv',
        psnOut=FALSE)
 ```
 
-<img src="13-others_files/figure-html/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-html/unnamed-chunk-5-2.png" width="100%" />
+<img src="13-others_files/figure-epub3/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-epub3/unnamed-chunk-5-2.png" width="100%" />
 
 ```r
 Theoph_ncappc_results
