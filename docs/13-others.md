@@ -182,7 +182,9 @@ Theoph_ncappc_results <- ncappc(obsFile = 'Theoph_ncappc.csv',
        psnOut=FALSE)
 ```
 
-<img src="13-others_files/figure-epub3/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-epub3/unnamed-chunk-5-2.png" width="100%" />
+
+\includegraphics[width=1\linewidth]{13-others_files/figure-latex/unnamed-chunk-5-1} 
+\includegraphics[width=1\linewidth]{13-others_files/figure-latex/unnamed-chunk-5-2} 
 
 ## R package: PK
 

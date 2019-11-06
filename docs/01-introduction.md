@@ -58,10 +58,9 @@ $$
 knitr::include_graphics('assets/trapezoidal.png')
 ```
 
-<div class="figure">
-<img src="assets/trapezoidal.png" alt="Linear trapezoidal method" width="100%" />
-<p class="caption">(\#fig:trapezoid)Linear trapezoidal method</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{assets/trapezoidal} \caption{Linear trapezoidal method}(\#fig:trapezoid)
+\end{figure}
 
 추가적으로 마지막으로 농도를 잰 시점에서 모든 약물이 우리 몸에서 빠져나가는 시점까지의 값을 구하기 위해서 마지막으로 측정한 점의 기울기가 그대로 약물이 모두 제거되는 시점까지 그대로 유지된다는 가정을 세우게 됩니다.
 다음과 같이 C~last~(가장 마지막으로 농도를 측정한 시점)에서 λ (C~max~ 이후에 선형성이 가장 높은 3점을 선택하여 구한 기울기)를 구한 후 다음과 같은 약동학 공식을 대입하여 값을 구해주게 됩니다.

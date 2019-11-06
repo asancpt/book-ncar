@@ -11,7 +11,7 @@ ID=6
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -90,7 +90,7 @@ ID=7
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -169,7 +169,7 @@ ID=8
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -248,7 +248,7 @@ ID=11
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -327,7 +327,7 @@ ID=3
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -406,7 +406,7 @@ ID=2
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -485,7 +485,7 @@ ID=4
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -564,7 +564,7 @@ ID=9
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -643,7 +643,7 @@ ID=12
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -722,7 +722,7 @@ ID=10
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -801,7 +801,7 @@ ID=1
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -880,7 +880,7 @@ ID=5
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -1017,7 +1017,7 @@ devtools::session_info()
 ## [2] C:/Program Files/R/R-3.6.1/library
 ```
 
-# 참고문헌 {-}
+
 
 
 

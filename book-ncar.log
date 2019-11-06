@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.6)  6 NOV 2019 12:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.11.6)  6 NOV 2019 12:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -791,105 +791,105 @@ ode.tex)
 No file book-ncar.aux.
 \openout1 = `book-ncar.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 134.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 133.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 1
-34.
+33.
 (c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
-LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 134.
-LaTeX Font Info:    ... okay on input line 134.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C00/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C05/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C09/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C10/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C20/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C19/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C40/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C42/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C43/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C50/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C52/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C49/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C60/mj/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C61/mj/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C63/mj/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C64/mj/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C65/mj/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C70/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C31/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C32/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C33/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C34/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C35/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C36/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C37/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C80/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C81/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C01/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C11/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C21/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C41/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
+LaTeX Font Info:    Checking defaults for C62/song/m/n on input line 133.
+LaTeX Font Info:    ... okay on input line 133.
 LaTeX Font Info:    Trying to load font information for T1+lmr on input line 13
-4.
+3.
 (c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 1
-34.
+33.
 (c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 \AtBeginShipoutBox=\box60
-Package hyperref Info: Link coloring ON on input line 134.
+Package hyperref Info: Link coloring ON on input line 133.
 
 (c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
@@ -904,9 +904,9 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count126
 )
-LaTeX Info: Redefining \ref on input line 134.
-LaTeX Info: Redefining \pageref on input line 134.
-LaTeX Info: Redefining \nameref on input line 134.
+LaTeX Info: Redefining \ref on input line 133.
+LaTeX Info: Redefining \pageref on input line 133.
+LaTeX Info: Redefining \nameref on input line 133.
 \@outlinefile=\write4
 \openout4 = `book-ncar.out'.
 
@@ -931,7 +931,7 @@ e
 ))
    defining Unicode char U+00B7 (decimal 183)
 LaTeX Font Info:    Trying to load font information for C70+mj on input line 13
-5.
+4.
 
 (c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/cjk/texinput/UTF8/c7
 0mj.fd
@@ -944,7 +944,7 @@ File: c70mj.fdx 2015/04/18 4.8.4
 LaTeX Font Info:    Font shape `C70/mj/m/it'
 (Font)              in size <14.4> not available.
 (Font)              Font shape `C70/mj/m/sl'
-(Font)              tried instead on input line 135.
+(Font)              tried instead on input line 134.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1026,43 +1026,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [2
 
 ]
-Underfull \vbox (badness 10000) detected at line 140
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 140
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 140
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 140
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 140
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 140
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 140
+Underfull \vbox (badness 10000) detected at line 139
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 140
+Overfull \hbox (336.25pt too wide) detected at line 139
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 140
+Underfull \hbox (badness 10000) detected at line 139
 []
  []
 
@@ -1114,43 +1114,43 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [4
 
 ]
-Underfull \vbox (badness 10000) detected at line 143
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 143
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 143
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 143
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 143
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 143
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 143
+Underfull \vbox (badness 10000) detected at line 142
  []
 
 
-Overfull \hbox (336.25pt too wide) detected at line 143
+Overfull \hbox (336.25pt too wide) detected at line 142
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 143
+Underfull \hbox (badness 10000) detected at line 142
 []
  []
 
@@ -1158,12 +1158,12 @@ Underfull \hbox (badness 10000) detected at line 143
 Package hyperref Warning: bookmark level for unknown fm defaults to 0.
 
 
-Package hyperref Warning: Suppressing empty link on input line 146.
+Package hyperref Warning: Suppressing empty link on input line 145.
 
 LaTeX Font Info:    Font shape `C70/mj/m/it'
 (Font)              in size <12> not available.
 (Font)              Font shape `C70/mj/m/sl'
-(Font)              tried instead on input line 166.
+(Font)              tried instead on input line 165.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1175,23 +1175,124 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 <"assets/""cc".png, id=47, 88.33pt x 31.11626pt>
 File: "assets/""cc".png Graphic file (type png)
 <use "assets/""cc".png>
-Package pdftex.def Info: "assets/""cc".png  used on input line 181.
+Package pdftex.def Info: "assets/""cc".png  used on input line 180.
 (pdftex.def)             Requested size: 88.33112pt x 31.11664pt.
+[6 <./assets/cc.png>]
+Underfull \vbox (badness 10000) detected at line 190
+ []
 
-! LaTeX Error: Environment rmdnote undefined.
+
+Overfull \hbox (336.25pt too wide) detected at line 190
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 190
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 190
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 190
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 190
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 190
+ []
+
+
+Overfull \hbox (336.25pt too wide) detected at line 190
+[]
+ []
+
+Chapter 1.
+
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.209 
+       [1
+
+
+
+]
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
+27.
+(c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
+27.
+(c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+227.
+(c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+227.
+(c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 227.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 227.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 227.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 227
+.
+(c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 227
+.
+(c:/Users/cmc/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+
+LaTeX Warning: Reference `eq:mrt' on page 2 undefined on input line 230.
+
+LaTeX Font Info:    Font shape `C70/mj/m/it'
+(Font)              in size <10> not available.
+(Font)              Font shape `C70/mj/m/sl'
+(Font)              tried instead on input line 231.
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
+been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.231 
+       [2]
+
+! LaTeX Error: Bad math environment delimiter.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.186 \BeginKnitrBlock{rmdnote}
-                                
+l.233 \begin{equation}
+                       
 Here is how much of TeX's memory you used:
- 13395 strings out of 494111
- 186208 string characters out of 6172446
- 266728 words of memory out of 5000000
- 17147 multiletter control sequences out of 15000+600000
- 80457 words of font info for 156 fonts, out of 8000000 for 9000
+ 13894 strings out of 494111
+ 193486 string characters out of 6172446
+ 271728 words of memory out of 5000000
+ 17510 multiletter control sequences out of 15000+600000
+ 142984 words of font info for 277 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  47i,7n,33p,972b,488s stack positions out of 5000i,500n,10000p,200000b,80000s
 

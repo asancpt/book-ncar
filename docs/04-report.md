@@ -74,7 +74,7 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:35:29 Asia/Seoul
+Date and Time: 2019-11-06 12:37:59 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -185,7 +185,7 @@ ncar::pdfNCA(fileName="Output-ncar/pdfNCA-Theoph.pdf", Theoph, key="Subject",
 ```
 
 ```
-## png 
+## pdf 
 ##   2
 ```
 
@@ -200,10 +200,9 @@ magick montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png
 ## /bin/bash: line 1: magick: command not found
 ```
 
-<div class="figure">
-<img src="Output-ncar/montage.png" alt="pdfNCA() output" width="100%" />
-<p class="caption">(\#fig:pdfnca-output)pdfNCA() output</p>
-</div>
+\begin{figure}
+\includegraphics[width=1\linewidth]{Output-ncar/montage} \caption{pdfNCA() output}(\#fig:pdfnca-output)
+\end{figure}
 
 ## rtfNCA()
 
