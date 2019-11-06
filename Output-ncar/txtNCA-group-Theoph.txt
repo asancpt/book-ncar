@@ -1,10 +1,10 @@
 ID=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -80,10 +80,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    11.6805 h
 ID=7
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -159,10 +159,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    12.0259 h
 ID=8
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -238,10 +238,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    12.4323 h
 ID=11
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -317,10 +317,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    10.4207 h
 ID=3
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -396,10 +396,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    10.5183 h
 ID=2
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -475,10 +475,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                     9.9543 h
 ID=4
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -554,10 +554,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    11.0221 h
 ID=9
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -633,10 +633,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    12.0182 h
 ID=12
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -712,10 +712,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    10.1964 h
 ID=10
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -791,10 +791,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    14.4862 h
 ID=1
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -870,10 +870,10 @@ MRTEVIFP   MRT Extravasc Infinity Pred                    20.8004 h
 ID=5
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------

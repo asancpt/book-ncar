@@ -1,9 +1,9 @@
 
 \cleardoublepage
 
-# (APPENDIX) 부록 {-}
+# (APPENDIX) Appendix {-}
 
-# Phoenix WinNonLin 과 결과 비교
+# Phoenix WinNonLin 과 결과 비교 {#wnl-comparison}
 
 ## Introduction
 
@@ -160,62 +160,65 @@ devtools::session_info()
 ```
 ## - Session info ----------------------------------------------------------
 ##  setting  value                       
-##  version  R version 3.5.1 (2018-07-02)
-##  os       Windows 7 x64 SP 1          
+##  version  R version 3.6.1 (2019-07-05)
+##  os       Windows 10 x64              
 ##  system   x86_64, mingw32             
 ##  ui       RTerm                       
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
 ##  ctype    Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-12-24                  
+##  date     2019-11-06                  
 ## 
 ## - Packages --------------------------------------------------------------
-##  package     * version date       lib source                             
-##  assertthat    0.2.0   2017-04-11 [1] CRAN (R 3.5.0)                     
-##  backports     1.1.3   2018-12-14 [1] CRAN (R 3.5.1)                     
-##  bookdown      0.9     2018-12-21 [1] CRAN (R 3.5.1)                     
-##  callr         3.1.1   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  cli           1.0.1   2018-09-25 [1] CRAN (R 3.5.1)                     
-##  crayon        1.3.4   2018-10-25 [1] Github (gaborcsardi/crayon@467939b)
-##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.5.0)                     
-##  devtools      2.0.1   2018-10-26 [1] CRAN (R 3.5.1)                     
-##  digest        0.6.18  2018-10-10 [1] CRAN (R 3.5.1)                     
-##  evaluate      0.12    2018-10-09 [1] CRAN (R 3.5.1)                     
-##  fs            1.2.6   2018-08-23 [1] CRAN (R 3.5.1)                     
-##  glue          1.3.0   2018-07-17 [1] CRAN (R 3.5.1)                     
-##  highr         0.7     2018-06-09 [1] CRAN (R 3.5.0)                     
-##  hms           0.4.2   2018-03-10 [1] CRAN (R 3.5.0)                     
-##  htmltools     0.3.6   2017-04-28 [1] CRAN (R 3.5.0)                     
-##  knitr         1.21    2018-12-10 [1] CRAN (R 3.5.1)                     
-##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.5.0)                     
-##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.5.0)                     
-##  NonCompart  * 0.4.4   2018-07-10 [1] CRAN (R 3.5.0)                     
-##  pillar        1.3.1   2018-12-15 [1] CRAN (R 3.5.1)                     
-##  pkgbuild      1.0.2   2018-10-16 [1] CRAN (R 3.5.1)                     
-##  pkgconfig     2.0.2   2018-08-16 [1] CRAN (R 3.5.1)                     
-##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.5.1)                     
-##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.5.0)                     
-##  processx      3.2.1   2018-12-05 [1] CRAN (R 3.5.1)                     
-##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  R6            2.3.0   2018-10-04 [1] CRAN (R 3.5.1)                     
-##  Rcpp          1.0.0   2018-11-07 [1] CRAN (R 3.5.1)                     
-##  readr         1.3.1   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  remotes       2.0.2   2018-10-30 [1] CRAN (R 3.5.1)                     
-##  rlang         0.3.0.1 2018-10-25 [1] CRAN (R 3.5.1)                     
-##  rmarkdown     1.11    2018-12-08 [1] CRAN (R 3.5.1)                     
-##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.5.0)                     
-##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.5.1)                     
-##  stringi       1.2.4   2018-07-20 [1] CRAN (R 3.5.1)                     
-##  stringr       1.3.1   2018-05-10 [1] CRAN (R 3.5.0)                     
-##  testthat      2.0.1   2018-10-13 [1] CRAN (R 3.5.1)                     
-##  tibble        1.4.2   2018-01-22 [1] CRAN (R 3.5.0)                     
-##  usethis       1.4.0   2018-08-14 [1] CRAN (R 3.5.1)                     
-##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.5.0)                     
-##  xfun          0.4     2018-10-23 [1] CRAN (R 3.5.1)                     
+##  package     * version date       lib source        
+##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 3.6.1)
+##  backports     1.1.5   2019-10-02 [1] CRAN (R 3.6.1)
+##  bookdown      0.14    2019-10-01 [1] CRAN (R 3.6.1)
+##  callr         3.3.2   2019-09-22 [1] CRAN (R 3.6.1)
+##  cli           1.1.0   2019-03-19 [1] CRAN (R 3.6.1)
+##  crayon        1.3.4   2017-09-16 [1] CRAN (R 3.6.1)
+##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.6.1)
+##  devtools      2.2.1   2019-09-24 [1] CRAN (R 3.6.1)
+##  digest        0.6.22  2019-10-21 [1] CRAN (R 3.6.1)
+##  ellipsis      0.3.0   2019-09-20 [1] CRAN (R 3.6.1)
+##  evaluate      0.14    2019-05-28 [1] CRAN (R 3.6.1)
+##  fs            1.3.1   2019-05-06 [1] CRAN (R 3.6.1)
+##  glue          1.3.1   2019-03-12 [1] CRAN (R 3.6.1)
+##  highr         0.8     2019-03-20 [1] CRAN (R 3.6.1)
+##  hms           0.5.2   2019-10-30 [1] CRAN (R 3.6.1)
+##  htmltools     0.4.0   2019-10-04 [1] CRAN (R 3.6.1)
+##  knitr         1.25    2019-09-18 [1] CRAN (R 3.6.1)
+##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.6.1)
+##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.6.1)
+##  NonCompart  * 0.4.5   2019-09-27 [1] CRAN (R 3.6.1)
+##  pillar        1.4.2   2019-06-29 [1] CRAN (R 3.6.1)
+##  pkgbuild      1.0.6   2019-10-09 [1] CRAN (R 3.6.1)
+##  pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 3.6.1)
+##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.6.1)
+##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.6.1)
+##  processx      3.4.1   2019-07-18 [1] CRAN (R 3.6.1)
+##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.6.1)
+##  R6            2.4.0   2019-02-14 [1] CRAN (R 3.6.1)
+##  Rcpp          1.0.2   2019-07-25 [1] CRAN (R 3.6.1)
+##  readr         1.3.1   2018-12-21 [1] CRAN (R 3.6.1)
+##  remotes       2.1.0   2019-06-24 [1] CRAN (R 3.6.1)
+##  rlang         0.4.1   2019-10-24 [1] CRAN (R 3.6.1)
+##  rmarkdown     1.16    2019-10-01 [1] CRAN (R 3.6.1)
+##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.6.1)
+##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.6.1)
+##  stringi       1.4.3   2019-03-12 [1] CRAN (R 3.6.0)
+##  stringr       1.4.0   2019-02-10 [1] CRAN (R 3.6.1)
+##  testthat      2.3.0   2019-11-05 [1] CRAN (R 3.6.1)
+##  tibble        2.1.3   2019-06-06 [1] CRAN (R 3.6.1)
+##  usethis       1.5.1   2019-07-04 [1] CRAN (R 3.6.1)
+##  vctrs         0.2.0   2019-07-05 [1] CRAN (R 3.6.1)
+##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.6.1)
+##  xfun          0.10    2019-10-01 [1] CRAN (R 3.6.1)
+##  zeallot       0.1.0   2018-01-28 [1] CRAN (R 3.6.1)
 ## 
-## [1] C:/Users/mdlhs/Rlib
-## [2] C:/Program Files/R/R-3.5.1/library
+## [1] C:/Users/cmc/Rlib
+## [2] C:/Program Files/R/R-3.6.1/library
 ```
 
 

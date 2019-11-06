@@ -15,10 +15,10 @@ editor_options:
 
 `ncar`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
 
-> Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
+> Conduct a noncompartmental analysis with industrial strength.
              Some features are
              1) CDISC SDTM terms
-             2) Automatic slope selection with the same criterion of WinNonlin(R)
+             2) Automatic or manual slope selection
              3) Supporting both 'linear-up linear-down' and 'linear-up log-down' method
              4) Interval(partial) AUCs with 'linear' or 'log' interpolation method
              5) Produce pdf, rtf, text report files.
@@ -41,7 +41,7 @@ getwd()
 ```
 
 ```
-## [1] "C:/Users/mdlhs/asancpt/book-ncar"
+## [1] "C:/Users/cmc/asancpt/book-ncar"
 ```
 
 저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 됩니다.
@@ -71,10 +71,10 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
 
 ```bash
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.1 (2018-06-20 KST)
-                          R version 3.5.1 (2018-07-02)
+                       Package version 0.4.2 (2019-09-27 KST)
+                          R version 3.6.1 (2019-07-05)
 
-Date and Time: 2018-12-24 17:34:38 Asia/Seoul
+Date and Time: 2019-11-06 12:13:44 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -196,7 +196,8 @@ magick montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png
 ```
 
 ```
-## magick.exe: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png' @ warning/png.c/MagickPNGWarningHandler/1747.
+## /bin/bash: magick: command not found
+## /bin/bash: line 1: magick: command not found
 ```
 
 <div class="figure">

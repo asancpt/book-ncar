@@ -1,8 +1,8 @@
 \cleardoublepage
 
-# (APPENDIX) 부록 {-}
+# (APPENDIX) Appendix {-}
 
-# Phoenix WinNonLin 과 결과 비교
+# Phoenix WinNonLin 과 결과 비교 {#wnl-comparison}
 
 ## Introduction
 

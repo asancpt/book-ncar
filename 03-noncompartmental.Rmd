@@ -156,7 +156,7 @@ AUC(Theoph[Theoph$Subject==1, "Time"], Theoph[Theoph$Subject==1, "conc"], down="
 NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 attr로 names와 units를 등일 갖게 됩니다. 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.
 
 ```{r}
-left_join(as.tibble(Theoph_nca) %>% 
+left_join(as_tibble(Theoph_nca) %>% 
             gather(PPTESTCD, PPORRES, -Subject),
           tibble(PPTESTCD = attributes(Theoph_nca)$names,
                  UNIT = attributes(Theoph_nca)$units)) %>% 

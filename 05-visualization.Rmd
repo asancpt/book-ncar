@@ -19,7 +19,7 @@ library(tidyverse)
 library(pkr)
 ```
 
-## pkr 사용법
+## pkr 사용법 {#pkr-manual}
 
 `pkr` 함수의 가장 핵심적인 기능은 `plotPK()` 함수에 있고 이 함수의 인자는 다음과 같습니다.
 

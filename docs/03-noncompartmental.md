@@ -15,10 +15,10 @@ editor_options:
 
 `NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있습니다.
 
-> Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. 'Phoenix(R) WinNonlin(R)' <https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/>.
+> Conduct a noncompartmental analysis with industrial strength.
              Some features are
              1) Use of CDISC SDTM terms
-             2) Automatic slope selection with the same criterion of WinNonlin(R)
+             2) Automatic or manual slope selection
              3) Supporting both 'linear-up linear-down' and 'linear-up log-down' method
              4) Interval(partial) AUCs with 'linear' or 'log' interpolation method
              * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (ISBN:9198299107).
@@ -157,7 +157,7 @@ Theoph_nca
 
 ```r
 Indometh_nca <- tblNCA(Indometh, "Subject", "time", "conc", 
-                       dose=25, adm="Bolus", dur=0.5, concUnit="mg/L")
+                       dose=25, adm="Bolus", dur=0.5, concUnit="mg/L", R2ADJ=0.5)
 ```
 
 
@@ -277,7 +277,7 @@ NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를
 
 
 ```r
-left_join(as.tibble(Theoph_nca) %>% 
+left_join(as_tibble(Theoph_nca) %>% 
             gather(PPTESTCD, PPORRES, -Subject),
           tibble(PPTESTCD = attributes(Theoph_nca)$names,
                  UNIT = attributes(Theoph_nca)$units)) %>% 

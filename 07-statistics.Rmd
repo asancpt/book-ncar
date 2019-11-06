@@ -10,7 +10,7 @@ library(BE)
 library(psych)
 ```
 
-## 기술통계량 구하기
+## 기술통계량 구하기 {#stat-desc}
 
 앞서 \@ref(noncompart)장에서 구한 `Theoph_nca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `psych::describe()` 함수를 사용하면 간단히 구할 수 있습니다. 
 

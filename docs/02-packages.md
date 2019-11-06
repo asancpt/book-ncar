@@ -41,7 +41,7 @@ library(ncar)
 library(pkr)
 ```
 
-## 기타 설치
+## 기타 설치 {#otherinstall}
 
 아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다. 
 
@@ -129,7 +129,7 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
 ```
 
 <div class="figure">
-<img src="02-packages_files/figure-epub3/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
+<img src="02-packages_files/figure-html/ggtheoph-1.png" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
 <p class="caption">(\#fig:ggtheoph)Concentration-time curves of oral administration of Theoph (N = 12)</p>
 </div>
 

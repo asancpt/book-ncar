@@ -12,7 +12,7 @@ library(BE)
 library(psych)
 ```
 
-## 기술통계량 구하기
+## 기술통계량 구하기 {#stat-desc}
 
 앞서 \@ref(noncompart)장에서 구한 `Theoph_nca`를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. `psych::describe()` 함수를 사용하면 간단히 구할 수 있습니다. 
 
@@ -113,6 +113,10 @@ ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table \@ref(ta
 ```r
 file <- system.file('example', 'beConc.csv', package = 'ncarbe')
 concData <- read_csv(file)
+```
+
+```
+## Error: '' does not exist in current working directory ('C:/Users/cmc/asancpt/book-ncar').
 ```
 
 
@@ -361,7 +365,7 @@ figA <- ggplot(sad_indi_pk_log, aes(x=Dose, y=Cmax)) +
 figA
 ```
 
-<img src="07-statistics_files/figure-epub3/sad-indi-pk-log-1.png" width="100%" />
+<img src="07-statistics_files/figure-html/sad-indi-pk-log-1.png" width="100%" />
 
 ```r
 figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
@@ -378,7 +382,7 @@ figB <- ggplot(sad_indi_pk_log, aes(x=Dose, y=AUClast)) +
 figB
 ```
 
-<img src="07-statistics_files/figure-epub3/sad-indi-pk-log-2.png" width="100%" />
+<img src="07-statistics_files/figure-html/sad-indi-pk-log-2.png" width="100%" />
 
 lm() 함수를 써서 구할 수 있습니다.
 
