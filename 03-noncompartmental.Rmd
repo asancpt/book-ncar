@@ -76,7 +76,7 @@ save(Theoph_nca, file = 'data/Theoph_nca.Rdata')
 
 ```{r}
 Indometh_nca <- tblNCA(Indometh, "Subject", "time", "conc", 
-                       dose=25, adm="Bolus", dur=0.5, concUnit="mg/L")
+                       dose=25, adm="Bolus", dur=0.5, concUnit="mg/L", R2ADJ=0.5)
 ```
 
 ```{r, include = FALSE, evel = FALSE}
