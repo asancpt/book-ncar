@@ -166,10 +166,6 @@ NCA Calculation and Population PK Model Diagnosis [@Acharya201683]
 library(ncappc)
 ```
 
-```
-## Error in library(ncappc): 'ncappc'이라고 불리는 패키지가 없습니다
-```
-
 
 ```r
 Theoph %>% 
@@ -186,26 +182,7 @@ Theoph_ncappc_results <- ncappc(obsFile = 'Theoph_ncappc.csv',
        psnOut=FALSE)
 ```
 
-```
-## Error in ncappc(obsFile = "Theoph_ncappc.csv", onlyNCA = TRUE, extrapolate = TRUE, : 함수 "ncappc"를 찾을 수 없습니다
-```
-
-```r
-Theoph_ncappc_results
-```
-
-```
-## Error in eval(expr, envir, enclos): 객체 'Theoph_ncappc_results'를 찾을 수 없습니다
-```
-
-
-```
-## Error in file(file, "rt"): 커넥션을 열 수 없습니다
-```
-
-```
-## Error in eval(expr, envir, enclos): 객체 'Theoph_ncappc'를 찾을 수 없습니다
-```
+<img src="13-others_files/figure-epub3/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-epub3/unnamed-chunk-5-2.png" width="100%" />
 
 ## R package: PK
 
@@ -218,10 +195,6 @@ Basic Non-Compartmental Pharmacokinetics
 ```r
 #install.packages("PK")
 library(PK)
-```
-
-```
-## Error in library(PK): 'PK'이라고 불리는 패키지가 없습니다
 ```
 
 ## Kinetica

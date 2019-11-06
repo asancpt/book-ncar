@@ -74,7 +74,7 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
                        Package version 0.4.2 (2019-09-27 KST)
                           R version 3.6.1 (2019-07-05)
 
-Date and Time: 2019-11-06 12:13:44 Asia/Seoul
+Date and Time: 2019-11-06 12:28:24 Asia/Seoul
 
 Calculation Setting
 -------------------

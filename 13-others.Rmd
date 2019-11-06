@@ -130,13 +130,6 @@ Theoph_ncappc_results <- ncappc(obsFile = 'Theoph_ncappc.csv',
        printOut = FALSE,
        evid = FALSE,
        psnOut=FALSE)
-
-Theoph_ncappc_results
-```
-
-```{r echo = FALSE}
-Theoph_ncappc <- read.delim("ncaOutput-.tsv", sep = "\t", check.names = FALSE)
-Theoph_ncappc[ , c("Cmax (M.L^-3)", "AUCINF_obs (T*M.L^-3)")]
 ```
 
 ## R package: PK

@@ -21,7 +21,6 @@
 \usepackage{microtype}
 \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
 \usepackage{hyperref}
 \PassOptionsToPackage{usenames,dvipsnames}{color} % color is loaded by hyperref
 \hypersetup{unicode=true,
@@ -111,7 +110,7 @@
 \usepackage{titling}
 
 % Create subtitle command for use in maketitle
-\newcommand{\subtitle}[1]{
+\providecommand{\subtitle}[1]{
   \posttitle{
     \begin{center}\large#1\end{center}
     }
@@ -127,7 +126,7 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2018-12-24}
+    \date{2019-11-06}
 
 \usepackage{kotex}
 
@@ -140,8 +139,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\hypertarget{section}{%
-\chapter*{책 머리에}\label{section}}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
 
 
 \href{https://github.com/asancpt/book-ncar}{}
@@ -159,40 +158,34 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 감사합니다.
 
-2018-12-24\\
+2019-11-06\\
 서울아산병원 임상약리학과, 울산대학교 임상약리학교실\\
 교수 배균섭,\\
-전공의 한성필, 윤석규, 조용순, 김형섭
-
-\includegraphics{assets/cc.png}\\
-이 저작물은 \href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 라이선스} 에 따라 이용할 수 있습니다.
-
-\hypertarget{section-1}{%
-\section*{감사의 글}\label{section-1}}
-
-
-\BeginKnitrBlock{rmdnote}
-본 출판물은 2016, 2017, 2018년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).
-\EndKnitrBlock{rmdnote}
-
-\hypertarget{section-2}{%
-\section*{저자 소개}\label{section-2}}
-
+한성필, 윤석규, 조용순, 김형섭
 
 \emph{배균섭}\\
 서울아산병원 임상약리학과 과장, 울산대학교 의과대학 임상약리학교실 교수입니다. 수십편의 논문을 저술하였고 20년 이상의 프로그래밍 경력을 갖고 있습니다.
 
 \emph{한성필}\\
-서울아산병원 임상약리학과 전공의입니다. 부산대학교 의학전문대학원을 졸업하였습니다.
+가톨릭의대 약리학교실 연구강사입니다. 부산대학교 의학전문대학원을 졸업하였습니다.
 
 \emph{윤석규}\\
 서울아산병원 임상약리학과 전공의입니다. 연세대학교 원주캠퍼스 의과대학을 졸업하였습니다.
 
 \emph{조용순}\\
-서울아산병원 임상약리학과 전공의입니다. 중앙대학교 의학전문대학원을 졸업하였습니다.
+인제의대 약리학교실 조교수입니다. 중앙대학교 의학전문대학원을 졸업하였습니다.
 
 \emph{김형섭}\\
 서울아산병원 임상약리학과 전공의입니다. 고려대학교 의학전문대학원을 졸업하였습니다.
+
+\includegraphics{assets/cc.png}\\
+이 저작물은 \href{http://creativecommons.org/licenses/by-nc-sa/4.0/}{크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 라이선스} 에 따라 이용할 수 있습니다.
+
+\textbf{감사의 글}
+
+\BeginKnitrBlock{rmdnote}
+본 출판물은 2016-2019년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).
+\EndKnitrBlock{rmdnote}
 
 \mainmatter
 
@@ -223,11 +216,11 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 \begin{itemize}
 \tightlist
 \item
-  NonCompart (Bae \protect\hyperlink{ref-R-NonCompart}{2018}\protect\hyperlink{ref-R-NonCompart}{c})
+  NonCompart (Bae \protect\hyperlink{ref-R-NonCompart}{2019}\protect\hyperlink{ref-R-NonCompart}{b})
 \item
   pkr (Bae and Lee \protect\hyperlink{ref-R-pkr}{2018})
 \item
-  ncar (Bae \protect\hyperlink{ref-R-ncar}{2018}\protect\hyperlink{ref-R-ncar}{b})
+  ncar (Bae \protect\hyperlink{ref-R-ncar}{2019}\protect\hyperlink{ref-R-ncar}{a})
 \end{itemize}
 
 \hypertarget{ncar-method}{%
@@ -249,7 +242,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 이때 식에서 표현된 AUMC는 area under the first moment curve로 농도와 시간의 곱을 시간에 대해서 적분한 값에 해당하며 AUC는 area under concentration으로 농도를 시간에 대해 적분한 값에 해당합니다.
 하지만 이 때, 각각의 약물에서 농도와 시간 사이의 명확한 함수관계를 확인할 수 없고, 주어진 정보도 제한적이므로 농도를 시간으로 적분하기에는 상당한 어려움이 따릅니다.
 따라서 이를 간소화 하기 위해 Linear trapezoidal method(농도-시간 곡선에서 농도를 측정한 점과 점 사이의 면적을 사다리꼴이라 가정하고 넓이를 구하는 방식)를 사용하게 됩니다.
-처음 농도를 측정한 부분부터 마지막 샘플까지를 t\textsubscript{1},t\textsubscript{2} \ldots{}t\textsubscript{last}로 표현했을 시 t\textsubscript{1}과 t\textsubscript{2}의 사이의 AUC와 AUMC는 다음과 같이 계산됩니다.\footnote{이 수식은 \texttt{NonCompart::AUC()} 함수에서 계산 되게 됩니다.}
+처음 농도를 측정한 부분부터 마지막 샘플까지를 t\textsubscript{1},t\textsubscript{2} \ldots t\textsubscript{last}로 표현했을 시 t\textsubscript{1}과 t\textsubscript{2}의 사이의 AUC와 AUMC는 다음과 같이 계산됩니다.\footnote{이 수식은 \texttt{NonCompart::AUC()} 함수에서 계산 되게 됩니다.}
 
 \[
 AUC_{t_1-t_2} = 
@@ -317,7 +310,7 @@ Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script
 Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예
 
 \textbf{C0}\\
-C0 is the initial concentration at the dosing time. It is the observed concentration at the dosing time, if available. Otherwise it is approximated using the following rules. For iv-bolus data, log-linear back-extrapolation (\emph{see ``backExtrap'' argument}) is performed from the first two observations to estimate C0, provided the local slope is negative. However, if the slope is \textgreater{}=0 or at least one of the first two concentrations is 0, the first non-zero concentration is used as C0. For other types of administration, C0 is equal to 0 for non steady-state data and for steady-state data the minimum value observed between the dosing intervals is used to estimate C0, provided the ``backExtrap'' argument is set to ``yes''.
+C0 is the initial concentration at the dosing time. It is the observed concentration at the dosing time, if available. Otherwise it is approximated using the following rules. For iv-bolus data, log-linear back-extrapolation (\emph{see ``backExtrap'' argument}) is performed from the first two observations to estimate C0, provided the local slope is negative. However, if the slope is \textgreater=0 or at least one of the first two concentrations is 0, the first non-zero concentration is used as C0. For other types of administration, C0 is equal to 0 for non steady-state data and for steady-state data the minimum value observed between the dosing intervals is used to estimate C0, provided the ``backExtrap'' argument is set to ``yes''.
 
 \textbf{Cmax, Tmax and Cmax\_D}\\
 Cmax and Tmax are the value and the time of maximum observed concentration, respectively. If the maximum concentration is not unique, the first maximum is used. For steady state data, The maximum value between the dosing intervals is considered. Cmax\_D is the dose normalized maximum observed concentration.
@@ -471,9 +464,9 @@ An estimate of the total body clearance for steady-state data.\\
 \hypertarget{summary-r-packages}{%
 \section{이 장에서는}\label{summary-r-packages}}
 
-R (R Core Team \protect\hyperlink{ref-R-base}{2018})은 통계 소프트웨어 입니다.
+R (R Core Team \protect\hyperlink{ref-R-base}{2019})은 통계 소프트웨어 입니다.
 특히 자료의 재현가능한 편집이라는 측면이 가장 중요합니다. 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문입니다.
-이 책에서 주로 다루게 될 \texttt{NonCompart} (Bae \protect\hyperlink{ref-R-NonCompart}{2018}\protect\hyperlink{ref-R-NonCompart}{c}), \texttt{ncar} (Bae \protect\hyperlink{ref-R-ncar}{2018}\protect\hyperlink{ref-R-ncar}{b}), \texttt{pkr} (Bae and Lee \protect\hyperlink{ref-R-pkr}{2018}) 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 R 패키지입니다.
+이 책에서 주로 다루게 될 \texttt{NonCompart} (Bae \protect\hyperlink{ref-R-NonCompart}{2019}\protect\hyperlink{ref-R-NonCompart}{b}), \texttt{ncar} (Bae \protect\hyperlink{ref-R-ncar}{2019}\protect\hyperlink{ref-R-ncar}{a}), \texttt{pkr} (Bae and Lee \protect\hyperlink{ref-R-pkr}{2018}) 은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 R 패키지입니다.
 
 \texttt{NonCompart}의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Data,
 \texttt{ncar}의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Report,
@@ -513,8 +506,8 @@ R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설�
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{section-3}{%
-\section{기타 설치}\label{section-3}}
+\hypertarget{otherinstall}{%
+\section{기타 설치}\label{otherinstall}}
 
 아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다.
 
@@ -535,7 +528,7 @@ R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설�
 \end{Highlighting}
 \end{Shaded}
 
-자료 분석을 위해 몇가지 도구가 필요한데 \texttt{tidyverse}(Wickham \protect\hyperlink{ref-R-tidyverse}{2017})를 설치하면 다수의 편리한 패키지 \texttt{tidyr} (Wickham and Henry \protect\hyperlink{ref-R-tidyr}{2018}), \texttt{dplyr} (Wickham, François, et al. \protect\hyperlink{ref-R-dplyr}{2018}), \texttt{tibble} (Muller and Wickham \protect\hyperlink{ref-R-tibble}{2018}), \texttt{ggplot2} (Wickham, Chang, et al. \protect\hyperlink{ref-R-ggplot2}{2018}), \texttt{purrr} (Henry and Wickham \protect\hyperlink{ref-R-purrr}{2018}), \texttt{readr} (Wickham, Hester, and Francois \protect\hyperlink{ref-R-readr}{2018})의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.
+자료 분석을 위해 몇가지 도구가 필요한데 \texttt{tidyverse}(Wickham \protect\hyperlink{ref-R-tidyverse}{2017})를 설치하면 다수의 편리한 패키지 \texttt{tidyr} (Wickham and Henry \protect\hyperlink{ref-R-tidyr}{2019}), \texttt{dplyr} (Wickham, François, et al. \protect\hyperlink{ref-R-dplyr}{2019}), \texttt{tibble} (Muller and Wickham \protect\hyperlink{ref-R-tibble}{2019}), \texttt{ggplot2} (Wickham, Chang, et al. \protect\hyperlink{ref-R-ggplot2}{2019}), \texttt{purrr} (Henry and Wickham \protect\hyperlink{ref-R-purrr}{2019}), \texttt{readr} (Wickham, Hester, and Francois \protect\hyperlink{ref-R-readr}{2018})의 설치와 불러오기 과정을 쉽게 끝낼 수 있습니다.
 
 다만 비구획분석을 위한 함수의 입력을 위해 \texttt{tibble} 형식은 \texttt{as.data.frame()}을 통하여 데이타프레임으로 자료 형식을 변환하는 것이 좋습니다.
 마찬가지로 \texttt{readr} 패키지의 \texttt{read\_csv()} 명령어를 쓸 경우 \texttt{tibble}로 읽혀지기 때문에 \texttt{as.data.frame()}으로 바꿔주거나 처음부터 \texttt{read.csv()}를 쓰는 것을 고려할 수 있습니다.
@@ -560,9 +553,9 @@ R에는 theophylline과 Indomethacin의 약동학 데이터가 내장되어 있�
 \begin{itemize}
 \tightlist
 \item
-  \texttt{Theoph}: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0\textasciitilde{}24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.
+  \texttt{Theoph}: theophylline의 약동학 데이터, 12명, 320mg PO 단회투여, 0\textasciitilde24시간 채혈, NONMEM 의 run 폴더의 THEOPP 데이터와 동일합니다.
 \item
-  \texttt{Indometh}: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0\textasciitilde{}8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
+  \texttt{Indometh}: Indomethacin의 약동학 데이터, 6명, 25mg IV bolus 단회투여, 0\textasciitilde8시간 채혈(0, 0.25, 0.5, 0.75, 1, 1.25, 2, 3, 4, 5, 6, 8 h)
 \end{itemize}
 
 먼저 데이터를 살펴보겠습니다.
@@ -587,11 +580,11 @@ Theoph 자료의 첫 10개 (Table \ref{tab:head}) 혹은 마지막 10개 관찰�
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:head}Theoph 자료의 첫 10개 관찰값}
 \centering
-\begin{tabular}{lrrrr}
+\begin{tabular}[t]{lrrrr}
 \toprule
 Subject & Wt & Dose & Time & conc\\
 \midrule
@@ -633,17 +626,17 @@ Subject & Wt & Dose & Time & conc\\
 \hypertarget{summary-noncompart}{%
 \section{이 장에서는}\label{summary-noncompart}}
 
-\texttt{NonCompart} (Bae \protect\hyperlink{ref-R-NonCompart}{2018}\protect\hyperlink{ref-R-NonCompart}{c})은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다.
+\texttt{NonCompart} (Bae \protect\hyperlink{ref-R-NonCompart}{2019}\protect\hyperlink{ref-R-NonCompart}{b})은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다.
 약동학 교재의 내용을 충실히 반영하였습니다. (Gabrielsson \protect\hyperlink{ref-gab}{2016}; Rowland \protect\hyperlink{ref-tozer}{2011})
 이에 대해 좀더 자세히 알아보겠습니다.
 
 \texttt{NonCompart}의 \texttt{DESCRIPTION} 파일을 보면 다음과 같이 설명하고 있습니다.
 
 \begin{quote}
-Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e.~`Phoenix(R) WinNonlin(R)' \url{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}.
+Conduct a noncompartmental analysis with industrial strength.
 Some features are
 1) Use of CDISC SDTM terms
-2) Automatic slope selection with the same criterion of WinNonlin(R)
+2) Automatic or manual slope selection
 3) Supporting both `linear-up linear-down' and `linear-up log-down' method
 4) Interval(partial) AUCs with `linear' or `log' interpolation method
 * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed.~2016. (\url{ISBN:9198299107}).
@@ -811,7 +804,7 @@ tblNCA의 사용법은 다음과 같습니다.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{Indometh_nca <-}\StringTok{ }\KeywordTok{tblNCA}\NormalTok{(Indometh, }\StringTok{"Subject"}\NormalTok{, }\StringTok{"time"}\NormalTok{, }\StringTok{"conc"}\NormalTok{, }
-                       \DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }\DataTypeTok{adm=}\StringTok{"Bolus"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
+                       \DataTypeTok{dose=}\DecValTok{25}\NormalTok{, }\DataTypeTok{adm=}\StringTok{"Bolus"}\NormalTok{, }\DataTypeTok{dur=}\FloatTok{0.5}\NormalTok{, }\DataTypeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{, }\DataTypeTok{R2ADJ=}\FloatTok{0.5}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -834,7 +827,7 @@ tblNCA의 사용법은 다음과 같습니다.
 \end{enumerate}
 
 일부 구간의 AUC를 구하는 방법은 조금 더 복잡하므로 자세히 알아봅시다.
-예를 들어 0\textasciitilde{}12시간까지의 AUC, 0\textasciitilde{}24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다.
+예를 들어 0\textasciitilde12시간까지의 AUC, 0\textasciitilde24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 됩니다.
 먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.
 
 \begin{Shaded}
@@ -867,7 +860,7 @@ tblNCA의 사용법은 다음과 같습니다.
 맨 마지막 파라미터로 AUC{[}0-12h{]}, AUC{[}0-24h{]}가 추가되었음을 알 수 있습니다.
 
 개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
-예를 들어 0\textasciitilde{}12시간까지의 AUC, 0\textasciitilde{}24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.
+예를 들어 0\textasciitilde12시간까지의 AUC, 0\textasciitilde24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.
 
 \begin{quote}
 iAUC = data.frame(Name=c(``AUC{[}0-12h{]}'',``AUC{[}0-24h{]}''), Start=c(0,0), End=c(12,24)) ; iAUC
@@ -959,7 +952,7 @@ NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\KeywordTok{left_join}\NormalTok{(}\KeywordTok{as.tibble}\NormalTok{(Theoph_nca) }\OperatorTok{%>%}\StringTok{ }
+\KeywordTok{left_join}\NormalTok{(}\KeywordTok{as_tibble}\NormalTok{(Theoph_nca) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{            }\KeywordTok{gather}\NormalTok{(PPTESTCD, PPORRES, }\OperatorTok{-}\NormalTok{Subject),}
           \KeywordTok{tibble}\NormalTok{(}\DataTypeTok{PPTESTCD =} \KeywordTok{attributes}\NormalTok{(Theoph_nca)}\OperatorTok{$}\NormalTok{names,}
                  \DataTypeTok{UNIT =} \KeywordTok{attributes}\NormalTok{(Theoph_nca)}\OperatorTok{$}\NormalTok{units)) }\OperatorTok{%>%}\StringTok{ }
@@ -997,10 +990,10 @@ NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를
 \texttt{ncar}의 \texttt{DESCRIPTION} 파일을 보면 다음과 같이 설명하고 있습니다.
 
 \begin{quote}
-Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e.~`Phoenix(R) WinNonlin(R)' \url{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}.
+Conduct a noncompartmental analysis with industrial strength.
 Some features are
 1) CDISC SDTM terms
-2) Automatic slope selection with the same criterion of WinNonlin(R)
+2) Automatic or manual slope selection
 3) Supporting both `linear-up linear-down' and `linear-up log-down' method
 4) Interval(partial) AUCs with `linear' or `log' interpolation method
 5) Produce pdf, rtf, text report files.
@@ -1026,7 +1019,7 @@ Some features are
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "C:/Users/mdlhs/asancpt/book-ncar"
+## [1] "C:/Users/cmc/asancpt/book-ncar"
 \end{verbatim}
 
 저장될 폴더를 변경하고자 한다면 setwd(``저장될 경로'') 이렇게 설정하면 됩니다.
@@ -1058,10 +1051,10 @@ Some features are
 \begin{Shaded}
 \begin{Highlighting}[]
                         \ExtensionTok{NONCOMPARTMENTAL}\NormalTok{ ANALYSIS REPORT}
-                       \ExtensionTok{Package}\NormalTok{ version 0.4.1 (2018-06-20 KST)}
-                          \ExtensionTok{R}\NormalTok{ version 3.5.1 (2018-07-02)}
+                       \ExtensionTok{Package}\NormalTok{ version 0.4.2 (2019-09-27 KST)}
+                          \ExtensionTok{R}\NormalTok{ version 3.6.1 (2019-07-05)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2018-12-24 17:33:40 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2019-11-06 12:27:39 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{-------------------}
@@ -1187,7 +1180,8 @@ pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure \ref{fig:pdfnca-outpu
 \end{Shaded}
 
 \begin{verbatim}
-## magick.exe: profile 'icc': 'RGB ': RGB color space not permitted on grayscale PNG `Output-ncar/pdfNCA-Theoph-%02d.png' @ warning/png.c/MagickPNGWarningHandler/1747.
+## /bin/bash: magick: command not found
+## /bin/bash: line 1: magick: command not found
 \end{verbatim}
 
 \begin{figure}
@@ -1234,8 +1228,8 @@ Some features are
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{pkr-}{%
-\section{pkr 사용법}\label{pkr-}}
+\hypertarget{pkr-manual}{%
+\section{pkr 사용법}\label{pkr-manual}}
 
 \texttt{pkr} 함수의 가장 핵심적인 기능은 \texttt{plotPK()} 함수에 있고 이 함수의 인자는 다음과 같습니다.
 
@@ -1307,26 +1301,26 @@ Some features are
 \includegraphics[width=1\linewidth]{Output/Individual_PK_Log_10_Scale_for_Theoph00} \caption{약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)}\label{fig:unnamed-chunk-10}
 \end{figure}
 
-\hypertarget{simulation}{%
-\chapter{R을 사용한 약동학 시뮬레이션}\label{simulation}}
+\hypertarget{rsimulation}{%
+\chapter{R을 사용한 약동학 시뮬레이션}\label{rsimulation}}
 
 \hypertarget{summary-simulation}{%
 \section{이 장에서는}\label{summary-simulation}}
 
-\hypertarget{section-4}{%
-\section{시뮬레이션에 대하여}\label{section-4}}
+\hypertarget{sim-about}{%
+\section{시뮬레이션에 대하여}\label{sim-about}}
 
 TBD
 
 \texttt{wnl} 패키지가 CRAN에 올라와 있습니다.
 
-\hypertarget{section-5}{%
-\section{시뮬레이션 후 비구획분석}\label{section-5}}
+\hypertarget{sim-nca}{%
+\section{시뮬레이션 후 비구획분석}\label{sim-nca}}
 
 TBD
 
-\hypertarget{section-6}{%
-\section{앱을 통해 살펴보는 시뮬레이션}\label{section-6}}
+\hypertarget{sim-app}{%
+\section{앱을 통해 살펴보는 시뮬레이션}\label{sim-app}}
 
 샤이니 앱을 통해서 시뮬레이션을 구현할 수 있습니다. Shinyapp: PK Simulation - 1 Comp IV or Oral \url{https://asan.shinyapps.io/pk1c/}
 
@@ -1336,10 +1330,8 @@ TBD
 \end{Highlighting}
 \end{Shaded}
 
-\href{https://asan.shinyapps.io/pk1c/}{\includegraphics[width=1\linewidth]{06-simulation_files/figure-latex/unnamed-chunk-2-1} }
-
-\hypertarget{shiny-}{%
-\subsection{shiny 앱}\label{shiny-}}
+\hypertarget{shiny}{%
+\subsection{shiny 앱}\label{shiny}}
 
 웹브라우저를 통해 간단히 비구획분석을 할 수 있는 앱을 개발하였습니다.
 
@@ -1377,8 +1369,8 @@ TBD
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{section-7}{%
-\section{기술통계량 구하기}\label{section-7}}
+\hypertarget{stat-desc}{%
+\section{기술통계량 구하기}\label{stat-desc}}
 
 앞서 \ref{noncompart}장에서 구한 \texttt{Theoph\_nca}를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. \texttt{psych::describe()} 함수를 사용하면 간단히 구할 수 있습니다.
 
@@ -1474,7 +1466,7 @@ MRTEVIFP & 12 & 12.29 & 2.95 & 9.95 & 20.80 & 1.91 & 2.84\\
 \hypertarget{bioequivalence}{%
 \section{생물학적 동등성}\label{bioequivalence}}
 
-생물학적 동등성을 위한 가장 간단한 방법은 \texttt{BE} 패키지(Bae \protect\hyperlink{ref-R-BE}{2018}\protect\hyperlink{ref-R-BE}{a})를 쓰는 것입니다.
+생물학적 동등성을 위한 가장 간단한 방법은 \texttt{BE} 패키지(Bae \protect\hyperlink{ref-R-BE}{2018})를 쓰는 것입니다.
 
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. (Chow \protect\hyperlink{ref-chow2009design}{2009})
 생물학적 동등성을 위한 수학 식은 다음과 같습니다. \eqref{eq:be}
@@ -1529,11 +1521,15 @@ ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table \ref{tab
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}[t]
+\begin{verbatim}
+## Error: '' does not exist in current working directory ('C:/Users/cmc/asancpt/book-ncar').
+\end{verbatim}
+
+\begin{table}
 
 \caption{\label{tab:beconcdata}A example dataset for the bioequivalence test.}
 \centering
-\begin{tabular}{r|l|r|l|r|r|r}
+\begin{tabular}[t]{r|l|r|l|r|r|r}
 \hline
 SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\\
 \hline
@@ -1799,11 +1795,11 @@ DP 처리.
 \end{Highlighting}
 \end{Shaded}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:sad-pk}16명의 C~max~, AUC~last~}
 \centering
-\begin{tabular}{r|r|r|r}
+\begin{tabular}[t]{r|r|r|r}
 \hline
 Dose & Subject & Cmax & AUClast\\
 \hline
@@ -1949,17 +1945,17 @@ SDTM의 PPTESTCD를 사용하므로 PP도메인 구성하기 쉽다. 변경할 �
 
 \cleardoublepage
 
-\hypertarget{appendix-}{%
+\hypertarget{appendix-appendix}{%
 \appendix \addcontentsline{toc}{chapter}{\appendixname}}
 
 
-\hypertarget{phoenix-winnonlin---}{%
-\chapter{Phoenix WinNonLin 과 결과 비교}\label{phoenix-winnonlin---}}
+\hypertarget{wnl-comparison}{%
+\chapter{Phoenix WinNonLin 과 결과 비교}\label{wnl-comparison}}
 
 \hypertarget{introduction-1}{%
 \section{Introduction}\label{introduction-1}}
 
-NonCompart R package (Bae \protect\hyperlink{ref-R-NonCompart}{2018}\protect\hyperlink{ref-R-NonCompart}{c}; Kim et al. \protect\hyperlink{ref-Kim_2018}{2018}) can conduct a noncompartmental analysis as similar as possible to the most widely used commercial software for pharmacokinetic analysis, i.e.~\href{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}{Phoenix\textsuperscript{®} WinNonlin\textsuperscript{®}} (Certara USA \protect\hyperlink{ref-wnl}{2018}).
+NonCompart R package (Bae \protect\hyperlink{ref-R-NonCompart}{2019}\protect\hyperlink{ref-R-NonCompart}{b}; Kim et al. \protect\hyperlink{ref-Kim_2018}{2018}) can conduct a noncompartmental analysis as similar as possible to the most widely used commercial software for pharmacokinetic analysis, i.e.~\href{https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/}{Phoenix\textsuperscript{®} WinNonlin\textsuperscript{®}} (Certara USA \protect\hyperlink{ref-wnl}{2018}).
 This document provides validation of noncompartmental analysis performed by NonCompart R package version 0.4.1 as compared to the results from the commercial software, WinNonlin\textsuperscript{®} version 6.3 and 7.0.
 
 \hypertarget{results}{%
@@ -2138,62 +2134,65 @@ No. & Dataset & Down & Route & Hyperlink\tabularnewline
 \begin{verbatim}
 ## - Session info ----------------------------------------------------------
 ##  setting  value                       
-##  version  R version 3.5.1 (2018-07-02)
-##  os       Windows 7 x64 SP 1          
+##  version  R version 3.6.1 (2019-07-05)
+##  os       Windows 10 x64              
 ##  system   x86_64, mingw32             
 ##  ui       RTerm                       
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
 ##  ctype    Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-12-24                  
+##  date     2019-11-06                  
 ## 
 ## - Packages --------------------------------------------------------------
-##  package     * version date       lib source                             
-##  assertthat    0.2.0   2017-04-11 [1] CRAN (R 3.5.0)                     
-##  backports     1.1.3   2018-12-14 [1] CRAN (R 3.5.1)                     
-##  bookdown      0.9     2018-12-21 [1] CRAN (R 3.5.1)                     
-##  callr         3.1.1   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  cli           1.0.1   2018-09-25 [1] CRAN (R 3.5.1)                     
-##  crayon        1.3.4   2018-10-25 [1] Github (gaborcsardi/crayon@467939b)
-##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.5.0)                     
-##  devtools      2.0.1   2018-10-26 [1] CRAN (R 3.5.1)                     
-##  digest        0.6.18  2018-10-10 [1] CRAN (R 3.5.1)                     
-##  evaluate      0.12    2018-10-09 [1] CRAN (R 3.5.1)                     
-##  fs            1.2.6   2018-08-23 [1] CRAN (R 3.5.1)                     
-##  glue          1.3.0   2018-07-17 [1] CRAN (R 3.5.1)                     
-##  highr         0.7     2018-06-09 [1] CRAN (R 3.5.0)                     
-##  hms           0.4.2   2018-03-10 [1] CRAN (R 3.5.0)                     
-##  htmltools     0.3.6   2017-04-28 [1] CRAN (R 3.5.0)                     
-##  knitr         1.21    2018-12-10 [1] CRAN (R 3.5.1)                     
-##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.5.0)                     
-##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.5.0)                     
-##  NonCompart  * 0.4.4   2018-07-10 [1] CRAN (R 3.5.0)                     
-##  pillar        1.3.1   2018-12-15 [1] CRAN (R 3.5.1)                     
-##  pkgbuild      1.0.2   2018-10-16 [1] CRAN (R 3.5.1)                     
-##  pkgconfig     2.0.2   2018-08-16 [1] CRAN (R 3.5.1)                     
-##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.5.1)                     
-##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.5.0)                     
-##  processx      3.2.1   2018-12-05 [1] CRAN (R 3.5.1)                     
-##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  R6            2.3.0   2018-10-04 [1] CRAN (R 3.5.1)                     
-##  Rcpp          1.0.0   2018-11-07 [1] CRAN (R 3.5.1)                     
-##  readr         1.3.1   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  remotes       2.0.2   2018-10-30 [1] CRAN (R 3.5.1)                     
-##  rlang         0.3.0.1 2018-10-25 [1] CRAN (R 3.5.1)                     
-##  rmarkdown     1.11    2018-12-08 [1] CRAN (R 3.5.1)                     
-##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.5.0)                     
-##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.5.1)                     
-##  stringi       1.2.4   2018-07-20 [1] CRAN (R 3.5.1)                     
-##  stringr       1.3.1   2018-05-10 [1] CRAN (R 3.5.0)                     
-##  testthat      2.0.1   2018-10-13 [1] CRAN (R 3.5.1)                     
-##  tibble        1.4.2   2018-01-22 [1] CRAN (R 3.5.0)                     
-##  usethis       1.4.0   2018-08-14 [1] CRAN (R 3.5.1)                     
-##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.5.0)                     
-##  xfun          0.4     2018-10-23 [1] CRAN (R 3.5.1)                     
+##  package     * version date       lib source        
+##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 3.6.1)
+##  backports     1.1.5   2019-10-02 [1] CRAN (R 3.6.1)
+##  bookdown      0.14    2019-10-01 [1] CRAN (R 3.6.1)
+##  callr         3.3.2   2019-09-22 [1] CRAN (R 3.6.1)
+##  cli           1.1.0   2019-03-19 [1] CRAN (R 3.6.1)
+##  crayon        1.3.4   2017-09-16 [1] CRAN (R 3.6.1)
+##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.6.1)
+##  devtools      2.2.1   2019-09-24 [1] CRAN (R 3.6.1)
+##  digest        0.6.22  2019-10-21 [1] CRAN (R 3.6.1)
+##  ellipsis      0.3.0   2019-09-20 [1] CRAN (R 3.6.1)
+##  evaluate      0.14    2019-05-28 [1] CRAN (R 3.6.1)
+##  fs            1.3.1   2019-05-06 [1] CRAN (R 3.6.1)
+##  glue          1.3.1   2019-03-12 [1] CRAN (R 3.6.1)
+##  highr         0.8     2019-03-20 [1] CRAN (R 3.6.1)
+##  hms           0.5.2   2019-10-30 [1] CRAN (R 3.6.1)
+##  htmltools     0.4.0   2019-10-04 [1] CRAN (R 3.6.1)
+##  knitr         1.25    2019-09-18 [1] CRAN (R 3.6.1)
+##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.6.1)
+##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.6.1)
+##  NonCompart  * 0.4.5   2019-09-27 [1] CRAN (R 3.6.1)
+##  pillar        1.4.2   2019-06-29 [1] CRAN (R 3.6.1)
+##  pkgbuild      1.0.6   2019-10-09 [1] CRAN (R 3.6.1)
+##  pkgconfig     2.0.3   2019-09-22 [1] CRAN (R 3.6.1)
+##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.6.1)
+##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.6.1)
+##  processx      3.4.1   2019-07-18 [1] CRAN (R 3.6.1)
+##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.6.1)
+##  R6            2.4.0   2019-02-14 [1] CRAN (R 3.6.1)
+##  Rcpp          1.0.2   2019-07-25 [1] CRAN (R 3.6.1)
+##  readr         1.3.1   2018-12-21 [1] CRAN (R 3.6.1)
+##  remotes       2.1.0   2019-06-24 [1] CRAN (R 3.6.1)
+##  rlang         0.4.1   2019-10-24 [1] CRAN (R 3.6.1)
+##  rmarkdown     1.16    2019-10-01 [1] CRAN (R 3.6.1)
+##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.6.1)
+##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.6.1)
+##  stringi       1.4.3   2019-03-12 [1] CRAN (R 3.6.0)
+##  stringr       1.4.0   2019-02-10 [1] CRAN (R 3.6.1)
+##  testthat      2.3.0   2019-11-05 [1] CRAN (R 3.6.1)
+##  tibble        2.1.3   2019-06-06 [1] CRAN (R 3.6.1)
+##  usethis       1.5.1   2019-07-04 [1] CRAN (R 3.6.1)
+##  vctrs         0.2.0   2019-07-05 [1] CRAN (R 3.6.1)
+##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.6.1)
+##  xfun          0.10    2019-10-01 [1] CRAN (R 3.6.1)
+##  zeallot       0.1.0   2018-01-28 [1] CRAN (R 3.6.1)
 ## 
-## [1] C:/Users/mdlhs/Rlib
-## [2] C:/Program Files/R/R-3.5.1/library
+## [1] C:/Users/cmc/Rlib
+## [2] C:/Program Files/R/R-3.6.1/library
 \end{verbatim}
 
 \pagebreak
@@ -2261,7 +2260,7 @@ URL: www.github.com/shanmdphd
 \begin{itemize}
 \tightlist
 \item
-  Expansive (\textasciitilde{}several thousand dollars)
+  Expansive (\textasciitilde several thousand dollars)
 \item
   Not suitable for reproducible research
 \item
@@ -2301,10 +2300,11 @@ library(devtools)
 install_github("billdenney/pknca")
 \end{verbatim}
 
-\hypertarget{nca----.}{%
-\subsection{오픈소스 NCA - 지금이 적기이다.}\label{nca----.}}
+\hypertarget{opennca}{%
+\subsection{오픈소스 NCA - 지금이 적기이다.}\label{opennca}}
 
 \begin{itemize}
+\tightlist
 \item
   Data standards 가 점점 많아짐
 \item
@@ -2320,8 +2320,6 @@ install_github("billdenney/pknca")
 \item
   우리도 R로 NCA?
 
-  \#\#\# 할수 있는 것
-
   \begin{itemize}
   \tightlist
   \item
@@ -2334,27 +2332,17 @@ install_github("billdenney/pknca")
 \item
   Calculates all (standard) NCA parameters (Targeting the SDTM PK 파라메터)
 \item
-  Summarizes the parameters
-\end{itemize}
+  한계
 
-\hypertarget{section-8}{%
-\subsection{한계}\label{section-8}}
-
-\begin{itemize}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    그래픽 못그림
+  \item
+    파라메터의 statistics 못구함 (곧 기능 추가할듯)
+  \end{itemize}
 \item
-  그래픽 못그림
-\item
-  파라메터의 statistics 못구함 (곧 기능 추가할듯)
-\end{itemize}
-
-\hypertarget{pknca--0.7}{%
-\subsection{PKNCA 현재는 0.7}\label{pknca--0.7}}
-
-\begin{itemize}
-\tightlist
-\item
-  NCA 파라메터 계산가능 (Cmax, Tmax, AUClast, AUCinf, AUMC, half-life, \ldots{})
+  NCA 파라메터 계산가능 (Cmax, Tmax, AUClast, AUCinf, AUMC, half-life, \ldots)
 \item
   NCA-related calculations (Superposition, Concentration interpolation/extrapolation (with AUC methods), Time to steady-state)
 \item
@@ -2363,22 +2351,6 @@ install_github("billdenney/pknca")
   인풋에서 아웃풋까지 TRACK가능하다.
 \item
   800개 넘는 테스트 케이스가 있음.
-\end{itemize}
-
-\hypertarget{pknca--1.0-.}{%
-\subsection{PKNCA 곧 1.0이 나올것이다.}\label{pknca--1.0-.}}
-
-\begin{itemize}
-\tightlist
-\item
-  Improved prediction of desired parameters (정확도 accuracy, number 등)
-\end{itemize}
-
-\hypertarget{section-9}{%
-\subsection{참고사항}\label{section-9}}
-
-\begin{itemize}
-\tightlist
 \item
   Github에서 모두 다운로드 가능
 \item
@@ -2391,53 +2363,34 @@ install_github("billdenney/pknca")
   \end{itemize}
 \item
   모든게 오픈이기 때문에 Github에서 기여 환영
-\end{itemize}
-
-\hypertarget{rstudio--hands-on-}{%
-\subsection{RStudio를 사용한 Hands-on 실습}\label{rstudio--hands-on-}}
-
-\hypertarget{example-theophylline.rmd}{%
-\subsubsection{Example-theophylline.Rmd}\label{example-theophylline.rmd}}
-
-\begin{itemize}
-\tightlist
 \item
-  Theophylline 농도를 가지고 PK Parameter 구하는 법
+  RStudio를 사용한 Hands-on 실습
 \item
-  \url{https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd}
-\item
-  이 파일을 RStudio에서 실행해본다.
-\item
-  이후 article에서 분석할 것입니다.
-\end{itemize}
+  Example-theophylline.Rmd
 
-\hypertarget{superposition.rmd}{%
-\subsubsection{Superposition.Rmd}\label{superposition.rmd}}
-
-\begin{itemize}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    Theophylline 농도를 가지고 PK Parameter 구하는 법
+  \item
+    \url{https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Example-theophylline.Rmd}
+  \item
+    이 파일을 RStudio에서 실행해본다.
+  \item
+    이후 article에서 분석할 것입니다.
+  \end{itemize}
 \item
-  \url{https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd}
-\item
-  이 파일을 RStudio에서 실행해본다.
-\end{itemize}
+  Superposition.Rmd
 
-\hypertarget{closing}{%
-\subsection{Closing}\label{closing}}
-
-\begin{itemize}
-\tightlist
+  \begin{itemize}
+  \tightlist
+  \item
+    \url{https://raw.githubusercontent.com/billdenney/pknca/master/vignettes/Superposition.Rmd}
+  \item
+    이 파일을 RStudio에서 실행해본다.
+  \end{itemize}
 \item
   PKNCA.options() 모든 옵션을 볼 수 있다.
-\end{itemize}
-
-\hypertarget{section-10}{%
-\subsection{결론}\label{section-10}}
-
-\begin{itemize}
-\tightlist
-\item
-  써보고 feedback주고 contribute해라.
 \end{itemize}
 
 \hypertarget{pros-1}{%
@@ -2471,44 +2424,64 @@ install_github("billdenney/pknca")
 \begin{Shaded}
 \begin{Highlighting}[]
 \KeywordTok{library}\NormalTok{(PKNCA)}
+\end{Highlighting}
+\end{Shaded}
 
+\begin{verbatim}
+## Error in library(PKNCA): 'PKNCA'이라고 불리는 패키지가 없습니다
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{my.conc <-}\StringTok{ }\KeywordTok{PKNCAconc}\NormalTok{(}\KeywordTok{as.data.frame}\NormalTok{(Theoph), conc}\OperatorTok{~}\NormalTok{Time}\OperatorTok{|}\NormalTok{Subject)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in PKNCAconc(as.data.frame(Theoph), conc ~ Time | Subject): 함수 "PKNCAconc"를 찾을 수 없습니다
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{d.dose <-}\StringTok{ }\KeywordTok{unique}\NormalTok{(datasets}\OperatorTok{::}\NormalTok{Theoph[datasets}\OperatorTok{::}\NormalTok{Theoph}\OperatorTok{$}\NormalTok{Time }\OperatorTok{==}\StringTok{ }\DecValTok{0}\NormalTok{,}
                                   \KeywordTok{c}\NormalTok{(}\StringTok{"Dose"}\NormalTok{, }\StringTok{"Time"}\NormalTok{, }\StringTok{"Subject"}\NormalTok{)])}
 \NormalTok{my.dose <-}\StringTok{ }\KeywordTok{PKNCAdose}\NormalTok{(d.dose, Dose}\OperatorTok{~}\NormalTok{Time}\OperatorTok{|}\NormalTok{Subject)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in PKNCAdose(d.dose, Dose ~ Time | Subject): 함수 "PKNCAdose"를 찾을 수 없습니다
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{my.data.automatic <-}\StringTok{ }\KeywordTok{PKNCAdata}\NormalTok{(my.conc, my.dose)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in PKNCAdata(my.conc, my.dose): 함수 "PKNCAdata"를 찾을 수 없습니다
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{my.results.automatic <-}\StringTok{ }\KeywordTok{pk.nca}\NormalTok{(my.data.automatic)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in pk.nca(my.data.automatic): 함수 "pk.nca"를 찾을 수 없습니다
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{my.results.automatic}\OperatorTok{$}\NormalTok{result }\OperatorTok{%>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(}\KeywordTok{grepl}\NormalTok{(}\DataTypeTok{pattern =} \StringTok{"cmax|aucinf"}\NormalTok{, PPTESTCD)) }\OperatorTok{%>%}\StringTok{ }
 \StringTok{    }\KeywordTok{arrange}\NormalTok{(PPTESTCD)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-##    start end Subject   PPTESTCD   PPORRES exclude
-## 1      0 Inf       1 aucinf.obs 214.92363    <NA>
-## 2      0 Inf       2 aucinf.obs  97.37793    <NA>
-## 3      0 Inf       3 aucinf.obs 106.12767    <NA>
-## 4      0 Inf       4 aucinf.obs 114.21620    <NA>
-## 5      0 Inf       5 aucinf.obs 136.30473    <NA>
-## 6      0 Inf       6 aucinf.obs  82.17588    <NA>
-## 7      0 Inf       7 aucinf.obs 100.98763    <NA>
-## 8      0 Inf       8 aucinf.obs 102.15330    <NA>
-## 9      0 Inf       9 aucinf.obs  97.52000    <NA>
-## 10     0 Inf      10 aucinf.obs 167.86003    <NA>
-## 11     0 Inf      11 aucinf.obs  86.90262    <NA>
-## 12     0 Inf      12 aucinf.obs 125.83154    <NA>
-## 13     0 Inf       1       cmax  10.50000    <NA>
-## 14     0 Inf       2       cmax   8.33000    <NA>
-## 15     0 Inf       3       cmax   8.20000    <NA>
-## 16     0 Inf       4       cmax   8.60000    <NA>
-## 17     0 Inf       5       cmax  11.40000    <NA>
-## 18     0 Inf       6       cmax   6.44000    <NA>
-## 19     0 Inf       7       cmax   7.09000    <NA>
-## 20     0 Inf       8       cmax   7.56000    <NA>
-## 21     0 Inf       9       cmax   9.03000    <NA>
-## 22     0 Inf      10       cmax  10.21000    <NA>
-## 23     0 Inf      11       cmax   8.00000    <NA>
-## 24     0 Inf      12       cmax   9.75000    <NA>
+## Error in eval(lhs, parent, parent): 객체 'my.results.automatic'를 찾을 수 없습니다
 \end{verbatim}
 
 \begin{Shaded}
@@ -2518,12 +2491,7 @@ install_github("billdenney/pknca")
 \end{Shaded}
 
 \begin{verbatim}
-##   start end  N     auclast        cmax               tmax   half.life
-## 1     0  24 12 74.6 [24.3]           .                  .           .
-## 2     0 Inf 12           . 8.65 [17.0] 1.14 [0.630, 3.55] 8.18 [2.12]
-##   aucinf.obs
-## 1          .
-## 2 115 [28.4]
+## Error in summary(my.results.automatic): 객체 'my.results.automatic'를 찾을 수 없습니다
 \end{verbatim}
 
 \hypertarget{r-package-ncappc}{%
@@ -2560,154 +2528,6 @@ NCA Calculation and Population PK Model Diagnosis (Acharya et al. \protect\hyper
 
 \includegraphics[width=1\linewidth]{13-others_files/figure-latex/unnamed-chunk-5-1}
 \includegraphics[width=1\linewidth]{13-others_files/figure-latex/unnamed-chunk-5-2}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Theoph_ncappc_results}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## $ncaOutput
-##    ID Dose C0 Tmax simTmax  Cmax simCmax Cmax_D Tlast Clast   AUClast
-## 1   1   NA NA 1.12       0 10.50       0     NA 24.37  3.28 147.23475
-## 2   2   NA NA 1.92       0  8.33       0     NA 24.30  0.90  88.73128
-## 3   3   NA NA 1.02       0  8.20       0     NA 24.17  1.05  95.87820
-## 4   4   NA NA 1.07       0  8.60       0     NA 24.65  1.15 102.63362
-## 5   5   NA NA 1.00       0 11.40       0     NA 24.35  1.57 118.17935
-## 6   6   NA NA 1.15       0  6.44       0     NA 23.85  0.92  71.69701
-## 7   7   NA NA 3.48       0  7.09       0     NA 24.22  1.15  87.96923
-## 8   8   NA NA 2.02       0  7.56       0     NA 24.12  1.25  86.80656
-## 9   9   NA NA 0.63       0  9.03       0     NA 24.43  1.12  83.93744
-## 10 10   NA NA 3.55       0 10.21       0     NA 23.70  2.42 135.57607
-## 11 11   NA NA 0.98       0  8.00       0     NA 24.08  0.86  77.89347
-## 12 12   NA NA 3.52       0  9.75       0     NA 24.15  1.17 115.22021
-##    simAUClast  AUMClast simAUMClast   MRTlast No_points_Lambda_z
-## 1           0 1499.1291           0 10.181897                  3
-## 2           0  716.2787           0  8.072449                  4
-## 3           0  810.8727           0  8.457321                  3
-## 4           0  911.7828           0  8.883861                  3
-## 5           0 1038.8800           0  8.790706                  4
-## 6           0  618.6659           0  8.628894                  7
-## 7           0  795.6268           0  9.044376                  4
-## 8           0  756.3620           0  8.713189                  6
-## 9           0  723.3794           0  8.618079                  3
-## 10          0 1306.7406           0  9.638431                  3
-## 11          0  626.6358           0  8.044779                  3
-## 12          0  982.6343           0  8.528316                  3
-##    AUClower_upper simAUClower_upper       Rsq Rsq_adjusted    Corr_XY
-## 1       147.23475                 0 0.9999997    0.9999995 -0.9999999
-## 2        88.73128                 0 0.9971954    0.9957931 -0.9985967
-## 3        95.87820                 0 0.9993250    0.9986499 -0.9996624
-## 4       102.63362                 0 0.9989241    0.9978483 -0.9994619
-## 5       118.17935                 0 0.9986472    0.9979708 -0.9993234
-## 6        71.69701                 0 0.9982413    0.9978896 -0.9991203
-## 7        87.96923                 0 0.9986702    0.9980053 -0.9993349
-## 8        86.80656                 0 0.9910124    0.9887655 -0.9954961
-## 9        83.93744                 0 0.9994437    0.9988873 -0.9997218
-## 10      135.57607                 0 0.9995087    0.9990174 -0.9997543
-## 11       77.89347                 0 0.9999983    0.9999965 -0.9999991
-## 12      115.22021                 0 0.9993968    0.9987936 -0.9996984
-##      Lambda_z Lambda_z_lower Lambda_z_upper HL_Lambda_z simHL_Lambda_z
-## 1  0.04845700             NA             NA   14.304378              0
-## 2  0.10408644             NA             NA    6.659342              0
-## 3  0.10244431             NA             NA    6.766087              0
-## 4  0.09928702             NA             NA    6.981247              0
-## 5  0.08661888             NA             NA    8.002264              0
-## 6  0.08779574             NA             NA    7.894998              0
-## 7  0.08833650             NA             NA    7.846668              0
-## 8  0.08145054             NA             NA    8.510038              0
-## 9  0.08245863             NA             NA    8.405999              0
-## 10 0.07495982             NA             NA    9.246916              0
-## 11 0.09545856             NA             NA    7.261237              0
-## 12 0.11025949             NA             NA    6.286508              0
-##    AUCINF_obs simAUCINF_obs AUCINF_D_obs AUC_pExtrap_obs AUC_pBack_Ext_obs
-## 1   214.92363             0           NA       31.494388                NA
-## 2    97.37793             0           NA        8.879485                NA
-## 3   106.12767             0           NA        9.657680                NA
-## 4   114.21620             0           NA       10.140927                NA
-## 5   136.30473             0           NA       13.297688                NA
-## 6    82.17588             0           NA       12.751756                NA
-## 7   100.98763             0           NA       12.891086                NA
-## 8   102.15330             0           NA       15.023241                NA
-## 9    97.52000             0           NA       13.927981                NA
-## 10  167.86003             0           NA       19.232667                NA
-## 11   86.90262             0           NA       10.366943                NA
-## 12  125.83154             0           NA        8.432966                NA
-##    Vz_obs Cl_obs AUCINF_pred simAUCINF_pred AUCINF_D_pred AUC_pExtrap_pred
-## 1      NA     NA   214.92665              0            NA        31.495352
-## 2      NA     NA    97.26879              0            NA         8.777242
-## 3      NA     NA   106.17742              0            NA         9.700011
-## 4      NA     NA   114.28088              0            NA        10.191782
-## 5      NA     NA   136.13958              0            NA        13.192512
-## 6      NA     NA    82.41816              0            NA        13.008235
-## 7      NA     NA   101.10897              0            NA        12.995629
-## 8      NA     NA   101.88966              0            NA        14.803367
-## 9      NA     NA    97.47735              0            NA        13.890321
-## 10     NA     NA   167.77588              0            NA        19.192158
-## 11     NA     NA    86.90059              0            NA        10.364854
-## 12     NA     NA   125.88178              0            NA         8.469509
-##    AUC_pBack_Ext_pred Vz_pred Cl_pred AUMCINF_obs AUMC_pExtrap_obs
-## 1                  NA      NA      NA   4545.5928         67.02016
-## 2                  NA      NA      NA   1009.4644         29.04369
-## 3                  NA      NA      NA   1158.6516         30.01583
-## 4                  NA      NA      NA   1313.9510         30.60755
-## 5                  NA      NA      NA   1689.4873         38.50916
-## 6                  NA      NA      NA    987.9420         37.37832
-## 7                  NA      NA      NA   1258.3053         36.76997
-## 8                  NA      NA      NA   1314.9431         42.47949
-## 9                  NA      NA      NA   1219.9213         40.70278
-## 10                 NA      NA      NA   2502.5540         47.78372
-## 11                 NA      NA      NA    937.9535         33.19117
-## 12                 NA      NA      NA   1335.1376         26.40202
-##    AUMCINF_pred AUMC_pExtrap_pred MRTINF_obs MRTINF_pred Tau Tmin Cmin
-## 1     4545.7288          67.02115   21.14980    21.15014  NA   NA   NA
-## 2     1005.7637          28.78261   10.36646    10.34005  NA   NA   NA
-## 3     1160.3397          30.11765   10.91753    10.92831  NA   NA   NA
-## 4     1316.1967          30.72595   11.50407    11.51721  NA   NA   NA
-## 5     1683.5593          38.29264   12.39493    12.36642  NA   NA   NA
-## 6      996.4800          37.91487   12.02229    12.09054  NA   NA   NA
-## 7     1262.6180          36.98595   12.45999    12.48769  NA   NA   NA
-## 8     1305.3475          42.05666   12.87225    12.81138  NA   NA   NA
-## 9     1218.3621          40.62690   12.50945    12.49893  NA   NA   NA
-## 10    2499.4371          47.71860   14.90858    14.89748  NA   NA   NA
-## 11     937.8835          33.18618   10.79316    10.79260  NA   NA   NA
-## 12    1336.8064          26.49390   10.61052    10.61954  NA   NA   NA
-##    Cavg AUCtau AUMCtau Clss Vss_obs Vss_pred p_Fluctuation
-## 1    NA     NA      NA   NA      NA       NA            NA
-## 2    NA     NA      NA   NA      NA       NA            NA
-## 3    NA     NA      NA   NA      NA       NA            NA
-## 4    NA     NA      NA   NA      NA       NA            NA
-## 5    NA     NA      NA   NA      NA       NA            NA
-## 6    NA     NA      NA   NA      NA       NA            NA
-## 7    NA     NA      NA   NA      NA       NA            NA
-## 8    NA     NA      NA   NA      NA       NA            NA
-## 9    NA     NA      NA   NA      NA       NA            NA
-## 10   NA     NA      NA   NA      NA       NA            NA
-## 11   NA     NA      NA   NA      NA       NA            NA
-## 12   NA     NA      NA   NA      NA       NA            NA
-##    Accumulation_Index
-## 1                  NA
-## 2                  NA
-## 3                  NA
-## 4                  NA
-## 5                  NA
-## 6                  NA
-## 7                  NA
-## 8                  NA
-## 9                  NA
-## 10                 NA
-## 11                 NA
-## 12                 NA
-\end{verbatim}
-
-\begin{verbatim}
-## Error in file(file, "rt"): 커넥션을 열 수 없습니다
-\end{verbatim}
-
-\begin{verbatim}
-## Error in eval(expr, envir, enclos): 객체 'Theoph_ncappc'를 찾을 수 없습니다
-\end{verbatim}
 
 \hypertarget{r-package-pk}{%
 \section{R package: PK}\label{r-package-pk}}
@@ -2750,10 +2570,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{6}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2829,10 +2649,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{7}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2908,10 +2728,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{8}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -2987,10 +2807,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{11}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3066,10 +2886,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{3}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3145,10 +2965,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{2}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3224,10 +3044,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{4}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3303,10 +3123,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{9}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3382,10 +3202,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{12}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3461,10 +3281,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{10}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3540,10 +3360,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{1}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3619,10 +3439,10 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{ID=}\DecValTok{5}
 
 \NormalTok{                        NONCOMPARTMENTAL ANALYSIS REPORT}
-\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.1}\NormalTok{ (}\DecValTok{2018-06-20}\NormalTok{ KST)}
-\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{5.1}\NormalTok{ (}\DecValTok{2018-07-02}\NormalTok{)}
+\NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019-09-27}\NormalTok{ KST)}
+\NormalTok{                          R version }\DecValTok{3}\NormalTok{.}\FloatTok{6.1}\NormalTok{ (}\DecValTok{2019-07-05}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2018-12-24} \DecValTok{17}\OperatorTok{:}\DecValTok{33}\OperatorTok{:}\DecValTok{40}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2019-11-06} \DecValTok{12}\OperatorTok{:}\DecValTok{27}\OperatorTok{:}\DecValTok{39}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{-------------------}
@@ -3711,55 +3531,56 @@ Basic Non-Compartmental Pharmacokinetics
 \begin{verbatim}
 ## - Session info ----------------------------------------------------------
 ##  setting  value                       
-##  version  R version 3.5.1 (2018-07-02)
-##  os       Windows 7 x64 SP 1          
+##  version  R version 3.6.1 (2019-07-05)
+##  os       Windows 10 x64              
 ##  system   x86_64, mingw32             
 ##  ui       RTerm                       
 ##  language (EN)                        
 ##  collate  Korean_Korea.949            
 ##  ctype    Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2018-12-24                  
+##  date     2019-11-06                  
 ## 
 ## - Packages --------------------------------------------------------------
-##  package     * version date       lib source                             
-##  assertthat    0.2.0   2017-04-11 [1] CRAN (R 3.5.0)                     
-##  backports     1.1.3   2018-12-14 [1] CRAN (R 3.5.1)                     
-##  bookdown      0.9     2018-12-21 [1] CRAN (R 3.5.1)                     
-##  callr         3.1.1   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  cli           1.0.1   2018-09-25 [1] CRAN (R 3.5.1)                     
-##  crayon        1.3.4   2018-10-25 [1] Github (gaborcsardi/crayon@467939b)
-##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.5.0)                     
-##  devtools      2.0.1   2018-10-26 [1] CRAN (R 3.5.1)                     
-##  digest        0.6.18  2018-10-10 [1] CRAN (R 3.5.1)                     
-##  evaluate      0.12    2018-10-09 [1] CRAN (R 3.5.1)                     
-##  fs            1.2.6   2018-08-23 [1] CRAN (R 3.5.1)                     
-##  glue          1.3.0   2018-07-17 [1] CRAN (R 3.5.1)                     
-##  htmltools     0.3.6   2017-04-28 [1] CRAN (R 3.5.0)                     
-##  knitr         1.21    2018-12-10 [1] CRAN (R 3.5.1)                     
-##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.5.0)                     
-##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.5.0)                     
-##  pkgbuild      1.0.2   2018-10-16 [1] CRAN (R 3.5.1)                     
-##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.5.1)                     
-##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.5.0)                     
-##  processx      3.2.1   2018-12-05 [1] CRAN (R 3.5.1)                     
-##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.5.1)                     
-##  R6            2.3.0   2018-10-04 [1] CRAN (R 3.5.1)                     
-##  Rcpp          1.0.0   2018-11-07 [1] CRAN (R 3.5.1)                     
-##  remotes       2.0.2   2018-10-30 [1] CRAN (R 3.5.1)                     
-##  rlang         0.3.0.1 2018-10-25 [1] CRAN (R 3.5.1)                     
-##  rmarkdown     1.11    2018-12-08 [1] CRAN (R 3.5.1)                     
-##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.5.0)                     
-##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.5.1)                     
-##  stringi       1.2.4   2018-07-20 [1] CRAN (R 3.5.1)                     
-##  stringr       1.3.1   2018-05-10 [1] CRAN (R 3.5.0)                     
-##  testthat      2.0.1   2018-10-13 [1] CRAN (R 3.5.1)                     
-##  usethis       1.4.0   2018-08-14 [1] CRAN (R 3.5.1)                     
-##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.5.0)                     
-##  xfun          0.4     2018-10-23 [1] CRAN (R 3.5.1)                     
+##  package     * version date       lib source        
+##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 3.6.1)
+##  backports     1.1.5   2019-10-02 [1] CRAN (R 3.6.1)
+##  bookdown      0.14    2019-10-01 [1] CRAN (R 3.6.1)
+##  callr         3.3.2   2019-09-22 [1] CRAN (R 3.6.1)
+##  cli           1.1.0   2019-03-19 [1] CRAN (R 3.6.1)
+##  crayon        1.3.4   2017-09-16 [1] CRAN (R 3.6.1)
+##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.6.1)
+##  devtools      2.2.1   2019-09-24 [1] CRAN (R 3.6.1)
+##  digest        0.6.22  2019-10-21 [1] CRAN (R 3.6.1)
+##  ellipsis      0.3.0   2019-09-20 [1] CRAN (R 3.6.1)
+##  evaluate      0.14    2019-05-28 [1] CRAN (R 3.6.1)
+##  fs            1.3.1   2019-05-06 [1] CRAN (R 3.6.1)
+##  glue          1.3.1   2019-03-12 [1] CRAN (R 3.6.1)
+##  htmltools     0.4.0   2019-10-04 [1] CRAN (R 3.6.1)
+##  knitr         1.25    2019-09-18 [1] CRAN (R 3.6.1)
+##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.6.1)
+##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.6.1)
+##  pkgbuild      1.0.6   2019-10-09 [1] CRAN (R 3.6.1)
+##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.6.1)
+##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.6.1)
+##  processx      3.4.1   2019-07-18 [1] CRAN (R 3.6.1)
+##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.6.1)
+##  R6            2.4.0   2019-02-14 [1] CRAN (R 3.6.1)
+##  Rcpp          1.0.2   2019-07-25 [1] CRAN (R 3.6.1)
+##  remotes       2.1.0   2019-06-24 [1] CRAN (R 3.6.1)
+##  rlang         0.4.1   2019-10-24 [1] CRAN (R 3.6.1)
+##  rmarkdown     1.16    2019-10-01 [1] CRAN (R 3.6.1)
+##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.6.1)
+##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.6.1)
+##  stringi       1.4.3   2019-03-12 [1] CRAN (R 3.6.0)
+##  stringr       1.4.0   2019-02-10 [1] CRAN (R 3.6.1)
+##  testthat      2.3.0   2019-11-05 [1] CRAN (R 3.6.1)
+##  usethis       1.5.1   2019-07-04 [1] CRAN (R 3.6.1)
+##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.6.1)
+##  xfun          0.10    2019-10-01 [1] CRAN (R 3.6.1)
 ## 
-## [1] C:/Users/mdlhs/Rlib
-## [2] C:/Program Files/R/R-3.5.1/library
+## [1] C:/Users/cmc/Rlib
+## [2] C:/Program Files/R/R-3.6.1/library
 \end{verbatim}
 
 \hypertarget{refs}{}
@@ -3767,13 +3588,13 @@ Basic Non-Compartmental Pharmacokinetics
 Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. ``A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.'' \emph{Computer Methods and Programs in Biomedicine} 127: 83--93. \url{https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013}.
 
 \leavevmode\hypertarget{ref-R-BE}{}%
-Bae, Kyun-Seop. 2018a. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://CRAN.R-project.org/package=BE}.
+Bae, Kyun-Seop. 2018. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://CRAN.R-project.org/package=BE}.
 
 \leavevmode\hypertarget{ref-R-ncar}{}%
----------. 2018b. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://CRAN.R-project.org/package=ncar}.
+---------. 2019a. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://CRAN.R-project.org/package=ncar}.
 
 \leavevmode\hypertarget{ref-R-NonCompart}{}%
----------. 2018c. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://CRAN.R-project.org/package=NonCompart}.
+---------. 2019b. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://CRAN.R-project.org/package=NonCompart}.
 
 \leavevmode\hypertarget{ref-R-pkr}{}%
 Bae, Kyun-Seop, and Jee Eun Lee. 2018. \emph{Pkr: Pharmacokinetics in R}. \url{https://CRAN.R-project.org/package=pkr}.
@@ -3788,16 +3609,16 @@ Chow. 2009. \emph{Design and Analysis of Bioavailability and Bioequivalence Stud
 Gabrielsson, Johan. 2016. \emph{Pharmacokinetic and Pharmacodynamic Data Analysis : Concepts and Applications}. Stockholm: Apotekarsocieteten.
 
 \leavevmode\hypertarget{ref-R-purrr}{}%
-Henry, Lionel, and Hadley Wickham. 2018. \emph{Purrr: Functional Programming Tools}. \url{https://CRAN.R-project.org/package=purrr}.
+Henry, Lionel, and Hadley Wickham. 2019. \emph{Purrr: Functional Programming Tools}. \url{https://CRAN.R-project.org/package=purrr}.
 
 \leavevmode\hypertarget{ref-Kim_2018}{}%
 Kim, Hyungsub, Sungpil Han, Yong-Soon Cho, Seok-Kyu Yoon, and Kyun-Seop Bae. 2018. ``Development of R Packages: `NonCompart' and `Ncar' for Noncompartmental Analysis (Nca).'' \emph{Translational and Clinical Pharmacology} 26 (1): 01--48. \url{http://www.tcpharm.org/Data/Journal/2/358.pdf}.
 
 \leavevmode\hypertarget{ref-R-tibble}{}%
-Muller, Kirill, and Hadley Wickham. 2018. \emph{Tibble: Simple Data Frames}. \url{https://CRAN.R-project.org/package=tibble}.
+Muller, Kirill, and Hadley Wickham. 2019. \emph{Tibble: Simple Data Frames}. \url{https://CRAN.R-project.org/package=tibble}.
 
 \leavevmode\hypertarget{ref-R-base}{}%
-R Core Team. 2018. \emph{R: A Language and Environment for Statistical Computing}. Vienna, Austria: R Foundation for Statistical Computing. \url{https://www.R-project.org/}.
+R Core Team. 2019. \emph{R: A Language and Environment for Statistical Computing}. Vienna, Austria: R Foundation for Statistical Computing. \url{https://www.R-project.org/}.
 
 \leavevmode\hypertarget{ref-tozer}{}%
 Rowland, Malcolm. 2011. \emph{Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications}. Philadelphia: Wolters Kluwer Health/Lippincott William \& Wilkins.
@@ -3806,13 +3627,13 @@ Rowland, Malcolm. 2011. \emph{Clinical Pharmacokinetics and Pharmacodynamics : C
 Wickham, Hadley. 2017. \emph{Tidyverse: Easily Install and Load the 'Tidyverse'}. \url{https://CRAN.R-project.org/package=tidyverse}.
 
 \leavevmode\hypertarget{ref-R-ggplot2}{}%
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, and Kara Woo. 2018. \emph{Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics}. \url{https://CRAN.R-project.org/package=ggplot2}.
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, and Hiroaki Yutani. 2019. \emph{Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics}. \url{https://CRAN.R-project.org/package=ggplot2}.
 
 \leavevmode\hypertarget{ref-R-dplyr}{}%
-Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2018. \emph{Dplyr: A Grammar of Data Manipulation}. \url{https://CRAN.R-project.org/package=dplyr}.
+Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2019. \emph{Dplyr: A Grammar of Data Manipulation}. \url{https://CRAN.R-project.org/package=dplyr}.
 
 \leavevmode\hypertarget{ref-R-tidyr}{}%
-Wickham, Hadley, and Lionel Henry. 2018. \emph{Tidyr: Easily Tidy Data with 'Spread()' and 'Gather()' Functions}. \url{https://CRAN.R-project.org/package=tidyr}.
+Wickham, Hadley, and Lionel Henry. 2019. \emph{Tidyr: Tidy Messy Data}. \url{https://CRAN.R-project.org/package=tidyr}.
 
 \leavevmode\hypertarget{ref-R-readr}{}%
 Wickham, Hadley, Jim Hester, and Romain Francois. 2018. \emph{Readr: Read Rectangular Text Data}. \url{https://CRAN.R-project.org/package=readr}.
