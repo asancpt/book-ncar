@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 4 R을 사용한 비구획분석 | R을 사용한 비구획분석</title>
+  <title>4 R을 사용한 비구획분석 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 4 R을 사용한 비구획분석 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="4 R을 사용한 비구획분석 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 4 R을 사용한 비구획분석 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="4 R을 사용한 비구획분석 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2019-11-06" />
+<meta name="date" content="2020-01-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
 <link rel="prev" href="datasets.html"/>
 <link rel="next" href="ncar.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -53,18 +54,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,85 +134,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a><ul>
+<li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
 <li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#otherinstall"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
+<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#TheophData"><i class="fa fa-check"></i><b>3.2</b> 데이타에 대해</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석</a><ul>
+<li class="chapter" data-level="4" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="noncompart.html"><a href="noncompart.html#summary-noncompart"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="4.2" data-path="noncompart.html"><a href="noncompart.html#how-to-use"><i class="fa fa-check"></i><b>4.2</b> NonCompart 사용법</a></li>
 <li class="chapter" data-level="4.3" data-path="noncompart.html"><a href="noncompart.html#interval-NCA"><i class="fa fa-check"></i><b>4.3</b> 구간 NCA</a></li>
-<li class="chapter" data-level="4.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>4.4</b> 함수 살펴보기</a><ul>
+<li class="chapter" data-level="4.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>4.4</b> 함수 살펴보기</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="noncompart.html"><a href="noncompart.html#auc"><i class="fa fa-check"></i><b>4.4.1</b> AUC</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>4.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>5.2</b> txtNCA()</a></li>
 <li class="chapter" data-level="5.3" data-path="ncar.html"><a href="ncar.html#pdfnca"><i class="fa fa-check"></i><b>5.3</b> pdfNCA()</a></li>
 <li class="chapter" data-level="5.4" data-path="ncar.html"><a href="ncar.html#rtfnca"><i class="fa fa-check"></i><b>5.4</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
+<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="6.2" data-path="pkr.html"><a href="pkr.html#pkr-manual"><i class="fa fa-check"></i><b>6.2</b> pkr 사용법</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="rsimulation.html"><a href="rsimulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
+<li class="chapter" data-level="7" data-path="rsimulation.html"><a href="rsimulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="rsimulation.html"><a href="rsimulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="7.2" data-path="rsimulation.html"><a href="rsimulation.html#sim-about"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
 <li class="chapter" data-level="7.3" data-path="rsimulation.html"><a href="rsimulation.html#sim-nca"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="rsimulation.html"><a href="rsimulation.html#sim-app"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.4" data-path="rsimulation.html"><a href="rsimulation.html#sim-app"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="rsimulation.html"><a href="rsimulation.html#shiny"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
-<li class="chapter" data-level="A.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
-<li class="chapter" data-level="A.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
-<li class="chapter" data-level="A.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="appendix-appendix.html"><a href="appendix-appendix.html"><i class="fa fa-check"></i>(APPENDIX) Appendix</a></li>
+<li class="chapter" data-level="10" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>10</b> Phoenix WinNonLin 과 결과 비교</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>10.2</b> Results</a></li>
+<li class="chapter" data-level="10.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>10.3</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a><ul>
-<li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="B.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>B.2</b> Certara Phoenix WinNonLin</a><ul>
-<li class="chapter" data-level="B.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>B.2.1</b> Pros</a></li>
-<li class="chapter" data-level="B.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>B.2.2</b> Cons</a></li>
+<li class="chapter" data-level="11" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>11</b> 기타 비구획분석 소프트웨어</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>11.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="11.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>11.2</b> Certara Phoenix WinNonLin</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>11.2.1</b> Pros</a></li>
+<li class="chapter" data-level="11.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>11.2.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
-<li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.3</b> Pros</a></li>
-<li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.4</b> Cons</a></li>
+<li class="chapter" data-level="11.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>11.3</b> R package: PKNCA</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>11.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="11.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>11.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="11.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>11.3.3</b> Pros</a></li>
+<li class="chapter" data-level="11.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>11.3.4</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="B.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>B.4</b> R package: ncappc</a></li>
-<li class="chapter" data-level="B.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>B.5</b> R package: PK</a></li>
-<li class="chapter" data-level="B.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>B.6</b> Kinetica</a></li>
-<li class="chapter" data-level="B.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>B.7</b> Scientist</a></li>
-<li class="chapter" data-level="B.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>B.8</b> PKSolver</a></li>
-<li class="chapter" data-level="B.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>B.9</b> Summary</a></li>
+<li class="chapter" data-level="11.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>11.4</b> R package: ncappc</a></li>
+<li class="chapter" data-level="11.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>11.5</b> R package: PK</a></li>
+<li class="chapter" data-level="11.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>11.6</b> Kinetica</a></li>
+<li class="chapter" data-level="11.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>11.7</b> Scientist</a></li>
+<li class="chapter" data-level="11.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>11.8</b> PKSolver</a></li>
+<li class="chapter" data-level="11.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>11.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>C</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="C.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>C.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="12" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>12</b> R에 내장된 자료의 비구획분석 보고서</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>12.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
-<li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
+<li class="chapter" data-level="13" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>13</b> 지원</a></li>
+<li class="chapter" data-level="14" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>14</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -234,12 +249,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="noncompart" class="section level1">
-<h1><span class="header-section-number">Chapter 4</span> R을 사용한 비구획분석</h1>
-<div id="summary-noncompart" class="section level2">
-<h2><span class="header-section-number">4.1</span> 이 장에서는</h2>
-<p><code>NonCompart</code> <span class="citation">(Bae <a href="#ref-R-NonCompart" role="doc-biblioref">2019</a><a href="#ref-R-NonCompart" role="doc-biblioref">b</a>)</span>은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다.
-약동학 교재의 내용을 충실히 반영하였습니다. <span class="citation">(Gabrielsson <a href="#ref-gab" role="doc-biblioref">2016</a>; Rowland <a href="#ref-tozer" role="doc-biblioref">2011</a>)</span>
+<div id="noncompart" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> R을 사용한 비구획분석</h1>
+<div id="summary-noncompart" class="section level2" number="4.1">
+<h2 number="4.1"><span class="header-section-number">4.1</span> 이 장에서는</h2>
+<p><code>NonCompart</code> <span class="citation">(Bae <a href="참고문헌.html#ref-R-NonCompart" role="doc-biblioref">2019</a><a href="참고문헌.html#ref-R-NonCompart" role="doc-biblioref">b</a>)</span>은 비구획 분석을 R을 통해 쉽고 빠르게 (매우 빠르게) 행할 수 있는 패키지입니다.
+약동학 교재의 내용을 충실히 반영하였습니다. <span class="citation">(Gabrielsson <a href="참고문헌.html#ref-gab" role="doc-biblioref">2016</a>; Rowland <a href="참고문헌.html#ref-tozer" role="doc-biblioref">2011</a>)</span>
 이에 대해 좀더 자세히 알아보겠습니다.</p>
 <p><code>NonCompart</code>의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있습니다.</p>
 <blockquote>
@@ -254,8 +269,8 @@ Some features are
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="noncompart.html#cb10-1"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb10-2"><a href="noncompart.html#cb10-2"></a><span class="kw">library</span>(NonCompart)</span></code></pre></div>
 </div>
-<div id="how-to-use" class="section level2">
-<h2><span class="header-section-number">4.2</span> NonCompart 사용법</h2>
+<div id="how-to-use" class="section level2" number="4.2">
+<h2 number="4.2"><span class="header-section-number">4.2</span> NonCompart 사용법</h2>
 <p>tblNCA의 사용법은 다음과 같습니다.</p>
 <pre><code>## function (concData, key = &quot;Subject&quot;, colTime = &quot;Time&quot;, colConc = &quot;conc&quot;, 
 ##     dose = 0, adm = &quot;Extravascular&quot;, dur = 0, doseUnit = &quot;mg&quot;, 
@@ -301,71 +316,71 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="noncompart.html#cb12-1"></a>Theoph_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb12-2"><a href="noncompart.html#cb12-2"></a>                     <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span>
 <span id="cb12-3"><a href="noncompart.html#cb12-3"></a>Theoph_nca</span></code></pre></div>
-<pre><code>##    Subject       b0  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST
-## 1        1 2.368785 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37
-## 2        2 2.411237  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30
-## 3        3 2.529712  8.20 0.02562500 1.02    0 1.05 1.0550967 24.17
-## 4        4 2.592755  8.60 0.02687500 1.07    0 1.15 1.1564216 24.65
-## 5        5 2.551092 11.40 0.03562500 1.00    0 1.57 1.5556951 24.35
-## 6        6 2.033404  6.44 0.02012500 1.15    0 0.92 0.9412712 23.85
-## 7        7 2.288550  7.09 0.02215625 3.48    0 1.15 1.1607192 24.22
-## 8        8 2.170403  7.56 0.02362500 2.02    0 1.25 1.2285268 24.12
-## 9        9 2.124648  9.03 0.02821875 0.63    0 1.12 1.1164831 24.43
-## 10      10 2.657705 10.21 0.03190625 3.55    0 2.42 2.4136923 23.70
-## 11      11 2.147594  8.00 0.02500000 0.98    0 0.86 0.8598066 24.08
-## 12      12 2.824493  9.75 0.03046875 3.52    0 1.17 1.1755390 24.15
-##       LAMZHL       LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2
-## 1  14.304378 0.04845700   9.05  24.37       3 -0.9999999 0.9999997
-## 2   6.659342 0.10408644   7.03  24.30       4 -0.9985967 0.9971954
-## 3   6.766087 0.10244431   9.00  24.17       3 -0.9996624 0.9993250
-## 4   6.981247 0.09928702   9.02  24.65       3 -0.9994619 0.9989241
-## 5   8.002264 0.08661888   7.02  24.35       4 -0.9993234 0.9986472
-## 6   7.894998 0.08779574   2.03  23.85       7 -0.9991203 0.9982413
-## 7   7.846668 0.08833650   6.98  24.22       4 -0.9993349 0.9986702
-## 8   8.510038 0.08145054   3.53  24.12       6 -0.9954961 0.9910124
-## 9   8.405999 0.08245863   8.80  24.43       3 -0.9997218 0.9994437
-## 10  9.246916 0.07495982   9.38  23.70       3 -0.9997543 0.9995087
-## 11  7.261237 0.09545856   9.03  24.08       3 -0.9999991 0.9999983
-## 12  6.286508 0.11025949   9.03  24.15       3 -0.9996984 0.9993968
-##        R2ADJ    AUCLST    AUCALL    AUCIFO   AUCIFOD    AUCIFP   AUCIFPD
-## 1  0.9999995 148.92305 148.92305 216.61193 0.6769123 216.61496 0.6769217
-## 2  0.9957931  91.52680  91.52680 100.17346 0.3130421 100.06432 0.3127010
-## 3  0.9986499  99.28650  99.28650 109.53597 0.3422999 109.58572 0.3424554
-## 4  0.9978483 106.79630 106.79630 118.37888 0.3699340 118.44356 0.3701361
-## 5  0.9979708 121.29440 121.29440 139.41978 0.4356868 139.25463 0.4351707
-## 6  0.9978896  73.77555  73.77555  84.25442 0.2632951  84.49670 0.2640522
-## 7  0.9980053  90.75340  90.75340 103.77180 0.3242869 103.89315 0.3246661
-## 8  0.9887655  88.55995  88.55995 103.90669 0.3247084 103.64305 0.3238845
-## 9  0.9988873  86.32615  86.32615  99.90872 0.3122147  99.86607 0.3120815
-## 10 0.9990174 138.36810 138.36810 170.65206 0.5332877 170.56791 0.5330247
-## 11 0.9999965  80.09360  80.09360  89.10274 0.2784461  89.10072 0.2784397
-## 12 0.9987936 119.97750 119.97750 130.58883 0.4080901 130.63907 0.4082471
-##       AUCPEO    AUCPEP   AUMCLST   AUMCIFO   AUMCIFP  AUMCPEO  AUMCPEP
-## 1  31.248917 31.249876 1459.0711 4505.5348 4505.6709 67.61603 67.61701
-## 2   8.631687  8.532030  706.5866  999.7723  996.0716 29.32525 29.06267
-## 3   9.357173  9.398325  803.1859 1150.9648 1152.6529 30.21629 30.31850
-## 4   9.784331  9.833594  901.0842 1303.2524 1305.4981 30.85881 30.97775
-## 5  13.000579 12.897403 1017.1143 1667.7216 1661.7937 39.01174 38.79419
-## 6  12.437174 12.688246  609.1524  978.4285  986.9665 37.74176 38.28034
-## 7  12.545221 12.647366  782.4199 1245.0984 1249.4111 37.16000 37.37691
-## 8  14.769730 14.552931  739.5346 1298.1158 1288.5201 43.03015 42.60589
-## 9  13.594978 13.558076  705.2296 1201.7715 1200.2124 41.31750 41.24126
-## 10 18.918002 18.878001 1278.1800 2473.9934 2470.8765 48.33535 48.27018
-## 11 10.110962 10.108918  617.2422  928.5600  928.4900 33.52694 33.52193
-## 12  8.125757  8.161087  977.8807 1330.3840 1332.0528 26.49636 26.58844
-##        VZFO     VZFP     CLFO     CLFP MRTEVLST  MRTEVIFO  MRTEVIFP
-## 1  30.48675 30.48632 1.477296 1.477276 9.797483 20.800031 20.800368
-## 2  30.69044 30.72392 3.194459 3.197943 7.719996  9.980411  9.954313
-## 3  28.51710 28.50415 2.921415 2.920088 8.089578 10.507642 10.518276
-## 4  27.22596 27.21110 2.703185 2.701709 8.437410 11.009163 11.022112
-## 5  26.49799 26.52942 2.295227 2.297949 8.385501 11.961873 11.933490
-## 6  43.25973 43.13569 3.798020 3.787130 8.256833 11.612785 11.680533
-## 7  34.90844 34.86767 3.083689 3.080088 8.621383 11.998427 12.025924
-## 8  37.81051 37.90669 3.079686 3.087520 8.350666 12.493092 12.432287
-## 9  38.84279 38.85938 3.202924 3.204292 8.169363 12.028695 12.018220
-## 10 25.01554 25.02788 1.875160 1.876086 9.237534 14.497296 14.486174
-## 11 37.62219 37.62304 3.591360 3.591441 7.706511 10.421227 10.420679
-## 12 22.22429 22.21575 2.450439 2.449497 8.150534 10.187579 10.196436</code></pre>
+<pre><code>##    Subject       b0  CMAX      CMAXD TMAX TLAG CLST     CLSTP  TLST    LAMZHL
+## 1        1 2.368785 10.50 0.03281250 1.12    0 3.28 3.2801465 24.37 14.304378
+## 2        2 2.411237  8.33 0.02603125 1.92    0 0.90 0.8886398 24.30  6.659342
+## 3        3 2.529712  8.20 0.02562500 1.02    0 1.05 1.0550967 24.17  6.766087
+## 4        4 2.592755  8.60 0.02687500 1.07    0 1.15 1.1564216 24.65  6.981247
+## 5        5 2.551092 11.40 0.03562500 1.00    0 1.57 1.5556951 24.35  8.002264
+## 6        6 2.033404  6.44 0.02012500 1.15    0 0.92 0.9412712 23.85  7.894998
+## 7        7 2.288550  7.09 0.02215625 3.48    0 1.15 1.1607192 24.22  7.846668
+## 8        8 2.170403  7.56 0.02362500 2.02    0 1.25 1.2285268 24.12  8.510038
+## 9        9 2.124648  9.03 0.02821875 0.63    0 1.12 1.1164831 24.43  8.405999
+## 10      10 2.657705 10.21 0.03190625 3.55    0 2.42 2.4136923 23.70  9.246916
+## 11      11 2.147594  8.00 0.02500000 0.98    0 0.86 0.8598066 24.08  7.261237
+## 12      12 2.824493  9.75 0.03046875 3.52    0 1.17 1.1755390 24.15  6.286508
+##          LAMZ LAMZLL LAMZUL LAMZNPT     CORRXY        R2     R2ADJ    AUCLST
+## 1  0.04845700   9.05  24.37       3 -0.9999999 0.9999997 0.9999995 148.92305
+## 2  0.10408644   7.03  24.30       4 -0.9985967 0.9971954 0.9957931  91.52680
+## 3  0.10244431   9.00  24.17       3 -0.9996624 0.9993250 0.9986499  99.28650
+## 4  0.09928702   9.02  24.65       3 -0.9994619 0.9989241 0.9978483 106.79630
+## 5  0.08661888   7.02  24.35       4 -0.9993234 0.9986472 0.9979708 121.29440
+## 6  0.08779574   2.03  23.85       7 -0.9991203 0.9982413 0.9978896  73.77555
+## 7  0.08833650   6.98  24.22       4 -0.9993349 0.9986702 0.9980053  90.75340
+## 8  0.08145054   3.53  24.12       6 -0.9954961 0.9910124 0.9887655  88.55995
+## 9  0.08245863   8.80  24.43       3 -0.9997218 0.9994437 0.9988873  86.32615
+## 10 0.07495982   9.38  23.70       3 -0.9997543 0.9995087 0.9990174 138.36810
+## 11 0.09545856   9.03  24.08       3 -0.9999991 0.9999983 0.9999965  80.09360
+## 12 0.11025949   9.03  24.15       3 -0.9996984 0.9993968 0.9987936 119.97750
+##       AUCALL    AUCIFO   AUCIFOD    AUCIFP   AUCIFPD    AUCPEO    AUCPEP
+## 1  148.92305 216.61193 0.6769123 216.61496 0.6769217 31.248917 31.249876
+## 2   91.52680 100.17346 0.3130421 100.06432 0.3127010  8.631687  8.532030
+## 3   99.28650 109.53597 0.3422999 109.58572 0.3424554  9.357173  9.398325
+## 4  106.79630 118.37888 0.3699340 118.44356 0.3701361  9.784331  9.833594
+## 5  121.29440 139.41978 0.4356868 139.25463 0.4351707 13.000579 12.897403
+## 6   73.77555  84.25442 0.2632951  84.49670 0.2640522 12.437174 12.688246
+## 7   90.75340 103.77180 0.3242869 103.89315 0.3246661 12.545221 12.647366
+## 8   88.55995 103.90669 0.3247084 103.64305 0.3238845 14.769730 14.552931
+## 9   86.32615  99.90872 0.3122147  99.86607 0.3120815 13.594978 13.558076
+## 10 138.36810 170.65206 0.5332877 170.56791 0.5330247 18.918002 18.878001
+## 11  80.09360  89.10274 0.2784461  89.10072 0.2784397 10.110962 10.108918
+## 12 119.97750 130.58883 0.4080901 130.63907 0.4082471  8.125757  8.161087
+##      AUMCLST   AUMCIFO   AUMCIFP  AUMCPEO  AUMCPEP     VZFO     VZFP     CLFO
+## 1  1459.0711 4505.5348 4505.6709 67.61603 67.61701 30.48675 30.48632 1.477296
+## 2   706.5866  999.7723  996.0716 29.32525 29.06267 30.69044 30.72392 3.194459
+## 3   803.1859 1150.9648 1152.6529 30.21629 30.31850 28.51710 28.50415 2.921415
+## 4   901.0842 1303.2524 1305.4981 30.85881 30.97775 27.22596 27.21110 2.703185
+## 5  1017.1143 1667.7216 1661.7937 39.01174 38.79419 26.49799 26.52942 2.295227
+## 6   609.1524  978.4285  986.9665 37.74176 38.28034 43.25973 43.13569 3.798020
+## 7   782.4199 1245.0984 1249.4111 37.16000 37.37691 34.90844 34.86767 3.083689
+## 8   739.5346 1298.1158 1288.5201 43.03015 42.60589 37.81051 37.90669 3.079686
+## 9   705.2296 1201.7715 1200.2124 41.31750 41.24126 38.84279 38.85938 3.202924
+## 10 1278.1800 2473.9934 2470.8765 48.33535 48.27018 25.01554 25.02788 1.875160
+## 11  617.2422  928.5600  928.4900 33.52694 33.52193 37.62219 37.62304 3.591360
+## 12  977.8807 1330.3840 1332.0528 26.49636 26.58844 22.22429 22.21575 2.450439
+##        CLFP MRTEVLST  MRTEVIFO  MRTEVIFP
+## 1  1.477276 9.797483 20.800031 20.800368
+## 2  3.197943 7.719996  9.980411  9.954313
+## 3  2.920088 8.089578 10.507642 10.518276
+## 4  2.701709 8.437410 11.009163 11.022112
+## 5  2.297949 8.385501 11.961873 11.933490
+## 6  3.787130 8.256833 11.612785 11.680533
+## 7  3.080088 8.621383 11.998427 12.025924
+## 8  3.087520 8.350666 12.493092 12.432287
+## 9  3.204292 8.169363 12.028695 12.018220
+## 10 1.876086 9.237534 14.497296 14.486174
+## 11 3.591441 7.706511 10.421227 10.420679
+## 12 2.449497 8.150534 10.187579 10.196436</code></pre>
 <p>여기서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미합니다.</p>
 <p>이는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있습니다.</p>
 <p>다음으로 Indomethacin 의 약동학 파라미터를 구해보겠습니다.
@@ -373,8 +388,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="noncompart.html#cb14-1"></a>Indometh_nca &lt;-<span class="st"> </span><span class="kw">tblNCA</span>(Indometh, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb14-2"><a href="noncompart.html#cb14-2"></a>                       <span class="dt">dose=</span><span class="dv">25</span>, <span class="dt">adm=</span><span class="st">&quot;Bolus&quot;</span>, <span class="dt">dur=</span><span class="fl">0.5</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">R2ADJ=</span><span class="fl">0.5</span>)</span></code></pre></div>
 </div>
-<div id="interval-NCA" class="section level2">
-<h2><span class="header-section-number">4.3</span> 구간 NCA</h2>
+<div id="interval-NCA" class="section level2" number="4.3">
+<h2 number="4.3"><span class="header-section-number">4.3</span> 구간 NCA</h2>
 <ol style="list-style-type: decimal">
 <li>iAUC
 <ul>
@@ -416,11 +431,11 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
   AUC[0-24h] 
  147.6945866 </code></pre>
 </div>
-<div id="functions" class="section level2">
-<h2><span class="header-section-number">4.4</span> 함수 살펴보기</h2>
+<div id="functions" class="section level2" number="4.4">
+<h2 number="4.4"><span class="header-section-number">4.4</span> 함수 살펴보기</h2>
 <p>NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. AUC(), BestSlope(), DetSlope(), IntAUC(), Interpol(), LinAUC(), LogAUC(), Slope(), sNCA(), tblNCA(), Unit(), UnitUrine(), UT()라는 함수가 있습니다.</p>
-<div id="auc" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> AUC</h3>
+<div id="auc" class="section level3" number="4.4.1">
+<h3 number="4.4.1"><span class="header-section-number">4.4.1</span> AUC</h3>
 <p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="noncompart.html#cb22-1"></a><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</span></code></pre></div>
 <pre><code>##             AUC        AUMC
@@ -450,8 +465,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ## [11,] 147.23475 1499.129085</code></pre>
 </div>
 </div>
-<div id="long-format" class="section level2">
-<h2><span class="header-section-number">4.5</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
+<div id="long-format" class="section level2" number="4.5">
+<h2 number="4.5"><span class="header-section-number">4.5</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
 <p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 attr로 names와 units를 등일 갖게 됩니다. 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
 <div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="noncompart.html#cb26-1"></a><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
 <span id="cb26-2"><a href="noncompart.html#cb26-2"></a><span class="st">            </span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</span>
@@ -473,18 +488,6 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ## 10 10      AUCALL     138.  h*mg/L
 ## # ... with 422 more rows</code></pre>
 
-</div>
-</div>
-<h3>참고문헌</h3>
-<div id="refs" class="references">
-<div id="ref-R-NonCompart">
-<p>Bae, Kyun-Seop. 2019b. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart">https://CRAN.R-project.org/package=NonCompart</a>.</p>
-</div>
-<div id="ref-gab">
-<p>Gabrielsson, Johan. 2016. <em>Pharmacokinetic and Pharmacodynamic Data Analysis : Concepts and Applications</em>. Stockholm: Apotekarsocieteten.</p>
-</div>
-<div id="ref-tozer">
-<p>Rowland, Malcolm. 2011. <em>Clinical Pharmacokinetics and Pharmacodynamics : Concepts and Applications</em>. Philadelphia: Wolters Kluwer Health/Lippincott William &amp; Wilkins.</p>
 </div>
 </div>
             </section>
@@ -512,12 +515,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -529,6 +531,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },

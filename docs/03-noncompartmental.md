@@ -298,6 +298,6 @@ left_join(as_tibble(Theoph_nca) %>%
 ##  8 8       AUCALL      88.6 h*mg/L
 ##  9 9       AUCALL      86.3 h*mg/L
 ## 10 10      AUCALL     138.  h*mg/L
-## # … with 422 more rows
+## # ... with 422 more rows
 ```
 

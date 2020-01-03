@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석</title>
+  <title>6 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
-  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="6 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="6 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2019-11-06" />
+<meta name="date" content="2020-01-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,6 +34,7 @@
 <link rel="prev" href="ncar.html"/>
 <link rel="next" href="rsimulation.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -53,18 +54,17 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +84,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -134,85 +134,100 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
-<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a><ul>
+<li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a>
+<ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a><ul>
+<li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
 <li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#otherinstall"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a><ul>
+<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a>
+<ul>
 <li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#TheophData"><i class="fa fa-check"></i><b>3.2</b> 데이타에 대해</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석</a><ul>
+<li class="chapter" data-level="4" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="noncompart.html"><a href="noncompart.html#summary-noncompart"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="4.2" data-path="noncompart.html"><a href="noncompart.html#how-to-use"><i class="fa fa-check"></i><b>4.2</b> NonCompart 사용법</a></li>
 <li class="chapter" data-level="4.3" data-path="noncompart.html"><a href="noncompart.html#interval-NCA"><i class="fa fa-check"></i><b>4.3</b> 구간 NCA</a></li>
-<li class="chapter" data-level="4.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>4.4</b> 함수 살펴보기</a><ul>
+<li class="chapter" data-level="4.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>4.4</b> 함수 살펴보기</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="noncompart.html"><a href="noncompart.html#auc"><i class="fa fa-check"></i><b>4.4.1</b> AUC</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>4.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a><ul>
+<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>5.2</b> txtNCA()</a></li>
 <li class="chapter" data-level="5.3" data-path="ncar.html"><a href="ncar.html#pdfnca"><i class="fa fa-check"></i><b>5.3</b> pdfNCA()</a></li>
 <li class="chapter" data-level="5.4" data-path="ncar.html"><a href="ncar.html#rtfnca"><i class="fa fa-check"></i><b>5.4</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a><ul>
+<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="6.2" data-path="pkr.html"><a href="pkr.html#pkr-manual"><i class="fa fa-check"></i><b>6.2</b> pkr 사용법</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="rsimulation.html"><a href="rsimulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a><ul>
+<li class="chapter" data-level="7" data-path="rsimulation.html"><a href="rsimulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="rsimulation.html"><a href="rsimulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="7.2" data-path="rsimulation.html"><a href="rsimulation.html#sim-about"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
 <li class="chapter" data-level="7.3" data-path="rsimulation.html"><a href="rsimulation.html#sim-nca"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="rsimulation.html"><a href="rsimulation.html#sim-app"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a><ul>
+<li class="chapter" data-level="7.4" data-path="rsimulation.html"><a href="rsimulation.html#sim-app"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="rsimulation.html"><a href="rsimulation.html#shiny"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a><ul>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
-<li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a><ul>
-<li class="chapter" data-level="A.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>A.1</b> Introduction</a></li>
-<li class="chapter" data-level="A.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>A.2</b> Results</a></li>
-<li class="chapter" data-level="A.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>A.3</b> Conclusion</a></li>
+<li class="chapter" data-level="" data-path="appendix-appendix.html"><a href="appendix-appendix.html"><i class="fa fa-check"></i>(APPENDIX) Appendix</a></li>
+<li class="chapter" data-level="10" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>10</b> Phoenix WinNonLin 과 결과 비교</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
+<li class="chapter" data-level="10.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>10.2</b> Results</a></li>
+<li class="chapter" data-level="10.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>10.3</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a><ul>
-<li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="B.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>B.2</b> Certara Phoenix WinNonLin</a><ul>
-<li class="chapter" data-level="B.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>B.2.1</b> Pros</a></li>
-<li class="chapter" data-level="B.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>B.2.2</b> Cons</a></li>
+<li class="chapter" data-level="11" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>11</b> 기타 비구획분석 소프트웨어</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>11.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="11.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>11.2</b> Certara Phoenix WinNonLin</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>11.2.1</b> Pros</a></li>
+<li class="chapter" data-level="11.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>11.2.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a><ul>
-<li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.3</b> Pros</a></li>
-<li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.4</b> Cons</a></li>
+<li class="chapter" data-level="11.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>11.3</b> R package: PKNCA</a>
+<ul>
+<li class="chapter" data-level="11.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>11.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="11.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>11.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="11.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>11.3.3</b> Pros</a></li>
+<li class="chapter" data-level="11.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>11.3.4</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="B.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>B.4</b> R package: ncappc</a></li>
-<li class="chapter" data-level="B.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>B.5</b> R package: PK</a></li>
-<li class="chapter" data-level="B.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>B.6</b> Kinetica</a></li>
-<li class="chapter" data-level="B.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>B.7</b> Scientist</a></li>
-<li class="chapter" data-level="B.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>B.8</b> PKSolver</a></li>
-<li class="chapter" data-level="B.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>B.9</b> Summary</a></li>
+<li class="chapter" data-level="11.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>11.4</b> R package: ncappc</a></li>
+<li class="chapter" data-level="11.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>11.5</b> R package: PK</a></li>
+<li class="chapter" data-level="11.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>11.6</b> Kinetica</a></li>
+<li class="chapter" data-level="11.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>11.7</b> Scientist</a></li>
+<li class="chapter" data-level="11.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>11.8</b> PKSolver</a></li>
+<li class="chapter" data-level="11.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>11.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="C" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>C</b> R에 내장된 자료의 비구획분석 보고서</a><ul>
-<li class="chapter" data-level="C.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>C.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="12" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>12</b> R에 내장된 자료의 비구획분석 보고서</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>12.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
-<li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
+<li class="chapter" data-level="13" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>13</b> 지원</a></li>
+<li class="chapter" data-level="14" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>14</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -234,11 +249,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="pkr" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> R을 사용한 비구획분석 시각화</h1>
-<div id="summary-pkr" class="section level2">
-<h2><span class="header-section-number">6.1</span> 이 장에서는</h2>
-<p>비구획분석에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줍니다. 이를 가능하게 해 주는 <code>pkr</code> 패키지<span class="citation">(Bae and Lee <a href="#ref-R-pkr" role="doc-biblioref">2018</a>)</span>에 대해서 자세히 알아보겠습니다.</p>
+<div id="pkr" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> R을 사용한 비구획분석 시각화</h1>
+<div id="summary-pkr" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> 이 장에서는</h2>
+<p>비구획분석에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줍니다. 이를 가능하게 해 주는 <code>pkr</code> 패키지<span class="citation">(Bae and Lee <a href="참고문헌.html#ref-R-pkr" role="doc-biblioref">2018</a>)</span>에 대해서 자세히 알아보겠습니다.</p>
 <p><code>pkr</code>의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있습니다.</p>
 <blockquote>
 <p>Conduct a noncompartmental analysis as closely as possible to the most widely used commercial software for pharmacokinetic analysis, i.e. ‘Phoenix(R) WinNonlin(R)’ <a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a>.
@@ -252,8 +267,8 @@ Some features are
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="pkr.html#cb41-1"></a><span class="kw">library</span>(tidyverse)</span>
 <span id="cb41-2"><a href="pkr.html#cb41-2"></a><span class="kw">library</span>(pkr)</span></code></pre></div>
 </div>
-<div id="pkr-manual" class="section level2">
-<h2><span class="header-section-number">6.2</span> pkr 사용법</h2>
+<div id="pkr-manual" class="section level2" number="6.2">
+<h2 number="6.2"><span class="header-section-number">6.2</span> pkr 사용법</h2>
 <p><code>pkr</code> 함수의 가장 핵심적인 기능은 <code>plotPK()</code> 함수에 있고 이 함수의 인자는 다음과 같습니다.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="pkr.html#cb42-1"></a><span class="kw">args</span>(plotPK)</span></code></pre></div>
 <pre><code>## function (concData, id, Time, conc, unitTime = &quot;hr&quot;, unitConc = &quot;ng/mL&quot;, 
@@ -273,19 +288,19 @@ Some features are
 <div class="figure"><span id="fig:unnamed-chunk-6"></span>
 <img src="Output/PK_Profile_Linear_Scale_for_Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)" width="100%" />
 <p class="caption">
-Figure 6.1: 평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)
+Figure 4: 평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)
 </p>
 </div>
 <div class="figure"><span id="fig:unnamed-chunk-7"></span>
 <img src="Output/PK_Profile_Log_10_Scale_for_Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)" width="100%" />
 <p class="caption">
-Figure 6.2: 평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)
+Figure 5: 평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)
 </p>
 </div>
 <div class="figure"><span id="fig:unnamed-chunk-8"></span>
 <img src="Output/PK_Profile_with_CI_for_Theoph.png" alt="평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)" width="100%" />
 <p class="caption">
-Figure 6.3: 평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)
+Figure 6: 평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)
 </p>
 </div>
 <p>또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.</p>
@@ -296,22 +311,16 @@ Figure 6.3: 평균 약동학 파라메터와 그룹 평균 농도-시간 그림 
 <div class="figure"><span id="fig:unnamed-chunk-9"></span>
 <img src="Output/Individual_PK_Linear_Scale_for_Theoph00.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)" width="100%" />
 <p class="caption">
-Figure 6.4: 약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)
+Figure 7: 약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)
 </p>
 </div>
 <div class="figure"><span id="fig:unnamed-chunk-10"></span>
 <img src="Output/Individual_PK_Log_10_Scale_for_Theoph00.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)" width="100%" />
 <p class="caption">
-Figure 6.5: 약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)
+Figure 8: 약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)
 </p>
 </div>
 
-</div>
-</div>
-<h3>참고문헌</h3>
-<div id="refs" class="references">
-<div id="ref-R-pkr">
-<p>Bae, Kyun-Seop, and Jee Eun Lee. 2018. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr">https://CRAN.R-project.org/package=pkr</a>.</p>
 </div>
 </div>
             </section>
@@ -339,12 +348,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -356,6 +364,10 @@ gitbook.start({
 "text": "Edit"
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
