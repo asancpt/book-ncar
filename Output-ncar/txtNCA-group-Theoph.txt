@@ -2,9 +2,9 @@ ID=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -81,9 +81,9 @@ ID=7
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -160,9 +160,9 @@ ID=8
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -239,9 +239,9 @@ ID=11
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -318,9 +318,9 @@ ID=3
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -397,9 +397,9 @@ ID=2
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -476,9 +476,9 @@ ID=4
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -555,9 +555,9 @@ ID=9
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -634,9 +634,9 @@ ID=12
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -713,9 +713,9 @@ ID=10
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:38 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -792,9 +792,9 @@ ID=1
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -871,9 +871,9 @@ ID=5
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 3.6.2 (2019-12-12)
 
-Date and Time: 2019-11-06 12:37:59 Asia/Seoul
+Date and Time: 2020-01-03 15:20:39 Asia/Seoul
 
 Calculation Setting
 -------------------

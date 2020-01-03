@@ -69,6 +69,11 @@ editor_options:
 
 ```{r setup, include = FALSE}
 system('cp -r images docs')
+if (!require("pacman")) install.packages("pacman")
+pacman::p_load("tidyverse", "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar")
+pacman::p_install_gh('asancpt/ncarbe')
+pacman::p_install_gh('dpastoor/PKPDdatasets')
+
 ```
 
 ```{r init, include = FALSE}
@@ -123,7 +128,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 **감사의 글**
 
-본 출판물은 2016-2019년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).
+본 출판물은 2016-2020년도 정부(미래창조과학부)의 재원으로 한국연구재단 첨단 사이언스·교육 허브 개발 사업의 지원을 받아 수행된 연구입니다 (NRF-2016-936606).
 
 \mainmatter
 

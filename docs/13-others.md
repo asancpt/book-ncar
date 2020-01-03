@@ -99,7 +99,7 @@ library(PKNCA)
 ```
 
 ```
-## Error in library(PKNCA): 'PKNCA'이라고 불리는 패키지가 없습니다
+## Error in library(PKNCA): there is no package called 'PKNCA'
 ```
 
 ```r
@@ -107,7 +107,7 @@ my.conc <- PKNCAconc(as.data.frame(Theoph), conc~Time|Subject)
 ```
 
 ```
-## Error in PKNCAconc(as.data.frame(Theoph), conc ~ Time | Subject): 함수 "PKNCAconc"를 찾을 수 없습니다
+## Error in PKNCAconc(as.data.frame(Theoph), conc ~ Time | Subject): could not find function "PKNCAconc"
 ```
 
 ```r
@@ -117,7 +117,7 @@ my.dose <- PKNCAdose(d.dose, Dose~Time|Subject)
 ```
 
 ```
-## Error in PKNCAdose(d.dose, Dose ~ Time | Subject): 함수 "PKNCAdose"를 찾을 수 없습니다
+## Error in PKNCAdose(d.dose, Dose ~ Time | Subject): could not find function "PKNCAdose"
 ```
 
 ```r
@@ -125,7 +125,7 @@ my.data.automatic <- PKNCAdata(my.conc, my.dose)
 ```
 
 ```
-## Error in PKNCAdata(my.conc, my.dose): 함수 "PKNCAdata"를 찾을 수 없습니다
+## Error in PKNCAdata(my.conc, my.dose): could not find function "PKNCAdata"
 ```
 
 ```r
@@ -133,7 +133,7 @@ my.results.automatic <- pk.nca(my.data.automatic)
 ```
 
 ```
-## Error in pk.nca(my.data.automatic): 함수 "pk.nca"를 찾을 수 없습니다
+## Error in pk.nca(my.data.automatic): could not find function "pk.nca"
 ```
 
 ```r
@@ -142,7 +142,7 @@ my.results.automatic$result %>% filter(grepl(pattern = "cmax|aucinf", PPTESTCD))
 ```
 
 ```
-## Error in eval(lhs, parent, parent): 객체 'my.results.automatic'를 찾을 수 없습니다
+## Error in eval(lhs, parent, parent): object 'my.results.automatic' not found
 ```
 
 ```r
@@ -150,7 +150,7 @@ summary(my.results.automatic)
 ```
 
 ```
-## Error in summary(my.results.automatic): 객체 'my.results.automatic'를 찾을 수 없습니다
+## Error in summary(my.results.automatic): object 'my.results.automatic' not found
 ```
 
 ## R package: ncappc
@@ -164,6 +164,10 @@ NCA Calculation and Population PK Model Diagnosis [@Acharya201683]
 ```r
 #install.packages("ncappc")
 library(ncappc)
+```
+
+```
+## Error in library(ncappc): there is no package called 'ncappc'
 ```
 
 
@@ -182,9 +186,9 @@ Theoph_ncappc_results <- ncappc(obsFile = 'Theoph_ncappc.csv',
        psnOut=FALSE)
 ```
 
-
-\includegraphics[width=1\linewidth]{13-others_files/figure-latex/unnamed-chunk-5-1} 
-\includegraphics[width=1\linewidth]{13-others_files/figure-latex/unnamed-chunk-5-2} 
+```
+## Error in ncappc(obsFile = "Theoph_ncappc.csv", onlyNCA = TRUE, extrapolate = TRUE, : could not find function "ncappc"
+```
 
 ## R package: PK
 
@@ -199,6 +203,10 @@ Basic Non-Compartmental Pharmacokinetics
 library(PK)
 ```
 
+```
+## Error in library(PK): there is no package called 'PK'
+```
+
 ## Kinetica
 
 ## Scientist
@@ -208,9 +216,6 @@ library(PK)
 ## Summary
 
 
-```
-## Error in file(file, "rt"): 커넥션을 열 수 없습니다
-```
 
 
 

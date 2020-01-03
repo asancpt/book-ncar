@@ -153,7 +153,7 @@ library(PK)
 ## Summary
 
 ```{r echo = FALSE}
-knitr::kable(read.csv("comparison.csv", check.names = FALSE))
+# knitr::kable(read.csv("comparison.csv", check.names = FALSE))
 ```
 
 

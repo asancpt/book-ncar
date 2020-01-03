@@ -155,10 +155,6 @@ file <- system.file('example', 'beConc.csv', package = 'ncarbe')
 concData <- read_csv(file)
 ```
 
-```
-## Error: '' does not exist in current working directory ('C:/Users/cmc/asancpt/book-ncar').
-```
-
 \begin{table}
 
 \caption{(\#tab:beconcdata)A example dataset for the bioequivalence test.}
