@@ -12,7 +12,7 @@
 title: "R을 사용한 비구획분석"
 author: "배균섭, 한성필, 윤석규, 조용순, 김형섭"
 description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다.  값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다.  무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다."
-date: "`r Sys.Date()`"
+date: "2020-06-06"
 url: 'https\://asancpt.github.io/book-ncar/'
 github-repo: asancpt/book-ncar
 cover-image: assets/cover.jpg
@@ -67,22 +67,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r setup, include = FALSE}
-system('cp -r images docs')
-if (!require("pacman")) install.packages("pacman")
-pacman::p_load("tidyverse", "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar")
-pacman::p_install_gh('asancpt/ncarbe')
-pacman::p_install_gh('dpastoor/PKPDdatasets')
 
-```
 
-```{r init, include = FALSE}
-# options(knitr.table.format = 'html')
-# Sys.setlocale('LC_ALL','C')
-# detach("package:ncar", unload = TRUE)
-# detach("package:pkr", unload = TRUE)
-# detach("package:NonCompart", unload = TRUE)
-```
+
 
 # Preface {-}
 
@@ -101,7 +88,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 감사합니다.
 
-`r Sys.Date()`  
+2020-06-06  
 서울아산병원 임상약리학과, 울산대학교 임상약리학교실  
 교수 배균섭,  
 한성필, 윤석규, 조용순, 김형섭
