@@ -43,15 +43,15 @@ files
 ```
 
 ```{r, echo = FALSE, fig.cap = '평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)'}
-knitr::include_graphics('Output/PK_Profile_Linear_Scale_for_Theoph.png')
+knitr::include_graphics(files[1])
 ```
 
 ```{r, echo = FALSE, fig.cap = '평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)'}
-knitr::include_graphics('Output/PK_Profile_Log_10_Scale_for_Theoph.png')
+knitr::include_graphics(files[2])
 ```
 
 ```{r, echo = FALSE, fig.cap = '평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)'}
-knitr::include_graphics('Output/PK_Profile_with_CI_for_Theoph.png')
+knitr::include_graphics(files[3])
 ```
 
 또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.
@@ -60,9 +60,10 @@ knitr::include_graphics('Output/PK_Profile_with_CI_for_Theoph.png')
 
 
 ```{r, echo = FALSE, fig.cap = '약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)'}
-knitr::include_graphics('Output/Individual_PK_Linear_Scale_for_Theoph00.png')
+knitr::include_graphics('Output/Individual PK Linear Scale for Theoph.png')
 ```
 
 ```{r, echo = FALSE, fig.cap = '약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)'}
-knitr::include_graphics('Output/Individual_PK_Log_10_Scale_for_Theoph00.png')
+knitr::include_graphics('Output/Individual PK Log 10 Scale for Theoph.png')
 ```
+

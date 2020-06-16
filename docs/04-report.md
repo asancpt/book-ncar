@@ -1,5 +1,4 @@
 
-
 ---
 output: html_document
 editor_options: 
@@ -42,7 +41,7 @@ getwd()
 ```
 
 ```
-## [1] "C:/Users/cmc/asancpt/book-ncar"
+## [1] "C:/Users/cmc/pipetbooks/book-ncar"
 ```
 
 저장될 폴더를 변경하고자 한다면 setwd("저장될 경로") 이렇게 설정하면 됩니다.
@@ -73,9 +72,9 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
 ```bash
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------

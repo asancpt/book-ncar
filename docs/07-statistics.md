@@ -1,4 +1,3 @@
-
 # 통계처리 {#statistics}
 
 ## 이 장에서는 {#stat-intro}
@@ -385,9 +384,10 @@ lm() 함수를 써서 구할 수 있습니다.
 
 ```r
 calc_dp <- function(param, fit) {
-  bind_cols(fit %>% summary %>% tidy %>% filter(term == 'Dose'), 
+  bind_cols(fit %>% summary %>% tidy %>% filter(term == 'Dose') %>% select(1, 'estimate', 'std.error'), 
             fit %>% confint(level = 0.95) %>% tidy %>% filter(.rownames == 'Dose'), 
-            fit %>% summary %>% glance) %>% 
+            fit %>% summary %>% glance
+            ) %>% 
     filter(term == 'Dose') %>% 
     select(-.rownames, -term) %>% 
     mutate(parameters = param) %>% 

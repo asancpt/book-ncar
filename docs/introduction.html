@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>1 비구획 분석이란 | R을 사용한 비구획분석</title>
+  <title>Chapter 1 비구획 분석이란 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="1 비구획 분석이란 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="Chapter 1 비구획 분석이란 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="1 비구획 분석이란 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="Chapter 1 비구획 분석이란 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-01-03" />
+<meta name="date" content="2020-06-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="R-and-packages.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#계산-공식"><i class="fa fa-check"></i><b>1.4</b> 계산 공식</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a>
 <ul>
@@ -193,41 +194,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
-<li class="chapter" data-level="" data-path="appendix-appendix.html"><a href="appendix-appendix.html"><i class="fa fa-check"></i>(APPENDIX) Appendix</a></li>
-<li class="chapter" data-level="10" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>10</b> Phoenix WinNonLin 과 결과 비교</a>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>10.2</b> Results</a></li>
-<li class="chapter" data-level="10.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>10.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>A.1</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>11</b> 기타 비구획분석 소프트웨어</a>
+<li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>11.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="11.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>11.2</b> Certara Phoenix WinNonLin</a>
+<li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="B.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>B.2</b> Certara Phoenix WinNonLin</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>11.2.1</b> Pros</a></li>
-<li class="chapter" data-level="11.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>11.2.2</b> Cons</a></li>
+<li class="chapter" data-level="B.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>B.2.1</b> Pros</a></li>
+<li class="chapter" data-level="B.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>B.2.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>11.3</b> R package: PKNCA</a>
+<li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>11.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="11.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>11.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="11.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>11.3.3</b> Pros</a></li>
-<li class="chapter" data-level="11.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>11.3.4</b> Cons</a></li>
+<li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.3</b> Pros</a></li>
+<li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.4</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>11.4</b> R package: ncappc</a></li>
-<li class="chapter" data-level="11.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>11.5</b> R package: PK</a></li>
-<li class="chapter" data-level="11.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>11.6</b> Kinetica</a></li>
-<li class="chapter" data-level="11.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>11.7</b> Scientist</a></li>
-<li class="chapter" data-level="11.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>11.8</b> PKSolver</a></li>
-<li class="chapter" data-level="11.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>11.9</b> Summary</a></li>
+<li class="chapter" data-level="B.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>B.4</b> R package: ncappc</a></li>
+<li class="chapter" data-level="B.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>B.5</b> R package: PK</a></li>
+<li class="chapter" data-level="B.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>B.6</b> Kinetica</a></li>
+<li class="chapter" data-level="B.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>B.7</b> Scientist</a></li>
+<li class="chapter" data-level="B.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>B.8</b> PKSolver</a></li>
+<li class="chapter" data-level="B.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>B.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>12</b> R에 내장된 자료의 비구획분석 보고서</a>
+<li class="chapter" data-level="C" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>C</b> R에 내장된 자료의 비구획분석 보고서</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>12.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="C.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>C.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>13</b> 지원</a></li>
-<li class="chapter" data-level="14" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>14</b> 세션 정보</a></li>
+<li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
+<li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -250,14 +249,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="introduction" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> 비구획 분석이란</h1>
+<h1><span class="header-section-number">Chapter 1</span> 비구획 분석이란</h1>
 <div id="summary-introduction" class="section level2" number="1.1">
-<h2 number="1.1"><span class="header-section-number">1.1</span> 이 장에서는</h2>
+<h2><span class="header-section-number">1.1</span> 이 장에서는</h2>
 <p>약동학과 비구획 분석에 대해 간략히 알아보겠습니다.</p>
 </div>
 <div id="PK-introduction" class="section level2" number="1.2">
-<h2 number="1.2"><span class="header-section-number">1.2</span> 약동학</h2>
-<p>신체에 약물이 들어올 때, 약물의 양과 효과는 관련성이 있습니다.
+<h2><span class="header-section-number">1.2</span> 약동학</h2>
+<p>인체에 약물이 들어올 때, 약물의 양과 효과는 관련성이 있습니다.
 따라서 약물의 효과를 파악하기 위해 우리 몸에서 약물이 가지는 약동학적 특성을 파악하는 것은 중요합니다.
 다양한 신약 개발 과정에서 이러한 약동학적 특성을 파악하여, 약물의 개발을 지속하거나 중지하기도 하며, 마취통증의학과나 내과 등의 다양한 임상 의학에서도 신체에 중요 영향을 미칠 수 있는 약물에 대하여 대략적인 농도를 파악하기 위해 약물의 약동학적 특성을 이용합니다.</p>
 <p>약동학적 약물의 특성은 간단하게 ADME라는 용어로 설명할 수 있습니다.
@@ -268,57 +267,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>이러한 지표들을 구하기 위해서 현재 여러가지 방법들을 사용하고 있으며, 그 중 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)으로 <em>미국의 FDA (Food and Drug Administration)에서는 NCA 계산을 하는 소프트웨어를 규정하고 있지 않아</em>, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있습니다.
 따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 주어진 시간과 농도로부터 비구획 분석 방법으로 약동학적 주요 지표를 직접 구해보고자 합니다.</p>
 <ul>
-<li>NonCompart <span class="citation">(Bae <a href="참고문헌.html#ref-R-NonCompart" role="doc-biblioref">2019</a><a href="참고문헌.html#ref-R-NonCompart" role="doc-biblioref">b</a>)</span></li>
-<li>pkr <span class="citation">(Bae and Lee <a href="참고문헌.html#ref-R-pkr" role="doc-biblioref">2018</a>)</span></li>
-<li>ncar <span class="citation">(Bae <a href="참고문헌.html#ref-R-ncar" role="doc-biblioref">2019</a><a href="참고문헌.html#ref-R-ncar" role="doc-biblioref">a</a>)</span></li>
+<li>NonCompart <span class="citation">(Bae <a href="#ref-R-NonCompart" role="doc-biblioref">2020</a>)</span></li>
+<li>pkr <span class="citation">(Bae and Lee <a href="#ref-R-pkr" role="doc-biblioref">2018</a>)</span></li>
+<li>ncar <span class="citation">(Bae <a href="#ref-R-ncar" role="doc-biblioref">2019</a>)</span></li>
 </ul>
 </div>
 <div id="ncar-method" class="section level2" number="1.3">
-<h2 number="1.3"><span class="header-section-number">1.3</span> 비구획 분석 이론 및 계산 방법</h2>
+<h2><span class="header-section-number">1.3</span> 비구획 분석 이론 및 계산 방법</h2>
 <p>비구획 분석이란 시간, 농도가 표현되어 있는 곡선에서 아무런 가정을 하지 않고 분석하는 것을 의미합니다.
 이때 다음과 같은 가정을 통해서 최대농도 (C<sub>max</sub>) 및 최대농도에 도달하는 시간 (T<sub>max</sub>), 전체 시간-농도 곡선의 면적 (Area under the time-concentration curve, AUC)등을 구하게 됩니다.
 이를 통해 측정된 지표들을 통하여 약물의 특성을 파악하고 특정구간에서의 농도를 예측하게 됩니다.
 비구획 분석에서는 statistical moment theory (단순히 하나의 분자가 우리 몸에 들어와서 제거되지 까지는 예측하는 것이 힘들지만 그 개개의 분자들의 양이 늘어날수록 그들의 전반적인 행동이 규칙적으로 이루어진다는 이론)를 가정하고 이를 통해 우리는 각각의 분자가 우리 몸에서 얼마나 머무는지에 대한 평균값을 예상할 수 있게 됩니다.
-이 시간을 MRT (mean residence time)이라고 지칭하게 되며, 이것은 농도와 시간의 곱을 적분한 값에서 단순 농도 값을 적분한 농도를 나누어 준 값으로 다음과 같이 표현해 줄 수 있습니다. (Equation <a href="introduction.html#eq:mrt">(1)</a>)</p>
-<p><span class="math display" id="eq:mrt">\[
-\begin{equation}
+이 시간을 MRT (mean residence time)이라고 지칭하게 되며, 이것은 농도와 시간의 곱을 적분한 값에서 단순 농도 값을 적분한 농도를 나누어 준 값으로 다음과 같이 표현해 줄 수 있습니다. (Equation <a href="introduction.html#eq:mrt">(1.1)</a>)
+<span class="math display" id="eq:mrt">\[\begin{equation}
   MRT = \frac{AUMC}{AUC} = \frac{\int_{0}^{\infty} t \cdot C(t) dt}{\int_{0}^{\infty} C(t) dt}
-  \tag{1}
-\end{equation}
-\]</span></p>
+\tag{1.1}
+\end{equation}\]</span></p>
 <p>이때 식에서 표현된 AUMC는 area under the first moment curve로 농도와 시간의 곱을 시간에 대해서 적분한 값에 해당하며 AUC는 area under concentration으로 농도를 시간에 대해 적분한 값에 해당합니다.
 하지만 이 때, 각각의 약물에서 농도와 시간 사이의 명확한 함수관계를 확인할 수 없고, 주어진 정보도 제한적이므로 농도를 시간으로 적분하기에는 상당한 어려움이 따릅니다.
 따라서 이를 간소화 하기 위해 Linear trapezoidal method(농도-시간 곡선에서 농도를 측정한 점과 점 사이의 면적을 사다리꼴이라 가정하고 넓이를 구하는 방식)를 사용하게 됩니다.
-처음 농도를 측정한 부분부터 마지막 샘플까지를 t<sub>1</sub>,t<sub>2</sub> …t<sub>last</sub>로 표현했을 시 t<sub>1</sub>과 t<sub>2</sub>의 사이의 AUC와 AUMC는 다음과 같이 계산됩니다.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
-<p><span class="math display">\[
-AUC_{t_1-t_2} = 
-  (t_2-t_1)\cdot \frac{C_2+C_1}{2} \\
-AUMC_{t_1-t_2} = 
-  (t_2-t_1)\cdot \frac{t_2 \cdot C_2 + t_1 \cdot C_1}{2}
-\]</span></p>
-<p>이 방식을 계속 이용하여 각각의 구간 값의 합을 모두 더한 값으로 AUC<sub>last</sub>(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식), AUMC<sub>last</sub>(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식)를 측정해 주게 됩니다. (그림 <a href="introduction.html#fig:trapezoid">1</a>)</p>
+처음 농도를 측정한 부분부터 마지막 샘플까지를 t<sub>1</sub>,t<sub>2</sub> …t<sub>last</sub>로 표현했을 시 t<sub>1</sub>과 t<sub>2</sub>의 사이의 AUC와 AUMC는 다음과 같이 계산됩니다.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+<span class="math display" id="eq:auc-aumc">\[\begin{equation}
+\begin{split}
+  AUC_{t_1-t_2} &amp; = 
+    (t_2-t_1)\cdot \frac{C_2+C_1}{2} \\
+  AUMC_{t_1-t_2} &amp; = 
+    (t_2-t_1)\cdot \frac{t_2 \cdot C_2 + t_1 \cdot C_1}{2}
+\end{split}
+\tag{1.2}
+\end{equation}\]</span></p>
+<p>이 방식을 계속 이용하여 각각의 구간 값의 합을 모두 더한 값으로 AUC<sub>last</sub>(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식), AUMC<sub>last</sub>(처음 농도를 측정하기 시작한 구간부터 마지막 농도를 측정한 구간까지 linear trapezoidal method를 통해서 값을 계산한 방식)를 측정해 주게 됩니다. (그림 <a href="introduction.html#fig:trapezoid">1.1</a>)</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="introduction.html#cb1-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;assets/trapezoidal.png&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:trapezoid"></span>
 <img src="assets/trapezoidal.png" alt="Linear trapezoidal method" width="100%" />
 <p class="caption">
-Figure 1: Linear trapezoidal method
+Figure 1.1: Linear trapezoidal method
 </p>
 </div>
 <p>추가적으로 마지막으로 농도를 잰 시점에서 모든 약물이 우리 몸에서 빠져나가는 시점까지의 값을 구하기 위해서 마지막으로 측정한 점의 기울기가 그대로 약물이 모두 제거되는 시점까지 그대로 유지된다는 가정을 세우게 됩니다.
-다음과 같이 C<sub>last</sub>(가장 마지막으로 농도를 측정한 시점)에서 λ (C<sub>max</sub> 이후에 선형성이 가장 높은 3점을 선택하여 구한 기울기)를 구한 후 다음과 같은 약동학 공식을 대입하여 값을 구해주게 됩니다.</p>
-<p><span class="math display">\[
+다음과 같이 C<sub>last</sub>(가장 마지막으로 농도를 측정한 시점)에서 λ (C<sub>max</sub> 이후에 선형성이 가장 높은 3점을 선택하여 구한 기울기)를 구한 후 다음과 같은 약동학 공식을 대입하여 값을 구해주게 됩니다.
+<span class="math display" id="eq:terminal-slope">\[\begin{equation}
+\begin{split}
 AUC_{t_{last}-\infty} = 
   \frac{C_{last}}{\lambda} \\
 AUMC_{t_{last}-\infty} = 
   \frac{t_{last} \cdot C_{last}}{\lambda} + 
   \frac{C_{last}}{\lambda^2}
-\]</span></p>
+\end{split}
+\tag{1.3}
+\end{equation}\]</span></p>
 <p>약물이 우리 몸에 들어온 후 가장 높은 농도의 경우 실제 개개인에서 농도를 측정한 값들 중 가장 높은 농도를 실제 가장 높은 농도라 가정하여 사용하게 되고, 이 지표를 C<sub>max</sub>라 부릅니다. 또한 이때의 시점을 T<sub>max</sub>라 부르게 됩니다.
 위에서 구한 AUC와 C<sub>max</sub>, λ 를 가지고 나머지 주요 값을 계산하게 됩니다.
-이 중 청소율(제거되는 속도)에 해당하는 clearance(일반적으로 CL이라 지칭한다.) 의 경우 다음의 약동학 기본 공식을 활용하여 구해주게 됩니다.</p>
-<p><span class="math display">\[
+이 중 청소율(제거되는 속도)에 해당하는 clearance(일반적으로 CL이라 지칭한다.) 의 경우 다음의 약동학 기본 공식을 활용하여 구해주게 됩니다.
+<span class="math display" id="eq:clearance">\[\begin{equation}
 CL = \frac{D \cdot F}{AUC}
-\]</span></p>
+\tag{1.4}
+\end{equation}\]</span></p>
 <p>수식에서 D는 dose로 투여량을, F는 생체이용률을 의미합니다.</p>
 <p>우리 몸의 분포 (disposition)을 알기 위해 우리 몸의 volume을 나타내는 volume of distribution at steady state (Vdss)는 아래 식을 이용하여 값을 구하게 됩니다.</p>
 <p><span class="math display">\[
@@ -336,10 +340,11 @@ F = \frac{D_{iv}}{D_{oral}} \cdot \frac{AUC_{oral}}{AUC_{iv}}
 <p>흡수속도 상수를 구하기 위해서는 구획분석방법(compartmental analysis)이나 비선형 혼합모형(non-linear mixed effect modeling)을 사용하는 것이 바람직합니다.</p>
 <p>Figure 2. Linear trapezoidal method를 적용한 AUC의 계산 Script</p>
 <p>Figure 3 약동학 지표들에 대해 각각의 공식을 적용한 Script의 예</p>
-<p><strong>C0</strong><br />
-C0 is the initial concentration at the dosing time. It is the observed concentration at the dosing time, if available. Otherwise it is approximated using the following rules. For iv-bolus data, log-linear back-extrapolation (<em>see “backExtrap” argument</em>) is performed from the first two observations to estimate C0, provided the local slope is negative. However, if the slope is &gt;=0 or at least one of the first two concentrations is 0, the first non-zero concentration is used as C0. For other types of administration, C0 is equal to 0 for non steady-state data and for steady-state data the minimum value observed between the dosing intervals is used to estimate C0, provided the “backExtrap” argument is set to “yes”.</p>
-<p><strong>Cmax, Tmax and Cmax_D</strong><br />
-Cmax and Tmax are the value and the time of maximum observed concentration, respectively. If the maximum concentration is not unique, the first maximum is used. For steady state data, The maximum value between the dosing intervals is considered. Cmax_D is the dose normalized maximum observed concentration.</p>
+</div>
+<div id="계산-공식" class="section level2" number="1.4">
+<h2><span class="header-section-number">1.4</span> 계산 공식</h2>
+<p><code>C0</code>: C0 is the initial concentration at the dosing time. It is the observed concentration at the dosing time, if available. Otherwise it is approximated using the following rules. For iv-bolus data, log-linear back-extrapolation (<em>see “backExtrap” argument</em>) is performed from the first two observations to estimate C0, provided the local slope is negative. However, if the slope is &gt;=0 or at least one of the first two concentrations is 0, the first non-zero concentration is used as C0. For other types of administration, C0 is equal to 0 for non steady-state data and for steady-state data the minimum value observed between the dosing intervals is used to estimate C0, provided the “backExtrap” argument is set to “yes”.</p>
+<p><code>Cmax, Tmax and Cmax_D</code>: Cmax and Tmax are the value and the time of maximum observed concentration, respectively. If the maximum concentration is not unique, the first maximum is used. For steady state data, The maximum value between the dosing intervals is considered. Cmax_D is the dose normalized maximum observed concentration.</p>
 <p><strong>Clast and Tlast</strong><br />
 Clast and Tlast are the last measurable positive concentration and the corresponding time, respectively.</p>
 <p><strong>AUClast</strong><br />
@@ -451,6 +456,18 @@ Percentage of the fluctuation of the concentration between 0 and Tau for steady-
 An estimate of the total body clearance for steady-state data.<br />
 <span class="math inline">\(Clss = \frac{Dose}{AUC|_{0}^{\tau}}\)</span></p>
 
+</div>
+</div>
+<h3>참고문헌</h3>
+<div id="refs" class="references">
+<div id="ref-R-ncar">
+<p>Bae, Kyun-Seop. 2019. <em>Ncar: Noncompartmental Analysis for Pharmacokinetic Report</em>. <a href="https://CRAN.R-project.org/package=ncar">https://CRAN.R-project.org/package=ncar</a>.</p>
+</div>
+<div id="ref-R-NonCompart">
+<p>Bae, Kyun-Seop. 2020. <em>NonCompart: Noncompartmental Analysis for Pharmacokinetic Data</em>. <a href="https://CRAN.R-project.org/package=NonCompart">https://CRAN.R-project.org/package=NonCompart</a>.</p>
+</div>
+<div id="ref-R-pkr">
+<p>Bae, Kyun-Seop, and Jee Eun Lee. 2018. <em>Pkr: Pharmacokinetics in R</em>. <a href="https://CRAN.R-project.org/package=pkr">https://CRAN.R-project.org/package=pkr</a>.</p>
 </div>
 </div>
 <div class="footnotes">

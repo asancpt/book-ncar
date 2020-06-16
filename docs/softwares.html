@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>11 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석</title>
+  <title>B 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="11 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="B 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="11 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="B 기타 비구획분석 소프트웨어 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-01-03" />
+<meta name="date" content="2020-06-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="wnl-comparison.html"/>
 <link rel="next" href="groupreport.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#계산-공식"><i class="fa fa-check"></i><b>1.4</b> 계산 공식</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a>
 <ul>
@@ -193,41 +194,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
-<li class="chapter" data-level="" data-path="appendix-appendix.html"><a href="appendix-appendix.html"><i class="fa fa-check"></i>(APPENDIX) Appendix</a></li>
-<li class="chapter" data-level="10" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>10</b> Phoenix WinNonLin 과 결과 비교</a>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>10.2</b> Results</a></li>
-<li class="chapter" data-level="10.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>10.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>A.1</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>11</b> 기타 비구획분석 소프트웨어</a>
+<li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>11.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="11.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>11.2</b> Certara Phoenix WinNonLin</a>
+<li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="B.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>B.2</b> Certara Phoenix WinNonLin</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>11.2.1</b> Pros</a></li>
-<li class="chapter" data-level="11.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>11.2.2</b> Cons</a></li>
+<li class="chapter" data-level="B.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>B.2.1</b> Pros</a></li>
+<li class="chapter" data-level="B.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>B.2.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>11.3</b> R package: PKNCA</a>
+<li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>11.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="11.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>11.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="11.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>11.3.3</b> Pros</a></li>
-<li class="chapter" data-level="11.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>11.3.4</b> Cons</a></li>
+<li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.3</b> Pros</a></li>
+<li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.4</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>11.4</b> R package: ncappc</a></li>
-<li class="chapter" data-level="11.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>11.5</b> R package: PK</a></li>
-<li class="chapter" data-level="11.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>11.6</b> Kinetica</a></li>
-<li class="chapter" data-level="11.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>11.7</b> Scientist</a></li>
-<li class="chapter" data-level="11.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>11.8</b> PKSolver</a></li>
-<li class="chapter" data-level="11.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>11.9</b> Summary</a></li>
+<li class="chapter" data-level="B.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>B.4</b> R package: ncappc</a></li>
+<li class="chapter" data-level="B.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>B.5</b> R package: PK</a></li>
+<li class="chapter" data-level="B.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>B.6</b> Kinetica</a></li>
+<li class="chapter" data-level="B.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>B.7</b> Scientist</a></li>
+<li class="chapter" data-level="B.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>B.8</b> PKSolver</a></li>
+<li class="chapter" data-level="B.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>B.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>12</b> R에 내장된 자료의 비구획분석 보고서</a>
+<li class="chapter" data-level="C" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>C</b> R에 내장된 자료의 비구획분석 보고서</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>12.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="C.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>C.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>13</b> 지원</a></li>
-<li class="chapter" data-level="14" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>14</b> 세션 정보</a></li>
+<li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
+<li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -250,18 +249,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="softwares" class="section level1" number="11">
-<h1 number="11"><span class="header-section-number">11</span> 기타 비구획분석 소프트웨어</h1>
+<h1><span class="header-section-number">B</span> 기타 비구획분석 소프트웨어</h1>
 <div id="detailschapter" class="section level2" number="11.1">
-<h2 number="11.1"><span class="header-section-number">11.1</span> 이 장에서는</h2>
+<h2><span class="header-section-number">B.1</span> 이 장에서는</h2>
 <p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
 특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="softwares.html#cb79-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="softwares.html#cb59-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="certara-phoenix-winnonlin" class="section level2" number="11.2">
-<h2 number="11.2"><span class="header-section-number">11.2</span> Certara Phoenix WinNonLin</h2>
+<h2><span class="header-section-number">B.2</span> Certara Phoenix WinNonLin</h2>
 <p><a href="https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/" class="uri">https://www.certara.com/software/pkpd-modeling-and-simulation/phoenix-winnonlin/</a></p>
 <div id="pros" class="section level3" number="11.2.1">
-<h3 number="11.2.1"><span class="header-section-number">11.2.1</span> Pros</h3>
+<h3><span class="header-section-number">B.2.1</span> Pros</h3>
 <ul>
 <li>Validated for several years</li>
 <li>Industry standard</li>
@@ -271,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="cons" class="section level3" number="11.2.2">
-<h3 number="11.2.2"><span class="header-section-number">11.2.2</span> Cons</h3>
+<h3><span class="header-section-number">B.2.2</span> Cons</h3>
 <ul>
 <li>Expansive (~several thousand dollars)</li>
 <li>Not suitable for reproducible research</li>
@@ -280,10 +279,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </div>
 <div id="r-package-pknca" class="section level2" number="11.3">
-<h2 number="11.3"><span class="header-section-number">11.3</span> R package: PKNCA</h2>
+<h2><span class="header-section-number">B.3</span> R package: PKNCA</h2>
 <p>Automation of Noncompartmental Analysis in R <a href="https://github.com/billdenney/pknca" class="uri">https://github.com/billdenney/pknca</a></p>
 <div id="isop-pharmacometrics-study-group-presentation" class="section level3" number="11.3.1">
-<h3 number="11.3.1"><span class="header-section-number">11.3.1</span> ISoP Pharmacometrics Study Group Presentation</h3>
+<h3><span class="header-section-number">B.3.1</span> ISoP Pharmacometrics Study Group Presentation</h3>
 <ul>
 <li>강의 동영상 <a href="https://www.youtube.com/watch?v=WCmFrheYtcc" class="uri">https://www.youtube.com/watch?v=WCmFrheYtcc</a></li>
 <li>프로젝트 <a href="https://github.com/billdenney/pknca" class="uri">https://github.com/billdenney/pknca</a></li>
@@ -298,7 +297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 install_github(&quot;billdenney/pknca&quot;)</code></pre>
 </div>
 <div id="opennca" class="section level3" number="11.3.2">
-<h3 number="11.3.2"><span class="header-section-number">11.3.2</span> 오픈소스 NCA - 지금이 적기이다.</h3>
+<h3><span class="header-section-number">B.3.2</span> 오픈소스 NCA - 지금이 적기이다.</h3>
 <ul>
 <li>Data standards 가 점점 많아짐</li>
 <li>CDISC/SDTM가 FDA requirement</li>
@@ -346,7 +345,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 </ul>
 </div>
 <div id="pros-1" class="section level3" number="11.3.3">
-<h3 number="11.3.3"><span class="header-section-number">11.3.3</span> Pros</h3>
+<h3><span class="header-section-number">B.3.3</span> Pros</h3>
 <ul>
 <li>Open source and free of charge</li>
 <li>CDISC SDTM semi compatible (output)</li>
@@ -354,72 +353,318 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 </ul>
 </div>
 <div id="cons-1" class="section level3" number="11.3.4">
-<h3 number="11.3.4"><span class="header-section-number">11.3.4</span> Cons</h3>
+<h3><span class="header-section-number">B.3.4</span> Cons</h3>
 <ul>
 <li>CDISC SDTM not compatible (input)</li>
 <li>More tests required</li>
 <li>Experience with R language required</li>
 <li>Generating plots not supported for now (To be supported soon)</li>
 </ul>
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="softwares.html#cb81-1"></a><span class="kw">library</span>(PKNCA)</span></code></pre></div>
-<pre><code>## Error in library(PKNCA): &#39;PKNCA&#39;이라고 불리는 패키지가 없습니다</code></pre>
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="softwares.html#cb83-1"></a>my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</span></code></pre></div>
-<pre><code>## Error in PKNCAconc(as.data.frame(Theoph), conc ~ Time | Subject): 함수 &quot;PKNCAconc&quot;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="softwares.html#cb85-1"></a>d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</span>
-<span id="cb85-2"><a href="softwares.html#cb85-2"></a>                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</span>
-<span id="cb85-3"><a href="softwares.html#cb85-3"></a>my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</span></code></pre></div>
-<pre><code>## Error in PKNCAdose(d.dose, Dose ~ Time | Subject): 함수 &quot;PKNCAdose&quot;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb87"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="softwares.html#cb87-1"></a>my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</span></code></pre></div>
-<pre><code>## Error in PKNCAdata(my.conc, my.dose): 함수 &quot;PKNCAdata&quot;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb89"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb89-1"><a href="softwares.html#cb89-1"></a>my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</span></code></pre></div>
-<pre><code>## Error in pk.nca(my.data.automatic): 함수 &quot;pk.nca&quot;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="softwares.html#cb91-1"></a>my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb91-2"><a href="softwares.html#cb91-2"></a><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</span></code></pre></div>
-<pre><code>## Error in eval(lhs, parent, parent): 객체 &#39;my.results.automatic&#39;를 찾을 수 없습니다</code></pre>
-<div class="sourceCode" id="cb93"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb93-1"><a href="softwares.html#cb93-1"></a><span class="kw">summary</span>(my.results.automatic)</span></code></pre></div>
-<pre><code>## Error in summary(my.results.automatic): 객체 &#39;my.results.automatic&#39;를 찾을 수 없습니다</code></pre>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="softwares.html#cb61-1"></a><span class="kw">library</span>(PKNCA)</span>
+<span id="cb61-2"><a href="softwares.html#cb61-2"></a></span>
+<span id="cb61-3"><a href="softwares.html#cb61-3"></a>my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</span>
+<span id="cb61-4"><a href="softwares.html#cb61-4"></a>d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</span>
+<span id="cb61-5"><a href="softwares.html#cb61-5"></a>                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</span>
+<span id="cb61-6"><a href="softwares.html#cb61-6"></a>my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</span>
+<span id="cb61-7"><a href="softwares.html#cb61-7"></a>my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</span>
+<span id="cb61-8"><a href="softwares.html#cb61-8"></a>my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</span>
+<span id="cb61-9"><a href="softwares.html#cb61-9"></a>my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb61-10"><a href="softwares.html#cb61-10"></a><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">start</th>
+<th align="right">end</th>
+<th align="left">Subject</th>
+<th align="left">PPTESTCD</th>
+<th align="right">PPORRES</th>
+<th align="left">exclude</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">1</td>
+<td align="left">aucinf.obs</td>
+<td align="right">214.92363</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">2</td>
+<td align="left">aucinf.obs</td>
+<td align="right">97.37793</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">3</td>
+<td align="left">aucinf.obs</td>
+<td align="right">106.12767</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">4</td>
+<td align="left">aucinf.obs</td>
+<td align="right">114.21620</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">5</td>
+<td align="left">aucinf.obs</td>
+<td align="right">136.30473</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">6</td>
+<td align="left">aucinf.obs</td>
+<td align="right">82.17588</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">7</td>
+<td align="left">aucinf.obs</td>
+<td align="right">100.98763</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">8</td>
+<td align="left">aucinf.obs</td>
+<td align="right">102.15330</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">9</td>
+<td align="left">aucinf.obs</td>
+<td align="right">97.52000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">10</td>
+<td align="left">aucinf.obs</td>
+<td align="right">167.86003</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">11</td>
+<td align="left">aucinf.obs</td>
+<td align="right">86.90262</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">12</td>
+<td align="left">aucinf.obs</td>
+<td align="right">125.83154</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">1</td>
+<td align="left">cmax</td>
+<td align="right">10.50000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">2</td>
+<td align="left">cmax</td>
+<td align="right">8.33000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">3</td>
+<td align="left">cmax</td>
+<td align="right">8.20000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">4</td>
+<td align="left">cmax</td>
+<td align="right">8.60000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">5</td>
+<td align="left">cmax</td>
+<td align="right">11.40000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">6</td>
+<td align="left">cmax</td>
+<td align="right">6.44000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">7</td>
+<td align="left">cmax</td>
+<td align="right">7.09000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">8</td>
+<td align="left">cmax</td>
+<td align="right">7.56000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">9</td>
+<td align="left">cmax</td>
+<td align="right">9.03000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">10</td>
+<td align="left">cmax</td>
+<td align="right">10.21000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">11</td>
+<td align="left">cmax</td>
+<td align="right">8.00000</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">12</td>
+<td align="left">cmax</td>
+<td align="right">9.75000</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="softwares.html#cb62-1"></a><span class="kw">summary</span>(my.results.automatic)</span></code></pre></div>
+<div class="kable-table">
+<table>
+<thead>
+<tr class="header">
+<th align="right">start</th>
+<th align="right">end</th>
+<th align="left">N</th>
+<th align="left">auclast</th>
+<th align="left">cmax</th>
+<th align="left">tmax</th>
+<th align="left">half.life</th>
+<th align="left">aucinf.obs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">0</td>
+<td align="right">24</td>
+<td align="left">12</td>
+<td align="left">74.6 [24.3]</td>
+<td align="left">.</td>
+<td align="left">.</td>
+<td align="left">.</td>
+<td align="left">.</td>
+</tr>
+<tr class="even">
+<td align="right">0</td>
+<td align="right">Inf</td>
+<td align="left">12</td>
+<td align="left">.</td>
+<td align="left">8.65 [17.0]</td>
+<td align="left">1.14 [0.630, 3.55]</td>
+<td align="left">8.18 [2.12]</td>
+<td align="left">115 [28.4]</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div id="r-package-ncappc" class="section level2" number="11.4">
-<h2 number="11.4"><span class="header-section-number">11.4</span> R package: ncappc</h2>
-<p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="참고문헌.html#ref-Acharya201683" role="doc-biblioref">2016</a>)</span></p>
+<h2><span class="header-section-number">B.4</span> R package: ncappc</h2>
+<p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="#ref-Acharya201683" role="doc-biblioref">2016</a>)</span></p>
 <p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a>
 <a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
-<div class="sourceCode" id="cb95"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb95-1"><a href="softwares.html#cb95-1"></a><span class="co">#install.packages(&quot;ncappc&quot;)</span></span>
-<span id="cb95-2"><a href="softwares.html#cb95-2"></a><span class="kw">library</span>(ncappc)</span></code></pre></div>
-<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="softwares.html#cb96-1"></a>Theoph <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb96-2"><a href="softwares.html#cb96-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</span>
-<span id="cb96-3"><a href="softwares.html#cb96-3"></a>         <span class="dt">TIME =</span> Time,</span>
-<span id="cb96-4"><a href="softwares.html#cb96-4"></a>         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb96-5"><a href="softwares.html#cb96-5"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</span>
-<span id="cb96-6"><a href="softwares.html#cb96-6"></a></span>
-<span id="cb96-7"><a href="softwares.html#cb96-7"></a>Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</span>
-<span id="cb96-8"><a href="softwares.html#cb96-8"></a>       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb96-9"><a href="softwares.html#cb96-9"></a>       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb96-10"><a href="softwares.html#cb96-10"></a>       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb96-11"><a href="softwares.html#cb96-11"></a>       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb96-12"><a href="softwares.html#cb96-12"></a>       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</span></code></pre></div>
-<p><img src="13-others_files/figure-html/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-html/unnamed-chunk-5-2.png" width="100%" /></p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="softwares.html#cb63-1"></a><span class="co">#install.packages(&quot;ncappc&quot;)</span></span>
+<span id="cb63-2"><a href="softwares.html#cb63-2"></a><span class="kw">library</span>(ncappc)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="softwares.html#cb64-1"></a>Theoph <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb64-2"><a href="softwares.html#cb64-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</span>
+<span id="cb64-3"><a href="softwares.html#cb64-3"></a>         <span class="dt">TIME =</span> Time,</span>
+<span id="cb64-4"><a href="softwares.html#cb64-4"></a>         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb64-5"><a href="softwares.html#cb64-5"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</span>
+<span id="cb64-6"><a href="softwares.html#cb64-6"></a></span>
+<span id="cb64-7"><a href="softwares.html#cb64-7"></a>Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</span>
+<span id="cb64-8"><a href="softwares.html#cb64-8"></a>       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb64-9"><a href="softwares.html#cb64-9"></a>       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb64-10"><a href="softwares.html#cb64-10"></a>       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb64-11"><a href="softwares.html#cb64-11"></a>       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb64-12"><a href="softwares.html#cb64-12"></a>       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<p><img src="book-ncar_files/figure-html/unnamed-chunk-60-1.png" width="100%" /><img src="book-ncar_files/figure-html/unnamed-chunk-60-2.png" width="100%" /></p>
 </div>
 <div id="r-package-pk" class="section level2" number="11.5">
-<h2 number="11.5"><span class="header-section-number">11.5</span> R package: PK</h2>
+<h2><span class="header-section-number">B.5</span> R package: PK</h2>
 <p>Basic Non-Compartmental Pharmacokinetics</p>
 <p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
-<div class="sourceCode" id="cb97"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb97-1"><a href="softwares.html#cb97-1"></a><span class="co">#install.packages(&quot;PK&quot;)</span></span>
-<span id="cb97-2"><a href="softwares.html#cb97-2"></a><span class="kw">library</span>(PK)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="softwares.html#cb65-1"></a><span class="co">#install.packages(&quot;PK&quot;)</span></span>
+<span id="cb65-2"><a href="softwares.html#cb65-2"></a><span class="kw">library</span>(PK)</span></code></pre></div>
 </div>
 <div id="kinetica" class="section level2" number="11.6">
-<h2 number="11.6"><span class="header-section-number">11.6</span> Kinetica</h2>
+<h2><span class="header-section-number">B.6</span> Kinetica</h2>
 </div>
 <div id="scientist" class="section level2" number="11.7">
-<h2 number="11.7"><span class="header-section-number">11.7</span> Scientist</h2>
+<h2><span class="header-section-number">B.7</span> Scientist</h2>
 </div>
 <div id="pksolver" class="section level2" number="11.8">
-<h2 number="11.8"><span class="header-section-number">11.8</span> PKSolver</h2>
+<h2><span class="header-section-number">B.8</span> PKSolver</h2>
 </div>
 <div id="summary" class="section level2" number="11.9">
-<h2 number="11.9"><span class="header-section-number">11.9</span> Summary</h2>
+<h2><span class="header-section-number">B.9</span> Summary</h2>
 
+</div>
+</div>
+<h3>참고문헌</h3>
+<div id="refs" class="references">
+<div id="ref-Acharya201683">
+<p>Acharya, Chayan, Andrew C. Hooker, Gülbeyaz Yıldız Türkyılmaz, Siv Jönsson, and Mats O. Karlsson. 2016. “A Diagnostic Tool for Population Models Using Non-Compartmental Analysis: The Ncappc Package for R.” <em>Computer Methods and Programs in Biomedicine</em> 127: 83–93. <a href="https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013">https://doi.org/http://dx.doi.org/10.1016/j.cmpb.2016.01.013</a>.</p>
 </div>
 </div>
             </section>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석</title>
+  <title>Chapter 5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
-  <meta name="generator" content="bookdown 0.16 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.19.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="Chapter 5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="Chapter 5 R을 사용한 비구획분석 보고서 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-01-03" />
+<meta name="date" content="2020-06-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,8 +33,8 @@
   
 <link rel="prev" href="noncompart.html"/>
 <link rel="next" href="pkr.html"/>
+<script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
-<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -139,6 +139,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="1.2" data-path="introduction.html"><a href="introduction.html#PK-introduction"><i class="fa fa-check"></i><b>1.2</b> 약동학</a></li>
 <li class="chapter" data-level="1.3" data-path="introduction.html"><a href="introduction.html#ncar-method"><i class="fa fa-check"></i><b>1.3</b> 비구획 분석 이론 및 계산 방법</a></li>
+<li class="chapter" data-level="1.4" data-path="introduction.html"><a href="introduction.html#계산-공식"><i class="fa fa-check"></i><b>1.4</b> 계산 공식</a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="R-and-packages.html"><a href="R-and-packages.html"><i class="fa fa-check"></i><b>2</b> R과 그 패키지에 대하여</a>
 <ul>
@@ -193,41 +194,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
-<li class="chapter" data-level="" data-path="appendix-appendix.html"><a href="appendix-appendix.html"><i class="fa fa-check"></i>(APPENDIX) Appendix</a></li>
-<li class="chapter" data-level="10" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>10</b> Phoenix WinNonLin 과 결과 비교</a>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a></li>
-<li class="chapter" data-level="10.2" data-path="wnl-comparison.html"><a href="wnl-comparison.html#results"><i class="fa fa-check"></i><b>10.2</b> Results</a></li>
-<li class="chapter" data-level="10.3" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>10.3</b> Conclusion</a></li>
+<li class="chapter" data-level="A.1" data-path="wnl-comparison.html"><a href="wnl-comparison.html#conclusion-1"><i class="fa fa-check"></i><b>A.1</b> Conclusion</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>11</b> 기타 비구획분석 소프트웨어</a>
+<li class="chapter" data-level="B" data-path="softwares.html"><a href="softwares.html"><i class="fa fa-check"></i><b>B</b> 기타 비구획분석 소프트웨어</a>
 <ul>
-<li class="chapter" data-level="11.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>11.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="11.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>11.2</b> Certara Phoenix WinNonLin</a>
+<li class="chapter" data-level="B.1" data-path="softwares.html"><a href="softwares.html#detailschapter"><i class="fa fa-check"></i><b>B.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="B.2" data-path="softwares.html"><a href="softwares.html#certara-phoenix-winnonlin"><i class="fa fa-check"></i><b>B.2</b> Certara Phoenix WinNonLin</a>
 <ul>
-<li class="chapter" data-level="11.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>11.2.1</b> Pros</a></li>
-<li class="chapter" data-level="11.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>11.2.2</b> Cons</a></li>
+<li class="chapter" data-level="B.2.1" data-path="softwares.html"><a href="softwares.html#pros"><i class="fa fa-check"></i><b>B.2.1</b> Pros</a></li>
+<li class="chapter" data-level="B.2.2" data-path="softwares.html"><a href="softwares.html#cons"><i class="fa fa-check"></i><b>B.2.2</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="11.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>11.3</b> R package: PKNCA</a>
+<li class="chapter" data-level="B.3" data-path="softwares.html"><a href="softwares.html#r-package-pknca"><i class="fa fa-check"></i><b>B.3</b> R package: PKNCA</a>
 <ul>
-<li class="chapter" data-level="11.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>11.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
-<li class="chapter" data-level="11.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>11.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
-<li class="chapter" data-level="11.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>11.3.3</b> Pros</a></li>
-<li class="chapter" data-level="11.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>11.3.4</b> Cons</a></li>
+<li class="chapter" data-level="B.3.1" data-path="softwares.html"><a href="softwares.html#isop-pharmacometrics-study-group-presentation"><i class="fa fa-check"></i><b>B.3.1</b> ISoP Pharmacometrics Study Group Presentation</a></li>
+<li class="chapter" data-level="B.3.2" data-path="softwares.html"><a href="softwares.html#opennca"><i class="fa fa-check"></i><b>B.3.2</b> 오픈소스 NCA - 지금이 적기이다.</a></li>
+<li class="chapter" data-level="B.3.3" data-path="softwares.html"><a href="softwares.html#pros-1"><i class="fa fa-check"></i><b>B.3.3</b> Pros</a></li>
+<li class="chapter" data-level="B.3.4" data-path="softwares.html"><a href="softwares.html#cons-1"><i class="fa fa-check"></i><b>B.3.4</b> Cons</a></li>
 </ul></li>
-<li class="chapter" data-level="11.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>11.4</b> R package: ncappc</a></li>
-<li class="chapter" data-level="11.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>11.5</b> R package: PK</a></li>
-<li class="chapter" data-level="11.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>11.6</b> Kinetica</a></li>
-<li class="chapter" data-level="11.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>11.7</b> Scientist</a></li>
-<li class="chapter" data-level="11.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>11.8</b> PKSolver</a></li>
-<li class="chapter" data-level="11.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>11.9</b> Summary</a></li>
+<li class="chapter" data-level="B.4" data-path="softwares.html"><a href="softwares.html#r-package-ncappc"><i class="fa fa-check"></i><b>B.4</b> R package: ncappc</a></li>
+<li class="chapter" data-level="B.5" data-path="softwares.html"><a href="softwares.html#r-package-pk"><i class="fa fa-check"></i><b>B.5</b> R package: PK</a></li>
+<li class="chapter" data-level="B.6" data-path="softwares.html"><a href="softwares.html#kinetica"><i class="fa fa-check"></i><b>B.6</b> Kinetica</a></li>
+<li class="chapter" data-level="B.7" data-path="softwares.html"><a href="softwares.html#scientist"><i class="fa fa-check"></i><b>B.7</b> Scientist</a></li>
+<li class="chapter" data-level="B.8" data-path="softwares.html"><a href="softwares.html#pksolver"><i class="fa fa-check"></i><b>B.8</b> PKSolver</a></li>
+<li class="chapter" data-level="B.9" data-path="softwares.html"><a href="softwares.html#summary"><i class="fa fa-check"></i><b>B.9</b> Summary</a></li>
 </ul></li>
-<li class="chapter" data-level="12" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>12</b> R에 내장된 자료의 비구획분석 보고서</a>
+<li class="chapter" data-level="C" data-path="groupreport.html"><a href="groupreport.html"><i class="fa fa-check"></i><b>C</b> R에 내장된 자료의 비구획분석 보고서</a>
 <ul>
-<li class="chapter" data-level="12.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>12.1</b> Theoph의 보고서</a></li>
+<li class="chapter" data-level="C.1" data-path="groupreport.html"><a href="groupreport.html#theophgroup"><i class="fa fa-check"></i><b>C.1</b> Theoph의 보고서</a></li>
 </ul></li>
-<li class="chapter" data-level="13" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>13</b> 지원</a></li>
-<li class="chapter" data-level="14" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>14</b> 세션 정보</a></li>
+<li class="chapter" data-level="D" data-path="support.html"><a href="support.html"><i class="fa fa-check"></i><b>D</b> 지원</a></li>
+<li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
@@ -250,9 +249,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="ncar" class="section level1" number="5">
-<h1 number="5"><span class="header-section-number">5</span> R을 사용한 비구획분석 보고서</h1>
+<h1><span class="header-section-number">Chapter 5</span> R을 사용한 비구획분석 보고서</h1>
 <div id="summary-ncar" class="section level2" number="5.1">
-<h2 number="5.1"><span class="header-section-number">5.1</span> 이 장에서는</h2>
+<h2><span class="header-section-number">5.1</span> 이 장에서는</h2>
 <p>보고서를 일정한 형식으로 작성하여 다른 사람/기관과 공유하는 것은 중요합니다. 이를 <code>ncar</code> 패키지를 사용하여 좀더 쉽게 할 수 있습니다.
 이 패키지를 통해서 약동학 파라이터를 보고서 형식의 text, pdf, rtf 파일로 저장할 수 있습니다.
 이에 대해 좀더 자세히 알아보겠습니다.</p>
@@ -271,10 +270,10 @@ Some features are
 <span id="cb28-2"><a href="ncar.html#cb28-2"></a><span class="kw">library</span>(ncar)</span></code></pre></div>
 </div>
 <div id="txtnca" class="section level2" number="5.2">
-<h2 number="5.2"><span class="header-section-number">5.2</span> txtNCA()</h2>
+<h2><span class="header-section-number">5.2</span> txtNCA()</h2>
 <p>우선 저장될 폴더를 확인하면 다음과 같습니다.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="ncar.html#cb29-1"></a><span class="kw">getwd</span>()</span></code></pre></div>
-<pre><code>## [1] &quot;C:/Users/cmc/asancpt/book-ncar&quot;</code></pre>
+<pre><code>## [1] &quot;C:/Users/cmc/pipetbooks/book-ncar&quot;</code></pre>
 <p>저장될 폴더를 변경하고자 한다면 setwd(“저장될 경로”) 이렇게 설정하면 됩니다.</p>
 <p><code>txtNCA()</code> 함수를 사용하여 한 대상자에 대한 plain text 보고서를 작성할 수 있습니다.</p>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="ncar.html#cb31-1"></a><span class="kw">txtNCA</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],</span>
@@ -289,9 +288,9 @@ Some features are
 <p>저장된 파일 내용은 아래와 같습니다.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb33-1"><a href="ncar.html#cb33-1"></a>                        <span class="ex">NONCOMPARTMENTAL</span> ANALYSIS REPORT</span>
 <span id="cb33-2"><a href="ncar.html#cb33-2"></a>                       <span class="ex">Package</span> version 0.4.2 (2019-09-27 KST)</span>
-<span id="cb33-3"><a href="ncar.html#cb33-3"></a>                          <span class="ex">R</span> version 3.6.1 (2019-07-05)</span>
+<span id="cb33-3"><a href="ncar.html#cb33-3"></a>                          <span class="ex">R</span> version 4.0.0 (2020-04-24)</span>
 <span id="cb33-4"><a href="ncar.html#cb33-4"></a></span>
-<span id="cb33-5"><a href="ncar.html#cb33-5"></a><span class="ex">Date</span> and Time: 2020-01-03 15:31:21 Asia/Seoul</span>
+<span id="cb33-5"><a href="ncar.html#cb33-5"></a><span class="ex">Date</span> and Time: 2020-06-16 17:05:42 Asia/Seoul</span>
 <span id="cb33-6"><a href="ncar.html#cb33-6"></a></span>
 <span id="cb33-7"><a href="ncar.html#cb33-7"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb33-8"><a href="ncar.html#cb33-8"></a><span class="ex">-------------------</span></span>
@@ -375,12 +374,12 @@ Some features are
 <span id="cb34-13"><a href="ncar.html#cb34-13"></a><span class="st">    </span><span class="kw">paste</span>(<span class="dt">collapse =</span> <span class="st">&#39;</span><span class="ch">\n\n\n\n\n\n</span><span class="st">&#39;</span>)</span>
 <span id="cb34-14"><a href="ncar.html#cb34-14"></a>}</span></code></pre></div>
 <div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="ncar.html#cb35-1"></a><span class="kw">txtNCA2</span>(Theoph) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">writeLines</span>(<span class="st">&#39;Output-ncar/txtNCA-group-Theoph.txt&#39;</span>)</span></code></pre></div>
-<p>저장된 파일 내용은 Appendix <a href="groupreport.html#theophgroup"><strong>??</strong></a> 에서 확인 가능합니다.</p>
+<p>저장된 파일 내용은 Appendix <a href="groupreport.html#theophgroup">C.1</a> 에서 확인 가능합니다.</p>
 <!--Indometh의 경우 Appendix \@ref(indomethgroup)-->
 </div>
 <div id="pdfnca" class="section level2" number="5.3">
-<h2 number="5.3"><span class="header-section-number">5.3</span> pdfNCA()</h2>
-<p>pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure <a href="ncar.html#fig:pdfnca-output">3</a>)</p>
+<h2><span class="header-section-number">5.3</span> pdfNCA()</h2>
+<p>pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure <a href="ncar.html#fig:pdfnca-output">5.1</a>)</p>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="ncar.html#cb36-1"></a>ncar<span class="op">::</span><span class="kw">pdfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;Output-ncar/pdfNCA-Theoph.pdf&quot;</span>, Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
 <span id="cb36-2"><a href="ncar.html#cb36-2"></a>             <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>,  <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </span>
 <span id="cb36-3"><a href="ncar.html#cb36-3"></a>             <span class="dt">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="dt">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
@@ -393,12 +392,12 @@ Some features are
 <div class="figure"><span id="fig:pdfnca-output"></span>
 <img src="Output-ncar/montage.png" alt="pdfNCA() output" width="100%" />
 <p class="caption">
-Figure 3: pdfNCA() output
+Figure 5.1: pdfNCA() output
 </p>
 </div>
 </div>
 <div id="rtfnca" class="section level2" number="5.4">
-<h2 number="5.4"><span class="header-section-number">5.4</span> rtfNCA()</h2>
+<h2><span class="header-section-number">5.4</span> rtfNCA()</h2>
 <p>마이크로소프트 워드에서 편집가능한 rtf파일을 만듭니다.</p>
 <div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="ncar.html#cb40-1"></a>ncar<span class="op">::</span><span class="kw">rtfNCA</span>(<span class="dt">fileName=</span><span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="dt">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
 <span id="cb40-2"><a href="ncar.html#cb40-2"></a>             <span class="dt">colTime=</span><span class="st">&quot;Time&quot;</span>, <span class="dt">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </span>

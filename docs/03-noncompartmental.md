@@ -1,4 +1,3 @@
-
 ---
 output: html_document
 editor_options: 
@@ -38,7 +37,7 @@ tblNCA의 사용법은 다음과 같습니다.
 ## function (concData, key = "Subject", colTime = "Time", colConc = "conc", 
 ##     dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", 
 ##     timeUnit = "h", concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, 
-##     MW = 0) 
+##     MW = 0, iAUC = "") 
 ## NULL
 ```
 
@@ -50,7 +49,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ```
 --->
 
-`concData`는 데이터셋 이름을 설정합니다. 참고로 `tibble` 형식은 지원하지 않으며 `as.data.frame()` 함수 등을 사용해서 통상적인 `data.frame` 형식이어야 합니다.
+`concData`는 데이터셋 이름을 설정합니다. 참고로 `tibble` 형식은 지원하지 않기 때문에 
+`readr::read_csv()`를 통해 자료를 불러왔다면 `as.data.frame()` 함수 등을 사용하여 `data.frame` 형식으로 변환하여야 합니다. 
 `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태로 지정할 수 있습니다. 
 `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다. 
 

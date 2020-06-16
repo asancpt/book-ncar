@@ -1,4 +1,3 @@
-
 # R에 내장된 자료의 비구획분석 보고서 {#groupreport}
 
 ## Theoph의 보고서 {#theophgroup}
@@ -9,9 +8,9 @@ ID=6
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -88,9 +87,9 @@ ID=7
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -167,9 +166,9 @@ ID=8
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -246,9 +245,9 @@ ID=11
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -325,9 +324,9 @@ ID=3
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -404,9 +403,9 @@ ID=2
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -483,9 +482,9 @@ ID=4
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -562,9 +561,9 @@ ID=9
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -641,9 +640,9 @@ ID=12
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -720,9 +719,9 @@ ID=10
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -799,9 +798,9 @@ ID=1
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -878,9 +877,9 @@ ID=5
 
                         NONCOMPARTMENTAL ANALYSIS REPORT
                        Package version 0.4.2 (2019-09-27 KST)
-                          R version 3.6.1 (2019-07-05)
+                          R version 4.0.0 (2020-04-24)
 
-Date and Time: 2020-01-03 15:31:21 Asia/Seoul
+Date and Time: 2020-06-16 16:59:39 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -965,7 +964,7 @@ devtools::session_info()
 ```
 ## - Session info ---------------------------------------------------------------
 ##  setting  value                       
-##  version  R version 3.6.1 (2019-07-05)
+##  version  R version 4.0.0 (2020-04-24)
 ##  os       Windows 10 x64              
 ##  system   x86_64, mingw32             
 ##  ui       RTerm                       
@@ -973,52 +972,54 @@ devtools::session_info()
 ##  collate  Korean_Korea.949            
 ##  ctype    Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2020-01-03                  
+##  date     2020-06-16                  
 ## 
 ## - Packages -------------------------------------------------------------------
-##  package     * version date       lib source        
-##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 3.6.1)
-##  backports     1.1.5   2019-10-02 [1] CRAN (R 3.6.1)
-##  bookdown      0.16    2019-11-22 [1] CRAN (R 3.6.1)
-##  callr         3.4.0   2019-12-09 [1] CRAN (R 3.6.1)
-##  cli           2.0.0   2019-12-09 [1] CRAN (R 3.6.1)
-##  crayon        1.3.4   2017-09-16 [1] CRAN (R 3.6.1)
-##  desc          1.2.0   2018-05-01 [1] CRAN (R 3.6.1)
-##  devtools      2.2.1   2019-09-24 [1] CRAN (R 3.6.1)
-##  digest        0.6.23  2019-11-23 [1] CRAN (R 3.6.1)
-##  ellipsis      0.3.0   2019-09-20 [1] CRAN (R 3.6.1)
-##  evaluate      0.14    2019-05-28 [1] CRAN (R 3.6.1)
-##  fansi         0.4.0   2018-10-05 [1] CRAN (R 3.6.1)
-##  fs            1.3.1   2019-05-06 [1] CRAN (R 3.6.1)
-##  glue          1.3.1   2019-03-12 [1] CRAN (R 3.6.1)
-##  htmltools     0.4.0   2019-10-04 [1] CRAN (R 3.6.1)
-##  knitr         1.26    2019-11-12 [1] CRAN (R 3.6.1)
-##  magrittr      1.5     2014-11-22 [1] CRAN (R 3.6.1)
-##  memoise       1.1.0   2017-04-21 [1] CRAN (R 3.6.1)
-##  pkgbuild      1.0.6   2019-10-09 [1] CRAN (R 3.6.1)
-##  pkgload       1.0.2   2018-10-29 [1] CRAN (R 3.6.1)
-##  prettyunits   1.0.2   2015-07-13 [1] CRAN (R 3.6.1)
-##  processx      3.4.1   2019-07-18 [1] CRAN (R 3.6.1)
-##  ps            1.3.0   2018-12-21 [1] CRAN (R 3.6.1)
-##  R6            2.4.1   2019-11-12 [1] CRAN (R 3.6.1)
-##  Rcpp          1.0.3   2019-11-08 [1] CRAN (R 3.6.1)
-##  remotes       2.1.0   2019-06-24 [1] CRAN (R 3.6.1)
-##  rlang         0.4.2   2019-11-23 [1] CRAN (R 3.6.1)
-##  rmarkdown     2.0     2019-12-12 [1] CRAN (R 3.6.1)
-##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 3.6.1)
-##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 3.6.1)
-##  stringi       1.4.3   2019-03-12 [1] CRAN (R 3.6.0)
-##  stringr       1.4.0   2019-02-10 [1] CRAN (R 3.6.1)
-##  testthat      2.3.1   2019-12-01 [1] CRAN (R 3.6.1)
-##  usethis       1.5.1   2019-07-04 [1] CRAN (R 3.6.1)
-##  withr         2.1.2   2018-03-15 [1] CRAN (R 3.6.1)
-##  xfun          0.11    2019-11-12 [1] CRAN (R 3.6.1)
+##  package     * version date       lib source                           
+##  assertthat    0.2.1   2019-03-21 [1] CRAN (R 4.0.0)                   
+##  backports     1.1.7   2020-05-13 [1] CRAN (R 4.0.0)                   
+##  bookdown      0.19.1  2020-06-11 [1] Github (rstudio/bookdown@fd8dac6)
+##  callr         3.4.3   2020-03-28 [1] CRAN (R 4.0.0)                   
+##  cli           2.0.2   2020-02-28 [1] CRAN (R 4.0.0)                   
+##  crayon        1.3.4   2017-09-16 [1] CRAN (R 4.0.0)                   
+##  desc          1.2.0   2018-05-01 [1] CRAN (R 4.0.0)                   
+##  devtools      2.3.0   2020-04-10 [1] CRAN (R 4.0.0)                   
+##  digest        0.6.25  2020-02-23 [1] CRAN (R 4.0.0)                   
+##  ellipsis      0.3.1   2020-05-15 [1] CRAN (R 4.0.0)                   
+##  evaluate      0.14    2019-05-28 [1] CRAN (R 4.0.0)                   
+##  fansi         0.4.1   2020-01-08 [1] CRAN (R 4.0.0)                   
+##  fs            1.4.1   2020-04-04 [1] CRAN (R 4.0.0)                   
+##  glue          1.4.1   2020-05-13 [1] CRAN (R 4.0.0)                   
+##  htmltools     0.4.0   2019-10-04 [1] CRAN (R 4.0.0)                   
+##  knitr         1.28.7  2020-06-11 [1] Github (yihui/knitr@12219b1)     
+##  magrittr      1.5     2014-11-22 [1] CRAN (R 4.0.0)                   
+##  memoise       1.1.0   2017-04-21 [1] CRAN (R 4.0.0)                   
+##  pkgbuild      1.0.8   2020-05-07 [1] CRAN (R 4.0.0)                   
+##  pkgload       1.1.0   2020-05-29 [1] CRAN (R 4.0.0)                   
+##  prettyunits   1.1.1   2020-01-24 [1] CRAN (R 4.0.0)                   
+##  processx      3.4.2   2020-02-09 [1] CRAN (R 4.0.0)                   
+##  ps            1.3.3   2020-05-08 [1] CRAN (R 4.0.0)                   
+##  R6            2.4.1   2019-11-12 [1] CRAN (R 4.0.0)                   
+##  Rcpp          1.0.4.6 2020-04-09 [1] CRAN (R 4.0.0)                   
+##  remotes       2.1.1   2020-02-15 [1] CRAN (R 4.0.0)                   
+##  rlang         0.4.6   2020-05-02 [1] CRAN (R 4.0.0)                   
+##  rmarkdown     2.2     2020-05-31 [1] CRAN (R 4.0.0)                   
+##  rprojroot     1.3-2   2018-01-03 [1] CRAN (R 4.0.0)                   
+##  sessioninfo   1.1.1   2018-11-05 [1] CRAN (R 4.0.0)                   
+##  stringi       1.4.6   2020-02-17 [1] CRAN (R 4.0.0)                   
+##  stringr       1.4.0   2019-02-10 [1] CRAN (R 4.0.0)                   
+##  testthat      2.3.2   2020-03-02 [1] CRAN (R 4.0.0)                   
+##  usethis       1.6.1   2020-04-29 [1] CRAN (R 4.0.0)                   
+##  withr         2.2.0   2020-04-20 [1] CRAN (R 4.0.0)                   
+##  xfun          0.14    2020-05-20 [1] CRAN (R 4.0.0)                   
 ## 
 ## [1] C:/Users/cmc/Rlib
-## [2] C:/Program Files/R/R-3.6.1/library
+## [2] C:/Program Files/R/R-4.0.0/library
 ```
 
 # 참고문헌 {-}
+
+
 
 
 

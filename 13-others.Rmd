@@ -155,6 +155,3 @@ library(PK)
 ```{r echo = FALSE}
 # knitr::kable(read.csv("comparison.csv", check.names = FALSE))
 ```
-
-
-

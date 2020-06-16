@@ -70,10 +70,9 @@ editor_options:
 ```{r setup, include = FALSE}
 system('cp -r images docs')
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load("tidyverse", "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar")
+pacman::p_load("tidyverse", "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar", 'PKNCA')
 pacman::p_install_gh('asancpt/ncarbe')
 pacman::p_install_gh('dpastoor/PKPDdatasets')
-
 ```
 
 ```{r init, include = FALSE}

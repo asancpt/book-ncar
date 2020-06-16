@@ -1,4 +1,3 @@
-
 # 기타 비구획분석 소프트웨어 {#softwares}
 
 ## 이 장에서는 {#detailschapter}
@@ -96,53 +95,43 @@ install_github("billdenney/pknca")
 
 ```r
 library(PKNCA)
-```
 
-```
-## Error in library(PKNCA): 'PKNCA'이라고 불리는 패키지가 없습니다
-```
-
-```r
 my.conc <- PKNCAconc(as.data.frame(Theoph), conc~Time|Subject)
-```
-
-```
-## Error in PKNCAconc(as.data.frame(Theoph), conc ~ Time | Subject): 함수 "PKNCAconc"를 찾을 수 없습니다
-```
-
-```r
 d.dose <- unique(datasets::Theoph[datasets::Theoph$Time == 0,
                                   c("Dose", "Time", "Subject")])
 my.dose <- PKNCAdose(d.dose, Dose~Time|Subject)
-```
-
-```
-## Error in PKNCAdose(d.dose, Dose ~ Time | Subject): 함수 "PKNCAdose"를 찾을 수 없습니다
-```
-
-```r
 my.data.automatic <- PKNCAdata(my.conc, my.dose)
-```
-
-```
-## Error in PKNCAdata(my.conc, my.dose): 함수 "PKNCAdata"를 찾을 수 없습니다
-```
-
-```r
 my.results.automatic <- pk.nca(my.data.automatic)
-```
-
-```
-## Error in pk.nca(my.data.automatic): 함수 "pk.nca"를 찾을 수 없습니다
-```
-
-```r
 my.results.automatic$result %>% filter(grepl(pattern = "cmax|aucinf", PPTESTCD)) %>% 
     arrange(PPTESTCD)
 ```
 
 ```
-## Error in eval(lhs, parent, parent): 객체 'my.results.automatic'를 찾을 수 없습니다
+##    start end Subject   PPTESTCD   PPORRES exclude
+## 1      0 Inf       1 aucinf.obs 214.92363    <NA>
+## 2      0 Inf       2 aucinf.obs  97.37793    <NA>
+## 3      0 Inf       3 aucinf.obs 106.12767    <NA>
+## 4      0 Inf       4 aucinf.obs 114.21620    <NA>
+## 5      0 Inf       5 aucinf.obs 136.30473    <NA>
+## 6      0 Inf       6 aucinf.obs  82.17588    <NA>
+## 7      0 Inf       7 aucinf.obs 100.98763    <NA>
+## 8      0 Inf       8 aucinf.obs 102.15330    <NA>
+## 9      0 Inf       9 aucinf.obs  97.52000    <NA>
+## 10     0 Inf      10 aucinf.obs 167.86003    <NA>
+## 11     0 Inf      11 aucinf.obs  86.90262    <NA>
+## 12     0 Inf      12 aucinf.obs 125.83154    <NA>
+## 13     0 Inf       1       cmax  10.50000    <NA>
+## 14     0 Inf       2       cmax   8.33000    <NA>
+## 15     0 Inf       3       cmax   8.20000    <NA>
+## 16     0 Inf       4       cmax   8.60000    <NA>
+## 17     0 Inf       5       cmax  11.40000    <NA>
+## 18     0 Inf       6       cmax   6.44000    <NA>
+## 19     0 Inf       7       cmax   7.09000    <NA>
+## 20     0 Inf       8       cmax   7.56000    <NA>
+## 21     0 Inf       9       cmax   9.03000    <NA>
+## 22     0 Inf      10       cmax  10.21000    <NA>
+## 23     0 Inf      11       cmax   8.00000    <NA>
+## 24     0 Inf      12       cmax   9.75000    <NA>
 ```
 
 ```r
@@ -150,7 +139,11 @@ summary(my.results.automatic)
 ```
 
 ```
-## Error in summary(my.results.automatic): 객체 'my.results.automatic'를 찾을 수 없습니다
+##  start end  N     auclast        cmax               tmax   half.life aucinf.obs
+##      0  24 12 74.6 [24.3]           .                  .           .          .
+##      0 Inf 12           . 8.65 [17.0] 1.14 [0.630, 3.55] 8.18 [2.12] 115 [28.4]
+## 
+## Caption: auclast, cmax, aucinf.obs: geometric mean and geometric coefficient of variation; tmax: median and range; half.life: arithmetic mean and standard deviation
 ```
 
 ## R package: ncappc
@@ -182,7 +175,7 @@ Theoph_ncappc_results <- ncappc(obsFile = 'Theoph_ncappc.csv',
        psnOut=FALSE)
 ```
 
-<img src="13-others_files/figure-html/unnamed-chunk-5-1.png" width="100%" /><img src="13-others_files/figure-html/unnamed-chunk-5-2.png" width="100%" />
+<img src="13-others_files/figure-html/unnamed-chunk-4-1.png" width="100%" /><img src="13-others_files/figure-html/unnamed-chunk-4-2.png" width="100%" />
 
 ## R package: PK
 
@@ -204,8 +197,5 @@ library(PK)
 ## PKSolver
 
 ## Summary
-
-
-
 
 

@@ -1,4 +1,3 @@
-
 ---
 output: html_document
 editor_options: 
@@ -64,18 +63,18 @@ plotPK(Theoph, "Subject", "Time", "conc", unitTime="hr", unitConc="mg/L", dose=3
 
 
 <div class="figure">
-<img src="Output/PK_Profile_Linear_Scale_for_Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-6)평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)</p>
+<img src="Output/Individual PK Linear Scale for Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-5)평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)</p>
 </div>
 
 <div class="figure">
-<img src="Output/PK_Profile_Log_10_Scale_for_Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-7)평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)</p>
+<img src="Output/Individual PK Log 10 Scale for Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-6)평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)</p>
 </div>
 
 <div class="figure">
-<img src="Output/PK_Profile_with_CI_for_Theoph.png" alt="평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-8)평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)</p>
+<img src="Output/PK Profile Linear Scale for Theoph.png" alt="평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-7)평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)</p>
 </div>
 
 또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.
@@ -85,11 +84,12 @@ plotPK(Theoph, "Subject", "Time", "conc", unitTime="hr", unitConc="mg/L", dose=3
 
 
 <div class="figure">
-<img src="Output/Individual_PK_Linear_Scale_for_Theoph00.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-9)약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)</p>
+<img src="Output/Individual PK Linear Scale for Theoph.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-8)약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)</p>
 </div>
 
 <div class="figure">
-<img src="Output/Individual_PK_Log_10_Scale_for_Theoph00.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)" width="100%" />
-<p class="caption">(\#fig:unnamed-chunk-10)약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)</p>
+<img src="Output/Individual PK Log 10 Scale for Theoph.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)" width="100%" />
+<p class="caption">(\#fig:unnamed-chunk-9)약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)</p>
 </div>
+
