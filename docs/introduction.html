@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 1 비구획 분석이란 | R을 사용한 비구획분석</title>
+  <title>1 비구획 분석이란 | R을 사용한 비구획분석</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="generator" content="bookdown 0.19.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 1 비구획 분석이란 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="1 비구획 분석이란 | R을 사용한 비구획분석" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 1 비구획 분석이란 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="1 비구획 분석이란 | R을 사용한 비구획분석" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/assets/cover.jpg" />
@@ -133,7 +133,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./index.html">R을 사용한 비구획분석</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#저자소개"><i class="fa fa-check"></i>저자소개</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="introduction.html"><a href="introduction.html"><i class="fa fa-check"></i><b>1</b> 비구획 분석이란</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="introduction.html"><a href="introduction.html#summary-introduction"><i class="fa fa-check"></i><b>1.1</b> 이 장에서는</a></li>
@@ -148,52 +151,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
 <li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#otherinstall"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>3</b> 기본 자료</a>
+<li class="chapter" data-level="3" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>3</b> R을 사용한 비구획분석</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="datasets.html"><a href="datasets.html#introdatasets"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="3.2" data-path="datasets.html"><a href="datasets.html#TheophData"><i class="fa fa-check"></i><b>3.2</b> 데이타에 대해</a></li>
+<li class="chapter" data-level="3.1" data-path="noncompart.html"><a href="noncompart.html#summary-noncompart"><i class="fa fa-check"></i><b>3.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="3.2" data-path="noncompart.html"><a href="noncompart.html#how-to-use"><i class="fa fa-check"></i><b>3.2</b> NonCompart 사용법</a></li>
+<li class="chapter" data-level="3.3" data-path="noncompart.html"><a href="noncompart.html#interval-NCA"><i class="fa fa-check"></i><b>3.3</b> 구간 NCA</a></li>
+<li class="chapter" data-level="3.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>3.4</b> 함수 살펴보기</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="noncompart.html"><a href="noncompart.html#auc"><i class="fa fa-check"></i><b>3.4.1</b> AUC</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석</a>
-<ul>
-<li class="chapter" data-level="4.1" data-path="noncompart.html"><a href="noncompart.html#summary-noncompart"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="4.2" data-path="noncompart.html"><a href="noncompart.html#how-to-use"><i class="fa fa-check"></i><b>4.2</b> NonCompart 사용법</a></li>
-<li class="chapter" data-level="4.3" data-path="noncompart.html"><a href="noncompart.html#interval-NCA"><i class="fa fa-check"></i><b>4.3</b> 구간 NCA</a></li>
-<li class="chapter" data-level="4.4" data-path="noncompart.html"><a href="noncompart.html#functions"><i class="fa fa-check"></i><b>4.4</b> 함수 살펴보기</a>
-<ul>
-<li class="chapter" data-level="4.4.1" data-path="noncompart.html"><a href="noncompart.html#auc"><i class="fa fa-check"></i><b>4.4.1</b> AUC</a></li>
+<li class="chapter" data-level="3.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>3.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="noncompart.html"><a href="noncompart.html#long-format"><i class="fa fa-check"></i><b>4.5</b> 긴 형식으로 변환하면서 단위 추가하기</a></li>
+<li class="chapter" data-level="4" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>4</b> R을 사용한 비구획분석 보고서</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>4.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="4.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>4.2</b> txtNCA()</a></li>
+<li class="chapter" data-level="4.3" data-path="ncar.html"><a href="ncar.html#pdfnca"><i class="fa fa-check"></i><b>4.3</b> pdfNCA()</a></li>
+<li class="chapter" data-level="4.4" data-path="ncar.html"><a href="ncar.html#rtfnca"><i class="fa fa-check"></i><b>4.4</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ncar.html"><a href="ncar.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 보고서</a>
+<li class="chapter" data-level="5" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>5</b> R을 사용한 비구획분석 시각화</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ncar.html"><a href="ncar.html#summary-ncar"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="5.2" data-path="ncar.html"><a href="ncar.html#txtnca"><i class="fa fa-check"></i><b>5.2</b> txtNCA()</a></li>
-<li class="chapter" data-level="5.3" data-path="ncar.html"><a href="ncar.html#pdfnca"><i class="fa fa-check"></i><b>5.3</b> pdfNCA()</a></li>
-<li class="chapter" data-level="5.4" data-path="ncar.html"><a href="ncar.html#rtfnca"><i class="fa fa-check"></i><b>5.4</b> rtfNCA()</a></li>
+<li class="chapter" data-level="5.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>5.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="5.2" data-path="pkr.html"><a href="pkr.html#pkr-manual"><i class="fa fa-check"></i><b>5.2</b> pkr 사용법</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="pkr.html"><a href="pkr.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 비구획분석 시각화</a>
+<li class="chapter" data-level="6" data-path="rsimulation.html"><a href="rsimulation.html"><i class="fa fa-check"></i><b>6</b> R을 사용한 약동학 시뮬레이션</a>
 <ul>
-<li class="chapter" data-level="6.1" data-path="pkr.html"><a href="pkr.html#summary-pkr"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="6.2" data-path="pkr.html"><a href="pkr.html#pkr-manual"><i class="fa fa-check"></i><b>6.2</b> pkr 사용법</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="rsimulation.html"><a href="rsimulation.html"><i class="fa fa-check"></i><b>7</b> R을 사용한 약동학 시뮬레이션</a>
+<li class="chapter" data-level="6.1" data-path="rsimulation.html"><a href="rsimulation.html#summary-simulation"><i class="fa fa-check"></i><b>6.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="6.2" data-path="rsimulation.html"><a href="rsimulation.html#sim-about"><i class="fa fa-check"></i><b>6.2</b> 시뮬레이션에 대하여</a></li>
+<li class="chapter" data-level="6.3" data-path="rsimulation.html"><a href="rsimulation.html#sim-nca"><i class="fa fa-check"></i><b>6.3</b> 시뮬레이션 후 비구획분석</a></li>
+<li class="chapter" data-level="6.4" data-path="rsimulation.html"><a href="rsimulation.html#sim-app"><i class="fa fa-check"></i><b>6.4</b> 앱을 통해 살펴보는 시뮬레이션</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="rsimulation.html"><a href="rsimulation.html#summary-simulation"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="7.2" data-path="rsimulation.html"><a href="rsimulation.html#sim-about"><i class="fa fa-check"></i><b>7.2</b> 시뮬레이션에 대하여</a></li>
-<li class="chapter" data-level="7.3" data-path="rsimulation.html"><a href="rsimulation.html#sim-nca"><i class="fa fa-check"></i><b>7.3</b> 시뮬레이션 후 비구획분석</a></li>
-<li class="chapter" data-level="7.4" data-path="rsimulation.html"><a href="rsimulation.html#sim-app"><i class="fa fa-check"></i><b>7.4</b> 앱을 통해 살펴보는 시뮬레이션</a>
-<ul>
-<li class="chapter" data-level="7.4.1" data-path="rsimulation.html"><a href="rsimulation.html#shiny"><i class="fa fa-check"></i><b>7.4.1</b> shiny 앱</a></li>
+<li class="chapter" data-level="6.4.1" data-path="rsimulation.html"><a href="rsimulation.html#shiny"><i class="fa fa-check"></i><b>6.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
+<li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> 통계처리</a>
 <ul>
-<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
-<li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>8.3</b> 생물학적 동등성</a></li>
-<li class="chapter" data-level="8.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.4</b> Dose Proportionality</a></li>
+<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>7.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="7.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>7.3</b> 생물학적 동등성</a></li>
+<li class="chapter" data-level="7.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>7.4</b> Dose Proportionality</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
+<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> 결론</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
@@ -249,7 +247,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="introduction" class="section level1" number="1">
-<h1><span class="header-section-number">Chapter 1</span> 비구획 분석이란</h1>
+<h1><span class="header-section-number">1</span> 비구획 분석이란</h1>
 <div id="summary-introduction" class="section level2" number="1.1">
 <h2><span class="header-section-number">1.1</span> 이 장에서는</h2>
 <p>약동학과 비구획 분석에 대해 간략히 알아보겠습니다.</p>
@@ -498,8 +496,8 @@ An estimate of the total body clearance for steady-state data.<br />
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
 "sharing": {
-"github": false,
-"facebook": true,
+"github": true,
+"facebook": false,
 "twitter": true,
 "linkedin": false,
 "weibo": false,
@@ -513,7 +511,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/asancpt/book-ncar/edit/master/01-introduction.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/01.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -524,12 +522,9 @@ gitbook.start({
 "link": null,
 "text": null
 },
-"download": ["book-ncar.epub"],
+"download": ["book-ncar.pdf", "book-ncar.epub", "book-ncar.mobi"],
 "toc": {
-"collapse": "subsection"
-},
-"toolbar": {
-"position": "static"
+"collapse": "none"
 }
 });
 });

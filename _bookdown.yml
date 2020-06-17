@@ -1,13 +1,11 @@
 book_filename: book-ncar
-chapter_name: "Chapter "
 repo: https://github.com/asancpt/book-ncar
 output_dir: docs
 delete_merged_file: yes
 before_chapter_script: ["R/before.R"]
-new_session: yes # Knit-Merge approach 
 
-
-
+# chapter_name: "Chapter "
+# new_session: yes # Knit-Merge approach 
 # rmd_subdir: yes
 # after_chapter_script: ["R/after.R"]
 

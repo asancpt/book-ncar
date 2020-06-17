@@ -252,5 +252,3 @@ $Accumulation\_Index = \frac{1}{1-e^{-\lambda_{z}*\tau}}$
 An estimate of the total body clearance for steady-state data.  
 $Clss = \frac{Dose}{AUC|_{0}^{\tau}}$
 
-
-

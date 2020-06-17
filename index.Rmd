@@ -24,55 +24,20 @@ colorlinks: yes
 fontsize: 12pt
 header-includes:
   - \usepackage{kotex}
-output:
-  bookdown::pdf_book: 
-    keep_tex: yes
-    pandoc_args: --top-level-division=chapter
-    toc_depth: 3
-    toc_unnumbered: no
-    toc_appendix: yes
-    #template: null
-    #dev: "cairo_pdf"
-    #latex_engine: xelatex
-    #includes:
-    #  in_header: latex/preamble.tex
-    #  before_body: latex/before_body.tex
-    #  after_body: latex/after_body.tex
-  bookdown::gitbook:
-    df_print: kable
-    css: css/style.css
-    split_by: chapter
-    config:
-      toolbar:
-        position: static
-      toc:
-        #collapse: chapter
-        before: |
-          <li><a href="./index.html">R을 사용한 비구획분석</a></li>
-        after: |
-          <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
-      #download: [pdf]
-      edit:
-        link: https://github.com/asancpt/book-ncar/edit/master/%s
-        text: "Edit"
-  bookdown::pdf_document2: default
-  bookdown::tufte_book2: default
-  html_document: 
-    df_print: kable
-  bookdown::html_chapters:
-    css: css/style.css
-  bookdown::epub_book:
-    stylesheet: css/style.css
-editor_options: 
-  chunk_output_type: console
 ---
 
 ```{r setup, include = FALSE}
 system('cp -r images docs')
 if (!require("pacman")) install.packages("pacman")
-pacman::p_load("tidyverse", "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar", 'PKNCA')
+pacman::p_load("tidyverse", 
+			   "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar", 'PKNCA', 'knitr')
 pacman::p_install_gh('asancpt/ncarbe')
 pacman::p_install_gh('dpastoor/PKPDdatasets')
+
+opts_chunk$set(error = TRUE, 
+               out.width = '100%', #results = 'hide',
+               cache = TRUE,
+               message = FALSE, warning = FALSE)
 ```
 
 ```{r init, include = FALSE}

@@ -17,10 +17,10 @@ library(NonCompart)
 
 ## NonCompart 사용법 {#how-to-use}
 
-NonCompart::tblNCA() 함수에는 여러가지 argument가 입력되어 결과 계산에 활용됩니다. 사용법은 다음과 같습니다.
+tblNCA의 사용법은 다음과 같습니다.
 
 ```{r echo = FALSE}
-tblNCAarg <- formals(NonCompart::tblNCA)
+args(NonCompart::tblNCA)
 ```
 
 <!---
@@ -31,7 +31,8 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ```
 --->
 
-`concData`는 데이터셋 이름을 설정합니다. 참고로 `tibble` 형식은 지원하지 않기 때문에  `readr::read_csv()`를 통해 자료를 불러왔다면 `as.data.frame()` 함수 등을 사용하여 `data.frame` 형식으로 변환하여야 합니다. 
+`concData`는 데이터셋 이름을 설정합니다. 참고로 `tibble` 형식은 지원하지 않기 때문에 
+`readr::read_csv()`를 통해 자료를 불러왔다면 `as.data.frame()` 함수 등을 사용하여 `data.frame` 형식으로 변환하여야 합니다. 
 `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태로 지정할 수 있습니다. 
 `colTime`은 time의 컬럼명, `colConc`는 concentration의 컬럼명 등을 함수 인자로 갖습니다. 그 외 인자들에 대해서 살펴보자면 다음과 같습니다. 
 
@@ -49,7 +50,7 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
     - `R2ADJ` 값이 설정값 이하인 경우 `DetSlope()`함수에 의해 terminal slope를 수동으로 interactive하게 고를 수 있게됩니다.
 
 이제 약동학 파라미터를 산출하기 위해서는 아래와 같이 하면 됩니다.
-우선 `Theoph` (theophylline) 의 약동학 파라미터를 구해보겠습니다.
+우선 Theophylline 의 약동학 파라미터를 구해보겠습니다.
 
 ```{r}
 Theoph_nca <- tblNCA(Theoph, "Subject", "Time", "conc", 
@@ -69,7 +70,7 @@ save(Theoph_nca, file = 'data/Theoph_nca.Rdata')
 이는 IV bolus 이므로 `adm="bolus"` 인자를 정의해야 합니다. 
 
 ```{r}
-Indometh_nca <- tblNCA(Indometh, "Subject", "time", "conc", 
+Indometh_nca <- NonCompart::tblNCA(Indometh, "Subject", "time", "conc", 
                        dose=25, adm="Bolus", dur=0.5, concUnit="mg/L", R2ADJ=0.5)
 ```
 
@@ -124,9 +125,9 @@ iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24))
 
 
 ## 함수 살펴보기 {#functions}
-
+<!--
 NonCompart 패키지 내의 여러가지 함수를 살펴보겠습니다. `r paste0(paste0(ls('package:NonCompart'), '()'), collapse = ', ')`라는 함수가 있습니다.
-
+-->
 ### AUC
 
 AUC와 AUMC를  'Linear trapezoidal method' 혹은 'linear-up and log-down method'의 두가지 방식으로 계산하게 됩니다.

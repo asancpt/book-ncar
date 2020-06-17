@@ -1,3 +1,5 @@
+all: gitbook
+
 publish:
 	git pull ;\
 	Rscript --quiet _render.R "bookdown::gitbook" ;\
@@ -11,7 +13,7 @@ gitbook:
 pdf:
 	Rscript --quiet _render.R "bookdown::pdf_book"
 
-all:
+all-books:
 	Rscript --quiet _render.R
 
 clean:
