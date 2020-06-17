@@ -43,7 +43,7 @@ $$
 핵심이 되는 함수는 `beNCA()` 입니다. 
 
 ```{r twobytwo, fig.cap = '전형적인 2x2 설계'}
-knitr::include_graphics('assets/twobytwo.jpg')
+knitr::include_graphics('images/twobytwo.jpg')
 ```
 
 ```{r echo = FALSE}
@@ -78,7 +78,7 @@ print(be2x2(NCAResult4BE, c("AUClast", "Cmax", "Tmax")), na.print="")
 
 
 ```{r fixedrandom, fig.cap = '모수 인자와 변량 인자의 비교'}
-knitr::include_graphics('assets/fixed-random.jpg')
+knitr::include_graphics('images/fixed-random.jpg')
 ```
 
 

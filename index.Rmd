@@ -15,7 +15,7 @@ description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 �
 date: "`r Sys.Date()`"
 url: 'https\://asancpt.github.io/book-ncar/'
 github-repo: asancpt/book-ncar
-cover-image: assets/cover.jpg
+cover-image: images/cover.jpg
 bibliography: ["bib/manual.bib", "bib/packages.bib"]
 documentclass: krantz
 biblio-style: apalike
@@ -27,7 +27,8 @@ header-includes:
 ---
 
 ```{r setup, include = FALSE}
-system('cp -r images docs')
+# system('cp -r images docs')
+
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load("tidyverse", 
 			   "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar", 'PKNCA', 'knitr')
@@ -50,7 +51,7 @@ opts_chunk$set(error = TRUE,
 
 # Preface {-}
 
-[<img src="assets/cover.jpg" style="max-width:20%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="Github repo" />](https://github.com/asancpt/book-ncar)
+[<img src="images/cover.jpg" style="max-width:20%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="Github repo" />](https://github.com/asancpt/book-ncar)
 
 
 비구획분석은 약물 농도 자료에 간단한 수학식을 적용합니다. 정확한 자료의 생성과 계산을 위해 오류를 줄이는 것이 중요하지만 현재까지 방식은 '재현가능한 연구' 측면에서 분명한 약점이 존재합니다. 이 책은 무료 통계프로그램인 R을 사용하여 정확한 비구획분석을 수행할 수 있는 방법을 제시합니다. 
@@ -88,7 +89,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 *김형섭*  
 서울아산병원 임상약리학과 전공의입니다. 고려대학교 의학전문대학원을 졸업하였습니다.
 
-![Creative Commons License](assets/cc.png)  
+![Creative Commons License](images/cc.png)  
 이 저작물은 [크리에이티브 커먼즈 저작자표시-비영리-동일조건변경허락 4.0 국제 라이선스](http://creativecommons.org/licenses/by-nc-sa/4.0/) 에 따라 이용할 수 있습니다.
 
 <!-- https://creativecommons.org/choose/?lang=ko -->

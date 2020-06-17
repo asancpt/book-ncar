@@ -17,7 +17,7 @@ all-books:
 	Rscript --quiet _render.R
 
 clean:
-	Rscript -e "options(bookdown.clean_book = TRUE);bookdown::clean_book()"
+	Rscript -e "options(bookdown.clean_book = TRUE);bookdown::clean_book() ; rm -rf docs"
 
 rmd:
 	Rscript -e "rmarkdown::render('keynote.Rmd', output_format = 'html_document', encoding = 'UTF-8')"
