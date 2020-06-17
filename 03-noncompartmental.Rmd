@@ -97,7 +97,8 @@ paste(tblNcaExample, collapse = '\\n')
 먼저 구하고자 하는 구간에 대한 정보를 갖는 변수를 아래와같이 생성합니다.
 
 ```{r}
-iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
+iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24))
+iAUC
 ```
         Name Start End
 1 AUC[0-12h]     0  12
@@ -105,7 +106,7 @@ iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)
 
 이제 iAUC 옵션을 이용해서 이를 구합니다.
 
-```{r}
+```r
 # tblNCA(Theoph, "Subject", "Time", "conc", dose=320, iAUC=iAUC)
 ```
 
@@ -114,30 +115,20 @@ iAUC <- data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)
 개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.
 
-> iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
+```r
+iAUC = data.frame(Name=c("AUC[0-12h]","AUC[0-24h]"), Start=c(0,0), End=c(12,24)) ; iAUC
+```
 
         Name Start End
 1 AUC[0-12h]     0  12
 2 AUC[0-24h]     0  24
 
 
-```{r eval = TRUE}
+```r
 #IntAUC
 #IntAUC(Theoph[Theoph$Subject==1,"Time"], Theoph[Theoph$Subject==1, "conc"], Dose=320, iAUC=iAUC)
 ```
 
-```
-        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
-  10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
-      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
-   9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997    0.9999995  148.9230500  148.9230500  216.6119330 
-     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP 
-   0.6769123   31.2489169  216.6149558    0.6769217   31.2498763 1459.0711035 4505.5348194   67.6160287 4505.6708646 
-     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP   AUC[0-12h] 
-  67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757   91.7355220 
-  AUC[0-24h] 
- 147.6945866 
-```
 
 ## 함수 살펴보기 {#functions}
 

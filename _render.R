@@ -17,9 +17,10 @@ for (fmt in formats) {
   cmd = sprintf("bookdown::render_book('index.Rmd', '%s', quiet = %s)", fmt, quiet)
   res = bookdown:::Rscript(c('-e', shQuote(cmd)))
   if (res != 0) stop('Failed to compile the book to ', fmt)
-  # if (!travis && fmt == 'bookdown::epub_book')
-  #   bookdown::calibre('_book/bookdown.epub', 'mobi')
+  if (!travis && fmt == 'bookdown::epub_book')
+    bookdown::calibre('docs/book-ncar.epub', 'mobi')
 }
+unlink('bookdown.log')
 
 r = '<body onload="window.location = \'https://bookdown.org/yihui\'+location.pathname">'
 for (f in list.files('_book', '[.]html$', full.names = TRUE)) {
@@ -31,8 +32,9 @@ for (f in list.files('_book', '[.]html$', full.names = TRUE)) {
   # shorter title on the toolbar
   if (!is.na(i)) x[i] = gsub('bookdown: ', '', x[i], fixed = TRUE)
   i = c(
-    grep('^\\s*<meta name="generator" content="bookdown [.0-9]+ and GitBook [.0-9]+">$', x),
-    grep('^<meta name="date" content="[-0-9]+">$', x)
+    grep('&lt;bytecode: 0x[0-9a-f]+&gt;$', x),
+    grep('^\\s*<meta name="generator" content="bookdown [.0-9]+ and GitBook [.0-9]+" />$', x),
+    grep('^<meta name="date" content="[-0-9]+" />$', x)
   )
   if (travis && length(i)) x = x[-i]
   writeLines(x, f)

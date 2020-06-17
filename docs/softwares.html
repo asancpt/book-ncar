@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-16" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -254,7 +254,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">B.1</span> 이 장에서는</h2>
 <p>이 장에서는 몇가지 NCA 용 소프트웨어(상용 소프웨어, R 패키지)를 비교하고 분석하여 그 결과와 사용법의 공통점과 차이점을 알아볼 것입니다.
 특별히 Theoph 데이타셋에서 C<sub>max</sub>, AUC<sub>inf</sub>가 동일하게 나오는지 초점을 맞추어 실펴보겠습니다.</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="softwares.html#cb59-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="softwares.html#cb60-1"></a><span class="kw">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div id="certara-phoenix-winnonlin" class="section level2" number="11.2">
 <h2><span class="header-section-number">B.2</span> Certara Phoenix WinNonLin</h2>
@@ -360,16 +360,16 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <li>Experience with R language required</li>
 <li>Generating plots not supported for now (To be supported soon)</li>
 </ul>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="softwares.html#cb61-1"></a><span class="kw">library</span>(PKNCA)</span>
-<span id="cb61-2"><a href="softwares.html#cb61-2"></a></span>
-<span id="cb61-3"><a href="softwares.html#cb61-3"></a>my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</span>
-<span id="cb61-4"><a href="softwares.html#cb61-4"></a>d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</span>
-<span id="cb61-5"><a href="softwares.html#cb61-5"></a>                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</span>
-<span id="cb61-6"><a href="softwares.html#cb61-6"></a>my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</span>
-<span id="cb61-7"><a href="softwares.html#cb61-7"></a>my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</span>
-<span id="cb61-8"><a href="softwares.html#cb61-8"></a>my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</span>
-<span id="cb61-9"><a href="softwares.html#cb61-9"></a>my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb61-10"><a href="softwares.html#cb61-10"></a><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="softwares.html#cb62-1"></a><span class="kw">library</span>(PKNCA)</span>
+<span id="cb62-2"><a href="softwares.html#cb62-2"></a></span>
+<span id="cb62-3"><a href="softwares.html#cb62-3"></a>my.conc &lt;-<span class="st"> </span><span class="kw">PKNCAconc</span>(<span class="kw">as.data.frame</span>(Theoph), conc<span class="op">~</span>Time<span class="op">|</span>Subject)</span>
+<span id="cb62-4"><a href="softwares.html#cb62-4"></a>d.dose &lt;-<span class="st"> </span><span class="kw">unique</span>(datasets<span class="op">::</span>Theoph[datasets<span class="op">::</span>Theoph<span class="op">$</span>Time <span class="op">==</span><span class="st"> </span><span class="dv">0</span>,</span>
+<span id="cb62-5"><a href="softwares.html#cb62-5"></a>                                  <span class="kw">c</span>(<span class="st">&quot;Dose&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;Subject&quot;</span>)])</span>
+<span id="cb62-6"><a href="softwares.html#cb62-6"></a>my.dose &lt;-<span class="st"> </span><span class="kw">PKNCAdose</span>(d.dose, Dose<span class="op">~</span>Time<span class="op">|</span>Subject)</span>
+<span id="cb62-7"><a href="softwares.html#cb62-7"></a>my.data.automatic &lt;-<span class="st"> </span><span class="kw">PKNCAdata</span>(my.conc, my.dose)</span>
+<span id="cb62-8"><a href="softwares.html#cb62-8"></a>my.results.automatic &lt;-<span class="st"> </span><span class="kw">pk.nca</span>(my.data.automatic)</span>
+<span id="cb62-9"><a href="softwares.html#cb62-9"></a>my.results.automatic<span class="op">$</span>result <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(<span class="kw">grepl</span>(<span class="dt">pattern =</span> <span class="st">&quot;cmax|aucinf&quot;</span>, PPTESTCD)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-10"><a href="softwares.html#cb62-10"></a><span class="st">    </span><span class="kw">arrange</span>(PPTESTCD)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -578,7 +578,7 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="softwares.html#cb62-1"></a><span class="kw">summary</span>(my.results.automatic)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="softwares.html#cb63-1"></a><span class="kw">summary</span>(my.results.automatic)</span></code></pre></div>
 <div class="kable-table">
 <table>
 <thead>
@@ -624,28 +624,28 @@ install_github(&quot;billdenney/pknca&quot;)</code></pre>
 <p>NCA Calculation and Population PK Model Diagnosis <span class="citation">(Acharya et al. <a href="#ref-Acharya201683" role="doc-biblioref">2016</a>)</span></p>
 <p><a href="https://cran.r-project.org/web/packages/ncappc/index.html" class="uri">https://cran.r-project.org/web/packages/ncappc/index.html</a>
 <a href="https://www.ncbi.nlm.nih.gov/pubmed/27000291" class="uri">https://www.ncbi.nlm.nih.gov/pubmed/27000291</a></p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="softwares.html#cb63-1"></a><span class="co">#install.packages(&quot;ncappc&quot;)</span></span>
-<span id="cb63-2"><a href="softwares.html#cb63-2"></a><span class="kw">library</span>(ncappc)</span></code></pre></div>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="softwares.html#cb64-1"></a>Theoph <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb64-2"><a href="softwares.html#cb64-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</span>
-<span id="cb64-3"><a href="softwares.html#cb64-3"></a>         <span class="dt">TIME =</span> Time,</span>
-<span id="cb64-4"><a href="softwares.html#cb64-4"></a>         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb64-5"><a href="softwares.html#cb64-5"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</span>
-<span id="cb64-6"><a href="softwares.html#cb64-6"></a></span>
-<span id="cb64-7"><a href="softwares.html#cb64-7"></a>Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</span>
-<span id="cb64-8"><a href="softwares.html#cb64-8"></a>       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb64-9"><a href="softwares.html#cb64-9"></a>       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</span>
-<span id="cb64-10"><a href="softwares.html#cb64-10"></a>       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb64-11"><a href="softwares.html#cb64-11"></a>       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</span>
-<span id="cb64-12"><a href="softwares.html#cb64-12"></a>       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="softwares.html#cb64-1"></a><span class="co">#install.packages(&quot;ncappc&quot;)</span></span>
+<span id="cb64-2"><a href="softwares.html#cb64-2"></a><span class="kw">library</span>(ncappc)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="softwares.html#cb65-1"></a>Theoph <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-2"><a href="softwares.html#cb65-2"></a><span class="st">  </span><span class="kw">rename</span>(<span class="dt">ID =</span> Subject,</span>
+<span id="cb65-3"><a href="softwares.html#cb65-3"></a>         <span class="dt">TIME =</span> Time,</span>
+<span id="cb65-4"><a href="softwares.html#cb65-4"></a>         <span class="dt">DV =</span> conc) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-5"><a href="softwares.html#cb65-5"></a><span class="st">  </span><span class="kw">write_csv</span>(<span class="st">&#39;Theoph_ncappc.csv&#39;</span>)</span>
+<span id="cb65-6"><a href="softwares.html#cb65-6"></a></span>
+<span id="cb65-7"><a href="softwares.html#cb65-7"></a>Theoph_ncappc_results &lt;-<span class="st"> </span><span class="kw">ncappc</span>(<span class="dt">obsFile =</span> <span class="st">&#39;Theoph_ncappc.csv&#39;</span>,</span>
+<span id="cb65-8"><a href="softwares.html#cb65-8"></a>       <span class="dt">onlyNCA =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb65-9"><a href="softwares.html#cb65-9"></a>       <span class="dt">extrapolate =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb65-10"><a href="softwares.html#cb65-10"></a>       <span class="dt">printOut =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb65-11"><a href="softwares.html#cb65-11"></a>       <span class="dt">evid =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb65-12"><a href="softwares.html#cb65-12"></a>       <span class="dt">psnOut=</span><span class="ot">FALSE</span>)</span></code></pre></div>
 <p><img src="book-ncar_files/figure-html/unnamed-chunk-60-1.png" width="100%" /><img src="book-ncar_files/figure-html/unnamed-chunk-60-2.png" width="100%" /></p>
 </div>
 <div id="r-package-pk" class="section level2" number="11.5">
 <h2><span class="header-section-number">B.5</span> R package: PK</h2>
 <p>Basic Non-Compartmental Pharmacokinetics</p>
 <p><a href="https://cran.r-project.org/web/packages/PK/index.html" class="uri">https://cran.r-project.org/web/packages/PK/index.html</a></p>
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="softwares.html#cb65-1"></a><span class="co">#install.packages(&quot;PK&quot;)</span></span>
-<span id="cb65-2"><a href="softwares.html#cb65-2"></a><span class="kw">library</span>(PK)</span></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="softwares.html#cb66-1"></a><span class="co">#install.packages(&quot;PK&quot;)</span></span>
+<span id="cb66-2"><a href="softwares.html#cb66-2"></a><span class="kw">library</span>(PK)</span></code></pre></div>
 </div>
 <div id="kinetica" class="section level2" number="11.6">
 <h2><span class="header-section-number">B.6</span> Kinetica</h2>

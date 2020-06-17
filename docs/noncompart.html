@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-16" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -506,24 +506,22 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <p>맨 마지막 파라미터로 AUC[0-12h], AUC[0-24h]가 추가되었음을 알 수 있습니다.</p>
 <p>개인별 일부 구간의 AUC를 구하는 방법은 아래와 같다.
 예를 들어 0~12시간까지의 AUC, 0~24시간까지의 AUC를 구하고자 한다면 다음과 같이 하면 된다.</p>
-<blockquote>
-<p>iAUC = data.frame(Name=c(“AUC[0-12h]”,“AUC[0-24h]”), Start=c(0,0), End=c(12,24)) ; iAUC</p>
-</blockquote>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="noncompart.html#cb19-1"></a>iAUC =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Name=</span><span class="kw">c</span>(<span class="st">&quot;AUC[0-12h]&quot;</span>,<span class="st">&quot;AUC[0-24h]&quot;</span>), <span class="dt">Start=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">0</span>), <span class="dt">End=</span><span class="kw">c</span>(<span class="dv">12</span>,<span class="dv">24</span>)) ; iAUC</span></code></pre></div>
 <pre><code>    Name Start End</code></pre>
 <p>1 AUC[0-12h] 0 12
 2 AUC[0-24h] 0 24</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="noncompart.html#cb20-1"></a><span class="co">#IntAUC</span></span>
-<span id="cb20-2"><a href="noncompart.html#cb20-2"></a><span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></span></code></pre></div>
-<pre><code>        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ 
-  10.5000000    0.0328125    1.1200000    0.0000000    3.2800000    3.2801465   24.3700000   14.3043776    0.0484570 
-      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO 
-   9.0500000   24.3700000    3.0000000   -0.9999999    0.9999997    0.9999995  148.9230500  148.9230500  216.6119330 
-     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP 
-   0.6769123   31.2489169  216.6149558    0.6769217   31.2498763 1459.0711035 4505.5348194   67.6160287 4505.6708646 
-     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP   AUC[0-12h] 
-  67.6170065    9.7974834   20.8000305   20.8003683   30.4867482   30.4863228    1.4772963    1.4772757   91.7355220 
-  AUC[0-24h] 
- 147.6945866 </code></pre>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="noncompart.html#cb21-1"></a><span class="co">#IntAUC</span></span>
+<span id="cb21-2"><a href="noncompart.html#cb21-2"></a><span class="co">#IntAUC(Theoph[Theoph$Subject==1,&quot;Time&quot;], Theoph[Theoph$Subject==1, &quot;conc&quot;], Dose=320, iAUC=iAUC)</span></span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="noncompart.html#cb22-1"></a>        CMAX        CMAXD         TMAX         TLAG         CLST        CLSTP         TLST       LAMZHL         LAMZ </span>
+<span id="cb22-2"><a href="noncompart.html#cb22-2"></a>  <span class="fl">10.5000000</span>    <span class="fl">0.0328125</span>    <span class="fl">1.1200000</span>    <span class="fl">0.0000000</span>    <span class="fl">3.2800000</span>    <span class="fl">3.2801465</span>   <span class="fl">24.3700000</span>   <span class="fl">14.3043776</span>    <span class="fl">0.0484570</span> </span>
+<span id="cb22-3"><a href="noncompart.html#cb22-3"></a>      LAMZLL       LAMZUL      LAMZNPT       CORRXY           R2        R2ADJ       AUCLST       AUCALL       AUCIFO </span>
+<span id="cb22-4"><a href="noncompart.html#cb22-4"></a>   <span class="fl">9.0500000</span>   <span class="fl">24.3700000</span>    <span class="fl">3.0000000</span>   <span class="fl">-0.9999999</span>    <span class="fl">0.9999997</span>    <span class="fl">0.9999995</span>  <span class="fl">148.9230500</span>  <span class="fl">148.9230500</span>  <span class="fl">216.6119330</span> </span>
+<span id="cb22-5"><a href="noncompart.html#cb22-5"></a>     AUCIFOD       AUCPEO       AUCIFP      AUCIFPD       AUCPEP      AUMCLST      AUMCIFO      AUMCPEO      AUMCIFP </span>
+<span id="cb22-6"><a href="noncompart.html#cb22-6"></a>   <span class="fl">0.6769123</span>   <span class="fl">31.2489169</span>  <span class="fl">216.6149558</span>    <span class="fl">0.6769217</span>   <span class="fl">31.2498763</span> <span class="fl">1459.0711035</span> <span class="fl">4505.5348194</span>   <span class="fl">67.6160287</span> <span class="fl">4505.6708646</span> </span>
+<span id="cb22-7"><a href="noncompart.html#cb22-7"></a>     AUMCPEP     MRTEVLST     MRTEVIFO     MRTEVIFP         VZFO         VZFP         CLFO         CLFP   AUC[<span class="dv">0</span><span class="op">-</span>12h] </span>
+<span id="cb22-8"><a href="noncompart.html#cb22-8"></a>  <span class="fl">67.6170065</span>    <span class="fl">9.7974834</span>   <span class="fl">20.8000305</span>   <span class="fl">20.8003683</span>   <span class="fl">30.4867482</span>   <span class="fl">30.4863228</span>    <span class="fl">1.4772963</span>    <span class="fl">1.4772757</span>   <span class="fl">91.7355220</span> </span>
+<span id="cb22-9"><a href="noncompart.html#cb22-9"></a>  AUC[<span class="dv">0</span><span class="op">-</span>24h] </span>
+<span id="cb22-10"><a href="noncompart.html#cb22-10"></a> <span class="fl">147.6945866</span> </span></code></pre></div>
 </div>
 <div id="functions" class="section level2" number="4.4">
 <h2><span class="header-section-number">4.4</span> 함수 살펴보기</h2>
@@ -531,7 +529,7 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <div id="auc" class="section level3" number="4.4.1">
 <h3><span class="header-section-number">4.4.1</span> AUC</h3>
 <p>AUC와 AUMC를 ‘Linear trapezoidal method’ 혹은 ’linear-up and log-down method’의 두가지 방식으로 계산하게 됩니다.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="noncompart.html#cb22-1"></a><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="noncompart.html#cb23-1"></a><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>])</span></code></pre></div>
 <pre><code>##            [,1]        [,2]
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
@@ -544,7 +542,7 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 ##  [9,]  72.75650  322.298798
 ## [10,]  92.45055  528.521903
 ## [11,] 148.92305 1459.071104</code></pre>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="noncompart.html#cb24-1"></a><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="noncompart.html#cb25-1"></a><span class="kw">AUC</span>(Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;Time&quot;</span>], Theoph[Theoph<span class="op">$</span>Subject<span class="op">==</span><span class="dv">1</span>, <span class="st">&quot;conc&quot;</span>], <span class="dt">down=</span><span class="st">&quot;Log&quot;</span>)</span></code></pre></div>
 <pre><code>##            [,1]        [,2]
 ##  [1,]   0.00000    0.000000
 ##  [2,]   0.44750    0.088750
@@ -562,11 +560,11 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0,
 <div id="long-format" class="section level2" number="4.5">
 <h2><span class="header-section-number">4.5</span> 긴 형식으로 변환하면서 단위 추가하기</h2>
 <p>NonCompart 패키지의 tblNCA()함수를 사용해서 비구획분석 결과를 내면 attr로 names와 units를 등일 갖게 됩니다. 이를 long format의 tidy data로 변환하는 방법은 다음과 같습니다.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="noncompart.html#cb26-1"></a><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-2"><a href="noncompart.html#cb26-2"></a><span class="st">            </span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</span>
-<span id="cb26-3"><a href="noncompart.html#cb26-3"></a>          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>names,</span>
-<span id="cb26-4"><a href="noncompart.html#cb26-4"></a>                 <span class="dt">UNIT =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>units)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb26-5"><a href="noncompart.html#cb26-5"></a><span class="st">  </span><span class="kw">arrange</span>(PPTESTCD)</span></code></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="noncompart.html#cb27-1"></a><span class="kw">left_join</span>(<span class="kw">as_tibble</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb27-2"><a href="noncompart.html#cb27-2"></a><span class="st">            </span><span class="kw">gather</span>(PPTESTCD, PPORRES, <span class="op">-</span>Subject),</span>
+<span id="cb27-3"><a href="noncompart.html#cb27-3"></a>          <span class="kw">tibble</span>(<span class="dt">PPTESTCD =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>names,</span>
+<span id="cb27-4"><a href="noncompart.html#cb27-4"></a>                 <span class="dt">UNIT =</span> <span class="kw">attributes</span>(Theoph_nca)<span class="op">$</span>units)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb27-5"><a href="noncompart.html#cb27-5"></a><span class="st">  </span><span class="kw">arrange</span>(PPTESTCD)</span></code></pre></div>
 <pre><code>## Error: Can&#39;t subset columns that don&#39;t exist.
 ## x Column `Subject` doesn&#39;t exist.</code></pre>
 

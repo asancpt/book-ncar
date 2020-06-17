@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-16" />
+<meta name="date" content="2020-06-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -263,19 +263,19 @@ Some features are
 4) Interval(partial) AUCs with ‘linear’ or ‘log’ interpolation method
 * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="pkr.html#cb41-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb41-2"><a href="pkr.html#cb41-2"></a><span class="kw">library</span>(pkr)</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="pkr.html#cb42-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb42-2"><a href="pkr.html#cb42-2"></a><span class="kw">library</span>(pkr)</span></code></pre></div>
 </div>
 <div id="pkr-manual" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> pkr 사용법</h2>
 <p><code>pkr</code> 함수의 가장 핵심적인 기능은 <code>plotPK()</code> 함수에 있고 이 함수의 인자는 다음과 같습니다.</p>
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="pkr.html#cb42-1"></a><span class="kw">args</span>(plotPK)</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="pkr.html#cb43-1"></a><span class="kw">args</span>(plotPK)</span></code></pre></div>
 <pre><code>## function (concData, id, Time, conc, unitTime = &quot;hr&quot;, unitConc = &quot;ng/mL&quot;, 
 ##     trt = &quot;&quot;, fit = &quot;Linear&quot;, dose = 0, adm = &quot;Extravascular&quot;, 
 ##     dur = 0, outdir = &quot;Output&quot;) 
 ## NULL</code></pre>
 <p><code>Theoph</code> 자료를 갖고 그림을 그리는 명령어를 실행해 보겠습니다.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="pkr.html#cb44-1"></a><span class="kw">plotPK</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">unitTime=</span><span class="st">&quot;hr&quot;</span>, <span class="dt">unitConc=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="pkr.html#cb45-1"></a><span class="kw">plotPK</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">unitTime=</span><span class="st">&quot;hr&quot;</span>, <span class="dt">unitConc=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>)</span></code></pre></div>
 <pre><code>## png 
 ##   2</code></pre>
 <p>조금 기다린 후 <code>Output</code> 폴더를 확인해 보면 세개의 그림 파일이 생성된 것을 알 수 있습니다.</p>
