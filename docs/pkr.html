@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>5 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석</title>
+  <title>5 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석과 생물학적동등성 평가</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="generator" content="bookdown 0.19.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="5 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석" />
+  <meta property="og:title" content="5 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석과 생물학적동등성 평가" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/images/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="5 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석" />
+  <meta name="twitter:title" content="5 R을 사용한 비구획분석 시각화 | R을 사용한 비구획분석과 생물학적동등성 평가" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/images/cover.jpg" />
@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-17" />
+<meta name="date" content="2020-06-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -130,10 +130,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./index.html">R을 사용한 비구획분석</a></li>
+<li><a href="./index.html">R을 사용한 비구획분석과 생물학적동등성 평가</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>책 머리에</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#저자소개"><i class="fa fa-check"></i>저자소개</a></li>
 </ul></li>
@@ -227,7 +227,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="E" data-path="session-info.html"><a href="session-info.html"><i class="fa fa-check"></i><b>E</b> 세션 정보</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
-<li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
+<li><a href="https://pipetbooks.netlify.com">PIPET 출판</a></li>
 
 </ul>
 
@@ -238,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 사용한 비구획분석</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R을 사용한 비구획분석과 생물학적동등성 평가</a>
           </h1>
         </div>
 
@@ -267,20 +267,20 @@ Some features are
 <div id="pkr-manual" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> pkr 사용법</h2>
 <p><code>pkr</code> 함수의 가장 핵심적인 기능은 <code>plotPK()</code> 함수에 있고 이 함수의 인자는 다음과 같습니다.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="pkr.html#cb39-1"></a><span class="kw">args</span>(plotPK)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="pkr.html#cb39-1"></a><span class="kw">args</span>(pkr<span class="op">::</span>plotPK)</span></code></pre></div>
 <pre><code>## function (concData, id, Time, conc, unitTime = &quot;hr&quot;, unitConc = &quot;ng/mL&quot;, 
 ##     trt = &quot;&quot;, fit = &quot;Linear&quot;, dose = 0, adm = &quot;Extravascular&quot;, 
 ##     dur = 0, outdir = &quot;Output&quot;) 
 ## NULL</code></pre>
 <p><code>Theoph</code> 자료를 갖고 그림을 그리는 명령어를 실행해 보겠습니다.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="pkr.html#cb41-1"></a><span class="kw">plotPK</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, <span class="dt">unitTime=</span><span class="st">&quot;hr&quot;</span>, <span class="dt">unitConc=</span><span class="st">&quot;mg/L&quot;</span>, <span class="dt">dose=</span><span class="dv">320</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="pkr.html#cb41-1"></a>pkr<span class="op">::</span><span class="kw">plotPK</span>(<span class="dt">concData =</span> Theoph, <span class="dt">id=</span><span class="st">&quot;Subject&quot;</span>, <span class="dt">Time =</span> <span class="st">&quot;Time&quot;</span>, </span>
+<span id="cb41-2"><a href="pkr.html#cb41-2"></a>            <span class="dt">conc =</span> <span class="st">&quot;conc&quot;</span>, <span class="dt">unitTime=</span><span class="st">&quot;hr&quot;</span>, <span class="dt">unitConc=</span><span class="st">&quot;mg/L&quot;</span>, </span>
+<span id="cb41-3"><a href="pkr.html#cb41-3"></a>            <span class="dt">dose=</span><span class="dv">320</span>, <span class="dt">outdir =</span> <span class="st">&quot;Output-pkr&quot;</span>)</span></code></pre></div>
 <pre><code>## pdf 
 ##   2</code></pre>
 <p>조금 기다린 후 <code>Output</code> 폴더를 확인해 보면 세개의 그림 파일이 생성된 것을 알 수 있습니다.</p>
 <ul>
-<li>./Output/PK Profile Linear Scale for Theoph.tiff</li>
-<li>./Output/PK Profile Log 10 Scale for Theoph.tiff</li>
-<li>./Output/PK Profile with CI for Theoph.tiff</li>
+<li></li>
 </ul>
 <div class="figure"><span id="fig:unnamed-chunk-30"></span>
 <img src="Output/Individual%20PK%20Linear%20Scale%20for%20Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)" width="100%" />
@@ -302,21 +302,10 @@ Figure 5.3: 평균 약동학 파라메터와 그룹 평균 농도-시간 그림 
 </div>
 <p>또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.</p>
 <ul>
-<li>./Output/Individual PK Linear Scale for Theoph.pdf</li>
-<li>./Output/Individual PK Log 10 Scale for Theoph.pdf</li>
+<li></li>
 </ul>
-<div class="figure"><span id="fig:unnamed-chunk-33"></span>
-<img src="Output/Individual%20PK%20Linear%20Scale%20for%20Theoph.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)" width="100%" />
-<p class="caption">
-Figure 5.4: 약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)
-</p>
-</div>
-<div class="figure"><span id="fig:unnamed-chunk-34"></span>
-<img src="Output/Individual%20PK%20Log%2010%20Scale%20for%20Theoph.png" alt="약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)" width="100%" />
-<p class="caption">
-Figure 5.5: 약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)
-</p>
-</div>
+<pre><code>## Error in knitr::include_graphics(&quot;Output-pkr/Individual PK Linear Scale for Theoph.png&quot;): Cannot find the file(s): &quot;Output-pkr/Individual PK Linear Scale for Theoph.png&quot;</code></pre>
+<pre><code>## Error in knitr::include_graphics(&quot;Output-pkr/Individual PK Log 10 Scale for Theoph.png&quot;): Cannot find the file(s): &quot;Output-pkr/Individual PK Log 10 Scale for Theoph.png&quot;</code></pre>
 
 </div>
 </div>
@@ -376,7 +365,7 @@ gitbook.start({
 },
 "download": ["book-ncar.pdf", "book-ncar.epub", "book-ncar.mobi"],
 "toc": {
-"collapse": "none"
+"collapse": "section"
 }
 });
 });

@@ -16,10 +16,8 @@
 devtools::session_info()
 ```
 
-`r if (knitr:::is_html_output()) '# 참고문헌 {-}'`
+# 참고문헌 {-}
 
-```{r, code=readLines('R/write_bib_references.R'), include = FALSE}
-```
 
 
 

@@ -1,15 +1,12 @@
 ---
-#documentclass: book
-#papersize: A4
 #fontsize: 10pt
-#documentclass: krantz
 #geometry: "margin=4in"               
 #geometry: "a4paper,left=1.5in,right=1.5in,top=1in,bottom=1in"
 #geometry: "a4paper, nohead, nomarginpar, left=1.5in,right=1.5in,top=5in,bottom=3in,foot=1in"
 #geometry: "a4paper, nohead, nomarginpar"
 #geometry: "total={6.5in,8.75in}, top=1.2in, left=0.9in, includefoot"
 #geometry: "a4paper, nohead, nomarginpar, left=1.5in,right=1.5in,top=1in,bottom=1in, includeheadfoot"
-title: "R을 사용한 비구획분석"
+title: "R을 사용한 비구획분석과 생물학적동등성 평가"
 author: "배균섭, 한성필, 윤석규, 조용순, 김형섭"
 description: "이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다.  값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다.  무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다."
 date: "`r Sys.Date()`"
@@ -18,10 +15,10 @@ github-repo: asancpt/book-ncar
 cover-image: images/cover.jpg
 bibliography: ["bib/manual.bib", "bib/packages.bib"]
 documentclass: krantz
-biblio-style: apalike
+#biblio-style: apalike
 link-citations: yes
 colorlinks: yes
-fontsize: 12pt
+fontsize: 10pt
 header-includes:
   - \usepackage{kotex}
 ---
@@ -49,10 +46,9 @@ opts_chunk$set(error = TRUE,
 # detach("package:NonCompart", unload = TRUE)
 ```
 
-# Preface {-}
+# 책 머리에 {-}
 
 [<img src="images/cover.jpg" style="max-width:20%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="Github repo" />](https://github.com/asancpt/book-ncar)
-
 
 비구획분석은 약물 농도 자료에 간단한 수학식을 적용합니다. 정확한 자료의 생성과 계산을 위해 오류를 줄이는 것이 중요하지만 현재까지 방식은 '재현가능한 연구' 측면에서 분명한 약점이 존재합니다. 이 책은 무료 통계프로그램인 R을 사용하여 정확한 비구획분석을 수행할 수 있는 방법을 제시합니다. 
 이러한 방법을 통해 값비싼 상용 소프트웨어를 사용한 결과와 동일한 결과를 얻을 수 있음을 실제 임상시험 자료를 통해 반복적으로 확인하였습니다. 

@@ -4,11 +4,11 @@ bookdown::gitbook:
   split_by: chapter
   config:
     toc:
-      collapse: none
+      collapse: section
       before: |
-          <li><a href="./index.html">R을 사용한 비구획분석</a></li>
+          <li><a href="./index.html">R을 사용한 비구획분석과 생물학적동등성 평가</a></li>
       after: |
-          <li><a href="http://github.com/asancpt/book-ncar">book-ncar Github 저장소</a></li>
+          <li><a href="https://pipetbooks.netlify.com">PIPET 출판</a></li>
     download: [pdf, epub, mobi]
     edit: https://github.com/rstudio/bookdown/edit/master/inst/examples/%s
     sharing:

@@ -24,18 +24,20 @@ library(pkr)
 `pkr` 함수의 가장 핵심적인 기능은 `plotPK()` 함수에 있고 이 함수의 인자는 다음과 같습니다.
 
 ```{r}
-args(plotPK)
+args(pkr::plotPK)
 ```
 
 `Theoph` 자료를 갖고 그림을 그리는 명령어를 실행해 보겠습니다.
 
 ```{r message = FALSE}
-plotPK(Theoph, "Subject", "Time", "conc", unitTime="hr", unitConc="mg/L", dose=320)
+pkr::plotPK(concData = Theoph, id="Subject", Time = "Time", 
+			conc = "conc", unitTime="hr", unitConc="mg/L", 
+			dose=320, outdir = "Output-pkr")
 ```
 
 조금 기다린 후 `Output` 폴더를 확인해 보면 세개의 그림 파일이 생성된 것을 알 수 있습니다.
 
-- `r dir('./Output/', pattern = '\\.tiff$', full.names = TRUE) %>% grep(pattern = ' ', value = TRUE) %>% paste(collapse = '\n- ')` 
+- `r dir('./Output-pkr/', pattern = '\\.tiff$', full.names = TRUE) %>% grep(pattern = ' ', value = TRUE) %>% paste(collapse = '\n- ')` 
 
 ```{r include = FALSE}
 files <- dir('Output', pattern = '\\.png$', full.names = TRUE)
@@ -56,14 +58,14 @@ knitr::include_graphics(files[3])
 
 또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.
 
-- `r dir('./Output/', pattern = '\\.pdf$', full.names = TRUE) %>% grep(pattern = ' ', value = TRUE) %>% paste(collapse = '\n- ')` 
+- `r dir('./Output-pkr/', pattern = '\\.pdf$', full.names = TRUE) %>% grep(pattern = ' ', value = TRUE) %>% paste(collapse = '\n- ')` 
 
 
 ```{r, echo = FALSE, fig.cap = '약동학 파라메터와 함께 표시되는 농도-시간 그림 (선형)'}
-knitr::include_graphics('Output/Individual PK Linear Scale for Theoph.png')
+knitr::include_graphics('Output-pkr/Individual PK Linear Scale for Theoph.png')
 ```
 
 ```{r, echo = FALSE, fig.cap = '약동학 파라메터와 함께 표시되는 농도-시간 그림 (로그)'}
-knitr::include_graphics('Output/Individual PK Log 10 Scale for Theoph.png')
+knitr::include_graphics('Output-pkr/Individual PK Log 10 Scale for Theoph.png')
 ```
 

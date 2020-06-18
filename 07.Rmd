@@ -32,12 +32,13 @@ knitr::kable(desc_stat_Theoph_nca, digits = 2)
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
 생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:be)
 
-$$
-\begin{align}
+\begin{equation}
+\begin{split}
   0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
-  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 (\#eq:be)
-\end{align}
-$$
+  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 
+(\#eq:be)
+\end{split}
+\end{equation}
 
 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
 핵심이 되는 함수는 `beNCA()` 입니다. 
@@ -176,7 +177,5 @@ fit_auclast <- lm(formula = AUClast ~ Dose, data = sad_indi_pk_log)
 bind_rows(calc_dp(param = 'Cmax', fit = fit_cmax),
           calc_dp(param = 'AUClast', fit = fit_auclast))
 ```
-
-C~max~는 dose proportionality 기준을 만족하는데 반해 AUC~last~는 만족하지 않는 것을 알 수 있습니다.
 
 
