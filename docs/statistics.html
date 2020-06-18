@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 통계처리 | R을 사용한 비구획분석과 생물학적동등성 평가</title>
+  <title>8 통계처리 | R을 사용한 비구획분석과 생물학적동등성 평가</title>
   <meta name="description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="generator" content="bookdown 0.19.1 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 통계처리 | R을 사용한 비구획분석과 생물학적동등성 평가" />
+  <meta property="og:title" content="8 통계처리 | R을 사용한 비구획분석과 생물학적동등성 평가" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="https://asancpt.github.io/book-ncar/" />
   <meta property="og:image" content="https://asancpt.github.io/book-ncar/images/cover.jpg" />
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="asancpt/book-ncar" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 통계처리 | R을 사용한 비구획분석과 생물학적동등성 평가" />
+  <meta name="twitter:title" content="8 통계처리 | R을 사용한 비구획분석과 생물학적동등성 평가" />
   
   <meta name="twitter:description" content="이 책은 R 패키지를 사용하여 비구획분석을 쉽게 따라할 수 있도록 쓰여졌습니다. 값비싼 상용소프트웨어와 동일한 결과를 얻으면서, 한번 익혀두면 속도와 연속성 측면에서 잇점이 많은 것을 발견할 수 있을 것입니다. 무엇보다 무료로 사용할 수 있는 R기반의 공개 소프트웨어라는 점에서 많은 연구자 혹은 기관에서 손쉽게 설치하고 실행할 수 있으리라 생각됩니다." />
   <meta name="twitter:image" content="https://asancpt.github.io/book-ncar/images/cover.jpg" />
@@ -31,7 +31,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="rsimulation.html"/>
+<link rel="prev" href="bioequivalence.html"/>
 <link rel="next" href="conclusion.html"/>
 <script src="libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -184,14 +184,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.1" data-path="rsimulation.html"><a href="rsimulation.html#shiny"><i class="fa fa-check"></i><b>6.4.1</b> shiny 앱</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>7</b> 통계처리</a>
+<li class="chapter" data-level="7" data-path="bioequivalence.html"><a href="bioequivalence.html"><i class="fa fa-check"></i><b>7</b> 생물학적 동등성</a>
 <ul>
-<li class="chapter" data-level="7.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>7.1</b> 이 장에서는</a></li>
-<li class="chapter" data-level="7.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>7.2</b> 기술통계량 구하기</a></li>
-<li class="chapter" data-level="7.3" data-path="statistics.html"><a href="statistics.html#bioequivalence"><i class="fa fa-check"></i><b>7.3</b> 생물학적 동등성</a></li>
-<li class="chapter" data-level="7.4" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>7.4</b> Dose Proportionality</a></li>
+<li class="chapter" data-level="7.1" data-path="bioequivalence.html"><a href="bioequivalence.html#method"><i class="fa fa-check"></i><b>7.1</b> 이론 및 계산방법</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="bioequivalence.html"><a href="bioequivalence.html#edison-사이언스-앱-r-샤이니-앱과-r-패키지"><i class="fa fa-check"></i><b>7.1.1</b> EDISON 사이언스 앱, R 샤이니 앱과 R 패키지</a></li>
+<li class="chapter" data-level="7.1.2" data-path="bioequivalence.html"><a href="bioequivalence.html#모형"><i class="fa fa-check"></i><b>7.1.2</b> 모형</a></li>
+<li class="chapter" data-level="7.1.3" data-path="bioequivalence.html"><a href="bioequivalence.html#sas-코드"><i class="fa fa-check"></i><b>7.1.3</b> SAS 코드</a></li>
+<li class="chapter" data-level="7.1.4" data-path="bioequivalence.html"><a href="bioequivalence.html#자료의-형태-자료의-구성요소"><i class="fa fa-check"></i><b>7.1.4</b> 자료의 형태, 자료의 구성요소</a></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>8</b> 결론</a></li>
+<li class="chapter" data-level="7.2" data-path="bioequivalence.html"><a href="bioequivalence.html#result"><i class="fa fa-check"></i><b>7.2</b> 결과</a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="bioequivalence.html"><a href="bioequivalence.html#noncompartedison-앱을-통한-비구획분석"><i class="fa fa-check"></i><b>7.2.1</b> NonCompartEdison 앱을 통한 비구획분석</a></li>
+<li class="chapter" data-level="7.2.2" data-path="bioequivalence.html"><a href="bioequivalence.html#edisonbe-앱을-통한-생물학적동등성-판단"><i class="fa fa-check"></i><b>7.2.2</b> edisonBE 앱을 통한 생물학적동등성 판단</a></li>
+<li class="chapter" data-level="7.2.3" data-path="bioequivalence.html"><a href="bioequivalence.html#신뢰구간의-sas-결과값과-비교"><i class="fa fa-check"></i><b>7.2.3</b> 90% 신뢰구간의 SAS 결과값과 비교</a></li>
+<li class="chapter" data-level="7.2.4" data-path="bioequivalence.html"><a href="bioequivalence.html#샘플-수-계산"><i class="fa fa-check"></i><b>7.2.4</b> 샘플 수 계산</a></li>
+<li class="chapter" data-level="7.2.5" data-path="bioequivalence.html"><a href="bioequivalence.html#r-샤이니-앱"><i class="fa fa-check"></i><b>7.2.5</b> R 샤이니 앱</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="bioequivalence.html"><a href="bioequivalence.html#discussion"><i class="fa fa-check"></i><b>7.3</b> 논의</a></li>
+<li class="chapter" data-level="7.4" data-path="bioequivalence.html"><a href="bioequivalence.html#conclusion"><i class="fa fa-check"></i><b>7.4</b> 결론</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="statistics.html"><a href="statistics.html#stat-intro"><i class="fa fa-check"></i><b>8.1</b> 이 장에서는</a></li>
+<li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
+<li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.3</b> Dose Proportionality</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bioequivalence.html"><a href="bioequivalence.html#conclusion"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
@@ -246,22 +265,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="statistics" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> 통계처리</h1>
-<div id="stat-intro" class="section level2" number="7.1">
-<h2><span class="header-section-number">7.1</span> 이 장에서는</h2>
+<div id="statistics" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> 통계처리</h1>
+<div id="stat-intro" class="section level2" number="8.1">
+<h2><span class="header-section-number">8.1</span> 이 장에서는</h2>
 <p>생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.</p>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="statistics.html#cb46-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb46-2"><a href="statistics.html#cb46-2"></a><span class="kw">library</span>(BE)</span>
-<span id="cb46-3"><a href="statistics.html#cb46-3"></a><span class="kw">library</span>(psych)</span></code></pre></div>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="statistics.html#cb57-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb57-2"><a href="statistics.html#cb57-2"></a><span class="kw">library</span>(BE)</span>
+<span id="cb57-3"><a href="statistics.html#cb57-3"></a><span class="kw">library</span>(psych)</span></code></pre></div>
 </div>
-<div id="stat-desc" class="section level2" number="7.2">
-<h2><span class="header-section-number">7.2</span> 기술통계량 구하기</h2>
+<div id="stat-desc" class="section level2" number="8.2">
+<h2><span class="header-section-number">8.2</span> 기술통계량 구하기</h2>
 <p>앞서 <a href="noncompart.html#noncompart">3</a>장에서 구한 <code>Theoph_nca</code>를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. <code>psych::describe()</code> 함수를 사용하면 간단히 구할 수 있습니다.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="statistics.html#cb47-1"></a>desc_stat_Theoph_nca &lt;-<span class="st"> </span><span class="kw">describe</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb47-2"><a href="statistics.html#cb47-2"></a><span class="st">  </span><span class="kw">select</span>(n, mean, sd, min, max, skew, kurtosis)</span>
-<span id="cb47-3"><a href="statistics.html#cb47-3"></a></span>
-<span id="cb47-4"><a href="statistics.html#cb47-4"></a>knitr<span class="op">::</span><span class="kw">kable</span>(desc_stat_Theoph_nca, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="statistics.html#cb58-1"></a>desc_stat_Theoph_nca &lt;-<span class="st"> </span><span class="kw">describe</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb58-2"><a href="statistics.html#cb58-2"></a><span class="st">  </span><span class="kw">select</span>(n, mean, sd, min, max, skew, kurtosis)</span>
+<span id="cb58-3"><a href="statistics.html#cb58-3"></a></span>
+<span id="cb58-4"><a href="statistics.html#cb58-4"></a>knitr<span class="op">::</span><span class="kw">kable</span>(desc_stat_Theoph_nca, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -649,760 +668,39 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 </div>
-<div id="bioequivalence" class="section level2" number="7.3">
-<h2><span class="header-section-number">7.3</span> 생물학적 동등성</h2>
-<p>생물학적 동등성을 위한 가장 간단한 방법은 <code>BE</code> 패키지<span class="citation">(Bae <a href="#ref-R-BE" role="doc-biblioref">2018</a>)</span>를 쓰는 것입니다.</p>
-<p>Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow and Liu <a href="#ref-chow2009design" role="doc-biblioref">2008</a>)</span>
-생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="statistics.html#eq:be">(7.1)</a></p>
-<p><span class="math display" id="eq:be">\[\begin{equation}
-\begin{split}
-  0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \\
-  0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 
-\tag{7.1}
-\end{split}
-\end{equation}\]</span></p>
-<p>현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="statistics.html#fig:twobytwo">7.1</a>)
-핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="statistics.html#cb48-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/twobytwo.jpg&#39;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:twobytwo"></span>
-<img src="images/twobytwo.jpg" alt="전형적인 2x2 설계" width="100%" />
-<p class="caption">
-Figure 7.1: 전형적인 2x2 설계
-</p>
-</div>
-<pre><code>## function (Data, Columns = c(&quot;AUClast&quot;, &quot;Cmax&quot;, &quot;Tmax&quot;), rtfName = &quot;&quot;) 
-## NULL</code></pre>
-<p>다음과 같은 함수 인자를 설정해 주면 됩니다.</p>
-<ul>
-<li>SUBJ: Subject ID, any data type</li>
-<li>GRP: column name in which information of “RT” or “TR” exists.</li>
-<li>PRD: column name in which information of 1 or 2 exists.</li>
-<li>TRT: column name in which information of “R” or “T” exists.</li>
-<li>method: <code>kbe</code> by authors or <code>nlme</code> package uploaded on CRAN</li>
-</ul>
-<p>ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table <a href="statistics.html#tab:beconcdata">7.1</a>)</p>
-<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="statistics.html#cb50-1"></a>file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;example&#39;</span>, <span class="st">&#39;beConc.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;ncarbe&#39;</span>)</span>
-<span id="cb50-2"><a href="statistics.html#cb50-2"></a>concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</span></code></pre></div>
-<table>
-<caption><span id="tab:beconcdata">Table 7.1: </span>A example dataset for the bioequivalence test.</caption>
-<thead>
-<tr class="header">
-<th align="right">SUBJ</th>
-<th align="left">GRP</th>
-<th align="right">PRD</th>
-<th align="left">TRT</th>
-<th align="right">AUClast</th>
-<th align="right">Cmax</th>
-<th align="right">Tmax</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">5018.927</td>
-<td align="right">1043.13</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="even">
-<td align="right">1</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6737.507</td>
-<td align="right">894.21</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4373.970</td>
-<td align="right">447.26</td>
-<td align="right">1.01</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">6164.276</td>
-<td align="right">783.92</td>
-<td align="right">1.98</td>
-</tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5592.993</td>
-<td align="right">824.42</td>
-<td align="right">1.97</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5958.160</td>
-<td align="right">646.31</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3902.590</td>
-<td align="right">803.70</td>
-<td align="right">0.80</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4620.156</td>
-<td align="right">955.30</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="odd">
-<td align="right">6</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">3735.274</td>
-<td align="right">995.34</td>
-<td align="right">1.02</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">4257.802</td>
-<td align="right">816.33</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4314.993</td>
-<td align="right">608.99</td>
-<td align="right">0.95</td>
-</tr>
-<tr class="even">
-<td align="right">7</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5030.372</td>
-<td align="right">806.57</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="odd">
-<td align="right">8</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">6053.098</td>
-<td align="right">1283.67</td>
-<td align="right">0.72</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5790.067</td>
-<td align="right">822.95</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4602.582</td>
-<td align="right">679.39</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="even">
-<td align="right">9</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6042.462</td>
-<td align="right">556.55</td>
-<td align="right">0.98</td>
-</tr>
-<tr class="odd">
-<td align="right">10</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">8848.988</td>
-<td align="right">1136.91</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">7349.822</td>
-<td align="right">1082.79</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3054.096</td>
-<td align="right">547.73</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">11</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4719.175</td>
-<td align="right">984.69</td>
-<td align="right">0.54</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4828.682</td>
-<td align="right">615.17</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="even">
-<td align="right">13</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">4175.434</td>
-<td align="right">692.26</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="odd">
-<td align="right">14</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4566.275</td>
-<td align="right">864.56</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5042.649</td>
-<td align="right">1122.75</td>
-<td align="right">0.75</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4950.980</td>
-<td align="right">719.40</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="even">
-<td align="right">15</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4959.554</td>
-<td align="right">660.17</td>
-<td align="right">0.96</td>
-</tr>
-<tr class="odd">
-<td align="right">16</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4577.432</td>
-<td align="right">609.64</td>
-<td align="right">3.01</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">4773.723</td>
-<td align="right">807.65</td>
-<td align="right">1.01</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">6462.652</td>
-<td align="right">861.56</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">17</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5246.032</td>
-<td align="right">1187.75</td>
-<td align="right">0.73</td>
-</tr>
-<tr class="odd">
-<td align="right">18</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4754.625</td>
-<td align="right">919.87</td>
-<td align="right">0.77</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">3214.809</td>
-<td align="right">1042.84</td>
-<td align="right">0.53</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">7619.304</td>
-<td align="right">1089.84</td>
-<td align="right">3.00</td>
-</tr>
-<tr class="even">
-<td align="right">19</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5210.569</td>
-<td align="right">1127.94</td>
-<td align="right">2.04</td>
-</tr>
-<tr class="odd">
-<td align="right">20</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5063.471</td>
-<td align="right">1191.46</td>
-<td align="right">0.71</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">6406.634</td>
-<td align="right">1069.19</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="odd">
-<td align="right">21</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">5580.289</td>
-<td align="right">742.67</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="even">
-<td align="right">21</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6304.119</td>
-<td align="right">447.85</td>
-<td align="right">0.99</td>
-</tr>
-<tr class="odd">
-<td align="right">22</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4398.887</td>
-<td align="right">682.73</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">3760.359</td>
-<td align="right">669.01</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="odd">
-<td align="right">23</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5141.165</td>
-<td align="right">937.02</td>
-<td align="right">0.51</td>
-</tr>
-<tr class="even">
-<td align="right">23</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5835.275</td>
-<td align="right">894.72</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="odd">
-<td align="right">24</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4343.439</td>
-<td align="right">713.57</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="even">
-<td align="right">24</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">2848.448</td>
-<td align="right">811.83</td>
-<td align="right">0.71</td>
-</tr>
-<tr class="odd">
-<td align="right">25</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3983.260</td>
-<td align="right">1160.32</td>
-<td align="right">0.73</td>
-</tr>
-<tr class="even">
-<td align="right">25</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">3476.389</td>
-<td align="right">769.63</td>
-<td align="right">0.78</td>
-</tr>
-<tr class="odd">
-<td align="right">27</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5772.972</td>
-<td align="right">1219.56</td>
-<td align="right">0.99</td>
-</tr>
-<tr class="even">
-<td align="right">27</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">7673.260</td>
-<td align="right">1063.29</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">28</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">5679.039</td>
-<td align="right">650.24</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="even">
-<td align="right">28</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5160.875</td>
-<td align="right">891.63</td>
-<td align="right">1.05</td>
-</tr>
-<tr class="odd">
-<td align="right">29</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4800.455</td>
-<td align="right">770.63</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">29</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5772.925</td>
-<td align="right">738.17</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="odd">
-<td align="right">30</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4722.324</td>
-<td align="right">1034.11</td>
-<td align="right">0.77</td>
-</tr>
-<tr class="even">
-<td align="right">30</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">2896.939</td>
-<td align="right">569.22</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">31</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">8032.393</td>
-<td align="right">1043.82</td>
-<td align="right">1.98</td>
-</tr>
-<tr class="even">
-<td align="right">31</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6076.359</td>
-<td align="right">1141.43</td>
-<td align="right">0.96</td>
-</tr>
-<tr class="odd">
-<td align="right">32</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4245.372</td>
-<td align="right">608.93</td>
-<td align="right">2.97</td>
-</tr>
-<tr class="even">
-<td align="right">32</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4745.770</td>
-<td align="right">539.66</td>
-<td align="right">2.04</td>
-</tr>
-<tr class="odd">
-<td align="right">33</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3648.195</td>
-<td align="right">856.18</td>
-<td align="right">0.76</td>
-</tr>
-<tr class="even">
-<td align="right">33</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">3356.777</td>
-<td align="right">647.95</td>
-<td align="right">0.98</td>
-</tr>
-<tr class="odd">
-<td align="right">34</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5015.499</td>
-<td align="right">739.42</td>
-<td align="right">0.96</td>
-</tr>
-<tr class="even">
-<td align="right">34</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">6325.746</td>
-<td align="right">682.41</td>
-<td align="right">1.99</td>
-</tr>
-<tr class="odd">
-<td align="right">35</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">6259.347</td>
-<td align="right">1020.55</td>
-<td align="right">1.96</td>
-</tr>
-<tr class="even">
-<td align="right">35</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5802.468</td>
-<td align="right">835.87</td>
-<td align="right">2.04</td>
-</tr>
-<tr class="odd">
-<td align="right">36</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4669.384</td>
-<td align="right">682.87</td>
-<td align="right">3.01</td>
-</tr>
-<tr class="even">
-<td align="right">36</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">3783.584</td>
-<td align="right">729.63</td>
-<td align="right">1.00</td>
-</tr>
-</tbody>
-</table>
-<p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="statistics.html#cb51-1"></a><span class="kw">print</span>(<span class="kw">be2x2</span>(NCAResult4BE, <span class="kw">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>)), <span class="dt">na.print=</span><span class="st">&quot;&quot;</span>) </span></code></pre></div>
-<pre><code>## $AUClast
-## $AUClast$`Analysis of Variance (log scale)`
-##                          SS DF           MS           F            p
-## SUBJECT        2.875497e+00 32 8.985928e-02 3.183942248 0.0008742828
-## GROUP          1.024607e-01  1 1.024607e-01 1.145416548 0.2927731856
-## SUBJECT(GROUP) 2.773036e+00 31 8.945279e-02 3.169539016 0.0009544080
-## PERIOD         3.027399e-05  1 3.027399e-05 0.001072684 0.9740824428
-## DRUG           3.643467e-02  1 3.643467e-02 1.290972690 0.2645764201
-## ERROR          8.749021e-01 31 2.822265e-02                         
-## TOTAL          3.786834e+00 65                                      
-## 
-## $AUClast$`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                    0.03061507     0.02822265
-## Coefficient of Variation, CV(%)     17.63193968    16.91883011
-## 
-## $AUClast$`Least Square Means (geometric mean)`
-##                 Reference Drug Test Drug
-## Geometric Means       5092.098  4858.245
-## 
-## $AUClast$`90% Confidence Interval of Geometric Mean Ratio (T/R)`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio    0.889436      0.9540753    1.023412
-## 
-## $AUClast$`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size            6                         7
-## 
-## 
-## $Cmax
-## $Cmax$`Analysis of Variance (log scale)`
-##                          SS DF           MS           F          p
-## SUBJECT        2.861492e+00 32 8.942162e-02 2.237604579 0.01367095
-## GROUP          9.735789e-05  1 9.735789e-05 0.001054764 0.97429977
-## SUBJECT(GROUP) 2.861394e+00 31 9.230304e-02 2.309706785 0.01131826
-## PERIOD         4.717497e-03  1 4.717497e-03 0.118046317 0.73348258
-## DRUG           6.837756e-03  1 6.837756e-03 0.171101730 0.68198228
-## ERROR          1.238856e+00 31 3.996310e-02                       
-## TOTAL          4.112258e+00 65                                    
-## 
-## $Cmax$`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                    0.02616997      0.0399631
-## Coefficient of Variation, CV(%)     16.28355371     20.1921690
-## 
-## $Cmax$`Least Square Means (geometric mean)`
-##                 Reference Drug Test Drug
-## Geometric Means       825.5206  808.8778
-## 
-## $Cmax$`90% Confidence Interval of Geometric Mean Ratio (T/R)`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.9013625      0.9798396    1.065149
-## 
-## $Cmax$`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size            8                         8
-## 
-## 
-## $Tmax
-## $Tmax$`Wilcoxon Signed-Rank Test`
-##   p-value 
-## 0.2326894 
-## 
-## $Tmax$`Hodges-Lehmann Estimate`
-##                            Lower Limit Point Estimate Upper Limit
-## 90% Confidence Interval       -0.33000       -0.03500      0.1050
-## 90% Confidence Interval(%)    74.37661       97.28237    108.1529</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="statistics.html#cb53-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/fixed-random.jpg&#39;</span>)</span></code></pre></div>
-<div class="figure"><span id="fig:fixedrandom"></span>
-<img src="images/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="100%" />
-<p class="caption">
-Figure 7.2: 모수 인자와 변량 인자의 비교
-</p>
-</div>
-</div>
-<div id="dp" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> Dose Proportionality</h2>
+<div id="dp" class="section level2" number="8.3">
+<h2><span class="header-section-number">8.3</span> Dose Proportionality</h2>
 <p>DP 처리.</p>
-<p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. Table <a href="statistics.html#tab:sad-pk">7.2</a></p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="statistics.html#cb54-1"></a><span class="co"># setup ----</span></span>
-<span id="cb54-2"><a href="statistics.html#cb54-2"></a></span>
-<span id="cb54-3"><a href="statistics.html#cb54-3"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb54-4"><a href="statistics.html#cb54-4"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb54-5"><a href="statistics.html#cb54-5"></a><span class="kw">library</span>(broom)</span>
-<span id="cb54-6"><a href="statistics.html#cb54-6"></a></span>
-<span id="cb54-7"><a href="statistics.html#cb54-7"></a>dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span></span>
-<span id="cb54-8"><a href="statistics.html#cb54-8"></a><span class="st">&#39;Dose,Subject,Cmax,AUClast</span></span>
-<span id="cb54-9"><a href="statistics.html#cb54-9"></a><span class="st">50,101,860,2000</span></span>
-<span id="cb54-10"><a href="statistics.html#cb54-10"></a><span class="st">50,102,510,2300</span></span>
-<span id="cb54-11"><a href="statistics.html#cb54-11"></a><span class="st">50,103,620,2900</span></span>
-<span id="cb54-12"><a href="statistics.html#cb54-12"></a><span class="st">50,104,540,2400</span></span>
-<span id="cb54-13"><a href="statistics.html#cb54-13"></a><span class="st">100,201,1550,6600</span></span>
-<span id="cb54-14"><a href="statistics.html#cb54-14"></a><span class="st">100,202,1440,7400</span></span>
-<span id="cb54-15"><a href="statistics.html#cb54-15"></a><span class="st">100,203,2000,7300</span></span>
-<span id="cb54-16"><a href="statistics.html#cb54-16"></a><span class="st">100,204,1600,7000</span></span>
-<span id="cb54-17"><a href="statistics.html#cb54-17"></a><span class="st">200,301,4100,20400</span></span>
-<span id="cb54-18"><a href="statistics.html#cb54-18"></a><span class="st">200,302,2800,9500</span></span>
-<span id="cb54-19"><a href="statistics.html#cb54-19"></a><span class="st">200,303,3200,8000</span></span>
-<span id="cb54-20"><a href="statistics.html#cb54-20"></a><span class="st">200,304,2550,7070</span></span>
-<span id="cb54-21"><a href="statistics.html#cb54-21"></a><span class="st">400,401,4800,22000</span></span>
-<span id="cb54-22"><a href="statistics.html#cb54-22"></a><span class="st">400,402,5700,23000</span></span>
-<span id="cb54-23"><a href="statistics.html#cb54-23"></a><span class="st">400,403,5800,26700</span></span>
-<span id="cb54-24"><a href="statistics.html#cb54-24"></a><span class="st">400,404,5760,28884&#39;</span></span>
-<span id="cb54-25"><a href="statistics.html#cb54-25"></a></span>
-<span id="cb54-26"><a href="statistics.html#cb54-26"></a>sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)</span>
-<span id="cb54-27"><a href="statistics.html#cb54-27"></a>knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</span></code></pre></div>
+<p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. Table <a href="statistics.html#tab:sad-pk">8.1</a></p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="statistics.html#cb59-1"></a><span class="co"># setup ----</span></span>
+<span id="cb59-2"><a href="statistics.html#cb59-2"></a></span>
+<span id="cb59-3"><a href="statistics.html#cb59-3"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb59-4"><a href="statistics.html#cb59-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb59-5"><a href="statistics.html#cb59-5"></a><span class="kw">library</span>(broom)</span>
+<span id="cb59-6"><a href="statistics.html#cb59-6"></a></span>
+<span id="cb59-7"><a href="statistics.html#cb59-7"></a>dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span></span>
+<span id="cb59-8"><a href="statistics.html#cb59-8"></a><span class="st">&#39;Dose,Subject,Cmax,AUClast</span></span>
+<span id="cb59-9"><a href="statistics.html#cb59-9"></a><span class="st">50,101,860,2000</span></span>
+<span id="cb59-10"><a href="statistics.html#cb59-10"></a><span class="st">50,102,510,2300</span></span>
+<span id="cb59-11"><a href="statistics.html#cb59-11"></a><span class="st">50,103,620,2900</span></span>
+<span id="cb59-12"><a href="statistics.html#cb59-12"></a><span class="st">50,104,540,2400</span></span>
+<span id="cb59-13"><a href="statistics.html#cb59-13"></a><span class="st">100,201,1550,6600</span></span>
+<span id="cb59-14"><a href="statistics.html#cb59-14"></a><span class="st">100,202,1440,7400</span></span>
+<span id="cb59-15"><a href="statistics.html#cb59-15"></a><span class="st">100,203,2000,7300</span></span>
+<span id="cb59-16"><a href="statistics.html#cb59-16"></a><span class="st">100,204,1600,7000</span></span>
+<span id="cb59-17"><a href="statistics.html#cb59-17"></a><span class="st">200,301,4100,20400</span></span>
+<span id="cb59-18"><a href="statistics.html#cb59-18"></a><span class="st">200,302,2800,9500</span></span>
+<span id="cb59-19"><a href="statistics.html#cb59-19"></a><span class="st">200,303,3200,8000</span></span>
+<span id="cb59-20"><a href="statistics.html#cb59-20"></a><span class="st">200,304,2550,7070</span></span>
+<span id="cb59-21"><a href="statistics.html#cb59-21"></a><span class="st">400,401,4800,22000</span></span>
+<span id="cb59-22"><a href="statistics.html#cb59-22"></a><span class="st">400,402,5700,23000</span></span>
+<span id="cb59-23"><a href="statistics.html#cb59-23"></a><span class="st">400,403,5800,26700</span></span>
+<span id="cb59-24"><a href="statistics.html#cb59-24"></a><span class="st">400,404,5760,28884&#39;</span></span>
+<span id="cb59-25"><a href="statistics.html#cb59-25"></a></span>
+<span id="cb59-26"><a href="statistics.html#cb59-26"></a>sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)</span>
+<span id="cb59-27"><a href="statistics.html#cb59-27"></a>knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</span></code></pre></div>
 <table>
-<caption><span id="tab:sad-pk">Table 7.2: </span>16명의 C<sub>max</sub>, AUC<sub>last</sub></caption>
+<caption><span id="tab:sad-pk">Table 8.1: </span>16명의 C<sub>max</sub>, AUC<sub>last</sub></caption>
 <thead>
 <tr class="header">
 <th align="right">Dose</th>
@@ -1511,53 +809,53 @@ Figure 7.2: 모수 인자와 변량 인자의 비교
 </tbody>
 </table>
 <p>그림을 살펴보겠습니다.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="statistics.html#cb55-1"></a>sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</span>
-<span id="cb55-2"><a href="statistics.html#cb55-2"></a></span>
-<span id="cb55-3"><a href="statistics.html#cb55-3"></a>figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span></span>
-<span id="cb55-4"><a href="statistics.html#cb55-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
-<span id="cb55-5"><a href="statistics.html#cb55-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
-<span id="cb55-6"><a href="statistics.html#cb55-6"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
-<span id="cb55-7"><a href="statistics.html#cb55-7"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
-<span id="cb55-8"><a href="statistics.html#cb55-8"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
-<span id="cb55-9"><a href="statistics.html#cb55-9"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
-<span id="cb55-10"><a href="statistics.html#cb55-10"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb55-11"><a href="statistics.html#cb55-11"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
-<span id="cb55-12"><a href="statistics.html#cb55-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),</span>
-<span id="cb55-13"><a href="statistics.html#cb55-13"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))</span>
-<span id="cb55-14"><a href="statistics.html#cb55-14"></a>figA</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="statistics.html#cb60-1"></a>sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</span>
+<span id="cb60-2"><a href="statistics.html#cb60-2"></a></span>
+<span id="cb60-3"><a href="statistics.html#cb60-3"></a>figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span></span>
+<span id="cb60-4"><a href="statistics.html#cb60-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
+<span id="cb60-5"><a href="statistics.html#cb60-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
+<span id="cb60-6"><a href="statistics.html#cb60-6"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
+<span id="cb60-7"><a href="statistics.html#cb60-7"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb60-8"><a href="statistics.html#cb60-8"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
+<span id="cb60-9"><a href="statistics.html#cb60-9"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb60-10"><a href="statistics.html#cb60-10"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb60-11"><a href="statistics.html#cb60-11"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
+<span id="cb60-12"><a href="statistics.html#cb60-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),</span>
+<span id="cb60-13"><a href="statistics.html#cb60-13"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))</span>
+<span id="cb60-14"><a href="statistics.html#cb60-14"></a>figA</span></code></pre></div>
 <p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.svg" width="100%" /></p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="statistics.html#cb56-1"></a>figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span></span>
-<span id="cb56-2"><a href="statistics.html#cb56-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
-<span id="cb56-3"><a href="statistics.html#cb56-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
-<span id="cb56-4"><a href="statistics.html#cb56-4"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
-<span id="cb56-5"><a href="statistics.html#cb56-5"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
-<span id="cb56-6"><a href="statistics.html#cb56-6"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
-<span id="cb56-7"><a href="statistics.html#cb56-7"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
-<span id="cb56-8"><a href="statistics.html#cb56-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb56-9"><a href="statistics.html#cb56-9"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
-<span id="cb56-10"><a href="statistics.html#cb56-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),</span>
-<span id="cb56-11"><a href="statistics.html#cb56-11"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))</span>
-<span id="cb56-12"><a href="statistics.html#cb56-12"></a>figB</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="statistics.html#cb61-1"></a>figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span></span>
+<span id="cb61-2"><a href="statistics.html#cb61-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
+<span id="cb61-3"><a href="statistics.html#cb61-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
+<span id="cb61-4"><a href="statistics.html#cb61-4"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
+<span id="cb61-5"><a href="statistics.html#cb61-5"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb61-6"><a href="statistics.html#cb61-6"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
+<span id="cb61-7"><a href="statistics.html#cb61-7"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb61-8"><a href="statistics.html#cb61-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb61-9"><a href="statistics.html#cb61-9"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
+<span id="cb61-10"><a href="statistics.html#cb61-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),</span>
+<span id="cb61-11"><a href="statistics.html#cb61-11"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))</span>
+<span id="cb61-12"><a href="statistics.html#cb61-12"></a>figB</span></code></pre></div>
 <p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.svg" width="100%" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="statistics.html#cb57-1"></a>calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {</span>
-<span id="cb57-2"><a href="statistics.html#cb57-2"></a>  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="st">&#39;estimate&#39;</span>, <span class="st">&#39;std.error&#39;</span>), </span>
-<span id="cb57-3"><a href="statistics.html#cb57-3"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </span>
-<span id="cb57-4"><a href="statistics.html#cb57-4"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance</span>
-<span id="cb57-5"><a href="statistics.html#cb57-5"></a>            ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb57-6"><a href="statistics.html#cb57-6"></a><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb57-7"><a href="statistics.html#cb57-7"></a><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb57-8"><a href="statistics.html#cb57-8"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb57-9"><a href="statistics.html#cb57-9"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb57-10"><a href="statistics.html#cb57-10"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb57-11"><a href="statistics.html#cb57-11"></a><span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)</span>
-<span id="cb57-12"><a href="statistics.html#cb57-12"></a>}</span>
-<span id="cb57-13"><a href="statistics.html#cb57-13"></a></span>
-<span id="cb57-14"><a href="statistics.html#cb57-14"></a>fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
-<span id="cb57-15"><a href="statistics.html#cb57-15"></a>fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
-<span id="cb57-16"><a href="statistics.html#cb57-16"></a></span>
-<span id="cb57-17"><a href="statistics.html#cb57-17"></a><span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),</span>
-<span id="cb57-18"><a href="statistics.html#cb57-18"></a>          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="statistics.html#cb62-1"></a>calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {</span>
+<span id="cb62-2"><a href="statistics.html#cb62-2"></a>  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="st">&#39;estimate&#39;</span>, <span class="st">&#39;std.error&#39;</span>), </span>
+<span id="cb62-3"><a href="statistics.html#cb62-3"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </span>
+<span id="cb62-4"><a href="statistics.html#cb62-4"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance</span>
+<span id="cb62-5"><a href="statistics.html#cb62-5"></a>            ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-6"><a href="statistics.html#cb62-6"></a><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-7"><a href="statistics.html#cb62-7"></a><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-8"><a href="statistics.html#cb62-8"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-9"><a href="statistics.html#cb62-9"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-10"><a href="statistics.html#cb62-10"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb62-11"><a href="statistics.html#cb62-11"></a><span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)</span>
+<span id="cb62-12"><a href="statistics.html#cb62-12"></a>}</span>
+<span id="cb62-13"><a href="statistics.html#cb62-13"></a></span>
+<span id="cb62-14"><a href="statistics.html#cb62-14"></a>fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
+<span id="cb62-15"><a href="statistics.html#cb62-15"></a>fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
+<span id="cb62-16"><a href="statistics.html#cb62-16"></a></span>
+<span id="cb62-17"><a href="statistics.html#cb62-17"></a><span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),</span>
+<span id="cb62-18"><a href="statistics.html#cb62-18"></a>          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 5
 ##   parameters est         ci        r.squared  p.value
 ##   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;
@@ -1566,21 +864,12 @@ Figure 7.2: 모수 인자와 변량 인자의 비교
 
 </div>
 </div>
-<h3>참고문헌</h3>
-<div id="refs" class="references">
-<div id="ref-R-BE">
-<p>Bae, Kyun-Seop. 2018. <em>BE: Bioequivalence Study Data Analysis</em>. <a href="https://CRAN.R-project.org/package=BE">https://CRAN.R-project.org/package=BE</a>.</p>
-</div>
-<div id="ref-chow2009design">
-<p>Chow, S. C., and J. Liu. 2008. <em>Design and Analysis of Bioavailability and Bioequivalence Studies</em>. Chapman &amp; Hall/Crc Biostatistics Series. CRC Press. <a href="https://books.google.co.kr/books?id=KtKJFGJeV3MC">https://books.google.co.kr/books?id=KtKJFGJeV3MC</a>.</p>
-</div>
-</div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="rsimulation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="bioequivalence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="conclusion.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -1612,7 +901,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/07.Rmd",
+"link": "https://github.com/rstudio/bookdown/edit/master/inst/examples/08.Rmd",
 "text": "Edit"
 },
 "history": {
