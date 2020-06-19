@@ -220,7 +220,7 @@
 
 \title{R을 사용한 비구획분석과 생물학적동등성 평가}
 \author{배균섭, 한성필, 윤석규, 조용순, 김형섭}
-\date{2020-06-18}
+\date{2020-06-19}
 
 \begin{document}
 \maketitle
@@ -261,7 +261,7 @@ CDISC SDTM 표준을 따르는 용어를 사용한 것도 큰 장점입니다.
 
 감사합니다.
 
-2020-06-18\\
+2020-06-19\\
 대표저자 배균섭\\
 서울아산병원 임상약리학과, 울산대학교 임상약리학교실
 
@@ -1130,7 +1130,7 @@ Some features are
                        \ExtensionTok{Package}\NormalTok{ version 0.4.2 (2019{-}09{-}27 KST)}
                           \ExtensionTok{R}\NormalTok{ version 4.0.1 (2020{-}06{-}06)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2020{-}06{-}18 10:02:46 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2020{-}06{-}19 11:53:28 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -1423,6 +1423,422 @@ TBD
   Han, S. (2016) vtdm: Vancomycin TDM Shiny application. URL: \url{https://asan.shinyapps.io/vtdm}
 \end{itemize}
 
+\hypertarget{bioequivalence}{%
+\chapter{생물학적 동등성}\label{bioequivalence}}
+
+생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다. {[}1{]} 기존 오리지날 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 혈중 농도로부터 구한 약동학적 파라미터(pharmacokinetic parameter) 를 비교하여 평가하게 된다. 비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUCt, Cmax, 반복투약 시 AUCτ, Css,max를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다.
+
+약동학 파라미터는 로그정규분포(log-normal distribution)을 따르고, 대조약과 시험약의 산출된 곡선하 면적(AUC)과 최대 농도 Cmax의 geometric mean ratio가 0.8 \textasciitilde{} 1.25 이내일 때, 약동학적으로 동등하다고 평가하게 된다. {[}2{]}
+
+생물학적 동등성을 평가하는데 통계학은 핵심적인 역할을 수행하고 있고, 통계적 분석을 위해서는 컴퓨터 소프트웨어가 필요하다. SAS, SPSS 등과 같은 통계처리 프로그램을 혹은 독자 개발된 프로그램으로 통계적 검정을 실시할 수 있다. {[}3{]}
+
+그러나 각각의 소프트웨어가 사용하기 어렵고 과정이 복잡하며 큰 비용이 소모되었다. 특히 약동학 분석 초보자나 통계학 비전공자가 사용하기 어려웠다. 본 저자들은 EDISON 사이언스 앱, R 샤이니(Shiny) 앱을 사용하여 이 과정을 연속성을 지닌 한 과정으로 통합하였다. 본 연구가 제시하는 방법을 통해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적 동등성 분석이 가능하다는 것을 보이고자 한다.
+
+생물학적 동등성을 위한 가장 간단한 방법은 \texttt{BE} 패키지\citep{R-BE}를 쓰는 것입니다.
+
+Chow와 Liu의 책의 내용을 충실히 반영하였습니다. \citep{chow2009design}
+생물학적 동등성을 위한 수학 식은 다음과 같습니다. \eqref{eq:bioequiv}
+
+\begin{equation}
+\begin{split}
+  0.8 < & 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
+  0.8 < & 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 
+\end{split}
+\label{eq:bioequiv}
+\end{equation}
+
+현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \ref{fig:twobytwo})
+핵심이 되는 함수는 \texttt{beNCA()} 입니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/twobytwo.jpg\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/twobytwo} \caption{전형적인 2x2 설계}\label{fig:twobytwo}
+\end{figure}
+
+\begin{verbatim}
+## function (Data, Columns = c("AUClast", "Cmax", "Tmax"), rtfName = "") 
+## NULL
+\end{verbatim}
+
+다음과 같은 함수 인자를 설정해 주면 됩니다.
+
+\begin{itemize}
+\tightlist
+\item
+  SUBJ: Subject ID, any data type
+\item
+  GRP: column name in which information of ``RT'' or ``TR'' exists.
+\item
+  PRD: column name in which information of 1 or 2 exists.
+\item
+  TRT: column name in which information of ``R'' or ``T'' exists.
+\item
+  method: \texttt{kbe} by authors or \texttt{nlme} package uploaded on CRAN
+\end{itemize}
+
+\begin{table}
+
+\caption{\label{tab:beconcdata}A example dataset for the bioequivalence test.}
+\centering
+\begin{tabular}[t]{r|l|r|l|r|r|r}
+\hline
+SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\\
+\hline
+1 & RT & 1 & R & 5018.927 & 1043.13 & 1.04\\
+\hline
+1 & RT & 2 & T & 6737.507 & 894.21 & 1.03\\
+\hline
+2 & TR & 1 & T & 4373.970 & 447.26 & 1.01\\
+\hline
+2 & TR & 2 & R & 6164.276 & 783.92 & 1.98\\
+\hline
+4 & TR & 1 & T & 5592.993 & 824.42 & 1.97\\
+\hline
+4 & TR & 2 & R & 5958.160 & 646.31 & 0.97\\
+\hline
+\end{tabular}
+\end{table}
+
+BE 패키지에 내장되어 있는 자료인 \texttt{NCAResult4BE}를 사용하겠습니다. (표 \ref{tab:beconcdata})
+33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라미터 AUC\textsubscript{last}, C\textsubscript{max}, T\textsubscript{max} 자료가 정리되어 있습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{print}\NormalTok{(}\KeywordTok{be2x2}\NormalTok{(NCAResult4BE, }\KeywordTok{c}\NormalTok{(}\StringTok{"AUClast"}\NormalTok{, }\StringTok{"Cmax"}\NormalTok{, }\StringTok{"Tmax"}\NormalTok{)), }\DataTypeTok{na.print=}\StringTok{""}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## $AUClast
+## $AUClast$`Analysis of Variance (log scale)`
+##                          SS DF           MS           F            p
+## SUBJECT        2.875497e+00 32 8.985928e-02 3.183942248 0.0008742828
+## GROUP          1.024607e-01  1 1.024607e-01 1.145416548 0.2927731856
+## SUBJECT(GROUP) 2.773036e+00 31 8.945279e-02 3.169539016 0.0009544080
+## PERIOD         3.027399e-05  1 3.027399e-05 0.001072684 0.9740824428
+## DRUG           3.643467e-02  1 3.643467e-02 1.290972690 0.2645764201
+## ERROR          8.749021e-01 31 2.822265e-02                         
+## TOTAL          3.786834e+00 65                                      
+## 
+## $AUClast$`Between and Within Subject Variability`
+##                                 Between Subject Within Subject
+## Variance Estimate                    0.03061507     0.02822265
+## Coefficient of Variation, CV(%)     17.63193968    16.91883011
+## 
+## $AUClast$`Least Square Means (geometric mean)`
+##                 Reference Drug Test Drug
+## Geometric Means       5092.098  4858.245
+## 
+## $AUClast$`90% Confidence Interval of Geometric Mean Ratio (T/R)`
+##                  Lower Limit Point Estimate Upper Limit
+## 90% CI for Ratio    0.889436      0.9540753    1.023412
+## 
+## $AUClast$`Sample Size`
+##                       True Ratio=1 True Ratio=Point Estimate
+## 80% Power Sample Size            6                         7
+## 
+## 
+## $Cmax
+## $Cmax$`Analysis of Variance (log scale)`
+##                          SS DF           MS           F          p
+## SUBJECT        2.861492e+00 32 8.942162e-02 2.237604579 0.01367095
+## GROUP          9.735789e-05  1 9.735789e-05 0.001054764 0.97429977
+## SUBJECT(GROUP) 2.861394e+00 31 9.230304e-02 2.309706785 0.01131826
+## PERIOD         4.717497e-03  1 4.717497e-03 0.118046317 0.73348258
+## DRUG           6.837756e-03  1 6.837756e-03 0.171101730 0.68198228
+## ERROR          1.238856e+00 31 3.996310e-02                       
+## TOTAL          4.112258e+00 65                                    
+## 
+## $Cmax$`Between and Within Subject Variability`
+##                                 Between Subject Within Subject
+## Variance Estimate                    0.02616997      0.0399631
+## Coefficient of Variation, CV(%)     16.28355371     20.1921690
+## 
+## $Cmax$`Least Square Means (geometric mean)`
+##                 Reference Drug Test Drug
+## Geometric Means       825.5206  808.8778
+## 
+## $Cmax$`90% Confidence Interval of Geometric Mean Ratio (T/R)`
+##                  Lower Limit Point Estimate Upper Limit
+## 90% CI for Ratio   0.9013625      0.9798396    1.065149
+## 
+## $Cmax$`Sample Size`
+##                       True Ratio=1 True Ratio=Point Estimate
+## 80% Power Sample Size            8                         8
+## 
+## 
+## $Tmax
+## $Tmax$`Wilcoxon Signed-Rank Test`
+##   p-value 
+## 0.2326894 
+## 
+## $Tmax$`Hodges-Lehmann Estimate`
+##                            Lower Limit Point Estimate Upper Limit
+## 90% Confidence Interval       -0.33000       -0.03500      0.1050
+## 90% Confidence Interval(%)    74.37661       97.28237    108.1529
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/fixed{-}random.jpg\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/fixed-random} \caption{모수 인자와 변량 인자의 비교}\label{fig:fixedrandom}
+\end{figure}
+
+\hypertarget{method}{%
+\section{이론 및 계산방법}\label{method}}
+
+\hypertarget{edison-uxc0acuxc774uxc5b8uxc2a4-uxc571-r-uxc0e4uxc774uxb2c8-uxc571uxacfc-r-uxd328uxd0a4uxc9c0}{%
+\subsection{EDISON 사이언스 앱, R 샤이니 앱과 R 패키지}\label{edison-uxc0acuxc774uxc5b8uxc2a4-uxc571-r-uxc0e4uxc774uxb2c8-uxc571uxacfc-r-uxd328uxd0a4uxc9c0}}
+
+본 분석에서 사용될 EDISON 사이언스 앱, R 샤이니 앱은 \texttt{NonCompartEdison}, \texttt{edisonBE} 두 종류이다.
+비구획분석과 생물학적동등성 통계 분석을 하게 되며 R 기반 {[}4{]} 으로 프로그래밍 되어 있다.
+각각은 \texttt{NonCompart}와 \texttt{BE}라는 이름의 R 패키지 형태로 공개되어 배포 되고 있다.
+R 콘솔에서는 다음을 입력함으로서 각 라이브러리를 불러올 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"NonCompart"}\NormalTok{)}
+\KeywordTok{install.packages}\NormalTok{(}\StringTok{"BE"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(NonCompart)}
+\KeywordTok{library}\NormalTok{(BE)}
+\end{Highlighting}
+\end{Shaded}
+
+EDISON 사이언스 앱, R 샤이니 앱을 제작하는데 사용한 R 코드 및 자료(datasets)는 \url{https://github.com/asancpt/edison-noncompart}, \url{https://github.com/asancpt/edison-BE} 에 각각 공개되어 있다.
+
+\hypertarget{uxbaa8uxd615}{%
+\subsection{모형}\label{uxbaa8uxd615}}
+
+\[
+Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
+\]
+
+이때에 μ; 전체 평균, Sik; k 번째 sequence에서 i 번째 subject의 효과(랜덤), Pj : j번째 period 의 효과(고정), Fj, k; k 번째 sequence에서 j 번째 period의 제제의 효과(고정), C(j-1,k): k 번째 sequence에서(j-1) 번째 period의 잔류효과(고정), εijk : 오차항으로 정의한다. 이 모델에서 사용하는 가정은 1) Sik ∼ N(0,σs²), 2) εijk ∼ N(0,σe²), 3) Sik 와 εijk가 독립이라는 세가지 이다. 이때 (μT - μR)에 대한 (1-2α)×100\% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두제제가 생물학적으로 동등하다 결론을 내릴 수 있다.
+
+\hypertarget{sas-uxcf54uxb4dc}{%
+\subsection{SAS 코드}\label{sas-uxcf54uxb4dc}}
+
+SAS는 통계 패키지중에서는 가장 방대하고 다양한 분석을 제공하고 전 세계적으로 생물학적동등성의 판단을 위해 표준으로 사용되고 있다. 다음과 같이 2x2 교차설계 자료를 분석하기 위한 SAS 코드 (PROC GLM, PROC MIXED, SAS version 9.4)를 작성하고 EDISON 사이언스 앱, R 샤이니 앱에서 계산된 결과와 비교하였다.
+
+\begin{verbatim}
+PROC GLM DATA=BE OUTSTAT=STATRES; /* GLM use only complete subjects. */
+CLASS SEQ PRD TRT SUBJ;
+MODEL LNAUCL = SEQ SUBJ(SEQ) PRD TRT;
+RANDOM SUBJ(SEQ)/TEST;
+LSMEANS TRT /PDIFF=CONTROL('R') CL ALPHA=0.1 COV OUT=LSOUT;
+
+PROC MIXED DATA=BE; /* MIXED uses all data. */
+CLASS SEQ TRT SUBJ PRD;
+MODEL LNAUCL = SEQ PRD TRT;
+RANDOM SUBJ(SEQ);
+ESTIMATE 'T VS R' TRT -1 1 /CL ALPHA=0.1;
+ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;
+\end{verbatim}
+
+\hypertarget{uxc790uxb8ccuxc758-uxd615uxd0dc-uxc790uxb8ccuxc758-uxad6cuxc131uxc694uxc18c}{%
+\subsection{자료의 형태, 자료의 구성요소}\label{uxc790uxb8ccuxc758-uxd615uxd0dc-uxc790uxb8ccuxc758-uxad6cuxc131uxc694uxc18c}}
+
+2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 피험자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 피험자별로 투약 전후 정해진 시간마다 채혈하고 농도 측정한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과 (보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 혈액 채취 및 혈중농도 측정하게 된다.
+
+본 논문에서는 위와 같은 시나리오로 시뮬레이션을 통해 얻어진 약동학 파라미터를 사용해 자료가 구성되었고, EDISON 사이언스 앱인 NonCompartEdison에서 입력으로 사용될 자료의 형태는 Table 1와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 edisonBE 앱에서 사용되는 약동학 파라미터 자료에도 일종의 primary key로 사용되기 때문에 유사한 형태로 보존되어야 한다. 33명의 대상자의 개인별 농도-시간 그래프는 Figure 1에 나타내었다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{"images/figure{-}conc{-}time{-}curve.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/figure-conc-time-curve} \caption{Concentration-time curves of raw data (N=33)}\label{fig:conc-time-curve}
+\end{figure}
+
+\hypertarget{result}{%
+\section{결과}\label{result}}
+
+\hypertarget{noncompartedison-uxc571uxc744-uxd1b5uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d}{%
+\subsection{NonCompartEdison 앱을 통한 비구획분석}\label{noncompartedison-uxc571uxc744-uxd1b5uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d}}
+
+Table 1. An example of the raw concentration-time data used for EDISON Science Apps. The dataset was simulated based on the 2x2 crossover design.
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC\tabularnewline
+\midrule
+\endhead
+1 & RT & 1 & R & 0 & 0 & 0\tabularnewline
+1 & RT & 1 & R & 0.25 & 0.26 & 511.3\tabularnewline
+1 & RT & 1 & R & 0.5 & 0.46 & 678.79\tabularnewline
+1 & RT & 1 & R & \ldots{} & \ldots{} & \ldots{}\tabularnewline
+1 & RT & 2 & T & 0 & 0 & 0\tabularnewline
+1 & RT & 2 & T & 0.25 & 0.25 & 487.62\tabularnewline
+1 & RT & 2 & T & 0.5 & 0.48 & 769.6\tabularnewline
+\ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{}\tabularnewline
+5 & TR & 1 & T & 0 & 0 & 0\tabularnewline
+5 & TR & 1 & T & 0.25 & 0.23 & 382.79\tabularnewline
+5 & TR & 1 & T & 0.5 & 0.45 & 477.03\tabularnewline
+5 & TR & 1 & T & \ldots{} & \ldots{} & \ldots{}\tabularnewline
+5 & TR & 2 & R & 0 & 0 & 0\tabularnewline
+5 & TR & 2 & R & 0.25 & 0.28 & 596.98\tabularnewline
+5 & TR & 2 & R & 0.5 & 0.47 & 832.76\tabularnewline
+5 & TR & 2 & R & \ldots{} & \ldots{} & \ldots{}\tabularnewline
+\ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{}\tabularnewline
+\bottomrule
+\end{longtable}
+
+농도-시간 입력 자료(Table 1)는 NonCompartEdison 앱을 통해서 처리되어 약동학 파라미터가 계산되어 표형태의 출력 자료가 된다. (Table 2) 이것이 다시 edisonBE 앱의 입력자료가 되어 생물학적동등성 분석을 위해 쓰이게 된다.
+
+Table 2. The raw pharmacokinetic data calculated by NonCompartEdison App
+
+\begin{longtable}[]{@{}lllllll@{}}
+\toprule
+SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\tabularnewline
+\midrule
+\endhead
+1 & RT & 1 & R & 5018.927 & 1043.13 & 1.04\tabularnewline
+1 & RT & 2 & T & 6737.507 & 894.21 & 1.03\tabularnewline
+2 & TR & 1 & T & 4373.97 & 447.26 & 1.01\tabularnewline
+2 & TR & 2 & R & 6164.276 & 783.92 & 1.98\tabularnewline
+4 & TR & 1 & T & 5592.993 & 824.42 & 1.97\tabularnewline
+4 & TR & 2 & R & 5958.16 & 646.31 & 0.97\tabularnewline
+5 & TR & 1 & T & 3902.59 & 803.7 & 0.8\tabularnewline
+5 & TR & 2 & R & 4620.156 & 955.3 & 0.74\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{edisonbe-uxc571uxc744-uxd1b5uxd55c-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxb2e8}{%
+\subsection{edisonBE 앱을 통한 생물학적동등성 판단}\label{edisonbe-uxc571uxc744-uxd1b5uxd55c-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxb2e8}}
+
+약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90\% 신뢰구간, 샘플 수의 계산이 수행된다. (Figure 2) 본 자료로 계산한 AUClast는 생물학적 동등성 기준을 만족하고 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{"assets{-}paper/figure{-}2.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{assets-paper/figure-2} \caption{Output format of bioequivalence tests performed by BE R package.}\label{fig:output-format}
+\end{figure}
+
+
+
+\hypertarget{uxc2e0uxb8b0uxad6cuxac04uxc758-sas-uxacb0uxacfcuxac12uxacfc-uxbe44uxad50}{%
+\subsection{90\% 신뢰구간의 SAS 결과값과 비교}\label{uxc2e0uxb8b0uxad6cuxac04uxc758-sas-uxacb0uxacfcuxac12uxacfc-uxbe44uxad50}}
+
+위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는SAS 소프트웨어 결과값과 완전히 동일하였다. (Table 3)
+
+Table 3. Comparison of 90\% confidence interval for the ratio of the geometric means of (A) AUClast and (B) Cmax
+
+\textbf{A}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Analysis & Lower Limit & Point Estimate & Upper Limit\tabularnewline
+\midrule
+\endhead
+EDISON Science App & 0.88944 & 0.95408 & 1.02341\tabularnewline
+SAS: PROC GLM & 0.88944 & 0.95408 & 1.02341\tabularnewline
+SAS: PROC MIXED & 0.88944 & 0.95408 & 1.02341\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{B}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+Analysis & Lower Limit & Point Estimate & Upper Limit\tabularnewline
+\midrule
+\endhead
+EDISON Science App & 0.90136 & 0.97984 & 1.06515\tabularnewline
+SAS: PROC GLM & 0.90136 & 0.97984 & 1.06515\tabularnewline
+SAS: PROC MIXED & 0.90136 & 0.97984 & 1.06515\tabularnewline
+\bottomrule
+\end{longtable}
+
+\hypertarget{uxc0d8uxd50c-uxc218-uxacc4uxc0b0}{%
+\subsection{샘플 수 계산}\label{uxc0d8uxd50c-uxc218-uxacc4uxc0b0}}
+
+BE 패키지를 통한 분석은 Between subject CV값과 Within Subject CV를 계산한다. 이에 근거하여 80\%의 파워로 계산한 샘플수 계산을 수행하며 T/R 비 (ratio) 가 1일 때와 점추정치일 경우를 각각 계산하여 결과를 출력한다.
+본 자료로 계산한 AUClast의 개인간 (between subject) CV값은 17.63\%, 개인내 (within subject) CV값은 16.92\%인 것을 알 수 있고 80\% 파워로 계산한 샘플 수는 GMR이 1인 경우 6명, 점추정치인 0.95와 같은 경우 7명이 나오게 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{test2x2}\NormalTok{(NCAResult4BE, }\StringTok{"AUClast"}\NormalTok{)}\OperatorTok{$}\StringTok{\textasciigrave{}}\DataTypeTok{Sample Size}\StringTok{\textasciigrave{}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                       True Ratio=1 True Ratio=Point Estimate
+## 80% Power Sample Size            6                         7
+\end{verbatim}
+
+\hypertarget{r-uxc0e4uxc774uxb2c8-uxc571}{%
+\subsection{R 샤이니 앱}\label{r-uxc0e4uxc774uxb2c8-uxc571}}
+
+\texttt{shiny-be}는 비구획분석과 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 \url{http://www.pipetapps.com/shiny-be} 에서 무료로 서비스 하고 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{"images/figure{-}shiny{-}be.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/figure-shiny-be} \caption{R 샤이니 앱, \texttt{shiny-be} 접속 화면. \url{http://www.pipetapps.com/shiny-be}}\label{fig:shiny-be}
+\end{figure}
+
+
+
+\hypertarget{discussion}{%
+\section{논의}\label{discussion}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{"images/figure{-}traditional{-}proposed.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\includegraphics[width=1\linewidth]{images/figure-traditional-proposed} \caption{Comparison between a traditional analysis process (left boxes) and the proposed process (right boxes) using EDISON Science Apps.}\label{fig:traditional-proposed}
+\end{figure}
+
+
+
+본 연구는 EDISON 사이언스 앱, R 샤이니 앱을 사용해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적동등성 분석법을 제시하였다.
+현재는 이러한 분석을 위해서 여러 상용 소프트웨어를 필요로 하는 복잡한 단계를 거쳐야 한다. (Figure 3) 따라서 분석 시간이 오래 걸리고 많은 비용이 소모되었다. 본 저자들은 EDISON 사이언스 앱, R 샤이니 앱을 사용하여 이 두 과정을 통합하였고, 이로서 농도-시간 자료로부터 비구획분석과 생물학적동등성 통계 분석까지 연속적으로 가능케 하였다.
+본 분석에서 학계와 산업계에서 가장 정확하게 생물학적 동등성을 평가한다고 말하는 SAS통계 패키지와의 비교를 통해 EDISON 사이언스 앱, R 샤이니 앱을 사용한 생물학적 동등성 분석이 정확한 값을 제시함을 검증할 수 있었다.
+학생들의 교육에 효과적인 EDISON 사이언스 앱, R 샤이니 앱으로 개발되어 약리학 과목의 필수항목인 약동학의 교육에의 활용도 기대된다. 또한 임상시험 산업계에서도 많은 비용을 절감할 수 있을 것으로 기대된다.
+아직은 2x2 교차 설계에서 얻어진 자료로만 분석이 가능하다는 한계를 갖고 있지만 앞으로 다양한 설계를 갖는 자료가 사용 가능하도록 업데이트가 가능할 것이다.
+
+본 연구가 제시하는 EDISON 사이언스 앱, R 샤이니 앱을 통한 방법을 통해 정확한 분석을 빠른 시간에 수행할 수 있을 뿐만 아니라 오류를 줄이고 비용을 절감하는 효과를 가져올 수 있다.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  식품의약품안전청 식. 동등생물의약품 평가 가이드라인. 2009.
+\item
+  Chow S-C, Liu J-p.~Design and analysis of bioavailability and bioequivalence studies. Chapman \& Hall/CRC biostatistics series, vol 27, 3rd edn. CRC Press, Boca Raton, 2009
+\item
+  Yoon S-H, Hwang N-A, Lim Y-C, Lee Y-B, Park J-S. Development of BioEquiv, a Computer Program for the Analysis of Bioequivalence. Journal of Korean Pharmaceutical Sciences 2010;40:1-7. doi: 10.4333/kps.2010.40.1.001.
+\item
+  R Core Team, R Foundation for Statistical Computing. R: A Language and Environment for Statistical Computing. \url{https://www.R-project.org/} 2018
+\end{enumerate}
+
 \hypertarget{statistics}{%
 \chapter{통계처리}\label{statistics}}
 
@@ -1532,296 +1948,6 @@ CLFO* & 12 & 2.81 & 0.68 & 1.48 & 3.80 & -0.45 & -0.93\\
 CLFP* & 12 & 2.81 & 0.68 & 1.48 & 3.79 & -0.46 & -0.93\\
 \hline
 \end{tabular}
-
-\hypertarget{bioequivalence}{%
-\section{생물학적 동등성}\label{bioequivalence}}
-
-생물학적 동등성을 위한 가장 간단한 방법은 \texttt{BE} 패키지\citep{R-BE}를 쓰는 것입니다.
-
-Chow와 Liu의 책의 내용을 충실히 반영하였습니다. \citep{chow2009design}
-생물학적 동등성을 위한 수학 식은 다음과 같습니다. \eqref{eq:be}
-
-\begin{equation}
-\begin{split}
-  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
-  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 
-\label{eq:be}
-\end{split}
-\end{equation}
-
-현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \ref{fig:twobytwo})
-핵심이 되는 함수는 \texttt{beNCA()} 입니다.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/twobytwo.jpg\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/twobytwo} \caption{전형적인 2x2 설계}\label{fig:twobytwo}
-\end{figure}
-
-\begin{verbatim}
-## function (Data, Columns = c("AUClast", "Cmax", "Tmax"), rtfName = "") 
-## NULL
-\end{verbatim}
-
-다음과 같은 함수 인자를 설정해 주면 됩니다.
-
-\begin{itemize}
-\tightlist
-\item
-  SUBJ: Subject ID, any data type
-\item
-  GRP: column name in which information of ``RT'' or ``TR'' exists.
-\item
-  PRD: column name in which information of 1 or 2 exists.
-\item
-  TRT: column name in which information of ``R'' or ``T'' exists.
-\item
-  method: \texttt{kbe} by authors or \texttt{nlme} package uploaded on CRAN
-\end{itemize}
-
-ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table \ref{tab:beconcdata})
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{file \textless{}{-}}\StringTok{ }\KeywordTok{system.file}\NormalTok{(}\StringTok{\textquotesingle{}example\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}beConc.csv\textquotesingle{}}\NormalTok{, }\DataTypeTok{package =} \StringTok{\textquotesingle{}ncarbe\textquotesingle{}}\NormalTok{)}
-\NormalTok{concData \textless{}{-}}\StringTok{ }\KeywordTok{read\_csv}\NormalTok{(file)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{table}
-
-\caption{\label{tab:beconcdata}A example dataset for the bioequivalence test.}
-\centering
-\begin{tabular}[t]{r|l|r|l|r|r|r}
-\hline
-SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\\
-\hline
-1 & RT & 1 & R & 5018.927 & 1043.13 & 1.04\\
-\hline
-1 & RT & 2 & T & 6737.507 & 894.21 & 1.03\\
-\hline
-2 & TR & 1 & T & 4373.970 & 447.26 & 1.01\\
-\hline
-2 & TR & 2 & R & 6164.276 & 783.92 & 1.98\\
-\hline
-4 & TR & 1 & T & 5592.993 & 824.42 & 1.97\\
-\hline
-4 & TR & 2 & R & 5958.160 & 646.31 & 0.97\\
-\hline
-5 & TR & 1 & T & 3902.590 & 803.70 & 0.80\\
-\hline
-5 & TR & 2 & R & 4620.156 & 955.30 & 0.74\\
-\hline
-6 & RT & 1 & R & 3735.274 & 995.34 & 1.02\\
-\hline
-6 & RT & 2 & T & 4257.802 & 816.33 & 1.00\\
-\hline
-7 & RT & 1 & R & 4314.993 & 608.99 & 0.95\\
-\hline
-7 & RT & 2 & T & 5030.372 & 806.57 & 0.74\\
-\hline
-8 & RT & 1 & R & 6053.098 & 1283.67 & 0.72\\
-\hline
-8 & RT & 2 & T & 5790.067 & 822.95 & 1.03\\
-\hline
-9 & RT & 1 & R & 4602.582 & 679.39 & 0.74\\
-\hline
-9 & RT & 2 & T & 6042.462 & 556.55 & 0.98\\
-\hline
-10 & RT & 1 & R & 8848.988 & 1136.91 & 1.03\\
-\hline
-10 & RT & 2 & T & 7349.822 & 1082.79 & 0.97\\
-\hline
-11 & TR & 1 & T & 3054.096 & 547.73 & 2.02\\
-\hline
-11 & TR & 2 & R & 4719.175 & 984.69 & 0.54\\
-\hline
-13 & RT & 1 & R & 4828.682 & 615.17 & 1.00\\
-\hline
-13 & RT & 2 & T & 4175.434 & 692.26 & 0.97\\
-\hline
-14 & RT & 1 & R & 4566.275 & 864.56 & 1.03\\
-\hline
-14 & RT & 2 & T & 5042.649 & 1122.75 & 0.75\\
-\hline
-15 & TR & 1 & T & 4950.980 & 719.40 & 0.97\\
-\hline
-15 & TR & 2 & R & 4959.554 & 660.17 & 0.96\\
-\hline
-16 & RT & 1 & R & 4577.432 & 609.64 & 3.01\\
-\hline
-16 & RT & 2 & T & 4773.723 & 807.65 & 1.01\\
-\hline
-17 & RT & 1 & R & 6462.652 & 861.56 & 2.02\\
-\hline
-17 & RT & 2 & T & 5246.032 & 1187.75 & 0.73\\
-\hline
-18 & TR & 1 & T & 4754.625 & 919.87 & 0.77\\
-\hline
-18 & TR & 2 & R & 3214.809 & 1042.84 & 0.53\\
-\hline
-19 & TR & 1 & T & 7619.304 & 1089.84 & 3.00\\
-\hline
-19 & TR & 2 & R & 5210.569 & 1127.94 & 2.04\\
-\hline
-20 & TR & 1 & T & 5063.471 & 1191.46 & 0.71\\
-\hline
-20 & TR & 2 & R & 6406.634 & 1069.19 & 1.00\\
-\hline
-21 & RT & 1 & R & 5580.289 & 742.67 & 0.97\\
-\hline
-21 & RT & 2 & T & 6304.119 & 447.85 & 0.99\\
-\hline
-22 & RT & 1 & R & 4398.887 & 682.73 & 2.02\\
-\hline
-22 & RT & 2 & T & 3760.359 & 669.01 & 1.04\\
-\hline
-23 & TR & 1 & T & 5141.165 & 937.02 & 0.51\\
-\hline
-23 & TR & 2 & R & 5835.275 & 894.72 & 1.04\\
-\hline
-24 & TR & 1 & T & 4343.439 & 713.57 & 1.03\\
-\hline
-24 & TR & 2 & R & 2848.448 & 811.83 & 0.71\\
-\hline
-25 & TR & 1 & T & 3983.260 & 1160.32 & 0.73\\
-\hline
-25 & TR & 2 & R & 3476.389 & 769.63 & 0.78\\
-\hline
-27 & TR & 1 & T & 5772.972 & 1219.56 & 0.99\\
-\hline
-27 & TR & 2 & R & 7673.260 & 1063.29 & 1.03\\
-\hline
-28 & RT & 1 & R & 5679.039 & 650.24 & 1.00\\
-\hline
-28 & RT & 2 & T & 5160.875 & 891.63 & 1.05\\
-\hline
-29 & TR & 1 & T & 4800.455 & 770.63 & 2.02\\
-\hline
-29 & TR & 2 & R & 5772.925 & 738.17 & 1.04\\
-\hline
-30 & RT & 1 & R & 4722.324 & 1034.11 & 0.77\\
-\hline
-30 & RT & 2 & T & 2896.939 & 569.22 & 1.03\\
-\hline
-31 & RT & 1 & R & 8032.393 & 1043.82 & 1.98\\
-\hline
-31 & RT & 2 & T & 6076.359 & 1141.43 & 0.96\\
-\hline
-32 & TR & 1 & T & 4245.372 & 608.93 & 2.97\\
-\hline
-32 & TR & 2 & R & 4745.770 & 539.66 & 2.04\\
-\hline
-33 & TR & 1 & T & 3648.195 & 856.18 & 0.76\\
-\hline
-33 & TR & 2 & R & 3356.777 & 647.95 & 0.98\\
-\hline
-34 & TR & 1 & T & 5015.499 & 739.42 & 0.96\\
-\hline
-34 & TR & 2 & R & 6325.746 & 682.41 & 1.99\\
-\hline
-35 & RT & 1 & R & 6259.347 & 1020.55 & 1.96\\
-\hline
-35 & RT & 2 & T & 5802.468 & 835.87 & 2.04\\
-\hline
-36 & RT & 1 & R & 4669.384 & 682.87 & 3.01\\
-\hline
-36 & RT & 2 & T & 3783.584 & 729.63 & 1.00\\
-\hline
-\end{tabular}
-\end{table}
-
-배균섭 교수님의 강의 자료에서 가져왔습니다.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{print}\NormalTok{(}\KeywordTok{be2x2}\NormalTok{(NCAResult4BE, }\KeywordTok{c}\NormalTok{(}\StringTok{"AUClast"}\NormalTok{, }\StringTok{"Cmax"}\NormalTok{, }\StringTok{"Tmax"}\NormalTok{)), }\DataTypeTok{na.print=}\StringTok{""}\NormalTok{) }
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-## $AUClast
-## $AUClast$`Analysis of Variance (log scale)`
-##                          SS DF           MS           F            p
-## SUBJECT        2.875497e+00 32 8.985928e-02 3.183942248 0.0008742828
-## GROUP          1.024607e-01  1 1.024607e-01 1.145416548 0.2927731856
-## SUBJECT(GROUP) 2.773036e+00 31 8.945279e-02 3.169539016 0.0009544080
-## PERIOD         3.027399e-05  1 3.027399e-05 0.001072684 0.9740824428
-## DRUG           3.643467e-02  1 3.643467e-02 1.290972690 0.2645764201
-## ERROR          8.749021e-01 31 2.822265e-02                         
-## TOTAL          3.786834e+00 65                                      
-## 
-## $AUClast$`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                    0.03061507     0.02822265
-## Coefficient of Variation, CV(%)     17.63193968    16.91883011
-## 
-## $AUClast$`Least Square Means (geometric mean)`
-##                 Reference Drug Test Drug
-## Geometric Means       5092.098  4858.245
-## 
-## $AUClast$`90% Confidence Interval of Geometric Mean Ratio (T/R)`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio    0.889436      0.9540753    1.023412
-## 
-## $AUClast$`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size            6                         7
-## 
-## 
-## $Cmax
-## $Cmax$`Analysis of Variance (log scale)`
-##                          SS DF           MS           F          p
-## SUBJECT        2.861492e+00 32 8.942162e-02 2.237604579 0.01367095
-## GROUP          9.735789e-05  1 9.735789e-05 0.001054764 0.97429977
-## SUBJECT(GROUP) 2.861394e+00 31 9.230304e-02 2.309706785 0.01131826
-## PERIOD         4.717497e-03  1 4.717497e-03 0.118046317 0.73348258
-## DRUG           6.837756e-03  1 6.837756e-03 0.171101730 0.68198228
-## ERROR          1.238856e+00 31 3.996310e-02                       
-## TOTAL          4.112258e+00 65                                    
-## 
-## $Cmax$`Between and Within Subject Variability`
-##                                 Between Subject Within Subject
-## Variance Estimate                    0.02616997      0.0399631
-## Coefficient of Variation, CV(%)     16.28355371     20.1921690
-## 
-## $Cmax$`Least Square Means (geometric mean)`
-##                 Reference Drug Test Drug
-## Geometric Means       825.5206  808.8778
-## 
-## $Cmax$`90% Confidence Interval of Geometric Mean Ratio (T/R)`
-##                  Lower Limit Point Estimate Upper Limit
-## 90% CI for Ratio   0.9013625      0.9798396    1.065149
-## 
-## $Cmax$`Sample Size`
-##                       True Ratio=1 True Ratio=Point Estimate
-## 80% Power Sample Size            8                         8
-## 
-## 
-## $Tmax
-## $Tmax$`Wilcoxon Signed-Rank Test`
-##   p-value 
-## 0.2326894 
-## 
-## $Tmax$`Hodges-Lehmann Estimate`
-##                            Lower Limit Point Estimate Upper Limit
-## 90% Confidence Interval       -0.33000       -0.03500      0.1050
-## 90% Confidence Interval(%)    74.37661       97.28237    108.1529
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\OperatorTok{::}\KeywordTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}images/fixed{-}random.jpg\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}
-\includegraphics[width=1\linewidth]{images/fixed-random} \caption{모수 인자와 변량 인자의 비교}\label{fig:fixedrandom}
-\end{figure}
 
 \hypertarget{dp}{%
 \section{Dose Proportionality}\label{dp}}
@@ -2007,7 +2133,7 @@ Y축(농도)의 경우 linear plot과 semi-logarithmic plot을 모두 함께 확
 
 R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 그릴 수 있으므로 빠르고 효과적임. 만약 자료의 오류나 변화가 생겼을 때 수정이 쉽다. 계산 방식의 변경이 있을때 (Linear에서 Log로 변경 원할 때) 역시 마찬가지이다.
 SDTM의 PPTESTCD를 사용하므로 PP도메인 구성하기 쉽다. 변경할 때 추가적인 비용이 안든다. 현재 practice는 Winnonlin에서 나온 것을 일일히 변경해야 하는데 이 작업은 약동학자라도 SDTM에 대한 이해가 없이는 이 작업이 쉽지 않다. R을 통해 NCA를 해주는 패키지가 많지만 SDTM 자료 형태로 결과를 계산하거나, pkr처럼 인풋으로 받을 수 있는 패키지는 없다. 상용 소프트웨어도 마찬가지 이다.
-모든 것이 무료이고 소스코드가 공개되어 있으므로 약동학을 공부할 수 있다. 추가적으로 소프트웨어가 확장할 여지가 크다. (확장성이 좋다. 실제로 ncarbe 패키지처럼 BE 처리 해주는 것도 쉽게 개발할 수 있다.)
+모든 것이 무료이고 소스코드가 공개되어 있으므로 약동학을 공부할 수 있다. 추가적으로 소프트웨어가 확장할 여지가 크다.
 
 \cleardoublepage
 
@@ -2318,8 +2444,8 @@ NCA Calculation and Population PK Model Diagnosis \citep{Acharya201683}
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics[width=1\linewidth]{book-ncar_files/figure-latex/unnamed-chunk-51-1}
-\includegraphics[width=1\linewidth]{book-ncar_files/figure-latex/unnamed-chunk-51-2}
+\includegraphics[width=1\linewidth]{book-ncar_files/figure-latex/unnamed-chunk-53-1}
+\includegraphics[width=1\linewidth]{book-ncar_files/figure-latex/unnamed-chunk-53-2}
 
 \hypertarget{r-package-pk}{%
 \section{R package: PK}\label{r-package-pk}}
@@ -2361,7 +2487,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2440,7 +2566,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2519,7 +2645,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2598,7 +2724,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2677,7 +2803,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2756,7 +2882,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2835,7 +2961,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2914,7 +3040,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2993,7 +3119,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -3072,7 +3198,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -3151,7 +3277,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -3230,7 +3356,7 @@ Basic Non-Compartmental Pharmacokinetics
 \NormalTok{                       Package version }\DecValTok{0}\NormalTok{.}\FloatTok{4.2}\NormalTok{ (}\DecValTok{2019{-}09{-}27}\NormalTok{ KST)}
 \NormalTok{                          R version }\DecValTok{4}\NormalTok{.}\FloatTok{0.1}\NormalTok{ (}\DecValTok{2020{-}06{-}06}\NormalTok{)}
 
-\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}18} \DecValTok{10}\OperatorTok{:}\DecValTok{02}\OperatorTok{:}\DecValTok{47}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
+\NormalTok{Date and Time}\OperatorTok{:}\StringTok{ }\DecValTok{2020{-}06{-}19} \DecValTok{11}\OperatorTok{:}\DecValTok{53}\OperatorTok{:}\DecValTok{28}\NormalTok{ Asia}\OperatorTok{/}\NormalTok{Seoul}
 
 \NormalTok{Calculation Setting}
 \OperatorTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -3327,7 +3453,7 @@ Basic Non-Compartmental Pharmacokinetics
 ##  collate  Korean_Korea.949            
 ##  ctype    Korean_Korea.949            
 ##  tz       Asia/Seoul                  
-##  date     2020-06-18                  
+##  date     2020-06-19                  
 ## 
 ## - Packages ---------------------------------------------------------------------------------------
 ##  package     * version   date       lib source                           

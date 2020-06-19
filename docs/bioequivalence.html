@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="bioequivalence.html"><a href="bioequivalence.html#r-샤이니-앱"><i class="fa fa-check"></i><b>7.2.5</b> R 샤이니 앱</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="bioequivalence.html"><a href="bioequivalence.html#discussion"><i class="fa fa-check"></i><b>7.3</b> 논의</a></li>
-<li class="chapter" data-level="7.4" data-path="bioequivalence.html"><a href="bioequivalence.html#conclusion"><i class="fa fa-check"></i><b>7.4</b> 결론</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
 <ul>
@@ -210,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.3</b> Dose Proportionality</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="bioequivalence.html"><a href="bioequivalence.html#conclusion"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
+<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
@@ -273,13 +272,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>그러나 각각의 소프트웨어가 사용하기 어렵고 과정이 복잡하며 큰 비용이 소모되었다. 특히 약동학 분석 초보자나 통계학 비전공자가 사용하기 어려웠다. 본 저자들은 EDISON 사이언스 앱, R 샤이니(Shiny) 앱을 사용하여 이 과정을 연속성을 지닌 한 과정으로 통합하였다. 본 연구가 제시하는 방법을 통해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적 동등성 분석이 가능하다는 것을 보이고자 한다.</p>
 <p>생물학적 동등성을 위한 가장 간단한 방법은 <code>BE</code> 패키지<span class="citation">(Bae <a href="#ref-R-BE" role="doc-biblioref">2018</a>)</span>를 쓰는 것입니다.</p>
 <p>Chow와 Liu의 책의 내용을 충실히 반영하였습니다. <span class="citation">(Chow and Liu <a href="#ref-chow2009design" role="doc-biblioref">2008</a>)</span>
-생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="bioequivalence.html#eq:be">(7.1)</a></p>
-<p><span class="math display" id="eq:be">\[\begin{equation}
+생물학적 동등성을 위한 수학 식은 다음과 같습니다. <a href="bioequivalence.html#eq:bioequiv">(7.1)</a></p>
+<p><span class="math display" id="eq:bioequiv">\[\begin{equation}
 \begin{split}
-  0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \\
-  0.8 &lt; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 
-\tag{7.1}
+  0.8 &lt; &amp; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 \\
+  0.8 &lt; &amp; 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} &lt; 1.25 
 \end{split}
+\tag{7.1}
 \end{equation}\]</span></p>
 <p>현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 <a href="bioequivalence.html#fig:twobytwo">7.1</a>)
 핵심이 되는 함수는 <code>beNCA()</code> 입니다.</p>
@@ -300,9 +299,6 @@ Figure 7.1: 전형적인 2x2 설계
 <li>TRT: column name in which information of “R” or “T” exists.</li>
 <li>method: <code>kbe</code> by authors or <code>nlme</code> package uploaded on CRAN</li>
 </ul>
-<p>ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table <a href="bioequivalence.html#tab:beconcdata">7.1</a>)</p>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="bioequivalence.html#cb48-1"></a>file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&#39;example&#39;</span>, <span class="st">&#39;beConc.csv&#39;</span>, <span class="dt">package =</span> <span class="st">&#39;ncarbe&#39;</span>)</span>
-<span id="cb48-2"><a href="bioequivalence.html#cb48-2"></a>concData &lt;-<span class="st"> </span><span class="kw">read_csv</span>(file)</span></code></pre></div>
 <table>
 <caption><span id="tab:beconcdata">Table 7.1: </span>A example dataset for the bioequivalence test.</caption>
 <thead>
@@ -371,550 +367,11 @@ Figure 7.1: 전형적인 2x2 설계
 <td align="right">646.31</td>
 <td align="right">0.97</td>
 </tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3902.590</td>
-<td align="right">803.70</td>
-<td align="right">0.80</td>
-</tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4620.156</td>
-<td align="right">955.30</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="odd">
-<td align="right">6</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">3735.274</td>
-<td align="right">995.34</td>
-<td align="right">1.02</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">4257.802</td>
-<td align="right">816.33</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4314.993</td>
-<td align="right">608.99</td>
-<td align="right">0.95</td>
-</tr>
-<tr class="even">
-<td align="right">7</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5030.372</td>
-<td align="right">806.57</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="odd">
-<td align="right">8</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">6053.098</td>
-<td align="right">1283.67</td>
-<td align="right">0.72</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5790.067</td>
-<td align="right">822.95</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4602.582</td>
-<td align="right">679.39</td>
-<td align="right">0.74</td>
-</tr>
-<tr class="even">
-<td align="right">9</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6042.462</td>
-<td align="right">556.55</td>
-<td align="right">0.98</td>
-</tr>
-<tr class="odd">
-<td align="right">10</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">8848.988</td>
-<td align="right">1136.91</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">7349.822</td>
-<td align="right">1082.79</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3054.096</td>
-<td align="right">547.73</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">11</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4719.175</td>
-<td align="right">984.69</td>
-<td align="right">0.54</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4828.682</td>
-<td align="right">615.17</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="even">
-<td align="right">13</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">4175.434</td>
-<td align="right">692.26</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="odd">
-<td align="right">14</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4566.275</td>
-<td align="right">864.56</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="even">
-<td align="right">14</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5042.649</td>
-<td align="right">1122.75</td>
-<td align="right">0.75</td>
-</tr>
-<tr class="odd">
-<td align="right">15</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4950.980</td>
-<td align="right">719.40</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="even">
-<td align="right">15</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4959.554</td>
-<td align="right">660.17</td>
-<td align="right">0.96</td>
-</tr>
-<tr class="odd">
-<td align="right">16</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4577.432</td>
-<td align="right">609.64</td>
-<td align="right">3.01</td>
-</tr>
-<tr class="even">
-<td align="right">16</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">4773.723</td>
-<td align="right">807.65</td>
-<td align="right">1.01</td>
-</tr>
-<tr class="odd">
-<td align="right">17</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">6462.652</td>
-<td align="right">861.56</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">17</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5246.032</td>
-<td align="right">1187.75</td>
-<td align="right">0.73</td>
-</tr>
-<tr class="odd">
-<td align="right">18</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4754.625</td>
-<td align="right">919.87</td>
-<td align="right">0.77</td>
-</tr>
-<tr class="even">
-<td align="right">18</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">3214.809</td>
-<td align="right">1042.84</td>
-<td align="right">0.53</td>
-</tr>
-<tr class="odd">
-<td align="right">19</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">7619.304</td>
-<td align="right">1089.84</td>
-<td align="right">3.00</td>
-</tr>
-<tr class="even">
-<td align="right">19</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5210.569</td>
-<td align="right">1127.94</td>
-<td align="right">2.04</td>
-</tr>
-<tr class="odd">
-<td align="right">20</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5063.471</td>
-<td align="right">1191.46</td>
-<td align="right">0.71</td>
-</tr>
-<tr class="even">
-<td align="right">20</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">6406.634</td>
-<td align="right">1069.19</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="odd">
-<td align="right">21</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">5580.289</td>
-<td align="right">742.67</td>
-<td align="right">0.97</td>
-</tr>
-<tr class="even">
-<td align="right">21</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6304.119</td>
-<td align="right">447.85</td>
-<td align="right">0.99</td>
-</tr>
-<tr class="odd">
-<td align="right">22</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4398.887</td>
-<td align="right">682.73</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">22</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">3760.359</td>
-<td align="right">669.01</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="odd">
-<td align="right">23</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5141.165</td>
-<td align="right">937.02</td>
-<td align="right">0.51</td>
-</tr>
-<tr class="even">
-<td align="right">23</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5835.275</td>
-<td align="right">894.72</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="odd">
-<td align="right">24</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4343.439</td>
-<td align="right">713.57</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="even">
-<td align="right">24</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">2848.448</td>
-<td align="right">811.83</td>
-<td align="right">0.71</td>
-</tr>
-<tr class="odd">
-<td align="right">25</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3983.260</td>
-<td align="right">1160.32</td>
-<td align="right">0.73</td>
-</tr>
-<tr class="even">
-<td align="right">25</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">3476.389</td>
-<td align="right">769.63</td>
-<td align="right">0.78</td>
-</tr>
-<tr class="odd">
-<td align="right">27</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5772.972</td>
-<td align="right">1219.56</td>
-<td align="right">0.99</td>
-</tr>
-<tr class="even">
-<td align="right">27</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">7673.260</td>
-<td align="right">1063.29</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">28</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">5679.039</td>
-<td align="right">650.24</td>
-<td align="right">1.00</td>
-</tr>
-<tr class="even">
-<td align="right">28</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5160.875</td>
-<td align="right">891.63</td>
-<td align="right">1.05</td>
-</tr>
-<tr class="odd">
-<td align="right">29</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4800.455</td>
-<td align="right">770.63</td>
-<td align="right">2.02</td>
-</tr>
-<tr class="even">
-<td align="right">29</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">5772.925</td>
-<td align="right">738.17</td>
-<td align="right">1.04</td>
-</tr>
-<tr class="odd">
-<td align="right">30</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4722.324</td>
-<td align="right">1034.11</td>
-<td align="right">0.77</td>
-</tr>
-<tr class="even">
-<td align="right">30</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">2896.939</td>
-<td align="right">569.22</td>
-<td align="right">1.03</td>
-</tr>
-<tr class="odd">
-<td align="right">31</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">8032.393</td>
-<td align="right">1043.82</td>
-<td align="right">1.98</td>
-</tr>
-<tr class="even">
-<td align="right">31</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">6076.359</td>
-<td align="right">1141.43</td>
-<td align="right">0.96</td>
-</tr>
-<tr class="odd">
-<td align="right">32</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">4245.372</td>
-<td align="right">608.93</td>
-<td align="right">2.97</td>
-</tr>
-<tr class="even">
-<td align="right">32</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">4745.770</td>
-<td align="right">539.66</td>
-<td align="right">2.04</td>
-</tr>
-<tr class="odd">
-<td align="right">33</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">3648.195</td>
-<td align="right">856.18</td>
-<td align="right">0.76</td>
-</tr>
-<tr class="even">
-<td align="right">33</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">3356.777</td>
-<td align="right">647.95</td>
-<td align="right">0.98</td>
-</tr>
-<tr class="odd">
-<td align="right">34</td>
-<td align="left">TR</td>
-<td align="right">1</td>
-<td align="left">T</td>
-<td align="right">5015.499</td>
-<td align="right">739.42</td>
-<td align="right">0.96</td>
-</tr>
-<tr class="even">
-<td align="right">34</td>
-<td align="left">TR</td>
-<td align="right">2</td>
-<td align="left">R</td>
-<td align="right">6325.746</td>
-<td align="right">682.41</td>
-<td align="right">1.99</td>
-</tr>
-<tr class="odd">
-<td align="right">35</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">6259.347</td>
-<td align="right">1020.55</td>
-<td align="right">1.96</td>
-</tr>
-<tr class="even">
-<td align="right">35</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">5802.468</td>
-<td align="right">835.87</td>
-<td align="right">2.04</td>
-</tr>
-<tr class="odd">
-<td align="right">36</td>
-<td align="left">RT</td>
-<td align="right">1</td>
-<td align="left">R</td>
-<td align="right">4669.384</td>
-<td align="right">682.87</td>
-<td align="right">3.01</td>
-</tr>
-<tr class="even">
-<td align="right">36</td>
-<td align="left">RT</td>
-<td align="right">2</td>
-<td align="left">T</td>
-<td align="right">3783.584</td>
-<td align="right">729.63</td>
-<td align="right">1.00</td>
-</tr>
 </tbody>
 </table>
-<p>배균섭 교수님의 강의 자료에서 가져왔습니다.</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="bioequivalence.html#cb49-1"></a><span class="kw">print</span>(<span class="kw">be2x2</span>(NCAResult4BE, <span class="kw">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>)), <span class="dt">na.print=</span><span class="st">&quot;&quot;</span>) </span></code></pre></div>
+<p>BE 패키지에 내장되어 있는 자료인 <code>NCAResult4BE</code>를 사용하겠습니다. (표 <a href="bioequivalence.html#tab:beconcdata">7.1</a>)
+33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라미터 AUC<sub>last</sub>, C<sub>max</sub>, T<sub>max</sub> 자료가 정리되어 있습니다.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="bioequivalence.html#cb48-1"></a><span class="kw">print</span>(<span class="kw">be2x2</span>(NCAResult4BE, <span class="kw">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>)), <span class="dt">na.print=</span><span class="st">&quot;&quot;</span>) </span></code></pre></div>
 <pre><code>## $AUClast
 ## $AUClast$`Analysis of Variance (log scale)`
 ##                          SS DF           MS           F            p
@@ -982,7 +439,7 @@ Figure 7.1: 전형적인 2x2 설계
 ##                            Lower Limit Point Estimate Upper Limit
 ## 90% Confidence Interval       -0.33000       -0.03500      0.1050
 ## 90% Confidence Interval(%)    74.37661       97.28237    108.1529</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="bioequivalence.html#cb51-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/fixed-random.jpg&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="bioequivalence.html#cb50-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&#39;images/fixed-random.jpg&#39;</span>)</span></code></pre></div>
 <div class="figure"><span id="fig:fixedrandom"></span>
 <img src="images/fixed-random.jpg" alt="모수 인자와 변량 인자의 비교" width="100%" />
 <p class="caption">
@@ -997,10 +454,10 @@ Figure 7.2: 모수 인자와 변량 인자의 비교
 비구획분석과 생물학적동등성 통계 분석을 하게 되며 R 기반 [4] 으로 프로그래밍 되어 있다.
 각각은 <code>NonCompart</code>와 <code>BE</code>라는 이름의 R 패키지 형태로 공개되어 배포 되고 있다.
 R 콘솔에서는 다음을 입력함으로서 각 라이브러리를 불러올 수 있다.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="bioequivalence.html#cb52-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;NonCompart&quot;</span>)</span>
-<span id="cb52-2"><a href="bioequivalence.html#cb52-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;BE&quot;</span>)</span></code></pre></div>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="bioequivalence.html#cb53-1"></a><span class="kw">library</span>(NonCompart)</span>
-<span id="cb53-2"><a href="bioequivalence.html#cb53-2"></a><span class="kw">library</span>(BE)</span></code></pre></div>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="bioequivalence.html#cb51-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;NonCompart&quot;</span>)</span>
+<span id="cb51-2"><a href="bioequivalence.html#cb51-2"></a><span class="kw">install.packages</span>(<span class="st">&quot;BE&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="bioequivalence.html#cb52-1"></a><span class="kw">library</span>(NonCompart)</span>
+<span id="cb52-2"><a href="bioequivalence.html#cb52-2"></a><span class="kw">library</span>(BE)</span></code></pre></div>
 <p>EDISON 사이언스 앱, R 샤이니 앱을 제작하는데 사용한 R 코드 및 자료(datasets)는 <a href="https://github.com/asancpt/edison-noncompart" class="uri">https://github.com/asancpt/edison-noncompart</a>, <a href="https://github.com/asancpt/edison-BE" class="uri">https://github.com/asancpt/edison-BE</a> 에 각각 공개되어 있다.</p>
 </div>
 <div id="모형" class="section level3" number="7.1.2">
@@ -1030,8 +487,13 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 <h3><span class="header-section-number">7.1.4</span> 자료의 형태, 자료의 구성요소</h3>
 <p>2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 피험자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 피험자별로 투약 전후 정해진 시간마다 채혈하고 농도 측정한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과 (보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 혈액 채취 및 혈중농도 측정하게 된다.</p>
 <p>본 논문에서는 위와 같은 시나리오로 시뮬레이션을 통해 얻어진 약동학 파라미터를 사용해 자료가 구성되었고, EDISON 사이언스 앱인 NonCompartEdison에서 입력으로 사용될 자료의 형태는 Table 1와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 edisonBE 앱에서 사용되는 약동학 파라미터 자료에도 일종의 primary key로 사용되기 때문에 유사한 형태로 보존되어야 한다. 33명의 대상자의 개인별 농도-시간 그래프는 Figure 1에 나타내었다.</p>
-<p><img src="assets-paper/figure-1.png" /></p>
-<p>Figure 1. Concentration-time curves of raw data (N=33)</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="bioequivalence.html#cb54-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/figure-conc-time-curve.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:conc-time-curve"></span>
+<img src="images/figure-conc-time-curve.png" alt="Concentration-time curves of raw data (N=33)" width="100%" />
+<p class="caption">
+Figure 7.3: Concentration-time curves of raw data (N=33)
+</p>
+</div>
 </div>
 </div>
 <div id="result" class="section level2" number="7.2">
@@ -1300,8 +762,14 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 <div id="edisonbe-앱을-통한-생물학적동등성-판단" class="section level3" number="7.2.2">
 <h3><span class="header-section-number">7.2.2</span> edisonBE 앱을 통한 생물학적동등성 판단</h3>
 <p>약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (Figure 2) 본 자료로 계산한 AUClast는 생물학적 동등성 기준을 만족하고 있다.</p>
-<p><img src="assets-paper/figure-2.png" /></p>
-<p>Figure 2. Output format of bioequivalence tests performed by BE R package.</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="bioequivalence.html#cb55-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;assets-paper/figure-2.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:output-format"></span>
+<img src="assets-paper/figure-2.png" alt="Output format of bioequivalence tests performed by BE R package." width="100%" />
+<p class="caption">
+Figure 7.4: Output format of bioequivalence tests performed by BE R package.
+</p>
+</div>
+
 </div>
 <div id="신뢰구간의-sas-결과값과-비교" class="section level3" number="7.2.3">
 <h3><span class="header-section-number">7.2.3</span> 90% 신뢰구간의 SAS 결과값과 비교</h3>
@@ -1374,29 +842,38 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 <h3><span class="header-section-number">7.2.4</span> 샘플 수 계산</h3>
 <p>BE 패키지를 통한 분석은 Between subject CV값과 Within Subject CV를 계산한다. 이에 근거하여 80%의 파워로 계산한 샘플수 계산을 수행하며 T/R 비 (ratio) 가 1일 때와 점추정치일 경우를 각각 계산하여 결과를 출력한다.
 본 자료로 계산한 AUClast의 개인간 (between subject) CV값은 17.63%, 개인내 (within subject) CV값은 16.92%인 것을 알 수 있고 80% 파워로 계산한 샘플 수는 GMR이 1인 경우 6명, 점추정치인 0.95와 같은 경우 7명이 나오게 된다.</p>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="bioequivalence.html#cb55-1"></a><span class="kw">test2x2</span>(NCAResult4BE, <span class="st">&quot;AUClast&quot;</span>)<span class="op">$</span><span class="st">`</span><span class="dt">Sample Size</span><span class="st">`</span></span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="bioequivalence.html#cb56-1"></a><span class="kw">test2x2</span>(NCAResult4BE, <span class="st">&quot;AUClast&quot;</span>)<span class="op">$</span><span class="st">`</span><span class="dt">Sample Size</span><span class="st">`</span></span></code></pre></div>
 <pre><code>##                       True Ratio=1 True Ratio=Point Estimate
 ## 80% Power Sample Size            6                         7</code></pre>
 </div>
 <div id="r-샤이니-앱" class="section level3" number="7.2.5">
 <h3><span class="header-section-number">7.2.5</span> R 샤이니 앱</h3>
-<p><code>shiny-be</code>는 비구획분석과 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 <a href="http://pipetapps.com/shiny-be" class="uri">http://pipetapps.com/shiny-be</a> 에서 무료로 서비스 하고 있다.</p>
-<p><img src="assets/shiny-be.png" /></p>
-<p>Figure 3. R 샤이니 앱, <code>shiny-be</code> 접속 화면. <a href="http://pipetapps.com/shiny-be" class="uri">http://pipetapps.com/shiny-be</a></p>
+<p><code>shiny-be</code>는 비구획분석과 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 <a href="http://www.pipetapps.com/shiny-be" class="uri">http://www.pipetapps.com/shiny-be</a> 에서 무료로 서비스 하고 있다.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="bioequivalence.html#cb58-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/figure-shiny-be.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:shiny-be"></span>
+<img src="images/figure-shiny-be.png" alt="R 샤이니 앱, shiny-be 접속 화면. http://www.pipetapps.com/shiny-be" width="100%" />
+<p class="caption">
+Figure 7.5: R 샤이니 앱, <code>shiny-be</code> 접속 화면. <a href="http://www.pipetapps.com/shiny-be" class="uri">http://www.pipetapps.com/shiny-be</a>
+</p>
+</div>
+
 </div>
 </div>
 <div id="discussion" class="section level2" number="7.3">
 <h2><span class="header-section-number">7.3</span> 논의</h2>
-<p><img src="assets-paper/figure-3.png" /></p>
-<p>Figure 4. Comparison between a traditional analysis process (left boxes) and the proposed process (right boxes) using EDISON Science Apps.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="bioequivalence.html#cb59-1"></a>knitr<span class="op">::</span><span class="kw">include_graphics</span>(<span class="st">&quot;images/figure-traditional-proposed.png&quot;</span>)</span></code></pre></div>
+<div class="figure"><span id="fig:traditional-proposed"></span>
+<img src="images/figure-traditional-proposed.png" alt="Comparison between a traditional analysis process (left boxes) and the proposed process (right boxes) using EDISON Science Apps." width="100%" />
+<p class="caption">
+Figure 7.6: Comparison between a traditional analysis process (left boxes) and the proposed process (right boxes) using EDISON Science Apps.
+</p>
+</div>
+
 <p>본 연구는 EDISON 사이언스 앱, R 샤이니 앱을 사용해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적동등성 분석법을 제시하였다.
 현재는 이러한 분석을 위해서 여러 상용 소프트웨어를 필요로 하는 복잡한 단계를 거쳐야 한다. (Figure 3) 따라서 분석 시간이 오래 걸리고 많은 비용이 소모되었다. 본 저자들은 EDISON 사이언스 앱, R 샤이니 앱을 사용하여 이 두 과정을 통합하였고, 이로서 농도-시간 자료로부터 비구획분석과 생물학적동등성 통계 분석까지 연속적으로 가능케 하였다.
 본 분석에서 학계와 산업계에서 가장 정확하게 생물학적 동등성을 평가한다고 말하는 SAS통계 패키지와의 비교를 통해 EDISON 사이언스 앱, R 샤이니 앱을 사용한 생물학적 동등성 분석이 정확한 값을 제시함을 검증할 수 있었다.
 학생들의 교육에 효과적인 EDISON 사이언스 앱, R 샤이니 앱으로 개발되어 약리학 과목의 필수항목인 약동학의 교육에의 활용도 기대된다. 또한 임상시험 산업계에서도 많은 비용을 절감할 수 있을 것으로 기대된다.
 아직은 2x2 교차 설계에서 얻어진 자료로만 분석이 가능하다는 한계를 갖고 있지만 앞으로 다양한 설계를 갖는 자료가 사용 가능하도록 업데이트가 가능할 것이다.</p>
-</div>
-<div id="conclusion" class="section level2" number="7.4">
-<h2><span class="header-section-number">7.4</span> 결론</h2>
 <p>본 연구가 제시하는 EDISON 사이언스 앱, R 샤이니 앱을 통한 방법을 통해 정확한 분석을 빠른 시간에 수행할 수 있을 뿐만 아니라 오류를 줄이고 비용을 절감하는 효과를 가져올 수 있다.</p>
 <ol style="list-style-type: decimal">
 <li>식품의약품안전청 식. 동등생물의약품 평가 가이드라인. 2009.</li>

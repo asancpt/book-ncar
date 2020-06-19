@@ -29,7 +29,6 @@ header-includes:
 if (!require("pacman")) install.packages("pacman")
 pacman::p_load("tidyverse", 
 			   "BE", "zoo", "psych", "BE", "NonCompart", "pkr", "ncar", 'PKNCA', 'knitr')
-pacman::p_install_gh('asancpt/ncarbe')
 pacman::p_install_gh('dpastoor/PKPDdatasets')
 
 opts_chunk$set(error = TRUE, 

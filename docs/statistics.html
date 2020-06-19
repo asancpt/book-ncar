@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-18" />
+<meta name="date" content="2020-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -202,7 +202,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="bioequivalence.html"><a href="bioequivalence.html#r-샤이니-앱"><i class="fa fa-check"></i><b>7.2.5</b> R 샤이니 앱</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="bioequivalence.html"><a href="bioequivalence.html#discussion"><i class="fa fa-check"></i><b>7.3</b> 논의</a></li>
-<li class="chapter" data-level="7.4" data-path="bioequivalence.html"><a href="bioequivalence.html#conclusion"><i class="fa fa-check"></i><b>7.4</b> 결론</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
 <ul>
@@ -210,7 +209,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.2" data-path="statistics.html"><a href="statistics.html#stat-desc"><i class="fa fa-check"></i><b>8.2</b> 기술통계량 구하기</a></li>
 <li class="chapter" data-level="8.3" data-path="statistics.html"><a href="statistics.html#dp"><i class="fa fa-check"></i><b>8.3</b> Dose Proportionality</a></li>
 </ul></li>
-<li class="chapter" data-level="9" data-path="bioequivalence.html"><a href="bioequivalence.html#conclusion"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
+<li class="chapter" data-level="9" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i><b>9</b> 결론</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
 <li class="chapter" data-level="A" data-path="wnl-comparison.html"><a href="wnl-comparison.html"><i class="fa fa-check"></i><b>A</b> Phoenix WinNonLin 과 결과 비교</a>
 <ul>
@@ -270,17 +269,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="stat-intro" class="section level2" number="8.1">
 <h2><span class="header-section-number">8.1</span> 이 장에서는</h2>
 <p>생물학적 동등성, 용량 비례성을 확인하는 통계 처리 방법을 알아보겠습니다.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="statistics.html#cb57-1"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb57-2"><a href="statistics.html#cb57-2"></a><span class="kw">library</span>(BE)</span>
-<span id="cb57-3"><a href="statistics.html#cb57-3"></a><span class="kw">library</span>(psych)</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="statistics.html#cb60-1"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb60-2"><a href="statistics.html#cb60-2"></a><span class="kw">library</span>(BE)</span>
+<span id="cb60-3"><a href="statistics.html#cb60-3"></a><span class="kw">library</span>(psych)</span></code></pre></div>
 </div>
 <div id="stat-desc" class="section level2" number="8.2">
 <h2><span class="header-section-number">8.2</span> 기술통계량 구하기</h2>
 <p>앞서 <a href="noncompart.html#noncompart">3</a>장에서 구한 <code>Theoph_nca</code>를 갖고 기술 통계량 (평균, 표준편차, 최소값, 최대값, skewness, kurtosis)을 구해보겠습니다. <code>psych::describe()</code> 함수를 사용하면 간단히 구할 수 있습니다.</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="statistics.html#cb58-1"></a>desc_stat_Theoph_nca &lt;-<span class="st"> </span><span class="kw">describe</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb58-2"><a href="statistics.html#cb58-2"></a><span class="st">  </span><span class="kw">select</span>(n, mean, sd, min, max, skew, kurtosis)</span>
-<span id="cb58-3"><a href="statistics.html#cb58-3"></a></span>
-<span id="cb58-4"><a href="statistics.html#cb58-4"></a>knitr<span class="op">::</span><span class="kw">kable</span>(desc_stat_Theoph_nca, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="statistics.html#cb61-1"></a>desc_stat_Theoph_nca &lt;-<span class="st"> </span><span class="kw">describe</span>(Theoph_nca) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb61-2"><a href="statistics.html#cb61-2"></a><span class="st">  </span><span class="kw">select</span>(n, mean, sd, min, max, skew, kurtosis)</span>
+<span id="cb61-3"><a href="statistics.html#cb61-3"></a></span>
+<span id="cb61-4"><a href="statistics.html#cb61-4"></a>knitr<span class="op">::</span><span class="kw">kable</span>(desc_stat_Theoph_nca, <span class="dt">digits =</span> <span class="dv">2</span>)</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -672,33 +671,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">8.3</span> Dose Proportionality</h2>
 <p>DP 처리.</p>
 <p>16명의 C<sub>max</sub>와 AUC<sub>last</sub>가 나온 표입니다. Table <a href="statistics.html#tab:sad-pk">8.1</a></p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="statistics.html#cb59-1"></a><span class="co"># setup ----</span></span>
-<span id="cb59-2"><a href="statistics.html#cb59-2"></a></span>
-<span id="cb59-3"><a href="statistics.html#cb59-3"></a><span class="kw">library</span>(readxl)</span>
-<span id="cb59-4"><a href="statistics.html#cb59-4"></a><span class="kw">library</span>(tidyverse)</span>
-<span id="cb59-5"><a href="statistics.html#cb59-5"></a><span class="kw">library</span>(broom)</span>
-<span id="cb59-6"><a href="statistics.html#cb59-6"></a></span>
-<span id="cb59-7"><a href="statistics.html#cb59-7"></a>dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span></span>
-<span id="cb59-8"><a href="statistics.html#cb59-8"></a><span class="st">&#39;Dose,Subject,Cmax,AUClast</span></span>
-<span id="cb59-9"><a href="statistics.html#cb59-9"></a><span class="st">50,101,860,2000</span></span>
-<span id="cb59-10"><a href="statistics.html#cb59-10"></a><span class="st">50,102,510,2300</span></span>
-<span id="cb59-11"><a href="statistics.html#cb59-11"></a><span class="st">50,103,620,2900</span></span>
-<span id="cb59-12"><a href="statistics.html#cb59-12"></a><span class="st">50,104,540,2400</span></span>
-<span id="cb59-13"><a href="statistics.html#cb59-13"></a><span class="st">100,201,1550,6600</span></span>
-<span id="cb59-14"><a href="statistics.html#cb59-14"></a><span class="st">100,202,1440,7400</span></span>
-<span id="cb59-15"><a href="statistics.html#cb59-15"></a><span class="st">100,203,2000,7300</span></span>
-<span id="cb59-16"><a href="statistics.html#cb59-16"></a><span class="st">100,204,1600,7000</span></span>
-<span id="cb59-17"><a href="statistics.html#cb59-17"></a><span class="st">200,301,4100,20400</span></span>
-<span id="cb59-18"><a href="statistics.html#cb59-18"></a><span class="st">200,302,2800,9500</span></span>
-<span id="cb59-19"><a href="statistics.html#cb59-19"></a><span class="st">200,303,3200,8000</span></span>
-<span id="cb59-20"><a href="statistics.html#cb59-20"></a><span class="st">200,304,2550,7070</span></span>
-<span id="cb59-21"><a href="statistics.html#cb59-21"></a><span class="st">400,401,4800,22000</span></span>
-<span id="cb59-22"><a href="statistics.html#cb59-22"></a><span class="st">400,402,5700,23000</span></span>
-<span id="cb59-23"><a href="statistics.html#cb59-23"></a><span class="st">400,403,5800,26700</span></span>
-<span id="cb59-24"><a href="statistics.html#cb59-24"></a><span class="st">400,404,5760,28884&#39;</span></span>
-<span id="cb59-25"><a href="statistics.html#cb59-25"></a></span>
-<span id="cb59-26"><a href="statistics.html#cb59-26"></a>sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)</span>
-<span id="cb59-27"><a href="statistics.html#cb59-27"></a>knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="statistics.html#cb62-1"></a><span class="co"># setup ----</span></span>
+<span id="cb62-2"><a href="statistics.html#cb62-2"></a></span>
+<span id="cb62-3"><a href="statistics.html#cb62-3"></a><span class="kw">library</span>(readxl)</span>
+<span id="cb62-4"><a href="statistics.html#cb62-4"></a><span class="kw">library</span>(tidyverse)</span>
+<span id="cb62-5"><a href="statistics.html#cb62-5"></a><span class="kw">library</span>(broom)</span>
+<span id="cb62-6"><a href="statistics.html#cb62-6"></a></span>
+<span id="cb62-7"><a href="statistics.html#cb62-7"></a>dp_data &lt;-<span class="st"> </span><span class="co"># Virtual data from 4 dose groups (N=16)</span></span>
+<span id="cb62-8"><a href="statistics.html#cb62-8"></a><span class="st">&#39;Dose,Subject,Cmax,AUClast</span></span>
+<span id="cb62-9"><a href="statistics.html#cb62-9"></a><span class="st">50,101,860,2000</span></span>
+<span id="cb62-10"><a href="statistics.html#cb62-10"></a><span class="st">50,102,510,2300</span></span>
+<span id="cb62-11"><a href="statistics.html#cb62-11"></a><span class="st">50,103,620,2900</span></span>
+<span id="cb62-12"><a href="statistics.html#cb62-12"></a><span class="st">50,104,540,2400</span></span>
+<span id="cb62-13"><a href="statistics.html#cb62-13"></a><span class="st">100,201,1550,6600</span></span>
+<span id="cb62-14"><a href="statistics.html#cb62-14"></a><span class="st">100,202,1440,7400</span></span>
+<span id="cb62-15"><a href="statistics.html#cb62-15"></a><span class="st">100,203,2000,7300</span></span>
+<span id="cb62-16"><a href="statistics.html#cb62-16"></a><span class="st">100,204,1600,7000</span></span>
+<span id="cb62-17"><a href="statistics.html#cb62-17"></a><span class="st">200,301,4100,20400</span></span>
+<span id="cb62-18"><a href="statistics.html#cb62-18"></a><span class="st">200,302,2800,9500</span></span>
+<span id="cb62-19"><a href="statistics.html#cb62-19"></a><span class="st">200,303,3200,8000</span></span>
+<span id="cb62-20"><a href="statistics.html#cb62-20"></a><span class="st">200,304,2550,7070</span></span>
+<span id="cb62-21"><a href="statistics.html#cb62-21"></a><span class="st">400,401,4800,22000</span></span>
+<span id="cb62-22"><a href="statistics.html#cb62-22"></a><span class="st">400,402,5700,23000</span></span>
+<span id="cb62-23"><a href="statistics.html#cb62-23"></a><span class="st">400,403,5800,26700</span></span>
+<span id="cb62-24"><a href="statistics.html#cb62-24"></a><span class="st">400,404,5760,28884&#39;</span></span>
+<span id="cb62-25"><a href="statistics.html#cb62-25"></a></span>
+<span id="cb62-26"><a href="statistics.html#cb62-26"></a>sad_indi_pk &lt;-<span class="st"> </span><span class="kw">read_csv</span>(dp_data)</span>
+<span id="cb62-27"><a href="statistics.html#cb62-27"></a>knitr<span class="op">::</span><span class="kw">kable</span>(sad_indi_pk, <span class="dt">caption =</span> <span class="st">&#39;16명의 C~max~, AUC~last~&#39;</span>)</span></code></pre></div>
 <table>
 <caption><span id="tab:sad-pk">Table 8.1: </span>16명의 C<sub>max</sub>, AUC<sub>last</sub></caption>
 <thead>
@@ -809,53 +808,53 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>그림을 살펴보겠습니다.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="statistics.html#cb60-1"></a>sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</span>
-<span id="cb60-2"><a href="statistics.html#cb60-2"></a></span>
-<span id="cb60-3"><a href="statistics.html#cb60-3"></a>figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span></span>
-<span id="cb60-4"><a href="statistics.html#cb60-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
-<span id="cb60-5"><a href="statistics.html#cb60-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
-<span id="cb60-6"><a href="statistics.html#cb60-6"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
-<span id="cb60-7"><a href="statistics.html#cb60-7"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
-<span id="cb60-8"><a href="statistics.html#cb60-8"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
-<span id="cb60-9"><a href="statistics.html#cb60-9"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
-<span id="cb60-10"><a href="statistics.html#cb60-10"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb60-11"><a href="statistics.html#cb60-11"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
-<span id="cb60-12"><a href="statistics.html#cb60-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),</span>
-<span id="cb60-13"><a href="statistics.html#cb60-13"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))</span>
-<span id="cb60-14"><a href="statistics.html#cb60-14"></a>figA</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="statistics.html#cb63-1"></a>sad_indi_pk_log &lt;-<span class="st"> </span>sad_indi_pk <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">mutate_all</span>(log)</span>
+<span id="cb63-2"><a href="statistics.html#cb63-2"></a></span>
+<span id="cb63-3"><a href="statistics.html#cb63-3"></a>figA &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>Cmax)) <span class="op">+</span></span>
+<span id="cb63-4"><a href="statistics.html#cb63-4"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
+<span id="cb63-5"><a href="statistics.html#cb63-5"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
+<span id="cb63-6"><a href="statistics.html#cb63-6"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
+<span id="cb63-7"><a href="statistics.html#cb63-7"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb63-8"><a href="statistics.html#cb63-8"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
+<span id="cb63-9"><a href="statistics.html#cb63-9"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb63-10"><a href="statistics.html#cb63-10"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb63-11"><a href="statistics.html#cb63-11"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
+<span id="cb63-12"><a href="statistics.html#cb63-12"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]<span class="op">*</span><span class="st">&#39; (ng/mL)&#39;</span>),</span>
+<span id="cb63-13"><a href="statistics.html#cb63-13"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;C&#39;</span>[max]))</span>
+<span id="cb63-14"><a href="statistics.html#cb63-14"></a>figA</span></code></pre></div>
 <p><img src="book-ncar_files/figure-html/sad-indi-pk-log-1.svg" width="100%" /></p>
-<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="statistics.html#cb61-1"></a>figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span></span>
-<span id="cb61-2"><a href="statistics.html#cb61-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
-<span id="cb61-3"><a href="statistics.html#cb61-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
-<span id="cb61-4"><a href="statistics.html#cb61-4"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
-<span id="cb61-5"><a href="statistics.html#cb61-5"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
-<span id="cb61-6"><a href="statistics.html#cb61-6"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
-<span id="cb61-7"><a href="statistics.html#cb61-7"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
-<span id="cb61-8"><a href="statistics.html#cb61-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
-<span id="cb61-9"><a href="statistics.html#cb61-9"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
-<span id="cb61-10"><a href="statistics.html#cb61-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),</span>
-<span id="cb61-11"><a href="statistics.html#cb61-11"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))</span>
-<span id="cb61-12"><a href="statistics.html#cb61-12"></a>figB</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="statistics.html#cb64-1"></a>figB &lt;-<span class="st"> </span><span class="kw">ggplot</span>(sad_indi_pk_log, <span class="kw">aes</span>(<span class="dt">x=</span>Dose, <span class="dt">y=</span>AUClast)) <span class="op">+</span></span>
+<span id="cb64-2"><a href="statistics.html#cb64-2"></a><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method =</span> <span class="st">&#39;lm&#39;</span>)<span class="op">+</span></span>
+<span id="cb64-3"><a href="statistics.html#cb64-3"></a><span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="kw">aes</span>(<span class="dt">group =</span> Dose), </span>
+<span id="cb64-4"><a href="statistics.html#cb64-4"></a>               <span class="dt">size =</span> <span class="dv">1</span>, </span>
+<span id="cb64-5"><a href="statistics.html#cb64-5"></a>               <span class="dt">outlier.colour =</span> <span class="st">&quot;red&quot;</span>, </span>
+<span id="cb64-6"><a href="statistics.html#cb64-6"></a>               <span class="dt">outlier.shape =</span> <span class="dv">1</span>, </span>
+<span id="cb64-7"><a href="statistics.html#cb64-7"></a>               <span class="dt">outlier.size =</span> <span class="dv">3</span>) <span class="op">+</span></span>
+<span id="cb64-8"><a href="statistics.html#cb64-8"></a><span class="st">  </span><span class="kw">theme_bw</span>() <span class="op">+</span></span>
+<span id="cb64-9"><a href="statistics.html#cb64-9"></a><span class="st">  </span><span class="kw">scale_x_continuous</span>(<span class="dt">breaks =</span> <span class="kw">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">200</span>, <span class="dv">400</span>)) <span class="op">+</span></span>
+<span id="cb64-10"><a href="statistics.html#cb64-10"></a><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&#39;Dose (mg)&#39;</span>, <span class="dt">y =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]<span class="op">*</span><span class="st">&#39; (ng·hr/mL)&#39;</span>),</span>
+<span id="cb64-11"><a href="statistics.html#cb64-11"></a>       <span class="dt">title =</span> <span class="kw">expression</span>(<span class="st">&#39;AUC&#39;</span>[(<span class="dv">0</span><span class="op">-</span>last)]))</span>
+<span id="cb64-12"><a href="statistics.html#cb64-12"></a>figB</span></code></pre></div>
 <p><img src="book-ncar_files/figure-html/sad-indi-pk-log-2.svg" width="100%" /></p>
 <p>lm() 함수를 써서 구할 수 있습니다.</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="statistics.html#cb62-1"></a>calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {</span>
-<span id="cb62-2"><a href="statistics.html#cb62-2"></a>  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="st">&#39;estimate&#39;</span>, <span class="st">&#39;std.error&#39;</span>), </span>
-<span id="cb62-3"><a href="statistics.html#cb62-3"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </span>
-<span id="cb62-4"><a href="statistics.html#cb62-4"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance</span>
-<span id="cb62-5"><a href="statistics.html#cb62-5"></a>            ) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb62-6"><a href="statistics.html#cb62-6"></a><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb62-7"><a href="statistics.html#cb62-7"></a><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb62-8"><a href="statistics.html#cb62-8"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb62-9"><a href="statistics.html#cb62-9"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb62-10"><a href="statistics.html#cb62-10"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span></span>
-<span id="cb62-11"><a href="statistics.html#cb62-11"></a><span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)</span>
-<span id="cb62-12"><a href="statistics.html#cb62-12"></a>}</span>
-<span id="cb62-13"><a href="statistics.html#cb62-13"></a></span>
-<span id="cb62-14"><a href="statistics.html#cb62-14"></a>fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
-<span id="cb62-15"><a href="statistics.html#cb62-15"></a>fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
-<span id="cb62-16"><a href="statistics.html#cb62-16"></a></span>
-<span id="cb62-17"><a href="statistics.html#cb62-17"></a><span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),</span>
-<span id="cb62-18"><a href="statistics.html#cb62-18"></a>          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="statistics.html#cb65-1"></a>calc_dp &lt;-<span class="st"> </span><span class="cf">function</span>(param, fit) {</span>
+<span id="cb65-2"><a href="statistics.html#cb65-2"></a>  <span class="kw">bind_cols</span>(fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">select</span>(<span class="dv">1</span>, <span class="st">&#39;estimate&#39;</span>, <span class="st">&#39;std.error&#39;</span>), </span>
+<span id="cb65-3"><a href="statistics.html#cb65-3"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">confint</span>(<span class="dt">level =</span> <span class="fl">0.95</span>) <span class="op">%&gt;%</span><span class="st"> </span>tidy <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(.rownames <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>), </span>
+<span id="cb65-4"><a href="statistics.html#cb65-4"></a>            fit <span class="op">%&gt;%</span><span class="st"> </span>summary <span class="op">%&gt;%</span><span class="st"> </span>glance</span>
+<span id="cb65-5"><a href="statistics.html#cb65-5"></a>            ) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-6"><a href="statistics.html#cb65-6"></a><span class="st">    </span><span class="kw">filter</span>(term <span class="op">==</span><span class="st"> &#39;Dose&#39;</span>) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-7"><a href="statistics.html#cb65-7"></a><span class="st">    </span><span class="kw">select</span>(<span class="op">-</span>.rownames, <span class="op">-</span>term) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-8"><a href="statistics.html#cb65-8"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">parameters =</span> param) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-9"><a href="statistics.html#cb65-9"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">est =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f (%0.2f)&#39;</span>, estimate, std.error)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-10"><a href="statistics.html#cb65-10"></a><span class="st">    </span><span class="kw">mutate</span>(<span class="dt">ci =</span> <span class="kw">sprintf</span>(<span class="st">&#39;%0.2f-%0.2f&#39;</span>, X2.<span class="dv">5</span>.., X97.<span class="dv">5</span>..)) <span class="op">%&gt;%</span><span class="st"> </span></span>
+<span id="cb65-11"><a href="statistics.html#cb65-11"></a><span class="st">    </span><span class="kw">select</span>(parameters, est, ci, r.squared, p.value)</span>
+<span id="cb65-12"><a href="statistics.html#cb65-12"></a>}</span>
+<span id="cb65-13"><a href="statistics.html#cb65-13"></a></span>
+<span id="cb65-14"><a href="statistics.html#cb65-14"></a>fit_cmax &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> Cmax <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
+<span id="cb65-15"><a href="statistics.html#cb65-15"></a>fit_auclast &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="dt">formula =</span> AUClast <span class="op">~</span><span class="st"> </span>Dose, <span class="dt">data =</span> sad_indi_pk_log)</span>
+<span id="cb65-16"><a href="statistics.html#cb65-16"></a></span>
+<span id="cb65-17"><a href="statistics.html#cb65-17"></a><span class="kw">bind_rows</span>(<span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;Cmax&#39;</span>, <span class="dt">fit =</span> fit_cmax),</span>
+<span id="cb65-18"><a href="statistics.html#cb65-18"></a>          <span class="kw">calc_dp</span>(<span class="dt">param =</span> <span class="st">&#39;AUClast&#39;</span>, <span class="dt">fit =</span> fit_auclast))</span></code></pre></div>
 <pre><code>## # A tibble: 2 x 5
 ##   parameters est         ci        r.squared  p.value
 ##   &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;

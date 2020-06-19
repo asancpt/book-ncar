@@ -9,17 +9,18 @@
 그러나 각각의 소프트웨어가 사용하기 어렵고 과정이 복잡하며 큰 비용이 소모되었다. 특히 약동학 분석 초보자나 통계학 비전공자가 사용하기 어려웠다. 본 저자들은 EDISON 사이언스 앱, R 샤이니(Shiny) 앱을 사용하여 이 과정을 연속성을 지닌 한 과정으로 통합하였다. 본 연구가 제시하는 방법을 통해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적 동등성 분석이 가능하다는 것을 보이고자 한다.
 
 
+
 생물학적 동등성을 위한 가장 간단한 방법은 `BE` 패키지[@R-BE]를 쓰는 것입니다.  
 
 Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
-생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:be)
+생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:bioequiv)
 
 \begin{equation}
 \begin{split}
-  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
-  0.8 < 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 
-(\#eq:be)
+  0.8 < & 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 \\
+  0.8 < & 90\%\ CI\ of\ \frac{GM(AUC_{last, test})}{GM(AUC_{last, ref})} < 1.25 
 \end{split}
+(\#eq:bioequiv)
 \end{equation}
 
 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
@@ -41,18 +42,13 @@ args(BE::be2x2)
 - TRT: column name in which information of "R" or "T" exists.
 - method: `kbe` by authors or `nlme` package uploaded on CRAN
 
-ncarbe 패키지 내에 있는 자료를 사용할 것입니다. (Table \@ref(tab:beconcdata))
-
-```{r}
-file <- system.file('example', 'beConc.csv', package = 'ncarbe')
-concData <- read_csv(file)
-```
 
 ```{r beconcdata, echo = FALSE}
-knitr::kable(BE::NCAResult4BE, caption = 'A example dataset for the bioequivalence test.')
+knitr::kable(head(BE::NCAResult4BE), caption = 'A example dataset for the bioequivalence test.')
 ```
 
-배균섭 교수님의 강의 자료에서 가져왔습니다.
+BE 패키지에 내장되어 있는 자료인 `NCAResult4BE`를 사용하겠습니다. (표 \@ref(tab:beconcdata)) 
+33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라미터 AUC~last~, C~max~, T~max~ 자료가 정리되어 있습니다.
 
 ```{r}
 print(be2x2(NCAResult4BE, c("AUClast", "Cmax", "Tmax")), na.print="") 
@@ -118,9 +114,9 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;
 
 본 논문에서는 위와 같은 시나리오로 시뮬레이션을 통해 얻어진 약동학 파라미터를 사용해 자료가 구성되었고, EDISON 사이언스 앱인 NonCompartEdison에서 입력으로 사용될 자료의 형태는 Table 1와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 edisonBE 앱에서 사용되는 약동학 파라미터 자료에도 일종의 primary key로 사용되기 때문에 유사한 형태로 보존되어야 한다. 33명의 대상자의 개인별 농도-시간 그래프는 Figure 1에 나타내었다.
 
-![](assets-paper/figure-1.png)
-
-Figure 1. Concentration-time curves of raw data (N=33)
+```{r conc-time-curve, fig.cap="Concentration-time curves of raw data (N=33)"}
+knitr::include_graphics("images/figure-conc-time-curve.png")
+```
 
 ## 결과 {#result}
 
@@ -168,9 +164,11 @@ SUBJ | GRP | PRD | TRT | AUClast | Cmax | Tmax
 
 약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (Figure 2) 본 자료로 계산한 AUClast는 생물학적 동등성 기준을 만족하고 있다.
 
-![](assets-paper/figure-2.png)
+```{r output-format, fig.cap = "(ref:output-format)"}
+knitr::include_graphics("assets-paper/figure-2.png")
+```
 
-Figure 2. Output format of bioequivalence tests performed by BE R package.
+(ref:output-format) Output format of bioequivalence tests performed by BE R package.
 
 ### 90% 신뢰구간의 SAS 결과값과 비교
 
@@ -205,17 +203,21 @@ test2x2(NCAResult4BE, "AUClast")$`Sample Size`
 
 ### R 샤이니 앱
 
-`shiny-be`는 비구획분석과 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로  <http://pipetapps.com/shiny-be> 에서 무료로 서비스 하고 있다.
+`shiny-be`는 비구획분석과 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로  <http://www.pipetapps.com/shiny-be> 에서 무료로 서비스 하고 있다.
 
-![](assets/shiny-be.png)
+```{r shiny-be, fig.cap = "(ref:shiny-be)"}
+knitr::include_graphics("images/figure-shiny-be.png")
+```
 
-Figure 3. R 샤이니 앱, `shiny-be` 접속 화면. <http://pipetapps.com/shiny-be>
+(ref:shiny-be) R 샤이니 앱, `shiny-be` 접속 화면. <http://www.pipetapps.com/shiny-be>
 
 ## 논의 {#discussion}
 
-![](assets-paper/figure-3.png)
+```{r traditional-proposed, fig.cap = "(ref:traditional-proposed)"}
+knitr::include_graphics("images/figure-traditional-proposed.png")
+```
 
-Figure 4. Comparison between a traditional analysis process (left boxes) and the proposed process (right boxes) using EDISON Science Apps. 
+(ref:traditional-proposed) Comparison between a traditional analysis process (left boxes) and the proposed process (right boxes) using EDISON Science Apps. 
 
 본 연구는 EDISON 사이언스 앱, R 샤이니 앱을 사용해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적동등성 분석법을 제시하였다. 
 현재는 이러한 분석을 위해서 여러 상용 소프트웨어를 필요로 하는 복잡한 단계를 거쳐야 한다. (Figure 3) 따라서 분석 시간이 오래 걸리고 많은 비용이 소모되었다. 본 저자들은 EDISON 사이언스 앱, R 샤이니 앱을 사용하여 이 두 과정을 통합하였고, 이로서 농도-시간 자료로부터 비구획분석과 생물학적동등성 통계 분석까지 연속적으로 가능케 하였다.
@@ -223,7 +225,6 @@ Figure 4. Comparison between a traditional analysis process (left boxes) and the
 학생들의 교육에 효과적인 EDISON 사이언스 앱, R 샤이니 앱으로 개발되어 약리학 과목의 필수항목인 약동학의 교육에의 활용도 기대된다. 또한 임상시험 산업계에서도 많은 비용을 절감할 수 있을 것으로 기대된다.
 아직은 2x2 교차 설계에서 얻어진 자료로만 분석이 가능하다는 한계를 갖고 있지만 앞으로 다양한 설계를 갖는 자료가 사용 가능하도록 업데이트가 가능할 것이다.
 
-## 결론 {#conclusion}
 본 연구가 제시하는 EDISON 사이언스 앱, R 샤이니 앱을 통한 방법을 통해 정확한 분석을 빠른 시간에 수행할 수 있을 뿐만 아니라 오류를 줄이고 비용을 절감하는 효과를 가져올 수 있다.
 
 
