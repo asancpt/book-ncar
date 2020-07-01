@@ -24,7 +24,7 @@
 <meta name="author" content="배균섭, 한성필, 윤석규, 조용순, 김형섭" />
 
 
-<meta name="date" content="2020-06-19" />
+<meta name="date" content="2020-07-01" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -148,7 +148,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="2.1" data-path="R-and-packages.html"><a href="R-and-packages.html#summary-r-packages"><i class="fa fa-check"></i><b>2.1</b> 이 장에서는</a></li>
 <li class="chapter" data-level="2.2" data-path="R-and-packages.html"><a href="R-and-packages.html#basic"><i class="fa fa-check"></i><b>2.2</b> R에 대하여</a></li>
-<li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a></li>
+<li class="chapter" data-level="2.3" data-path="R-and-packages.html"><a href="R-and-packages.html#install"><i class="fa fa-check"></i><b>2.3</b> 설치</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="R-and-packages.html"><a href="R-and-packages.html#r-4.0.x의-설치"><i class="fa fa-check"></i><b>2.3.1</b> R 4.0.x의 설치</a></li>
+<li class="chapter" data-level="2.3.2" data-path="R-and-packages.html"><a href="R-and-packages.html#rstudio-설치"><i class="fa fa-check"></i><b>2.3.2</b> Rstudio 설치</a></li>
+</ul></li>
 <li class="chapter" data-level="2.4" data-path="R-and-packages.html"><a href="R-and-packages.html#otherinstall"><i class="fa fa-check"></i><b>2.4</b> 기타 설치</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="noncompart.html"><a href="noncompart.html"><i class="fa fa-check"></i><b>3</b> R을 사용한 비구획분석</a>
@@ -202,6 +206,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.2.5" data-path="bioequivalence.html"><a href="bioequivalence.html#r-샤이니-앱"><i class="fa fa-check"></i><b>7.2.5</b> R 샤이니 앱</a></li>
 </ul></li>
 <li class="chapter" data-level="7.3" data-path="bioequivalence.html"><a href="bioequivalence.html#discussion"><i class="fa fa-check"></i><b>7.3</b> 논의</a></li>
+<li class="chapter" data-level="7.4" data-path="bioequivalence.html"><a href="bioequivalence.html#saslm"><i class="fa fa-check"></i><b>7.4</b> sasLM</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="statistics.html"><a href="statistics.html"><i class="fa fa-check"></i><b>8</b> 통계처리</a>
 <ul>
@@ -875,6 +880,72 @@ Figure 7.6: Comparison between a traditional analysis process (left boxes) and t
 학생들의 교육에 효과적인 EDISON 사이언스 앱, R 샤이니 앱으로 개발되어 약리학 과목의 필수항목인 약동학의 교육에의 활용도 기대된다. 또한 임상시험 산업계에서도 많은 비용을 절감할 수 있을 것으로 기대된다.
 아직은 2x2 교차 설계에서 얻어진 자료로만 분석이 가능하다는 한계를 갖고 있지만 앞으로 다양한 설계를 갖는 자료가 사용 가능하도록 업데이트가 가능할 것이다.</p>
 <p>본 연구가 제시하는 EDISON 사이언스 앱, R 샤이니 앱을 통한 방법을 통해 정확한 분석을 빠른 시간에 수행할 수 있을 뿐만 아니라 오류를 줄이고 비용을 절감하는 효과를 가져올 수 있다.</p>
+</div>
+<div id="saslm" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> sasLM</h2>
+<p>요약</p>
+<p>일반 선형 모형 (GLM)은 종속 변수를 독립 변수와 오류 항의 선형 조합으로 설명합니다. SAS ® 의 GLM 절차 와 R의 “car”패키지는 유형 I, II 또는 III ANOVA (분산 분석) 테이블을 계산합니다. 이 연구에서는 SAS ® 의 GLM 절차와 호환되는 새로 개발 된 R 패키지“sasLM”을 검증했습니다 . “sasLM”패키지는 통계 프로그래밍을위한 현재의 골드 표준 인 SAS ® 와 출력을 비교하여 검증되었습니다 . 10 권의 책과 기사의 데이터가 유효성 검사에 사용되었습니다. “sasLM”및 “car”패키지의 결과는 194 모델을 사용하여 SAS ® 의 결과와 비교되었습니다 . “sasLM”의 모든 결과는 SAS ® 의 결과와 동일합니다“car”의 20 개가 넘는 모델이 SAS ® 와 다른 결과를 나타 냈습니다 . “sasLM”패키지의 결과는 SAS ® PROC GLM 의 결과와 유사하기 때문에 “sasLM”패키지는 유형 II 및 III 제곱합을 계산하기위한 대체 방법이 될 수 있습니다. 새로 개발 된 “sasLM”패키지는 무료이며 오픈 소스이므로 다른 유용한 패키지도 개발할 수 있습니다. 우리는“sasLM”패키지가 연구원들이 선형 모델을 편리하게 분석 할 수 있기를 희망합니다.</p>
+<p>키워드 :선형 모형 ; 통계 ; 분산 분석 ; 소프트웨어 검증 ; 생물학적 동등성
+이동 :
+소개
+SAS PROC GLM은 “일반 선형 모델”을 나타냅니다. 그러나 많은 통계 학자들은이 용어를 사용하여 “일반화 된 선형 모형”을 나타냅니다. SAS PROC GLM은 다소 오래된 것으로 간주되어 추가 지원이 필요하지 않지만 SAS PROC GLM은 여전히 ​​통계에서 가장 자주 사용되는 절차 중 하나입니다. GLM은 종속 변수를 독립 변수와 오류 항의 선형 조합으로 설명합니다.1 ] 3 가지 선형 모형 : 분산 분석 (ANOVA), 공분산 분석 (ANCOVA), 단순 및 다중 선형 회귀 분석 [2 ]. 분산 분석은 세 개 이상의 알 수없는 모집단 평균 값이 다를 가능성이 있는지 확인하는 데 사용됩니다. 단순 회귀는 직선을 사용하여 두 변수 사이의 관계를 설정하고 다중 회귀는 여러 연속 독립 변수를 사용하여 종속 변수를 설명합니다.3 ]. ANCOVA는 분산 분석과 회귀 분석을 결합한 방법입니다. GLM이 자주 사용되는 이유 중 하나는 실험, 준 실험적 및 비 실험적 데이터에 사용하기 위해 회귀 및 ANOVA가 적용되기 때문에 다양한 유형의 연구 설계에 적합하다는 것입니다.4 ].</p>
+<p>분산 분석에서는 가설 검정에 제곱합 (SS)이 사용됩니다. SAS PROC GLM은 4 가지 유형의 SS를 제공합니다.</p>
+<p>유형 1 SS : 순차적 SS는 모형에 표시된 항의 순서대로 계산됩니다.</p>
+<p>유형 II SS : 우선 순위가 낮은 항의 SS는 동일한 순서로 항을 조정하여 계산 된 다음, 상위 순서의 SS는 동일한 순서로 항을 조절하여 계산됩니다.</p>
+<p>유형 III SS : SS는 모든 항 (상호 작용 / 중첩 항 포함)을 동시에 조정하여 계산됩니다.</p>
+<p>유형 IV SS : 누락 된 셀이 존재하면 셀의 무게가 추가로 조정됩니다.</p>
+<p>SAS PROC GLM은 선형 모델에 대한 절차의 조합 인 PROC REG, PROC ANOVA, PROC TTEST 등으로 간주 될 수 있습니다. 범주 형 변수와 연속 형 변수를 독립 및 종속 변수로 처리 할 수 ​​있습니다. 주요 추정 방법은 ’최대 우도 추정’이 아닌 ’최소 제곱 법’입니다.5 ]. 선형 모델 만 처리하며 선형 모델에는 매개 변수 및 해당 표준 오류에 대한 분석 솔루션이 있습니다. 따라서 ’최소화 알고리즘’이나 반복을 사용하지 않습니다. 오류는 항상 정규 분포로 간주됩니다. 정규 분포 이외의 링크 함수 나 지수 패밀리 분포는 처리하지 않습니다. SAS에서 ’일반 선형 모델’을 사용하려는 사람은 PROC GENMOD 또는 PROC CATMOD와 같은 절차를 사용해야합니다. ’일반화 된 선형 모델’은이 기사의 범위 나 “sasLM”패키지에 포함되지 않습니다.</p>
+<p>R의 “차”(적용 회귀에 대한 컴패니언) 패키지는 Fox et al. 모델에 대한 유형 II 또는 유형 III ANOVA 테이블 계산6 ]. 타입 I 및 II 제곱합 (SS)은 R 소프트웨어 커뮤니티에서 더 널리 사용됩니다. R의 anova 및 aov 함수에서 구현 된 SS 유형은 순차적 계산 인 유형 I입니다. 다른 유형의 SS의경우“car”패키지의 Anova 기능이 일반적으로 사용되며 유형 인수가 사용됩니다.</p>
+<p>전통적으로 SAS GLM (또는 ANOVA)은 생물학적 동등성 연구 분석에 사용됩니다. 그러나“car”패키지를 사용할 때는 불가능합니다. 따라서“sasLM”패키지 개발에 대한 우리의 초기 동기는 R의 다음 진술을 사용하여 생물학적 동등성 데이터를 처리하는 것이 었습니다.</p>
+<p>GLM (log (AUClast) ~ 시퀀스 / 대상 + 기간 + 치료, 데이터 = BEdata)</p>
+<p>2 × 2, 6 × 3, 4 × 4와 같은 다양한 크로스 오버 설계에 관계없이 위의 공식을 사용할 수 있다면 매우 편리합니다.</p>
+<p>이 연구에서는 SAS ® 의 GLM 절차와 호환되는 새로 개발 된 R 패키지“sasLM”을 검증했습니다 . 은 “sasLM”패키지는 가입자 단말기뿐만 아니라 SAS 구현하기 위해 만들어졌습니다 ® R에, 무료 소프트웨어입니다. 10 권의 책과 기사의 데이터가 유효성 검사에 사용되었습니다.7 ,8 ,9 ,10 ,11 ,12 ,13 ,14 ,15 ,16 ].</p>
+<p>이동 :
+행동 양식
+소프트웨어를 검증하기위한 화이트 박스 테스트 및 블랙 박스 테스트와 같은 방법을 사용할 수 있지만 본 연구 에서는 골드 표준 (SAS ® ) 과의 비교 가 적용되었습니다.</p>
+<p>• 검증 데이터 셋</p>
+<p>유효성 검사에 사용 된 데이터 집합에 대한 참조는 다음과 같습니다. 책과 기사에 사용 된 데이터 세트 수는 괄호 안에 표시됩니다.</p>
+<p>① 하비 WR. 서브 클래스 수가 같지 않은 데이터의 최소 제곱 분석 : 미국 농무부 농업 연구 서비스; 1960. (3 개의 데이터 세트)</p>
+<p>② 재채기 분산 분석에서 예상 평균 제곱의 계산 및 사용. 품질 기술 저널. 1974; 6 (3) : 128-37. (1 데이터 세트)</p>
+<p>③ Goodnight JH, 편집자. 새로운 일반 선형 모형 절차. 제 1 차 연례 SAS 사용자 그룹 국제 회의 절차; 1976 : 노스 캐롤라이나 주 SAS Institute Cary. (4 개의 데이터 세트)</p>
+<p>④ Littell RC, Stroup WW, Freund RJ. 선형 모델 용 SAS : SAS Institute; 2002. (26 데이터 세트)</p>
+<p>⑤ Ojeda MM Sahai H. 랜덤 모델에 대한 분산 분석, 제 2 권 : 불균형 데이터 : 이론, 방법, 응용 및 데이터 분석 : Springer Science &amp; Business Media; 2004. (6 개 데이터 세트)</p>
+<p>⑥ Federer WT, King F. 분할 도표 및 분할 블록 실험 설계의 변형 : John Wiley &amp; Sons; 2007. (22 개 데이터 세트)</p>
+<p>⑦ Hinkelmann K, Kempthorne O. 실험 설계 및 분석 제 1 권 실험 설계 소개. 2e. John Wiley &amp; Sons Inc. 2008. (21 데이터 세트)</p>
+<p>⑧ Hinkelmann K, Kempthorne O. 실험 설계 및 분석 2 권 고급 실험 설계. John Wiley &amp; Sons Inc. 2005. (18 개 데이터 세트)</p>
+<p>⑨ Lawson J. SAS 실험 설계 및 분석 : CRC Press; 2010. (33 개 데이터 세트)</p>
+<p>r Searle SR, Gruber MH. 선형 모델 : John Wiley &amp; Sons; 2016. (2 개의 데이터 세트)</p>
+<p>•“sasLM”패키지</p>
+<p>일반 선형 모델을위한 “sasLM”패키지는 무료 공개 사용을 위해 오픈 소스 R 프로그래밍 언어 (버전 3.6.3)로 개발되었습니다. “sasLM”(버전 0.1.4) 패키지는 다음 스크립트를 사용하여 설치 및로드 할 수 있습니다.</p>
+<p>자세한 문서와 예제는 CRAN 저장소에 온라인 사용자 설명서에있는 ( HTTP : //CRAN.R- project.org/package=sasLM ), 또한 R 콘솔에서 사용하여 검색 할 수 있습니다 “sasLM을?”.</p>
+<p>“sasLM”패키지는 다음 스크립트를 작성하여 사용할 수 있습니다.</p>
+<p>•“자동차”패키지</p>
+<p>“car”패키지는 다음 스크립트 ( “car”버전 3.0.7)를 작성하여 사용할 수 있습니다.</p>
+<p>• SAS ® 소프트웨어</p>
+<p>SAS ® 버전 9.4 (SAS Institute Inc., 미국 노스 캐롤라이나 주 캐리) 의 GLM 절차를 사용하여 Type I, II 및 III SS를 얻었습니다. SAS 코드는 다음과 같습니다.</p>
+<p>이동 :
+결과
+“sasLM”, SAS ® 및 “car”패키지 의 결과는 194 모델을 사용하여 비교되었습니다. “sasLM”의 모든 결과 SAS와 동일한 결과를 보였다 ® 은 “자동차”패키지의 20 개 이상의 모델 SAS과 다른 결과를 나타내었다 반면 ® ( 표 1 , 보완 데이터 1 ).은 “자동차”패키지 다른했다 다음 모델 의 “sasLM”패키지 또는 SAS ® 출력 : Snee RD의 기사에서 1 모델 (모델 6) [Goodnight JH의 프레젠테이션에서 8 ], 1 모델 (모델 16) [9 ], Littell RC의 책에서 3 가지 모델 (모델 54, 58, 59) [10 ], Sahai H의 저서 2 모델 (모델 66, 67) [11 ], Federer WT의 책에서 10 모델 (모델 73, 76, 78, 83, 84, 85, 87, 88, 90, 91) [12 ], Hinkelmann K의 저서 1 모델 (모델 118) [13 ] 및 Searle SR의 책에있는 2 가지 모델 (모델 193, 194) [16 ]. 모델 번호는 보충 데이터 1에 표시된 것과 동일합니다.</p>
+<p>표 1
+SAS ® 와 비교 한 “sasLM”및 “car”패키지의 결과
+큰 이미지를 보려면 클릭하십시오 전체 표를 보려면 클릭하십시오 Excel 파일로 다운로드</p>
+<p>“sasLM”, SAS ® 및 “car” 에서 동일한 결과를 나타내는 한 데이터 세트 는 “Searle SR, Gruber MHJ, Linear Models 2e, Kindle Edition, John Wiley &amp; Sons Inc, 2016”에 있습니다. 예 3 "[16 ]. 결과는 다음과 같습니다.</p>
+<p>• “sasLM”출력</p>
+<p>•“자동차”출력</p>
+<p>• SAS ® 출력</p>
+<p>“sasLM”와 SAS에서 동일한 결과를 보였다 하나 개의 데이터 세트 ® 하지만 “자동차”의 “는 Searle은의 SR, 그루버 MH, 선형 모델 (2E), 킨 판, 존 와일리 &amp; 선즈 사, 2016, 페이지 390”에 있었다 [16 ]. 모델에 별명이 붙은 계수가 있기 때문에“차”결과는 다른 결과와 다릅니다. 결과는 다음과 같습니다.</p>
+<p>• “sasLM”출력</p>
+<p>•“자동차”출력</p>
+<p>• SAS ®</p>
+<p>이동 :
+토론
+선형 모델 분석을 위해 R 용 “sasLM”패키지를 개발했습니다. 유형 I, II 및 III SS는 “sasLM”을 SAS ® 와 동일한 방식으로 사용하여 얻을 수 있습니다 . 이 패키지의 결과는 SAS ® PROC GLM (또는 ANOVA 또는 REG)과 동일하므로 “sasLM”은 SS를 계산하기위한 대체 방법이 될 수 있습니다.</p>
+<p>출력간에 약간의 차이가있을 수 있습니다 (마지막 숫자에서 1 씩 꺼짐). 이는 “sasLM”을 포함한 모든 R 패키지에 영향을 미치는 R 반올림 함수의 1에서 1까지의 숫자 방식에서 비롯됩니다. Type II SS와 달리 Type III SS는 1 차 1 차 효과와의 상호 작용 효과를 동시에 조정합니다. 경우에 따라 유형 I 또는 II SS가 유형 III SS보다 선호되지만 [17 ]에서 III 형 SS는 수요가 많지만 R에서는 이용할 수 없었다.</p>
+<p>일부 유효성 검사 데이터 집합에서 “sasLM”과 “car”의 차이에 대한 몇 가지 이유가 있습니다. 내포 설계 또는 분할 플롯 설계에서 내포 또는 전체 플롯 계수에 대한 SS는 “자동차”패키지로 계산되지 않습니다. 잔차 자유도가 0 인 경우 “car”는 출력을 생성하지 않습니다. 앨리어싱 계수가있는 경우 “car”패키지는 모델 비교 방법으로 SS를 계산하는 반면 SAS는 g2 일반화 역을 사용하여 SS를 계산합니다.9 ,10 ].</p>
+<p>“sasLM”을 사용하여 생물학적 동등성 데이터를 분석 할 수도 있지만, 현재 의견으로는 선형 혼합 효과 모델 (예 : PROC MIXED, nlme)에 원래 사용 된 도구가 원래 고정 효과 모델 (예 : PROC MIXED, nlme)에 적합합니다. , GLM, ANOVA, sasLM). 이러한 단점에도 불구하고, 고정 효과를 사용하는 실험의 설계는 여전히 무한합니다. 따라서“sasLM”패키지는 많은 경우에 유용 할 수 있다고 생각합니다.</p>
+<p>은 “sasLM”패키지로 SAS 모델 출력과 비교하여 확인 하였다 ® 통계 프로그램의 현재 금 표준 SAS 때문에 PROC GLM을 ® . 올바른 제품이 구축되고 있는지 확인하기 위해 소프트웨어 유효성 검사가 수행됩니다. 이 소프트웨어는 공급시 소프트웨어가 의도 한 용도를 충족하는지 확인하기위한 역동적 인 테스트 프로세스입니다. 소프트웨어를 검증하는 방법은 여러 가지가 있지만 [17 ,18 ], 우리는 현재 금 표준과 비교하는 것이 가장 좋다고 생각했습니다.19 ].</p>
+<p>새로 개발 된 “sasLM”패키지는 무료이며 오픈 소스이므로 다른 유용한 패키지도 개발할 수 있습니다. 우리는“sasLM”패키지가 연구원들이 선형 모델을 편리하게 분석 할 수 있기를 희망합니다.</p>
+<hr />
 <ol style="list-style-type: decimal">
 <li>식품의약품안전청 식. 동등생물의약품 평가 가이드라인. 2009.</li>
 <li>Chow S-C, Liu J-p. Design and analysis of bioavailability and bioequivalence studies. Chapman &amp; Hall/CRC biostatistics series, vol 27, 3rd edn. CRC Press, Boca Raton, 2009</li>
