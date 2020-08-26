@@ -1,6 +1,7 @@
 # 생물학적 동등성 {#bioequivalence}
 
-생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다. [1] 기존 오리지날 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 혈중 농도로부터 구한 약동학적 파라미터(pharmacokinetic parameter) 를 비교하여 평가하게 된다. 비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUCt, Cmax, 반복투약 시 AUCτ, Css,max를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다. 
+생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다.^[1.	식품의약품안전청 식. 동등생물의약품 평가 가이드라인.  2009.] 
+기존 오리지날 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 혈중 농도로부터 구한 약동학적 파라미터(pharmacokinetic parameter) 를 비교하여 평가하게 된다. 비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUCt, Cmax, 반복투약 시 AUCτ, Css,max를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다. 
 
 약동학 파라미터는 로그정규분포(log-normal distribution)을 따르고, 대조약과 시험약의 산출된 곡선하 면적(AUC)과 최대 농도 Cmax의 geometric mean ratio가 0.8 ~ 1.25 이내일 때, 약동학적으로 동등하다고 평가하게 된다. [2] 
 
@@ -8,12 +9,14 @@
 
 그러나 각각의 소프트웨어가 사용하기 어렵고 과정이 복잡하며 큰 비용이 소모되었다. 특히 약동학 분석 초보자나 통계학 비전공자가 사용하기 어려웠다. 본 저자들은 EDISON 사이언스 앱, R 샤이니(Shiny) 앱을 사용하여 이 과정을 연속성을 지닌 한 과정으로 통합하였다. 본 연구가 제시하는 방법을 통해 쉽고 정확하고 비용이 들지 않는 빠른 비구획분석과 생물학적 동등성 분석이 가능하다는 것을 보이고자 한다.
 
+---
 
+현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
+```{r twobytwo, fig.cap = '전형적인 2x2 설계'}
+knitr::include_graphics('images/twobytwo.jpg')
+```
 
-생물학적 동등성을 위한 가장 간단한 방법은 `BE` 패키지[@R-BE]를 쓰는 것입니다.  
-
-Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009design]
-생물학적 동등성을 위한 수학 식은 다음과 같습니다. \@ref(eq:bioequiv)
+생물학적 동등성을 위한 가장 간단한 방법은 Chow와 Liu의 책의 내용[@chow2009design]을 충실히 반영한 BE 패키지[@R-BE]를 사용하는 것이다. 생물학적 동등성을 위한 수학 식은 다음과 같다. \@ref(eq:bioequiv)
 
 \begin{equation}
 \begin{split}
@@ -23,12 +26,8 @@ Chow와 Liu의 책의 내용을 충실히 반영하였습니다. [@chow2009desig
 (\#eq:bioequiv)
 \end{equation}
 
-현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있습니다. (그림 \@ref(fig:twobytwo))
-핵심이 되는 함수는 `beNCA()` 입니다. 
+BE 패키지 중 핵심이 되는 함수는 `beNCA()` 입니다. 
 
-```{r twobytwo, fig.cap = '전형적인 2x2 설계'}
-knitr::include_graphics('images/twobytwo.jpg')
-```
 
 ```{r echo = FALSE}
 args(BE::be2x2)
@@ -339,20 +338,8 @@ SAS ® 와 비교 한 "sasLM"및 "car"패키지의 결과
 
 "sasLM"와 SAS에서 동일한 결과를 보였다 하나 개의 데이터 세트 ® 하지만 "자동차"의 "는 Searle은의 SR, 그루버 MH, 선형 모델 (2E), 킨 판, 존 와일리 & 선즈 사, 2016, 페이지 390"에 있었다 [16 ]. 모델에 별명이 붙은 계수가 있기 때문에“차”결과는 다른 결과와 다릅니다. 결과는 다음과 같습니다.
 
-• "sasLM"출력
+### 토론
 
-
-
-•“자동차”출력
-
-
-
-• SAS ®
-
-
-
-이동 :
-토론
 선형 모델 분석을 위해 R 용 "sasLM"패키지를 개발했습니다. 유형 I, II 및 III SS는 "sasLM"을 SAS ® 와 동일한 방식으로 사용하여 얻을 수 있습니다 . 이 패키지의 결과는 SAS ® PROC GLM (또는 ANOVA 또는 REG)과 동일하므로 "sasLM"은 SS를 계산하기위한 대체 방법이 될 수 있습니다.
 
 출력간에 약간의 차이가있을 수 있습니다 (마지막 숫자에서 1 씩 꺼짐). 이는 "sasLM"을 포함한 모든 R 패키지에 영향을 미치는 R 반올림 함수의 1에서 1까지의 숫자 방식에서 비롯됩니다. Type II SS와 달리 Type III SS는 1 차 1 차 효과와의 상호 작용 효과를 동시에 조정합니다. 경우에 따라 유형 I 또는 II SS가 유형 III SS보다 선호되지만 [17 ]에서 III 형 SS는 수요가 많지만 R에서는 이용할 수 없었다.
@@ -363,11 +350,11 @@ SAS ® 와 비교 한 "sasLM"및 "car"패키지의 결과
 
 은 "sasLM"패키지로 SAS 모델 출력과 비교하여 확인 하였다 ® 통계 프로그램의 현재 금 표준 SAS 때문에 PROC GLM을 ® . 올바른 제품이 구축되고 있는지 확인하기 위해 소프트웨어 유효성 검사가 수행됩니다. 이 소프트웨어는 공급시 소프트웨어가 의도 한 용도를 충족하는지 확인하기위한 역동적 인 테스트 프로세스입니다. 소프트웨어를 검증하는 방법은 여러 가지가 있지만 [17 ,18 ], 우리는 현재 금 표준과 비교하는 것이 가장 좋다고 생각했습니다.19 ].
 
-새로 개발 된 "sasLM"패키지는 무료이며 오픈 소스이므로 다른 유용한 패키지도 개발할 수 있습니다. 우리는“sasLM”패키지가 연구원들이 선형 모델을 편리하게 분석 할 수 있기를 희망합니다.
+새로 개발 된 "sasLM"패키지는 무료이며 오픈 소스이므로 다른 유용한 패키지도 개발할 수 있습니다. 
+우리는“sasLM”패키지가 연구원들이 선형 모델을 편리하게 분석 할 수 있기를 희망합니다.
 
 ---
 
-1.	식품의약품안전청 식. 동등생물의약품 평가 가이드라인.  2009.
 2.	Chow S-C, Liu J-p. Design and analysis of bioavailability and bioequivalence studies. Chapman & Hall/CRC biostatistics series, vol 27, 3rd edn. CRC Press, Boca Raton, 2009
 3.	Yoon S-H, Hwang N-A, Lim Y-C, Lee Y-B, Park J-S. Development of BioEquiv, a Computer Program for the Analysis of Bioequivalence. Journal of Korean Pharmaceutical Sciences 2010;40:1-7. doi: 10.4333/kps.2010.40.1.001.
 4.	R Core Team, R Foundation for Statistical Computing. R: A Language and Environment for Statistical Computing. https://www.R-project.org/ 2018
