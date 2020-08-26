@@ -2,6 +2,24 @@
 
 # (APPENDIX) Appendix {-}
 
+# NonCompart::tblNCA 함수의 인자 {#tblNCA-args}
+
+- concData: concentration data table
+- key: olumn names of concData to be shown in the output table
+- colTime: column name for time
+- colConc: column name for concentration
+- dose: administered dose
+- adm: one of "Bolus" or "Infusion" or "Extravascular" to indicate drug administration mode
+- dur: duration of infusion
+- doseUnit: unit of dose
+- timeUnit: unit of time
+- concUnit: unit of concentration
+- down: method to calculate AUC, "Linear" or "Log"
+- R2ADJ: Lowest threshold of adjusted R-square value to do manual slope determination
+- MW: molecular weight of drug
+- iAUC: data.frame for interval AUC
+
+
 # Phoenix WinNonLin 과 결과 비교 {#wnl-comparison}
 
 ## Conclusion 
