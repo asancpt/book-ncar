@@ -46,3 +46,13 @@ R 내에서 자료 프렙, 비구획분석, 보고서 작성, 및 그림까지 �
 SDTM의 PPTESTCD를 사용하므로 PP도메인 구성하기 쉽다. 변경할 때 추가적인 비용이 안든다. 현재 practice는 Winnonlin에서 나온 것을 일일히 변경해야 하는데 이 작업은 약동학자라도 SDTM에 대한 이해가 없이는 이 작업이 쉽지 않다. R을 통해 NCA를 해주는 패키지가 많지만 SDTM 자료 형태로 결과를 계산하거나, pkr처럼 인풋으로 받을 수 있는 패키지는 없다. 상용 소프트웨어도 마찬가지 이다.
 모든 것이 무료이고 소스코드가 공개되어 있으므로 약동학을 공부할 수 있다. 추가적으로 소프트웨어가 확장할 여지가 크다. 
 
+
+
+여러 연구자들이 이 패키지를 사용하여 비구획 분석을 수행하고 있으며, 정확한 분석 결과를 얻음을 반복적으로 확인하고 있다. 편찬된 논문은 다음과 같다.
+
+- Gomeni and Bressolle-Gomeni, Comparison of Alternative Population Modeling Approaches for Implementing a Level A IVIVC and for Assessing the Time-Scaling Factor Using Deconvolution and Convolution-Based Methods, The AAPS Journal (2020) 22:67 <https://doi.org/10.1208/s12248-020-00445-0>
+- Han et al., First-in-human, double-blind, randomized controlled trial of an oral dose of GnRH antagonist, TU2670 in healthy women, The Journal of Clinical Endocrinology & Metabolism (2020) dgaa939 <https://doi.org/10.1210/clinem/dgaa939>
+
+
+
+
